@@ -62,20 +62,39 @@
 
 ### Detection Scoring (Sonnet labels + enriched FENs)
 - Batch job: `ac6bc19768ax` (Haiku judge, enriched FENs, Sonnet-generated labels)
-- Status: pending — compare against Haiku-label enriched BA (0.619) when done
+- **Result:** Mean BA 0.632, Top-200 0.886, HOLDS 659, STRONG 325
+- Delta vs Haiku labels: +0.013 mean BA, +36 STRONG, -67 FAIL
 
-## Detection Scoring Summary — 4 Conditions
+## Detection Scoring Summary — 5 Conditions
 
-| Condition | Judge | FENs | Mean BA | Top-200 | HOLDS | STRONG |
-|-----------|-------|------|---------|---------|-------|--------|
-| Haiku + raw v1 | Haiku | Raw | 0.494 | 0.494 | 4 | 0 |
-| Haiku + raw v2 | Haiku | Raw | 0.499 | 0.651 | 38 | 0 |
-| Sonnet + raw | Sonnet | Raw | 0.500 | 0.642 | 27 | 0 |
-| **Haiku + enriched** | **Haiku** | **Enriched** | **0.619** | **0.883** | **644** | **289** |
+| Condition | Labels | Judge | FENs | Mean BA | Top-200 | HOLDS | STRONG | FAIL |
+|-----------|--------|-------|------|---------|---------|-------|--------|------|
+| Haiku + raw v1 | Haiku | Haiku | Raw | 0.494 | 0.494 | 4 | 0 | — |
+| Haiku + raw v2 | Haiku | Haiku | Raw | 0.499 | 0.651 | 38 | 0 | 829 |
+| Sonnet + raw | Haiku | Sonnet | Raw | 0.500 | 0.642 | 27 | 0 | 810 |
+| Haiku labels + enriched | Haiku | Haiku | Enriched | 0.619 | 0.883 | 644 | 289 | 360 |
+| **Sonnet labels + enriched** | **Sonnet** | **Haiku** | **Enriched** | **0.632** | **0.886** | **659** | **325** | **293** |
 
 Note: v1 had 92% parse failures (Haiku writing essays). v2 fixed with prefill "[".
 
-**Key finding:** Enrichment is the dominant factor (+0.120 BA). Judge model irrelevant (+0.001).
+**Key findings:**
+1. Enrichment is the dominant factor (+0.120 BA). Judge model irrelevant (+0.001).
+2. Sonnet+thinking labels are measurably better than Haiku labels (+0.013 BA, +36 STRONG).
+3. Best combo: Sonnet labels + Haiku judge + enriched FENs.
+
+## k=32 + Aux Loss Results (2026-04-12)
+
+| Config | Aux | Dead | Active | FVU | c_dec | L0 |
+|--------|-----|------|--------|-----|-------|-----|
+| 2048 k=32 no-aux | no | 1,161 (57%) | 887 | 0.112 | 0.052 | 32 |
+| **2048 k=32 + aux** | **yes** | **184 (9%)** | **1,864** | **0.128** | **0.045** | **32** |
+| 2048 k=64 + aux | yes | 213 (10%) | 1,835 | ~0.082 | 0.036 | 64 |
+| 4096 k=32 + aux | yes | crashed ep4 | — | — | — | 32 |
+| 4096 k=64 + aux | yes | 1,079 (26%) | 3,017 | 0.092 | 0.035 | 64 |
+
+**Key finding:** Aux loss at k=32 reduces dead from 57% to 9% — same improvement as k=64.
+2048 k=32+aux gives 1,864 active (vs 1,835 at k=64+aux) with more selective features (L0=32 vs 64).
+4096 k=32+aux crashed during epoch 4 (likely GPU OOM on eval step).
 
 ## Job ARNs
 - Labeling (Haiku, raw): `82opgo09ltc8`
@@ -84,7 +103,7 @@ Note: v1 had 92% parse failures (Haiku writing essays). v2 fixed with prefill "[
 - Detection (Haiku, raw): `m3531jyvb81s`
 - Detection (Sonnet, raw): `wi7fkoejtif7`
 - Detection (Haiku, enriched): `cvrbvrpaykib`
-- Detection (Sonnet labels, enriched): `ac6bc19768ax` (pending)
+- Detection (Sonnet labels, enriched): `ac6bc19768ax`
 
 ## Files
 - Profiles: `s3://chess-stage-a-140023406996/sae-eval/profiles_btk_2048_k64.json`
