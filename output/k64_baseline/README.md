@@ -50,15 +50,45 @@
 | Features ≥ 0.7 BA (enriched) | — | 644 |
 | coaching_useful (prod filtered) | 218 | TBD |
 
+## Sonnet+Thinking Labeling (2026-04-12)
+- Model: Sonnet 4 + 4K thinking tokens (Bedrock Batch job `pztzjp2jzh8v`)
+- 1,872/1,961 successfully parsed (89 errors)
+- Polysemantic flagged: 572/1,872 (30.6%)
+  - 486/572 poly are medium confidence, only 7 high — poly correlates with uncertainty
+- Confidence: high=1,146, medium=647, low=79
+- Mono + high-confidence: 1,139 features (best candidates for coaching)
+- Top categories: forcing_moves(559), checkmate(229), fork(220), check(123), endgame_technique(122)
+- Labels are more tactical/specific than Haiku (e.g. "Forced checkmate delivery" vs "Standard d4 opening")
+
+### Detection Scoring (Sonnet labels + enriched FENs)
+- Batch job: `ac6bc19768ax` (Haiku judge, enriched FENs, Sonnet-generated labels)
+- Status: pending — compare against Haiku-label enriched BA (0.619) when done
+
+## Detection Scoring Summary — 4 Conditions
+
+| Condition | Judge | FENs | Mean BA | Top-200 | HOLDS | STRONG |
+|-----------|-------|------|---------|---------|-------|--------|
+| Haiku + raw v1 | Haiku | Raw | 0.494 | 0.494 | 4 | 0 |
+| Haiku + raw v2 | Haiku | Raw | 0.499 | 0.651 | 38 | 0 |
+| Sonnet + raw | Sonnet | Raw | 0.500 | 0.642 | 27 | 0 |
+| **Haiku + enriched** | **Haiku** | **Enriched** | **0.619** | **0.883** | **644** | **289** |
+
+Note: v1 had 92% parse failures (Haiku writing essays). v2 fixed with prefill "[".
+
+**Key finding:** Enrichment is the dominant factor (+0.120 BA). Judge model irrelevant (+0.001).
+
 ## Job ARNs
 - Labeling (Haiku, raw): `82opgo09ltc8`
 - Labeling (Haiku, enriched): `2lg4j0j3xf91`
+- Labeling (Sonnet+thinking): `pztzjp2jzh8v`
 - Detection (Haiku, raw): `m3531jyvb81s`
 - Detection (Sonnet, raw): `wi7fkoejtif7`
 - Detection (Haiku, enriched): `cvrbvrpaykib`
+- Detection (Sonnet labels, enriched): `ac6bc19768ax` (pending)
 
 ## Files
-- Profiles: `s3://chess-stage-a-140023406996/detection-scoring/profiles_btk_2048_k64.json`
+- Profiles: `s3://chess-stage-a-140023406996/sae-eval/profiles_btk_2048_k64.json`
 - SAE weights: `s3://chess-stage-a-140023406996/output/k_sweep/sae_btk_2048_k64.pt`
-- Enrichment cache: `research/output/fen_enrichment_cache.json`
-- Ground truths: `research/output/sae_detect_gt_*.json`
+- Enrichment cache: `output/fen_enrichment_cache.json` (17,923 FENs, MD5 keys)
+- Ground truths: `output/k64_baseline/sae_detect_gt_*.json`
+- Sonnet labels: `output/k64_baseline/labels_sonnet_think.json`
