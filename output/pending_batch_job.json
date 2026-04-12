@@ -1,0 +1,13 @@
+{
+    "labeling_job_arn": "arn:aws:bedrock:us-east-1:140023406996:model-invocation-job/0zhcfh0031gt",
+    "timestamp": "20260411-152801",
+    "n_records": 10255,
+    "variants": [
+        "btk_2048_k128",
+        "btk_2048_k256",
+        "btk_4096_k128",
+        "btk_4096_k256"
+    ],
+    "profiles_dir": "/tmp/sae_profiles/",
+    "status": "Scheduled"
+}

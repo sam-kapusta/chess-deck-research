@@ -1,0 +1,877 @@
+{
+  "correlations": {
+    "allowed_check": {
+      "features": [
+        [
+          429,
+          0.1155
+        ],
+        [
+          886,
+          0.0937
+        ],
+        [
+          1284,
+          0.076
+        ],
+        [
+          296,
+          0.0708
+        ],
+        [
+          944,
+          0.0708
+        ]
+      ],
+      "top_corr": 0.1155,
+      "n": 45
+    },
+    "allowed_pin": {
+      "features": [
+        [
+          570,
+          0.1096
+        ],
+        [
+          175,
+          0.0958
+        ],
+        [
+          1732,
+          0.0735
+        ],
+        [
+          1283,
+          0.0683
+        ],
+        [
+          858,
+          0.068
+        ]
+      ],
+      "top_corr": 0.1096,
+      "n": 151
+    },
+    "bad_bishop": {
+      "features": [
+        [
+          988,
+          0.1765
+        ],
+        [
+          1126,
+          0.1677
+        ],
+        [
+          994,
+          0.166
+        ],
+        [
+          152,
+          0.127
+        ],
+        [
+          1716,
+          0.1219
+        ]
+      ],
+      "top_corr": 0.1765,
+      "n": 195
+    },
+    "conversion_failure": {
+      "features": [
+        [
+          1631,
+          0.0916
+        ],
+        [
+          1923,
+          0.0848
+        ],
+        [
+          1607,
+          0.0842
+        ],
+        [
+          357,
+          0.084
+        ],
+        [
+          296,
+          0.0765
+        ]
+      ],
+      "top_corr": 0.0916,
+      "n": 448
+    },
+    "cramped_position": {
+      "features": [
+        [
+          1757,
+          0.1681
+        ],
+        [
+          500,
+          0.159
+        ],
+        [
+          1835,
+          0.1382
+        ],
+        [
+          1885,
+          0.1368
+        ],
+        [
+          642,
+          0.1307
+        ]
+      ],
+      "top_corr": 0.1681,
+      "n": 577
+    },
+    "early_queen": {
+      "features": [
+        [
+          858,
+          0.2166
+        ],
+        [
+          990,
+          0.2022
+        ],
+        [
+          846,
+          0.1977
+        ],
+        [
+          1262,
+          0.1951
+        ],
+        [
+          1626,
+          0.194
+        ]
+      ],
+      "top_corr": 0.2166,
+      "n": 1759
+    },
+    "ignored_threat": {
+      "features": [
+        [
+          1281,
+          0.1118
+        ],
+        [
+          1819,
+          0.1003
+        ],
+        [
+          1322,
+          0.0702
+        ],
+        [
+          927,
+          0.0679
+        ],
+        [
+          918,
+          0.0666
+        ]
+      ],
+      "top_corr": 0.1118,
+      "n": 24
+    },
+    "left_piece_hanging": {
+      "features": [
+        [
+          1212,
+          0.0869
+        ],
+        [
+          1780,
+          0.0692
+        ],
+        [
+          1303,
+          0.067
+        ],
+        [
+          886,
+          0.0669
+        ],
+        [
+          1460,
+          0.0655
+        ]
+      ],
+      "top_corr": 0.0869,
+      "n": 86
+    },
+    "missed_capture": {
+      "features": [
+        [
+          1465,
+          0.0672
+        ],
+        [
+          1527,
+          0.0672
+        ],
+        [
+          612,
+          0.0595
+        ],
+        [
+          147,
+          0.0565
+        ],
+        [
+          1153,
+          0.0554
+        ]
+      ],
+      "top_corr": 0.0672,
+      "n": 144
+    },
+    "missed_check": {
+      "features": [
+        [
+          20,
+          0.0958
+        ],
+        [
+          1311,
+          0.072
+        ],
+        [
+          777,
+          0.0678
+        ],
+        [
+          1789,
+          0.0654
+        ],
+        [
+          566,
+          0.0644
+        ]
+      ],
+      "top_corr": 0.0958,
+      "n": 54
+    },
+    "missed_deflection": {
+      "features": [
+        [
+          281,
+          0.1008
+        ],
+        [
+          989,
+          0.0991
+        ],
+        [
+          1534,
+          0.0723
+        ],
+        [
+          1736,
+          0.0638
+        ],
+        [
+          918,
+          0.0572
+        ]
+      ],
+      "top_corr": 0.1008,
+      "n": 32
+    },
+    "missed_discovery": {
+      "features": [
+        [
+          489,
+          0.0575
+        ],
+        [
+          1471,
+          0.057
+        ],
+        [
+          1865,
+          0.0558
+        ],
+        [
+          2014,
+          0.0551
+        ],
+        [
+          1177,
+          0.0544
+        ]
+      ],
+      "top_corr": 0.0575,
+      "n": 40
+    },
+    "missed_overloaded_piece": {
+      "features": [
+        [
+          1104,
+          0.092
+        ],
+        [
+          281,
+          0.0753
+        ],
+        [
+          484,
+          0.0691
+        ],
+        [
+          507,
+          0.0626
+        ],
+        [
+          591,
+          0.0604
+        ]
+      ],
+      "top_corr": 0.092,
+      "n": 56
+    },
+    "missed_passed_pawn_push": {
+      "features": [
+        [
+          1218,
+          0.2737
+        ],
+        [
+          357,
+          0.2246
+        ],
+        [
+          291,
+          0.2017
+        ],
+        [
+          1563,
+          0.1956
+        ],
+        [
+          145,
+          0.1943
+        ]
+      ],
+      "top_corr": 0.2737,
+      "n": 1029
+    },
+    "missed_pawn_break": {
+      "features": [
+        [
+          1385,
+          0.0916
+        ],
+        [
+          1381,
+          0.0601
+        ],
+        [
+          997,
+          0.0595
+        ],
+        [
+          160,
+          0.057
+        ],
+        [
+          1968,
+          0.0566
+        ]
+      ],
+      "top_corr": 0.0916,
+      "n": 100
+    },
+    "missed_pin": {
+      "features": [
+        [
+          1305,
+          0.1019
+        ],
+        [
+          1153,
+          0.0899
+        ],
+        [
+          1872,
+          0.0873
+        ],
+        [
+          1460,
+          0.0813
+        ],
+        [
+          1345,
+          0.0777
+        ]
+      ],
+      "top_corr": 0.1019,
+      "n": 57
+    },
+    "missed_simplification": {
+      "features": [
+        [
+          1998,
+          0.0815
+        ],
+        [
+          1969,
+          0.0727
+        ],
+        [
+          507,
+          0.0676
+        ],
+        [
+          1569,
+          0.0651
+        ],
+        [
+          1824,
+          0.0645
+        ]
+      ],
+      "top_corr": 0.0815,
+      "n": 26
+    },
+    "missed_skewer": {
+      "features": [
+        [
+          1708,
+          0.1674
+        ],
+        [
+          484,
+          0.0935
+        ],
+        [
+          1025,
+          0.0934
+        ],
+        [
+          868,
+          0.0693
+        ],
+        [
+          1824,
+          0.0645
+        ]
+      ],
+      "top_corr": 0.1674,
+      "n": 26
+    },
+    "missed_zwischenzug": {
+      "features": [
+        [
+          1872,
+          0.1091
+        ],
+        [
+          443,
+          0.0758
+        ],
+        [
+          356,
+          0.0752
+        ],
+        [
+          1504,
+          0.07
+        ],
+        [
+          1448,
+          0.069
+        ]
+      ],
+      "top_corr": 0.1091,
+      "n": 37
+    },
+    "opening_french_defense": {
+      "features": [
+        [
+          460,
+          0.382
+        ],
+        [
+          1852,
+          0.3386
+        ],
+        [
+          104,
+          0.3223
+        ],
+        [
+          881,
+          0.2749
+        ],
+        [
+          1583,
+          0.2737
+        ]
+      ],
+      "top_corr": 0.382,
+      "n": 17
+    },
+    "opening_kings_pawn_game": {
+      "features": [
+        [
+          460,
+          0.4338
+        ],
+        [
+          104,
+          0.4076
+        ],
+        [
+          793,
+          0.3798
+        ],
+        [
+          1852,
+          0.328
+        ],
+        [
+          1044,
+          0.3128
+        ]
+      ],
+      "top_corr": 0.4338,
+      "n": 22
+    },
+    "opening_queens_pawn_game": {
+      "features": [
+        [
+          247,
+          0.3922
+        ],
+        [
+          1354,
+          0.2734
+        ],
+        [
+          543,
+          0.2604
+        ],
+        [
+          659,
+          0.255
+        ],
+        [
+          1275,
+          0.2495
+        ]
+      ],
+      "top_corr": 0.3922,
+      "n": 19
+    },
+    "opening_sicilian_defense": {
+      "features": [
+        [
+          104,
+          0.3823
+        ],
+        [
+          460,
+          0.2673
+        ],
+        [
+          1852,
+          0.2548
+        ],
+        [
+          793,
+          0.2495
+        ],
+        [
+          1275,
+          0.2417
+        ]
+      ],
+      "top_corr": 0.3823,
+      "n": 18
+    },
+    "passive_rook": {
+      "features": [
+        [
+          288,
+          0.3425
+        ],
+        [
+          192,
+          0.3113
+        ],
+        [
+          474,
+          0.2967
+        ],
+        [
+          1441,
+          0.2826
+        ],
+        [
+          935,
+          0.271
+        ]
+      ],
+      "top_corr": 0.3425,
+      "n": 4958
+    },
+    "premature_push": {
+      "features": [
+        [
+          243,
+          0.0377
+        ],
+        [
+          1364,
+          0.037
+        ],
+        [
+          1759,
+          0.0366
+        ],
+        [
+          400,
+          0.0363
+        ],
+        [
+          2014,
+          0.0355
+        ]
+      ],
+      "top_corr": 0.0377,
+      "n": 819
+    },
+    "premature_trade": {
+      "features": [
+        [
+          1345,
+          0.0758
+        ],
+        [
+          447,
+          0.0732
+        ],
+        [
+          12,
+          0.0724
+        ],
+        [
+          454,
+          0.0624
+        ],
+        [
+          761,
+          0.0592
+        ]
+      ],
+      "top_corr": 0.0758,
+      "n": 132
+    },
+    "quiet_when_winning": {
+      "features": [
+        [
+          1789,
+          0.0698
+        ],
+        [
+          1844,
+          0.0639
+        ],
+        [
+          1773,
+          0.0634
+        ],
+        [
+          1569,
+          0.0593
+        ],
+        [
+          499,
+          0.0567
+        ]
+      ],
+      "top_corr": 0.0698,
+      "n": 48
+    },
+    "rushed_move": {
+      "features": [
+        [
+          1555,
+          0.0838
+        ],
+        [
+          1071,
+          0.0822
+        ],
+        [
+          610,
+          0.0679
+        ],
+        [
+          1181,
+          0.0662
+        ],
+        [
+          1930,
+          0.0643
+        ]
+      ],
+      "top_corr": 0.0838,
+      "n": 129
+    },
+    "time_pressure_mistake": {
+      "features": [
+        [
+          429,
+          0.2478
+        ],
+        [
+          886,
+          0.2007
+        ],
+        [
+          1141,
+          0.1915
+        ],
+        [
+          131,
+          0.1727
+        ],
+        [
+          1021,
+          0.1702
+        ]
+      ],
+      "top_corr": 0.2478,
+      "n": 10
+    },
+    "undeveloped_pieces": {
+      "features": [
+        [
+          474,
+          0.6457
+        ],
+        [
+          935,
+          0.6161
+        ],
+        [
+          1338,
+          0.5848
+        ],
+        [
+          1044,
+          0.4538
+        ],
+        [
+          1441,
+          0.4517
+        ]
+      ],
+      "top_corr": 0.6457,
+      "n": 1244
+    },
+    "weakened_pawn_shield": {
+      "features": [
+        [
+          559,
+          0.334
+        ],
+        [
+          781,
+          0.2924
+        ],
+        [
+          35,
+          0.2543
+        ],
+        [
+          275,
+          0.2073
+        ],
+        [
+          239,
+          0.2033
+        ]
+      ],
+      "top_corr": 0.334,
+      "n": 3071
+    }
+  },
+  "tag_names": [
+    "allowed_check",
+    "allowed_fork",
+    "allowed_pin",
+    "allowed_skewer",
+    "back_rank_threat",
+    "bad_bishop",
+    "conversion_failure",
+    "cramped_position",
+    "early_queen",
+    "ignored_threat",
+    "left_piece_hanging",
+    "missed_capture",
+    "missed_check",
+    "missed_deflection",
+    "missed_discovery",
+    "missed_fork",
+    "missed_overloaded_piece",
+    "missed_passed_pawn_push",
+    "missed_pawn_break",
+    "missed_pin",
+    "missed_simplification",
+    "missed_skewer",
+    "missed_trapped_piece",
+    "missed_zwischenzug",
+    "opening_alekhine_defense",
+    "opening_benoni_defense",
+    "opening_bird_opening",
+    "opening_borg_defense",
+    "opening_caro-kann_defense",
+    "opening_dutch_defense",
+    "opening_english_opening",
+    "opening_four_knights_game",
+    "opening_french_defense",
+    "opening_grob_opening",
+    "opening_kings_gambit_accepted",
+    "opening_kings_indian_defense",
+    "opening_kings_knight_opening",
+    "opening_kings_pawn_game",
+    "opening_modern_defense",
+    "opening_nimzo-indian_defense",
+    "opening_nimzo-larsen_attack",
+    "opening_nimzowitsch_defense",
+    "opening_petrovs_defense",
+    "opening_polish_opening",
+    "opening_queens_gambit_declined",
+    "opening_queens_pawn_game",
+    "opening_ruy_lopez",
+    "opening_saragossa_opening",
+    "opening_scandinavian_defense",
+    "opening_scotch_game",
+    "opening_semi-slav_defense",
+    "opening_sicilian_defense",
+    "opening_three_knights_opening",
+    "opening_van_geet_opening",
+    "opening_vienna_game",
+    "opening_zukertort_opening",
+    "passive_rook",
+    "premature_push",
+    "premature_trade",
+    "quiet_when_winning",
+    "rushed_move",
+    "time_pressure_mistake",
+    "undeveloped_pieces",
+    "weakened_pawn_shield"
+  ],
+  "n_positions": 10000
+}

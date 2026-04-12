@@ -1,0 +1,16 @@
+# Weights (keep on S3)
+*.pt
+*.npz
+*.onnx
+
+# Large data (keep on S3)  
+data/
+*.jsonl
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS
+.DS_Store

@@ -1,0 +1,11 @@
+{
+  "job_arn": "arn:aws:bedrock:us-east-1:140023406996:model-invocation-job/pztzjp2jzh8v",
+  "timestamp": "20260412-140006",
+  "n_records": 1961,
+  "model": "sonnet-4-with-thinking",
+  "thinking_budget": 4000,
+  "enrichment": true,
+  "polysemantic_check": true,
+  "s3_input": "s3://chess-stage-a-140023406996/sae-eval/20260412-140006/sonnet_think_label.jsonl",
+  "s3_output": "s3://chess-stage-a-140023406996/sae-eval/20260412-140006/sonnet_think_label_output/"
+}

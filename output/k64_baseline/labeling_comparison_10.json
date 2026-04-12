@@ -1,0 +1,142 @@
+{
+  "1124": {
+    "fr": 0.18,
+    "one_pass": {
+      "label": "ERROR: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: `max_tokens` must be greater than `thinking.budget_tokens`. Please consult our documentation at https://docs.claude.com/en/docs/build-with-claude/extended-thinking#max-tokens-and-context-window-size"
+    },
+    "two_pass": {
+      "LABEL": "Forcing captures exploiting tactical vulnerabilities",
+      "CHIP": "Tactical Captures",
+      "CATEGORY": "forcing_moves",
+      "COACHING_USEFUL": true,
+      "CONFIDENCE": "high"
+    },
+    "summary": "# Pattern Analysis: Tactical Captures and Forcing Moves\n\nThe activating feature strongly correlates with **forcing moves that exploit material imbalan"
+  },
+  "1066": {
+    "fr": 0.24,
+    "one_pass": {
+      "label": "ERROR: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: `max_tokens` must be greater than `thinking.budget_tokens`. Please consult our documentation at https://docs.claude.com/en/docs/build-with-claude/extended-thinking#max-tokens-and-context-window-size"
+    },
+    "two_pass": {
+      "LABEL": "Endgame tactical forcing moves with material gain",
+      "CHIP": "Tactical Strikes",
+      "CATEGORY": "forcing_moves",
+      "COACHING_USEFUL": true,
+      "CONFIDENCE": "high"
+    },
+    "summary": "# Neural Network Feature: Endgame Tactical Forcing Moves\n\nThis feature activates on **pawn endgames and piece endgames where a single forcing move (ca"
+  },
+  "552": {
+    "fr": 0.34,
+    "one_pass": {
+      "label": "ERROR: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: `max_tokens` must be greater than `thinking.budget_tokens`. Please consult our documentation at https://docs.claude.com/en/docs/build-with-claude/extended-thinking#max-tokens-and-context-window-size"
+    },
+    "two_pass": {
+      "LABEL": "Back rank mate and tactical finishing positions",
+      "CHIP": "Back Rank",
+      "CATEGORY": "back_rank",
+      "COACHING_USEFUL": true,
+      "CONFIDENCE": "high"
+    },
+    "summary": "# Pattern Summary\n\nThese positions consistently feature **back rank vulnerabilities and undefended pieces that enable forcing tactical wins**. The dom"
+  },
+  "1653": {
+    "fr": 0.05,
+    "one_pass": {
+      "label": "ERROR: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: `max_tokens` must be greater than `thinking.budget_tokens`. Please consult our documentation at https://docs.claude.com/en/docs/build-with-claude/extended-thinking#max-tokens-and-context-window-size"
+    },
+    "two_pass": {
+      "LABEL": "Critical endgame captures stopping threats",
+      "CHIP": "Threat Capture",
+      "CATEGORY": "forcing_moves",
+      "COACHING_USEFUL": true,
+      "CONFIDENCE": "high"
+    },
+    "summary": "# Feature Analysis Summary\n\nThis feature activates on **tactical forcing sequences involving piece captures and checks in endgames**, particularly whe"
+  },
+  "485": {
+    "fr": 0.27,
+    "one_pass": {
+      "label": "ERROR: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: `max_tokens` must be greater than `thinking.budget_tokens`. Please consult our documentation at https://docs.claude.com/en/docs/build-with-claude/extended-thinking#max-tokens-and-context-window-size"
+    },
+    "two_pass": {
+      "LABEL": "Pawn endgame promotion race with king cutoff",
+      "CHIP": "Pawn Race",
+      "CATEGORY": "passed_pawn",
+      "COACHING_USEFUL": true,
+      "CONFIDENCE": "high"
+    },
+    "summary": "# Neural Network Feature Analysis: Pawn Endgame Activation Pattern\n\nThis feature activates strongly on **pawn endgames with competing passed pawns and"
+  },
+  "641": {
+    "fr": 0.1,
+    "one_pass": {
+      "label": "ERROR: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: `max_tokens` must be greater than `thinking.budget_tokens`. Please consult our documentation at https://docs.claude.com/en/docs/build-with-claude/extended-thinking#max-tokens-and-context-window-size"
+    },
+    "two_pass": {
+      "LABEL": "King-pawn endgame tactical vulnerabilities",
+      "CHIP": "Pawn weaknesses",
+      "CATEGORY": "endgame_technique",
+      "COACHING_USEFUL": true,
+      "CONFIDENCE": "high"
+    },
+    "summary": "# Pattern Summary\n\nThis feature activates on **king-and-pawn endgames with tactical vulnerabilities in the pawn structure**, particularly where pawns "
+  },
+  "709": {
+    "fr": 0.25,
+    "one_pass": {
+      "label": "ERROR: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: `max_tokens` must be greater than `thinking.budget_tokens`. Please consult our documentation at https://docs.claude.com/en/docs/build-with-claude/extended-thinking#max-tokens-and-context-window-size"
+    },
+    "two_pass": {
+      "LABEL": "Piece coordination exploiting overloaded defenders",
+      "CHIP": "Coordination Tactics",
+      "CATEGORY": "multiple_threats",
+      "COACHING_USEFUL": true,
+      "CONFIDENCE": "high"
+    },
+    "summary": "# Pattern Analysis: Piece Coordination & Tactical Overload\n\nThe feature activates primarily on **moves that improve piece coordination or exploit over"
+  },
+  "366": {
+    "fr": 0.09,
+    "one_pass": {
+      "label": "ERROR: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: `max_tokens` must be greater than `thinking.budget_tokens`. Please consult our documentation at https://docs.claude.com/en/docs/build-with-claude/extended-thinking#max-tokens-and-context-window-size"
+    },
+    "two_pass": {
+      "LABEL": "Back rank checkmate threat or pattern",
+      "CHIP": "Back rank mate",
+      "CATEGORY": "back_rank",
+      "COACHING_USEFUL": true,
+      "CONFIDENCE": "high"
+    },
+    "summary": "# Pattern Summary\n\nThis feature activates on **back rank checkmate patterns**, where the defending king lacks escape squares and is vulnerable to atta"
+  },
+  "235": {
+    "fr": 0.65,
+    "one_pass": {
+      "label": "ERROR: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: `max_tokens` must be greater than `thinking.budget_tokens`. Please consult our documentation at https://docs.claude.com/en/docs/build-with-claude/extended-thinking#max-tokens-and-context-window-size"
+    },
+    "two_pass": {
+      "LABEL": "High-value forcing captures with check in endgames",
+      "CHIP": "Forcing captures",
+      "CATEGORY": "forcing_moves",
+      "COACHING_USEFUL": true,
+      "CONFIDENCE": "high"
+    },
+    "summary": "# Pattern Analysis: Tactical Captures in Material-Imbalanced Endgames\n\nThe activating feature detects **high-value piece captures (queen or rook) that"
+  },
+  "716": {
+    "fr": 0.07,
+    "one_pass": {
+      "label": "ERROR: An error occurred (ValidationException) when calling the Converse operation: The model returned the following errors: `max_tokens` must be greater than `thinking.budget_tokens`. Please consult our documentation at https://docs.claude.com/en/docs/build-with-claude/extended-thinking#max-tokens-and-context-window-size"
+    },
+    "two_pass": {
+      "LABEL": "Overloaded defender tactical exploitation",
+      "CHIP": "Overload",
+      "CATEGORY": "deflection",
+      "COACHING_USEFUL": true,
+      "CONFIDENCE": "high"
+    },
+    "summary": "# Summary: Tactical Overload and Back-Rank Vulnerability\n\nThis feature activates on **positions featuring piece overload and back-rank tactical motifs"
+  }
+}
