@@ -121,6 +121,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--output", default=None)
+    parser.add_argument("--batch-size", type=int, default=64, help="Batch size for encoder forward pass (reduce for large dicts)")
     args = parser.parse_args()
 
     if not args.output:
@@ -200,8 +201,9 @@ def main():
     feature_fire_count = Counter()  # fid -> total positions where it fires
     total_positions = 0
 
-    for i in range(0, len(positions), 64):
-        batch = [p["seq"] for p in positions[i:i+64]]
+    bs = args.batch_size
+    for i in range(0, len(positions), bs):
+        batch = [p["seq"] for p in positions[i:i+bs]]
         tens = torch.tensor(batch, dtype=torch.long, device="cuda")
         with torch.no_grad():
             h = enc(tens)
@@ -227,7 +229,7 @@ def main():
                         feature_top[fid][-1] = (strength, pidx)
                     feature_top[fid].sort(key=lambda x: -x[0])
 
-        if (i // 64) % 100 == 0 and i > 0:
+        if (i // bs) % 100 == 0 and i > 0:
             print(f"  {i+len(batch)}/{len(positions)}")
             sys.stdout.flush()
 
