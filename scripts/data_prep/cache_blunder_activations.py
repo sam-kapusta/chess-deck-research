@@ -1,15 +1,15 @@
 """Cache encoder activations for blunder/mistake moves from Lichess.
 
 Streams Lichess/chess-position-evaluations, groups by FEN to find multi-PV,
-identifies blunders (cp_loss > 100) and caches encoder(position, blunder_move)
+identifies blunders (eval drop >= threshold) and caches encoder(position, blunder_move)
 hidden states for SAE training.
 
 Also caches encoder(position, best_move) for each position so we can train
 on both or compute diffs.
 
-Usage (on chess-poc notebook):
+Usage (on chess-research notebook):
     python3 cache_blunder_activations.py
-    python3 cache_blunder_activations.py --n-positions 200000 --min-loss 50
+    python3 cache_blunder_activations.py --n-positions 200000 --min-loss 200
 """
 import argparse
 import json
@@ -24,7 +24,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from datasets import load_dataset
 
-BASE = '/home/ec2-user/SageMaker/poc'
+BASE = '/home/ec2-user/SageMaker/chess-stage-a'
 PARAMS = BASE + '/cache/deepmind_270m_params.npz'
 MOVE_MAP = BASE + '/cache/move_to_action.json'
 
@@ -112,6 +112,10 @@ def load_encoder():
     print('Loading encoder...')
     pr = dict(np.load(PARAMS))
     enc = Enc()
+    # Auto-detect key format: chess-stage-a uses linear/w, some NPZs use query/kernel
+    test_key = gak(0) + '/linear/w'
+    use_linear_w = test_key in pr
+    print(f'  Key format: {"linear/w" if use_linear_w else "query/kernel"}')
     with torch.no_grad():
         enc.te.weight.copy_(torch.tensor(pr['embed/embeddings']))
         enc.pe.weight.copy_(torch.tensor(pr['embed_1/embeddings']))
@@ -122,14 +126,21 @@ def load_encoder():
             l['lm'].weight.copy_(torch.tensor(pr[lm + '/scale']))
             l['lm'].bias.copy_(torch.tensor(pr[lm + '/offset']))
             ak = gak(i)
-            l['q'].weight.copy_(torch.tensor(pr[ak + '/linear/w']).T)
-            l['k'].weight.copy_(torch.tensor(pr[ak + '/linear_1/w']).T)
-            l['v'].weight.copy_(torch.tensor(pr[ak + '/linear_2/w']).T)
-            l['o'].weight.copy_(torch.tensor(pr[ak + '/linear_3/w']).T)
-            mb = i * 3
-            l['g'].weight.copy_(torch.tensor(pr[gmk(mb) + '/w']).T)
-            l['u'].weight.copy_(torch.tensor(pr[gmk(mb + 1) + '/w']).T)
-            l['d'].weight.copy_(torch.tensor(pr[gmk(mb + 2) + '/w']).T)
+            if use_linear_w:
+                l['q'].weight.copy_(torch.tensor(pr[ak + '/linear/w']).T)
+                l['k'].weight.copy_(torch.tensor(pr[ak + '/linear_1/w']).T)
+                l['v'].weight.copy_(torch.tensor(pr[ak + '/linear_2/w']).T)
+                l['o'].weight.copy_(torch.tensor(pr[ak + '/linear_3/w']).T)
+                mb = i * 3
+                l['g'].weight.copy_(torch.tensor(pr[gmk(mb) + '/w']).T)
+                l['u'].weight.copy_(torch.tensor(pr[gmk(mb + 1) + '/w']).T)
+                l['d'].weight.copy_(torch.tensor(pr[gmk(mb + 2) + '/w']).T)
+            else:
+                for n, full in [('q', 'query'), ('k', 'key'), ('v', 'value'), ('o', 'linear')]:
+                    l[n].weight.copy_(torch.tensor(pr[ak + '/' + full + '/kernel']).reshape(DIM, DIM).T)
+                l['g'].weight.copy_(torch.tensor(pr[ak + '/mlp/gating_einsum'][0]).T)
+                l['u'].weight.copy_(torch.tensor(pr[ak + '/mlp/gating_einsum'][1]).T)
+                l['d'].weight.copy_(torch.tensor(pr[ak + '/mlp/linear/kernel']).T)
         fl = glk(NL * 2)
         enc.fn.weight.copy_(torch.tensor(pr[fl + '/scale']))
         enc.fn.bias.copy_(torch.tensor(pr[fl + '/offset']))
@@ -152,9 +163,9 @@ def encode_pair(enc, fen, move_uci):
 
 def main():
     parser = argparse.ArgumentParser(description='Cache encoder activations for blunder moves')
-    parser.add_argument('--n-positions', type=int, default=100000, help='Target number of blunder positions')
-    parser.add_argument('--min-loss', type=int, default=100, help='Minimum cp loss to count as blunder (default 100)')
-    parser.add_argument('--output', default=BASE + '/output/blunder_activation_cache.pt', help='Output path')
+    parser.add_argument('--n-positions', type=int, default=200000, help='Target number of blunder positions')
+    parser.add_argument('--min-loss', type=int, default=200, help='Minimum cp loss to count as blunder (default 200 = 2.0 eval)')
+    parser.add_argument('--output', default=BASE + '/cache/blunder_acts_200k.pt', help='Output path')
     args = parser.parse_args()
 
     enc = load_encoder()
