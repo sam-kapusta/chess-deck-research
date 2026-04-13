@@ -1,97 +1,49 @@
-# Chess Encoder Research
+# Chess SAE Research
 
-Wire DeepMind's 270M chess encoder (2895 Elo) into Qwen2.5-7B for chess position understanding.
+Sparse Autoencoder research on the DeepMind 270M chess encoder. Training SAEs to decompose encoder activations into interpretable chess features for coaching.
 
-**Active work lives in `.lab/chess/`** — see `plan.md` for current state, `findings.md` for evidence.
-
-## Current Status (2026-04-01)
-
-LoRA v2 training (norm-fixed) running on chess-research notebook. 10K smoke test, eval+ablation will auto-run on completion.
-
-**Key findings so far:**
-- Encoder contains eval direction signal at 67% (F1)
-- NTP Phase 1 destroys that signal to 53% (F2)
-- Contrastive Phase 0 preserves 92% of signal — 61.4% (F3b)
-- LayerNorm alone gives 60x norm mismatch with Qwen — must explicitly scale (F10)
-- LoRA v1 was catastrophically broken (NaN masked by nan_to_num). v2 fixes norms.
-
-## Architecture
+## Repo Structure
 
 ```
-FEN → tokenize (77 tokens)
-  → DeepMind 270M encoder (frozen) → [77, 1024]
-  → Contrastive projection MLP (1024→3584, 16M params, frozen)
-  → LayerNorm + scale to match Qwen embedding norm (~0.94)
-  → prepend to Qwen2.5-7B input embeddings
-  → LoRA-64 fine-tuned Qwen generates structured UCI output
+plan.md            Current state, experiment queue, beliefs
+log.md             Session-by-session history of what happened
+findings.md        Validated results with evidence tables
+learnings.md       Indexed insights with evidence pointers
+scripts/           All pipeline code (training, profiling, labeling, caching)
+output/            Results, labels, metrics, S3 inventory
+docs/              Research papers, SAE analysis, reference material
+archive/           Old code and superseded data
 ```
 
-## Training Pipeline
+## Current Focus (2026-04-13)
 
-| Step | What | Status |
-|------|------|--------|
-| 0. Contrastive | InfoNCE alignment (200K evals, 3 epochs) | **Done** — preserves 92% signal |
-| 1. LoRA Phase 2 | LoRA-64 on Qwen + frozen contrastive projection | **v2 in progress** (v1 failed: F10) |
-| 2. Scale data | 50K → 427K mixed | Blocked on Step 1 |
-| 3. RL | GRPO with Stockfish rewards | Future |
+**Blunder SAE experiment.** Training SAEs on 200K blunder move tokens (≥200cp loss from Lichess eval dataset) to discover "mistake pattern" features. Five variants being labeled with Sonnet+thinking.
 
-## Data
+**Production SAE:** `puzzle_2048_k64_v1` — puzzle-trained, BA=0.632, 218 features served.
 
-| Dataset | Size | Purpose |
-|---------|------|---------|
-| Lichess evals | 200K (from 13M) | Contrastive Phase 0 + eval prediction |
-| Lichess puzzles | 200K (from 5.8M) | Tactical patterns |
-| Mixed (evals + puzzles + our positions) | 50K subset | LoRA Phase 2 training |
-| Eval positions | 500 held-out | Evaluation |
+See `plan.md` for full state.
+
+## Pipeline
+
+1. **Cache activations** — `scripts/sae/cache_move_token.py` or `cache_activations.py`
+2. **Train SAE** — `scripts/sae/train_blunder_sae.py` (BTK + aux loss)
+3. **Profile** — `scripts/encoder/profile_sae.py` (top-20 FEN examples per feature)
+4. **Label** — `scripts/evaluation/batch_label_and_score.py label` (Sonnet+thinking via Bedrock Batch)
+5. **Detection score** — `scripts/evaluation/batch_label_and_score.py score` (does the label match the positions?)
 
 ## Infrastructure
 
-- **Account:** 140023406996 (personal dev)
-- **S3:** `s3://chess-stage-a-140023406996/`
-- **Notebook:** chess-research (ml.g5.xlarge, A10G 23GB) — $1.40/hr
-- **Scripts:** on notebook at `/home/ec2-user/SageMaker/chess-stage-a/scripts/`
+- **Encoder:** DeepMind 270M (searchless_chess), bidirectional transformer, 1024-dim hidden
+- **Notebook:** chess-poc (ml.g6.16xlarge, L4 GPU, 242GB RAM)
+- **Account:** 140023406996 (default profile)
+- **S3:** `s3://chess-stage-a-140023406996/sae-weights/` — see `output/S3_INVENTORY.md`
+- **Labeling:** Bedrock Batch with Sonnet+thinking
 
-## Key Scripts
+## Key Design Decisions
 
-| Script | Purpose |
-|--------|---------|
-| `train_lora_v2.py` | LoRA Phase 2 with norm scaling fix |
-| `train_contrastive.py` | Contrastive Phase 0 (InfoNCE) |
-| `eval_lora.py` | Eval + ablation for LoRA models |
-| `debug_lora.py` | Diagnostic: norms, generation tests, token analysis |
-| `chess_model.py` | Pure PyTorch encoder (no JAX deps) |
-| `fen_tokenizer.py` | FEN tokenizer (77 tokens) |
-| `projection_layer.py` | 2-layer MLP projection |
-| `probe_projection.py` | 5-fold CV probing of encoder/projection signal |
+- **BatchTopK over L1** — no shrinkage, controllable sparsity, zero noise features
+- **Move token only** — hidden[77] from encoder, not all 77 tokens. Matches production.
+- **Aux loss** — 1/32 coefficient, dead_threshold=50. Recovers dead features.
+- **Two-phase caching** — CPU download/filter, then GPU batch encode. Enables fast retraining.
 
-## Encoder Probing Results
-
-| Probe | Accuracy |
-|-------|----------|
-| Check detection | 97.7% |
-| Game phase | 94.8% |
-| Piece identification | 92.6% |
-| Material count | r=0.99 |
-| Tactical volatility | r=0.78 |
-| Attack detection | 77% (+26% over baseline) |
-| Eval direction (all tokens) | 66.9% |
-
-The encoder knows abstract search-level concepts — not just FEN-parseable features.
-
-## Findings Summary
-
-See `.lab/chess/findings.md` for full evidence tables.
-
-| # | Finding | Key number |
-|---|---------|------------|
-| F1 | Encoder encodes eval direction | 67% accuracy |
-| F2 | NTP Phase 1 destroys signal | 53% (worse than random projection) |
-| F3 | NTP and signal preservation in tension | SimReg failed |
-| F3b | Contrastive Phase 0 preserves signal | 61.4% (92% of raw) |
-| F4 | Encoder shifts Qwen into chess mode | Qualitative |
-| F5 | Gradient checkpointing needs use_cache=False | 37% VRAM reduction |
-| F6 | Phase 1 has severe diminishing returns | 80% learning in 10% steps |
-| F7 | Information asymmetry is root cause | Cross-modal research |
-| F8 | Contrastive projection 26x larger than Qwen | LayerNorm required |
-| F9 | LayerNorm dtype mismatch crashed FSDP | Must stay float32 |
-| F10 | LayerNorm gives 60x norm mismatch | Must scale after LN |
+See `output/blunder_sae_reasoning.md` for full reasoning.
