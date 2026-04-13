@@ -1,9 +1,9 @@
-# S3 Asset Inventory — SAE Models (2026-04-12)
+# S3 Asset Inventory — SAE Models (2026-04-13)
 
 Bucket: `s3://chess-stage-a-140023406996/`
 Account: 140023406996 (research, default profile)
 
-## SAE Weights
+## SAE Weights — Puzzle-trained (production)
 
 ```
 s3://chess-stage-a-140023406996/sae-weights/
@@ -14,6 +14,21 @@ s3://chess-stage-a-140023406996/sae-weights/
 ```
 
 All trained on 200K Lichess puzzles, 5 epochs, BatchTopK + aux loss (1/32).
+
+## SAE Weights — Blunder-trained (move-token, experimental)
+
+```
+s3://chess-stage-a-140023406996/sae-weights/
+  sae_btk_blunder_mt_2048_k32_aux.pt  ← alive=2031, FVU=0.115, FR median=0.87%
+  sae_btk_blunder_mt_2048_k64_aux.pt  ← alive=2033, FVU=0.093, FR median=2.00%
+  sae_btk_blunder_mt_4096_k32_aux.pt  ← alive=4009, FVU=0.107, FR median=0.35%
+  sae_btk_blunder_mt_4096_k64_aux.pt  ← alive=4027, FVU=0.085, FR median=0.84%
+  sae_btk_blunder_mt_4096_k128_aux.pt ← alive=4092, FVU=0.066, FR profiling
+```
+
+All trained on 200K Lichess blunder move tokens (≥200cp loss), 10 epochs, BTK + aux.
+Move-token = hidden[77] from DeepMind 270M encoder (matches production pipeline).
+
 Format: PyTorch dict with `encoder_weight`, `encoder_bias`, `decoder_weight`, `pre_bias`, `k`, `dict_size`, `mean`, `std`.
 
 ## Profiles (top-20 examples per feature)
@@ -36,11 +51,14 @@ chess-deck-research/output/
   labels_4096_k64_sonnet.json             ← 4096 k=64 labels
 ```
 
-## Activation Cache
+## Activation Caches (on notebook, not S3)
 
 ```
-s3://chess-stage-a-140023406996/cache/  (on notebook, not S3)
-  /home/ec2-user/SageMaker/chess-stage-a/cache/puzzle_acts_200k.pt  (~30GB)
+/home/ec2-user/SageMaker/chess-stage-a/cache/
+  puzzle_acts_200k.pt              (~30GB, 200K×77×1024, all tokens)
+  blunder_acts_200k.pt             (~60GB, 200K×77×1024, all tokens, ≥200cp loss)
+  blunder_move_token_200k.pt       (804MB, 200K×1024, move token only)
+  blunder_positions.json           (31MB, 200K blunder metadata from HuggingFace)
 ```
 
 ## Encoder Weights
