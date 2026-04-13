@@ -123,6 +123,7 @@ def main():
     parser.add_argument("--output", default=None)
     parser.add_argument("--blunder-file", default=None, help="JSON file of blunder positions (instead of puzzles)")
     parser.add_argument("--batch-size", type=int, default=64)
+    parser.add_argument("--move-token-only", action="store_true", help="Use only move token (hidden[77]) for SAE")
     args = parser.parse_args()
 
     if not args.output:
@@ -208,13 +209,19 @@ def main():
         tens = torch.tensor(batch, dtype=torch.long, device="cuda")
         with torch.no_grad():
             h = enc(tens)
-            tokens_norm = (h[:, 1:78, :] - mean_t) / std_t
-            tokens_flat = tokens_norm.reshape(-1, 1024)
-            _, acts = sae(tokens_flat)
-            # Reshape back: (batch, 77, dict_size)
-            acts_r = acts.reshape(len(batch), 77, dict_size)
-            # Max activation per feature across tokens
-            max_per_feature = acts_r.max(dim=1).values  # (batch, dict_size)
+            if args.move_token_only:
+                # Use only move token (index 76 in 0-indexed, position 77)
+                move_tok = h[:, 77:78, :]  # [B, 1, 1024] — token at position 77 (0-indexed: after shift)
+                tokens_norm = (move_tok - mean_t) / std_t
+                tokens_flat = tokens_norm.reshape(-1, 1024)
+                _, acts = sae(tokens_flat)
+                max_per_feature = acts.reshape(len(batch), dict_size)  # [B, dict_size]
+            else:
+                tokens_norm = (h[:, 1:78, :] - mean_t) / std_t
+                tokens_flat = tokens_norm.reshape(-1, 1024)
+                _, acts = sae(tokens_flat)
+                acts_r = acts.reshape(len(batch), 77, dict_size)
+                max_per_feature = acts_r.max(dim=1).values  # (batch, dict_size)
 
         for b in range(len(batch)):
             pidx = i + b

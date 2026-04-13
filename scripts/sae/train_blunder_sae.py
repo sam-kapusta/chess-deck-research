@@ -121,24 +121,35 @@ def main():
     print(f'Loading cache from {args.cache}...')
     cache = torch.load(args.cache, map_location='cpu', weights_only=False)
 
-    key = 'best_hidden' if args.use_best else 'blunder_hidden'
-    n_positions = cache['n_blunders']
-    print(f'Positions: {n_positions}, min_loss: {cache["min_loss"]}cp')
+    # Support both cache formats: full (77-token) and move-token-only
+    if 'blunder_mt' in cache:
+        # Move-token cache: [N, 1024]
+        key = 'best_mt' if args.use_best else 'blunder_mt'
+        hidden = cache[key]  # [N, 1024] float16
+        n_positions = cache['n_positions']
+        mean = torch.tensor(cache['mean'], dtype=torch.float32)
+        std = torch.tensor(cache['std'], dtype=torch.float32) + 1e-8
+        print(f'Move-token cache: {n_positions} positions, shape {hidden.shape}')
+        flat = hidden.float()
+        flat = (flat - mean) / std
+    else:
+        # Full 77-token cache
+        key = 'best_hidden' if args.use_best else 'blunder_hidden'
+        n_positions = cache['n_blunders']
+        print(f'Positions: {n_positions}, min_loss: {cache.get("min_loss", "?")}cp')
+        hidden = cache[key][:n_positions]
+        print(f'Hidden shape: {hidden.shape}')
 
-    hidden = cache[key][:n_positions]  # [N, 77, 1024] float16
-    print(f'Hidden shape: {hidden.shape}')
+        if args.move_token_only:
+            hidden = hidden[:, 76:77, :]
+            print(f'Move-token-only: {hidden.shape}')
 
-    if args.move_token_only:
-        # Use only the move token (index 76) — matches production pipeline
-        hidden = hidden[:, 76:77, :]  # [N, 1, 1024]
-        print(f'Move-token-only: {hidden.shape}')
+        print('Computing normalization...')
+        flat = hidden.float().reshape(-1, 1024)
+        mean = flat.mean(dim=0)
+        std = flat.std(dim=0) + 1e-8
+        flat = (flat - mean) / std
 
-    # Compute normalization from the activations
-    print('Computing normalization...')
-    flat = hidden.float().reshape(-1, 1024)
-    mean = flat.mean(dim=0)
-    std = flat.std(dim=0) + 1e-8
-    flat = (flat - mean) / std
     print(f'Flat shape: {flat.shape}')
 
     # Train

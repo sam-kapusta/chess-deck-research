@@ -279,7 +279,7 @@ def phase2_encode(positions, output_path, batch_size=64):
             batch = seqs[i:i + batch_size]
             tens = torch.tensor(batch, dtype=torch.long, device='cuda')
             with torch.no_grad():
-                h = enc(tens)[:, :77, :]  # [B, 77, 1024]
+                h = enc(tens)[:, :79, :]  # [B, 79, 1024] — all tokens incl. move + return
             for b in range(len(batch)):
                 all_acts.append(h[b].half().cpu())
             if (i // batch_size) % 100 == 0 and i > 0:
