@@ -174,7 +174,7 @@ def main():
         'model_state_dict': sae.state_dict(),
         'metrics': metrics,
         'training_data': f'lichess_blunders_{tag}',
-        'min_loss_cp': cache['min_loss'],
+        'min_loss_cp': cache.get('min_loss', 200),
         'n_positions': n_positions,
     }, out_path)
     print(f'Saved: {out_path}')
