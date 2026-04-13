@@ -1,0 +1,11 @@
+{
+  "job_arn": "arn:aws:bedrock:us-east-1:140023406996:model-invocation-job/jd44898kiujk",
+  "timestamp": "20260412-184940",
+  "n_records": 6703,
+  "variants": [
+    "btk_4096_k64_aux",
+    "btk_4096_k32_aux"
+  ],
+  "s3_input": "s3://chess-stage-a-140023406996/sae-eval/20260412-184940/label_input.jsonl",
+  "s3_output": "s3://chess-stage-a-140023406996/sae-eval/20260412-184940/label_output/"
+}
