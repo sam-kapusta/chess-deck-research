@@ -31,9 +31,13 @@ import boto3
 ROLE_ARN = 'arn:aws:iam::140023406996:role/BedrockBatchInferenceRole'
 S3_BUCKET = 'chess-stage-a-140023406996'
 S3_PREFIX = 'sae-eval'
-# Cross-region inference profile for batch
-LABEL_MODEL = 'us.anthropic.claude-haiku-4-5-20251001-v1:0'
-SCORE_MODEL = 'us.anthropic.claude-haiku-4-5-20251001-v1:0'
+# Model IDs for Bedrock Batch
+MODELS = {
+    'haiku': 'us.anthropic.claude-haiku-4-5-20251001-v1:0',
+    'sonnet': 'us.anthropic.claude-sonnet-4-20250514-v1:0',
+}
+LABEL_MODEL = MODELS['haiku']
+SCORE_MODEL = MODELS['haiku']
 
 CATEGORIES = [
     'fork', 'pin_skewer', 'check', 'discovered_attack', 'sacrifice',
@@ -70,7 +74,7 @@ CATEGORY_DESCRIPTIONS = {
 
 
 def build_labeling_prompt(feature_id, examples, stats, enrichments=None):
-    """Build a labeling prompt for Bedrock Batch (no extended thinking — Batch doesn't support it)."""
+    """Build a labeling prompt for Bedrock Batch."""
     lines = []
     for i, e in enumerate(examples[:15]):
         fen = extract_fen(e)
@@ -175,6 +179,10 @@ def load_profiles(profiles_dir):
 def cmd_label(args):
     """Generate labeling JSONL and submit Bedrock Batch."""
     random.seed(42)
+    model_id = MODELS.get(args.model, args.model) if hasattr(args, 'model') and args.model else LABEL_MODEL
+    use_thinking = hasattr(args, 'thinking') and args.thinking
+    thinking_budget = getattr(args, 'thinking_budget', 4096) or 4096
+    print(f'Model: {model_id}, Thinking: {use_thinking} (budget={thinking_budget})')
     variants = load_profiles(args.profiles_dir)
 
     # Collect all FENs for enrichment
@@ -205,13 +213,16 @@ def cmd_label(args):
                 if not info.get('examples'):
                     continue
                 prompt = build_labeling_prompt(fid, info['examples'], info, enrichments)
+                model_input = {
+                    'anthropic_version': 'bedrock-2023-05-31',
+                    'max_tokens': 1024,
+                    'messages': [{'role': 'user', 'content': prompt}]
+                }
+                if use_thinking:
+                    model_input['thinking'] = {'type': 'enabled', 'budget_tokens': thinking_budget}
                 record = {
                     'recordId': f'{variant_name}__feature_{fid}',
-                    'modelInput': {
-                        'anthropic_version': 'bedrock-2023-05-31',
-                        'max_tokens': 1024,
-                        'messages': [{'role': 'user', 'content': prompt}]
-                    }
+                    'modelInput': model_input
                 }
                 f.write(json.dumps(record) + '\n')
                 n_records += 1
@@ -229,7 +240,7 @@ def cmd_label(args):
     bedrock = boto3.client('bedrock', region_name='us-east-1')
     resp = bedrock.create_model_invocation_job(
         roleArn=ROLE_ARN,
-        modelId=LABEL_MODEL,
+        modelId=model_id,
         jobName=f'chess-sae-label-{timestamp}',
         inputDataConfig={'s3InputDataConfig': {'s3Uri': s3_uri}},
         outputDataConfig={'s3OutputDataConfig': {'s3Uri': output_uri}},
@@ -606,6 +617,9 @@ def main():
 
     p_label = sub.add_parser('label')
     p_label.add_argument('--profiles-dir', required=True)
+    p_label.add_argument('--model', default='haiku', help='Model: haiku, sonnet, or full ID')
+    p_label.add_argument('--thinking', action='store_true', help='Enable extended thinking')
+    p_label.add_argument('--thinking-budget', type=int, default=4096, help='Thinking token budget')
 
     p_status = sub.add_parser('status')
     p_status.add_argument('--job-arn', required=True)
