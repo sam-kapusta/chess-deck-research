@@ -124,30 +124,60 @@ def main():
         base = os.path.splitext(os.path.basename(args.checkpoint))[0]
         args.output = os.path.join(os.path.dirname(args.checkpoint), base + "_profiles.json")
 
-    # Load encoder (key names from cache_activations.py — the canonical source)
+    # Load encoder
+    # Two npz formats exist:
+    #   chess-poc: {pre}/linear/w, {pre}/linear_1/w (q,k,v,o), linear/w (mlp gate/up/down)
+    #   cache_activations.py format: {pre}/query/kernel, {pre}/mlp/gating_einsum
+    # Auto-detect by checking which keys exist.
     print("Loading encoder...")
-    p = dict(np.load(PARAMS, allow_pickle=True))
+    pr = dict(np.load(PARAMS, allow_pickle=True))
     enc = Enc()
-    enc.te.weight.data = torch.tensor(p["embed/embeddings"], dtype=torch.float32)
-    enc.pe.weight.data = torch.tensor(p["embed_1/embeddings"], dtype=torch.float32)
+
+    # Detect format
+    uses_kernel = "multi_head_dot_product_attention/query/kernel" in pr
+    print(f"  NPZ format: {'kernel' if uses_kernel else 'linear/w'}")
+
+    def glk(i):
+        return "layer_norm" if i == 0 else f"layer_norm_{i}"
+
+    def gak(i):
+        return "multi_head_dot_product_attention" if i == 0 else f"multi_head_dot_product_attention_{i}"
+
+    def gmk(i):
+        return "linear" if i == 0 else f"linear_{i}"
+
+    enc.te.weight.data = torch.tensor(pr["embed/embeddings"], dtype=torch.float32)
+    enc.pe.weight.data = torch.tensor(pr["embed_1/embeddings"], dtype=torch.float32)
+
     for i, ly in enumerate(enc.layers):
-        pre = "multi_head_dot_product_attention" if i == 0 else f"multi_head_dot_product_attention_{i}"
-        ln_idx = i * 2
-        ln2_idx = i * 2 + 1
-        ly["la"].weight.data = torch.tensor(p[f"layer_norm_{ln_idx}/scale" if ln_idx > 0 else "layer_norm/scale"], dtype=torch.float32)
-        ly["la"].bias.data = torch.tensor(p[f"layer_norm_{ln_idx}/offset" if ln_idx > 0 else "layer_norm/offset"], dtype=torch.float32)
-        ly["lm"].weight.data = torch.tensor(p[f"layer_norm_{ln2_idx}/scale"], dtype=torch.float32)
-        ly["lm"].bias.data = torch.tensor(p[f"layer_norm_{ln2_idx}/offset"], dtype=torch.float32)
-        for n in "qkvo":
-            full = {"q": "query", "k": "key", "v": "value", "o": "linear"}[n]
-            ly[n].weight.data = torch.tensor(p[f"{pre}/{full}/kernel"], dtype=torch.float32).reshape(DIM, DIM).T
-        ly["g"].weight.data = torch.tensor(p[f"{pre}/mlp/gating_einsum"][0], dtype=torch.float32).T
-        ly["u"].weight.data = torch.tensor(p[f"{pre}/mlp/gating_einsum"][1], dtype=torch.float32).T
-        ly["d"].weight.data = torch.tensor(p[f"{pre}/mlp/linear/kernel"], dtype=torch.float32).T
-    ln_final = NL * 2
-    enc.fn.weight.data = torch.tensor(p[f"layer_norm_{ln_final}/scale"], dtype=torch.float32)
-    enc.fn.bias.data = torch.tensor(p[f"layer_norm_{ln_final}/offset"], dtype=torch.float32)
-    del p
+        la, lm = glk(i * 2), glk(i * 2 + 1)
+        ly["la"].weight.data = torch.tensor(pr[la + "/scale"], dtype=torch.float32)
+        ly["la"].bias.data = torch.tensor(pr[la + "/offset"], dtype=torch.float32)
+        ly["lm"].weight.data = torch.tensor(pr[lm + "/scale"], dtype=torch.float32)
+        ly["lm"].bias.data = torch.tensor(pr[lm + "/offset"], dtype=torch.float32)
+
+        ak = gak(i)
+        if uses_kernel:
+            for n in "qkvo":
+                full = {"q": "query", "k": "key", "v": "value", "o": "linear"}[n]
+                ly[n].weight.data = torch.tensor(pr[f"{ak}/{full}/kernel"], dtype=torch.float32).reshape(DIM, DIM).T
+            ly["g"].weight.data = torch.tensor(pr[f"{ak}/mlp/gating_einsum"][0], dtype=torch.float32).T
+            ly["u"].weight.data = torch.tensor(pr[f"{ak}/mlp/gating_einsum"][1], dtype=torch.float32).T
+            ly["d"].weight.data = torch.tensor(pr[f"{ak}/mlp/linear/kernel"], dtype=torch.float32).T
+        else:
+            ly["q"].weight.data = torch.tensor(pr[ak + "/linear/w"], dtype=torch.float32).T
+            ly["k"].weight.data = torch.tensor(pr[ak + "/linear_1/w"], dtype=torch.float32).T
+            ly["v"].weight.data = torch.tensor(pr[ak + "/linear_2/w"], dtype=torch.float32).T
+            ly["o"].weight.data = torch.tensor(pr[ak + "/linear_3/w"], dtype=torch.float32).T
+            mb = i * 3
+            ly["g"].weight.data = torch.tensor(pr[gmk(mb) + "/w"], dtype=torch.float32).T
+            ly["u"].weight.data = torch.tensor(pr[gmk(mb + 1) + "/w"], dtype=torch.float32).T
+            ly["d"].weight.data = torch.tensor(pr[gmk(mb + 2) + "/w"], dtype=torch.float32).T
+
+    fl = glk(NL * 2)
+    enc.fn.weight.data = torch.tensor(pr[fl + "/scale"], dtype=torch.float32)
+    enc.fn.bias.data = torch.tensor(pr[fl + "/offset"], dtype=torch.float32)
+    del pr
     enc = enc.cuda().eval()
     print("Encoder loaded.")
 
