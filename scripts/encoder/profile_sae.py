@@ -121,6 +121,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--output", default=None)
+    parser.add_argument("--blunder-file", default=None, help="JSON file of blunder positions (instead of puzzles)")
+    parser.add_argument("--batch-size", type=int, default=64)
     args = parser.parse_args()
 
     if not args.output:
@@ -159,27 +161,40 @@ def main():
     sae.eval()
     print(f"SAE loaded: dict={dict_size}, k={k}")
 
-    # Load puzzles
-    print("Loading puzzles...")
+    # Load positions (puzzles or blunders)
     positions = []
-    with open(PUZZLE_FILE) as f:
-        for line in f:
-            d = json.loads(line)
-            moves = d["moves"].split()
-            if len(moves) < 2: continue
-            try:
-                board = chess.Board(d["fen"])
-                board.push_uci(moves[0])
-                puzzle_fen = board.fen()
-            except: continue
-            best_move = moves[1]
-            ft = tok(puzzle_fen)
-            if ft is None or best_move not in M2A: continue
-            seq = ft + [M2A[best_move], 64]
-            themes = d.get("themes", "").split()
-            positions.append({"seq": seq, "fen": puzzle_fen, "move": best_move, "themes": themes})
-            if len(positions) >= N_POSITIONS: break
-    print(f"Loaded {len(positions)} puzzles")
+    if args.blunder_file:
+        print(f"Loading blunder positions from {args.blunder_file}...")
+        with open(args.blunder_file) as f:
+            blunders = json.load(f)
+        for b in blunders[:N_POSITIONS]:
+            fen = b["fen"]
+            move = b["blunder_uci"]
+            ft = tok(fen)
+            if ft is None or move not in M2A: continue
+            seq = ft + [M2A[move], 64]
+            positions.append({"seq": seq, "fen": fen, "move": move, "themes": [], "cp_loss": b.get("cp_loss", 0)})
+        print(f"Loaded {len(positions)} blunder positions")
+    else:
+        print("Loading puzzles...")
+        with open(PUZZLE_FILE) as f:
+            for line in f:
+                d = json.loads(line)
+                moves = d["moves"].split()
+                if len(moves) < 2: continue
+                try:
+                    board = chess.Board(d["fen"])
+                    board.push_uci(moves[0])
+                    puzzle_fen = board.fen()
+                except: continue
+                best_move = moves[1]
+                ft = tok(puzzle_fen)
+                if ft is None or best_move not in M2A: continue
+                seq = ft + [M2A[best_move], 64]
+                themes = d.get("themes", "").split()
+                positions.append({"seq": seq, "fen": puzzle_fen, "move": best_move, "themes": themes})
+                if len(positions) >= N_POSITIONS: break
+        print(f"Loaded {len(positions)} puzzles")
 
     # Profile: for each feature, find top activating positions
     print("Profiling features...")
