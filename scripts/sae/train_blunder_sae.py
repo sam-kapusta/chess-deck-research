@@ -113,6 +113,7 @@ def main():
     parser.add_argument('--epochs', type=int, default=5)
     parser.add_argument('--cache', default=CACHE, help='Path to blunder activation cache')
     parser.add_argument('--use-best', action='store_true', help='Train on best moves instead of blunders')
+    parser.add_argument('--move-token-only', action='store_true', help='Train on move token (hidden[77]) only, not all 77 tokens')
     args = parser.parse_args()
 
     os.makedirs(OUTPUT, exist_ok=True)
@@ -127,15 +128,16 @@ def main():
     hidden = cache[key][:n_positions]  # [N, 77, 1024] float16
     print(f'Hidden shape: {hidden.shape}')
 
-    # Compute normalization from the blunder/best activations
-    print('Computing normalization...')
-    norm_key = 'blunder' if not args.use_best else 'best'
-    norm = cache['normalization']
-    mean = torch.tensor(norm[f'{norm_key}_mean'], dtype=torch.float32)
-    std = torch.tensor(norm[f'{norm_key}_std'], dtype=torch.float32) + 1e-8
+    if args.move_token_only:
+        # Use only the move token (index 76) — matches production pipeline
+        hidden = hidden[:, 76:77, :]  # [N, 1, 1024]
+        print(f'Move-token-only: {hidden.shape}')
 
-    # Flatten all tokens: [N, 77, 1024] → [N*77, 1024]
+    # Compute normalization from the activations
+    print('Computing normalization...')
     flat = hidden.float().reshape(-1, 1024)
+    mean = flat.mean(dim=0)
+    std = flat.std(dim=0) + 1e-8
     flat = (flat - mean) / std
     print(f'Flat shape: {flat.shape}')
 
@@ -144,6 +146,8 @@ def main():
 
     # Save
     tag = 'best' if args.use_best else 'blunder'
+    if args.move_token_only:
+        tag += '_mt'
     out_path = f'{OUTPUT}/sae_btk_{tag}_{args.dict_size}_k{args.k}_aux.pt'
     torch.save({
         'encoder_weight': sae.encoder.weight.data.cpu(),
