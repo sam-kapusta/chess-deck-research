@@ -213,9 +213,10 @@ def cmd_label(args):
                 if not info.get('examples'):
                     continue
                 prompt = build_labeling_prompt(fid, info['examples'], info, enrichments)
+                max_tok = thinking_budget + 1024 if use_thinking else 1024
                 model_input = {
                     'anthropic_version': 'bedrock-2023-05-31',
-                    'max_tokens': 1024,
+                    'max_tokens': max_tok,
                     'messages': [{'role': 'user', 'content': prompt}]
                 }
                 if use_thinking:
