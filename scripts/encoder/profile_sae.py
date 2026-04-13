@@ -148,7 +148,7 @@ def main():
 
     # Load SAE
     print(f"Loading SAE from {args.checkpoint}...")
-    ckpt = torch.load(args.checkpoint, map_location="cpu")
+    ckpt = torch.load(args.checkpoint, map_location="cpu", weights_only=False)
     cfg = ckpt["config"]
     dict_size = cfg["dict_size"]
     k = cfg["k"]
