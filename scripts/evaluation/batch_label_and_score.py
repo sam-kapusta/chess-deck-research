@@ -35,9 +35,10 @@ S3_PREFIX = 'sae-eval'
 MODELS = {
     'haiku': 'us.anthropic.claude-haiku-4-5-20251001-v1:0',
     'sonnet': 'us.anthropic.claude-sonnet-4-20250514-v1:0',
+    'sonnet-4.6': 'us.anthropic.claude-sonnet-4-6-20250620-v1:0',
 }
-LABEL_MODEL = MODELS['haiku']
-SCORE_MODEL = MODELS['haiku']
+LABEL_MODEL = MODELS['sonnet']
+SCORE_MODEL = MODELS['sonnet-4.6']
 
 CATEGORIES = [
     'fork', 'pin_skewer', 'check', 'discovered_attack', 'sacrifice',
@@ -476,7 +477,7 @@ def cmd_score(args):
     bedrock = boto3.client('bedrock', region_name='us-east-1')
     resp = bedrock.create_model_invocation_job(
         roleArn=ROLE_ARN,
-        modelId=SCORE_MODEL,
+        modelId=MODELS.get(getattr(args, 'score_model', None) or '', SCORE_MODEL) if hasattr(args, 'score_model') and args.score_model else SCORE_MODEL,
         jobName=f'chess-sae-detect-{timestamp}',
         inputDataConfig={'s3InputDataConfig': {'s3Uri': s3_uri}},
         outputDataConfig={'s3OutputDataConfig': {'s3Uri': output_uri}},
@@ -628,6 +629,7 @@ def main():
     p_score = sub.add_parser('score')
     p_score.add_argument('--job-arn', required=True, help='Labeling job ARN')
     p_score.add_argument('--profiles-dir', required=True)
+    p_score.add_argument('--score-model', default=None, help='Override score model: haiku, sonnet, sonnet-4.6, or full ID')
 
     p_results = sub.add_parser('results')
     p_results.add_argument('--job-arn', required=True, help='Detection scoring job ARN')
