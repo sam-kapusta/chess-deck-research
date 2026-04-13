@@ -1,24 +1,27 @@
 # Chess Encoder — SAE Feature Pipeline
 
-## Current State (2026-04-12, session 2)
+## Current State (2026-04-13)
 
 **Production SAE:** `puzzle_2048_k32_v1` — filtering by `coaching_useful` flag + `detection_accuracy >= 0.6`. 218 features served.
 
-**Best candidate:** BTK 2048 k=64 + aux loss
-- Dead: 213/2048 (10%), Active: 1835
-- Best detection: Sonnet labels + enriched FENs → Mean BA 0.632, HOLDS 659, STRONG 325, Top-200 0.886
-- 1,872 Sonnet+thinking labels completed. 1,139 mono + high-confidence.
-- 30.6% polysemantic (Sonnet audit) — correlates with uncertainty, not actual polysemanticity.
+**Puzzle SAE champion:** BTK 2048 k=64 + aux, BA=0.632 — ready to deploy (Queue item 2).
 
-**New finding (2026-04-12):** Aux loss fixes k=32 dead features too.
-- 2048 k=32 + aux: 184 dead (9%), 1,864 active — was 1,161 dead (57%) without aux
-- k=32 vs k=64 with aux: similar active count (~1,850), k=32 more selective (L0=32 vs 64)
-- 4096 k=64 + aux: 3,017 active features, but 26% dead
-- 4096 k=32 + aux: 1,188 dead (29%), 2,908 active, FVU=0.126, c_dec=0.041
+**Blunder SAE experiment (active):** 5 move-token variants trained, profiled, labeling in progress.
 
-**Key insight:** Dead features aren't bad — they're unused capacity. 4096 with 26% dead = 3,017 active > 2048 with 10% dead = 1,835 active. Optimize for active count and quality, not dead %.
+| Config | Alive | FVU | FR Median | Energy% | Labeling |
+|--------|-------|-----|-----------|---------|----------|
+| MT 2048 k=32 | 2,031 | 0.115 | 0.87% | ~42% | `ypr3017mqa9s` |
+| MT 2048 k=64 | 2,033 | 0.093 | 2.00% | ~60% | `mjgqyjem1w28` |
+| MT 4096 k=32 | 4,009 | 0.107 | 0.35% | ~42% | `ypr3017mqa9s` |
+| MT 4096 k=64 | 4,027 | 0.085 | 0.84% | ~60% | `mjgqyjem1w28` |
+| MT 4096 k=128 | 4,092 | 0.066 | TBD | ~75% | Profiling |
 
-**Architecture:** Versioned single source of truth. See CLAUDE.md "SAE Labels" section.
+**Key findings this session:**
+- All-token training → 20-31% fire rates (too broad). Move-token-only (hidden[77]) → 0.8-3.1% fire rates.
+- Pre-topk energy analysis: 318 features naturally activate, top-64 captures 60% of energy.
+- BTK batch-level constraint allows variable L0 per position (not forced k per sample).
+
+**Repo structure:** Everything in chess-deck-research now. See README.md.
 
 ## Beliefs
 - [CONFIRMED] BTK is the only viable SAE architecture
@@ -43,6 +46,11 @@
 - [CONFIRMED] 2048 >> 4096 per-feature detection quality. Extra dict capacity doesn't help.
 - [MEASURED] Final: 2048 k=64 + aux = BA 0.632, 659 HOLDS, 325 STRONG. Winner.
 - [UNTESTED] SAE feature diffs improve coaching output (A/B test needed)
+- [CONFIRMED] Move-token-only >> all-token for blunder SAE (fire rate 2% vs 31%)
+- [CONFIRMED] Blunder move tokens produce viable SAE structure (0.4-2.1% dead, FVU 0.066-0.115)
+- [MEASURED] Pre-topk: 318 features naturally activate, top-64 = 60% energy, top-128 = ~75%
+- [OVERTURNED] ~~Puzzles >> blunders for SAE training~~ Previous test was k=32 no-aux all-token. Move-token + aux changes the picture. Labeling pending.
+- [UNTESTED] Blunder SAE features are interpretable (labeling will determine)
 
 ## Queue
 
@@ -73,35 +81,21 @@ Full plan: `lab/chess/website/plans/2026-04-12-deploy-sae-k64.md`
 6. Smoke test locally
 7. Deploy CDK
 
-### 3. Blunder-trained SAE experiment (IN PROGRESS)
-- Previous finding (S32): blunder SAE at k=32 no-aux = 27% confident labels. But that was before aux loss.
-- Hypothesis: k=64 + aux on blunder positions might produce useful "mistake pattern" features
-- **Train on the played (bad) move** — cluster what players do wrong, not what they should've done
-- Data: Lichess position evaluations (844M rows, HuggingFace `Lichess/chess-position-evaluations`)
-  - Filter: eval drop ≥ 200cp (-2.0) from best move to played move
-  - Encode: FEN + played_move (the bad move) → encoder → hidden[77] → cache
-  - Cache 200K blunder activations
-- Scripts committed to chess-deck-research:
-  - `scripts/data_prep/cache_blunder_activations.py` — streams HF, filters, encodes, caches
-  - `scripts/sae/train_blunder_sae.py` — loads cache, trains BTK + aux, saves checkpoint
-- **Status (2026-04-13):** Structural metrics pass. Profiling in progress.
-  - dead=89 (4.3%), alive=1959, L0=64, FVU=0.129, c_dec=0.034
-  - Comparable to puzzle SAE (10% dead, FVU=0.082, c_dec=0.036)
-  - S3: `s3://chess-stage-a-140023406996/sae-weights/sae_btk_blunder_2048_k64_aux.pt`
+### 3. Blunder-trained SAE experiment (IN PROGRESS — labeling)
+- **Hypothesis:** Move-token SAE on blunder moves clusters "what kind of mistake" patterns
+- **Data:** 200K blunders (≥200cp loss) from Lichess eval dataset, move-token cache (804MB)
+- **Scripts:** `cache_move_token.py`, `train_blunder_sae.py`, `profile_sae.py --move-token-only`
+- **All 5 weights on S3** — see `output/S3_INVENTORY.md`
 - Pipeline:
-  1. ✅ Scripts written and committed
-  2. ✅ 200K blunders cached (Phase 1: 13min download, Phase 2: 40min encode, 60GB cache)
-  3. ✅ BTK 2048 k=64 + aux trained (5 epochs, 306s)
-  4. ✅ Structural metrics pass
-  5. ✅ All-token profiling: fire rates too high (31% / 20%). Root cause: training on all 77 tokens instead of move token.
-  6. ✅ **Move-token-only retraining** — built cache_move_token.py, retrained on hidden[77]
-     - MT 2048 k=64: alive=2,033, **fire rate 3.15% mean, 2.00% median** ✅
-     - MT 4096 k=64: alive=4,027, **fire rate 1.59% mean, 0.84% median** ✅
-  7. 🔄 Labeling: move-token batch `mjgqyjem1w28`, all-token batches `wtewr9qxt9gy` + `63ouxzbuzjh2`
-  8. Detection scoring (after labels)
-  - Fixed IAM: SageMaker role can now PassRole for Bedrock Batch
-- Also test: 100K puzzles + 100K blunders mixed training
-- Cheapest test first: structural metrics only (~5 min). If promising, full pipeline.
+  1. ✅ 200K blunders collected from HuggingFace (16.1% hit rate, 13min)
+  2. ✅ Move-token cache built (hidden[77] only, 804MB)
+  3. ✅ 5 variants trained (2048×{k32,k64} + 4096×{k32,k64,k128}), 8-14s each
+  4. ✅ All profiled — fire rates 0.35-3.15% median (all under 5% target)
+  5. 🔄 Labeling: `mjgqyjem1w28` (k=64, InProgress), `ypr3017mqa9s` (k=32, Submitted), k=128 (pending profiling)
+  6. Detection scoring (after labels)
+- **Key question:** Are blunder move-token features interpretable? Previous attempt (k=32 no-aux all-token) got 27% confident labels. This time: move-token + aux + proper k. Labeling will tell.
+- **Natural sparsity:** Pre-topk analysis shows 318 features naturally activate per position. Top-64 captures 60% of energy. k=64 is reasonable middle ground.
+- See `output/blunder_sae_reasoning.md` for full design rationale.
 
 ### 4. Coaching A/B test
 - 50 blunders. Coaching with vs without SAE feature context. Sam rates.
