@@ -77,10 +77,6 @@ class Enc(nn.Module):
             o=torch.einsum("bhtT,bThd->bthd",a,v).reshape(B,T,DIM);x=x+l["o"](o)
             xn=l["lm"](x);x=x+l["d"](F.silu(l["g"](xn))*l["u"](xn))
         return self.fn(x)
-def glk(i): return "layer_norm" if i==0 else "layer_norm_"+str(i)
-def gak(i): return "multi_head_dot_product_attention" if i==0 else "multi_head_dot_product_attention_"+str(i)
-def gmk(i): return "linear" if i==0 else "linear_"+str(i)
-
 # ── SAE ──
 class SAE(nn.Module):
     def __init__(self, di, dd, k):
@@ -128,21 +124,31 @@ def main():
         base = os.path.splitext(os.path.basename(args.checkpoint))[0]
         args.output = os.path.join(os.path.dirname(args.checkpoint), base + "_profiles.json")
 
-    # Load encoder
+    # Load encoder (key names from cache_activations.py — the canonical source)
     print("Loading encoder...")
-    pr=dict(np.load(PARAMS));enc=Enc()
-    with torch.no_grad():
-        enc.te.weight.copy_(torch.tensor(pr["embed/embeddings"]));enc.pe.weight.copy_(torch.tensor(pr["embed_1/embeddings"]))
-        for i,l in enumerate(enc.layers):
-            la,lm=glk(i*2),glk(i*2+1)
-            l["la"].weight.copy_(torch.tensor(pr[la+"/scale"]));l["la"].bias.copy_(torch.tensor(pr[la+"/offset"]))
-            l["lm"].weight.copy_(torch.tensor(pr[lm+"/scale"]));l["lm"].bias.copy_(torch.tensor(pr[lm+"/offset"]))
-            ak=gak(i);l["q"].weight.copy_(torch.tensor(pr[ak+"/linear/w"]).T);l["k"].weight.copy_(torch.tensor(pr[ak+"/linear_1/w"]).T)
-            l["v"].weight.copy_(torch.tensor(pr[ak+"/linear_2/w"]).T);l["o"].weight.copy_(torch.tensor(pr[ak+"/linear_3/w"]).T)
-            mb=i*3;l["g"].weight.copy_(torch.tensor(pr[gmk(mb)+"/w"]).T);l["u"].weight.copy_(torch.tensor(pr[gmk(mb+1)+"/w"]).T)
-            l["d"].weight.copy_(torch.tensor(pr[gmk(mb+2)+"/w"]).T)
-        fl=glk(NL*2);enc.fn.weight.copy_(torch.tensor(pr[fl+"/scale"]));enc.fn.bias.copy_(torch.tensor(pr[fl+"/offset"]))
-    del pr;enc=enc.cuda().eval()
+    p = dict(np.load(PARAMS, allow_pickle=True))
+    enc = Enc()
+    enc.te.weight.data = torch.tensor(p["embed/embeddings"], dtype=torch.float32)
+    enc.pe.weight.data = torch.tensor(p["embed_1/embeddings"], dtype=torch.float32)
+    for i, ly in enumerate(enc.layers):
+        pre = "multi_head_dot_product_attention" if i == 0 else f"multi_head_dot_product_attention_{i}"
+        ln_idx = i * 2
+        ln2_idx = i * 2 + 1
+        ly["la"].weight.data = torch.tensor(p[f"layer_norm_{ln_idx}/scale" if ln_idx > 0 else "layer_norm/scale"], dtype=torch.float32)
+        ly["la"].bias.data = torch.tensor(p[f"layer_norm_{ln_idx}/offset" if ln_idx > 0 else "layer_norm/offset"], dtype=torch.float32)
+        ly["lm"].weight.data = torch.tensor(p[f"layer_norm_{ln2_idx}/scale"], dtype=torch.float32)
+        ly["lm"].bias.data = torch.tensor(p[f"layer_norm_{ln2_idx}/offset"], dtype=torch.float32)
+        for n in "qkvo":
+            full = {"q": "query", "k": "key", "v": "value", "o": "linear"}[n]
+            ly[n].weight.data = torch.tensor(p[f"{pre}/{full}/kernel"], dtype=torch.float32).reshape(DIM, DIM).T
+        ly["g"].weight.data = torch.tensor(p[f"{pre}/mlp/gating_einsum"][0], dtype=torch.float32).T
+        ly["u"].weight.data = torch.tensor(p[f"{pre}/mlp/gating_einsum"][1], dtype=torch.float32).T
+        ly["d"].weight.data = torch.tensor(p[f"{pre}/mlp/linear/kernel"], dtype=torch.float32).T
+    ln_final = NL * 2
+    enc.fn.weight.data = torch.tensor(p[f"layer_norm_{ln_final}/scale"], dtype=torch.float32)
+    enc.fn.bias.data = torch.tensor(p[f"layer_norm_{ln_final}/offset"], dtype=torch.float32)
+    del p
+    enc = enc.cuda().eval()
     print("Encoder loaded.")
 
     # Load SAE
