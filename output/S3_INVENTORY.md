@@ -1,4 +1,4 @@
-# S3 Asset Inventory — SAE Models (2026-04-13)
+# S3 Asset Inventory — SAE Models (2026-04-14)
 
 Bucket: `s3://chess-stage-a-140023406996/`
 Account: 140023406996 (research, default profile)
@@ -44,6 +44,15 @@ s3://chess-stage-a-140023406996/sae-eval/
   profiles_btk_2048_k32_aux.json
   profiles_btk_4096_k64_aux.json
   profiles_btk_4096_k32_aux.json
+```
+
+## Taxonomy (in chess-deck-research repo, not S3)
+
+```
+chess-deck-research/output/
+  feature_taxonomy_v2.json          ← Blunder SAE: 10 categories, 3,529 features, coaching questions
+  puzzle_taxonomy_v1.json           ← Puzzle SAE: 12 raw clusters (use labels.json coaching_category instead)
+  categorization_experiments.md     ← Full 29-experiment log with findings
 ```
 
 ## Labels (in chess-deck-research repo, not S3)
