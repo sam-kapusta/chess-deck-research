@@ -151,7 +151,7 @@ def main():
 
         groups.append(sorted(clique))
         for c in clique:
-            ungrouped.discard(c)
+            ungrouped[c] = False
 
     # Separate singletons from real groups
     real_groups = [g for g in groups if len(g) > 1]
