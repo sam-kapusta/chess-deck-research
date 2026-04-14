@@ -350,3 +350,21 @@ Piece retreats should be its own category — 10 unassigned features share this 
 
 ~163 features in smaller clusters (captures, pins, diagonal, engine) — merge into nearest or create "Other Tactics."
 ~44% of features get a secondary category assignment (multi-tag).
+
+---
+
+## Research Status: COMPLETE (2026-04-14)
+
+27 experiments across 2 SAEs (blunder 2048 k=32, puzzle 2048 k=64). All scripts committed, all results recorded.
+
+**What we built:**
+- 10-category coaching taxonomy for blunder SAE (`feature_taxonomy_v2.json`, 3,529 features assigned)
+- 12-category taxonomy sketch for puzzle SAE (`puzzle_taxonomy_v1.json`)
+- Severity × taxonomy coaching map
+- 14 validated findings about how SAE features organize
+
+**What's next (requires engineering, not more experiments):**
+1. Deploy puzzle SAE k=64 (committed, needs CDK deploy)
+2. Wire taxonomy into product coaching UI (categories, coaching questions)
+3. Encode Sam's Chess.com games for player-specific profiles
+4. Coaching A/B test (with vs without SAE feature context)
