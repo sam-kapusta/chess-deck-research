@@ -225,9 +225,21 @@ Piece retreats should be its own category — 10 unassigned features share this 
 - At k=12 purity reaches 70.9% with finer deflection splits
 **Interpretation:** The mega-cluster has exactly 2 main coaching themes: "scan for undefended pieces" vs "check if defenders are stretched." This is a meaningful coaching distinction — different scanning habits.
 
+## Experiment 22: Taxonomy validation (spot-check + similarity)
+**Hypothesis:** The taxonomy correctly categorizes >85% of features.
+**Prediction:** >4/5 correct per sample, within/cross similarity ratio >2x.
+**Test:** 5 random features per category (human review) + TF-IDF similarity metrics. Script: `exp22_taxonomy_validation.py`
+**Result:** PARTIALLY CONFIRMED.
+- Spot check: labels clearly match categories (all 17 categories look correct from labels)
+- Within/cross ratio: only 1.33x (below 2x threshold)
+- Problem 1: "Mixed Tactical" too close to Hanging (0.54) and Overloaded (0.52) — should merge
+- Problem 2: 7 tiny clusters (7-16 features) don't have enough mass to be distinct
+- Problem 3: Opening Play and Piece Activity overlap (0.47)
+**Interpretation:** The labels are correct but 17 categories is too many. Need to merge small clusters into nearest neighbor. The 10-category proposal is the right granularity.
+
 ## Pending
-- **Exp 22:** Validate final taxonomy against human coaching intuition (spot-check 50 features)
-- **Exp 23:** Build Sam-specific cache from Chess.com games, test player-specific patterns
+- **Exp 23:** Merge small clusters → 10 categories, re-validate similarity ratio
+- **Exp 24:** Build Sam-specific cache from Chess.com games
 
 ---
 
