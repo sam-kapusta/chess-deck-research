@@ -805,6 +805,14 @@ def cmd_label_game(args):
 
     print(f"  Encoded {n_encoded} positions, found {len(feature_positions)} active features")
 
+    # Load profiles if provided (for better labeling quality)
+    training_profiles = None
+    if hasattr(args, 'profiles') and args.profiles:
+        print(f"Loading training profiles from {args.profiles}...")
+        with open(args.profiles) as f:
+            training_profiles = json.load(f)
+        print(f"  {len(training_profiles)} feature profiles available")
+
     # Sort features by number of positions (most common first)
     sorted_features = sorted(feature_positions.items(), key=lambda x: -len(x[1]))
 
@@ -813,7 +821,23 @@ def cmd_label_game(args):
     labels = {}
     for i, (fid, positions) in enumerate(sorted_features[: args.max_features]):
         positions_sorted = sorted(positions, key=lambda x: -x["strength"])
-        prompt = build_labeling_prompt(fid, positions_sorted)
+
+        # If we have training profiles, use those for primary examples (better quality)
+        # and add game positions as extra context
+        if training_profiles and str(fid) in training_profiles:
+            prof = training_profiles[str(fid)]
+            training_examples = prof.get("examples", [])[:15]
+            # Build prompt from training data
+            prompt = build_labeling_prompt(fid, training_examples)
+            # Append game context
+            game_ctx = "\n\n=== GAME CONTEXT (this feature also fires on these moves in a specific game) ===\n"
+            for p in positions_sorted[:5]:
+                cls = p.get("classification", "")
+                marker = f" **{cls.upper()}**" if cls in ("blunder", "mistake") else ""
+                game_ctx += f"  ply={p.get('ply',0)} FEN={p['fen'][:55]}  move={p['uci']}  cp_loss={p.get('cp_loss',0)}{marker}\n"
+            prompt += game_ctx
+        else:
+            prompt = build_labeling_prompt(fid, positions_sorted)
 
         try:
             response_text = call_bedrock_converse(prompt, model_id=args.model or BEDROCK_MODEL)
@@ -947,6 +971,10 @@ Examples:
     p_game.add_argument(
         "--classifications",
         help="Comma-separated move classifications to include (default: blunder,mistake,inaccuracy)",
+    )
+    p_game.add_argument(
+        "--profiles",
+        help="Profiles JSON from 'profile' step. When provided, uses training examples for labeling (better quality).",
     )
 
     args = parser.parse_args()
