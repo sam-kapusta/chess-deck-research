@@ -186,12 +186,25 @@ Respond as JSON array: [{{"ply": N, "narrative": "..."}}]"""
 
 # ── Feature labeling with profile examples ──
 
-LABEL_PROMPT = """Chess SAE feature. {examples}
-Move {ply}: Blunder: {played} ({side}). Best: {best}. Loss: {cp_loss}cp. FEN: {fen}
-Feature fires on {move_type}. Respond: {{"label":"2-5 words","category":"king_safety|hanging_pieces|forks|pins|skewers|discovered_attacks|back_rank|checkmate_patterns|overloaded_defenders|quiet_moves|trapped_pieces|sacrifice|passed_pawns|rook_endgames|pawn_endgames|other","confidence":"high|medium|low","piece":"pawn|knight|bishop|rook|queen|king|mixed"}}"""
+LABEL_PROMPT = """Chess SAE feature on blunder position.
+{examples}Move {ply}: FEN: {fen}
+Blunder: {played} ({side}). Best: {best}. Loss: {cp_loss}cp.
+Feature fires on {move_type} NOT the other.
 
-LABEL_PROMPT_NO_PROFILES = """Chess SAE feature. Blunder: {played} ({side}). Best: {best}. Loss: {cp_loss}cp. Strength: {strength}. FEN: {fen}
-Feature fires on {move_type}. Respond: {{"label":"2-5 words","category":"king_safety|hanging_pieces|forks|pins|skewers|discovered_attacks|back_rank|checkmate_patterns|overloaded_defenders|quiet_moves|trapped_pieces|sacrifice|passed_pawns|rook_endgames|pawn_endgames|other","confidence":"high|medium|low","piece":"pawn|knight|bishop|rook|queen|king|mixed"}}"""
+Three lines only:
+LABEL: <2-5 words>
+CATEGORY: <king_safety|hanging_pieces|forks|pins|skewers|discovered_attacks|back_rank|checkmate_patterns|overloaded_defenders|quiet_moves|trapped_pieces|sacrifice|passed_pawns|rook_endgames|pawn_endgames|other>
+PIECE: <pawn|knight|bishop|rook|queen|king|mixed>"""
+
+LABEL_PROMPT_NO_PROFILES = """Chess SAE feature on blunder position.
+FEN: {fen}
+Blunder: {played} ({side}). Best: {best}. Loss: {cp_loss}cp. Strength: {strength}.
+Feature fires on {move_type} NOT the other.
+
+Three lines only:
+LABEL: <2-5 words>
+CATEGORY: <king_safety|hanging_pieces|forks|pins|skewers|discovered_attacks|back_rank|checkmate_patterns|overloaded_defenders|quiet_moves|trapped_pieces|sacrifice|passed_pawns|rook_endgames|pawn_endgames|other>
+PIECE: <pawn|knight|bishop|rook|queen|king|mixed>"""
 
 
 import threading
@@ -237,7 +250,7 @@ def label_one_feature(fid, mistake, on_played, strength, profiles, client):
             resp = bedrock.converse(
                 modelId=BEDROCK_MODEL,
                 messages=[{'role': 'user', 'content': [{'text': prompt}]}],
-                inferenceConfig={'maxTokens': 60},
+                inferenceConfig={'maxTokens': 40},
             )
             text = resp['output']['message']['content'][0]['text']
 
@@ -257,13 +270,15 @@ def label_one_feature(fid, mistake, on_played, strength, profiles, client):
                 except json.JSONDecodeError:
                     pass
 
-            # Fallback: LABEL/CATEGORY format
+            # Fallback: LABEL/CATEGORY/PIECE format
             label_match = re.search(r'LABEL:\s*(.+)', text)
             cat_match = re.search(r'CATEGORY:\s*(\S+)', text)
+            piece_match = re.search(r'PIECE:\s*(\S+)', text)
             if label_match:
                 return fid, {
                     'label': label_match.group(1).strip(),
                     'category': cat_match.group(1).strip() if cat_match else 'other',
+                    'piece': piece_match.group(1).strip() if piece_match else 'mixed',
                     'on_played': on_played,
                     'strength': strength,
                 }
