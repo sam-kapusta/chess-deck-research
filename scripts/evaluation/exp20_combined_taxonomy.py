@@ -209,9 +209,9 @@ def main():
         'method': 'text_clustering_k15_tfidf',
         'n_features': len(quality_fids),
         'n_categories': K,
-        'categories': {s['name']: {'id': s['id'], 'size': s['size'],
+        'categories': {s['name']: {'id': int(s['id']), 'size': int(s['size']),
                                     'top_sonnet_category': s['top_category'],
-                                    'purity': round(s['purity'], 3),
+                                    'purity': round(float(s['purity']), 3),
                                     'words': s['top_words']}
                        for s in cluster_summaries},
         'assignments': assignments,
