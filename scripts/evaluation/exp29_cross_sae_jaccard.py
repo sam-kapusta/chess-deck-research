@@ -65,8 +65,13 @@ def main():
     print(f'Blunder SAE: {b_dd} features, k={b_k}')
 
     # Load puzzle SAE
-    puzzle_sae, p_mean, p_std, p_dd, p_k = load_sae(
-        '/home/ec2-user/SageMaker/chess-stage-a/output/blunder_sae/sae_btk_2048_k64.pt')
+    # Download puzzle SAE if not local
+    import os, subprocess
+    puzzle_path = '/home/ec2-user/SageMaker/chess-stage-a/sae_btk_2048_k64.pt'
+    if not os.path.exists(puzzle_path):
+        subprocess.run(['aws', 's3', 'cp', 's3://chess-stage-a-140023406996/sae-weights/sae_btk_2048_k64.pt',
+                        puzzle_path], check=True)
+    puzzle_sae, p_mean, p_std, p_dd, p_k = load_sae(puzzle_path)
     print(f'Puzzle SAE: {p_dd} features, k={p_k}')
 
     # Run both SAEs on same data
