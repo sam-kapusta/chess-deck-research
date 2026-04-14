@@ -163,8 +163,15 @@
 - One standout: endgame cluster 6 (Q vs R endgame, 83% purity, cos=0.178) — specific endgame techniques cluster well by decoder weights
 **Interpretation:** Tactical features don't cluster well by ANY method tested (fire patterns Exp 7-8, Louvain Exp 8, cliques Exp 9, decoder weights Exp 16). This isn't a method problem — it's the features themselves. Tactical concepts genuinely overlap. The SAE learned features that cross human category boundaries (a "hanging piece" feature fires on positions that are also "overloaded defenders"). For coaching categories, we should NOT try to cluster tactical features — instead use the LLM labels directly (short_label taxonomy) and accept that features can belong to multiple categories.
 
+## Experiment 17: Player-specific blunder patterns
+**Hypothesis:** Sam's blunder features differ from population baseline.
+**Prediction:** >20 features fire >2x more in Sam's games vs baseline.
+**Test:** Compare fire rates for Sam's rating cohort (1600-2000) vs rest. Script: `exp17_player_profile.py`
+**Result:** BLOCKED. The blunder cache (Lichess eval dataset) has no player/rating metadata — only FEN, moves, and eval. Cannot segment by player or rating.
+**Next:** Need to build a player-specific cache by encoding Sam's Chess.com games through the encoder. This is engineering work, not a quick experiment.
+
 ## Pending
-- **Exp 17:** Run on Sam's actual games — which features are over-represented in his blunders vs baseline?
+- **Exp 18:** Build Sam-specific cache from Chess.com games, re-run exp 17
 
 ---
 
