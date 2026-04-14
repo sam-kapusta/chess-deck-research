@@ -193,7 +193,7 @@ FEN: {fen}
 Played move ({side}, blunder): {played}
 Best move: {best}
 CP loss: {cp_loss}
-The feature fires on the {'PLAYED' if on_played else 'BEST'} move but NOT the other.
+The feature fires on the {move_type} move but NOT the other.
 
 What specific chess pattern does this feature detect?
 
@@ -208,7 +208,7 @@ Played move ({side}, blunder): {played}
 Best move: {best}
 CP loss: {cp_loss}
 Activation strength: {strength}
-The feature fires on the {'PLAYED' if on_played else 'BEST'} move but NOT the other.
+The feature fires on the {move_type} move but NOT the other.
 
 What specific chess pattern does this feature detect?
 
@@ -230,17 +230,18 @@ def label_one_feature(fid, mistake, on_played, strength, profiles, client):
             examples_text += f"Best: {ex.get('best', ex.get('best_uci', '?'))}  "
             examples_text += f"CP loss: {ex.get('cp_loss', '?')}  Strength: {ex.get('strength', '?')}\n"
 
+    move_type = 'PLAYED' if on_played else 'BEST'
     if examples_text:
         prompt = LABEL_PROMPT.format(
             fid=fid, examples=examples_text, ply=mistake['ply'],
             fen=mistake['fen'], played=mistake['uci'], best=mistake['best_uci'],
-            cp_loss=mistake['cp_loss'], side=mistake['side'], on_played=on_played,
+            cp_loss=mistake['cp_loss'], side=mistake['side'], move_type=move_type,
         )
     else:
         prompt = LABEL_PROMPT_NO_PROFILES.format(
             fen=mistake['fen'], played=mistake['uci'], best=mistake['best_uci'],
             cp_loss=mistake['cp_loss'], side=mistake['side'], strength=strength,
-            on_played=on_played,
+            move_type=move_type,
         )
 
     try:
