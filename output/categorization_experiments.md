@@ -325,8 +325,19 @@ Piece retreats should be its own category — 10 unassigned features share this 
 - Small clusters: critical moments (10), engine moves (6), heavy pieces (7)
 - **DECISION:** Split Forcing Moves into "Forcing Sequences" (487) and "Material Wins" (101). Don't force further.
 
+## Experiment 29: Cross-SAE Jaccard (puzzle vs blunder)
+**Hypothesis:** The two SAEs capture different patterns.
+**Test:** Run both SAEs on same 10K blunder positions, compute cross-Jaccard. Script: `exp29_cross_sae_jaccard.py`
+**Result:** SAEs are **COMPLEMENTARY** — almost zero overlap.
+- Only **1 pair** at Jaccard ≥0.8 (a "capturing hanging pieces" feature)
+- Mean best match: B→P = 0.181, P→B = 0.211
+- **87.6% of blunder features** have no match ≥0.3 in puzzle SAE
+- **82.2% of puzzle features** have no match ≥0.3 in blunder SAE
+- vs Sandstone cross-architecture: Sandstone SAEs had significant overlap. Chess SAEs have almost none.
+**Interpretation:** Blunder SAE fires on wrong-move patterns, puzzle SAE on right-move patterns. They encode the same positions from opposite perspectives. Both are worth keeping — they give different coaching signals ("what you did wrong" vs "what you should've done").
+
 ## Pending
-- **Exp 29:** Build Sam-specific cache from Chess.com games
+- **Exp 30:** Build Sam-specific cache from Chess.com games
 
 ---
 
