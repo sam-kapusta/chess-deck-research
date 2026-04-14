@@ -68,10 +68,25 @@ CATEGORIES = {
 
 PIECES = ["pawn", "knight", "bishop", "rook", "queen", "king", "mixed"]
 PHASES = ["opening", "middlegame", "endgame", "all_phases"]
+
+# Import structured prompts
+try:
+    from structured_label_prompt import (
+        build_batch_prompt, build_batch_records as _build_batch_records,
+        build_game_prompt, BATCH_SYSTEM_PROMPT, build_revision_prompt,
+    )
+    HAS_STRUCTURED_PROMPTS = True
+except ImportError:
+    HAS_STRUCTURED_PROMPTS = False
 SIDES = ["white_playing", "black_playing", "either_side"]
 
 
-def build_labeling_prompt(feature_id, positive_examples, negative_examples=None):
+def build_labeling_prompt(feature_id, positive_examples, negative_examples=None, use_system_prompt=False):
+    """Build labeling prompt. If use_system_prompt=True, returns (system, user) tuple."""
+    if HAS_STRUCTURED_PROMPTS and use_system_prompt:
+        return build_batch_prompt(feature_id, positive_examples, negative_examples)
+
+    # Fallback: original inline prompt (for backward compat)
     """Build structured labeling prompt for one SAE feature."""
     cat_list = "\n".join(f"  - {k}: {v}" for k, v in CATEGORIES.items())
 
@@ -506,18 +521,30 @@ def cmd_label(args):
     eligible = {k: v for k, v in profiles.items() if len(v.get("examples", [])) >= min_examples}
     print(f"  {len(eligible)}/{len(profiles)} features have >= {min_examples} examples")
 
-    # Build JSONL records
+    # Build JSONL records — use Sandstone-style system prompt if available
     records = []
     for fid_str, prof in sorted(eligible.items(), key=lambda x: int(x[0])):
-        prompt = build_labeling_prompt(fid_str, prof["examples"])
-        record = {
-            "recordId": f"label_{fid_str}",
-            "modelInput": {
-                "anthropic_version": "bedrock-2023-05-31",
-                "max_tokens": 400,
-                "messages": [{"role": "user", "content": prompt}],
-            },
-        }
+        if HAS_STRUCTURED_PROMPTS:
+            system, user = build_labeling_prompt(fid_str, prof["examples"], use_system_prompt=True)
+            record = {
+                "recordId": f"label_{fid_str}",
+                "modelInput": {
+                    "anthropic_version": "bedrock-2023-05-31",
+                    "max_tokens": 1000,
+                    "system": system,
+                    "messages": [{"role": "user", "content": user}],
+                },
+            }
+        else:
+            prompt = build_labeling_prompt(fid_str, prof["examples"])
+            record = {
+                "recordId": f"label_{fid_str}",
+                "modelInput": {
+                    "anthropic_version": "bedrock-2023-05-31",
+                    "max_tokens": 400,
+                    "messages": [{"role": "user", "content": prompt}],
+                },
+            }
         records.append(record)
 
     print(f"Built {len(records)} labeling prompts")
