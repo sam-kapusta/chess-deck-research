@@ -44,10 +44,12 @@ DEFAULT_ENCODER = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 
 DEFAULT_MOVE_MAP = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..',
     'chess-coach', 'backend', 'lambda', 'sae_features', 'data', 'move_to_action.json'))
 MODELS = {
-    'sonnet': 'us.anthropic.claude-sonnet-4-20250514-v1:0',
-    'haiku': 'us.anthropic.claude-haiku-4-5-20251001-v1:0',
+    'sonnet': 'global.anthropic.claude-sonnet-4-6',
+    'sonnet-us': 'us.anthropic.claude-sonnet-4-6',
+    'sonnet4': 'us.anthropic.claude-sonnet-4-20250514-v1:0',
+    'haiku': 'global.anthropic.claude-haiku-4-5-20251001-v1:0',
 }
-BEDROCK_MODEL = MODELS['sonnet']  # default
+BEDROCK_MODEL = MODELS['sonnet']  # default — Sonnet 4.6 global
 
 
 # ── Tokenizer ──
