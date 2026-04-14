@@ -188,39 +188,24 @@ Respond as JSON array: [{{"ply": N, "narrative": "..."}}]"""
 
 # ── Feature labeling with profile examples ──
 
-LABEL_PROMPT = """Analyze SAE feature F{fid}. This feature fires on chess blunder positions.
-
-=== TOP ACTIVATIONS FROM 200K TRAINING POSITIONS ===
+LABEL_PROMPT = """Chess SAE feature on blunder position.
 {examples}
+Game move {ply}: FEN: {fen}
+Blunder: {played} ({side}). Best: {best}. Loss: {cp_loss}cp.
+Feature fires on {move_type} NOT the other.
 
-=== GAME CONTEXT ===
-This feature fires on move {ply} in a specific game.
+Two lines only:
+LABEL: <2-5 words>
+CATEGORY: <king_safety|hanging_pieces|forks|pins|skewers|discovered_attacks|back_rank|checkmate_patterns|overloaded_defenders|quiet_moves|trapped_pieces|sacrifice|passed_pawns|rook_endgames|pawn_endgames|other>"""
+
+LABEL_PROMPT_NO_PROFILES = """Chess SAE feature on blunder position.
 FEN: {fen}
-Played move ({side}, blunder): {played}
-Best move: {best}
-CP loss: {cp_loss}
-The feature fires on the {move_type} move but NOT the other.
+Blunder: {played} ({side}). Best: {best}. Loss: {cp_loss}cp. Strength: {strength}.
+Feature fires on {move_type} NOT the other.
 
-What specific chess pattern does this feature detect?
-
-Respond ONLY with this format:
-LABEL: 2-5 word specific label
-CATEGORY: one of [hanging_pieces, overloaded_defenders, forks, pins, skewers, discovered_attacks, back_rank, king_safety, passed_pawns, rook_endgames, pawn_endgames, checkmate_patterns, quiet_moves, trapped_pieces, sacrifice, other]"""
-
-LABEL_PROMPT_NO_PROFILES = """This SAE feature fires on a chess blunder position.
-
-FEN: {fen}
-Played move ({side}, blunder): {played}
-Best move: {best}
-CP loss: {cp_loss}
-Activation strength: {strength}
-The feature fires on the {move_type} move but NOT the other.
-
-What specific chess pattern does this feature detect?
-
-Respond ONLY with this format:
-LABEL: 2-5 word specific label
-CATEGORY: one of [hanging_pieces, overloaded_defenders, forks, pins, skewers, discovered_attacks, back_rank, king_safety, passed_pawns, rook_endgames, pawn_endgames, checkmate_patterns, quiet_moves, trapped_pieces, sacrifice, other]"""
+Two lines only:
+LABEL: <2-5 words>
+CATEGORY: <king_safety|hanging_pieces|forks|pins|skewers|discovered_attacks|back_rank|checkmate_patterns|overloaded_defenders|quiet_moves|trapped_pieces|sacrifice|passed_pawns|rook_endgames|pawn_endgames|other>"""
 
 
 def label_one_feature(fid, mistake, on_played, strength, profiles, client):
@@ -254,7 +239,7 @@ def label_one_feature(fid, mistake, on_played, strength, profiles, client):
         resp = client.converse(
             modelId=BEDROCK_MODEL,
             messages=[{'role': 'user', 'content': [{'text': prompt}]}],
-            inferenceConfig={'maxTokens': 100},
+            inferenceConfig={'maxTokens': 30},
         )
         text = resp['output']['message']['content'][0]['text']
         label_match = re.search(r'LABEL:\s*(.+)', text)
@@ -267,6 +252,7 @@ def label_one_feature(fid, mistake, on_played, strength, profiles, client):
                 'strength': strength,
             }
     except Exception as e:
+        print(f"    LABEL ERROR F{fid}: {e}", file=sys.stderr)
         return fid, None
 
     return fid, None
