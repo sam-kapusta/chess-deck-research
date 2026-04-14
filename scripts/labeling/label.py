@@ -379,9 +379,20 @@ def cmd_profile(args):
     print(f"Loading cache from {args.cache}...")
     cache = torch.load(args.cache, map_location="cpu", weights_only=False)
 
-    # Cache format: token_acts (N, 77, 1024) or flat (N, 1024), + fens, + mean/std
-    acts_tensor = cache["token_acts"]
-    fens = cache["fens"]
+    # Cache format varies:
+    #   puzzle: token_acts (N, 77, 1024) + fens
+    #   blunder move-token: blunder_mt (N, 1024) + metadata
+    extra_meta = None
+    if "token_acts" in cache:
+        acts_tensor = cache["token_acts"]
+        fens = cache.get("fens", [])
+    elif "blunder_mt" in cache:
+        acts_tensor = cache["blunder_mt"]
+        metadata = cache.get("metadata", [])
+        fens = [m.get("fen", "") if isinstance(m, dict) else "" for m in metadata]
+        extra_meta = metadata  # keep full metadata for blunder/best/cp_loss
+    else:
+        raise ValueError(f"Unknown cache format. Keys: {list(cache.keys())}")
     cache_mean = cache.get("mean")
     cache_std = cache.get("std")
 
@@ -463,6 +474,11 @@ def cmd_profile(args):
                     "fen": fens[idx] if idx < len(fens) else f"position_{idx}",
                     "strength": round(s, 4),
                     "position_index": idx,
+                    **({"uci": extra_meta[idx].get("blunder_uci", ""),
+                        "best_uci": extra_meta[idx].get("best_uci", ""),
+                        "cp_loss": extra_meta[idx].get("cp_loss", 0)}
+                       if extra_meta and idx < len(extra_meta) and isinstance(extra_meta[idx], dict)
+                       else {}),
                 }
                 for s, idx in examples
             ],
