@@ -372,9 +372,23 @@ Piece retreats should be its own category — 10 unassigned features share this 
 - **SAE's real value is cross-game aggregation, not per-move explanation**
 - **Winner: blunder-512-k8** (fewest parameters, same quality as larger dicts)
 
+## Experiment 36: 3-game, 3-SAE comparison (256-k4, 512-k4, 512-k8) with Sonnet 4.6
+**Games:** Vienna Game (tactical), Rook Endgame, Mixed (queen/pawns/captures)
+**Method:** Stockfish → Sonnet narrative (no SAE) → SAE diff features → label top-4 per side with Sonnet 4.6 (global, maxTokens=30)
+**Result:**
+- All SAEs correctly identify chess concepts across game types (king_safety in tactical, rook_endgames in endgame, hanging_pieces for missed captures)
+- k=4 produces 2-4 diff features per side (tight, focused). k=8 produces 3-8 (more noise).
+- 256-k4: 6 categories, caught "pin to the king" on Qe7+
+- 512-k4: 5 categories, caught "rook infiltration to 2nd rank" but blind spot on Move 43 (0 diff)
+- 512-k8: 7 categories, most diverse but king_safety dominates (33/70 labels)
+- **Timing: ~46s per game** (9s narrative + 3s encode + 34s labeling, all parallel)
+- **All three produce correct, useful analysis. k=4 is cleaner, k=8 catches subtle moves.**
+
+**DECISION:** 512-k4 for cross-game profiling (tight diffs, less noise). Consider k=8 for per-move coaching (catches subtle distinctions). Dict size doesn't matter at k=4 (256 vs 512 nearly identical, 512 avoids blind spots).
+
 ## Pending
-- **Exp 36:** Test on a second game to confirm findings
-- **Exp 37:** Cross-game aggregation test — run SAE on 50+ games, build weakness profile
+- **Exp 37:** Cross-game aggregation test — run 512-k4 on 50+ games, build weakness profile
+- **Exp 38:** Train puzzle SAE at k=4 on move token (the puzzle SAE is still on all-token)
 
 ---
 
