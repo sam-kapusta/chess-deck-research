@@ -285,8 +285,22 @@ Piece retreats should be its own category — 10 unassigned features share this 
 - Categories that transfer cleanly: Back Rank, Discovered Attacks, Passed Pawns, Overloaded Defenders
 **Interpretation:** The taxonomy is blunder-specific — it reflects what mistakes look like, not what solutions look like. Puzzles need an 11th category: Checkmate Patterns. The "Forcing Moves" bucket also needs sub-clustering for the puzzle SAE. This is expected — blunders and solutions activate different parts of the same conceptual space.
 
+## Experiment 26: Puzzle SAE taxonomy (12 clusters)
+**Hypothesis:** Puzzle SAE needs Checkmate + Forcing sub-clustering.
+**Prediction:** Checkmate >80% purity, Forcing splits into 2-3 themes.
+**Test:** TF-IDF cluster puzzle labels at k=12. Script: `exp26_puzzle_taxonomy.py`
+**Result:** PARTIALLY CONFIRMED. Checkmate cluster exists (366 features, 59% purity — not 80% because back_rank mixes in). Natural puzzle categories:
+- Forcing Moves (572, 63%) — the biggest by far, puzzles are tactical
+- Forks/Checks (376, 55%) — double attacks and checks
+- Checkmate/Back Rank (366, 59%) — mating patterns
+- Endgame Technique (200, 50%) — passed pawns + king activity
+- Hanging Material (118, 66%) — capturing undefended pieces
+- Overloaded Defenders (57, 68%) — deflection
+- Rook Endgames (51) + small clusters
+**Interpretation:** Puzzle SAE is dominated by 3 tactical categories (Forcing, Forks, Checkmate = 73% of features). Blunder SAE is dominated by 2 oversight categories (Hanging, Overloaded = 41%). Same coaching vocabulary, different emphasis. The product should use the blunder taxonomy for "what went wrong" and puzzle taxonomy for "what to practice."
+
 ## Pending
-- **Exp 26:** Build Sam-specific cache from Chess.com games
+- **Exp 27:** Build Sam-specific cache from Chess.com games
 
 ---
 
