@@ -197,16 +197,14 @@ def load_sae(checkpoint_path):
         sae.load_state_dict(state, strict=False)
 
     # Normalization — may be at top level or under normalization.*
-    mean = (
-        ckpt.get("mean")
-        or ckpt.get("normalization.mean")
-        or (ckpt.get("normalization", {}) or {}).get("mean")
-    )
-    std = (
-        ckpt.get("std")
-        or ckpt.get("normalization.std")
-        or (ckpt.get("normalization", {}) or {}).get("std")
-    )
+    mean = ckpt.get("mean")
+    if mean is None:
+        norm = ckpt.get("normalization", {}) or {}
+        mean = norm.get("mean")
+    std = ckpt.get("std")
+    if std is None:
+        norm = ckpt.get("normalization", {}) or {}
+        std = norm.get("std")
 
     if mean is not None:
         if isinstance(mean, np.ndarray):
@@ -511,7 +509,7 @@ def cmd_label(args):
     # Write JSONL to temp file, upload to S3
     import tempfile
 
-    ts = time.strftime("%Y%m%d_%H%M%S")
+    ts = time.strftime("%Y%m%d-%H%M%S")
     s3_input_key = f"{BEDROCK_S3_PREFIX}/{ts}/input.jsonl"
     s3_output_key = f"{BEDROCK_S3_PREFIX}/{ts}/output/"
 
