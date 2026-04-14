@@ -312,8 +312,21 @@ Piece retreats should be its own category — 10 unassigned features share this 
   - Mild+Tactical → "Practice basic pattern recognition"
   - Severe+Endgame → "Study specific endgame technique (rook endgames, passed pawns)"
 
+## Experiment 28: Sandstone-style Jaccard dedup + Forcing Moves sub-cluster
+**Part A — Blunder SAE dedup (Jaccard ≥0.8):**
+- 1,510 quality features, **zero pairs at Jaccard ≥0.8**. Max Jaccard = 0.62. Only 5 pairs reach 0.6.
+- Mean Jaccard = 0.007, median = 0.000, 99th percentile = 0.105.
+- vs Sandstone (2048 k=128): 62% removed at 0.8 threshold. Chess blunder SAE: 0% removed.
+- Chess features are dramatically less redundant — k=32 forces features to be more selective.
+
+**Part B — Puzzle "Forcing Moves" sub-cluster (611 features):**
+- At k=5: one mega-cluster (487, "general forcing"), one meaningful sub-cluster: **Material Wins** (101, "decisive material gains")
+- The 487-feature core is genuinely one concept ("find the forcing sequence") that doesn't sub-divide cleanly
+- Small clusters: critical moments (10), engine moves (6), heavy pieces (7)
+- **DECISION:** Split Forcing Moves into "Forcing Sequences" (487) and "Material Wins" (101). Don't force further.
+
 ## Pending
-- **Exp 28:** Build Sam-specific cache from Chess.com games
+- **Exp 29:** Build Sam-specific cache from Chess.com games
 
 ---
 
