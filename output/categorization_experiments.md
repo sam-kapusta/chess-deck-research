@@ -103,11 +103,24 @@
 - But top-1 carries only 9.7% of total activation — blunders are flat across features
 **Interpretation:** No single feature dominates any position. The 32 active features per position are roughly equal weight.
 
-## Experiment 12: Phase-specific clustering (PENDING)
+## Experiment 12: Phase-specific clustering
 **Hypothesis:** Endgame-specific features cluster cleanly, phase-neutral don't.
 **Prediction:** Endgame cluster mean Jaccard >0.15, phase-neutral <0.05.
 **Test:** Split by phase, cluster separately. Script: `phase_cluster_test.py`
-**Result:** (running)
+**Result:** CONFIRMED.
+- Endgame: 166 features → 5 communities, mean Jaccard **0.199** ✅
+- Opening: 115 features → 7 communities, Jaccard 0.068
+- Middlegame: 47 features → 12 communities, Jaccard 0.036
+- Phase-neutral: 169 features → 14 communities, Jaccard **0.054** ✅
+- Endgame communities include: N+B vs K (Jaccard 0.26), Q vs R (0.31), R+P endgame (0.34)
+- Two large endgame communities (56, 54 features) have low Jaccard (0.06, 0.02) — need sub-clustering
+
+## Pending experiments
+- **Exp 13:** Sub-cluster the two large endgame communities at higher resolution
+- **Exp 14:** Within opening-specific features, do they separate by opening type (e4 vs d4 vs Sicilian)?
+- **Exp 15:** For phase-neutral features, does activation strength (not binary fire) produce cleaner separation?
+- **Exp 16:** Test decoder weight clustering as an alternative to fire-pattern clustering
+- **Exp 17:** Run on Sam's actual games — which features are over-represented in his blunders vs baseline?
 
 ---
 
