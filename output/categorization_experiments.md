@@ -358,9 +358,23 @@ Piece retreats should be its own category — 10 unassigned features share this 
 | 1024 k=8 -aux | 175 | 83% | 0.240 | 47% | 149 |
 | **512 k=8 -aux** | **143** | **72%** | **0.250** | **59%** | **125** |
 
+## Experiment 35: 6-Way SAE comparison on a real game (game 166660084296)
+**Question:** Which SAE produces the best diff signal on real blunders?
+**Method:** Stockfish analysis → Sonnet narrative (ground truth) → encode played+best for each mistake → run all 6 SAEs → label top-4 diff features per side with Haiku
+**SAEs tested:** blunder-512-k8, blunder-1024-k8, blunder-2048-k8, blunder-2048-k32, blunder-2048-k64, puzzle-2048-k64
+**Result:**
+- All k=8 SAEs produce ~11 diff features per game (vs 53 at k=32, 100 at k=64)
+- **Dict size doesn't matter at k=8** — 512, 1024, 2048 all produce nearly identical structural results
+- k=8 diff features are high-strength (10-16) with diverse categories (8 types)
+- k=32+ drowns signal in redundant "overloaded pieces" labels (Move 29: 4× identical)
+- Puzzle SAE on blunders: weak activations (<2.1), 44+ noisy diffs — wrong tool for the job
+- **Sonnet without SAE is already good at explaining individual moves** — SAE adds occasional new angles (back rank, pins) but doesn't consistently beat plain LLM analysis
+- **SAE's real value is cross-game aggregation, not per-move explanation**
+- **Winner: blunder-512-k8** (fewest parameters, same quality as larger dicts)
+
 ## Pending
-- **Exp 35:** Label 512 k=8 variant — do 16 themes emerge from 143 features?
-- **Exp 36:** Build Sam-specific cache from Chess.com games
+- **Exp 36:** Test on a second game to confirm findings
+- **Exp 37:** Cross-game aggregation test — run SAE on 50+ games, build weakness profile
 
 ---
 
