@@ -40,7 +40,7 @@ DEFAULT_MOVE_MAP = CHESS_COACH_ROOT / "backend" / "lambda" / "sae_features" / "d
 
 # ── Bedrock config ──────────────────────────────────────────────────────────
 
-BEDROCK_MODEL = "us.anthropic.claude-sonnet-4-20250514-v1:0"
+BEDROCK_MODEL = "global.anthropic.claude-sonnet-4-6"
 BEDROCK_BATCH_ROLE = "arn:aws:iam::140023406996:role/BedrockBatchInferenceRole"
 BEDROCK_S3_BUCKET = "chess-stage-a-140023406996"
 BEDROCK_S3_PREFIX = "sae-labeling"

@@ -45,11 +45,9 @@ DEFAULT_MOVE_MAP = os.path.abspath(os.path.join(os.path.dirname(__file__), '..',
     'chess-coach', 'backend', 'lambda', 'sae_features', 'data', 'move_to_action.json'))
 MODELS = {
     'sonnet': 'global.anthropic.claude-sonnet-4-6',
-    'sonnet-us': 'us.anthropic.claude-sonnet-4-6',
-    'sonnet4': 'us.anthropic.claude-sonnet-4-20250514-v1:0',
     'haiku': 'global.anthropic.claude-haiku-4-5-20251001-v1:0',
 }
-BEDROCK_MODEL = MODELS['sonnet']  # default — Sonnet 4.6 global
+BEDROCK_MODEL = MODELS['sonnet']
 
 
 # ── Tokenizer ──
@@ -188,19 +186,22 @@ Respond as JSON array: [{{"ply": N, "narrative": "..."}}]"""
 
 # ── Feature labeling with profile examples ──
 
-SYSTEM_PROMPT = """You label chess SAE features. Respond with ONLY a JSON object, no other text.
-Fields: label (2-5 words), category (from: king_safety, hanging_pieces, forks, pins, skewers, discovered_attacks, back_rank, checkmate_patterns, overloaded_defenders, quiet_moves, trapped_pieces, sacrifice, passed_pawns, rook_endgames, pawn_endgames, other), confidence (high/medium/low), piece (pawn/knight/bishop/rook/queen/king/mixed)."""
+LABEL_PROMPT = """Chess SAE feature. {examples}
+Move {ply}: Blunder: {played} ({side}). Best: {best}. Loss: {cp_loss}cp. FEN: {fen}
+Feature fires on {move_type}. Respond: {{"label":"2-5 words","category":"king_safety|hanging_pieces|forks|pins|skewers|discovered_attacks|back_rank|checkmate_patterns|overloaded_defenders|quiet_moves|trapped_pieces|sacrifice|passed_pawns|rook_endgames|pawn_endgames|other","confidence":"high|medium|low","piece":"pawn|knight|bishop|rook|queen|king|mixed"}}"""
 
-LABEL_PROMPT = """SAE feature on chess blunder.
-{examples}
-Move {ply}: FEN: {fen}
-Blunder: {played} ({side}). Best: {best}. Loss: {cp_loss}cp.
-Feature fires on {move_type} NOT the other. What pattern?"""
+LABEL_PROMPT_NO_PROFILES = """Chess SAE feature. Blunder: {played} ({side}). Best: {best}. Loss: {cp_loss}cp. Strength: {strength}. FEN: {fen}
+Feature fires on {move_type}. Respond: {{"label":"2-5 words","category":"king_safety|hanging_pieces|forks|pins|skewers|discovered_attacks|back_rank|checkmate_patterns|overloaded_defenders|quiet_moves|trapped_pieces|sacrifice|passed_pawns|rook_endgames|pawn_endgames|other","confidence":"high|medium|low","piece":"pawn|knight|bishop|rook|queen|king|mixed"}}"""
 
-LABEL_PROMPT_NO_PROFILES = """SAE feature on chess blunder.
-FEN: {fen}
-Blunder: {played} ({side}). Best: {best}. Loss: {cp_loss}cp. Strength: {strength}.
-Feature fires on {move_type} NOT the other. What pattern?"""
+
+import threading
+_thread_local = threading.local()
+
+def _get_client():
+    """Thread-local Bedrock client."""
+    if not hasattr(_thread_local, 'client'):
+        _thread_local.client = boto3.client('bedrock-runtime', region_name='us-east-1')
+    return _thread_local.client
 
 
 def label_one_feature(fid, mistake, on_played, strength, profiles, client):
@@ -230,44 +231,50 @@ def label_one_feature(fid, mistake, on_played, strength, profiles, client):
             move_type=move_type,
         )
 
-    try:
-        resp = client.converse(
-            modelId=BEDROCK_MODEL,
-            system=[{'text': SYSTEM_PROMPT}],
-            messages=[{'role': 'user', 'content': [{'text': prompt}]}],
-            inferenceConfig={'maxTokens': 100},
-        )
-        text = resp['output']['message']['content'][0]['text']
+    bedrock = _get_client()
+    for attempt in range(3):
+        try:
+            resp = bedrock.converse(
+                modelId=BEDROCK_MODEL,
+                messages=[{'role': 'user', 'content': [{'text': prompt}]}],
+                inferenceConfig={'maxTokens': 60},
+            )
+            text = resp['output']['message']['content'][0]['text']
 
-        # Try JSON parse first
-        json_match = re.search(r'\{[^{}]+\}', text, re.DOTALL)
-        if json_match:
-            try:
-                parsed = json.loads(json_match.group())
+            # Try JSON parse first
+            json_match = re.search(r'\{[^{}]+\}', text, re.DOTALL)
+            if json_match:
+                try:
+                    parsed = json.loads(json_match.group())
+                    return fid, {
+                        'label': parsed.get('label', '?'),
+                        'category': parsed.get('category', 'other'),
+                        'confidence': parsed.get('confidence', 'medium'),
+                        'piece': parsed.get('piece', 'mixed'),
+                        'on_played': on_played,
+                        'strength': strength,
+                    }
+                except json.JSONDecodeError:
+                    pass
+
+            # Fallback: LABEL/CATEGORY format
+            label_match = re.search(r'LABEL:\s*(.+)', text)
+            cat_match = re.search(r'CATEGORY:\s*(\S+)', text)
+            if label_match:
                 return fid, {
-                    'label': parsed.get('label', '?'),
-                    'category': parsed.get('category', 'other'),
-                    'confidence': parsed.get('confidence', 'medium'),
-                    'piece': parsed.get('piece', 'mixed'),
+                    'label': label_match.group(1).strip(),
+                    'category': cat_match.group(1).strip() if cat_match else 'other',
                     'on_played': on_played,
                     'strength': strength,
                 }
-            except json.JSONDecodeError:
-                pass
-
-        # Fallback: LABEL/CATEGORY format
-        label_match = re.search(r'LABEL:\s*(.+)', text)
-        cat_match = re.search(r'CATEGORY:\s*(\S+)', text)
-        if label_match:
-            return fid, {
-                'label': label_match.group(1).strip(),
-                'category': cat_match.group(1).strip() if cat_match else 'other',
-                'on_played': on_played,
-                'strength': strength,
-            }
-    except Exception as e:
-        print(f"    LABEL ERROR F{fid}: {e}", file=sys.stderr)
-        return fid, None
+            # If we got a response but couldn't parse, don't retry
+            break
+        except Exception as e:
+            if attempt < 2:
+                time.sleep(2 ** attempt)
+            else:
+                print(f"    LABEL ERROR F{fid}: {e}", file=sys.stderr)
+    return fid, None
 
     return fid, None
 
