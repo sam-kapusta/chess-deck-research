@@ -299,8 +299,21 @@ Piece retreats should be its own category — 10 unassigned features share this 
 - Rook Endgames (51) + small clusters
 **Interpretation:** Puzzle SAE is dominated by 3 tactical categories (Forcing, Forks, Checkmate = 73% of features). Blunder SAE is dominated by 2 oversight categories (Hanging, Overloaded = 41%). Same coaching vocabulary, different emphasis. The product should use the blunder taxonomy for "what went wrong" and puzzle taxonomy for "what to practice."
 
+## Experiment 27: Blunder severity by taxonomy category
+**Hypothesis:** Severe blunders concentrate in endgame categories, mild in tactical.
+**Prediction:** >40% severe in endgame categories, >50% mild in tactical.
+**Test:** Per-position dominant category × severity bucket. Script: `exp27_severity_by_category.py`
+**Result:** PARTIALLY CONFIRMED. Mild tactical CONFIRMED (92.7%). Severe endgame close but FAILED (37.7% vs 40%).
+- **Mild blunders = tactical oversights:** 62% Overloaded + 31% Hanging = 93% tactical
+- **Severe blunders shift to endgame:** Rook Endgames jumps from 1.2% → 20.8%, Passed Pawns 1.8% → 10.0%
+- **Strength ratios reveal severity signal:** Rook Endgames 11.4x stronger in severe vs mild (biggest), Passed Pawns 3.6x, K&P 1.8x
+- Overloaded Defenders drops from 62% → 27% with severity
+- **Coaching map: taxonomy × severity creates a 2D coaching recommendation:**
+  - Mild+Tactical → "Practice basic pattern recognition"
+  - Severe+Endgame → "Study specific endgame technique (rook endgames, passed pawns)"
+
 ## Pending
-- **Exp 27:** Build Sam-specific cache from Chess.com games
+- **Exp 28:** Build Sam-specific cache from Chess.com games
 
 ---
 
@@ -318,6 +331,7 @@ Piece retreats should be its own category — 10 unassigned features share this 
 11. **"Hanging material" splits into 2 coaching themes:** Hanging Pieces (689, 94% pure) vs Overloaded Defenders (673, 62% pure) — different scanning habits (Exp 21)
 12. **Taxonomy validated by independent signal (activations)** — endgame categories fire 2-4x stronger in endgame positions, tactical categories are opening/middlegame-dominant. Phase correlation confirms text-based assignments (Exp 24)
 13. **Blunder and puzzle SAEs have different category distributions** — puzzles = 55% forcing moves (solutions), blunders = 41% hanging+overloaded (mistakes). Same concepts, opposite perspective. Checkmate is puzzle-only (Exp 25)
+14. **Severity × taxonomy = 2D coaching map.** Mild = 93% tactical (practice pattern recognition). Severe shifts to endgame (Rook Endgames 11.4x stronger). Taxonomy + severity together tell you WHAT to practice and HOW HARD (Exp 27)
 
 ## Proposed Taxonomy (10 coaching categories)
 
