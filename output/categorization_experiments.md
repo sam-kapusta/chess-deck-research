@@ -133,8 +133,26 @@
 - Many singletons remain — individual endgame patterns too specific to group
 
 ## Pending experiments
-- **Exp 14:** Within opening-specific features, do they separate by opening type (e4 vs d4 vs Sicilian)?
-- **Exp 15:** For phase-neutral features, does activation strength (not binary fire) produce cleaner separation?
+## Experiment 14: Opening type separation
+**Hypothesis:** Opening-specific features separate by e4 vs d4.
+**Prediction:** >20 features fire >60% on one opening type.
+**Test:** Classify opening positions by pawn structure, check per-feature type preference. Script: `exp14_opening_types.py`
+**Result:** FAILED. Zero features are opening-type-specific. All 131 fire equally on e4 and d4.
+**Interpretation:** The encoder encodes move-type patterns (retreats, hanging pieces), not opening-specific patterns. Blunders in the opening are universal across openings.
+
+## Experiment 15: Activation strength by phase for phase-neutral features
+**Hypothesis:** Features that fire equally (binary) across phases have different strengths by phase.
+**Prediction:** >30% of phase-neutral features have >2x strength ratio between phases.
+**Test:** For 166 phase-neutral features, compute mean activation strength per phase (among firing positions). Script: `exp15_strength_by_phase.py`
+**Result:** FAILED (19.9% vs predicted >30%). But interesting patterns:
+- Mean ratio 1.9x, median 1.52x — strength differences exist, just less extreme
+- 51.2% have >1.5x ratio, 19.9% have >2x, 9.6% have >3x
+- **88% of phase-neutral features are strongest in endgame** — overwhelming endgame bias
+- Top examples: KBN vs K (9.1x), active king centralization (8.7x), passed pawns (6.1x)
+- These features fire weakly in non-endgame positions (strength ~1.0-1.5) but activate very strongly in endgame (~6-10)
+**Interpretation:** "Phase-neutral" features are really "endgame features that leak into other phases at low activation." Activation strength is a better phase classifier than binary fire. The 80% threshold for phase classification (Exp 6) is too loose — strength-based classification would reclassify many "neutral" features as endgame.
+
+## Pending
 - **Exp 16:** Test decoder weight clustering as an alternative to fire-pattern clustering
 - **Exp 17:** Run on Sam's actual games — which features are over-represented in his blunders vs baseline?
 
@@ -147,3 +165,4 @@
 4. **Severity correlates with phase** — severe blunders are disproportionately endgame mistakes
 5. **Categories work by activation strength**, not binary fire — primary category is meaningful, secondary isn't
 6. **~880 features are ever primary** — the other 1,168 add context but never dominate
+7. **"Phase-neutral" features are mostly endgame features leaking at low strength** — 88% strongest in endgame
