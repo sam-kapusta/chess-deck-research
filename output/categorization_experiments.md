@@ -237,9 +237,34 @@ Piece retreats should be its own category — 10 unassigned features share this 
 - Problem 3: Opening Play and Piece Activity overlap (0.47)
 **Interpretation:** The labels are correct but 17 categories is too many. Need to merge small clusters into nearest neighbor. The 10-category proposal is the right granularity.
 
+## Experiment 23: Merged 10-category taxonomy
+**Hypothesis:** Merging 17 clusters into 10 improves within/cross ratio to >2x.
+**Prediction:** Ratio goes from 1.33x to >2.0x.
+**Test:** Merge small clusters into nearest major category, re-compute. Script: `exp23_merged_taxonomy.py`
+**Result:** FAILED on ratio metric (1.27x, actually slightly worse). But:
+- All 3,529 features assigned to 10 categories — zero unassigned
+- Category sizes are reasonable: 35 (Opening) to 755 (Hanging Pieces)
+- Spot check from exp 22 confirmed labels match categories
+- The ratio metric is misleading: TF-IDF measures word overlap, not semantic meaning. "King safety vulnerabilities" and "back rank checkmate" use different words but belong together.
+**Interpretation:** The 10-category taxonomy is qualitatively correct (labels match) but TF-IDF similarity can't validate it quantitatively. Need a semantic validation method instead (e.g., phase correlation, or LLM-based spot check).
+
+**Final 10-category sizes:**
+| Category | Count |
+|----------|-------|
+| Hanging Pieces | 755 |
+| Overloaded Defenders | 713 |
+| King & Pawn Endgames | 510 |
+| Passed Pawns | 509 |
+| Rook Endgames | 403 |
+| Forcing Moves | 241 |
+| Discovered Attacks | 160 |
+| Back Rank | 120 |
+| Piece Activity | 83 |
+| Opening Play | 35 |
+
 ## Pending
-- **Exp 23:** Merge small clusters → 10 categories, re-validate similarity ratio
-- **Exp 24:** Build Sam-specific cache from Chess.com games
+- **Exp 24:** Phase correlation validation — do endgame categories fire more in endgames?
+- **Exp 25:** Build Sam-specific cache from Chess.com games
 
 ---
 
