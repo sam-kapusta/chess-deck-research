@@ -100,17 +100,31 @@ Full plan: `lab/chess/website/plans/2026-04-12-deploy-sae-k64.md`
   2. ✅ Move-token cache built (hidden[77] only, 804MB)
   3. ✅ 5 variants trained (2048×{k32,k64} + 4096×{k32,k64,k128}), 8-14s each
   4. ✅ All profiled — fire rates 0.35-3.15% median (all under 5% target)
-  5. 🔄 Labeling: `mjgqyjem1w28` (k=64, InProgress), `ypr3017mqa9s` (k=32, Submitted), k=128 (pending profiling)
-  6. Detection scoring (after labels)
-- **Key question:** Are blunder move-token features interpretable? Previous attempt (k=32 no-aux all-token) got 27% confident labels. This time: move-token + aux + proper k. Labeling will tell.
-- **Natural sparsity:** Pre-topk analysis shows 318 features naturally activate per position. Top-64 captures 60% of energy. k=64 is reasonable middle ground.
+  5. ✅ Labeling complete: all 3 batches (k=32, k=64, k=128). ~60% high confidence across all.
+  6. ✅ Pairwise Jaccard: SAEs find different features (mean best 0.12-0.19)
+  7. ✅ Quality filter: 2048 k=32 = 1,670 passing, 1,080 unique labels (65%)
+  8. ✅ Within-category analysis: features are unique (Jaccard <0.5) but labels are bottleneck (40% generic)
+  9. ✅ Dict size sweep: 1024 too coarse (misses 71%), 4096 diminishing returns (44% redundant)
+  10. 🔄 **NEXT: Cluster fire patterns into 20-30 coaching categories**
+  11. Relabel with coaching taxonomy (short_label, coaching_advice, theme/subtopic)
+  12. Detection scoring on 2048 k=32
+- **Winner: 2048 k=32** — best balance of unique labels and quality
+- **Presentation problem:** 1,080 features → need 20-30 coaching categories → 5-6 player-facing themes
+- **Approach:** Cluster fire patterns (not labels) via cosine similarity + hierarchical clustering. Then name clusters with Sonnet. Categories should map to Heisman's mistake taxonomy.
 - See `output/blunder_sae_reasoning.md` for full design rationale.
 
-### 4. Coaching A/B test
-- 50 blunders. Coaching with vs without SAE feature context. Sam rates.
+### 4. Coaching taxonomy
+- Cluster 2048 k=32 fire patterns into ~25 coaching subtopics
+- Map subtopics to ~6 player-facing themes (piece safety, tactical awareness, endgame play, etc.)
+- Relabel features with fixed taxonomy + short labels + coaching advice
+- Taxonomy must be stable across SAE architectures (it's about chess, not features)
 
-### 5. Coaching LLM (BLOCKED on good labels)
-- Gemma 4 E2B fine-tuned on SAE labels → coaching commentary
+### 5. Deploy puzzle + blunder SAEs
+- Puzzle SAE: 2048 k=64, BA=0.632 — deploy plan at `lab/chess/website/plans/2026-04-12-deploy-sae-k64.md`
+- Blunder SAE: 2048 k=32 — deploy alongside after coaching taxonomy is set
+
+### 6. Coaching A/B test
+- 50 blunders. Coaching with vs without SAE feature context. Sam rates.
 
 ## Constraints
 - chess-poc: ml.g6.16xlarge (L4 + 256GB RAM), account 140023406996
