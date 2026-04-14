@@ -49,6 +49,17 @@ Resampling/ghost grads fix the dead feature problem (#2) but not shrinkage (#1).
 
 For chess SAEs specifically, BTK produced zero noise features (>20% fire rate) across all configs, while V1 (L1) and Gated both produced 1700+ noise features.
 
+### BatchTopK vs TopK: batch-level constraint
+
+Standard TopK forces exactly k features per input — every position activates exactly k features regardless of whether it "needs" that many. BatchTopK relaxes this: k is enforced *on average across the batch*, so individual positions can activate more or fewer features.
+
+This matters because:
+- A complex tactical blunder might genuinely need 100 features to describe
+- A simple "moved the king one square in a drawn endgame" might need 20
+- Forcing both to activate exactly k wastes capacity on the simple position and truncates the complex one
+
+BatchTopK lets the SAE allocate capacity where the signal is. The batch average stays at k, but the per-position L0 varies naturally. This means per-feature fire rates reflect actual selectivity, not just a mechanical constraint.
+
 ## Natural Sparsity Analysis
 
 ### Question
@@ -95,3 +106,17 @@ The same architecture (BTK + aux loss) and methodology (profile → label → de
 3. **Fire rate is partially mechanical** (k/dict_size) but BatchTopK's batch-level constraint allows natural variation. Per-feature fire rates are meaningful.
 
 4. **Cheap structural tests first.** Dead features, FVU, c_dec, fire rate distribution — all computed in seconds. Kill bad configs before expensive labeling.
+
+## Research Organization
+
+This experiment runs across a GPU notebook, S3, Bedrock Batch, and a local git repo. Keeping it organized required explicit discipline:
+
+**One repo, one source of truth.** All scripts, results, docs, and tracking files live in `chess-deck-research/`. No split between "lab docs" and "code repo." The repo root has: `plan.md` (current state), `log.md` (history), `scripts/`, `output/`, `docs/` (reference), `archive/` (dead stuff).
+
+**Two-phase long jobs.** CPU download/filter (Phase 1) decoupled from GPU encoding (Phase 2). Intermediate results saved to disk (positions JSON, activation cache). This means retraining with different k or dict_size doesn't re-download from HuggingFace or re-encode — just reload the 804MB move-token cache.
+
+**Committed scripts only.** All code running on the notebook comes from git. No `python3 -c "..."` on remote machines. Fix locally, commit, push, pull, run. This avoids the "patched it on the notebook, lost track of what's running" failure mode.
+
+**Weights on S3, inventory in git.** Every trained model is uploaded to S3 immediately. `output/S3_INVENTORY.md` is updated in the same commit. A model that isn't in S3 and isn't in the inventory doesn't exist.
+
+**Cheap before expensive.** Structural metrics (seconds) → profiling (10 min) → labeling ($2, 30 min) → detection scoring ($5, 1 hr). The all-token blunder SAEs were killed at the profiling stage (fire rates too high) before spending money on labeling.
