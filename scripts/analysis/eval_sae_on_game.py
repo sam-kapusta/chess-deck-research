@@ -43,7 +43,11 @@ DEFAULT_ENCODER = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 
     'chess-coach', 'backend', 'lambda', 'sae_features', 'data', 'encoder_270m.onnx'))
 DEFAULT_MOVE_MAP = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..',
     'chess-coach', 'backend', 'lambda', 'sae_features', 'data', 'move_to_action.json'))
-BEDROCK_MODEL = 'us.anthropic.claude-sonnet-4-20250514-v1:0'
+MODELS = {
+    'sonnet': 'us.anthropic.claude-sonnet-4-20250514-v1:0',
+    'haiku': 'us.anthropic.claude-haiku-4-5-20251001-v1:0',
+}
+BEDROCK_MODEL = MODELS['sonnet']  # default
 
 
 # ── Tokenizer ──
@@ -300,7 +304,13 @@ def main():
     parser.add_argument('--no-labels', action='store_true')
     parser.add_argument('--output', '-o')
     parser.add_argument('--workers', type=int, default=8, help='Parallel Sonnet workers')
+    parser.add_argument('--model', default='sonnet', choices=list(MODELS.keys()),
+                        help='LLM for labeling: sonnet (better) or haiku (faster/cheaper)')
     args = parser.parse_args()
+
+    global BEDROCK_MODEL
+    BEDROCK_MODEL = MODELS[args.model]
+    print(f'Using model: {args.model} ({BEDROCK_MODEL})')
 
     timings = {}
     t_total = time.time()
