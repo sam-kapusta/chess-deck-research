@@ -1,0 +1,58 @@
+[
+  {
+    "name": "A: 2048 k=8 +aux",
+    "dict_size": 2048,
+    "k": 8,
+    "dead": 1846,
+    "alive": 202,
+    "fvu": 0.2383,
+    "l0": 8.0,
+    "c_dec": 0.0273,
+    "energy_pct": 37.2,
+    "fire_rate_mean": 3.96,
+    "fire_rate_median": 2.5,
+    "train_time": 15.3
+  },
+  {
+    "name": "B: 2048 k=8 -aux",
+    "dict_size": 2048,
+    "k": 8,
+    "dead": 1841,
+    "alive": 207,
+    "fvu": 0.2355,
+    "l0": 8.0,
+    "c_dec": 0.0274,
+    "energy_pct": 34.4,
+    "fire_rate_mean": 3.86,
+    "fire_rate_median": 2.53,
+    "train_time": 13.4
+  },
+  {
+    "name": "C: 1024 k=8 -aux",
+    "dict_size": 1024,
+    "k": 8,
+    "dead": 849,
+    "alive": 175,
+    "fvu": 0.2403,
+    "l0": 8.0,
+    "c_dec": 0.0288,
+    "energy_pct": 47.4,
+    "fire_rate_mean": 4.57,
+    "fire_rate_median": 3.26,
+    "train_time": 9.1
+  },
+  {
+    "name": "D: 512 k=8 -aux",
+    "dict_size": 512,
+    "k": 8,
+    "dead": 369,
+    "alive": 143,
+    "fvu": 0.2498,
+    "l0": 8.0,
+    "c_dec": 0.0321,
+    "energy_pct": 59.4,
+    "fire_rate_mean": 5.59,
+    "fire_rate_median": 4.79,
+    "train_time": 8.8
+  }
+]

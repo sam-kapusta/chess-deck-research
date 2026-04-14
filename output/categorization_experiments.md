@@ -336,8 +336,31 @@ Piece retreats should be its own category — 10 unassigned features share this 
 - vs Sandstone cross-architecture: Sandstone SAEs had significant overlap. Chess SAEs have almost none.
 **Interpretation:** Blunder SAE fires on wrong-move patterns, puzzle SAE on right-move patterns. They encode the same positions from opposite perspectives. Both are worth keeping — they give different coaching signals ("what you did wrong" vs "what you should've done").
 
+## Experiment 30: Lichess theme granularity in blunder SAE
+**Result:** CONFIRMED. 6/8 core Lichess themes form >60% pure clusters at k=25. Fork (100%), Pin (92%), Discovered Attack (100%), Hanging Piece (98%), Deflection (91%), Back Rank (98%). Skewer and Trapped Piece too small. Exposed King (98%) is a major missed category.
+
+## Experiment 31: Position coverage per theme (feature count ≠ coverage)
+**Result:** All 16 themes have >10% position coverage, even "small" ones. Skewer: 19 features but 33.6% coverage. Trapped Piece: 14 features, 17.1%. Feature count is the wrong metric for category viability.
+
+## Experiment 32: Hanging Pieces deep dive
+**Result:** 12.3 hanging features fire per position at k=32 (38% of capacity). Top 20 features cover 84% of positions. At k=1, 45% of positions have hanging as #1. Labels are generic — 61 features share "Hanging pieces and undefended material." Different fire patterns, same label.
+
+## Experiment 33: Theme survival across k values
+**Result:** At k=8, 14/16 themes survive (>5% coverage). Only sacrifice (2.2%) and trapped piece (3.8%) drop below 5%. All 16 survive at k=32. Primary themes at k=8: hanging (45%), deflection (33%) dominate.
+
+## Experiment 34: k=8 SAE sweep (dict_size × aux_loss)
+**Result:** Aux loss doesn't matter at k=8 (202 vs 207 alive). Dict size barely matters — all produce ~150-200 alive features. 512 k=8 captures most energy (59% vs 37% at 2048). All variants have similar FVU (~0.24-0.25). 512 is the most efficient — 143 alive features, each carrying maximum information.
+
+| Config | Alive | Dead% | FVU | Energy | Top-1 diversity |
+|--------|-------|-------|-----|--------|-----------------|
+| 2048 k=8 +aux | 202 | 90% | 0.238 | 37% | 158 |
+| 2048 k=8 -aux | 207 | 90% | 0.236 | 34% | 159 |
+| 1024 k=8 -aux | 175 | 83% | 0.240 | 47% | 149 |
+| **512 k=8 -aux** | **143** | **72%** | **0.250** | **59%** | **125** |
+
 ## Pending
-- **Exp 30:** Build Sam-specific cache from Chess.com games
+- **Exp 35:** Label 512 k=8 variant — do 16 themes emerge from 143 features?
+- **Exp 36:** Build Sam-specific cache from Chess.com games
 
 ---
 

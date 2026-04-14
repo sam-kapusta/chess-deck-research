@@ -32,7 +32,21 @@ s3://chess-stage-a-140023406996/sae-weights/
 
 All trained on 200K Lichess blunder move tokens (≥200cp loss), 10 epochs, BTK + aux.
 Move-token = hidden[77] from DeepMind 270M encoder (matches production pipeline).
-Winner: 2048 k=32 — best balance of unique labels (1,080) and quality (65% uniqueness).
+Winner (k=32): 2048 k=32 — best balance of unique labels (1,080) and quality (65% uniqueness).
+
+## SAE Weights — Blunder k=8 sweep (2026-04-14)
+
+```
+s3://chess-stage-a-140023406996/sae-weights/
+  sae_btk_blunder_mt_2048_k8_aux.pt  ← 202 alive, FVU=0.238, 90% dead
+  sae_btk_blunder_mt_2048_k8.pt      ← 207 alive, FVU=0.236, 90% dead
+  sae_btk_blunder_mt_1024_k8.pt      ← 175 alive, FVU=0.240, 83% dead
+  sae_btk_blunder_mt_512_k8.pt       ← CANDIDATE: 143 alive, FVU=0.250, 72% dead, 59% energy
+```
+
+Key finding: at k=8, aux loss doesn't matter (same results ± noise). Dict size barely matters
+(all produce ~150-200 alive features). 512 captures most energy per feature (59% vs 37%).
+Need to label 512 variant to see if 16 coaching themes emerge from 143 features.
 
 Format: PyTorch dict with `encoder_weight`, `encoder_bias`, `decoder_weight`, `pre_bias`, `k`, `dict_size`, `mean`, `std`.
 
