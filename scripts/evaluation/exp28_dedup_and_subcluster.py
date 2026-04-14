@@ -59,7 +59,9 @@ def part_a():
 
     # Quality features only
     quality_fids = [int(f) for f, info in labels.items()
-                    if info.get('confidence') in ['high', 'medium'] and fires[:, int(f)].sum() >= 10]
+                    if info.get('confidence') in ['high', 'medium']
+                    and int(f) < fires.shape[1]
+                    and fires[:, int(f)].sum() >= 10]
     print('Quality features: ' + str(len(quality_fids)))
 
     # Matmul Jaccard
