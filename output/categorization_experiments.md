@@ -170,8 +170,38 @@
 **Result:** BLOCKED. The blunder cache (Lichess eval dataset) has no player/rating metadata — only FEN, moves, and eval. Cannot segment by player or rating.
 **Next:** Need to build a player-specific cache by encoding Sam's Chess.com games through the encoder. This is engineering work, not a quick experiment.
 
+## Experiment 18: Label-text clustering for tactical features
+**Hypothesis:** Text embeddings cluster tactical features better than fire patterns.
+**Prediction:** >50% category purity for tactical features (vs ~30% from fire patterns).
+**Test:** TF-IDF on label+explanation, hierarchical cosine clustering. Script: `exp18_label_text_clustering.py`
+**Result:** CONFIRMED (68.4% purity at k=20 vs 32.9% fire-pattern Louvain — 2.1x improvement).
+- hanging_pieces: 286 features, **95% purity** — near-perfect cluster
+- back_rank: 30 features, **97% purity**
+- discovered_attack: 55 features, **87% purity**
+- passed_pawn: 62 features, **87% purity**
+- king_attack: 96 features, **79% purity**
+- forcing_moves: 65 features, **65% purity**
+- deflection: 287 features, **62% purity** (the messiest — overloaded+multiple threats blend)
+**Interpretation:** Label text contains the semantic structure that fire patterns miss. Features that co-fire on the same positions but describe different concepts ("hanging piece" vs "overloaded defender") separate cleanly in text space. TF-IDF was enough — sentence embeddings would likely improve further.
+**Key insight:** The right clustering signal was always the labels, not the activations.
+
+## Experiment 19: Multi-assignment coaching taxonomy
+**Hypothesis:** Features meaningfully belong to 2+ coaching categories.
+**Prediction:** >40% of tactical features have 2+ category matches.
+**Test:** Keyword matching against 10-category coaching taxonomy. Script: `exp19_multi_assignment.py`
+**Result:** CONFIRMED (93.1% have 2+ matches). But taxonomy too loose:
+- `forcing_moves` matches 2047/3529 features (58%) — keyword "capture" too broad
+- Only 13 features unassigned (0.4%) — all "piece retreats" (missing category)
+- Top combos make coaching sense: hanging+forcing (352), pawn+endgame (280), hanging+overloaded (221)
+- Secondary assignments are coaching-meaningful: "hanging + overloaded" = "piece left hanging because defender was overworked"
+**Interpretation:** Multi-assignment works conceptually but keyword matching is too blunt. Need either:
+(a) tighter keywords with exclusion rules, or (b) LLM-based category assignment using the taxonomy descriptions.
+Piece retreats should be its own category — 10 unassigned features share this pattern.
+
 ## Pending
-- **Exp 18:** Build Sam-specific cache from Chess.com games, re-run exp 17
+- **Exp 18:** Label-text embedding clustering (committed, needs sentence-transformers)
+- **Exp 20:** Refined taxonomy with tighter keywords + LLM assignment
+- **Exp 21:** Build Sam-specific cache from Chess.com games, re-run exp 17
 
 ---
 
@@ -184,3 +214,5 @@
 6. **~880 features are ever primary** — the other 1,168 add context but never dominate
 7. **"Phase-neutral" features are mostly endgame features leaking at low strength** — 88% strongest in endgame
 8. **Tactical features don't cluster by ANY method** — fire patterns, Louvain, cliques, decoder weights all produce ~30% purity. Accept overlap, use labels directly.
+9. **Multi-assignment works** — features naturally span 2-3 coaching categories, and the combinations are coaching-meaningful (Exp 19)
+10. **Label-text clustering >>> fire-pattern clustering** for tactical features (68% vs 33% purity). The right signal was always the labels, not the activations (Exp 18)
