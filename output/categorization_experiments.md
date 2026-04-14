@@ -152,8 +152,18 @@
 - These features fire weakly in non-endgame positions (strength ~1.0-1.5) but activate very strongly in endgame (~6-10)
 **Interpretation:** "Phase-neutral" features are really "endgame features that leak into other phases at low activation." Activation strength is a better phase classifier than binary fire. The 80% threshold for phase classification (Exp 6) is too loose — strength-based classification would reclassify many "neutral" features as endgame.
 
+## Experiment 16: Decoder weight clustering vs fire-pattern clustering
+**Hypothesis:** Decoder weights encode conceptual similarity that fire patterns miss.
+**Prediction:** Decoder clusters have >2x category purity for tactical features (which don't cluster by fire pattern).
+**Test:** Ward hierarchical clustering on normalized decoder weight vectors. Compare category purity against Louvain on fire-pattern Jaccard. Script: `exp16_decoder_clustering.py`
+**Result:** FAILED. Decoder and fire-pattern clustering produce nearly identical purity:
+- Tactical (1,061 features): Decoder 0.328 vs Fire 0.315 at k=25 (~1.04x, not 2x)
+- Endgame (350 features): Decoder 0.577 vs Fire 0.603 at k=25 (fire is slightly better)
+- Decoder cosine similarity for tactical features is very low (mean 0.005)
+- One standout: endgame cluster 6 (Q vs R endgame, 83% purity, cos=0.178) — specific endgame techniques cluster well by decoder weights
+**Interpretation:** Tactical features don't cluster well by ANY method tested (fire patterns Exp 7-8, Louvain Exp 8, cliques Exp 9, decoder weights Exp 16). This isn't a method problem — it's the features themselves. Tactical concepts genuinely overlap. The SAE learned features that cross human category boundaries (a "hanging piece" feature fires on positions that are also "overloaded defenders"). For coaching categories, we should NOT try to cluster tactical features — instead use the LLM labels directly (short_label taxonomy) and accept that features can belong to multiple categories.
+
 ## Pending
-- **Exp 16:** Test decoder weight clustering as an alternative to fire-pattern clustering
 - **Exp 17:** Run on Sam's actual games — which features are over-represented in his blunders vs baseline?
 
 ---
@@ -166,3 +176,4 @@
 5. **Categories work by activation strength**, not binary fire — primary category is meaningful, secondary isn't
 6. **~880 features are ever primary** — the other 1,168 add context but never dominate
 7. **"Phase-neutral" features are mostly endgame features leaking at low strength** — 88% strongest in endgame
+8. **Tactical features don't cluster by ANY method** — fire patterns, Louvain, cliques, decoder weights all produce ~30% purity. Accept overlap, use labels directly.
