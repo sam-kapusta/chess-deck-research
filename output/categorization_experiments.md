@@ -198,10 +198,36 @@
 (a) tighter keywords with exclusion rules, or (b) LLM-based category assignment using the taxonomy descriptions.
 Piece retreats should be its own category — 10 unassigned features share this pattern.
 
+## Experiment 20: Combined text-cluster + multi-assignment taxonomy
+**Hypothesis:** Text clusters on ALL features give natural coaching categories with 1-2 assignments.
+**Prediction:** >80% cleanly assigned, <10% unassigned.
+**Test:** TF-IDF on all 3,529 quality features, hierarchical cosine at k=15. Script: `exp20_combined_taxonomy.py`
+**Result:** CONFIRMED. 100% assigned (56% single, 44% dual). 15 clusters found:
+- Hanging Material: 1,439 (too big — needs sub-clustering)
+- King & Pawn Endgames: 510 (43% endgame_technique)
+- Passed Pawns: 509 (83% passed_pawn)
+- Rook Endgames: 366 (89% endgame_technique)
+- Forcing Moves: 233 (56% forcing_moves)
+- Discovered Attacks: 160 (84% discovered_attack)
+- Back Rank: 107 (85% back_rank)
+- Piece Activity: 83 (55% piece_activity)
+- + 7 smaller clusters (opening dev, rook activity, captures, king attacks, pins, engine, diagonal)
+**Interpretation:** Text clustering at k=15 gives clean coaching categories except the mega-cluster. Multi-assignment works: top pairs are coaching-meaningful (hanging+captures, hanging+pins, rook_endgame+passed_pawns).
+
+## Experiment 21: Sub-cluster the "hanging material" mega-cluster
+**Hypothesis:** The 1,439-feature mega-cluster contains 5-8 distinct coaching sub-topics.
+**Prediction:** Sub-clusters have >60% label coherence with distinct themes.
+**Test:** Re-cluster the mega-cluster at k=8 by TF-IDF. Script: `exp21_subcluster_hanging.py`
+**Result:** PARTIALLY CONFIRMED (59.7% purity at k=8). Two large, clearly distinct sub-clusters:
+- **Hanging Pieces** (689 features, 94% purity): "you left a piece undefended"
+- **Overloaded Defenders** (673 features, 62% purity): "a defender was doing too much"
+- 49 mixed features (multi-assign to both), 28 in tiny clusters
+- At k=12 purity reaches 70.9% with finer deflection splits
+**Interpretation:** The mega-cluster has exactly 2 main coaching themes: "scan for undefended pieces" vs "check if defenders are stretched." This is a meaningful coaching distinction — different scanning habits.
+
 ## Pending
-- **Exp 18:** Label-text embedding clustering (committed, needs sentence-transformers)
-- **Exp 20:** Refined taxonomy with tighter keywords + LLM assignment
-- **Exp 21:** Build Sam-specific cache from Chess.com games, re-run exp 17
+- **Exp 22:** Validate final taxonomy against human coaching intuition (spot-check 50 features)
+- **Exp 23:** Build Sam-specific cache from Chess.com games, test player-specific patterns
 
 ---
 
@@ -216,3 +242,22 @@ Piece retreats should be its own category — 10 unassigned features share this 
 8. **Tactical features don't cluster by ANY method** — fire patterns, Louvain, cliques, decoder weights all produce ~30% purity. Accept overlap, use labels directly.
 9. **Multi-assignment works** — features naturally span 2-3 coaching categories, and the combinations are coaching-meaningful (Exp 19)
 10. **Label-text clustering >>> fire-pattern clustering** for tactical features (68% vs 33% purity). The right signal was always the labels, not the activations (Exp 18)
+11. **"Hanging material" splits into 2 coaching themes:** Hanging Pieces (689, 94% pure) vs Overloaded Defenders (673, 62% pure) — different scanning habits (Exp 21)
+
+## Proposed Taxonomy (10 coaching categories)
+
+| # | Category | Size | Coaching Question |
+|---|----------|------|-------------------|
+| 1 | Hanging Pieces | ~689 | Am I leaving anything undefended? |
+| 2 | Overloaded Defenders | ~673 | Is any defender doing too much? |
+| 3 | Passed Pawns | ~509 | Can I create or push a passed pawn? |
+| 4 | King & Pawn Endgames | ~510 | Do I know the right endgame technique? |
+| 5 | Rook Endgames | ~366 | Am I playing this rook endgame correctly? |
+| 6 | Forcing Moves | ~233 | Am I considering all checks, captures, threats? |
+| 7 | Discovered Attacks | ~160 | Can I reveal a hidden attack? |
+| 8 | Back Rank | ~107 | Is the back rank safe? |
+| 9 | Piece Activity | ~83 | Are all my pieces doing something useful? |
+| 10 | Opening Play | ~35 | Am I developing pieces and controlling the center? |
+
+~163 features in smaller clusters (captures, pins, diagonal, engine) — merge into nearest or create "Other Tactics."
+~44% of features get a secondary category assignment (multi-tag).
