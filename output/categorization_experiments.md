@@ -115,8 +115,24 @@
 - Endgame communities include: N+B vs K (Jaccard 0.26), Q vs R (0.31), R+P endgame (0.34)
 - Two large endgame communities (56, 54 features) have low Jaccard (0.06, 0.02) — need sub-clustering
 
+## Experiment 13: Sub-cluster large endgame communities
+**Hypothesis:** The 57-feature endgame communities each contain 3-5 distinct coaching subtopics.
+**Prediction:** Sub-clustering will reveal specific endgame lesson types.
+**Test:** Extract two large communities, sub-cluster at resolution 3.0.
+**Result:** PARTIALLY CONFIRMED.
+- Community 1 (57 features) → 22 sub-communities (12 multi-feature). Specific topics emerge:
+  - R+P endgame technique (9 features)
+  - Rook endgame with passed pawn play (6 features, Jaccard=0.28)
+  - King escorts passed pawn (4 features, Jaccard=0.23)
+  - K+P vs R technique (3 features)
+- Community 2 (57 features) → 11 sub-communities. Topics:
+  - Knight vs passed pawn blockade (5 features, Jaccard=0.24)
+  - Mixed minor piece endgames (6 features)
+  - Active king in pawn endgames (4 features)
+- ~10 endgame coaching topics total from data-driven clustering
+- Many singletons remain — individual endgame patterns too specific to group
+
 ## Pending experiments
-- **Exp 13:** Sub-cluster the two large endgame communities at higher resolution
 - **Exp 14:** Within opening-specific features, do they separate by opening type (e4 vs d4 vs Sicilian)?
 - **Exp 15:** For phase-neutral features, does activation strength (not binary fire) produce cleaner separation?
 - **Exp 16:** Test decoder weight clustering as an alternative to fire-pattern clustering
