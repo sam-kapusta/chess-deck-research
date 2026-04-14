@@ -188,24 +188,19 @@ Respond as JSON array: [{{"ply": N, "narrative": "..."}}]"""
 
 # ── Feature labeling with profile examples ──
 
-LABEL_PROMPT = """Chess SAE feature on blunder position.
+SYSTEM_PROMPT = """You label chess SAE features. Respond with ONLY a JSON object, no other text.
+Fields: label (2-5 words), category (from: king_safety, hanging_pieces, forks, pins, skewers, discovered_attacks, back_rank, checkmate_patterns, overloaded_defenders, quiet_moves, trapped_pieces, sacrifice, passed_pawns, rook_endgames, pawn_endgames, other), confidence (high/medium/low), piece (pawn/knight/bishop/rook/queen/king/mixed)."""
+
+LABEL_PROMPT = """SAE feature on chess blunder.
 {examples}
-Game move {ply}: FEN: {fen}
+Move {ply}: FEN: {fen}
 Blunder: {played} ({side}). Best: {best}. Loss: {cp_loss}cp.
-Feature fires on {move_type} NOT the other.
+Feature fires on {move_type} NOT the other. What pattern?"""
 
-Two lines only:
-LABEL: <2-5 words>
-CATEGORY: <king_safety|hanging_pieces|forks|pins|skewers|discovered_attacks|back_rank|checkmate_patterns|overloaded_defenders|quiet_moves|trapped_pieces|sacrifice|passed_pawns|rook_endgames|pawn_endgames|other>"""
-
-LABEL_PROMPT_NO_PROFILES = """Chess SAE feature on blunder position.
+LABEL_PROMPT_NO_PROFILES = """SAE feature on chess blunder.
 FEN: {fen}
 Blunder: {played} ({side}). Best: {best}. Loss: {cp_loss}cp. Strength: {strength}.
-Feature fires on {move_type} NOT the other.
-
-Two lines only:
-LABEL: <2-5 words>
-CATEGORY: <king_safety|hanging_pieces|forks|pins|skewers|discovered_attacks|back_rank|checkmate_patterns|overloaded_defenders|quiet_moves|trapped_pieces|sacrifice|passed_pawns|rook_endgames|pawn_endgames|other>"""
+Feature fires on {move_type} NOT the other. What pattern?"""
 
 
 def label_one_feature(fid, mistake, on_played, strength, profiles, client):
@@ -238,10 +233,29 @@ def label_one_feature(fid, mistake, on_played, strength, profiles, client):
     try:
         resp = client.converse(
             modelId=BEDROCK_MODEL,
+            system=[{'text': SYSTEM_PROMPT}],
             messages=[{'role': 'user', 'content': [{'text': prompt}]}],
-            inferenceConfig={'maxTokens': 30},
+            inferenceConfig={'maxTokens': 100},
         )
         text = resp['output']['message']['content'][0]['text']
+
+        # Try JSON parse first
+        json_match = re.search(r'\{[^{}]+\}', text, re.DOTALL)
+        if json_match:
+            try:
+                parsed = json.loads(json_match.group())
+                return fid, {
+                    'label': parsed.get('label', '?'),
+                    'category': parsed.get('category', 'other'),
+                    'confidence': parsed.get('confidence', 'medium'),
+                    'piece': parsed.get('piece', 'mixed'),
+                    'on_played': on_played,
+                    'strength': strength,
+                }
+            except json.JSONDecodeError:
+                pass
+
+        # Fallback: LABEL/CATEGORY format
         label_match = re.search(r'LABEL:\s*(.+)', text)
         cat_match = re.search(r'CATEGORY:\s*(\S+)', text)
         if label_match:
