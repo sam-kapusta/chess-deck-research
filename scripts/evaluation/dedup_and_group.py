@@ -85,38 +85,37 @@ def main():
     jaccard = intersection / union
     np.fill_diagonal(jaccard, 0)
 
-    # Step 1: Dedup at threshold
+    # Step 1: Dedup at threshold using the matrix directly
     print('\n=== Step 1: Dedup at Jaccard >= ' + str(args.dedup_threshold) + ' ===')
-    # Greedy: remove feature with most duplicates, repeat
-    alive = set(range(len(quality_fids)))
-    removed = set()
+    n = len(quality_fids)
+    alive_mask = np.ones(n, dtype=bool)
+    dup_matrix = jaccard >= args.dedup_threshold  # [n, n] bool
 
     while True:
-        # Find feature with most neighbors above threshold
-        worst = -1
-        worst_count = 0
-        for i in alive:
-            n_dups = sum(1 for j in alive if j != i and jaccard[i, j] >= args.dedup_threshold)
-            if n_dups > worst_count:
-                worst_count = n_dups
-                worst = i
-        if worst_count == 0:
+        # Count duplicates per alive feature (vectorized)
+        active = dup_matrix[alive_mask][:, alive_mask]
+        if active.sum() == 0:
             break
-        # Remove the one with lower confidence (or arbitrary if same)
-        # Actually remove the one with MORE duplicates — it's the redundant one
-        # But keep the highest-confidence version
-        neighbors = [j for j in alive if j != worst and jaccard[worst, j] >= args.dedup_threshold]
-        # Keep the one with highest fire count (proxy for most representative)
-        group = [worst] + neighbors
-        fire_counts = [(idx, sums[idx]) for idx in group]
-        keep_idx = max(fire_counts, key=lambda x: x[1])[0]
-        for idx in group:
-            if idx != keep_idx:
-                alive.discard(idx)
-                removed.add(idx)
+        dup_counts = active.sum(axis=1)
+        # Map back to full indices
+        alive_indices = np.where(alive_mask)[0]
+        worst_local = dup_counts.argmax()
+        worst = alive_indices[worst_local]
+        # Find its neighbors
+        neighbor_mask = dup_matrix[worst] & alive_mask
+        neighbor_mask[worst] = True  # include self
+        group_indices = np.where(neighbor_mask)[0]
+        # Keep the one with highest fire count
+        group_fires = sums[group_indices]
+        keep = group_indices[group_fires.argmax()]
+        # Remove all others
+        for idx in group_indices:
+            if idx != keep:
+                alive_mask[idx] = False
 
-    deduped_fids = [quality_fids[i] for i in sorted(alive)]
-    print('After dedup: ' + str(len(deduped_fids)) + ' features (removed ' + str(len(removed)) + ')')
+    deduped_fids = [quality_fids[i] for i in np.where(alive_mask)[0]]
+    n_removed = n - len(deduped_fids)
+    print('After dedup: ' + str(len(deduped_fids)) + ' features (removed ' + str(n_removed) + ')')
 
     # Rebuild Jaccard for deduped features
     fp2 = fires[:, deduped_fids]
@@ -127,30 +126,28 @@ def main():
     jacc2 = inter2 / union2
     np.fill_diagonal(jacc2, 0)
 
-    # Step 2: Clique-based grouping at threshold
+    # Step 2: Clique-based grouping at threshold (vectorized)
     print('\n=== Step 2: Clique grouping at Jaccard >= ' + str(args.group_threshold) + ' ===')
-    # Greedy clique finding: pick seed, expand with features that have >= threshold to ALL current members
-    ungrouped = set(range(len(deduped_fids)))
+    n_dedup = len(deduped_fids)
+    adj = jacc2 >= args.group_threshold  # [n, n] bool adjacency matrix
+    ungrouped = np.ones(n_dedup, dtype=bool)
     groups = []
 
-    while ungrouped:
-        # Pick seed: feature with most neighbors above threshold
-        best_seed = -1
-        best_n = -1
-        for i in ungrouped:
-            n = sum(1 for j in ungrouped if j != i and jacc2[i, j] >= args.group_threshold)
-            if n > best_n:
-                best_n = n
-                best_seed = i
+    while ungrouped.any():
+        # Pick seed: feature with most neighbors (vectorized)
+        neighbor_counts = (adj & ungrouped[None, :] & ungrouped[:, None]).sum(axis=1)
+        neighbor_counts[~ungrouped] = -1
+        best_seed = neighbor_counts.argmax()
 
         # Expand clique from seed
-        clique = {best_seed}
-        candidates = [j for j in ungrouped if j != best_seed and jacc2[best_seed, j] >= args.group_threshold]
+        clique = [best_seed]
+        candidates = np.where(adj[best_seed] & ungrouped)[0]
+        candidates = candidates[candidates != best_seed]
 
         for c in candidates:
-            # Check if c has >= threshold Jaccard with ALL current clique members
-            if all(jacc2[c, m] >= args.group_threshold for m in clique):
-                clique.add(c)
+            # Check c has >= threshold with ALL current clique members
+            if adj[c][clique].all():
+                clique.append(c)
 
         groups.append(sorted(clique))
         for c in clique:
