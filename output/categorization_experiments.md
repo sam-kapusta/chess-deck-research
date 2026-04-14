@@ -274,8 +274,19 @@ Piece retreats should be its own category — 10 unassigned features share this 
 - Opening Play (61.4%) and Piece Activity (67.2%) correctly opening-dominant
 **Interpretation:** Taxonomy categories correlate with phase via activation strength, not binary fire rate. This is the same pattern as exp 15 — features "leak" into other phases at low activation but concentrate strength in their correct phase. The taxonomy is validated by an independent signal (activations) not used in its construction (text).
 
+## Experiment 25: Cross-SAE taxonomy transfer (blunder → puzzle)
+**Hypothesis:** The 10-category blunder taxonomy works for puzzle SAE features too.
+**Prediction:** >80% of puzzle features map cleanly to the 10 categories.
+**Test:** TF-IDF on combined corpus, assign puzzle features to nearest blunder centroid. Script: `exp25_cross_sae_taxonomy.py`
+**Result:** FAILED at 80% (69.6% reasonable fit). Key findings:
+- **Forcing Moves absorbs 55% of puzzle features** — puzzles ARE forcing sequences. Blunders MISS them. Same concept, opposite perspective.
+- **Checkmate is a missing category** — 15 worst-fit features are all checkmate patterns (d=0.87-0.89). Blunders don't have checkmate features; puzzles do.
+- Distribution shift: Puzzles = tactical solutions (55% forcing). Blunders = tactical oversights (21% hanging, 20% overloaded).
+- Categories that transfer cleanly: Back Rank, Discovered Attacks, Passed Pawns, Overloaded Defenders
+**Interpretation:** The taxonomy is blunder-specific — it reflects what mistakes look like, not what solutions look like. Puzzles need an 11th category: Checkmate Patterns. The "Forcing Moves" bucket also needs sub-clustering for the puzzle SAE. This is expected — blunders and solutions activate different parts of the same conceptual space.
+
 ## Pending
-- **Exp 25:** Build Sam-specific cache from Chess.com games
+- **Exp 26:** Build Sam-specific cache from Chess.com games
 
 ---
 
@@ -292,6 +303,7 @@ Piece retreats should be its own category — 10 unassigned features share this 
 10. **Label-text clustering >>> fire-pattern clustering** for tactical features (68% vs 33% purity). The right signal was always the labels, not the activations (Exp 18)
 11. **"Hanging material" splits into 2 coaching themes:** Hanging Pieces (689, 94% pure) vs Overloaded Defenders (673, 62% pure) — different scanning habits (Exp 21)
 12. **Taxonomy validated by independent signal (activations)** — endgame categories fire 2-4x stronger in endgame positions, tactical categories are opening/middlegame-dominant. Phase correlation confirms text-based assignments (Exp 24)
+13. **Blunder and puzzle SAEs have different category distributions** — puzzles = 55% forcing moves (solutions), blunders = 41% hanging+overloaded (mistakes). Same concepts, opposite perspective. Checkmate is puzzle-only (Exp 25)
 
 ## Proposed Taxonomy (10 coaching categories)
 
