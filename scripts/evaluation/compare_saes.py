@@ -102,7 +102,7 @@ def main():
         print('  Features > 5%:', (fire_rate > 0.05).sum())
         print('  Features > 10%:', (fire_rate > 0.1).sum())
 
-    # Pairwise Jaccard between all SAE pairs
+    # Pairwise Jaccard between all SAE pairs — full matrix multiply, no sampling
     print('\n=== Pairwise Jaccard Overlap ===')
     names = list(fire_patterns.keys())
     results = {'variants': {}, 'pairwise': []}
@@ -122,55 +122,47 @@ def main():
     for i in range(len(names)):
         for j in range(i + 1, len(names)):
             n1, n2 = names[i], names[j]
-            fp1, fp2 = fire_patterns[n1], fire_patterns[n2]
+            fp1 = fire_patterns[n1].astype(np.float32)  # [N, dd1]
+            fp2 = fire_patterns[n2].astype(np.float32)  # [N, dd2]
 
-            # For each feature in SAE1, find best-matching feature in SAE2
-            # Jaccard(A, B) = |A ∩ B| / |A ∪ B|
             print('\n' + n1 + ' vs ' + n2 + ':')
 
-            # Compute pairwise Jaccard in chunks to avoid memory blowup
-            dd1 = fp1.shape[1]
-            dd2 = fp2.shape[1]
-            best_matches = []
-            duplicates = 0
+            # Full Jaccard matrix via matrix multiply
+            intersection = fp1.T @ fp2                          # [dd1, dd2]
+            sum1 = fp1.sum(axis=0)[:, None]                     # [dd1, 1]
+            sum2 = fp2.sum(axis=0)[None, :]                     # [1, dd2]
+            union = sum1 + sum2 - intersection                  # [dd1, dd2]
+            union = np.maximum(union, 1)                        # avoid div by zero
+            jaccard = intersection / union                      # [dd1, dd2]
 
-            alive1 = [f for f in range(dd1) if fp1[:, f].sum() > 0]
-            alive2 = [f for f in range(dd2) if fp2[:, f].sum() > 0]
+            # Filter to alive features only
+            alive1 = sum1.squeeze() > 0
+            alive2 = sum2.squeeze() > 0
+            n_alive1 = int(alive1.sum())
+            n_alive2 = int(alive2.sum())
 
-            # Sample alive features for tractability
-            sample1 = alive1[:min(500, len(alive1))]
+            # Best match per feature in SAE1
+            jacc_alive = jaccard[alive1][:, alive2]             # [alive1, alive2]
+            best_per_f1 = jacc_alive.max(axis=1)               # [alive1]
+            best_per_f2 = jacc_alive.max(axis=0)               # [alive2]
 
-            for f1 in sample1:
-                a = fp1[:, f1]
-                best_j = -1
-                best_jacc = 0
-                for f2 in alive2[:min(500, len(alive2))]:
-                    b = fp2[:, f2]
-                    intersection = (a & b).sum()
-                    union = (a | b).sum()
-                    if union > 0:
-                        jacc = intersection / union
-                        if jacc > best_jacc:
-                            best_jacc = jacc
-                            best_j = f2
-                if best_jacc >= args.jaccard_threshold:
-                    duplicates += 1
-                best_matches.append(best_jacc)
-
-            mean_best = np.mean(best_matches) if best_matches else 0
-            print('  Sampled ' + str(len(sample1)) + ' features from ' + n1)
-            print('  Mean best Jaccard: ' + str(round(mean_best, 4)))
-            print('  Duplicates (>=' + str(args.jaccard_threshold) + '): ' + str(duplicates) + '/' + str(len(sample1)))
-            print('  Jaccard > 0.5: ' + str(sum(1 for j in best_matches if j > 0.5)))
-            print('  Jaccard > 0.7: ' + str(sum(1 for j in best_matches if j > 0.7)))
+            print('  Features: ' + str(n_alive1) + ' vs ' + str(n_alive2) + ' (all, no sampling)')
+            print('  Mean best Jaccard (SAE1→SAE2): ' + str(round(float(best_per_f1.mean()), 4)))
+            print('  Mean best Jaccard (SAE2→SAE1): ' + str(round(float(best_per_f2.mean()), 4)))
+            for thresh in [0.3, 0.5, 0.7, 0.9]:
+                n_dup1 = int((best_per_f1 >= thresh).sum())
+                n_dup2 = int((best_per_f2 >= thresh).sum())
+                print('  Jaccard >= ' + str(thresh) + ': ' + str(n_dup1) + '/' + str(n_alive1) + ' (' + str(round(n_dup1/max(n_alive1,1)*100,1)) + '%) | ' + str(n_dup2) + '/' + str(n_alive2) + ' (' + str(round(n_dup2/max(n_alive2,1)*100,1)) + '%)')
 
             results['pairwise'].append({
                 'sae1': n1, 'sae2': n2,
-                'mean_best_jaccard': round(float(mean_best), 4),
-                'duplicates': duplicates,
-                'sampled': len(sample1),
-                'jaccard_gt_05': sum(1 for j in best_matches if j > 0.5),
-                'jaccard_gt_07': sum(1 for j in best_matches if j > 0.7),
+                'alive1': n_alive1, 'alive2': n_alive2,
+                'mean_best_jaccard_1to2': round(float(best_per_f1.mean()), 4),
+                'mean_best_jaccard_2to1': round(float(best_per_f2.mean()), 4),
+                'dup_030': int((best_per_f1 >= 0.3).sum()),
+                'dup_050': int((best_per_f1 >= 0.5).sum()),
+                'dup_070': int((best_per_f1 >= 0.7).sum()),
+                'dup_090': int((best_per_f1 >= 0.9).sum()),
             })
 
     if args.output:
