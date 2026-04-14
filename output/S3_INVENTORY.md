@@ -19,15 +19,20 @@ All trained on 200K Lichess puzzles, 5 epochs, BatchTopK + aux loss (1/32).
 
 ```
 s3://chess-stage-a-140023406996/sae-weights/
-  sae_btk_blunder_mt_2048_k32_aux.pt  ← alive=2031, FVU=0.115, FR median=0.87%
-  sae_btk_blunder_mt_2048_k64_aux.pt  ← alive=2033, FVU=0.093, FR median=2.00%
-  sae_btk_blunder_mt_4096_k32_aux.pt  ← alive=4009, FVU=0.107, FR median=0.35%
-  sae_btk_blunder_mt_4096_k64_aux.pt  ← alive=4027, FVU=0.085, FR median=0.84%
-  sae_btk_blunder_mt_4096_k128_aux.pt ← alive=4092, FVU=0.066, FR profiling
+  sae_btk_blunder_mt_1024_k16_aux.pt  ← alive=1023, FVU=0.155
+  sae_btk_blunder_mt_1024_k32_aux.pt  ← alive=1016, FVU=0.127
+  sae_btk_blunder_mt_2048_k16_aux.pt  ← alive=2040, FVU=0.144
+  sae_btk_blunder_mt_2048_k32_aux.pt  ← WINNER: alive=2031, FVU=0.115, 1080 unique labels
+  sae_btk_blunder_mt_2048_k64_aux.pt  ← alive=2033, FVU=0.093
+  sae_btk_blunder_mt_4096_k32_aux.pt  ← alive=4009, FVU=0.107, 1914 unique labels
+  sae_btk_blunder_mt_4096_k64_aux.pt  ← alive=4027, FVU=0.085
+  sae_btk_blunder_mt_4096_k128_aux.pt ← alive=4092, FVU=0.066
+  sae_btk_blunder_mt_8192_k32_aux.pt  ← alive=8024, FVU=0.101
 ```
 
 All trained on 200K Lichess blunder move tokens (≥200cp loss), 10 epochs, BTK + aux.
 Move-token = hidden[77] from DeepMind 270M encoder (matches production pipeline).
+Winner: 2048 k=32 — best balance of unique labels (1,080) and quality (65% uniqueness).
 
 Format: PyTorch dict with `encoder_weight`, `encoder_bias`, `decoder_weight`, `pre_bias`, `k`, `dict_size`, `mean`, `std`.
 

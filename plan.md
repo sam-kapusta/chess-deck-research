@@ -6,20 +6,29 @@
 
 **Puzzle SAE champion:** BTK 2048 k=64 + aux, BA=0.632 — ready to deploy (Queue item 2).
 
-**Blunder SAE experiment (active):** 5 move-token variants trained, profiled, labeling in progress.
+**Blunder SAE winner: MT 2048 k=32** — 1,080 unique coaching labels, 65% label uniqueness, 1.56% median fire rate.
 
-| Config | Alive | FVU | FR Median | Energy% | Labeling |
-|--------|-------|-----|-----------|---------|----------|
-| MT 2048 k=32 | 2,031 | 0.115 | 0.87% | ~42% | `ypr3017mqa9s` |
-| MT 2048 k=64 | 2,033 | 0.093 | 2.00% | ~60% | `mjgqyjem1w28` |
-| MT 4096 k=32 | 4,009 | 0.107 | 0.35% | ~42% | `ypr3017mqa9s` |
-| MT 4096 k=64 | 4,027 | 0.085 | 0.84% | ~60% | `mjgqyjem1w28` |
-| MT 4096 k=128 | 4,092 | 0.066 | TBD | ~75% | Profiling |
+Full sweep (9 variants trained, 5 labeled):
 
-**Key findings this session:**
-- All-token training → 20-31% fire rates (too broad). Move-token-only (hidden[77]) → 0.8-3.1% fire rates.
-- Pre-topk energy analysis: 318 features naturally activate, top-64 captures 60% of energy.
-- BTK batch-level constraint allows variable L0 per position (not forced k per sample).
+| Config | Alive | FVU | FR Med | Quality | Unique Labels | Verdict |
+|--------|-------|-----|--------|---------|---------------|---------|
+| 1024 k=16 | 1,023 | 0.155 | 1.56% | — | — | Too coarse |
+| 1024 k=32 | 1,016 | 0.127 | 3.12% | — | — | Too coarse, 71% of 2048 missed |
+| **2048 k=32** | **2,031** | **0.115** | **0.87%** | **1,670** | **1,080** | **WINNER** |
+| 2048 k=16 | 2,040 | 0.144 | 0.78% | — | — | Unlabeled |
+| 2048 k=64 | 2,033 | 0.093 | 2.00% | 2,984 | — | More redundant |
+| 4096 k=32 | 4,009 | 0.107 | 0.35% | 3,447 | 1,914 | +834 unique but 44% redundant |
+| 4096 k=64 | 4,027 | 0.085 | 0.84% | 2,984 | — | Diminishing returns |
+| 4096 k=128 | 4,092 | 0.066 | 2.09% | 2,711 | — | Too many broad features |
+| 8192 k=32 | 8,024 | 0.101 | — | — | — | Research only |
+
+**Key findings:**
+- Move-token-only (hidden[77]) fixed fire rates: 20-31% all-token → 0.8-3.1% move-token
+- 60% high-confidence labels across all variants (up from 27% in old blunder SAE)
+- Pairwise Jaccard 0.12-0.19 across variants — SAEs find different decompositions
+- Within categories: features are unique (Jaccard <0.5), but labels are the bottleneck (40% get generic names)
+- 1024 too small (misses 71% of 2048 coverage), 4096 diminishing returns (44% redundant)
+- Top blunder categories: hanging pieces (20%), endgame technique (17%), passed pawns (11%), deflection (12%)
 
 **Repo structure:** Everything in chess-deck-research now. See README.md.
 
