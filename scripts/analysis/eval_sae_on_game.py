@@ -262,9 +262,14 @@ def main():
     parser.add_argument('--output', '-o', help='Save results JSON')
     args = parser.parse_args()
 
+    timings = {}
+    t_total = time.time()
+
     # Load game
+    t0 = time.time()
     with open(args.game) as f:
         moves = json.load(f)
+    timings['load_game'] = round(time.time() - t0, 2)
     if isinstance(moves, dict):
         moves = moves.get('moves', [])
 
@@ -278,12 +283,15 @@ def main():
     # Get narrative
     narratives = {}
     if not args.no_narrative and mistakes:
+        t0 = time.time()
         print('Getting Sonnet narrative for mistakes...')
         narratives = get_narratives(mistakes)
-        print(f'  Got {len(narratives)} narratives')
+        timings['narrative'] = round(time.time() - t0, 2)
+        print(f'  Got {len(narratives)} narratives ({timings["narrative"]}s)')
         print()
 
     # Load encoder
+    t0 = time.time()
     enc_path = args.encoder or DEFAULT_ENCODER
     mm_path = args.move_map or DEFAULT_MOVE_MAP
     # Resolve relative paths
@@ -294,17 +302,25 @@ def main():
 
     print(f'Loading encoder...')
     encoder = Encoder(enc_path, mm_path)
+    timings['load_encoder'] = round(time.time() - t0, 2)
+    print(f'  Encoder loaded ({timings["load_encoder"]}s)')
 
     # Load SAEs
+    t0 = time.time()
     saes = []
     for sae_path in args.sae:
         print(f'Loading SAE: {sae_path}')
         sae, mean, std, dd, k, name = load_sae(sae_path)
         saes.append({'sae': sae, 'mean': mean, 'std': std, 'dd': dd, 'k': k, 'name': name})
+    timings['load_saes'] = round(time.time() - t0, 2)
+    print(f'  SAEs loaded ({timings["load_saes"]}s)')
 
     print()
 
     # Process each mistake
+    t_encode_total = 0
+    t_sae_total = 0
+    t_label_total = 0
     results = []
     for m in mistakes:
         ply = m['ply']
@@ -321,8 +337,10 @@ def main():
         print()
 
         # Encode played + best
+        t0 = time.time()
         h_played = encoder.encode(m['fen'], m['uci'])
         h_best = encoder.encode(m['fen'], m['best_uci']) if m['best_uci'] != m['uci'] else None
+        t_encode_total += time.time() - t0
 
         if h_played is None:
             print(f"  Could not encode played move")
@@ -338,8 +356,10 @@ def main():
         # Run each SAE
         for s in saes:
             sae_name = s['name']
+            t0 = time.time()
             feats_played = run_sae(h_played, s['sae'], s['mean'], s['std'])
             feats_best = run_sae(h_best, s['sae'], s['mean'], s['std']) if h_best is not None else []
+            t_sae_total += time.time() - t0
 
             played_ids = {f[0] for f in feats_played}
             best_ids = {f[0] for f in feats_best}
@@ -350,6 +370,7 @@ def main():
             # Label diff features
             diff_labels = {}
             if not args.no_labels:
+                t0 = time.time()
                 for fid in list(only_played)[:4] + list(only_best)[:4]:
                     pos_info = {
                         'fen': m['fen'], 'uci': m['uci'], 'best_uci': m['best_uci'],
@@ -360,6 +381,7 @@ def main():
                     if lbl:
                         diff_labels[fid] = lbl
                     time.sleep(0.3)
+                t_label_total += time.time() - t0
 
             # Print
             print(f"  {sae_name} (dict={s['dd']}, k={s['k']}):")
@@ -411,6 +433,19 @@ def main():
             for r in results
         )
         print(f"  {name}: {total_diff} diff features across {len(results)} mistakes, {total_labeled} labeled")
+
+    # Timing summary
+    timings['encode'] = round(t_encode_total, 2)
+    timings['sae_inference'] = round(t_sae_total, 2)
+    timings['labeling'] = round(t_label_total, 2)
+    timings['total'] = round(time.time() - t_total, 2)
+
+    print()
+    print('TIMING:')
+    for step, t in timings.items():
+        pct = round(t / max(timings['total'], 0.01) * 100)
+        bar = '█' * (pct // 5)
+        print(f'  {step:<20} {t:>6.1f}s  {pct:>3}% {bar}')
 
     # Save
     if args.output:
