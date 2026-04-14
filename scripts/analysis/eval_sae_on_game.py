@@ -1,52 +1,49 @@
 #!/usr/bin/env python3
-"""Evaluate SAE(s) on a specific game. The SAE evaluation tool.
+"""Evaluate SAE(s) on a specific game. Fair comparison tool.
 
 Usage:
-    eval_sae_on_game.py --game game_analysis.json --sae sae1.pt [--sae sae2.pt] [--labels labels1.json]
+    eval_sae_on_game.py --game game_analysis.json --sae sae1.pt --profiles profiles1.json \
+                        [--sae sae2.pt --profiles profiles2.json] [--top-n 5] [--diff-k 8]
 
 Flow:
     1. Load game analysis (from analyze_game.py)
-    2. Add Sonnet narrative to biggest mistakes (one LLM call)
-    3. For each SAE: encode played+best moves, get features, label diffs
-    4. Output per-mistake comparison table
+    2. Get Sonnet narrative for biggest mistakes (ground truth, no SAE bias)
+    3. For each SAE: encode played+best, get feature diffs
+    4. Look up diff features in pre-computed profiles (200K training examples)
+    5. Label top-K diff features per mistake (parallel Sonnet calls)
+    6. Output per-mistake comparison table with timing
 
-This is for SAE evaluation — which SAE produces the most useful features?
+Fair comparison: same number of diff features labeled per SAE (--diff-k, default 8).
 """
 import argparse
 import json
 import os
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import numpy as np
 
-# ── Encoder + SAE setup ──
-
-try:
-    import torch
-    import torch.nn as nn
-    import torch.nn.functional as F
-    TORCH = True
-except ImportError:
-    TORCH = False
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
 
 try:
     import onnxruntime as ort
-    ONNX = True
 except ImportError:
-    ONNX = False
+    print('pip install onnxruntime'); sys.exit(1)
 
 try:
     import boto3
-    BOTO = True
 except ImportError:
-    BOTO = False
+    print('pip install boto3'); sys.exit(1)
 
 
-DEFAULT_ENCODER = os.path.join(os.path.dirname(__file__), '..', '..', '..',
-    'chess-coach', 'backend', 'lambda', 'sae_features', 'data', 'encoder_270m.onnx')
-DEFAULT_MOVE_MAP = os.path.join(os.path.dirname(__file__), '..', '..', '..',
-    'chess-coach', 'backend', 'lambda', 'sae_features', 'data', 'move_to_action.json')
+DEFAULT_ENCODER = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..',
+    'chess-coach', 'backend', 'lambda', 'sae_features', 'data', 'encoder_270m.onnx'))
+DEFAULT_MOVE_MAP = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..',
+    'chess-coach', 'backend', 'lambda', 'sae_features', 'data', 'move_to_action.json'))
+BEDROCK_MODEL = 'us.anthropic.claude-sonnet-4-20250514-v1:0'
 
 
 # ── Tokenizer ──
@@ -108,7 +105,6 @@ class SAE(nn.Module):
         self.decoder = nn.Linear(dd, di, bias=False)
         self.pre_bias = nn.Parameter(torch.zeros(di))
         self.k = k
-
     def forward(self, x):
         z = self.encoder(x - self.pre_bias)
         tv, ti = torch.topk(z, self.k, dim=-1)
@@ -127,19 +123,14 @@ def load_sae(path):
     model_keys = {'encoder.weight', 'encoder.bias', 'decoder.weight', 'decoder.bias', 'pre_bias'}
     filtered = {k_: v for k_, v in state.items() if k_ in model_keys}
     sae.load_state_dict(filtered if filtered else state, strict=False)
-
     mean = ckpt.get('mean')
     if mean is None:
-        norm = ckpt.get('normalization', {}) or {}
-        mean = norm.get('mean')
+        mean = (ckpt.get('normalization') or {}).get('mean')
     std = ckpt.get('std')
     if std is None:
-        norm = ckpt.get('normalization', {}) or {}
-        std = norm.get('std')
-
+        std = (ckpt.get('normalization') or {}).get('std')
     mean_t = torch.tensor(mean, dtype=torch.float32) if mean is not None else torch.zeros(1024)
     std_t = torch.tensor(std, dtype=torch.float32) + 1e-8 if std is not None else torch.ones(1024)
-
     name = os.path.basename(path).replace('.pt', '')
     return sae.eval(), mean_t, std_t, dd, k, name
 
@@ -156,110 +147,158 @@ def run_sae(hidden, sae, mean, std):
     return [(int(active[i]), round(float(strengths[i]), 2)) for i in order]
 
 
-# ── Narrative ──
-
-NARRATIVE_PROMPT = """You are a chess coach analyzing a game. Here are the biggest mistakes.
-For each, explain in 1-2 sentences what went wrong and why the best move was better.
-Use concrete chess language (pieces, squares, tactics). No fluff.
-
-{mistakes}
-
-Respond as JSON array: [{{"ply": N, "narrative": "..."}}]"""
-
+# ── Narrative (ground truth, no SAE bias) ──
 
 def get_narratives(mistakes):
-    if not BOTO:
-        return {}
     client = boto3.client('bedrock-runtime', region_name='us-east-1')
-
     mistake_text = ""
     for m in mistakes:
         mistake_text += f"Ply {m['ply']}: {m['san']} ({m['side']}, {m['cp_loss']}cp loss)\n"
         mistake_text += f"  FEN: {m['fen']}\n"
         mistake_text += f"  Played: {m['uci']}  Best: {m['best_uci']}\n\n"
 
-    prompt = NARRATIVE_PROMPT.format(mistakes=mistake_text)
+    prompt = f"""You are a chess coach. For each mistake, explain in 1-2 sentences what went wrong
+and why the best move was better. Concrete chess language (pieces, squares, tactics). No fluff.
+
+{mistake_text}
+
+Respond as JSON array: [{{"ply": N, "narrative": "..."}}]"""
+
+    import re
     resp = client.converse(
-        modelId='us.anthropic.claude-sonnet-4-20250514-v1:0',
+        modelId=BEDROCK_MODEL,
         messages=[{'role': 'user', 'content': [{'text': prompt}]}],
         inferenceConfig={'maxTokens': 1000},
     )
     text = resp['output']['message']['content'][0]['text']
-
-    import re
     match = re.search(r'\[.*\]', text, re.DOTALL)
     if match:
         try:
-            items = json.loads(match.group())
-            return {item['ply']: item['narrative'] for item in items}
+            return {item['ply']: item['narrative'] for item in json.loads(match.group())}
         except:
             pass
     return {}
 
 
-# ── Feature labeling (direct API, per-feature) ──
+# ── Feature labeling with profile examples ──
 
-LABEL_PROMPT = """This SAE feature fires on a chess blunder position.
+LABEL_PROMPT = """Analyze SAE feature F{fid}. This feature fires on chess blunder positions.
+
+=== TOP ACTIVATIONS FROM 200K TRAINING POSITIONS ===
+{examples}
+
+=== GAME CONTEXT ===
+This feature fires on move {ply} in a specific game.
+FEN: {fen}
+Played move ({side}, blunder): {played}
+Best move: {best}
+CP loss: {cp_loss}
+The feature fires on the {'PLAYED' if on_played else 'BEST'} move but NOT the other.
+
+What specific chess pattern does this feature detect?
+
+Respond ONLY with this format:
+LABEL: 2-5 word specific label
+CATEGORY: one of [hanging_pieces, overloaded_defenders, forks, pins, skewers, discovered_attacks, back_rank, king_safety, passed_pawns, rook_endgames, pawn_endgames, checkmate_patterns, quiet_moves, trapped_pieces, sacrifice, other]"""
+
+LABEL_PROMPT_NO_PROFILES = """This SAE feature fires on a chess blunder position.
 
 FEN: {fen}
-Played move (blunder): {played}
+Played move ({side}, blunder): {played}
 Best move: {best}
 CP loss: {cp_loss}
 Activation strength: {strength}
+The feature fires on the {'PLAYED' if on_played else 'BEST'} move but NOT the other.
 
-The feature fires on the PLAYED move but NOT on the best move (or vice versa).
 What specific chess pattern does this feature detect?
 
-Respond in exactly this format:
+Respond ONLY with this format:
 LABEL: 2-5 word specific label
 CATEGORY: one of [hanging_pieces, overloaded_defenders, forks, pins, skewers, discovered_attacks, back_rank, king_safety, passed_pawns, rook_endgames, pawn_endgames, checkmate_patterns, quiet_moves, trapped_pieces, sacrifice, other]"""
 
 
-def label_feature_in_context(fid, positions, model_id='us.anthropic.claude-sonnet-4-20250514-v1:0'):
-    """Label a feature from its game positions. Fast: one short API call."""
-    if not BOTO or not positions:
-        return None
-
-    # Use strongest activation position
-    pos = max(positions, key=lambda p: p.get('strength', 0))
-
-    prompt = LABEL_PROMPT.format(
-        fen=pos['fen'], played=pos.get('uci', '?'),
-        best=pos.get('best_uci', '?'), cp_loss=pos.get('cp_loss', 0),
-        strength=pos.get('strength', 0),
-    )
-
-    client = boto3.client('bedrock-runtime', region_name='us-east-1')
-    resp = client.converse(
-        modelId=model_id,
-        messages=[{'role': 'user', 'content': [{'text': prompt}]}],
-        inferenceConfig={'maxTokens': 100},
-    )
-    text = resp['output']['message']['content'][0]['text']
-
+def label_one_feature(fid, mistake, on_played, strength, profiles, client):
+    """Label one diff feature. Returns (fid, label_dict) or (fid, None)."""
     import re
-    label_match = re.search(r'LABEL:\s*(.+)', text)
-    cat_match = re.search(r'CATEGORY:\s*(\S+)', text)
-    if label_match:
-        return {
-            'label': label_match.group(1).strip(),
-            'category': cat_match.group(1).strip() if cat_match else 'other',
-        }
-    return None
+
+    # Build examples from profiles if available
+    prof = profiles.get(str(fid), {}) if profiles else {}
+    examples_text = ""
+    if prof.get('examples'):
+        for i, ex in enumerate(prof['examples'][:10]):
+            examples_text += f"{i+1}. FEN: {ex.get('fen', '?')}  Move: {ex.get('blunder', ex.get('uci', '?'))}  "
+            examples_text += f"Best: {ex.get('best', ex.get('best_uci', '?'))}  "
+            examples_text += f"CP loss: {ex.get('cp_loss', '?')}  Strength: {ex.get('strength', '?')}\n"
+
+    if examples_text:
+        prompt = LABEL_PROMPT.format(
+            fid=fid, examples=examples_text, ply=mistake['ply'],
+            fen=mistake['fen'], played=mistake['uci'], best=mistake['best_uci'],
+            cp_loss=mistake['cp_loss'], side=mistake['side'], on_played=on_played,
+        )
+    else:
+        prompt = LABEL_PROMPT_NO_PROFILES.format(
+            fen=mistake['fen'], played=mistake['uci'], best=mistake['best_uci'],
+            cp_loss=mistake['cp_loss'], side=mistake['side'], strength=strength,
+            on_played=on_played,
+        )
+
+    try:
+        resp = client.converse(
+            modelId=BEDROCK_MODEL,
+            messages=[{'role': 'user', 'content': [{'text': prompt}]}],
+            inferenceConfig={'maxTokens': 100},
+        )
+        text = resp['output']['message']['content'][0]['text']
+        label_match = re.search(r'LABEL:\s*(.+)', text)
+        cat_match = re.search(r'CATEGORY:\s*(\S+)', text)
+        if label_match:
+            return fid, {
+                'label': label_match.group(1).strip(),
+                'category': cat_match.group(1).strip() if cat_match else 'other',
+                'on_played': on_played,
+                'strength': strength,
+            }
+    except Exception as e:
+        return fid, None
+
+    return fid, None
+
+
+def label_diff_features_parallel(diff_features, mistake, profiles, max_workers=8):
+    """Label multiple diff features in parallel. Returns dict of {fid: label_dict}."""
+    client = boto3.client('bedrock-runtime', region_name='us-east-1')
+    labels = {}
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {}
+        for fid, strength, on_played in diff_features:
+            future = executor.submit(label_one_feature, fid, mistake, on_played, strength, profiles, client)
+            futures[future] = fid
+
+        for future in as_completed(futures):
+            fid, result = future.result()
+            if result:
+                labels[fid] = result
+
+    return labels
 
 
 # ── Main ──
 
 def main():
     parser = argparse.ArgumentParser(description='Evaluate SAE(s) on a specific game')
-    parser.add_argument('--game', required=True, help='Game analysis JSON (from analyze_game.py)')
-    parser.add_argument('--sae', action='append', required=True, help='SAE checkpoint(s). Can specify multiple: --sae a.pt --sae b.pt')
-    parser.add_argument('--encoder', default=None, help='ONNX encoder path')
-    parser.add_argument('--move-map', default=None, help='move_to_action.json path')
-    parser.add_argument('--top-n', type=int, default=5, help='Show top N mistakes (default: 5)')
-    parser.add_argument('--no-narrative', action='store_true', help='Skip Sonnet narrative')
-    parser.add_argument('--no-labels', action='store_true', help='Skip feature labeling (just show IDs)')
-    parser.add_argument('--output', '-o', help='Save results JSON')
+    parser.add_argument('--game', required=True, help='Game analysis JSON')
+    parser.add_argument('--sae', action='append', required=True, help='SAE checkpoint(s)')
+    parser.add_argument('--profiles', action='append', default=[], help='Profiles JSON per SAE (same order as --sae)')
+    parser.add_argument('--encoder', default=None)
+    parser.add_argument('--move-map', default=None)
+    parser.add_argument('--top-n', type=int, default=5, help='Top N mistakes to analyze')
+    parser.add_argument('--diff-k', type=int, default=8, help='Top K diff features to label per mistake per SAE (fair comparison)')
+    parser.add_argument('--no-narrative', action='store_true')
+    parser.add_argument('--no-labels', action='store_true')
+    parser.add_argument('--output', '-o')
+    parser.add_argument('--workers', type=int, default=8, help='Parallel Sonnet workers')
     args = parser.parse_args()
 
     timings = {}
@@ -269,189 +308,197 @@ def main():
     t0 = time.time()
     with open(args.game) as f:
         moves = json.load(f)
-    timings['load_game'] = round(time.time() - t0, 2)
     if isinstance(moves, dict):
         moves = moves.get('moves', [])
+    timings['load_game'] = round(time.time() - t0, 2)
 
-    # Find biggest mistakes
+    # Find biggest mistakes (played != best)
     mistakes = [m for m in moves if m.get('uci') != m.get('best_uci') and m.get('cp_loss', 0) >= 50]
     mistakes.sort(key=lambda m: -m['cp_loss'])
     mistakes = mistakes[:args.top_n]
     print(f'Game: {len(moves)} moves, {len(mistakes)} mistakes (top {args.top_n})')
     print()
 
-    # Get narrative
+    # Narrative (ground truth — no SAE bias)
     narratives = {}
     if not args.no_narrative and mistakes:
         t0 = time.time()
-        print('Getting Sonnet narrative for mistakes...')
+        print('Getting Sonnet narrative (ground truth)...')
         narratives = get_narratives(mistakes)
         timings['narrative'] = round(time.time() - t0, 2)
-        print(f'  Got {len(narratives)} narratives ({timings["narrative"]}s)')
+        print(f'  {len(narratives)} narratives ({timings["narrative"]:.1f}s)')
         print()
 
     # Load encoder
     t0 = time.time()
     enc_path = args.encoder or DEFAULT_ENCODER
     mm_path = args.move_map or DEFAULT_MOVE_MAP
-    # Resolve relative paths
-    if not os.path.isabs(enc_path):
-        enc_path = os.path.abspath(enc_path)
-    if not os.path.isabs(mm_path):
-        mm_path = os.path.abspath(mm_path)
-
     print(f'Loading encoder...')
     encoder = Encoder(enc_path, mm_path)
     timings['load_encoder'] = round(time.time() - t0, 2)
-    print(f'  Encoder loaded ({timings["load_encoder"]}s)')
+    print(f'  Done ({timings["load_encoder"]:.1f}s)')
 
-    # Load SAEs
+    # Load SAEs + profiles
     t0 = time.time()
-    saes = []
-    for sae_path in args.sae:
+    sae_configs = []
+    for i, sae_path in enumerate(args.sae):
         print(f'Loading SAE: {sae_path}')
         sae, mean, std, dd, k, name = load_sae(sae_path)
-        saes.append({'sae': sae, 'mean': mean, 'std': std, 'dd': dd, 'k': k, 'name': name})
+        profiles = {}
+        if i < len(args.profiles) and args.profiles[i]:
+            print(f'  Loading profiles: {args.profiles[i]}')
+            with open(args.profiles[i]) as f:
+                profiles = json.load(f)
+            print(f'  {len(profiles)} feature profiles')
+        sae_configs.append({
+            'sae': sae, 'mean': mean, 'std': std,
+            'dd': dd, 'k': k, 'name': name, 'profiles': profiles,
+        })
     timings['load_saes'] = round(time.time() - t0, 2)
-    print(f'  SAEs loaded ({timings["load_saes"]}s)')
-
+    print(f'  SAEs loaded ({timings["load_saes"]:.1f}s)')
     print()
 
     # Process each mistake
-    t_encode_total = 0
-    t_sae_total = 0
-    t_label_total = 0
+    t_encode = 0
+    t_sae = 0
+    t_label = 0
     results = []
+
     for m in mistakes:
         ply = m['ply']
-        san = m['san']
-        side = m['side']
-        cp_loss = m['cp_loss']
         narrative = narratives.get(ply, '')
 
         print('=' * 70)
-        print(f"Move {ply}: {san} ({side}) — {cp_loss}cp loss")
+        print(f"Move {ply}: {m['san']} ({m['side']}) — {m['cp_loss']}cp loss")
         print(f"  Played: {m['uci']}  Best: {m['best_uci']}")
         if narrative:
-            print(f"  WHY: {narrative}")
+            print(f"  WHAT HAPPENED: {narrative}")
         print()
 
         # Encode played + best
         t0 = time.time()
         h_played = encoder.encode(m['fen'], m['uci'])
         h_best = encoder.encode(m['fen'], m['best_uci']) if m['best_uci'] != m['uci'] else None
-        t_encode_total += time.time() - t0
+        t_encode += time.time() - t0
 
         if h_played is None:
             print(f"  Could not encode played move")
             continue
 
         mistake_result = {
-            'ply': ply, 'san': san, 'side': side, 'cp_loss': cp_loss,
-            'played': m['uci'], 'best': m['best_uci'],
-            'fen': m['fen'], 'narrative': narrative,
-            'saes': {},
+            'ply': ply, 'san': m['san'], 'side': m['side'], 'cp_loss': m['cp_loss'],
+            'played': m['uci'], 'best': m['best_uci'], 'fen': m['fen'],
+            'narrative': narrative, 'saes': {},
         }
 
-        # Run each SAE
-        for s in saes:
-            sae_name = s['name']
+        for sc in sae_configs:
+            sae_name = sc['name']
+
+            # SAE inference
             t0 = time.time()
-            feats_played = run_sae(h_played, s['sae'], s['mean'], s['std'])
-            feats_best = run_sae(h_best, s['sae'], s['mean'], s['std']) if h_best is not None else []
-            t_sae_total += time.time() - t0
+            feats_played = run_sae(h_played, sc['sae'], sc['mean'], sc['std'])
+            feats_best = run_sae(h_best, sc['sae'], sc['mean'], sc['std']) if h_best is not None else []
+            t_sae += time.time() - t0
 
             played_ids = {f[0] for f in feats_played}
             best_ids = {f[0] for f in feats_best}
             shared = played_ids & best_ids
-            only_played = played_ids - best_ids
-            only_best = best_ids - played_ids
+            only_played = [(fid, s) for fid, s in feats_played if fid not in best_ids]
+            only_best = [(fid, s) for fid, s in feats_best if fid not in played_ids]
 
-            # Label diff features
+            # Sort by strength, take top diff-k from each side
+            only_played.sort(key=lambda x: -x[1])
+            only_best.sort(key=lambda x: -x[1])
+            top_played = only_played[:args.diff_k]
+            top_best = only_best[:args.diff_k]
+
+            # Label diff features (parallel)
             diff_labels = {}
             if not args.no_labels:
                 t0 = time.time()
-                for fid in list(only_played)[:4] + list(only_best)[:4]:
-                    pos_info = {
-                        'fen': m['fen'], 'uci': m['uci'], 'best_uci': m['best_uci'],
-                        'cp_loss': cp_loss,
-                        'strength': dict(feats_played + feats_best).get(fid, 0),
-                    }
-                    lbl = label_feature_in_context(fid, [pos_info])
-                    if lbl:
-                        diff_labels[fid] = lbl
-                    time.sleep(0.3)
-                t_label_total += time.time() - t0
+                to_label = [(fid, s, True) for fid, s in top_played] + \
+                           [(fid, s, False) for fid, s in top_best]
+                diff_labels = label_diff_features_parallel(
+                    to_label, m, sc['profiles'], max_workers=args.workers)
+                t_label += time.time() - t0
 
-            # Print
-            print(f"  {sae_name} (dict={s['dd']}, k={s['k']}):")
-            print(f"    Shared: {len(shared)}  Only played: {len(only_played)}  Only best: {len(only_best)}")
+            # Print results
+            print(f"  {sae_name} (dict={sc['dd']}, k={sc['k']}):")
+            print(f"    Shared: {len(shared)}  Diff: {len(only_played)}+{len(only_best)}")
 
-            if only_played:
-                print(f"    PLAYED-ONLY (what the blunder activated):")
-                for fid in sorted(only_played):
-                    strength = dict(feats_played).get(fid, 0)
-                    lbl = diff_labels.get(fid, {})
+            if top_played:
+                print(f"    BLUNDER activated (top {len(top_played)}):")
+                for fid, strength in top_played:
+                    lbl = diff_labels.get(fid)
                     lbl_str = f" → {lbl['label']} [{lbl['category']}]" if lbl else ""
                     print(f"      F{fid} (str={strength}){lbl_str}")
 
-            if only_best:
-                print(f"    BEST-ONLY (what the player missed):")
-                for fid in sorted(only_best):
-                    strength = dict(feats_best).get(fid, 0)
-                    lbl = diff_labels.get(fid, {})
+            if top_best:
+                print(f"    BEST MOVE activated (top {len(top_best)}):")
+                for fid, strength in top_best:
+                    lbl = diff_labels.get(fid)
                     lbl_str = f" → {lbl['label']} [{lbl['category']}]" if lbl else ""
                     print(f"      F{fid} (str={strength}){lbl_str}")
 
             print()
 
             mistake_result['saes'][sae_name] = {
-                'dict_size': s['dd'], 'k': s['k'],
-                'n_shared': len(shared), 'n_only_played': len(only_played), 'n_only_best': len(only_best),
-                'played_features': feats_played[:10],
-                'best_features': feats_best[:10],
-                'only_played': list(only_played),
-                'only_best': list(only_best),
-                'diff_labels': diff_labels,
+                'dict_size': sc['dd'], 'k': sc['k'],
+                'n_shared': len(shared),
+                'n_only_played': len(only_played),
+                'n_only_best': len(only_best),
+                'top_played': [{'fid': f, 'strength': s, **(diff_labels.get(f, {}))} for f, s in top_played],
+                'top_best': [{'fid': f, 'strength': s, **(diff_labels.get(f, {}))} for f, s in top_best],
             }
 
         results.append(mistake_result)
 
     # Summary
-    print('=' * 70)
-    print('SUMMARY: Which SAE gives better diff signal?')
-    print()
-    for s in saes:
-        name = s['name']
-        total_diff = sum(
-            len(r['saes'].get(name, {}).get('only_played', [])) +
-            len(r['saes'].get(name, {}).get('only_best', []))
-            for r in results
-        )
-        total_labeled = sum(
-            len(r['saes'].get(name, {}).get('diff_labels', {}))
-            for r in results
-        )
-        print(f"  {name}: {total_diff} diff features across {len(results)} mistakes, {total_labeled} labeled")
-
-    # Timing summary
-    timings['encode'] = round(t_encode_total, 2)
-    timings['sae_inference'] = round(t_sae_total, 2)
-    timings['labeling'] = round(t_label_total, 2)
+    timings['encode'] = round(t_encode, 2)
+    timings['sae_inference'] = round(t_sae, 2)
+    timings['labeling'] = round(t_label, 2)
     timings['total'] = round(time.time() - t_total, 2)
 
+    print('=' * 70)
+    print('SUMMARY')
     print()
+
+    for sc in sae_configs:
+        name = sc['name']
+        total_labeled = 0
+        categories = {}
+        for r in results:
+            sae_data = r['saes'].get(name, {})
+            for feat in sae_data.get('top_played', []) + sae_data.get('top_best', []):
+                if 'label' in feat:
+                    total_labeled += 1
+                    cat = feat.get('category', 'other')
+                    categories[cat] = categories.get(cat, 0) + 1
+
+        n_diff = sum(
+            r['saes'].get(name, {}).get('n_only_played', 0) +
+            r['saes'].get(name, {}).get('n_only_best', 0)
+            for r in results
+        )
+        print(f"  {name} (dict={sc['dd']}, k={sc['k']}):")
+        print(f"    Total diff features: {n_diff} across {len(results)} mistakes")
+        print(f"    Labeled: {total_labeled}")
+        if categories:
+            print(f"    Categories: {dict(sorted(categories.items(), key=lambda x: -x[1]))}")
+        print()
+
     print('TIMING:')
     for step, t in timings.items():
         pct = round(t / max(timings['total'], 0.01) * 100)
-        bar = '█' * (pct // 5)
+        bar = '█' * max(1, pct // 5)
         print(f'  {step:<20} {t:>6.1f}s  {pct:>3}% {bar}')
 
-    # Save
     if args.output:
+        out = {'results': results, 'timings': timings,
+               'saes': [{'name': sc['name'], 'dd': sc['dd'], 'k': sc['k']} for sc in sae_configs]}
         with open(args.output, 'w') as f:
-            json.dump(results, f, indent=2)
-        print(f"\nSaved to {args.output}")
+            json.dump(out, f, indent=2)
+        print(f'\nSaved to {args.output}')
 
 
 if __name__ == '__main__':
