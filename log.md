@@ -1,5 +1,59 @@
 # Chess Lab — Log
 
+## 2026-04-14 (session 3 continued) — Blunder SAE full sweep + categorization
+
+**Big session.** 9 SAE variants trained, 5 labeled, full comparison, winner selected, categorization explored.
+
+### Results
+- **Winner: 2048 k=32 move-token** — 1,080 unique labels, 65% uniqueness, 1.56% median FR
+- All variants got ~60% high-confidence labels (up from 27% in old blunder SAE)
+- Move-token fix was key: all-token → 20-31% FR, move-token → 0.8-3.1% FR
+- 1024 too coarse (misses 71% of 2048), 4096 diminishing returns (44% redundant), 8192 structural fine but overkill
+
+### Labeling
+- 3 Bedrock Batch jobs: k=64 (`mjgqyjem1w28`), k=32 (`ypr3017mqa9s`), k=128 (`9m6cs1aioq3k`) — all completed
+- Top categories: hanging_pieces (20%), endgame_technique (17%), passed_pawn (11%), deflection (12%)
+- Within-category Jaccard: features are distinct (<0.5) but labels are bottleneck (40% get generic names)
+
+### Analysis
+- Pairwise Jaccard (full matmul, no sampling): 0.12-0.19 mean across SAE pairs. Features are unique across SAEs.
+- Pre-topk energy: 318 features naturally activate, top-64 = 60% energy, top-128 = 75%
+- Greedy set cover: 22 features cover 95% of positions BUT top features fire 15-20% (too broad)
+- Fire-pattern clustering: endgame features cluster cleanly, tactical features don't (positions overlap)
+- Key insight: "overloaded defender" and "hanging piece" fire on overlapping positions — same blunder from different angles
+
+### Categorization (in progress)
+- Sonnet's categories are good but flat (22 categories, no hierarchy)
+- Dedup at Jaccard 0.8 + clique grouping at 0.3 — script running
+- Endgame features → clean coaching topics. Tactical features → need tags not categories.
+- Explored: Heisman mistake taxonomy, greedy set cover, hierarchical clustering, decoder-direction clustering
+- Decision: dedup → group → relabel groups with coaching-focused prompt (short_label, coaching_advice, theme/subtopic)
+
+### Infrastructure
+- Repo consolidated: everything in chess-deck-research (plan, log, findings, learnings, scripts, output, docs, archive)
+- Cleaned hooks: 11 → 4 (session-start, post-compact, drift-nudge, anti-poll)
+- Updated /organized skill: added S3, git commit, naming, two-phase, cheap-before-expensive habits
+- Fixed IAM: SageMaker role can now PassRole for Bedrock Batch
+- CLAUDE.md updated to point to chess-deck-research for SAE research
+
+### Scripts committed
+- `compare_saes.py` — full matmul Jaccard
+- `quality_filter.py` — confidence + FR + mono filter
+- `within_category_jaccard.py` — redundancy within categories  
+- `pretopk_energy.py` — natural sparsity analysis
+- `label_breakdown.py` — category comparison
+- `cluster_features.py` — hierarchical clustering
+- `greedy_feature_selection.py` — set cover
+- `dedup_and_group.py` — Jaccard dedup + clique grouping
+- `label_blunder_coaching.py` — coaching-focused labeling prompt
+- `cache_move_token.py` — extract hidden[77]
+
+### Next session
+- Check dedup_and_group.py results (running on notebook)
+- Relabel grouped features with coaching prompt
+- Detection scoring on 2048 k=32
+- Deploy puzzle SAE (Queue item 2 still waiting)
+
 ## 2026-04-13 (session 3) — Blunder SAE experiment
 
 - Starting blunder-trained SAE experiment (Queue item 3 from plan.md)
