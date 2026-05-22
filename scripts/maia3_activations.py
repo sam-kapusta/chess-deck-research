@@ -241,17 +241,34 @@ def pool_activations(raw: np.ndarray, pool_mode: str, ucis: list = None,
     """
     Pool (N, 64, 512) activations based on mode.
 
+    - 'diff': (to_square - from_square) activation → (N, 512). Encodes what
+      changes along the move path. Best tactical theme clustering.
     - 'from-square': extract activation at the from-square of each UCI move → (N, 512)
     - 'mean': mean across all 64 squares → (N, 512)
     - 'all': keep full spatial representation → (N, 64, 512)
 
-    For from-square mode, was_mirrored indicates which positions were flipped
-    (black-to-move) so the from-square index is correctly mirrored.
+    For modes using UCI squares, was_mirrored indicates which positions were
+    flipped (black-to-move) so square indices are correctly mirrored.
     """
     if pool_mode == "all":
         return raw
     elif pool_mode == "mean":
         return raw.mean(axis=1).astype(np.float32)
+    elif pool_mode == "diff":
+        if ucis is None:
+            raise ValueError("diff pooling requires UCIs")
+        if was_mirrored is None:
+            was_mirrored = [False] * raw.shape[0]
+        result = np.zeros((raw.shape[0], raw.shape[2]), dtype=np.float32)
+        for i, uci in enumerate(ucis):
+            from_idx = uci_to_square_index(uci, was_mirrored[i])
+            to_file = ord(uci[2]) - ord('a')
+            to_rank = int(uci[3]) - 1
+            if was_mirrored[i]:
+                to_rank = 7 - to_rank
+            to_idx = to_rank * 8 + to_file
+            result[i] = raw[i, to_idx].astype(np.float32) - raw[i, from_idx].astype(np.float32)
+        return result
     elif pool_mode == "from-square":
         if ucis is None:
             raise ValueError("from-square pooling requires UCIs")
@@ -276,8 +293,8 @@ def main():
     parser.add_argument("--elo-mode", type=str, default="random", choices=["fixed", "random"],
                         help="'fixed' uses --elo for all; 'random' samples uniformly from 1100-2600")
     parser.add_argument("--probe", type=str, default=PROBE_LAYER, help="Layer to probe")
-    parser.add_argument("--pool", type=str, default="from-square", choices=["from-square", "mean", "all"],
-                        help="Pooling: from-square (uses blunder UCI), mean (avg 64 squares), all (64x512)")
+    parser.add_argument("--pool", type=str, default="diff", choices=["diff", "from-square", "mean", "all"],
+                        help="Pooling: diff (to-from, best for tactics), from-square, mean, all")
     parser.add_argument("--limit", type=int, default=None, help="Max positions to process")
     parser.add_argument("--seed", type=int, default=42, help="Random seed for Elo assignment")
     args = parser.parse_args()
@@ -321,7 +338,7 @@ def main():
                     ucis.append("")
     else:
         print("Usage:")
-        print("  python maia3_activations.py --from-cache blunder_acts_200k.pt --pool from-square --elo-mode random")
+        print("  python maia3_activations.py --from-cache blunder_acts_200k.pt --pool diff --elo-mode random")
         print("  python maia3_activations.py --positions positions.jsonl --pool mean --elo 1500")
         print("  python maia3_activations.py --inspect")
         sys.exit(1)
@@ -331,8 +348,8 @@ def main():
         ucis = ucis[:args.limit]
         metadata = metadata[:args.limit] if metadata else []
 
-    if args.pool == "from-square" and not any(ucis):
-        print("ERROR: --pool from-square requires UCI moves. Use --from-cache or JSONL with uci field.")
+    if args.pool in ("from-square", "diff") and not any(ucis):
+        print(f"ERROR: --pool {args.pool} requires UCI moves. Use --from-cache or JSONL with uci field.")
         sys.exit(1)
 
     # Determine Elo per position
@@ -363,10 +380,11 @@ def main():
         fens, elo_self=elo_self_list, elo_oppo=elo_oppo_list, probe_layer=args.probe)
 
     # Pool
+    needs_ucis = args.pool in ("from-square", "diff")
     pooled = pool_activations(
         raw, args.pool,
-        ucis if args.pool == "from-square" else None,
-        was_mirrored if args.pool == "from-square" else None,
+        ucis if needs_ucis else None,
+        was_mirrored if needs_ucis else None,
     )
 
     print(f"\nRaw shape: {raw.shape}")

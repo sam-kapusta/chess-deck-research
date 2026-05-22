@@ -26,21 +26,31 @@ When pooling from-square for mirrored positions, the UCI from-square must also b
 
 ## Experiment Matrix
 
-Run both pooling modes, compare:
+Primary: **diff pooling (to_square - from_square)**. Best tactical theme clustering in local tests (0.28 separation vs 0.10 for from-square, 0.03 for mean). Encodes "what changes along the move path" — captures piece safety, destination danger, and tactical consequences.
 
 | Variant | Pooling | Input dim | Dict size | k |
 |---------|---------|-----------|-----------|---|
-| A | from-square (blunder UCI) | 512 | 2048 | 32 |
-| B | mean (all 64 squares) | 512 | 2048 | 32 |
+| **A (primary)** | **diff (to - from)** | **512** | **2048** | **32** |
+| B (baseline) | from-square | 512 | 2048 | 32 |
 
 Both use:
-- L2 normalization on input (prevents endgame domination)
+- Z-score per dimension → L2 normalize to unit sphere (Sandstone canonical)
 - k_aux: 256, aux_alpha: 1/32
 - lr: 0.0003, batch_size: 4096, n_epochs: 50
 - sparsity_warmup_steps: 500
 - **Mixed-Elo training data** (see Data section)
 
 If dead features are high at k=32, try **k=16** (not k=64 — input dim is half of encoder SAE).
+
+### Why diff pooling
+
+Tested 9 pooling methods on 20+ positions. Key comparison:
+- **diff** clusters by tactical theme (back-rank, fork, queen hanging have 0.50 within-theme cos vs 0.22 cross-theme)
+- **temporal diff** (board_after - board_before) has highest Elo signal (0.65) but does NOT cluster by theme — too holistic
+- **contrast** (to_blunder - to_best) is theoretically purest but depends on Stockfish best move; Maia may not have rich representations at squares it doesn't predict moves to
+- **from-square** dominated by piece-type identity (0.98 within-piece cosine)
+
+Diff inherits some piece-type bias (knight moves look alike) but with 2048 dict there's capacity for both piece-type AND tactical features. The encoder SAE also had piece-type features — they produce valid coaching labels ("knight hanging").
 
 ## Data
 
@@ -93,36 +103,36 @@ Reuse existing Gemini per-position tactical analyses (5,851 positions already an
 ## Pipeline Steps (on chess-poc)
 
 ```bash
-# 1. Extract activations (both modes) — uses mixed random Elos
+# 1. Extract activations (primary: diff, baseline: from-square)
+python scripts/maia3_activations.py \
+  --from-cache ~/SageMaker/chess-stage-a/cache/blunder_acts_200k.pt \
+  --pool diff --elo-mode random \
+  --output ~/SageMaker/chess-stage-a/cache/maia3_blunder_diff.pt
+
 python scripts/maia3_activations.py \
   --from-cache ~/SageMaker/chess-stage-a/cache/blunder_acts_200k.pt \
   --pool from-square --elo-mode random \
   --output ~/SageMaker/chess-stage-a/cache/maia3_blunder_from_sq.pt
 
-python scripts/maia3_activations.py \
-  --from-cache ~/SageMaker/chess-stage-a/cache/blunder_acts_200k.pt \
-  --pool mean --elo-mode random \
-  --output ~/SageMaker/chess-stage-a/cache/maia3_blunder_mean.pt
+# 2. Train SAE (primary first, baseline if primary looks good)
+python scripts/sae/train_maia3_sae.py \
+  --activations ~/SageMaker/chess-stage-a/cache/maia3_blunder_diff.pt \
+  --dict-size 2048 --k 32
 
-# 2. Train SAE (both variants) — use Sandstone BatchTopK
 python scripts/sae/train_maia3_sae.py \
   --activations ~/SageMaker/chess-stage-a/cache/maia3_blunder_from_sq.pt \
-  --dict-size 2048 --k 32 --output ~/SageMaker/chess-stage-a/output/maia3_sae_from_sq.pt
-
-python scripts/sae/train_maia3_sae.py \
-  --activations ~/SageMaker/chess-stage-a/cache/maia3_blunder_mean.pt \
-  --dict-size 2048 --k 32 --output ~/SageMaker/chess-stage-a/output/maia3_sae_mean.pt
+  --dict-size 2048 --k 32
 
 # 3. Elo sensitivity test
 python scripts/sae/elo_sensitivity.py \
-  --sae ~/SageMaker/chess-stage-a/output/maia3_sae_from_sq.pt \
+  --sae ~/SageMaker/chess-stage-a/output/maia3_sae/maia3_sae_diff_2048_k32.pt \
   --positions ~/SageMaker/chess-stage-a/cache/blunder_acts_200k.pt \
   --elos 1200,1500,1800 --limit 100
 
 # 4. Profile (top-20 positions per feature)
 python scripts/labeling/label.py profile \
-  --sae ~/SageMaker/chess-stage-a/output/maia3_sae_from_sq.pt \
-  --activations ~/SageMaker/chess-stage-a/cache/maia3_blunder_from_sq.pt
+  --sae ~/SageMaker/chess-stage-a/output/maia3_sae/maia3_sae_diff_2048_k32.pt \
+  --activations ~/SageMaker/chess-stage-a/cache/maia3_blunder_diff.pt
 
 # 5. Label — reuse existing Gemini position analyses + Sonnet synthesis
 ```

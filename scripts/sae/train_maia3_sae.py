@@ -108,10 +108,27 @@ class BatchTopKSAE(nn.Module):
         self.W_dec.data = W_dec_normed
 
 
-def l2_normalize(x: torch.Tensor) -> torch.Tensor:
-    """L2-normalize each sample to the unit sphere."""
-    norms = x.norm(dim=-1, keepdim=True).clamp(min=1e-8)
-    return x / norms
+def normalize_activations(x: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+    """Normalize activations matching Sandstone's canonical pipeline.
+
+    1. Z-score per dimension (mean=0, std=1)
+    2. L2 normalize each sample to unit sphere
+    3. Return pre-L2 norms as sample weights
+
+    Z-score ensures all dimensions contribute equally.
+    L2 ensures endgame positions don't get drowned by middlegame.
+    Weights preserve original magnitude info for weighted training.
+    """
+    # Z-score per dimension
+    mean = x.mean(dim=0)
+    std = x.std(dim=0).clamp(min=1e-6)
+    x_zscore = (x - mean) / std
+
+    # L2 normalize to unit sphere, keep norms as weights
+    norms = x_zscore.norm(dim=-1, keepdim=True).clamp(min=1e-8)
+    x_normed = x_zscore / norms
+
+    return x_normed, norms.squeeze(-1)
 
 
 def train(model, train_loader, val_loader, config, device):
@@ -135,7 +152,7 @@ def train(model, train_loader, val_loader, config, device):
         model.train()
         epoch_losses = []
 
-        for (batch,) in tqdm(train_loader, desc=f"Epoch {epoch+1}/{config['n_epochs']}"):
+        for batch, weights in tqdm(train_loader, desc=f"Epoch {epoch+1}/{config['n_epochs']}"):
             batch = batch.to(device, non_blocking=True)
             n_steps += 1
 
@@ -168,7 +185,7 @@ def train(model, train_loader, val_loader, config, device):
         val_losses = []
         all_acts = []
         with torch.no_grad():
-            for (batch,) in val_loader:
+            for batch, weights in val_loader:
                 batch = batch.to(device, non_blocking=True)
                 with torch.autocast("cuda", dtype=torch.float16, enabled=use_amp):
                     loss, x_hat, acts, l2_loss, aux_loss = model(batch)
@@ -240,9 +257,10 @@ def main():
     print(f"  Raw shape: {raw_acts.shape}")
     d_input = raw_acts.shape[-1]
 
-    # L2 normalize inputs (prevents endgame domination)
-    acts_norm = l2_normalize(raw_acts)
-    print(f"  L2-normalized to unit sphere")
+    # Normalize: Z-score per dim → L2 to unit sphere (matching Sandstone)
+    acts_norm, sample_weights = normalize_activations(raw_acts)
+    print(f"  Normalized: Z-score → L2 (Sandstone canonical)")
+    print(f"  Weight range: [{sample_weights.min():.2f}, {sample_weights.max():.2f}]")
     del raw_acts
 
     # Train/val split
@@ -251,18 +269,20 @@ def main():
     n_train = n - n_val
     perm = torch.randperm(n)
     train_data = acts_norm[perm[:n_train]]
+    train_weights = sample_weights[perm[:n_train]]
     val_data = acts_norm[perm[n_train:]]
+    val_weights = sample_weights[perm[n_train:]]
     print(f"  Train: {n_train}, Val: {n_val}")
 
     train_loader = DataLoader(
-        TensorDataset(train_data),
+        TensorDataset(train_data, train_weights),
         batch_size=args.batch_size,
         shuffle=True,
         num_workers=2,
         pin_memory=True,
     )
     val_loader = DataLoader(
-        TensorDataset(val_data),
+        TensorDataset(val_data, val_weights),
         batch_size=args.batch_size,
         shuffle=False,
         num_workers=2,
@@ -336,7 +356,7 @@ def main():
     all_x = []
     all_xhat = []
     with torch.no_grad():
-        for (batch,) in val_loader:
+        for batch, weights in val_loader:
             batch = batch.to(device)
             with torch.autocast("cuda", dtype=torch.float16, enabled=torch.cuda.is_available()):
                 _, x_hat, acts, _, _ = model(batch)
