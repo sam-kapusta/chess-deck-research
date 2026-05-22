@@ -235,6 +235,7 @@ def main():
     parser.add_argument("--warmup-steps", type=int, default=500)
     parser.add_argument("--val-split", type=float, default=0.1)
     parser.add_argument("--no-l2", action="store_true", help="Skip L2 normalization (z-score only)")
+    parser.add_argument("--no-norm", action="store_true", help="Skip all normalization (raw activations)")
     parser.add_argument("--output", type=str, default=None)
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
@@ -258,11 +259,16 @@ def main():
     d_input = raw_acts.shape[-1]
 
     # Normalize
-    use_l2 = not args.no_l2
-    acts_norm, sample_norms = normalize_activations(raw_acts, use_l2=use_l2)
-    norm_type = "Z-score + L2" if use_l2 else "Z-score only"
-    print(f"  Normalized: {norm_type} (norm mean={acts_norm.norm(dim=-1).mean():.1f})")
-    print(f"  Range: [{acts_norm.min():.2f}, {acts_norm.max():.2f}]")
+    if args.no_norm:
+        acts_norm = raw_acts
+        sample_norms = raw_acts.norm(dim=-1)
+        print(f"  No normalization (raw). Norm mean={sample_norms.mean():.1f}, range=[{raw_acts.min():.2f}, {raw_acts.max():.2f}]")
+    else:
+        use_l2 = not args.no_l2
+        acts_norm, sample_norms = normalize_activations(raw_acts, use_l2=use_l2)
+        norm_type = "Z-score + L2" if use_l2 else "Z-score only"
+        print(f"  Normalized: {norm_type} (norm mean={acts_norm.norm(dim=-1).mean():.1f})")
+        print(f"  Range: [{acts_norm.min():.2f}, {acts_norm.max():.2f}]")
     del raw_acts
 
     # Train/val split
