@@ -88,6 +88,6 @@ Shared S3 paths live in `../../knowledge.md` § S3 layout. This table covers art
 
 ## Deep-dive docs
 
-| Doc | What |
-|-----|------|
-| [`docs/knowledge/normalization.md`](docs/knowledge/normalization.md) | SAE input normalization — why raw (no norm) beats Z-score and L2 for Maia 3 diff vectors. Sandstone comparison. |
+| Doc | Date | What |
+|-----|------|------|
+| [`docs/knowledge/normalization.md`](docs/knowledge/normalization.md) | 2026-05-22 | SAE input normalization — why raw (no norm) beats Z-score and L2 for Maia 3 diff vectors. Sandstone comparison. |
