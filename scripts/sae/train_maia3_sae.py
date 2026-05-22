@@ -108,22 +108,26 @@ class BatchTopKSAE(nn.Module):
         self.W_dec.data = W_dec_normed
 
 
-def normalize_activations(x: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
-    """Normalize activations: Z-score per dimension only.
+def normalize_activations(x: torch.Tensor, use_l2: bool = True) -> tuple[torch.Tensor, torch.Tensor]:
+    """Normalize activations.
 
-    L2 normalization was compressing activations to unit sphere which
-    capped max SAE activation at ~1.0 (encoder norm). Without L2,
-    inputs have norm ~22 and the SAE can produce activations in 0-10+ range,
-    matching what's expected for interpretable features.
+    Z-score per dimension (always). Optionally L2 normalize to unit sphere
+    (Sandstone canonical). Returns (normalized, pre-L2 norms).
 
-    Returns (z-scored activations, sample norms for reference).
+    Args:
+        use_l2: If True, Z-score + L2 (Sandstone). If False, Z-score only.
     """
     mean = x.mean(dim=0)
     std = x.std(dim=0).clamp(min=1e-6)
     x_zscore = (x - mean) / std
 
-    norms = x_zscore.norm(dim=-1)
-    return x_zscore, norms
+    norms = x_zscore.norm(dim=-1, keepdim=True).clamp(min=1e-8)
+    if use_l2:
+        x_out = x_zscore / norms
+    else:
+        x_out = x_zscore
+
+    return x_out, norms.squeeze(-1)
 
 
 def train(model, train_loader, val_loader, config, device):
@@ -230,6 +234,7 @@ def main():
     parser.add_argument("--n-epochs", type=int, default=50)
     parser.add_argument("--warmup-steps", type=int, default=500)
     parser.add_argument("--val-split", type=float, default=0.1)
+    parser.add_argument("--no-l2", action="store_true", help="Skip L2 normalization (z-score only)")
     parser.add_argument("--output", type=str, default=None)
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
@@ -252,9 +257,11 @@ def main():
     print(f"  Raw shape: {raw_acts.shape}")
     d_input = raw_acts.shape[-1]
 
-    # Normalize: Z-score per dim (no L2 — L2 caps activations at ~1.0)
-    acts_norm, sample_norms = normalize_activations(raw_acts)
-    print(f"  Normalized: Z-score only (norm mean={sample_norms.mean():.1f})")
+    # Normalize
+    use_l2 = not args.no_l2
+    acts_norm, sample_norms = normalize_activations(raw_acts, use_l2=use_l2)
+    norm_type = "Z-score + L2" if use_l2 else "Z-score only"
+    print(f"  Normalized: {norm_type} (norm mean={acts_norm.norm(dim=-1).mean():.1f})")
     print(f"  Range: [{acts_norm.min():.2f}, {acts_norm.max():.2f}]")
     del raw_acts
 
