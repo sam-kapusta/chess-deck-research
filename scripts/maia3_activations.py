@@ -138,20 +138,22 @@ def extract_activations(
     elo_self: int | list[int] = 1500,
     elo_oppo: int | list[int] = 1500,
     probe_layer: str = PROBE_LAYER,
-    batch_size: int = 32,
+    chunk_size: int = 50000,
 ) -> tuple[np.ndarray, list[bool]]:
     """
     Run positions through Maia 3 and extract activations at the probe layer.
 
     Handles board mirroring for black-to-move positions internally.
+    Uses one ONNX session per chunk because the modified graph corrupts
+    session state after a single batched run (known ORT bug with added outputs).
 
     Args:
         elo_self: scalar or per-position list of Elos for side-to-move
         elo_oppo: scalar or per-position list of Elos for opponent
+        chunk_size: positions per ONNX session (limited by GPU memory ~50K)
 
     Returns: (activations [N, 64, 512], was_mirrored [N])
     """
-    # Normalize elo args to per-position lists
     if isinstance(elo_self, (int, float)):
         elo_self_list = [int(elo_self)] * len(fens)
     else:
@@ -161,14 +163,9 @@ def extract_activations(
     else:
         elo_oppo_list = list(elo_oppo)
 
-    # Create session with intermediate output
-    sess_options = ort.SessionOptions()
-    sess_options.graph_optimization_level = ort.GraphOptimizationLevel.ORT_DISABLE_ALL
-
+    # Prepare modified ONNX model (done once)
     import onnx
     model = onnx.load(str(MODEL_PATH))
-
-    # Add intermediate tensor as output (model uses float16 internally)
     probe_output = onnx.helper.make_tensor_value_info(probe_layer, onnx.TensorProto.FLOAT16, None)
     model.graph.output.append(probe_output)
 
@@ -177,41 +174,44 @@ def extract_activations(
         onnx.save(model, f.name)
         temp_path = f.name
 
-    try:
-        session = ort.InferenceSession(temp_path, sess_options)
+    sess_options = ort.SessionOptions()
+    sess_options.graph_optimization_level = ort.GraphOptimizationLevel.ORT_DISABLE_ALL
 
+    try:
         all_activations = []
         all_mirrored = []
 
-        for i in range(0, len(fens), batch_size):
-            batch_fens = fens[i:i + batch_size]
-            batch_tokens = []
-            batch_mirrored = []
+        for chunk_start in range(0, len(fens), chunk_size):
+            chunk_end = min(chunk_start + chunk_size, len(fens))
+            chunk_fens = fens[chunk_start:chunk_end]
 
-            for fen in batch_fens:
+            # Preprocess entire chunk
+            chunk_tokens = []
+            chunk_mirrored = []
+            for fen in chunk_fens:
                 tokens, was_mirrored = preprocess_fen(fen)
-                batch_tokens.append(tokens)
-                batch_mirrored.append(was_mirrored)
+                chunk_tokens.append(tokens)
+                chunk_mirrored.append(was_mirrored)
 
-            batch_tokens_np = np.stack(batch_tokens)
-            batch_elo_self = np.array(elo_self_list[i:i + len(batch_fens)], dtype=np.float32)
-            batch_elo_oppo = np.array(elo_oppo_list[i:i + len(batch_fens)], dtype=np.float32)
+            chunk_tokens_np = np.stack(chunk_tokens)
+            chunk_elo_self = np.array(elo_self_list[chunk_start:chunk_end], dtype=np.float32)
+            chunk_elo_oppo = np.array(elo_oppo_list[chunk_start:chunk_end], dtype=np.float32)
 
             feeds = {
-                "tokens": batch_tokens_np,
-                "elo_self": batch_elo_self,
-                "elo_oppo": batch_elo_oppo,
+                "tokens": chunk_tokens_np,
+                "elo_self": chunk_elo_self,
+                "elo_oppo": chunk_elo_oppo,
             }
 
-            output_names = [o.name for o in session.get_outputs()]
-            results = session.run(output_names, feeds)
+            # Fresh session per chunk (ORT bug: session corrupts after first batched run)
+            session = ort.InferenceSession(temp_path, sess_options)
+            results = session.run([probe_layer], feeds)
 
-            probe_activations = results[-1]
-            all_activations.append(probe_activations)
-            all_mirrored.extend(batch_mirrored)
+            all_activations.append(results[0])
+            all_mirrored.extend(chunk_mirrored)
+            del session
 
-            if (i // batch_size) % 10 == 0:
-                print(f"  Processed {i + len(batch_fens)}/{len(fens)} positions...")
+            print(f"  Processed {chunk_end}/{len(fens)} positions...")
 
         return np.concatenate(all_activations, axis=0), all_mirrored
 
