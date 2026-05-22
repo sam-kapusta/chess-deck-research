@@ -85,3 +85,9 @@ Shared S3 paths live in `../../knowledge.md` § S3 layout. This table covers art
 - **dict=1024 for production** — degenerate case (dict=input_dim). Negative reconstruction. Severity signal might be artifact. Abandoned in favor of 2048_k64.
 - **Diff SAE** — trained on (played move – best move) diff. Produced tautological labels ("better move was better").
 - **Blunder encoder SAE** — blunder moves too diverse to cluster (27% confidence).
+
+## Deep-dive docs
+
+| Doc | What |
+|-----|------|
+| [`docs/knowledge/normalization.md`](docs/knowledge/normalization.md) | SAE input normalization — why raw (no norm) beats Z-score and L2 for Maia 3 diff vectors. Sandstone comparison. |
