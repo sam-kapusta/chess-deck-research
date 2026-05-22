@@ -138,7 +138,7 @@ def extract_activations(
     elo_self: int | list[int] = 1500,
     elo_oppo: int | list[int] = 1500,
     probe_layer: str = PROBE_LAYER,
-    chunk_size: int = 50000,
+    chunk_size: int = 5000,
 ) -> tuple[np.ndarray, list[bool]]:
     """
     Run positions through Maia 3 and extract activations at the probe layer.
@@ -150,7 +150,7 @@ def extract_activations(
     Args:
         elo_self: scalar or per-position list of Elos for side-to-move
         elo_oppo: scalar or per-position list of Elos for opponent
-        chunk_size: positions per ONNX session (limited by GPU memory ~50K)
+        chunk_size: positions per ONNX session (limited by memory; 5K safe on 22GB)
 
     Returns: (activations [N, 64, 512], was_mirrored [N])
     """
