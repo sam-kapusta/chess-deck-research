@@ -5,10 +5,14 @@ Probes the residual stream after the last transformer layer (layer 7)
 before the policy/value head split. This 512-dim representation encodes
 the model's full understanding of the position — ideal for SAE decomposition.
 
-Usage:
-  python scripts/maia3_activations.py --positions data/positions.txt --output data/maia3_activations.npy
+Preprocessing matches frontend tensor.ts exactly:
+- Always white-to-move orientation (mirror black positions)
+- Square ordering: rank-1-first (a1=0, b1=1, ..., h8=63)
+- Piece channels: 0-5 = white PNBRQK, 6-11 = black pnbrqk
 
-The positions file should be one FEN per line.
+Usage:
+  python scripts/maia3_activations.py --from-cache blunder_acts_200k.pt --pool from-square --elo-mode random
+  python scripts/maia3_activations.py --positions data/positions.jsonl --pool mean --elo 1500
 """
 
 import argparse
@@ -21,68 +25,92 @@ from pathlib import Path
 MODEL_PATH = Path(__file__).parent.parent.parent / "chess-deck-code/backend/mcp/maia3_models/maia3_simplified.onnx"
 
 # The layer to probe — output of last transformer block's residual connection.
-# We find this by looking for the Add node after layers.7/linear2
 PROBE_LAYER = "/model/transformer/layers.7/Add_2_output_0"
 
-
-def preprocess_fen(fen: str) -> tuple[np.ndarray, int, int]:
-    """Convert FEN to Maia 3 input format: (tokens, elo_self, elo_oppo)."""
-    # Maia 3 input: [batch, 64, 12] one-hot piece encoding
-    # Piece order: P N B R Q K p n b r q k (white first, then black)
-    piece_map = {'P': 0, 'N': 1, 'B': 2, 'R': 3, 'Q': 4, 'K': 5,
-                 'p': 6, 'n': 7, 'b': 8, 'r': 9, 'q': 10, 'k': 11}
-
-    board_str = fen.split()[0]
-    tokens = np.zeros((64, 12), dtype=np.float32)
-
-    # FEN goes rank 8 to rank 1 (top to bottom)
-    sq = 0
-    for char in board_str:
-        if char == '/':
-            continue
-        elif char.isdigit():
-            sq += int(char)
-        else:
-            if char in piece_map:
-                tokens[sq, piece_map[char]] = 1.0
-            sq += 1
-
-    # Add side-to-move, castling, en passant as additional features
-    # (Maia 3 encodes these in the 355-dim token projection input)
-    # For now we just use the piece placement — the model's tokenizer
-    # handles the rest internally via the full 355-dim input
-
-    return tokens
+PIECE_CHARS = ['P', 'N', 'B', 'R', 'Q', 'K', 'p', 'n', 'b', 'r', 'q', 'k']
 
 
-def preprocess_fen_full(fen: str) -> np.ndarray:
+def mirror_fen(fen: str) -> str:
+    """Mirror FEN vertically and swap piece colors (black-to-move → white-to-move).
+
+    Matches tensor.ts mirrorFen exactly.
     """
-    Full Maia 3 preprocessing matching the TypeScript tensor.ts implementation.
-    Returns [64, 12] float32 array (simplified — piece placement only).
-
-    For full accuracy, port the complete tensor.ts preprocessing.
-    This simplified version works for activation collection since
-    the SAE only needs diverse position representations.
-    """
-    piece_map = {'P': 0, 'N': 1, 'B': 2, 'R': 3, 'Q': 4, 'K': 5,
-                 'p': 6, 'n': 7, 'b': 8, 'r': 9, 'q': 10, 'k': 11}
-
     parts = fen.split()
-    board_str = parts[0]
+    pos, active, castling, ep = parts[0], parts[1], parts[2] if len(parts) > 2 else '-', parts[3] if len(parts) > 3 else '-'
+    halfmove = parts[4] if len(parts) > 4 else '0'
+    fullmove = parts[5] if len(parts) > 5 else '1'
+
+    # Reverse ranks and swap piece colors
+    ranks = pos.split('/')
+    mirrored_ranks = []
+    for rank in reversed(ranks):
+        swapped = ''
+        for c in rank:
+            if c.isupper():
+                swapped += c.lower()
+            elif c.islower():
+                swapped += c.upper()
+            else:
+                swapped += c
+        mirrored_ranks.append(swapped)
+    mirrored_pos = '/'.join(mirrored_ranks)
+
+    # Swap castling rights
+    if castling == '-':
+        mirrored_castling = '-'
+    else:
+        has = set(castling)
+        mc = ''
+        if 'k' in has: mc += 'K'
+        if 'q' in has: mc += 'Q'
+        if 'K' in has: mc += 'k'
+        if 'Q' in has: mc += 'q'
+        mirrored_castling = mc if mc else '-'
+
+    # Mirror en passant
+    if ep != '-' and len(ep) >= 2:
+        mirrored_ep = ep[0] + str(9 - int(ep[1]))
+    else:
+        mirrored_ep = '-'
+
+    mirrored_active = 'b' if active == 'w' else 'w'
+
+    return f"{mirrored_pos} {mirrored_active} {mirrored_castling} {mirrored_ep} {halfmove} {fullmove}"
+
+
+def preprocess_fen(fen: str) -> tuple[np.ndarray, bool]:
+    """Convert FEN to Maia 3 input format matching tensor.ts.
+
+    Returns (tokens [64, 12], was_mirrored).
+    Square ordering: rank-1-first (a1=0, b1=1, ..., h8=63).
+    Always outputs white-to-move orientation.
+    """
+    parts = fen.split()
+    active = parts[1] if len(parts) > 1 else 'w'
+
+    was_mirrored = (active == 'b')
+    effective_fen = mirror_fen(fen) if was_mirrored else fen
+
+    piece_map = {c: i for i, c in enumerate(PIECE_CHARS)}
+    board_str = effective_fen.split()[0]
 
     tokens = np.zeros((64, 12), dtype=np.float32)
-    sq = 0
-    for char in board_str:
-        if char == '/':
-            continue
-        elif char.isdigit():
-            sq += int(char)
-        else:
-            if char in piece_map:
-                tokens[sq, piece_map[char]] = 1.0
-            sq += 1
+    rows = board_str.split('/')
 
-    return tokens
+    # FEN ranks go 8→1 top-to-bottom. Map to rank-1-first indexing.
+    for row_idx, rank_str in enumerate(rows):
+        rank = 7 - row_idx  # rank 0 = rank 1 (bottom)
+        file = 0
+        for char in rank_str:
+            if char.isdigit():
+                file += int(char)
+            else:
+                if char in piece_map:
+                    square = rank * 8 + file
+                    tokens[square, piece_map[char]] = 1.0
+                file += 1
+
+    return tokens, was_mirrored
 
 
 def inspect_model():
@@ -100,7 +128,6 @@ def inspect_model():
 
     print(f"\nRecommended: last layer residual = output after layers.7 FFN")
 
-    # Find the actual node
     for node in model.graph.node:
         if "layers.7" in (node.name or "") and node.op_type == "Add":
             print(f"  → {node.output[0]}")
@@ -108,22 +135,36 @@ def inspect_model():
 
 def extract_activations(
     fens: list[str],
-    elo_self: int = 1500,
-    elo_oppo: int = 1500,
+    elo_self: int | list[int] = 1500,
+    elo_oppo: int | list[int] = 1500,
     probe_layer: str = PROBE_LAYER,
     batch_size: int = 32,
-) -> np.ndarray:
+) -> tuple[np.ndarray, list[bool]]:
     """
     Run positions through Maia 3 and extract activations at the probe layer.
 
-    Returns: np.ndarray of shape [num_positions, 64, 512] or [num_positions, 512]
-    depending on the probe layer's output shape.
+    Handles board mirroring for black-to-move positions internally.
+
+    Args:
+        elo_self: scalar or per-position list of Elos for side-to-move
+        elo_oppo: scalar or per-position list of Elos for opponent
+
+    Returns: (activations [N, 64, 512], was_mirrored [N])
     """
+    # Normalize elo args to per-position lists
+    if isinstance(elo_self, (int, float)):
+        elo_self_list = [int(elo_self)] * len(fens)
+    else:
+        elo_self_list = list(elo_self)
+    if isinstance(elo_oppo, (int, float)):
+        elo_oppo_list = [int(elo_oppo)] * len(fens)
+    else:
+        elo_oppo_list = list(elo_oppo)
+
     # Create session with intermediate output
     sess_options = ort.SessionOptions()
     sess_options.graph_optimization_level = ort.GraphOptimizationLevel.ORT_DISABLE_ALL
 
-    # We need to add the probe layer as an explicit output
     import onnx
     model = onnx.load(str(MODEL_PATH))
 
@@ -131,7 +172,6 @@ def extract_activations(
     probe_output = onnx.helper.make_tensor_value_info(probe_layer, onnx.TensorProto.FLOAT16, None)
     model.graph.output.append(probe_output)
 
-    # Save modified model to temp file
     import tempfile
     with tempfile.NamedTemporaryFile(suffix=".onnx", delete=False) as f:
         onnx.save(model, f.name)
@@ -141,54 +181,72 @@ def extract_activations(
         session = ort.InferenceSession(temp_path, sess_options)
 
         all_activations = []
+        all_mirrored = []
 
         for i in range(0, len(fens), batch_size):
             batch_fens = fens[i:i + batch_size]
-            batch_tokens = np.stack([preprocess_fen_full(fen) for fen in batch_fens])
+            batch_tokens = []
+            batch_mirrored = []
 
-            # Elo inputs
-            batch_elo_self = np.full(len(batch_fens), elo_self, dtype=np.float32)
-            batch_elo_oppo = np.full(len(batch_fens), elo_oppo, dtype=np.float32)
+            for fen in batch_fens:
+                tokens, was_mirrored = preprocess_fen(fen)
+                batch_tokens.append(tokens)
+                batch_mirrored.append(was_mirrored)
+
+            batch_tokens_np = np.stack(batch_tokens)
+            batch_elo_self = np.array(elo_self_list[i:i + len(batch_fens)], dtype=np.float32)
+            batch_elo_oppo = np.array(elo_oppo_list[i:i + len(batch_fens)], dtype=np.float32)
 
             feeds = {
-                "tokens": batch_tokens,
+                "tokens": batch_tokens_np,
                 "elo_self": batch_elo_self,
                 "elo_oppo": batch_elo_oppo,
             }
 
-            # Run inference — get both original outputs and probe layer
             output_names = [o.name for o in session.get_outputs()]
             results = session.run(output_names, feeds)
 
-            # The probe layer is the last output (we appended it)
             probe_activations = results[-1]
             all_activations.append(probe_activations)
+            all_mirrored.extend(batch_mirrored)
 
             if (i // batch_size) % 10 == 0:
                 print(f"  Processed {i + len(batch_fens)}/{len(fens)} positions...")
 
-        return np.concatenate(all_activations, axis=0)
+        return np.concatenate(all_activations, axis=0), all_mirrored
 
     finally:
         import os
         os.unlink(temp_path)
 
 
-def uci_to_square_index(uci: str) -> int:
-    """Convert UCI from-square (e.g., 'e2e4' → 'e2' → index 12)."""
+def uci_to_square_index(uci: str, was_mirrored: bool = False) -> int:
+    """Convert UCI from-square to activation tensor index.
+
+    Square ordering: rank-1-first (a1=0, b1=1, ..., h8=63).
+    If the position was mirrored (black-to-move), the from-square must also
+    be mirrored vertically (e.g., e2 → e7).
+    """
     file_idx = ord(uci[0]) - ord('a')  # 0-7
     rank_idx = int(uci[1]) - 1         # 0-7
-    # Maia's square ordering: a1=0, b1=1, ..., h1=7, a2=8, ..., h8=63
+
+    if was_mirrored:
+        rank_idx = 7 - rank_idx
+
     return rank_idx * 8 + file_idx
 
 
-def pool_activations(raw: np.ndarray, pool_mode: str, ucis: list = None) -> np.ndarray:
+def pool_activations(raw: np.ndarray, pool_mode: str, ucis: list = None,
+                     was_mirrored: list[bool] = None) -> np.ndarray:
     """
     Pool (N, 64, 512) activations based on mode.
 
     - 'from-square': extract activation at the from-square of each UCI move → (N, 512)
     - 'mean': mean across all 64 squares → (N, 512)
     - 'all': keep full spatial representation → (N, 64, 512)
+
+    For from-square mode, was_mirrored indicates which positions were flipped
+    (black-to-move) so the from-square index is correctly mirrored.
     """
     if pool_mode == "all":
         return raw
@@ -196,10 +254,12 @@ def pool_activations(raw: np.ndarray, pool_mode: str, ucis: list = None) -> np.n
         return raw.mean(axis=1).astype(np.float32)
     elif pool_mode == "from-square":
         if ucis is None:
-            raise ValueError("from-square pooling requires --ucis or JSONL input with uci field")
+            raise ValueError("from-square pooling requires UCIs")
+        if was_mirrored is None:
+            was_mirrored = [False] * raw.shape[0]
         result = np.zeros((raw.shape[0], raw.shape[2]), dtype=np.float32)
         for i, uci in enumerate(ucis):
-            sq_idx = uci_to_square_index(uci)
+            sq_idx = uci_to_square_index(uci, was_mirrored[i])
             result[i] = raw[i, sq_idx].astype(np.float32)
         return result
     else:
@@ -212,11 +272,14 @@ def main():
     parser.add_argument("--positions", type=str, help="File: one FEN per line, or JSONL with {fen, uci} fields")
     parser.add_argument("--from-cache", type=str, help="Load positions from existing blunder cache .pt file (has fens + metadata)")
     parser.add_argument("--output", type=str, default="maia3_activations.pt", help="Output .pt file (torch format, matches SAE training)")
-    parser.add_argument("--elo", type=int, default=1500, help="Elo to condition on")
+    parser.add_argument("--elo", type=int, default=None, help="Fixed Elo for all positions (overrides --elo-mode)")
+    parser.add_argument("--elo-mode", type=str, default="random", choices=["fixed", "random"],
+                        help="'fixed' uses --elo for all; 'random' samples uniformly from 1100-2600")
     parser.add_argument("--probe", type=str, default=PROBE_LAYER, help="Layer to probe")
     parser.add_argument("--pool", type=str, default="from-square", choices=["from-square", "mean", "all"],
                         help="Pooling: from-square (uses blunder UCI), mean (avg 64 squares), all (64x512)")
     parser.add_argument("--limit", type=int, default=None, help="Max positions to process")
+    parser.add_argument("--seed", type=int, default=42, help="Random seed for Elo assignment")
     args = parser.parse_args()
 
     if args.inspect:
@@ -248,7 +311,6 @@ def main():
                 line = line.strip()
                 if not line or line.startswith("#"):
                     continue
-                # Try JSONL
                 if line.startswith("{"):
                     obj = json.loads(line)
                     fens.append(obj["fen"])
@@ -259,8 +321,8 @@ def main():
                     ucis.append("")
     else:
         print("Usage:")
-        print("  python maia3_activations.py --from-cache blunder_acts_200k.pt --output maia3_blunder_acts.pt")
-        print("  python maia3_activations.py --positions positions.jsonl --output maia3_acts.pt")
+        print("  python maia3_activations.py --from-cache blunder_acts_200k.pt --pool from-square --elo-mode random")
+        print("  python maia3_activations.py --positions positions.jsonl --pool mean --elo 1500")
         print("  python maia3_activations.py --inspect")
         sys.exit(1)
 
@@ -273,45 +335,73 @@ def main():
         print("ERROR: --pool from-square requires UCI moves. Use --from-cache or JSONL with uci field.")
         sys.exit(1)
 
+    # Determine Elo per position
+    n = len(fens)
+    rng = np.random.default_rng(args.seed)
+
+    if args.elo is not None:
+        elo_self_list = [args.elo] * n
+        elo_oppo_list = [args.elo] * n
+        elo_mode = "fixed"
+    elif args.elo_mode == "random":
+        elo_self_list = rng.integers(1100, 2601, size=n).tolist()
+        elo_oppo_list = rng.integers(1100, 2601, size=n).tolist()
+        elo_mode = "random"
+    else:
+        elo_self_list = [1500] * n
+        elo_oppo_list = [1500] * n
+        elo_mode = "fixed"
+
     print(f"Extracting activations from {len(fens)} positions")
-    print(f"  Elo: {args.elo}")
+    print(f"  Elo mode: {elo_mode}" + (f" (fixed={args.elo})" if args.elo else f" (uniform 1100-2600)"))
     print(f"  Probe: {args.probe}")
     print(f"  Pool: {args.pool}")
     print(f"  Model: {MODEL_PATH}")
 
-    # Extract raw activations: (N, 64, 512)
-    raw = extract_activations(fens, elo_self=args.elo, elo_oppo=args.elo, probe_layer=args.probe)
+    # Extract raw activations: (N, 64, 512) + mirror flags
+    raw, was_mirrored = extract_activations(
+        fens, elo_self=elo_self_list, elo_oppo=elo_oppo_list, probe_layer=args.probe)
 
     # Pool
-    pooled = pool_activations(raw, args.pool, ucis if args.pool == "from-square" else None)
+    pooled = pool_activations(
+        raw, args.pool,
+        ucis if args.pool == "from-square" else None,
+        was_mirrored if args.pool == "from-square" else None,
+    )
 
     print(f"\nRaw shape: {raw.shape}")
     print(f"Pooled shape: {pooled.shape}")
+    print(f"  Mirrored positions (black-to-move): {sum(was_mirrored)}/{len(was_mirrored)}")
 
     # Compute normalization stats
     if pooled.ndim == 2:
         mean = pooled.mean(axis=0)
         std = pooled.std(axis=0)
-        std[std < 1e-6] = 1.0  # avoid division by zero
+        std[std < 1e-6] = 1.0
     else:
         mean = pooled.reshape(-1, pooled.shape[-1]).mean(axis=0)
         std = pooled.reshape(-1, pooled.shape[-1]).std(axis=0)
         std[std < 1e-6] = 1.0
 
-    # Save in torch format matching existing SAE training expectations
+    # Save in torch format matching SAE training expectations
     import torch
     output = {
         "activations": torch.from_numpy(pooled),
         "mean": mean,
         "std": std,
         "fens": fens,
+        "elo_self": elo_self_list,
+        "elo_oppo": elo_oppo_list,
+        "was_mirrored": was_mirrored,
         "metadata": metadata if metadata else [{"fen": f, "uci": u} for f, u in zip(fens, ucis)],
         "config": {
             "model": "maia3",
             "probe_layer": args.probe,
             "pool": args.pool,
-            "elo": args.elo,
+            "elo_mode": elo_mode,
+            "elo_range": [1100, 2600] if elo_mode == "random" else [args.elo or 1500],
             "n_positions": len(fens),
+            "seed": args.seed,
         },
     }
 
@@ -321,6 +411,7 @@ def main():
     print(f"  mean: {mean.shape}")
     print(f"  std: {std.shape}")
     print(f"  metadata: {len(metadata)} entries")
+    print(f"  elo_self/elo_oppo saved for reproducibility")
 
 
 if __name__ == "__main__":
