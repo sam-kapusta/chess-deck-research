@@ -288,6 +288,7 @@ def main():
     parser.add_argument("--inspect", action="store_true", help="Print available probe points")
     parser.add_argument("--positions", type=str, help="File: one FEN per line, or JSONL with {fen, uci} fields")
     parser.add_argument("--from-cache", type=str, help="Load positions from existing blunder cache .pt file (has fens + metadata)")
+    parser.add_argument("--from-json", type=str, help="Load positions from metadata JSON (lightweight, no activations)")
     parser.add_argument("--output", type=str, default="maia3_activations.pt", help="Output .pt file (torch format, matches SAE training)")
     parser.add_argument("--elo", type=int, default=None, help="Fixed Elo for all positions (overrides --elo-mode)")
     parser.add_argument("--elo-mode", type=str, default="random", choices=["fixed", "random"],
@@ -308,7 +309,16 @@ def main():
     ucis = []
     metadata = []
 
-    if args.from_cache:
+    if args.from_json:
+        import json as json_mod
+        print(f"Loading positions from JSON: {args.from_json}")
+        with open(args.from_json) as f:
+            metadata = json_mod.load(f)
+        for m in metadata:
+            fens.append(m["fen"])
+            ucis.append(m.get("blunder_uci", m.get("uci", "")))
+        print(f"  Loaded {len(fens)} positions")
+    elif args.from_cache:
         import torch
         print(f"Loading positions from existing cache: {args.from_cache}")
         cache = torch.load(args.from_cache, map_location="cpu", weights_only=False)
