@@ -46,7 +46,7 @@ If dead features are high at k=32, try **k=16** (not k=64 — input dim is half 
 
 **Source:** Existing `blunder_acts_200k.pt` metadata (FENs + blunder UCIs + best UCIs + cp_loss). Same positions that are already Gemini-labeled.
 
-**Elo conditioning:** The Lichess position-evaluations dataset doesn't include player ratings per position. Assign each position a random Elo sampled uniformly from 1100-2600 for `elo_self`, and an independent random Elo for `elo_oppo`. This gives the SAE maximum diversity across the full rating range (beginners to titled players). The random assignment is saved in the activation cache for reproducibility.
+**Elo conditioning:** The Lichess position-evaluations dataset doesn't include player ratings per position. Assign each position a random Elo sampled uniformly from 600-2600 for `elo_self`, and an independent random Elo for `elo_oppo`. This covers the full Lichess rating range (absolute beginners to super GMs). The random assignment is saved in the activation cache for reproducibility.
 
 **Why random is fine:** Running each position at a random Elo is equivalent to running the same position at every Elo and sampling one — Maia's representation of a position at a given Elo is deterministic. With 200K positions × uniform Elo, the SAE sees the full joint distribution of (position, Elo). Future version: re-collect blunders from `Lichess/standard-chess-games` (which has `WhiteElo`/`BlackElo` per game) for real player-position-Elo triples.
 

@@ -344,8 +344,8 @@ def main():
         elo_oppo_list = [args.elo] * n
         elo_mode = "fixed"
     elif args.elo_mode == "random":
-        elo_self_list = rng.integers(1100, 2601, size=n).tolist()
-        elo_oppo_list = rng.integers(1100, 2601, size=n).tolist()
+        elo_self_list = rng.integers(600, 2601, size=n).tolist()
+        elo_oppo_list = rng.integers(600, 2601, size=n).tolist()
         elo_mode = "random"
     else:
         elo_self_list = [1500] * n
@@ -353,7 +353,7 @@ def main():
         elo_mode = "fixed"
 
     print(f"Extracting activations from {len(fens)} positions")
-    print(f"  Elo mode: {elo_mode}" + (f" (fixed={args.elo})" if args.elo else f" (uniform 1100-2600)"))
+    print(f"  Elo mode: {elo_mode}" + (f" (fixed={args.elo})" if args.elo else f" (uniform 600-2600)"))
     print(f"  Probe: {args.probe}")
     print(f"  Pool: {args.pool}")
     print(f"  Model: {MODEL_PATH}")
@@ -399,7 +399,7 @@ def main():
             "probe_layer": args.probe,
             "pool": args.pool,
             "elo_mode": elo_mode,
-            "elo_range": [1100, 2600] if elo_mode == "random" else [args.elo or 1500],
+            "elo_range": [600, 2600] if elo_mode == "random" else [args.elo or 1500],
             "n_positions": len(fens),
             "seed": args.seed,
         },
