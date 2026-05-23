@@ -20,7 +20,7 @@ import boto3
 PROFILE_PATH = "/home/ec2-user/SageMaker/chess-stage-a/output/maia3_sae/l2_feature_profiles.json"
 OUTPUT_PATH = "/home/ec2-user/SageMaker/chess-stage-a/output/maia3_sae/l2_labels_sonnet.json"
 
-MODEL_ID = "us.anthropic.claude-sonnet-4-6-20250514-v1:0"
+MODEL_ID = "anthropic.claude-sonnet-4-6"
 
 SYSTEM_PROMPT = """You are a chess pattern recognition expert. You analyze SAE (Sparse Autoencoder) features trained on blunder positions from chess games.
 
