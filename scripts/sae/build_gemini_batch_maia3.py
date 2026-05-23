@@ -101,7 +101,7 @@ def main():
 
     print(f"  Unique positions: {len(positions)} (from {len(profiles)} features × top-{args.top_n})")
 
-    # Build JSONL records
+    # Build JSONL records (Gemini batch format — matches submit_batch.py)
     id_mapping = {}
     records = []
     for i, (fen, pos) in enumerate(positions.items()):
@@ -110,15 +110,13 @@ def main():
 
         prompt = build_prompt(fen, pos["uci"], pos["cp_loss"])
         record = {
-            "recordId": record_id,
-            "modelInput": {
-                "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+            "custom_id": record_id,
+            "request": {
                 "systemInstruction": {"parts": [{"text": SYSTEM_PROMPT}]},
+                "contents": [{"role": "user", "parts": [{"text": prompt}]}],
                 "generationConfig": {
                     "responseMimeType": "application/json",
                     "responseSchema": RESPONSE_SCHEMA,
-                    "maxOutputTokens": 500,
-                    "temperature": 0.1,
                 },
             },
         }
