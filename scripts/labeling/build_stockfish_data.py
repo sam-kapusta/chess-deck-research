@@ -31,6 +31,8 @@ import json
 import os
 import time
 import sys
+import multiprocessing
+multiprocessing.set_start_method('spawn', force=True)
 from multiprocessing import Pool
 
 STOCKFISH_PATHS = [
