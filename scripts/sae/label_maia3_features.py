@@ -113,6 +113,7 @@ def main():
     parser.add_argument("--features", type=str, default=None, help="Comma-separated feature IDs")
     parser.add_argument("--min-fire-rate", type=float, default=0.005, help="Min fire rate")
     parser.add_argument("--max-fire-rate", type=float, default=0.05, help="Max fire rate (exclude hubs)")
+    parser.add_argument("--threads", type=int, default=5, help="Parallel threads for Bedrock calls")
     args = parser.parse_args()
 
     print(f"Loading profiles from {args.profiles}...")
@@ -154,50 +155,52 @@ def main():
             labels = json.load(f)
         print(f"  Loaded {len(labels)} existing labels")
 
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
     n_success = 0
     n_fail = 0
     t0 = time.time()
 
-    for i, fid in enumerate(feature_ids):
-        if fid in labels:
-            continue
+    # Filter out already-labeled
+    to_label = [(fid, profiles[fid]) for fid in feature_ids if fid not in labels]
+    print(f"  Skipping {len(feature_ids) - len(to_label)} already labeled")
+    print(f"  Labeling {len(to_label)} features with {args.threads} threads...")
 
-        p = profiles[fid]
+    def invoke_one(fid, p):
         examples = p.get("examples", [])
-
         prompt = build_prompt(fid, examples)
-
         try:
             response_text = call_sonnet(prompt, client)
             parsed = parse_response(response_text)
+            if parsed:
+                return fid, {
+                    **parsed,
+                    "feature_id": int(fid),
+                    "fire_rate": p.get("fire_rate", 0),
+                    "n_examples": len(examples),
+                }
+            return fid, None
         except Exception as e:
-            print(f"  [{i+1}/{len(feature_ids)}] F{fid}: ERROR — {e}")
-            n_fail += 1
-            time.sleep(2)
-            continue
+            print(f"  F{fid}: ERROR — {e}")
+            return fid, None
 
-        if parsed:
-            labels[fid] = {
-                **parsed,
-                "feature_id": int(fid),
-                "fire_rate": p.get("fire_rate", 0),
-                "n_examples": len(examples),
-            }
-            label = parsed.get("specific_label", "?")
-            conf = parsed.get("confidence_score", "?")
-            print(f"  [{i+1}/{len(feature_ids)}] F{fid}: {label} (conf={conf})")
-            n_success += 1
-        else:
-            print(f"  [{i+1}/{len(feature_ids)}] F{fid}: PARSE FAILED")
-            n_fail += 1
+    with ThreadPoolExecutor(max_workers=args.threads) as executor:
+        futures = {executor.submit(invoke_one, fid, p): fid for fid, p in to_label}
+        for i, future in enumerate(as_completed(futures)):
+            fid, result = future.result()
+            if result:
+                labels[fid] = result
+                label = result.get("specific_label", "?")
+                conf = result.get("confidence_score", "?")
+                print(f"  [{i+1}/{len(to_label)}] F{fid}: {label} (conf={conf})")
+                n_success += 1
+            else:
+                n_fail += 1
 
-        # Save every 10 features
-        if (i + 1) % 10 == 0:
-            with open(args.output, "w") as f:
-                json.dump(labels, f, indent=2)
-
-        # Rate limit
-        time.sleep(0.5)
+            # Save every 20
+            if (i + 1) % 20 == 0:
+                with open(args.output, "w") as f:
+                    json.dump(labels, f, indent=2)
 
     # Final save
     with open(args.output, "w") as f:
