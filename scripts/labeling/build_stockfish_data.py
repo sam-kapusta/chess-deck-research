@@ -252,16 +252,15 @@ def main():
     errors = 0
     done = 0
 
-    with Pool(processes=args.workers,
-              initializer=init_worker,
-              initargs=(sf_path, args.depth)) as pool:
-
-        for key, data in pool.imap_unordered(analyze_one, todo, chunksize=4):
+    if args.workers == 1:
+        # Single-threaded (avoids multiprocessing issues with Stockfish)
+        init_worker(sf_path, args.depth)
+        for item in todo:
+            key, data = analyze_one(item)
             results[key] = data
             done += 1
             if 'error' in data:
                 errors += 1
-
             if done % 500 == 0:
                 elapsed = time.time() - t0
                 rate = done / elapsed
@@ -269,6 +268,24 @@ def main():
                 print(f"  {done}/{len(todo)} ({rate:.1f}/s, ETA {eta/60:.0f}min, {errors} errors)", flush=True)
                 with open(args.output, 'w') as f:
                     json.dump(results, f)
+    else:
+        with Pool(processes=args.workers,
+                  initializer=init_worker,
+                  initargs=(sf_path, args.depth)) as pool:
+
+            for key, data in pool.imap_unordered(analyze_one, todo, chunksize=4):
+                results[key] = data
+                done += 1
+                if 'error' in data:
+                    errors += 1
+
+                if done % 500 == 0:
+                    elapsed = time.time() - t0
+                    rate = done / elapsed
+                    eta = (len(todo) - done) / rate
+                    print(f"  {done}/{len(todo)} ({rate:.1f}/s, ETA {eta/60:.0f}min, {errors} errors)", flush=True)
+                    with open(args.output, 'w') as f:
+                        json.dump(results, f)
 
     with open(args.output, 'w') as f:
         json.dump(results, f)
