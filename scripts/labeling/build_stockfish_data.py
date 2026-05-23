@@ -1,30 +1,45 @@
 #!/usr/bin/env python3
-"""Step 1: Compute Stockfish data for all unique positions across 512 features.
+"""Enrich chess positions with Stockfish analysis for Gemini labeling.
 
-Reads the full 512-feature labels file, extracts unique FEN+UCI pairs,
-runs Stockfish depth 18 on each using multiple parallel engines, and writes stockfish_data.json.
+Accepts positions from either:
+  - SAE feature profiles (--profiles): JSON with {feature_id: {examples: [{fen, uci}, ...]}}
+  - Labels file (--labels): JSON with {feature_id: {examples: [{fen, uci}, ...]}}
+  - Raw positions (--positions): JSON list of [{fen, uci}, ...]
 
-Output keyed by "FEN|UCI" with:
+Runs Stockfish depth 18 (configurable) with MultiPV=3, outputs keyed by "FEN|UCI":
   - fen, uci, best_uci, phase, side_to_move
   - played_san, best_san, is_check, is_capture
   - eval_before, eval_after, cp_loss
-  - best_continuation (SAN), refutation_line (SAN)
+  - top_lines (3 best continuations as SAN)
+  - refutation_lines (3 opponent responses as SAN)
   - threat (first move of refutation)
 
 Usage:
-    python3 build_stockfish_data.py [--positions 20] [--depth 18] [--workers 16]
+    # From SAE profiles (top-10 per feature)
+    python3 build_stockfish_data.py --profiles feature_profiles.json --top-n 10 -o stockfish_data.json
+
+    # From raw position list
+    python3 build_stockfish_data.py --positions positions.json -o stockfish_data.json
+
+    # Resume interrupted run
+    python3 build_stockfish_data.py --profiles profiles.json -o stockfish_data.json --resume
 """
 import argparse
 import chess
 import chess.engine
 import json
+import os
 import time
 import sys
-from multiprocessing import Pool, Manager
+from multiprocessing import Pool
 
-LABELS_PATH = '/Users/samtkap/workspace/chess-deck/src/chess-deck-research/output/labels_512_k8_realgames_v4.json'
-OUTPUT_PATH = '/Users/samtkap/workspace/chess-deck/src/chess-deck-research/output/stockfish_data.json'
-STOCKFISH = '/opt/homebrew/bin/stockfish'
+STOCKFISH_PATHS = [
+    '/usr/games/stockfish',
+    '/usr/bin/stockfish',
+    '/usr/local/bin/stockfish',
+    '/opt/homebrew/bin/stockfish',
+    'stockfish',
+]
 
 # Global per-worker engine
 _engine = None
@@ -133,53 +148,111 @@ def analyze_one(args):
         return key, {'fen': fen, 'uci': uci, 'error': str(e)[:100]}
 
 
+def find_stockfish():
+    for path in STOCKFISH_PATHS:
+        if os.path.exists(path):
+            return path
+    if os.system('which stockfish >/dev/null 2>&1') == 0:
+        return 'stockfish'
+    print("ERROR: Stockfish not found. Install it or pass --stockfish path.", file=sys.stderr)
+    sys.exit(1)
+
+
+def load_positions(args):
+    """Load positions from whichever source is specified."""
+    if args.profiles:
+        with open(args.profiles) as f:
+            profiles = json.load(f)
+        unique = {}
+        for fid, prof in profiles.items():
+            examples = prof.get('examples', [])[:args.top_n]
+            for ex in examples:
+                fen = ex.get('fen', '')
+                uci = ex.get('uci', '')
+                if fen and uci:
+                    key = f"{fen}|{uci}"
+                    if key not in unique:
+                        unique[key] = (fen, uci, ex.get('best_uci', ''))
+        print(f"Source: profiles ({len(profiles)} features, top-{args.top_n})")
+        return unique
+
+    elif args.labels:
+        with open(args.labels) as f:
+            labels = json.load(f)
+        unique = {}
+        for fid, feat in labels.items():
+            for ex in feat.get('examples', [])[:args.top_n]:
+                fen = ex.get('fen', '')
+                uci = ex.get('uci', '')
+                if fen and uci:
+                    key = f"{fen}|{uci}"
+                    if key not in unique:
+                        unique[key] = (fen, uci, ex.get('best_uci', ''))
+        print(f"Source: labels ({len(labels)} features, top-{args.top_n})")
+        return unique
+
+    elif args.positions:
+        with open(args.positions) as f:
+            positions = json.load(f)
+        unique = {}
+        for p in positions:
+            fen = p.get('fen', '')
+            uci = p.get('uci', p.get('blunder_uci', ''))
+            if fen and uci:
+                key = f"{fen}|{uci}"
+                if key not in unique:
+                    unique[key] = (fen, uci, p.get('best_uci', ''))
+        print(f"Source: positions list ({len(positions)} entries)")
+        return unique
+
+    else:
+        print("ERROR: Provide --profiles, --labels, or --positions", file=sys.stderr)
+        sys.exit(1)
+
+
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--positions', type=int, default=20, help='Positions per feature (default 20)')
+    parser = argparse.ArgumentParser(
+        description="Enrich chess positions with Stockfish analysis for Gemini labeling.")
+    input_group = parser.add_mutually_exclusive_group(required=True)
+    input_group.add_argument('--profiles', help='SAE feature profiles JSON')
+    input_group.add_argument('--labels', help='Feature labels JSON with examples')
+    input_group.add_argument('--positions', help='Raw positions JSON list [{fen, uci}, ...]')
+    parser.add_argument('--top-n', type=int, default=10, help='Positions per feature (default 10)')
+    parser.add_argument('-o', '--output', required=True, help='Output stockfish_data.json path')
     parser.add_argument('--depth', type=int, default=18, help='Stockfish depth (default 18)')
-    parser.add_argument('--workers', type=int, default=16, help='Parallel Stockfish engines (default 16)')
+    parser.add_argument('--workers', type=int, default=8, help='Parallel Stockfish engines (default 8)')
+    parser.add_argument('--stockfish', help='Path to Stockfish binary')
     parser.add_argument('--resume', action='store_true', help='Resume from existing output')
     args = parser.parse_args()
 
-    with open(LABELS_PATH) as f:
-        labels = json.load(f)
+    sf_path = args.stockfish or find_stockfish()
+    print(f"Stockfish: {sf_path}")
 
-    # Collect unique positions
-    unique = {}
-    for fid, feat in labels.items():
-        for ex in feat['examples'][:args.positions]:
-            key = f"{ex['fen']}|{ex['uci']}"
-            if key not in unique:
-                unique[key] = (ex['fen'], ex['uci'], ex.get('best_uci', ''))
-
-    print(f"Features: {len(labels)}", flush=True)
-    print(f"Unique positions: {len(unique)}", flush=True)
-    print(f"Workers: {args.workers}", flush=True)
+    unique = load_positions(args)
+    print(f"Unique positions: {len(unique)}")
 
     # Resume support
     results = {}
-    if args.resume:
-        try:
-            with open(OUTPUT_PATH) as f:
-                results = json.load(f)
-            print(f"Resumed: {len(results)} already done", flush=True)
-        except:
-            pass
+    if args.resume and os.path.exists(args.output):
+        with open(args.output) as f:
+            results = json.load(f)
+        print(f"Resumed: {len(results)} already done")
 
     todo = [(k, v[0], v[1], v[2]) for k, v in unique.items() if k not in results]
-    print(f"To analyze: {len(todo)}", flush=True)
+    print(f"To analyze: {len(todo)}")
 
     if not todo:
-        print("Nothing to do.", flush=True)
+        print("Nothing to do.")
         return
 
+    print(f"Workers: {args.workers}, Depth: {args.depth}")
     t0 = time.time()
     errors = 0
     done = 0
 
     with Pool(processes=args.workers,
               initializer=init_worker,
-              initargs=(STOCKFISH, args.depth)) as pool:
+              initargs=(sf_path, args.depth)) as pool:
 
         for key, data in pool.imap_unordered(analyze_one, todo, chunksize=4):
             results[key] = data
@@ -187,21 +260,20 @@ def main():
             if 'error' in data:
                 errors += 1
 
-            if done % 200 == 0:
+            if done % 500 == 0:
                 elapsed = time.time() - t0
                 rate = done / elapsed
                 eta = (len(todo) - done) / rate
-                print(f"  {done}/{len(todo)} ({rate:.1f}/s, ETA {eta/60:.1f}min, {errors} errors)", flush=True)
-                with open(OUTPUT_PATH, 'w') as f:
+                print(f"  {done}/{len(todo)} ({rate:.1f}/s, ETA {eta/60:.0f}min, {errors} errors)", flush=True)
+                with open(args.output, 'w') as f:
                     json.dump(results, f)
 
-    # Final save
-    with open(OUTPUT_PATH, 'w') as f:
-        json.dump(results, f, indent=2)
+    with open(args.output, 'w') as f:
+        json.dump(results, f)
 
     elapsed = time.time() - t0
-    print(f"\nDone. {len(results)} positions in {elapsed:.0f}s ({errors} errors)", flush=True)
-    print(f"Saved to {OUTPUT_PATH}", flush=True)
+    print(f"\nDone. {len(results)} positions in {elapsed:.0f}s ({done/elapsed:.1f}/s, {errors} errors)")
+    print(f"Saved to {args.output}")
 
 
 if __name__ == '__main__':
