@@ -79,7 +79,7 @@ def call_sonnet(prompt, client):
         messages=[{"role": "user", "content": [{"text": prompt}]}],
         system=[{"text": SYSTEM_PROMPT}],
         inferenceConfig={"maxTokens": 4096},
-        additionalModelRequestFields={"thinking": {"type": "enabled", "budgetTokens": 4000}},
+        additionalModelRequestFields={"thinking": {"type": "enabled", "budget_tokens": 4000}},
     )
     # Extract text from response (skip thinking blocks)
     text = ""
