@@ -111,7 +111,7 @@ def main():
     parser.add_argument("--output", default=OUTPUT_PATH)
     parser.add_argument("--limit", type=int, default=None, help="Max features to label")
     parser.add_argument("--features", type=str, default=None, help="Comma-separated feature IDs")
-    parser.add_argument("--min-fire-rate", type=float, default=0.005, help="Min fire rate")
+    parser.add_argument("--min-fire-rate", type=float, default=0.001, help="Min fire rate")
     parser.add_argument("--max-fire-rate", type=float, default=0.05, help="Max fire rate (exclude hubs)")
     parser.add_argument("--threads", type=int, default=5, help="Parallel threads for Bedrock calls")
     args = parser.parse_args()
