@@ -1,12 +1,18 @@
 # Chess Encoder — SAE Feature Pipeline
 
-## Current State (2026-04-13)
+## Current State (2026-05-23)
 
 **Production SAE:** `puzzle_2048_k32_v1` — filtering by `coaching_useful` flag + `detection_accuracy >= 0.6`. 218 features served.
 
 **Puzzle SAE champion:** BTK 2048 k=64 + aux, BA=0.632 — ready to deploy (Queue item 2).
 
 **Blunder SAE winner: MT 2048 k=32** — 1,080 unique coaching labels, 65% label uniqueness, 1.56% median fire rate.
+
+**NEW — Maia 3 SAE (2026-05-22):** BTK 2048 k=32, diff pooling (to_sq - from_sq), L2 normalized.
+- 2007 features labeled (Sonnet 4.6 + thinking). 80% unique labels, mean confidence 0.76.
+- Categories: hanging_pieces 34%, king_safety 12%, forks 10%, pawn_endgames 8%, trapped_pieces 7%.
+- 0 dead features. FVU=0.191. All 2048 features active >0.5% fire rate.
+- **Next:** Gemini position analysis on top-20 per feature for mechanism-level labels (Sonnet mislabels the HOW, gets the WHAT right). Then cluster into ~20 coaching categories.
 
 Full sweep (9 variants trained, 5 labeled):
 

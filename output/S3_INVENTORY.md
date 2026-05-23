@@ -97,6 +97,33 @@ chess-deck-research/output/
   move_to_action.json        ← UCI move → token ID mapping
 ```
 
+## SAE Weights — Maia 3 (2026-05-22)
+
+```
+s3://chess-stage-a-140023406996/sae/maia3/
+  maia3_sae_diff_2048_k32_l2_200ep.pt  ← WINNER: L2 norm, 200 epochs, FVU=0.191, 0 dead, 2007 labeled
+  maia3_sae_diff_2048_k32_v2.pt        ← z-score only, FVU=0.188
+  maia3_sae_diff_2048_k32_raw.pt       ← no norm, FVU=0.118 (best reconstruction, fewer labelable)
+  maia3_sae_diff_2048_k32.pt           ← L2 50ep (deprecated by 200ep version)
+  maia3_sae_diff_2048_k32_lr1e3.pt     ← higher LR experiment
+  maia3_sae_diff_256_k16.pt            ← micro test
+  l2_labels_sonnet.json                ← 2007 feature labels (Sonnet 4.6 + thinking)
+  l2_feature_profiles.json             ← top-20 positions per feature
+```
+
+Trained on 200K Lichess blunder diff vectors (to_sq - from_sq) from Maia 3 layer 7 residual.
+Input: 512-dim, L2 normalized (z-score + unit sphere). Mixed random Elo 600-2600.
+Labels: 80% unique, 66% confidence ≥ 0.7. Categories: hanging_pieces (34%), king_safety (12%), forks (10%), pawn_endgames (8%), trapped_pieces (7%).
+
+## Maia 3 Activation Cache
+
+```
+s3://chess-stage-a-140023406996/sae/cache/
+  maia3_blunder_diff.pt            ← 200K × 512 diff vectors (to_sq - from_sq), mixed Elo
+  all_gemini_positions.json        ← 5829 unique positions with Gemini tactical analysis
+  maia3_simplified.onnx            ← Maia 3 model (8-layer transformer, 512-dim)
+```
+
 ## To use any model
 
 1. Download weights: `aws s3 cp s3://chess-stage-a-140023406996/sae-weights/<file>.pt .`
