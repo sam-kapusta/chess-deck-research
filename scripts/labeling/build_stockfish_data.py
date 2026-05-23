@@ -53,6 +53,19 @@ def init_worker(stockfish_path, depth):
     global _engine, _depth
     _depth = depth
     _engine = chess.engine.SimpleEngine.popen_uci(stockfish_path)
+    # Set NNUE paths explicitly (workers may run from different cwd)
+    sf_dir = os.path.dirname(os.path.abspath(stockfish_path))
+    nnue_files = [f for f in os.listdir(sf_dir) if f.startswith('nn-') and f.endswith('.nnue')]
+    if nnue_files:
+        big = [f for f in nnue_files if 'baff' not in f]
+        small = [f for f in nnue_files if 'baff' in f]
+        config = {}
+        if big:
+            config['EvalFile'] = os.path.join(sf_dir, big[0])
+        if small:
+            config['EvalFileSmall'] = os.path.join(sf_dir, small[0])
+        if config:
+            _engine.configure(config)
 
 
 def cleanup_worker():
