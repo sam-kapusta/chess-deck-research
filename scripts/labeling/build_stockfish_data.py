@@ -31,9 +31,6 @@ import json
 import os
 import time
 import sys
-import multiprocessing
-multiprocessing.set_start_method('spawn', force=True)
-from multiprocessing import Pool
 
 STOCKFISH_PATHS = [
     '/usr/games/stockfish',
@@ -238,6 +235,8 @@ def main():
     parser.add_argument('--workers', type=int, default=8, help='Parallel Stockfish engines (default 8)')
     parser.add_argument('--stockfish', help='Path to Stockfish binary')
     parser.add_argument('--resume', action='store_true', help='Resume from existing output')
+    parser.add_argument('--shard', type=str, default=None,
+                        help='Process only shard N/M of positions (e.g., "0/4" for first quarter)')
     args = parser.parse_args()
 
     sf_path = args.stockfish or find_stockfish()
@@ -254,6 +253,16 @@ def main():
         print(f"Resumed: {len(results)} already done")
 
     todo = [(k, v[0], v[1], v[2]) for k, v in unique.items() if k not in results]
+
+    # Shard support: split work across independent processes
+    if args.shard:
+        shard_idx, n_shards = map(int, args.shard.split('/'))
+        shard_size = len(todo) // n_shards
+        start = shard_idx * shard_size
+        end = start + shard_size if shard_idx < n_shards - 1 else len(todo)
+        todo = todo[start:end]
+        print(f"Shard {shard_idx}/{n_shards}: positions {start}-{end}")
+
     print(f"To analyze: {len(todo)}")
 
     if not todo:
@@ -265,40 +274,31 @@ def main():
     errors = 0
     done = 0
 
-    if args.workers == 1:
-        # Single-threaded (avoids multiprocessing issues with Stockfish)
-        init_worker(sf_path, args.depth)
-        for item in todo:
-            key, data = analyze_one(item)
-            results[key] = data
-            done += 1
-            if 'error' in data:
-                errors += 1
-            if done % 500 == 0:
-                elapsed = time.time() - t0
-                rate = done / elapsed
-                eta = (len(todo) - done) / rate
-                print(f"  {done}/{len(todo)} ({rate:.1f}/s, ETA {eta/60:.0f}min, {errors} errors)", flush=True)
-                with open(args.output, 'w') as f:
-                    json.dump(results, f)
-    else:
-        with Pool(processes=args.workers,
-                  initializer=init_worker,
-                  initargs=(sf_path, args.depth)) as pool:
-
-            for key, data in pool.imap_unordered(analyze_one, todo, chunksize=4):
-                results[key] = data
-                done += 1
-                if 'error' in data:
-                    errors += 1
-
-                if done % 500 == 0:
-                    elapsed = time.time() - t0
-                    rate = done / elapsed
-                    eta = (len(todo) - done) / rate
-                    print(f"  {done}/{len(todo)} ({rate:.1f}/s, ETA {eta/60:.0f}min, {errors} errors)", flush=True)
-                    with open(args.output, 'w') as f:
-                        json.dump(results, f)
+    # Single-engine sequential processing with periodic restart.
+    # multiprocessing.Pool crashes Stockfish engines on this system.
+    # Single-threaded is reliable. For parallelism, launch multiple
+    # independent processes with different --shard arguments.
+    init_worker(sf_path, args.depth)
+    for item in todo:
+        key, data = analyze_one(item)
+        results[key] = data
+        done += 1
+        if 'error' in data:
+            errors += 1
+        if done % 500 == 0:
+            elapsed = time.time() - t0
+            rate = done / elapsed
+            eta = (len(todo) - done) / rate
+            print(f"  {done}/{len(todo)} ({rate:.1f}/s, ETA {eta/60:.0f}min, {errors} errors)", flush=True)
+            with open(args.output, 'w') as f:
+                json.dump(results, f)
+        # Restart engine every 2000 positions (preventive)
+        if done % 2000 == 0:
+            try:
+                _engine.quit()
+            except:
+                pass
+            init_worker(sf_path, args.depth)
 
     with open(args.output, 'w') as f:
         json.dump(results, f)
