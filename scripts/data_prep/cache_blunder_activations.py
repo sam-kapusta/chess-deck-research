@@ -188,11 +188,19 @@ def phase1_collect(n_positions, min_loss, positions_file):
         if fen != current_fen:
             # Process previous position
             if current_fen and len(current_moves) >= 2:
-                sorted_moves = sorted(current_moves, key=lambda x: -x[1])
+                # cp in dataset is from WHITE's perspective always.
+                # For White to move: best move = highest cp (best for White)
+                # For Black to move: best move = lowest cp (worst for White = best for Black)
+                is_black = len(current_fen.split()) > 1 and current_fen.split()[1] == 'b'
+                sorted_moves = sorted(current_moves, key=lambda x: x[1] if is_black else -x[1])
                 best_move, best_cp = sorted_moves[0]
 
                 for alt_move, alt_cp in sorted_moves[1:]:
-                    cp_loss = best_cp - alt_cp
+                    # cp_loss: how much worse alt is than best, from side-to-move's perspective
+                    if is_black:
+                        cp_loss = alt_cp - best_cp  # higher white eval = worse for black
+                    else:
+                        cp_loss = best_cp - alt_cp  # lower white eval = worse for white
                     if cp_loss >= min_loss:
                         ft = tok(current_fen)
                         if ft and alt_move in m2a and best_move in m2a:
