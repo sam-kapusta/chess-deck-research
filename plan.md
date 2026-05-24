@@ -8,11 +8,18 @@
 
 **Blunder SAE winner: MT 2048 k=32** — 1,080 unique coaching labels, 65% label uniqueness, 1.56% median fire rate.
 
-**NEW — Maia 3 SAE (2026-05-22):** BTK 2048 k=32, diff pooling (to_sq - from_sq), L2 normalized.
-- 2007 features labeled (Sonnet 4.6 + thinking). 80% unique labels, mean confidence 0.76.
-- Categories: hanging_pieces 34%, king_safety 12%, forks 10%, pawn_endgames 8%, trapped_pieces 7%.
-- 0 dead features. FVU=0.191. All 2048 features active >0.5% fire rate.
-- **Next:** Gemini position analysis on top-20 per feature for mechanism-level labels (Sonnet mislabels the HOW, gets the WHAT right). Then cluster into ~20 coaching categories.
+**NEW — Maia 3 SAE v2 (2026-05-24): RETRAINING on correct data.**
+- v1 had a critical bug: ~50% of training positions (Black-to-move) had inverted blunder/best labels from the Lichess eval dataset sort. See knowledge.md § "Gemini labeling" for full details.
+- v2 uses real-game blunder data (`blunder_positions.json`, 200K positions, already cached) which correctly identifies blunders for both colors.
+- **Status:** Maia 3 activation extraction RUNNING on chess-poc (PID 22253, 16/s, ETA ~3h from 21:30 UTC May 24). Output: `maia3_blunder_diff_v2.pt`.
+- **Next after activations:** Run `bash /home/ec2-user/SageMaker/run_pipeline.sh` to chain train + profile. Then Gemini CLI labeling locally.
+
+**OLD Maia 3 SAE v1 (2026-05-22):** BTK 2048 k=32, diff pooling, L2 normalized. INVALIDATED by data bug.
+- 2007 features labeled (Sonnet 4.6 + thinking). Labels unreliable due to mixed blunder/best-move training.
+- Structural analysis showed: 41 hub features, 91% classified into 15 structural categories.
+- Geometric python-chess labeling attempted — dead end (too shallow, mostly noise).
+- Gemini batch ($0.05 actual cost, April promotional?) produced 5,851 position labels that cover all 2048 features.
+- Cost audit: published rates would be ~$67-200 for similar batch. Batch API may have been free during preview.
 
 Full sweep (9 variants trained, 5 labeled):
 

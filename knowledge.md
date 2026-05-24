@@ -86,6 +86,115 @@ Shared S3 paths live in `../../knowledge.md` § S3 layout. This table covers art
 - **Diff SAE** — trained on (played move – best move) diff. Produced tautological labels ("better move was better").
 - **Blunder encoder SAE** — blunder moves too diverse to cluster (27% confidence).
 
+## Maia 3 SAE (2026-05-22)
+
+Separate from the DeepMind 270M encoder SAE above. Uses Maia 3 layer-7 residual stream, diff pooling (to_sq - from_sq), L2 normalized.
+
+### Architecture
+- **Model:** Maia 3 (8-layer transformer, 512-dim, Elo-conditioned)
+- **Probe layer:** `/model/transformer/layers.7/Add_2_output_0`
+- **Pooling:** diff (to_sq - from_sq) — best for tactical clustering
+- **Normalization:** L2 (z-score + unit sphere) — more features labelable than raw
+- **SAE:** BatchTopK 2048 dict, k=32, aux loss, 200 epochs
+- **Training data:** 200K Lichess blunders (≥200cp per Lichess cloud eval, depth 40+), mixed Elo 600-2600
+
+### Gemini labeling — what worked (the $3 batch)
+
+**Successful batch:** `chess-sae-position-analysis` (job `batches/hzeagvatdornkr6swwh7qd7iy328h2br2vtz`)
+
+Input format (proven, ~460 tokens/position):
+```
+System: "You are a chess grandmaster analyzing blunder positions. For each position, explain:
+1. What the player was trying to do (their intent)
+2. What goes wrong after this move (the refutation/punishment)
+3. The specific point of failure (which square, piece, or tactical motif was missed)
+Be concrete and specific. Name squares, pieces, and tactical patterns."
+
+User: "Analyze this chess blunder:
+Position (FEN): {fen}
+Move played: {uci}
+Centipawn loss: {lichess_cp_loss}
+This move was a blunder that lost {lichess_cp_loss} centipawns of evaluation. Explain what happened."
+```
+
+Output schema (6 fields, free-form — NOT enums):
+- `intent` — STRING (1-2 sentences)
+- `blunder_trace` — STRING (2-3 sentences)
+- `point_of_failure` — STRING (1 sentence)
+- `best_move_rationale` — STRING
+- `position_context` — STRING (only_move / thematic / normal)
+- `tags` — ARRAY of STRING (free-form tactical themes)
+
+Key facts:
+- **No Stockfish lines in prompt.** Just FEN + UCI + cp_loss. Gemini analyzes positions natively.
+- **Uses Lichess cp_loss** (depth 40+), NOT our Stockfish depth-18 cp_loss.
+- **Thinking enabled** (~2200 thinking tokens per position).
+- **~250 output tokens** per position (JSON schema constrains output).
+- **Cost:** ~$3 for 5,851 positions (~$0.50/1K positions).
+- **Model:** `gemini-3.1-pro-preview`
+
+### Gemini labeling — what failed
+
+1. **Flash batch (accidentally submitted, $15 wasted):** Used `gemini-2.5-flash` with a different 5-field schema (enums for `tactical_motif` and `severity`). Got cancelled but still charged. Don't use Flash for this task.
+
+2. **19.5K input file on chess-poc** (`gemini_batch_input.jsonl`, 19,511 lines): Built for the cancelled Flash batch. Uses the WRONG schema (5 fields with enums). Do NOT use this as a template.
+
+3. **SF-enriched Format B** (built in this session as `build_batch_input_maia3.py`): Includes `top_lines`, `refutation_lines`, `eval_delta`. Untested, 36MB, bloated input (~1500 tokens/position vs 460). The successful batch proved SF lines aren't needed — Gemini reads FENs natively.
+
+### Stockfish enrichment — depth disagreement problem
+
+Our Stockfish runs at depth 18. The Lichess positions were verified at depth 40+ (cloud analysis with tablebases).
+
+- **47% of positions:** SF depth-18 doesn't see the blunder (cp_loss < 100 when Lichess says ≥ 200)
+- **29% of positions:** SF says `played == best` (move IS the best move at depth 18)
+- Root cause: endgame positions and deep tactical combos invisible at depth 18
+- The proven Gemini batch sidestepped this entirely by NOT including SF lines — just the Lichess cp_loss and letting Gemini figure it out
+
+### Geometric labeling — dead end
+
+Attempted python-chess based geometric analysis (detect forks, pins, hanging pieces, abandoned defense from board position). Results:
+
+- `moved_to_attacked` fires on nearly everything (trivial)
+- Fork detection overcounts (counts all attacked pieces, not just from the threat piece)
+- Pin/overloaded detection is fragile (false positives from `board.attackers()` logic)
+- **60% of positions get no signal** (the mechanism requires multi-move calculation)
+- **Verdict: useless for mechanism detection.** The SAE features encode multi-move patterns that can't be reduced to one-ply geometry.
+- Trust SAE clusters + Gemini narrative, not heuristic geometry.
+
+### Structural taxonomy — useful as filtering layer only
+
+From SF-derived stats (piece played, phase, check/capture rates, cp_loss), can assign features to ~15 categories at 98% coverage. But these are **filters, not coaching categories** — "Knight Errors" contains 282 different mechanisms.
+
+- Good for: summary level ("you had 3 knight errors")
+- Bad for: drill level ("practice knight forks") — too broad
+- Gemini's per-position analysis is needed to get mechanism-level labels
+
+### SAE structure findings
+
+- **41 hub features** (fire 5-19% of all positions) — position-type indicators, excluded from labeling. High mutual co-firing (Jaccard up to 0.64).
+- **2007 specific features** (~1.6% fire rate each) — tactical patterns. Low mutual co-firing among specifics.
+- Sonnet confidence score correlates with structural purity (0.97 piece purity at conf≥0.9 vs 0.64 at conf<0.6). Confidence is real signal.
+- Sonnet's "hanging_pieces" category is too broad (covers 34% of features, 12/20 structural clusters).
+
+### Files on chess-poc
+
+| File | What | Lines |
+|------|------|-------|
+| `gemini_batch_input.jsonl` | Input for CANCELLED Flash batch (wrong schema) | 19,511 |
+| `gemini_batch_results_raw.jsonl` | Output from SUCCESSFUL Pro batch | 5,851 |
+| `stockfish_data.json` | SF depth-18 enrichment | 18,027 |
+| `l2_feature_profiles.json` | Top-20 positions per feature | 2,048 features |
+| `l2_labels_sonnet.json` | Sonnet 4.6 labels | 2,007 features |
+
+### Next: rebuild batch in proven format
+
+Need to rebuild `build_batch_input_maia3.py` to match the PROVEN format:
+- Simple prompt (FEN + UCI + Lichess cp_loss, no SF lines)
+- 6-field schema (intent, blunder_trace, point_of_failure, best_move_rationale, position_context, tags)
+- Free-form tags, no enums
+- Thinking enabled
+- Estimated cost for 18K: ~$9 (18K × $0.50/1K)
+
 ## Deep-dive docs
 
 | Doc | Date | What |
