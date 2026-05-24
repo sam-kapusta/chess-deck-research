@@ -19,12 +19,16 @@ OUTPUT_PATH = "/home/ec2-user/SageMaker/chess-stage-a/output/maia3_sae/position_
 
 MODEL_ID = "global.anthropic.claude-sonnet-4-6"
 
-SYSTEM_PROMPT = """You are a chess grandmaster explaining why a specific move was a mistake.
-You have the Stockfish analysis showing the best move, the evaluation change, and the refutation.
-Your job: explain the tactical MECHANISM in precise geometric terms.
+SYSTEM_PROMPT = """You are a chess coach translating engine analysis into plain English.
 
-Be specific about squares, files, diagonals, and piece relationships.
-Not "piece hangs" — say WHY it hangs (what line opened, what defender left, what fork became possible)."""
+CRITICAL RULES:
+- You MUST NOT calculate chess moves yourself. You CANNOT see the board.
+- You MUST ONLY explain what the Stockfish lines already show.
+- First, write the engine_trace field by copying the key facts from the Stockfish data.
+- Then explain the mechanism using ONLY information from the engine lines.
+- If you don't see a tactic in the engine lines, say "unclear" — do NOT invent one.
+
+You are a TRANSLATOR, not a chess engine. Describe what the engine found, nothing more."""
 
 
 def build_prompt(sf):
@@ -48,15 +52,26 @@ def build_prompt(sf):
 
     return f"""Position (FEN): {sf.get("fen", "?")}
 Side to move: {side} | Phase: {phase}
-Move played: {played} (eval: {eval_before} → {eval_after}, lost {sf.get("cp_loss", "?")} cp)
-Best move was: {best} (line: {best_line})
-After the blunder, opponent's threat: {threat}
-Refutation line: {refut_text}
 
-Explain in JSON:
+STOCKFISH DATA:
+- Move played: {played}
+- Best move was: {best}
+- Eval before: {eval_before}, Eval after: {eval_after} (lost {sf.get("cp_loss", "?")} cp)
+- Best continuation (what should have happened): {best_line}
+- Opponent's immediate threat after the blunder: {threat}
+- Refutation line (how opponent punishes): {refut_text}
+
+INSTRUCTIONS:
+1. First, write engine_trace: summarize the Stockfish data above in one sentence.
+2. Then write intent: what the player was probably trying to do.
+3. Then write mechanism: explain WHY the refutation works, using ONLY the moves Stockfish shows. Do NOT calculate new moves.
+4. Then write motif.
+
+JSON format:
 {{
+  "engine_trace": "<1 sentence summarizing: played X instead of Y, opponent punishes with Z, eval drops from A to B>",
   "intent": "<what the player was trying to do, 1 sentence>",
-  "mechanism": "<the geometric/tactical reason it fails, 1-2 sentences, name squares and pieces>",
+  "mechanism": "<why the refutation works — ONLY reference moves from the Stockfish lines above>",
   "motif": "<one of: hanging_piece, fork, pin, skewer, discovered_attack, back_rank, overloaded_defender, removed_guard, interposition_break, trapped_piece, promotion_error, king_exposure, tempo_loss, pawn_structure, endgame_technique, stalemate, other>"
 }}"""
 
