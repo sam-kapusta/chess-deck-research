@@ -128,6 +128,14 @@ s3://chess-stage-a-140023406996/sae/weights/matryoshka/
 ```
 
 All trained on 200K blunder diff vectors, L2 normalized, BatchTopK + aux loss, 200 epochs.
+
+```
+s3://chess-stage-a-140023406996/sae/weights/matryoshka/
+  maia3_matryoshka_perlevel_2336_p32_288_2336_k3_8_16.pt  ← BEST: per-level k, 0 dead, FVU=0.209
+  maia3_matryoshka_perlevel_2336_p32_288_2336_k2_6_16.pt  ← H2: conservative top (5 dead at prefix-32)
+```
+
+Per-level k enforcement (novel modification). Groups [32, 256, 2048], each at its validated k.
 See `docs/knowledge/matryoshka-sae.md` for full comparison and methodology.
 
 ## SAE Weights — Maia 3 k-sweep (2026-05-28)

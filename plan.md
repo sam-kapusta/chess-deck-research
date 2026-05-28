@@ -1,6 +1,18 @@
 # Chess Encoder — SAE Feature Pipeline
 
-## Current State (2026-05-23)
+## Current State (2026-05-28)
+
+**Matryoshka SAE (NEW):** Per-level-k Matryoshka, dict=[32, 256, 2048]=2336, k_per_level=[3, 8, 16]. Zero dead features, FVU=0.209. Best architecture found after comprehensive sweep of dict sizes, k values, prefix configs, and per-level enforcement. See `docs/knowledge/matryoshka-sae.md`.
+
+**Next steps:**
+1. Run labeling pipeline on H1 model (match features to existing 19K Opus analyses)
+2. Validate coaching coherence at each level (are prefix-32 features real categories?)
+3. Run Elo discrimination on the per-level model
+4. If validated: ship as next SAE version
+
+---
+
+## Previous State (2026-05-23)
 
 **Production SAE:** `puzzle_2048_k32_v1` — filtering by `coaching_useful` flag + `detection_accuracy >= 0.6`. 218 features served.
 

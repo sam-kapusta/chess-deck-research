@@ -109,12 +109,30 @@ Bussmann notes this as future work: "explicitly enforcing the number of active l
 - `maia3_matryoshka_2720_k22_p32_160_672_2720.pt` — Config C2
 - `maia3_matryoshka_2720_k24_p32_160_672_2720.pt` — Config C3
 
+## Per-Level k Results (Novel Modification)
+
+Per-level k enforcement: instead of global BatchTopK, each prefix level gets its own k budget. Prevents parent levels from hogging the sparsity budget.
+
+| Config | k_per_level | Top (32) | Mid (256) | Bottom (2048) | Total k |
+|--------|-------------|----------|-----------|---------------|---------|
+| **H1** | **[3, 8, 16]** | **max=21% cos=0.407** | **max=12% cos=0.276** | **max=3% cos=0.217** | **27** |
+| H2 | [2, 6, 16] | max=19% cos=0.408 (5 dead) | max=8% cos=0.310 | max=3% cos=0.227 | 24 |
+
+**H1 is the winner.** Zero dead at all levels, per-level metrics match standalone SAE performance at each dict size. Full FVU=0.209.
+
+Key finding: per-level k completely solves the "parents hogging k budget" problem AND eliminates dead features at lower levels. Each level operates at its independently-validated sweet spot.
+
+### On S3 (`s3://chess-stage-a-140023406996/sae/weights/matryoshka/`)
+- `maia3_matryoshka_perlevel_2336_p32_288_2336_k3_8_16.pt` — **H1 (RECOMMENDED)**
+- `maia3_matryoshka_perlevel_2336_p32_288_2336_k2_6_16.pt` — H2
+
 ### On S3 (`s3://chess-stage-a-140023406996/sae/cache/`)
 - `k_sweep_summary.json` — Full k-sweep results at dict=2048
 
 ### Scripts (git: `scripts/sae/`)
 - `sweep_k_orthogonality.py` — k-sweep at dict=2048 (produced k=16 finding)
 - `train_matryoshka_sae.py` — Matryoshka BatchTopK trainer
+- `train_matryoshka_perlevel_k.py` — Per-level k enforcement trainer
 - `matryoshka_compare.py` — Multi-config comparison runner
-- `matryoshka_elo_test.py` — Rating band discrimination test (not yet run)
-- `train_matryoshka_perlevel_k.py` — Per-level k enforcement (not yet run)
+- `matryoshka_elo_test.py` — Rating band discrimination test
+- `label_matryoshka_features.py` — Feature labeling using existing Opus analyses
