@@ -1,0 +1,59 @@
+{
+  "description": "Hyperparameter sweep: optimal k per dictionary size for Maia 3 SAE",
+  "date": "2026-05-28",
+  "method": "BatchTopK SAE, 100 epochs, 200K blunders (diff pooling, L2 norm), val split 0.1",
+  "criterion": "Lowest decoder cosine before max fire rate exceeds 20% (Chanin & Garriga-Alonso 2025 / Kozaczuk personas paper)",
+  "results": {
+    "dict_32": [
+      {"k": 1, "dead": 0, "avg_fire": 0.031, "max_fire": 0.19, "cos": 0.503, "interp": 8, "fvu": 0.663},
+      {"k": 2, "dead": 0, "avg_fire": 0.062, "max_fire": 0.19, "cos": 0.424, "interp": 2, "fvu": 0.560},
+      {"k": 3, "dead": 0, "avg_fire": 0.094, "max_fire": 0.19, "cos": 0.405, "interp": 0, "fvu": 0.526},
+      {"k": 4, "dead": 0, "avg_fire": 0.125, "max_fire": 0.23, "cos": 0.366, "interp": 0, "fvu": 0.508},
+      {"k": 6, "dead": 0, "avg_fire": 0.188, "max_fire": 0.37, "cos": 0.308, "interp": 0, "fvu": 0.487},
+      {"k": 8, "dead": 0, "avg_fire": 0.250, "max_fire": 0.55, "cos": 0.280, "interp": 0, "fvu": 0.474}
+    ],
+    "dict_64": [
+      {"k": 1, "dead": 1, "avg_fire": 0.016, "max_fire": 0.17, "cos": 0.561, "interp": 28, "fvu": 0.632},
+      {"k": 2, "dead": 0, "avg_fire": 0.031, "max_fire": 0.13, "cos": 0.443, "interp": 11, "fvu": 0.526},
+      {"k": 3, "dead": 0, "avg_fire": 0.047, "max_fire": 0.15, "cos": 0.375, "interp": 2, "fvu": 0.487},
+      {"k": 4, "dead": 0, "avg_fire": 0.062, "max_fire": 0.19, "cos": 0.358, "interp": 1, "fvu": 0.465},
+      {"k": 6, "dead": 0, "avg_fire": 0.094, "max_fire": 0.20, "cos": 0.325, "interp": 0, "fvu": 0.439},
+      {"k": 8, "dead": 0, "avg_fire": 0.125, "max_fire": 0.29, "cos": 0.263, "interp": 1, "fvu": 0.421},
+      {"k": 12, "dead": 0, "avg_fire": 0.188, "max_fire": 0.52, "cos": 0.222, "interp": 1, "fvu": 0.396}
+    ],
+    "dict_128": [
+      {"k": 2, "dead": 0, "avg_fire": 0.016, "max_fire": 0.19, "cos": 0.447, "interp": 56, "fvu": 0.505},
+      {"k": 3, "dead": 0, "avg_fire": 0.023, "max_fire": 0.19, "cos": 0.402, "interp": 32, "fvu": 0.459},
+      {"k": 4, "dead": 0, "avg_fire": 0.031, "max_fire": 0.19, "cos": 0.369, "interp": 18, "fvu": 0.430}
+    ],
+    "dict_256": [
+      {"k": 2, "dead": 11, "avg_fire": 0.008, "max_fire": 0.12, "cos": 0.437, "interp": 120, "fvu": 0.486},
+      {"k": 4, "dead": 0, "avg_fire": 0.016, "max_fire": 0.13, "cos": 0.397, "interp": 95, "fvu": 0.401},
+      {"k": 6, "dead": 0, "avg_fire": 0.023, "max_fire": 0.14, "cos": 0.362, "interp": 46, "fvu": 0.364},
+      {"k": 8, "dead": 0, "avg_fire": 0.031, "max_fire": 0.19, "cos": 0.322, "interp": 17, "fvu": 0.341},
+      {"k": 12, "dead": 0, "avg_fire": 0.047, "max_fire": 0.21, "cos": 0.277, "interp": 5, "fvu": 0.313},
+      {"k": 16, "dead": 0, "avg_fire": 0.062, "max_fire": 0.23, "cos": 0.239, "interp": 0, "fvu": 0.295}
+    ],
+    "dict_512": [
+      {"k": 4, "dead": 1, "avg_fire": 0.008, "max_fire": 0.12, "cos": 0.393, "interp": 307, "fvu": 0.383},
+      {"k": 6, "dead": 0, "avg_fire": 0.012, "max_fire": 0.19, "cos": 0.372, "interp": 266, "fvu": 0.344}
+    ],
+    "dict_2048": [
+      {"k": 8, "dead": 1885, "avg_fire": 0.004, "max_fire": null, "cos": 0.160, "interp": 3, "fvu": 0.371},
+      {"k": 12, "dead": 252, "avg_fire": 0.006, "max_fire": null, "cos": 0.250, "interp": 1054, "fvu": 0.284},
+      {"k": 16, "dead": 1, "avg_fire": 0.008, "max_fire": null, "cos": 0.254, "interp": 1531, "fvu": 0.260},
+      {"k": 20, "dead": 0, "avg_fire": 0.010, "max_fire": null, "cos": 0.250, "interp": 1482, "fvu": 0.244},
+      {"k": 24, "dead": 0, "avg_fire": 0.012, "max_fire": null, "cos": 0.241, "interp": 1286, "fvu": 0.232},
+      {"k": 32, "dead": 0, "avg_fire": 0.016, "max_fire": null, "cos": 0.226, "interp": 658, "fvu": 0.213},
+      {"k": 48, "dead": 0, "avg_fire": 0.023, "max_fire": null, "cos": 0.206, "interp": 39, "fvu": 0.186}
+    ]
+  },
+  "optimal_per_dict": {
+    "32": {"k": 3, "cos": 0.405, "fvu": 0.526},
+    "64": {"k": 6, "cos": 0.325, "fvu": 0.439},
+    "128": {"k": 4, "cos": 0.369, "fvu": 0.430},
+    "256": {"k": 8, "cos": 0.322, "fvu": 0.341},
+    "512": {"k": 6, "cos": 0.372, "fvu": 0.344},
+    "2048": {"k": 16, "cos": 0.254, "fvu": 0.260}
+  }
+}

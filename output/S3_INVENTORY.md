@@ -115,6 +115,30 @@ Trained on 200K Lichess blunder diff vectors (to_sq - from_sq) from Maia 3 layer
 Input: 512-dim, L2 normalized (z-score + unit sphere). Mixed random Elo 600-2600.
 Labels: 80% unique, 66% confidence ≥ 0.7. Categories: hanging_pieces (34%), king_safety (12%), forks (10%), pawn_endgames (8%), trapped_pieces (7%).
 
+## SAE Weights — Maia 3 Matryoshka (2026-05-28)
+
+```
+s3://chess-stage-a-140023406996/sae/weights/matryoshka/
+  maia3_matryoshka_2048_k16_p64_256_2048.pt     ← Config A (RECOMMENDED): elbows at 64/256, 0 dead, max 23%
+  maia3_matryoshka_2048_k16_p32_128_512_2048.pt ← Config B: 4 levels, max 30%
+  maia3_matryoshka_2048_k16_p32_96_224_480_992_2048.pt ← Config E: 6 Bussmann-style levels, max 26%
+  maia3_matryoshka_2336_k20_p32_288_2336.pt     ← Config F: groups 32/256/2048, best top-level cos (0.230)
+  maia3_matryoshka_2720_k22_p32_160_672_2720.pt ← Config C2: 1:4 branching, k=22
+  maia3_matryoshka_2720_k24_p32_160_672_2720.pt ← Config C3: 1:4 branching, k=24, best progressive recovery
+```
+
+All trained on 200K blunder diff vectors, L2 normalized, BatchTopK + aux loss, 200 epochs.
+See `docs/knowledge/matryoshka-sae.md` for full comparison and methodology.
+
+## SAE Weights — Maia 3 k-sweep (2026-05-28)
+
+```
+s3://chess-stage-a-140023406996/sae/cache/
+  k_sweep_summary.json  ← Full results for k=[8,12,16,20,24,32,48] at dict=2048
+```
+
+k=16 validated as optimal (1531 interpretable features, 0 dead, cos=0.254).
+
 ## Maia 3 Activation Cache
 
 ```
