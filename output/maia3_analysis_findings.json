@@ -1,0 +1,358 @@
+{
+  "summary": {
+    "total_features": 2048,
+    "features_with_rating_signal": 889,
+    "categories": 26,
+    "subcategories": 277,
+    "positions_validated": 56110
+  },
+  "rating_roadmap": {
+    "1100\u21921300": {
+      "fix_these": [
+        {
+          "chip": "Aggressive Bishop Abandons Post",
+          "drop": 0.0605,
+          "drop_pct": 35.0
+        },
+        {
+          "chip": "Decorative bishop moves ignore threats",
+          "drop": 0.0194,
+          "drop_pct": 8.3
+        },
+        {
+          "chip": "Rook abandons guard duty",
+          "drop": 0.0193,
+          "drop_pct": 45.3
+        },
+        {
+          "chip": "Slow b6/flank pawn ignoring urgency",
+          "drop": 0.0189,
+          "drop_pct": 16.7
+        },
+        {
+          "chip": "Passive pawn push ignoring urgency",
+          "drop": 0.0181,
+          "drop_pct": 13.6
+        }
+      ]
+    },
+    "1300\u21921500": {
+      "fix_these": [
+        {
+          "chip": "Aggressive Bishop Abandons Post",
+          "drop": 0.0329,
+          "drop_pct": 29.3
+        },
+        {
+          "chip": "D-pawn counters e-pawn, piece hangs",
+          "drop": 0.0216,
+          "drop_pct": 18.5
+        },
+        {
+          "chip": "Passive pawn push ignoring urgency",
+          "drop": 0.0181,
+          "drop_pct": 15.8
+        },
+        {
+          "chip": "Undefended Bb4/Bb5 queen fork",
+          "drop": 0.0172,
+          "drop_pct": 22.1
+        },
+        {
+          "chip": "Greedy rook pawn-hunting",
+          "drop": 0.0157,
+          "drop_pct": 19.0
+        }
+      ]
+    },
+    "1500\u21921700": {
+      "fix_these": [
+        {
+          "chip": "Aggressive Bishop Abandons Post",
+          "drop": 0.028,
+          "drop_pct": 35.2
+        },
+        {
+          "chip": "Greedy major piece pawn grab",
+          "drop": 0.0183,
+          "drop_pct": 15.3
+        },
+        {
+          "chip": "Premature aggressive knight lunges",
+          "drop": 0.0163,
+          "drop_pct": 40.8
+        },
+        {
+          "chip": "Bishop checks wrong square",
+          "drop": 0.0132,
+          "drop_pct": 16.6
+        },
+        {
+          "chip": "Retreating Key Defensive Piece",
+          "drop": 0.013,
+          "drop_pct": 15.2
+        }
+      ]
+    },
+    "1700\u21921900": {
+      "fix_these": [
+        {
+          "chip": "Aimless rook shuffles miss urgency",
+          "drop": 0.0181,
+          "drop_pct": 13.3
+        },
+        {
+          "chip": "Aggressive Bishop Abandons Post",
+          "drop": 0.0179,
+          "drop_pct": 34.8
+        },
+        {
+          "chip": "Decorative bishop moves ignore threats",
+          "drop": 0.0168,
+          "drop_pct": 8.6
+        },
+        {
+          "chip": "Passive bishop to second rank",
+          "drop": 0.0148,
+          "drop_pct": 14.4
+        },
+        {
+          "chip": "Rash two-square pawn lunges",
+          "drop": 0.0146,
+          "drop_pct": 9.1
+        }
+      ]
+    },
+    "1900\u21922100": {
+      "fix_these": [
+        {
+          "chip": "Decorative bishop moves ignore threats",
+          "drop": 0.0281,
+          "drop_pct": 15.7
+        },
+        {
+          "chip": "Aimless rook shuffles miss urgency",
+          "drop": 0.0191,
+          "drop_pct": 16.2
+        },
+        {
+          "chip": "Quiet rook move wastes tempo",
+          "drop": 0.0164,
+          "drop_pct": 11.7
+        },
+        {
+          "chip": "Retreating Key Defensive Piece",
+          "drop": 0.016,
+          "drop_pct": 26.5
+        },
+        {
+          "chip": "Pawn chases piece, misses tactic",
+          "drop": 0.0159,
+          "drop_pct": 8.5
+        }
+      ]
+    }
+  },
+  "piece_mastery_order": [
+    {
+      "transition": "1100\u21921300",
+      "piece": "Bishop",
+      "note": "Bishop mistakes drop most"
+    },
+    {
+      "transition": "1300\u21921500",
+      "piece": "Knight",
+      "note": "Knight mistakes drop most"
+    },
+    {
+      "transition": "1500\u21921700",
+      "piece": "Bishop",
+      "note": "Bishop mastery deepens"
+    },
+    {
+      "transition": "1700\u21921900",
+      "piece": "Bishop",
+      "note": "Final bishop refinement"
+    },
+    {
+      "transition": "1900\u21922100",
+      "piece": "Rook",
+      "note": "Rook precision at expert level"
+    }
+  ],
+  "most_fatal_features": [],
+  "biggest_beginner_markers": [
+    {
+      "chip": "Tempting aggressive Queen moves",
+      "ratio": 28.533,
+      "rate_1000": 0.0285
+    },
+    {
+      "chip": "Slow move in urgent position",
+      "ratio": 28.248,
+      "rate_1000": 0.0336
+    },
+    {
+      "chip": "Rook abandons guard duty",
+      "ratio": 26.888,
+      "rate_1000": 0.0426
+    },
+    {
+      "chip": "Abandoning dominant knight outpost",
+      "ratio": 23.981,
+      "rate_1000": 0.038
+    },
+    {
+      "chip": "Pawn promotes to queen",
+      "ratio": 13.663,
+      "rate_1000": 0.0343
+    },
+    {
+      "chip": "Premature aggressive knight lunges",
+      "ratio": 11.419,
+      "rate_1000": 0.0649
+    },
+    {
+      "chip": "Plausible Move, Critical Moment",
+      "ratio": 9.755,
+      "rate_1000": 0.0309
+    },
+    {
+      "chip": "Central pawn push ignores tactics",
+      "ratio": 9.327,
+      "rate_1000": 0.0259
+    },
+    {
+      "chip": "Aimless bishop repositioning wastes tempo",
+      "ratio": 9.022,
+      "rate_1000": 0.0238
+    },
+    {
+      "chip": "?",
+      "ratio": 8.688,
+      "rate_1000": 0.0241
+    },
+    {
+      "chip": "Bishop captures centralized knight prematurely",
+      "ratio": 7.785,
+      "rate_1000": 0.0391
+    },
+    {
+      "chip": "Aggressive Bishop Abandons Post",
+      "ratio": 7.609,
+      "rate_1000": 0.1729
+    },
+    {
+      "chip": "Fleeing king ignores tactical crisis",
+      "ratio": 7.226,
+      "rate_1000": 0.0544
+    },
+    {
+      "chip": "Rook abandons post for activity",
+      "ratio": 6.777,
+      "rate_1000": 0.026
+    },
+    {
+      "chip": "Premature flank pawn lunge",
+      "ratio": 6.735,
+      "rate_1000": 0.0222
+    },
+    {
+      "chip": "Slow knight ignores urgency",
+      "ratio": 5.671,
+      "rate_1000": 0.0577
+    }
+  ],
+  "expert_only_features": [
+    {
+      "chip": "Greedy move allows instant mate",
+      "ratio": 0.085,
+      "rate_2000": 0.045
+    },
+    {
+      "chip": "Pawn push over piece tactics",
+      "ratio": 0.143,
+      "rate_2000": 0.0211
+    },
+    {
+      "chip": "Prophylactic pawn creates hook",
+      "ratio": 0.162,
+      "rate_2000": 0.0202
+    },
+    {
+      "chip": "Rook passively defends pawn",
+      "ratio": 0.165,
+      "rate_2000": 0.0301
+    },
+    {
+      "chip": "Knight abandons critical square",
+      "ratio": 0.173,
+      "rate_2000": 0.0221
+    },
+    {
+      "chip": "Premature minor piece centralization",
+      "ratio": 0.204,
+      "rate_2000": 0.0439
+    },
+    {
+      "chip": "Queen abandons piece defense",
+      "ratio": 0.227,
+      "rate_2000": 0.0692
+    },
+    {
+      "chip": "Tempting knight outpost illusion",
+      "ratio": 0.236,
+      "rate_2000": 0.0192
+    },
+    {
+      "chip": "Poisoned b-pawn queen grab",
+      "ratio": 0.238,
+      "rate_2000": 0.0201
+    },
+    {
+      "chip": "Premature Bxf7+ Bishop Sacrifice",
+      "ratio": 0.239,
+      "rate_2000": 0.0334
+    },
+    {
+      "chip": "Knight Abandons Defensive Post",
+      "ratio": 0.251,
+      "rate_2000": 0.0382
+    },
+    {
+      "chip": "King captures into fatal exposure",
+      "ratio": 0.257,
+      "rate_2000": 0.0242
+    },
+    {
+      "chip": "Slow pawn push wastes tempo",
+      "ratio": 0.261,
+      "rate_2000": 0.0339
+    },
+    {
+      "chip": "Retreating the critical guard",
+      "ratio": 0.271,
+      "rate_2000": 0.0295
+    },
+    {
+      "chip": "Bishop trade ignoring critical knight",
+      "ratio": 0.286,
+      "rate_2000": 0.0288
+    },
+    {
+      "chip": "Knight abandons critical post",
+      "ratio": 0.291,
+      "rate_2000": 0.0238
+    },
+    {
+      "chip": "Knight walks into bishop diagonal",
+      "ratio": 0.293,
+      "rate_2000": 0.0218
+    },
+    {
+      "chip": "Knight sortie ignores pawn capture",
+      "ratio": 0.299,
+      "rate_2000": 0.0317
+    }
+  ]
+}

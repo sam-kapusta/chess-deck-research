@@ -16,12 +16,13 @@ import time
 import sys
 import os
 
-PROFILES_PATH = "output/maia3_positions_for_labeling.json"
-FEATURES_PATH = "/tmp/l2_feature_profiles.json"
-OUTPUT_PATH = "output/maia3_feature_labels_gemini.json"
+FEATURES_PATH = "/tmp/l2_feature_profiles_v2.json"
+OUTPUT_PATH = "output/maia3_feature_labels_gemini_v2.json"
 MODEL = "gemini-3.1-pro-preview"
 
-PROMPT_TEMPLATE = """You are a chess grandmaster analyzing SAE (Sparse Autoencoder) features.
+PROMPT_TEMPLATE = """IMPORTANT: Do NOT use any tools. Do NOT run code or call APIs. Just analyze the positions mentally and respond with JSON only.
+
+You are a chess grandmaster analyzing SAE (Sparse Autoencoder) features.
 Each feature fires on positions where a player made a specific type of mistake.
 
 Below are the top {n} positions where this feature activates most strongly.
@@ -29,7 +30,7 @@ All positions are blunders. Find the SPECIFIC tactical or positional pattern tha
 
 {positions_text}
 
-Respond in this exact JSON format:
+Respond ONLY with this JSON (no other text):
 {{
   "specific_label": "<2-5 word mechanism description>",
   "primary_category": "<one of: hanging_piece, fork, pin, skewer, discovered_attack, back_rank, overloaded_defender, trapped_piece, pawn_endgame, rook_endgame, king_safety, passed_pawn, promotion_error, tempo_loss, positional_mistake, other>",
@@ -51,20 +52,27 @@ def build_prompt(feature_id, examples):
 
 
 def call_gemini_cli(prompt, model=MODEL):
-    """Call gemini CLI in non-interactive mode, return text output."""
+    """Call agy CLI in non-interactive mode, return text output."""
+    agy_path = os.path.expanduser("~/.local/bin/agy")
     env = os.environ.copy()
-    env["GEMINI_CLI_TRUST_WORKSPACE"] = "true"
+    env["PATH"] = os.path.expanduser("~/.local/share/mise/installs/node/22.14.0/bin") + ":" + env.get("PATH", "")
     result = subprocess.run(
-        ["gemini", "-m", model, "-p", prompt, "-o", "text"],
+        [agy_path, "--print-timeout", "5m", "-p", prompt],
         capture_output=True,
         text=True,
-        timeout=180,
-        env=env,
+        timeout=600,
         cwd="/tmp",
+        
     )
-    if result.returncode != 0:
-        raise RuntimeError(f"gemini CLI error: {result.stderr[:200]}")
-    return result.stdout.strip()
+    output = result.stdout.strip()
+    if not output and result.returncode != 0:
+        err = result.stderr[:300]
+        if 'quota' in err.lower() or 'exhausted' in err.lower() or '429' in err:
+            raise RuntimeError(f"QUOTA_EXHAUSTED: {err}")
+        raise RuntimeError(f"agy CLI error: {err}")
+    if not output:
+        raise RuntimeError(f"agy CLI empty response, stderr: {result.stderr[:200]}")
+    return output
 
 
 def parse_response(text):
@@ -99,6 +107,7 @@ def main():
     parser.add_argument('--output', default=OUTPUT_PATH)
     parser.add_argument('--model', default=MODEL)
     parser.add_argument('--limit', type=int, default=None)
+    parser.add_argument('--shard', type=str, default=None, help='Shard N/M (e.g., 1/3, 2/3, 3/3)')
     parser.add_argument('--resume', action='store_true')
     args = parser.parse_args()
 
@@ -107,6 +116,18 @@ def main():
 
     # Skip hub features (the 41 that were excluded from labeling)
     feature_ids = sorted(profiles.keys(), key=int)
+
+    # Shard support: split features across parallel workers
+    if args.shard:
+        n, m = map(int, args.shard.split('/'))
+        chunk_size = len(feature_ids) // m
+        start = (n - 1) * chunk_size
+        end = start + chunk_size if n < m else len(feature_ids)
+        feature_ids = feature_ids[start:end]
+        # Shard-specific output file
+        if args.output == OUTPUT_PATH:
+            args.output = OUTPUT_PATH.replace('.json', f'_shard{n}.json')
+
     if args.limit:
         feature_ids = feature_ids[:args.limit]
 
@@ -122,6 +143,7 @@ def main():
 
     n_done = len(results)
     n_errors = 0
+    consecutive_errors = 0
     t0 = time.time()
 
     print(f"Features to label: {len(feature_ids)} (skipping {len(results)} already done)")
@@ -142,22 +164,32 @@ def main():
             parsed = parse_response(raw)
 
             if parsed:
+                parsed['source'] = 'agy'
                 results[fid] = parsed
                 n_done += 1
+                consecutive_errors = 0
             else:
                 results[fid] = {'error': 'parse_failed', 'raw': raw[:500]}
                 n_errors += 1
+                consecutive_errors += 1
 
         except subprocess.TimeoutExpired:
             results[fid] = {'error': 'timeout'}
             n_errors += 1
+            consecutive_errors += 1
         except Exception as e:
             err = str(e)
-            if '429' in err or 'rate' in err.lower():
-                print(f"  Rate limited at {n_done}. Saving and exiting.", flush=True)
+            if 'QUOTA_EXHAUSTED' in err or '429' in err or 'quota' in err.lower():
+                print(f"  QUOTA HIT at {n_done}. Saving and stopping.", flush=True)
                 break
             results[fid] = {'error': err[:200]}
             n_errors += 1
+            consecutive_errors += 1
+
+        # Circuit breaker: 3 consecutive errors = stop
+        if consecutive_errors >= 3:
+            print(f"  CIRCUIT BREAKER: 3 consecutive errors. Stopping.", flush=True)
+            break
 
         # Progress
         if (n_done - len([r for r in results.values() if 'error' not in r])) % 10 == 0 or n_done <= 5:
@@ -166,10 +198,9 @@ def main():
             remaining = len(feature_ids) - i
             print(f"  F{fid}: done={n_done}, errors={n_errors}, rate={rate:.1f}/min, remaining={remaining}", flush=True)
 
-        # Save every 25
-        if n_done % 25 == 0:
-            with open(args.output, 'w') as f:
-                json.dump(results, f)
+        # Save after every feature
+        with open(args.output, 'w') as f:
+            json.dump(results, f)
 
         # Small delay to avoid hammering
         time.sleep(0.5)
