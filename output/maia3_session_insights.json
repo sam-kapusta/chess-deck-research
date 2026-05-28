@@ -1,0 +1,58 @@
+{
+  "trajectory_archetypes": {
+    "description": "6 trajectory shapes found in feature rating curves",
+    "types": [
+      {
+        "id": 1,
+        "n": 329,
+        "shape": "slight_increase",
+        "desc": "Expert mistakes that grow subtly with complexity"
+      },
+      {
+        "id": 2,
+        "n": 95,
+        "shape": "moderate_increase",
+        "desc": "Expert mistakes with clear upward trend"
+      },
+      {
+        "id": 3,
+        "n": 69,
+        "shape": "strong_increase",
+        "desc": "Expert-only mistakes (near zero at 1000, peaks at 2200)"
+      },
+      {
+        "id": 4,
+        "n": 66,
+        "shape": "strong_decrease",
+        "desc": "Pure beginner mistakes (eliminated by 2000)"
+      },
+      {
+        "id": 5,
+        "n": 175,
+        "shape": "moderate_decrease",
+        "desc": "Beginner mistakes that gradually reduce"
+      },
+      {
+        "id": 6,
+        "n": 479,
+        "shape": "near_flat",
+        "desc": "Universal with slight improvement \u2014 largest group"
+      }
+    ]
+  },
+  "key_insights": {
+    "hybrid_clustering": "Decoder cosine for naming (26 top) + trajectory for sub-clustering (164 subs) retains 121% signal",
+    "feature_elo_distribution": "Mean=1603, std=83, 80% of features live in 1500-1700 band",
+    "elo_impact_dominance": "Below 1700: piece handling. Above 1700: king safety in active positions",
+    "signal_retention": "Features=100%, Subcats(trajectory)=116%, Subcats(decoder)=29%, Categories=26%",
+    "bishop_mastery": "Aggressive Bishop Abandons Post is #1 diagnostic feature at 4/5 rating transitions",
+    "cancellation_problem": "Decoder-based subcategories cancel opposing trends (73/277 contain both increasing+decreasing features)"
+  },
+  "product_implications": {
+    "ranking_metric": "Elo impact score (rate_drop \u00d7 severity) for drill prioritization",
+    "level_filtering": "Feature Elo determines which drills are appropriate for player level",
+    "archetype_tags": "6 trajectory types as UI labels (beginner-killer, expert-trap, universal, etc.)",
+    "granularity": "Profile at feature level, display at trajectory-subcategory level",
+    "hierarchy": "Hybrid: decoder top (26 nameable) + trajectory sub (164, 79% signal retention)"
+  }
+}
