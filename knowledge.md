@@ -176,12 +176,65 @@ From SF-derived stats (piece played, phase, check/capture rates, cp_loss), can a
 - Sonnet confidence score correlates with structural purity (0.97 piece purity at conf≥0.9 vs 0.64 at conf<0.6). Confidence is real signal.
 - Sonnet's "hanging_pieces" category is too broad (covers 34% of features, 12/20 structural clusters).
 
+### Opus labeling pipeline (2026-05-27)
+
+Two-pass pipeline using Opus 4.6 on Bedrock (capped thinking 4096 tokens, concurrency 20):
+
+1. **Pass 1:** 19,216 per-position analyses (19K unique positions × Stockfish depth-18 enrichment × Opus). 17h wall time on chess-poc. Output: `s3://chess-stage-a-140023406996/sae/cache/all_positions_labeled_opus_final.json` (40MB)
+2. **Pass 2:** 2,000 feature-level labels synthesized from 10 position analyses each. 80min. Output: `s3://chess-stage-a-140023406996/sae/labels/maia3_feature_labels_opus.json`
+3. **Rerun:** 604 low-confidence features relabeled with geometric context (diff vector stats, from-file/rank distribution). Only 36 improved — low confidence = genuinely polysemantic, not missing info.
+
+Scripts: `scripts/labeling/label_features_pass2.py`, `scripts/labeling/label_features_pass2_rerun.py`
+
+### Rating validation (2026-05-27)
+
+56K blunders (6 rating bands, ~10K each) from `sweep_blunders_2000.json` run through Maia 3 → SAE on chess-poc.
+
+**Key result: 73% of features (62% of fire rate) vary by rating band.** This is NOT flat like the DeepMind SAE — the Maia 3 Elo conditioning gives genuine rating signal.
+
+Output: `s3://chess-stage-a-140023406996/sae/cache/sae_rating_validation.json`
+
+### Feature hierarchy (2026-05-27)
+
+Built from decoder cosine similarity (Ward hierarchical clustering):
+- **k=26 natural gap** in dendrogram — 26 top-level categories
+- **277 subcategories** (~7 features each) via sub-clustering within parents
+- Labeled with Opus, plain coaching language
+
+Key findings:
+- **"Aggressive Bishop Abandons Post"** is the #1 diagnostic feature at FOUR rating transitions (1100→1900). Single most important skill below 1900.
+- **Bishop mastery** is the consistent differentiator across ratings (drops most at every transition except 1900→2100 where Rook takes over)
+- **"Capturing removes shielding pawn"** increases monotonically from 7% to 18% — the primary COST of improvement
+- Top 100 features capture 27% of discrimination power; top 500 capture 70%
+- Adjacent rating bands are 99.1-99.4% cosine similar — signal is subtle but real
+- 60% of fire rate is coachable (varies by rating), 40% is universal (fires equally at all levels)
+- Anti-correlations: fixing one pattern often introduces another (e.g., stopping pawn-hunting → starting to capture own shielding pawns)
+
+Output files in git:
+- `output/maia3_feature_hierarchy.json` — full hierarchy with feature assignments
+- `output/maia3_taxonomy_k26.json` — 26 category names + cluster assignments
+- `output/maia3_website_rates.json` — per-subcategory fire rates for all 6 bands
+- `output/maia3_rating_profiles.json` — simulated player profiles by band
+- `output/maia3_analysis_findings.json` — rating roadmap, fatal features, beginner markers
+
+### cabbagelover5566 profiling (2026-05-27)
+
+1,209 blunders from 502 games run through Maia 3 → SAE. Profile compared against 1800-2000 peer baseline.
+
+Top weaknesses vs peers: "Pawn Captures That Open King" (2.3×), "Aimless Rook Repositioning" (1.8×), "Trading Away Dominant Pieces" (1.5×). Top strengths: "Greedy Material Grabs" (0.5×), "Queen Misplacement" (0.7×). Matches known profile from DeepMind SAE: tactical oversight, not strategy.
+
 ### Files on chess-poc
 
 | File | What | Lines |
 |------|------|-------|
 | `gemini_batch_input.jsonl` | Input for CANCELLED Flash batch (wrong schema) | 19,511 |
 | `gemini_batch_results_raw.jsonl` | Output from SUCCESSFUL Pro batch | 5,851 |
+| `all_positions_labeled_opus.json` | Pass 1 results (19K position analyses) | — |
+| `maia3_feature_labels_opus.json` | Pass 2 + rerun results (2K feature labels) | — |
+| `position_enrichment_cache.json` | Stockfish depth-18 enrichment (19K positions) | — |
+| `sae_rating_validation.json` | 56K positions × 6 bands fire rates | — |
+| `feature_clustering.json` | Decoder cosine + co-firing clustering | — |
+| `cabbagelover_profile.json` | Player profile for cabbagelover5566 | — |
 | `stockfish_data.json` | SF depth-18 enrichment | 18,027 |
 | `l2_feature_profiles.json` | Top-20 positions per feature | 2,048 features |
 | `l2_labels_sonnet.json` | Sonnet 4.6 labels | 2,007 features |
