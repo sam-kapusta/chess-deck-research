@@ -1,0 +1,126 @@
+{
+  "source": "reused from chess_blunder_taxonomy_v2 (k16) \u2014 coaching vocab is checkpoint-independent",
+  "n_categories": 20,
+  "categories": [
+    {
+      "id": "ignoring_threats",
+      "name": "Ignoring Threats",
+      "definition": "Failing to address the opponent's immediate tactical threats, hanging pieces, mating ideas, or intermediate moves.",
+      "ref_n_features_k16": 200
+    },
+    {
+      "id": "slow_play_punished",
+      "name": "Slow Play Punished",
+      "definition": "Non-urgent, passive, or prophylactic moves when the position demands immediate tactical action or concrete play.",
+      "ref_n_features_k16": 177
+    },
+    {
+      "id": "moving_hangs_pieces",
+      "name": "Moving Hangs Pieces",
+      "definition": "A move that inadvertently leaves another own piece unprotected, creating a free capture for the opponent.",
+      "ref_n_features_k16": 165
+    },
+    {
+      "id": "piece_abandons_defense",
+      "name": "Piece Abandons Defense",
+      "definition": "Moving a piece away from a square where it performed a critical defensive duty, allowing the opponent's threats to succeed.",
+      "ref_n_features_k16": 145
+    },
+    {
+      "id": "pieces_left_undefended",
+      "name": "Pieces Left Undefended",
+      "definition": "Placing or leaving pieces on squares without adequate protection, making them vulnerable to capture.",
+      "ref_n_features_k16": 143
+    },
+    {
+      "id": "rook_misplacement",
+      "name": "Rook Misplacement",
+      "definition": "Rook moves that abandon key files, ranks, or defensive posts, often ignoring tactical obligations.",
+      "ref_n_features_k16": 131
+    },
+    {
+      "id": "passed_pawn_blindness",
+      "name": "Passed Pawn Blindness",
+      "definition": "Failing to stop, advance, or properly handle dangerous passed pawns, including promotion oversights.",
+      "ref_n_features_k16": 130
+    },
+    {
+      "id": "pawn_moves_weaken_king",
+      "name": "Pawn Moves Weaken King",
+      "definition": "Pawn advances that compromise the king's pawn shelter, open critical files or diagonals, or expose the king to attack.",
+      "ref_n_features_k16": 105
+    },
+    {
+      "id": "captures_backfire",
+      "name": "Captures Backfire",
+      "definition": "Exchanges or recaptures that activate the opponent's pieces, release tension, or create new tactical vulnerabilities.",
+      "ref_n_features_k16": 101
+    },
+    {
+      "id": "pawn_moves_ignore_threats",
+      "name": "Pawn Moves Ignore Threats",
+      "definition": "Pawn pushes made when urgent tactical emergencies or piece safety issues demand immediate attention.",
+      "ref_n_features_k16": 82
+    },
+    {
+      "id": "piece_lands_badly",
+      "name": "Piece Lands Badly",
+      "definition": "Developing or repositioning pieces to tactically vulnerable, attacked, or overloaded squares that invite punishment.",
+      "ref_n_features_k16": 82
+    },
+    {
+      "id": "checks_lose_tempo",
+      "name": "Checks Lose Tempo",
+      "definition": "Giving checks or desperado moves that accomplish nothing strategically and waste critical time.",
+      "ref_n_features_k16": 80
+    },
+    {
+      "id": "greedy_captures",
+      "name": "Greedy Captures",
+      "definition": "Material grabs that ignore tactical consequences, positional damage, or allow the opponent dangerous counterplay.",
+      "ref_n_features_k16": 77
+    },
+    {
+      "id": "king_safety_ignored",
+      "name": "King Safety Ignored",
+      "definition": "Prioritizing material gain, piece activity, or development while neglecting the king's need for protection.",
+      "ref_n_features_k16": 74
+    },
+    {
+      "id": "retreating_errors",
+      "name": "Retreating Errors",
+      "definition": "Piece retreats that lose tempo, walk into greater danger, or allow the opponent to advance with initiative.",
+      "ref_n_features_k16": 72
+    },
+    {
+      "id": "king_walks_into_danger",
+      "name": "King Walks Into Danger",
+      "definition": "King moves that step into checks, mating nets, knight forks, discovered attacks, or lose critical opposition.",
+      "ref_n_features_k16": 71
+    },
+    {
+      "id": "fork_vulnerability",
+      "name": "Fork Vulnerability",
+      "definition": "Moving pieces into positions where they become vulnerable to forks, discovered attacks, or overloading tactics.",
+      "ref_n_features_k16": 42
+    },
+    {
+      "id": "piece_trapping",
+      "name": "Piece Trapping",
+      "definition": "Moves that result in own pieces becoming trapped, blocked, or unable to escape capture.",
+      "ref_n_features_k16": 42
+    },
+    {
+      "id": "unsound_sacrifices",
+      "name": "Unsound Sacrifices",
+      "definition": "Incorrect piece sacrifices that do not generate sufficient compensation in attack or material recovery.",
+      "ref_n_features_k16": 19
+    },
+    {
+      "id": "back_rank_weakness",
+      "name": "Back Rank Weakness",
+      "definition": "Overlooking or creating back rank mate vulnerabilities by leaving the king trapped behind its own pieces.",
+      "ref_n_features_k16": 6
+    }
+  ]
+}
