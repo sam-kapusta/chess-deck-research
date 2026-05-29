@@ -1,11 +1,374 @@
 {
   "name": "Chess Blunder Taxonomy",
-  "method": "decoder_cosine_ward + Opus LLM re-grouping",
+  "method": "decoder_cosine_ward + Opus LLM grouping (fixed)",
   "model": "v2_k16_d2048",
   "n_categories": 20,
   "n_subclusters": 280,
   "n_features": 2048,
   "children": [
+    {
+      "name": "Ignoring Threats",
+      "description": "Failing to address the opponent's immediate tactical threats, hanging pieces, mating ideas, or intermediate moves.",
+      "children": [
+        {
+          "name": "Winning easily, blundering checkmate",
+          "size": 6,
+          "features": [
+            808,
+            889,
+            915,
+            942,
+            1368,
+            1901
+          ]
+        },
+        {
+          "name": "Winning material losing tempo",
+          "size": 6,
+          "features": [
+            405,
+            435,
+            589,
+            873,
+            1469,
+            1579
+          ]
+        },
+        {
+          "name": "Capturing piece loses to recapture",
+          "size": 13,
+          "features": [
+            177,
+            277,
+            845,
+            983,
+            1022,
+            1064,
+            1330,
+            1592,
+            1597,
+            1614,
+            1647,
+            1889,
+            1955
+          ]
+        },
+        {
+          "name": "Pawn moves weaken king shelter",
+          "size": 4,
+          "features": [
+            74,
+            389,
+            933,
+            953
+          ]
+        },
+        {
+          "name": "Premature en passant captures backfire",
+          "size": 8,
+          "features": [
+            6,
+            122,
+            1347,
+            1559,
+            1562,
+            1616,
+            1667,
+            1696
+          ]
+        },
+        {
+          "name": "Piece move abandons defense",
+          "size": 7,
+          "features": [
+            206,
+            432,
+            740,
+            897,
+            929,
+            1030,
+            1585
+          ]
+        },
+        {
+          "name": "Prophylactic pawn moves lose tempo",
+          "size": 6,
+          "features": [
+            88,
+            205,
+            403,
+            1014,
+            1248,
+            1296
+          ]
+        },
+        {
+          "name": "Retreating pieces allow pawn advances",
+          "size": 8,
+          "features": [
+            42,
+            85,
+            126,
+            623,
+            1135,
+            1428,
+            1872,
+            1989
+          ]
+        },
+        {
+          "name": "Premature queen promotion blunder",
+          "size": 10,
+          "features": [
+            40,
+            62,
+            536,
+            662,
+            866,
+            1063,
+            1185,
+            1804,
+            1996,
+            2030
+          ]
+        },
+        {
+          "name": "Losing tempo allows counterplay",
+          "size": 8,
+          "features": [
+            600,
+            609,
+            884,
+            1059,
+            1179,
+            1340,
+            1555,
+            1927
+          ]
+        },
+        {
+          "name": "Developing pieces onto undefended squares",
+          "size": 7,
+          "features": [
+            239,
+            295,
+            815,
+            1191,
+            1521,
+            1967,
+            2002
+          ]
+        },
+        {
+          "name": "King walks into attack",
+          "size": 5,
+          "features": [
+            363,
+            916,
+            1488,
+            1652,
+            1952
+          ]
+        },
+        {
+          "name": "Rook activation ignoring tactics",
+          "size": 8,
+          "features": [
+            844,
+            967,
+            1255,
+            1303,
+            1365,
+            1684,
+            1756,
+            1797
+          ]
+        },
+        {
+          "name": "King walks into diagonal",
+          "size": 9,
+          "features": [
+            278,
+            359,
+            528,
+            533,
+            663,
+            976,
+            1578,
+            1595,
+            2042
+          ]
+        },
+        {
+          "name": "Moving into greater danger",
+          "size": 7,
+          "features": [
+            260,
+            402,
+            618,
+            668,
+            1878,
+            1993,
+            2016
+          ]
+        },
+        {
+          "name": "King walks into mating net",
+          "size": 7,
+          "features": [
+            578,
+            644,
+            741,
+            1265,
+            1862,
+            1970,
+            1976
+          ]
+        },
+        {
+          "name": "Piece moves leaving pawns hanging",
+          "size": 11,
+          "features": [
+            105,
+            768,
+            797,
+            1223,
+            1263,
+            1386,
+            1511,
+            1603,
+            1654,
+            1675,
+            1940
+          ]
+        },
+        {
+          "name": "Queen moves away from defense",
+          "size": 12,
+          "features": [
+            3,
+            75,
+            139,
+            201,
+            757,
+            903,
+            962,
+            1150,
+            1687,
+            1754,
+            1782,
+            1887
+          ]
+        },
+        {
+          "name": "Winning pawns, ignoring tactics",
+          "size": 9,
+          "features": [
+            471,
+            876,
+            941,
+            979,
+            1307,
+            1454,
+            1600,
+            1665,
+            1755
+          ]
+        },
+        {
+          "name": "Unlabeled cluster",
+          "size": 10,
+          "features": [
+            255,
+            257,
+            318,
+            360,
+            428,
+            863,
+            1105,
+            1225,
+            1320,
+            1460
+          ]
+        },
+        {
+          "name": "Capturing into discovered attack",
+          "size": 7,
+          "features": [
+            739,
+            810,
+            843,
+            937,
+            1637,
+            1863,
+            2017
+          ]
+        },
+        {
+          "name": "Piece sacrifice ignored, recapture missed",
+          "size": 9,
+          "features": [
+            72,
+            117,
+            539,
+            576,
+            745,
+            836,
+            1267,
+            1396,
+            1997
+          ]
+        },
+        {
+          "name": "Ignoring better defensive moves",
+          "size": 8,
+          "features": [
+            251,
+            448,
+            669,
+            706,
+            1298,
+            1354,
+            1554,
+            1634
+          ]
+        },
+        {
+          "name": "Ignoring Zwischenzug Costs Material",
+          "size": 5,
+          "features": [
+            195,
+            812,
+            1385,
+            1882,
+            1931
+          ]
+        },
+        {
+          "name": "Ignoring threats, creating weaknesses",
+          "size": 6,
+          "features": [
+            248,
+            341,
+            822,
+            1345,
+            1620,
+            1629
+          ]
+        },
+        {
+          "name": "Defensive moves ignoring counterattack",
+          "size": 4,
+          "features": [
+            555,
+            725,
+            1919,
+            2031
+          ]
+        }
+      ],
+      "n_features": 200
+    },
     {
       "name": "Slow Play Punished",
       "description": "Non-urgent, passive, or prophylactic moves when the position demands immediate tactical action or concrete play.",
@@ -322,310 +685,23 @@
             1571,
             2035
           ]
-        }
-      ],
-      "n_features": 169
-    },
-    {
-      "name": "Ignoring Threats",
-      "description": "Failing to address the opponent's immediate tactical threats, hanging pieces, mating ideas, or intermediate moves.",
-      "children": [
-        {
-          "name": "Winning easily, blundering checkmate",
-          "size": 6,
-          "features": [
-            808,
-            889,
-            915,
-            942,
-            1368,
-            1901
-          ]
         },
         {
-          "name": "Winning material losing tempo",
-          "size": 6,
-          "features": [
-            405,
-            435,
-            589,
-            873,
-            1469,
-            1579
-          ]
-        },
-        {
-          "name": "Capturing piece loses to recapture",
-          "size": 13,
-          "features": [
-            177,
-            277,
-            845,
-            983,
-            1022,
-            1064,
-            1330,
-            1592,
-            1597,
-            1614,
-            1647,
-            1889,
-            1955
-          ]
-        },
-        {
-          "name": "Pawn moves weaken king shelter",
-          "size": 4,
-          "features": [
-            74,
-            389,
-            933,
-            953
-          ]
-        },
-        {
-          "name": "Premature en passant captures backfire",
+          "name": "Wasted tempo invites counterattack",
           "size": 8,
           "features": [
-            6,
-            122,
-            1347,
-            1559,
-            1562,
-            1616,
-            1667,
-            1696
-          ]
-        },
-        {
-          "name": "Piece move abandons defense",
-          "size": 7,
-          "features": [
-            206,
-            432,
-            740,
-            897,
-            929,
-            1030,
-            1585
-          ]
-        },
-        {
-          "name": "Prophylactic pawn moves lose tempo",
-          "size": 6,
-          "features": [
-            88,
-            205,
-            403,
-            1014,
-            1248,
-            1296
-          ]
-        },
-        {
-          "name": "Retreating pieces allow pawn advances",
-          "size": 8,
-          "features": [
-            42,
-            85,
-            126,
-            623,
-            1135,
-            1428,
-            1872,
-            1989
-          ]
-        },
-        {
-          "name": "Premature queen promotion blunder",
-          "size": 10,
-          "features": [
-            40,
-            62,
-            536,
-            662,
-            866,
-            1063,
-            1185,
-            1804,
-            1996,
-            2030
-          ]
-        },
-        {
-          "name": "Losing tempo allows counterplay",
-          "size": 8,
-          "features": [
-            600,
-            609,
-            884,
-            1059,
-            1179,
-            1340,
-            1555,
-            1927
-          ]
-        },
-        {
-          "name": "Developing pieces onto undefended squares",
-          "size": 7,
-          "features": [
-            239,
-            295,
-            815,
-            1191,
-            1521,
-            1967,
-            2002
-          ]
-        },
-        {
-          "name": "King walks into attack",
-          "size": 5,
-          "features": [
-            363,
-            916,
-            1488,
-            1652,
-            1952
-          ]
-        },
-        {
-          "name": "Rook activation ignoring tactics",
-          "size": 8,
-          "features": [
-            844,
-            967,
-            1255,
-            1303,
-            1365,
-            1684,
-            1756,
-            1797
-          ]
-        },
-        {
-          "name": "King walks into diagonal",
-          "size": 9,
-          "features": [
-            278,
-            359,
-            528,
-            533,
-            663,
-            976,
-            1578,
-            1595,
-            2042
-          ]
-        },
-        {
-          "name": "Moving into greater danger",
-          "size": 7,
-          "features": [
-            260,
-            402,
-            618,
-            668,
-            1878,
-            1993,
-            2016
-          ]
-        },
-        {
-          "name": "King walks into mating net",
-          "size": 7,
-          "features": [
-            578,
-            644,
-            741,
-            1265,
-            1862,
-            1970,
-            1976
-          ]
-        },
-        {
-          "name": "Piece moves leaving pawns hanging",
-          "size": 11,
-          "features": [
-            105,
-            768,
-            797,
-            1223,
-            1263,
-            1386,
-            1511,
-            1603,
-            1654,
-            1675,
-            1940
-          ]
-        },
-        {
-          "name": "Queen moves away from defense",
-          "size": 12,
-          "features": [
-            3,
-            75,
-            139,
-            201,
-            757,
-            903,
-            962,
-            1150,
-            1687,
-            1754,
-            1782,
-            1887
-          ]
-        },
-        {
-          "name": "Winning pawns, ignoring tactics",
-          "size": 9,
-          "features": [
-            471,
-            876,
-            941,
-            979,
-            1307,
-            1454,
-            1600,
-            1665,
-            1755
-          ]
-        },
-        {
-          "name": "Unlabeled cluster",
-          "size": 10,
-          "features": [
-            255,
-            257,
-            318,
-            360,
-            428,
-            863,
-            1105,
-            1225,
-            1320,
-            1460
-          ]
-        },
-        {
-          "name": "Capturing into discovered attack",
-          "size": 7,
-          "features": [
-            739,
-            810,
-            843,
-            937,
-            1637,
-            1863,
-            2017
+            315,
+            503,
+            1013,
+            1276,
+            1382,
+            1422,
+            1429,
+            1906
           ]
         }
       ],
-      "n_features": 168
+      "n_features": 177
     },
     {
       "name": "Moving Hangs Pieces",
@@ -911,67 +987,257 @@
             1619,
             2047
           ]
+        },
+        {
+          "name": "Moving away leaves piece hanging",
+          "size": 10,
+          "features": [
+            183,
+            345,
+            449,
+            724,
+            802,
+            951,
+            972,
+            1155,
+            1415,
+            1436
+          ]
         }
       ],
-      "n_features": 155
+      "n_features": 165
     },
     {
-      "name": "King Walks Into Danger",
-      "description": "King moves that step into checks, mating nets, knight forks, discovered attacks, or lose critical opposition.",
+      "name": "Piece Abandons Defense",
+      "description": "Moving a piece away from a square where it performed a critical defensive duty, allowing the opponent's threats to succeed.",
       "children": [
         {
-          "name": "Ignoring better defensive moves",
-          "size": 8,
+          "name": "Ignoring King Safety For Material",
+          "size": 6,
           "features": [
-            251,
-            448,
-            669,
-            706,
-            1298,
-            1354,
-            1554,
-            1634
+            671,
+            749,
+            756,
+            1054,
+            1311,
+            1621
           ]
         },
         {
-          "name": "Desperado checks lose tempo",
+          "name": "Winning piece gets trapped back",
+          "size": 9,
+          "features": [
+            68,
+            125,
+            156,
+            399,
+            693,
+            839,
+            893,
+            1630,
+            1963
+          ]
+        },
+        {
+          "name": "Passed Pawn Advances Hanging Pieces",
           "size": 7,
           "features": [
-            39,
-            333,
-            628,
-            973,
-            1123,
-            1934,
-            1969
+            349,
+            517,
+            519,
+            733,
+            902,
+            1143,
+            1985
           ]
         },
         {
-          "name": "Pawn advance abandons defended piece",
+          "name": "Castling delayed, king exposed",
           "size": 8,
           "features": [
-            165,
-            264,
-            954,
-            974,
-            1246,
-            1322,
-            1421,
-            1798
+            34,
+            52,
+            226,
+            642,
+            1160,
+            1524,
+            1849,
+            2026
           ]
         },
         {
-          "name": "Pinning piece left hanging",
+          "name": "Piece moves into tactical vulnerability",
+          "size": 5,
+          "features": [
+            502,
+            573,
+            977,
+            1535,
+            1933
+          ]
+        },
+        {
+          "name": "Retreating Into Bigger Danger",
           "size": 8,
           "features": [
-            83,
-            231,
-            323,
-            387,
-            416,
-            738,
-            943,
-            1983
+            287,
+            553,
+            990,
+            1005,
+            1252,
+            1271,
+            1520,
+            1685
+          ]
+        },
+        {
+          "name": "Premature pawn advance loses tempo",
+          "size": 4,
+          "features": [
+            586,
+            643,
+            1102,
+            1992
+          ]
+        },
+        {
+          "name": "Bishop pins knight, queen escapes",
+          "size": 4,
+          "features": [
+            457,
+            1258,
+            1508,
+            1781
+          ]
+        },
+        {
+          "name": "Pawn advance abandons key defender",
+          "size": 7,
+          "features": [
+            112,
+            397,
+            1149,
+            1290,
+            1539,
+            1881,
+            1899
+          ]
+        },
+        {
+          "name": "Pawn promotion oversight",
+          "size": 6,
+          "features": [
+            106,
+            163,
+            633,
+            755,
+            877,
+            1312
+          ]
+        },
+        {
+          "name": "King walks into mating net",
+          "size": 6,
+          "features": [
+            38,
+            232,
+            303,
+            338,
+            759,
+            1561
+          ]
+        },
+        {
+          "name": "Piece leaves defender's square",
+          "size": 9,
+          "features": [
+            193,
+            210,
+            497,
+            574,
+            702,
+            715,
+            968,
+            1847,
+            2046
+          ]
+        },
+        {
+          "name": "Unlabeled cluster",
+          "size": 6,
+          "features": [
+            81,
+            154,
+            679,
+            723,
+            925,
+            1523
+          ]
+        },
+        {
+          "name": "King walks into opposition",
+          "size": 7,
+          "features": [
+            207,
+            426,
+            427,
+            742,
+            1174,
+            1834,
+            1855
+          ]
+        },
+        {
+          "name": "Bishop retreats lose vital tempo",
+          "size": 7,
+          "features": [
+            31,
+            329,
+            611,
+            683,
+            689,
+            767,
+            1455
+          ]
+        },
+        {
+          "name": "Hanging piece ignored, queen wandering",
+          "size": 7,
+          "features": [
+            265,
+            394,
+            861,
+            1180,
+            1319,
+            1328,
+            1721
+          ]
+        },
+        {
+          "name": "Outpost Activation Abandons Hanging Pieces",
+          "size": 6,
+          "features": [
+            25,
+            71,
+            491,
+            867,
+            1026,
+            1206
+          ]
+        },
+        {
+          "name": "Repositioning Knight Abandons Defense",
+          "size": 9,
+          "features": [
+            70,
+            116,
+            648,
+            829,
+            906,
+            1088,
+            1245,
+            1467,
+            1744
           ]
         },
         {
@@ -1003,98 +1269,6 @@
           ]
         },
         {
-          "name": "Rook activation abandons defense",
-          "size": 5,
-          "features": [
-            1019,
-            1275,
-            1410,
-            1602,
-            1921
-          ]
-        },
-        {
-          "name": "Piece moves, enemy piece gains tempo",
-          "size": 10,
-          "features": [
-            592,
-            639,
-            761,
-            806,
-            1299,
-            1445,
-            1483,
-            1767,
-            1818,
-            2034
-          ]
-        },
-        {
-          "name": "Ignoring passed pawns wins games",
-          "size": 8,
-          "features": [
-            446,
-            496,
-            655,
-            672,
-            1002,
-            1101,
-            1572,
-            1876
-          ]
-        },
-        {
-          "name": "Ignoring king safety costs game",
-          "size": 7,
-          "features": [
-            348,
-            673,
-            1055,
-            1387,
-            1527,
-            1660,
-            1666
-          ]
-        },
-        {
-          "name": "Overloaded Defender Allows Tactics",
-          "size": 7,
-          "features": [
-            203,
-            233,
-            722,
-            747,
-            809,
-            1533,
-            1607
-          ]
-        },
-        {
-          "name": "Developing moves lose critical tempo",
-          "size": 8,
-          "features": [
-            146,
-            454,
-            558,
-            998,
-            1423,
-            1565,
-            1741,
-            1949
-          ]
-        },
-        {
-          "name": "Ignoring Zwischenzug Costs Material",
-          "size": 5,
-          "features": [
-            195,
-            812,
-            1385,
-            1882,
-            1931
-          ]
-        },
-        {
           "name": "Moving queen abandons defended piece",
           "size": 8,
           "features": [
@@ -1107,331 +1281,9 @@
             1418,
             1816
           ]
-        },
-        {
-          "name": "Ignoring threats, creating weaknesses",
-          "size": 6,
-          "features": [
-            248,
-            341,
-            822,
-            1345,
-            1620,
-            1629
-          ]
-        },
-        {
-          "name": "Loose pieces drop off",
-          "size": 4,
-          "features": [
-            585,
-            944,
-            1324,
-            1843
-          ]
-        },
-        {
-          "name": "King walks into bishop",
-          "size": 7,
-          "features": [
-            0,
-            204,
-            567,
-            1133,
-            1297,
-            1400,
-            1750
-          ]
-        },
-        {
-          "name": "Piece moves abandon king",
-          "size": 8,
-          "features": [
-            485,
-            489,
-            701,
-            986,
-            1060,
-            1065,
-            1860,
-            1972
-          ]
-        },
-        {
-          "name": "King moves into discovered check",
-          "size": 7,
-          "features": [
-            104,
-            638,
-            1117,
-            1313,
-            1569,
-            1853,
-            1902
-          ]
-        },
-        {
-          "name": "Capturing pawns, ignoring threats",
-          "size": 10,
-          "features": [
-            60,
-            91,
-            93,
-            887,
-            970,
-            1001,
-            1277,
-            1388,
-            1412,
-            1416
-          ]
         }
       ],
-      "n_features": 147
-    },
-    {
-      "name": "Pawn Moves Weaken King",
-      "description": "Pawn advances that compromise the king's pawn shelter, open critical files or diagonals, or expose the king to attack.",
-      "children": [
-        {
-          "name": "Pawn grab weakens king",
-          "size": 8,
-          "features": [
-            230,
-            376,
-            400,
-            750,
-            780,
-            1012,
-            1085,
-            1604
-          ]
-        },
-        {
-          "name": "Unsound bishop sacrifice on h6/h3",
-          "size": 6,
-          "features": [
-            514,
-            842,
-            899,
-            993,
-            1389,
-            1712
-          ]
-        },
-        {
-          "name": "Back rank mate oversight",
-          "size": 7,
-          "features": [
-            43,
-            301,
-            697,
-            748,
-            1278,
-            1556,
-            1643
-          ]
-        },
-        {
-          "name": "Unlabeled cluster",
-          "size": 10,
-          "features": [
-            128,
-            137,
-            147,
-            340,
-            992,
-            1495,
-            1678,
-            1679,
-            1681,
-            1920
-          ]
-        },
-        {
-          "name": "Premature pawn advances weaken king",
-          "size": 9,
-          "features": [
-            198,
-            223,
-            238,
-            850,
-            1194,
-            1432,
-            1440,
-            1633,
-            1805
-          ]
-        },
-        {
-          "name": "Slow Moves Ignore Urgency",
-          "size": 8,
-          "features": [
-            7,
-            19,
-            882,
-            886,
-            1032,
-            1431,
-            1482,
-            1870
-          ]
-        },
-        {
-          "name": "Wasted tempo invites counterattack",
-          "size": 8,
-          "features": [
-            315,
-            503,
-            1013,
-            1276,
-            1382,
-            1422,
-            1429,
-            1906
-          ]
-        },
-        {
-          "name": "Ignoring king safety threats",
-          "size": 7,
-          "features": [
-            51,
-            142,
-            505,
-            529,
-            947,
-            1125,
-            1234
-          ]
-        },
-        {
-          "name": "Piece sacrifice ignored, recapture missed",
-          "size": 9,
-          "features": [
-            72,
-            117,
-            539,
-            576,
-            745,
-            836,
-            1267,
-            1396,
-            1997
-          ]
-        },
-        {
-          "name": "Pieces moving away lose tempo",
-          "size": 7,
-          "features": [
-            292,
-            616,
-            686,
-            786,
-            795,
-            1192,
-            1956
-          ]
-        },
-        {
-          "name": "Ignoring king safety costs material",
-          "size": 7,
-          "features": [
-            138,
-            605,
-            763,
-            1269,
-            1518,
-            1541,
-            1785
-          ]
-        },
-        {
-          "name": "Back rank mate oversight",
-          "size": 14,
-          "features": [
-            267,
-            281,
-            542,
-            698,
-            727,
-            752,
-            765,
-            920,
-            1031,
-            1046,
-            1136,
-            1232,
-            1289,
-            1877
-          ]
-        },
-        {
-          "name": "Rook doubling ignores king safety",
-          "size": 8,
-          "features": [
-            552,
-            602,
-            1152,
-            1457,
-            1549,
-            1601,
-            1649,
-            1768
-          ]
-        },
-        {
-          "name": "Abandoning king's cover prematurely",
-          "size": 8,
-          "features": [
-            4,
-            293,
-            332,
-            522,
-            640,
-            773,
-            1288,
-            1302
-          ]
-        },
-        {
-          "name": "King moves ignore hanging pieces",
-          "size": 5,
-          "features": [
-            76,
-            127,
-            369,
-            466,
-            479
-          ]
-        },
-        {
-          "name": "King flees into mating net",
-          "size": 9,
-          "features": [
-            166,
-            731,
-            938,
-            1016,
-            1075,
-            1264,
-            1484,
-            1923,
-            1999
-          ]
-        },
-        {
-          "name": "Ignoring check or threat",
-          "size": 5,
-          "features": [
-            202,
-            1395,
-            1443,
-            1723,
-            1838
-          ]
-        }
-      ],
-      "n_features": 135
+      "n_features": 145
     },
     {
       "name": "Pieces Left Undefended",
@@ -1678,222 +1530,36 @@
             1566,
             1772
           ]
-        }
-      ],
-      "n_features": 128
-    },
-    {
-      "name": "Passed Pawn Blindness",
-      "description": "Failing to stop, advance, or properly handle dangerous passed pawns, including promotion oversights.",
-      "children": [
-        {
-          "name": "Chasing King Loses Tempo",
-          "size": 11,
-          "features": [
-            274,
-            310,
-            646,
-            770,
-            878,
-            980,
-            1153,
-            1175,
-            1583,
-            1907,
-            1922
-          ]
         },
         {
-          "name": "Piece moves into attack",
+          "name": "Piece sacrifice left undefended",
           "size": 8,
           "features": [
-            321,
-            339,
-            433,
-            665,
-            781,
-            1510,
-            1668,
-            1699
+            130,
+            501,
+            527,
+            572,
+            751,
+            1137,
+            1140,
+            1404
           ]
         },
         {
-          "name": "Unlabeled cluster",
-          "size": 9,
-          "features": [
-            167,
-            327,
-            477,
-            508,
-            847,
-            1157,
-            1161,
-            1200,
-            1664
-          ]
-        },
-        {
-          "name": "Premature Pawn Advance Ignores King",
-          "size": 6,
-          "features": [
-            1000,
-            1131,
-            1315,
-            1498,
-            1617,
-            1683
-          ]
-        },
-        {
-          "name": "Piece left undefended",
-          "size": 10,
-          "features": [
-            56,
-            412,
-            862,
-            1120,
-            1287,
-            1522,
-            1770,
-            1775,
-            1819,
-            2015
-          ]
-        },
-        {
-          "name": "Attacking move creates new weakness",
-          "size": 9,
-          "features": [
-            825,
-            856,
-            949,
-            988,
-            1218,
-            1517,
-            1538,
-            1625,
-            1769
-          ]
-        },
-        {
-          "name": "Passed Pawn Promotion Blindness",
-          "size": 6,
-          "features": [
-            335,
-            1045,
-            1283,
-            1367,
-            1680,
-            1994
-          ]
-        },
-        {
-          "name": "Hanging Piece Allows Winning Capture",
-          "size": 12,
-          "features": [
-            179,
-            283,
-            538,
-            582,
-            650,
-            814,
-            1095,
-            1392,
-            1568,
-            1627,
-            1677,
-            1890
-          ]
-        },
-        {
-          "name": "Rook moves abandoning key square",
+          "name": "Undefended promotion loses material",
           "size": 7,
           "features": [
-            420,
-            969,
-            1097,
-            1631,
-            1718,
-            1842,
-            1883
-          ]
-        },
-        {
-          "name": "Rook blocks bishop's diagonal",
-          "size": 11,
-          "features": [
-            101,
-            302,
-            365,
-            380,
-            480,
-            564,
-            1090,
-            1270,
-            1803,
-            1875,
-            1912
-          ]
-        },
-        {
-          "name": "Winning material, losing tempo",
-          "size": 8,
-          "features": [
-            294,
-            309,
-            636,
-            851,
-            981,
-            1301,
-            1596,
-            2004
-          ]
-        },
-        {
-          "name": "Rook abandons active role",
-          "size": 8,
-          "features": [
-            237,
-            325,
-            694,
-            883,
-            1193,
-            1726,
-            1743,
-            1960
-          ]
-        },
-        {
-          "name": "Premature Pawn Push Neglects King",
-          "size": 7,
-          "features": [
-            622,
-            834,
-            946,
-            1239,
-            1339,
-            1390,
-            1713
-          ]
-        },
-        {
-          "name": "Piece moves, creates new weakness",
-          "size": 10,
-          "features": [
-            189,
-            463,
-            482,
-            598,
-            604,
-            1353,
-            1414,
-            1553,
-            1812,
-            1959
+            87,
+            510,
+            930,
+            936,
+            1254,
+            1391,
+            1733
           ]
         }
       ],
-      "n_features": 122
+      "n_features": 143
     },
     {
       "name": "Rook Misplacement",
@@ -2118,230 +1784,451 @@
             1486,
             1946
           ]
-        }
-      ],
-      "n_features": 118
-    },
-    {
-      "name": "Piece Abandons Defense",
-      "description": "Moving a piece away from a square where it performed a critical defensive duty, allowing the opponent's threats to succeed.",
-      "children": [
-        {
-          "name": "Ignoring King Safety For Material",
-          "size": 6,
-          "features": [
-            671,
-            749,
-            756,
-            1054,
-            1311,
-            1621
-          ]
         },
         {
-          "name": "Winning piece gets trapped back",
-          "size": 9,
-          "features": [
-            68,
-            125,
-            156,
-            399,
-            693,
-            839,
-            893,
-            1630,
-            1963
-          ]
-        },
-        {
-          "name": "Passed Pawn Advances Hanging Pieces",
-          "size": 7,
-          "features": [
-            349,
-            517,
-            519,
-            733,
-            902,
-            1143,
-            1985
-          ]
-        },
-        {
-          "name": "Castling delayed, king exposed",
-          "size": 8,
-          "features": [
-            34,
-            52,
-            226,
-            642,
-            1160,
-            1524,
-            1849,
-            2026
-          ]
-        },
-        {
-          "name": "Piece moves into tactical vulnerability",
+          "name": "Rook activation abandons defense",
           "size": 5,
           "features": [
-            502,
-            573,
-            977,
-            1535,
-            1933
+            1019,
+            1275,
+            1410,
+            1602,
+            1921
           ]
         },
         {
-          "name": "Retreating Into Bigger Danger",
+          "name": "Rook trade loses pawn endgame",
           "size": 8,
           "features": [
-            287,
-            553,
-            990,
-            1005,
-            1252,
-            1271,
-            1520,
-            1685
+            588,
+            627,
+            676,
+            996,
+            1044,
+            1048,
+            1362,
+            1364
+          ]
+        }
+      ],
+      "n_features": 131
+    },
+    {
+      "name": "Passed Pawn Blindness",
+      "description": "Failing to stop, advance, or properly handle dangerous passed pawns, including promotion oversights.",
+      "children": [
+        {
+          "name": "Chasing King Loses Tempo",
+          "size": 11,
+          "features": [
+            274,
+            310,
+            646,
+            770,
+            878,
+            980,
+            1153,
+            1175,
+            1583,
+            1907,
+            1922
           ]
         },
         {
-          "name": "Premature pawn advance loses tempo",
-          "size": 4,
+          "name": "Piece moves into attack",
+          "size": 8,
           "features": [
-            586,
-            643,
-            1102,
-            1992
-          ]
-        },
-        {
-          "name": "Bishop pins knight, queen escapes",
-          "size": 4,
-          "features": [
-            457,
-            1258,
-            1508,
-            1781
-          ]
-        },
-        {
-          "name": "Pawn advance abandons key defender",
-          "size": 7,
-          "features": [
-            112,
-            397,
-            1149,
-            1290,
-            1539,
-            1881,
-            1899
-          ]
-        },
-        {
-          "name": "Pawn promotion oversight",
-          "size": 6,
-          "features": [
-            106,
-            163,
-            633,
-            755,
-            877,
-            1312
-          ]
-        },
-        {
-          "name": "King walks into mating net",
-          "size": 6,
-          "features": [
-            38,
-            232,
-            303,
-            338,
-            759,
-            1561
-          ]
-        },
-        {
-          "name": "Piece leaves defender's square",
-          "size": 9,
-          "features": [
-            193,
-            210,
-            497,
-            574,
-            702,
-            715,
-            968,
-            1847,
-            2046
+            321,
+            339,
+            433,
+            665,
+            781,
+            1510,
+            1668,
+            1699
           ]
         },
         {
           "name": "Unlabeled cluster",
+          "size": 9,
+          "features": [
+            167,
+            327,
+            477,
+            508,
+            847,
+            1157,
+            1161,
+            1200,
+            1664
+          ]
+        },
+        {
+          "name": "Premature Pawn Advance Ignores King",
           "size": 6,
           "features": [
-            81,
-            154,
-            679,
-            723,
-            925,
-            1523
+            1000,
+            1131,
+            1315,
+            1498,
+            1617,
+            1683
           ]
         },
         {
-          "name": "King walks into opposition",
-          "size": 7,
+          "name": "Piece left undefended",
+          "size": 10,
           "features": [
-            207,
-            426,
-            427,
-            742,
-            1174,
-            1834,
-            1855
+            56,
+            412,
+            862,
+            1120,
+            1287,
+            1522,
+            1770,
+            1775,
+            1819,
+            2015
           ]
         },
         {
-          "name": "Bishop retreats lose vital tempo",
-          "size": 7,
+          "name": "Attacking move creates new weakness",
+          "size": 9,
           "features": [
-            31,
-            329,
-            611,
-            683,
-            689,
-            767,
-            1455
+            825,
+            856,
+            949,
+            988,
+            1218,
+            1517,
+            1538,
+            1625,
+            1769
           ]
         },
         {
-          "name": "Hanging piece ignored, queen wandering",
-          "size": 7,
-          "features": [
-            265,
-            394,
-            861,
-            1180,
-            1319,
-            1328,
-            1721
-          ]
-        },
-        {
-          "name": "Outpost Activation Abandons Hanging Pieces",
+          "name": "Passed Pawn Promotion Blindness",
           "size": 6,
           "features": [
-            25,
-            71,
-            491,
-            867,
-            1026,
-            1206
+            335,
+            1045,
+            1283,
+            1367,
+            1680,
+            1994
+          ]
+        },
+        {
+          "name": "Hanging Piece Allows Winning Capture",
+          "size": 12,
+          "features": [
+            179,
+            283,
+            538,
+            582,
+            650,
+            814,
+            1095,
+            1392,
+            1568,
+            1627,
+            1677,
+            1890
+          ]
+        },
+        {
+          "name": "Rook moves abandoning key square",
+          "size": 7,
+          "features": [
+            420,
+            969,
+            1097,
+            1631,
+            1718,
+            1842,
+            1883
+          ]
+        },
+        {
+          "name": "Rook blocks bishop's diagonal",
+          "size": 11,
+          "features": [
+            101,
+            302,
+            365,
+            380,
+            480,
+            564,
+            1090,
+            1270,
+            1803,
+            1875,
+            1912
+          ]
+        },
+        {
+          "name": "Winning material, losing tempo",
+          "size": 8,
+          "features": [
+            294,
+            309,
+            636,
+            851,
+            981,
+            1301,
+            1596,
+            2004
+          ]
+        },
+        {
+          "name": "Rook abandons active role",
+          "size": 8,
+          "features": [
+            237,
+            325,
+            694,
+            883,
+            1193,
+            1726,
+            1743,
+            1960
+          ]
+        },
+        {
+          "name": "Premature Pawn Push Neglects King",
+          "size": 7,
+          "features": [
+            622,
+            834,
+            946,
+            1239,
+            1339,
+            1390,
+            1713
+          ]
+        },
+        {
+          "name": "Piece moves, creates new weakness",
+          "size": 10,
+          "features": [
+            189,
+            463,
+            482,
+            598,
+            604,
+            1353,
+            1414,
+            1553,
+            1812,
+            1959
+          ]
+        },
+        {
+          "name": "Ignoring passed pawns wins games",
+          "size": 8,
+          "features": [
+            446,
+            496,
+            655,
+            672,
+            1002,
+            1101,
+            1572,
+            1876
           ]
         }
       ],
-      "n_features": 112
+      "n_features": 130
+    },
+    {
+      "name": "Pawn Moves Weaken King",
+      "description": "Pawn advances that compromise the king's pawn shelter, open critical files or diagonals, or expose the king to attack.",
+      "children": [
+        {
+          "name": "Pawn grab weakens king",
+          "size": 8,
+          "features": [
+            230,
+            376,
+            400,
+            750,
+            780,
+            1012,
+            1085,
+            1604
+          ]
+        },
+        {
+          "name": "Back rank mate oversight",
+          "size": 7,
+          "features": [
+            43,
+            301,
+            697,
+            748,
+            1278,
+            1556,
+            1643
+          ]
+        },
+        {
+          "name": "Unlabeled cluster",
+          "size": 10,
+          "features": [
+            128,
+            137,
+            147,
+            340,
+            992,
+            1495,
+            1678,
+            1679,
+            1681,
+            1920
+          ]
+        },
+        {
+          "name": "Premature pawn advances weaken king",
+          "size": 9,
+          "features": [
+            198,
+            223,
+            238,
+            850,
+            1194,
+            1432,
+            1440,
+            1633,
+            1805
+          ]
+        },
+        {
+          "name": "Slow Moves Ignore Urgency",
+          "size": 8,
+          "features": [
+            7,
+            19,
+            882,
+            886,
+            1032,
+            1431,
+            1482,
+            1870
+          ]
+        },
+        {
+          "name": "Ignoring king safety threats",
+          "size": 7,
+          "features": [
+            51,
+            142,
+            505,
+            529,
+            947,
+            1125,
+            1234
+          ]
+        },
+        {
+          "name": "Ignoring king safety costs material",
+          "size": 7,
+          "features": [
+            138,
+            605,
+            763,
+            1269,
+            1518,
+            1541,
+            1785
+          ]
+        },
+        {
+          "name": "Back rank mate oversight",
+          "size": 14,
+          "features": [
+            267,
+            281,
+            542,
+            698,
+            727,
+            752,
+            765,
+            920,
+            1031,
+            1046,
+            1136,
+            1232,
+            1289,
+            1877
+          ]
+        },
+        {
+          "name": "Rook doubling ignores king safety",
+          "size": 8,
+          "features": [
+            552,
+            602,
+            1152,
+            1457,
+            1549,
+            1601,
+            1649,
+            1768
+          ]
+        },
+        {
+          "name": "Abandoning king's cover prematurely",
+          "size": 8,
+          "features": [
+            4,
+            293,
+            332,
+            522,
+            640,
+            773,
+            1288,
+            1302
+          ]
+        },
+        {
+          "name": "King moves ignore hanging pieces",
+          "size": 5,
+          "features": [
+            76,
+            127,
+            369,
+            466,
+            479
+          ]
+        },
+        {
+          "name": "King flees into mating net",
+          "size": 9,
+          "features": [
+            166,
+            731,
+            938,
+            1016,
+            1075,
+            1264,
+            1484,
+            1923,
+            1999
+          ]
+        },
+        {
+          "name": "Ignoring check or threat",
+          "size": 5,
+          "features": [
+            202,
+            1395,
+            1443,
+            1723,
+            1838
+          ]
+        }
+      ],
+      "n_features": 105
     },
     {
       "name": "Captures Backfire",
@@ -2530,173 +2417,165 @@
       "n_features": 101
     },
     {
-      "name": "Greedy Captures",
-      "description": "Material grabs that ignore tactical consequences, positional damage, or allow the opponent dangerous counterplay.",
+      "name": "Pawn Moves Ignore Threats",
+      "description": "Pawn pushes made when urgent tactical emergencies or piece safety issues demand immediate attention.",
       "children": [
         {
-          "name": "Capturing protected passed pawn blunder",
-          "size": 6,
-          "features": [
-            17,
-            680,
-            735,
-            828,
-            1062,
-            1448
-          ]
-        },
-        {
-          "name": "Moving pieces to undefended squares",
-          "size": 6,
-          "features": [
-            136,
-            507,
-            997,
-            1329,
-            1548,
-            1809
-          ]
-        },
-        {
-          "name": "Free pawn is actually trapped",
-          "size": 6,
-          "features": [
-            190,
-            269,
-            410,
-            483,
-            518,
-            798
-          ]
-        },
-        {
-          "name": "King opposition neglected",
-          "size": 8,
-          "features": [
-            107,
-            266,
-            488,
-            1043,
-            1098,
-            1334,
-            1489,
-            1868
-          ]
-        },
-        {
-          "name": "Neglecting king safety for material",
-          "size": 6,
-          "features": [
-            5,
-            328,
-            1272,
-            1317,
-            1550,
-            1599
-          ]
-        },
-        {
-          "name": "Piece lands on undefended square",
-          "size": 14,
-          "features": [
-            113,
-            342,
-            384,
-            423,
-            509,
-            614,
-            658,
-            1262,
-            1274,
-            1409,
-            1507,
-            1676,
-            1806,
-            1814
-          ]
-        },
-        {
-          "name": "Unlabeled cluster",
-          "size": 6,
-          "features": [
-            236,
-            762,
-            1010,
-            1500,
-            1766,
-            1880
-          ]
-        },
-        {
-          "name": "Retreating bishop allows discovered attack",
-          "size": 6,
-          "features": [
-            18,
-            45,
-            472,
-            601,
-            1746,
-            1945
-          ]
-        },
-        {
-          "name": "Unlabeled cluster",
-          "size": 8,
-          "features": [
-            306,
-            419,
-            881,
-            1118,
-            1141,
-            1207,
-            1490,
-            1929
-          ]
-        },
-        {
-          "name": "Weakening king's pawn shelter",
-          "size": 7,
-          "features": [
-            256,
-            534,
-            1291,
-            1356,
-            1377,
-            1606,
-            1807
-          ]
-        },
-        {
-          "name": "Rook abandons key rank",
-          "size": 8,
-          "features": [
-            263,
-            431,
-            490,
-            687,
-            1028,
-            1178,
-            1516,
-            1739
-          ]
-        },
-        {
-          "name": "Repositioning Knight Abandons Defense",
+          "name": "Hanging piece ignored, blunder",
           "size": 9,
           "features": [
-            70,
-            116,
-            648,
-            829,
-            906,
-            1088,
-            1245,
-            1467,
-            1744
+            140,
+            381,
+            653,
+            803,
+            934,
+            1325,
+            1670,
+            1673,
+            1778
+          ]
+        },
+        {
+          "name": "Piece left en prise",
+          "size": 3,
+          "features": [
+            14,
+            424,
+            1574
+          ]
+        },
+        {
+          "name": "Pawn capture activates enemy piece",
+          "size": 5,
+          "features": [
+            64,
+            516,
+            764,
+            1168,
+            1280
+          ]
+        },
+        {
+          "name": "Attacking knight invites fork",
+          "size": 9,
+          "features": [
+            129,
+            320,
+            465,
+            470,
+            531,
+            978,
+            1705,
+            1757,
+            1951
+          ]
+        },
+        {
+          "name": "Pawn break weakens king shelter",
+          "size": 9,
+          "features": [
+            220,
+            498,
+            1008,
+            1049,
+            1139,
+            1203,
+            1241,
+            1780,
+            1981
+          ]
+        },
+        {
+          "name": "Piece moves, another hangs",
+          "size": 6,
+          "features": [
+            540,
+            590,
+            1704,
+            1937,
+            1964,
+            1988
+          ]
+        },
+        {
+          "name": "Hanging pieces lose material",
+          "size": 6,
+          "features": [
+            143,
+            208,
+            324,
+            484,
+            963,
+            1795
+          ]
+        },
+        {
+          "name": "Piece lands on losing square",
+          "size": 11,
+          "features": [
+            66,
+            249,
+            326,
+            620,
+            656,
+            1011,
+            1072,
+            1242,
+            1641,
+            1942,
+            2008
+          ]
+        },
+        {
+          "name": "Premature Pawn Advance Ignored",
+          "size": 9,
+          "features": [
+            174,
+            305,
+            546,
+            704,
+            769,
+            1285,
+            1338,
+            1774,
+            1802
+          ]
+        },
+        {
+          "name": "Developing moves drop material",
+          "size": 3,
+          "features": [
+            322,
+            525,
+            1425
+          ]
+        },
+        {
+          "name": "Pawn advance abandons defended piece",
+          "size": 8,
+          "features": [
+            165,
+            264,
+            954,
+            974,
+            1246,
+            1322,
+            1421,
+            1798
+          ]
+        },
+        {
+          "name": "Premature pawn advance punishment",
+          "size": 4,
+          "features": [
+            362,
+            926,
+            1129,
+            1459
           ]
         }
       ],
-      "n_features": 90
+      "n_features": 82
     },
     {
       "name": "Piece Lands Badly",
@@ -2854,141 +2733,289 @@
       "n_features": 82
     },
     {
-      "name": "Pawn Moves Ignore Threats",
-      "description": "Pawn pushes made when urgent tactical emergencies or piece safety issues demand immediate attention.",
+      "name": "Checks Lose Tempo",
+      "description": "Giving checks or desperado moves that accomplish nothing strategically and waste critical time.",
       "children": [
         {
-          "name": "Hanging piece ignored, blunder",
-          "size": 9,
-          "features": [
-            140,
-            381,
-            653,
-            803,
-            934,
-            1325,
-            1670,
-            1673,
-            1778
-          ]
-        },
-        {
-          "name": "Piece left en prise",
-          "size": 3,
-          "features": [
-            14,
-            424,
-            1574
-          ]
-        },
-        {
-          "name": "Pawn capture activates enemy piece",
-          "size": 5,
-          "features": [
-            64,
-            516,
-            764,
-            1168,
-            1280
-          ]
-        },
-        {
-          "name": "Attacking knight invites fork",
-          "size": 9,
-          "features": [
-            129,
-            320,
-            465,
-            470,
-            531,
-            978,
-            1705,
-            1757,
-            1951
-          ]
-        },
-        {
-          "name": "Pawn break weakens king shelter",
-          "size": 9,
-          "features": [
-            220,
-            498,
-            1008,
-            1049,
-            1139,
-            1203,
-            1241,
-            1780,
-            1981
-          ]
-        },
-        {
-          "name": "Piece moves, another hangs",
-          "size": 6,
-          "features": [
-            540,
-            590,
-            1704,
-            1937,
-            1964,
-            1988
-          ]
-        },
-        {
-          "name": "Hanging pieces lose material",
-          "size": 6,
-          "features": [
-            143,
-            208,
-            324,
-            484,
-            963,
-            1795
-          ]
-        },
-        {
-          "name": "Piece lands on losing square",
+          "name": "Desperado ignores check winning material",
           "size": 11,
           "features": [
-            66,
-            249,
-            326,
-            620,
-            656,
-            1011,
-            1072,
-            1242,
-            1641,
-            1942,
-            2008
+            29,
+            647,
+            772,
+            776,
+            801,
+            1093,
+            1244,
+            1424,
+            1496,
+            1663,
+            1848
           ]
         },
         {
-          "name": "Premature Pawn Advance Ignored",
+          "name": "Rook misplaced, king exposed",
+          "size": 8,
+          "features": [
+            67,
+            475,
+            760,
+            791,
+            824,
+            1632,
+            1800,
+            2033
+          ]
+        },
+        {
+          "name": "Ignoring dangerous passed pawns",
+          "size": 10,
+          "features": [
+            461,
+            652,
+            1116,
+            1352,
+            1444,
+            1468,
+            1642,
+            1833,
+            1846,
+            2038
+          ]
+        },
+        {
+          "name": "Recapture activates opponent's piece",
+          "size": 11,
+          "features": [
+            69,
+            134,
+            375,
+            474,
+            854,
+            1321,
+            1371,
+            1376,
+            1837,
+            1973,
+            1978
+          ]
+        },
+        {
+          "name": "King walks into attack",
+          "size": 7,
+          "features": [
+            270,
+            478,
+            849,
+            872,
+            910,
+            960,
+            1954
+          ]
+        },
+        {
+          "name": "Pawn move creates fork vulnerability",
           "size": 9,
           "features": [
-            174,
-            305,
-            546,
-            704,
-            769,
-            1285,
-            1338,
-            1774,
-            1802
+            907,
+            1040,
+            1069,
+            1071,
+            1113,
+            1163,
+            1852,
+            1893,
+            2014
           ]
         },
         {
-          "name": "Developing moves drop material",
-          "size": 3,
+          "name": "Piece moves losing tempo",
+          "size": 7,
           "features": [
-            322,
-            525,
-            1425
+            8,
+            27,
+            660,
+            713,
+            857,
+            892,
+            1472
+          ]
+        },
+        {
+          "name": "Pieces moving away lose tempo",
+          "size": 7,
+          "features": [
+            292,
+            616,
+            686,
+            786,
+            795,
+            1192,
+            1956
+          ]
+        },
+        {
+          "name": "Piece moves, enemy piece gains tempo",
+          "size": 10,
+          "features": [
+            592,
+            639,
+            761,
+            806,
+            1299,
+            1445,
+            1483,
+            1767,
+            1818,
+            2034
           ]
         }
       ],
-      "n_features": 70
+      "n_features": 80
+    },
+    {
+      "name": "Greedy Captures",
+      "description": "Material grabs that ignore tactical consequences, positional damage, or allow the opponent dangerous counterplay.",
+      "children": [
+        {
+          "name": "Capturing protected passed pawn blunder",
+          "size": 6,
+          "features": [
+            17,
+            680,
+            735,
+            828,
+            1062,
+            1448
+          ]
+        },
+        {
+          "name": "Moving pieces to undefended squares",
+          "size": 6,
+          "features": [
+            136,
+            507,
+            997,
+            1329,
+            1548,
+            1809
+          ]
+        },
+        {
+          "name": "Free pawn is actually trapped",
+          "size": 6,
+          "features": [
+            190,
+            269,
+            410,
+            483,
+            518,
+            798
+          ]
+        },
+        {
+          "name": "Neglecting king safety for material",
+          "size": 6,
+          "features": [
+            5,
+            328,
+            1272,
+            1317,
+            1550,
+            1599
+          ]
+        },
+        {
+          "name": "Piece lands on undefended square",
+          "size": 14,
+          "features": [
+            113,
+            342,
+            384,
+            423,
+            509,
+            614,
+            658,
+            1262,
+            1274,
+            1409,
+            1507,
+            1676,
+            1806,
+            1814
+          ]
+        },
+        {
+          "name": "Unlabeled cluster",
+          "size": 6,
+          "features": [
+            236,
+            762,
+            1010,
+            1500,
+            1766,
+            1880
+          ]
+        },
+        {
+          "name": "Unlabeled cluster",
+          "size": 8,
+          "features": [
+            306,
+            419,
+            881,
+            1118,
+            1141,
+            1207,
+            1490,
+            1929
+          ]
+        },
+        {
+          "name": "Weakening king's pawn shelter",
+          "size": 7,
+          "features": [
+            256,
+            534,
+            1291,
+            1356,
+            1377,
+            1606,
+            1807
+          ]
+        },
+        {
+          "name": "Rook abandons key rank",
+          "size": 8,
+          "features": [
+            263,
+            431,
+            490,
+            687,
+            1028,
+            1178,
+            1516,
+            1739
+          ]
+        },
+        {
+          "name": "Capturing pawns, ignoring threats",
+          "size": 10,
+          "features": [
+            60,
+            91,
+            93,
+            887,
+            970,
+            1001,
+            1277,
+            1388,
+            1412,
+            1416
+          ]
+        }
+      ],
+      "n_features": 77
     },
     {
       "name": "King Safety Ignored",
@@ -3128,9 +3155,20 @@
             1915,
             2019
           ]
+        },
+        {
+          "name": "Saving pieces, ignoring king safety",
+          "size": 5,
+          "features": [
+            272,
+            284,
+            1106,
+            1374,
+            1397
+          ]
         }
       ],
-      "n_features": 69
+      "n_features": 74
     },
     {
       "name": "Retreating Errors",
@@ -3261,245 +3299,159 @@
             1826,
             1917
           ]
-        }
-      ],
-      "n_features": 66
-    },
-    {
-      "name": "Back Rank Weakness",
-      "description": "Overlooking or creating back rank mate vulnerabilities by leaving the king trapped behind its own pieces.",
-      "children": [
-        {
-          "name": "Rook trade loses pawn endgame",
-          "size": 8,
-          "features": [
-            588,
-            627,
-            676,
-            996,
-            1044,
-            1048,
-            1362,
-            1364
-          ]
         },
         {
-          "name": "Defensive moves ignoring counterattack",
-          "size": 4,
-          "features": [
-            555,
-            725,
-            1919,
-            2031
-          ]
-        },
-        {
-          "name": "Piece sacrifice left undefended",
-          "size": 8,
-          "features": [
-            130,
-            501,
-            527,
-            572,
-            751,
-            1137,
-            1140,
-            1404
-          ]
-        },
-        {
-          "name": "Undefended promotion loses material",
-          "size": 7,
-          "features": [
-            87,
-            510,
-            930,
-            936,
-            1254,
-            1391,
-            1733
-          ]
-        },
-        {
-          "name": "Unlabeled cluster",
+          "name": "Retreating bishop allows discovered attack",
           "size": 6,
           "features": [
-            2,
-            173,
-            180,
-            737,
-            1466,
-            1962
-          ]
-        },
-        {
-          "name": "Moving away leaves piece hanging",
-          "size": 10,
-          "features": [
-            183,
-            345,
-            449,
-            724,
-            802,
-            951,
-            972,
-            1155,
-            1415,
-            1436
-          ]
-        },
-        {
-          "name": "Premature pawn advance punishment",
-          "size": 4,
-          "features": [
-            362,
-            926,
-            1129,
-            1459
-          ]
-        },
-        {
-          "name": "Saving pieces, ignoring king safety",
-          "size": 5,
-          "features": [
-            272,
-            284,
-            1106,
-            1374,
-            1397
-          ]
-        },
-        {
-          "name": "Piece traps own piece",
-          "size": 11,
-          "features": [
-            49,
-            77,
-            124,
-            216,
-            243,
-            422,
-            771,
-            774,
-            1187,
-            1350,
-            1503
+            18,
+            45,
+            472,
+            601,
+            1746,
+            1945
           ]
         }
       ],
-      "n_features": 63
+      "n_features": 72
     },
     {
-      "name": "Checks Lose Tempo",
-      "description": "Giving checks or desperado moves that accomplish nothing strategically and waste critical time.",
+      "name": "King Walks Into Danger",
+      "description": "King moves that step into checks, mating nets, knight forks, discovered attacks, or lose critical opposition.",
       "children": [
         {
-          "name": "Desperado ignores check winning material",
-          "size": 11,
+          "name": "Desperado checks lose tempo",
+          "size": 7,
           "features": [
-            29,
-            647,
-            772,
-            776,
-            801,
-            1093,
-            1244,
-            1424,
-            1496,
-            1663,
-            1848
+            39,
+            333,
+            628,
+            973,
+            1123,
+            1934,
+            1969
           ]
         },
         {
-          "name": "Rook misplaced, king exposed",
+          "name": "Pinning piece left hanging",
           "size": 8,
           "features": [
-            67,
-            475,
-            760,
-            791,
-            824,
-            1632,
-            1800,
-            2033
+            83,
+            231,
+            323,
+            387,
+            416,
+            738,
+            943,
+            1983
           ]
         },
         {
-          "name": "Ignoring dangerous passed pawns",
-          "size": 10,
-          "features": [
-            461,
-            652,
-            1116,
-            1352,
-            1444,
-            1468,
-            1642,
-            1833,
-            1846,
-            2038
-          ]
-        },
-        {
-          "name": "Recapture activates opponent's piece",
-          "size": 11,
-          "features": [
-            69,
-            134,
-            375,
-            474,
-            854,
-            1321,
-            1371,
-            1376,
-            1837,
-            1973,
-            1978
-          ]
-        },
-        {
-          "name": "King walks into attack",
+          "name": "Ignoring king safety costs game",
           "size": 7,
           "features": [
-            270,
-            478,
-            849,
-            872,
-            910,
-            960,
-            1954
+            348,
+            673,
+            1055,
+            1387,
+            1527,
+            1660,
+            1666
           ]
         },
         {
-          "name": "Pawn move creates fork vulnerability",
-          "size": 9,
-          "features": [
-            907,
-            1040,
-            1069,
-            1071,
-            1113,
-            1163,
-            1852,
-            1893,
-            2014
-          ]
-        },
-        {
-          "name": "Piece moves losing tempo",
+          "name": "Overloaded Defender Allows Tactics",
           "size": 7,
           "features": [
-            8,
-            27,
-            660,
-            713,
-            857,
-            892,
-            1472
+            203,
+            233,
+            722,
+            747,
+            809,
+            1533,
+            1607
+          ]
+        },
+        {
+          "name": "Developing moves lose critical tempo",
+          "size": 8,
+          "features": [
+            146,
+            454,
+            558,
+            998,
+            1423,
+            1565,
+            1741,
+            1949
+          ]
+        },
+        {
+          "name": "Loose pieces drop off",
+          "size": 4,
+          "features": [
+            585,
+            944,
+            1324,
+            1843
+          ]
+        },
+        {
+          "name": "King walks into bishop",
+          "size": 7,
+          "features": [
+            0,
+            204,
+            567,
+            1133,
+            1297,
+            1400,
+            1750
+          ]
+        },
+        {
+          "name": "Piece moves abandon king",
+          "size": 8,
+          "features": [
+            485,
+            489,
+            701,
+            986,
+            1060,
+            1065,
+            1860,
+            1972
+          ]
+        },
+        {
+          "name": "King moves into discovered check",
+          "size": 7,
+          "features": [
+            104,
+            638,
+            1117,
+            1313,
+            1569,
+            1853,
+            1902
+          ]
+        },
+        {
+          "name": "King opposition neglected",
+          "size": 8,
+          "features": [
+            107,
+            266,
+            488,
+            1043,
+            1098,
+            1334,
+            1489,
+            1868
           ]
         }
       ],
-      "n_features": 63
+      "n_features": 71
     },
     {
       "name": "Fork Vulnerability",
@@ -3650,9 +3602,26 @@
             1487,
             2001
           ]
+        },
+        {
+          "name": "Piece traps own piece",
+          "size": 11,
+          "features": [
+            49,
+            77,
+            124,
+            216,
+            243,
+            422,
+            771,
+            774,
+            1187,
+            1350,
+            1503
+          ]
         }
       ],
-      "n_features": 31
+      "n_features": 42
     },
     {
       "name": "Unsound Sacrifices",
@@ -3682,9 +3651,40 @@
             1701,
             1900
           ]
+        },
+        {
+          "name": "Unsound bishop sacrifice on h6/h3",
+          "size": 6,
+          "features": [
+            514,
+            842,
+            899,
+            993,
+            1389,
+            1712
+          ]
         }
       ],
-      "n_features": 13
+      "n_features": 19
+    },
+    {
+      "name": "Back Rank Weakness",
+      "description": "Overlooking or creating back rank mate vulnerabilities by leaving the king trapped behind its own pieces.",
+      "children": [
+        {
+          "name": "Unlabeled cluster",
+          "size": 6,
+          "features": [
+            2,
+            173,
+            180,
+            737,
+            1466,
+            1962
+          ]
+        }
+      ],
+      "n_features": 6
     }
   ]
 }
