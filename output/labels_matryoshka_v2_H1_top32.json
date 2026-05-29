@@ -1,0 +1,194 @@
+{
+  "0": {
+    "chip": "Tempo-Wasting Pawn Push",
+    "label": "Defensive or prophylactic pawn moves that surrender initiative and create new weaknesses instead of addressing the real threat.",
+    "description": "In every position, the blundering side plays a small pawn push (g3, h3, b3, a3, g6, h5, b6, etc.) believing it solves a local problem \u2014 blocking a piece, creating luft, or preventing infiltration \u2014 while completely ignoring a more urgent tactical or strategic issue elsewhere on the board. The pawn move either wastes a critical tempo that the opponent uses to execute a decisive strike, or it physically weakens squares and opens lines that are immediately exploited. The unifying coaching lesson is: before pushing a pawn for prophylaxis or comfort, verify that the position does not demand an active, forcing response.",
+    "confidence": 82
+  },
+  "1": {
+    "chip": "Queen Centralization Blunder",
+    "label": "Moving the queen to an apparently active central or aggressive square that immediately loses tempo, hangs material, or ignores a decisive tactical threat.",
+    "description": "In every position, the player moves their queen to what looks like a strong, active square (centralizing or attacking) without first checking whether the opponent has an immediate forcing response \u2014 a check, a piece attack on the queen, a hanging piece, or a mating threat. The queen move is not tactically grounded: it ignores the opponent's most powerful reply, which exploits the tempo lost or the square vacated by the queen. The unifying coaching lesson is: before playing a queen move, always verify the opponent's most forcing responses, because an active-looking queen move that loses a tempo or abandons a defensive duty is often a catastrophic blunder.",
+    "confidence": 82
+  },
+  "2": {
+    "chip": "Rook Activation Blunder",
+    "label": "Moving an idle rook to an 'active' square while ignoring an immediate opponent threat or tactic.",
+    "description": "In every position, the player makes a plausible-looking rook development move (centralizing or doubling on an open file) that fails because it does nothing to address a concrete, already-existing tactical or positional threat. The move prioritizes routine piece activation over urgency, allowing the opponent to immediately exploit a fork, hanging piece, king safety issue, or tempo-winning counterplay that the rook move did nothing to prevent. The unifying coaching lesson is: before executing a standard developing plan, verify there is no forcing response that punishes the 'normal' move.",
+    "confidence": 82
+  },
+  "3": {
+    "chip": "Castling Into Punishment",
+    "label": "Player castles reflexively while a concrete tactical or strategic threat demands an immediate response instead.",
+    "description": "In every position, the player castles (kingside or queenside) following the general principle of king safety, but the specific position demands an urgent response \u2014 capturing a hanging piece, addressing an imminent attack, or preventing a tactical blow \u2014 that castling ignores. The move loses significant material or positional advantage because the opponent's best reply exploits whatever was left unaddressed: a hanging piece, an attack already launched, a pawn break, or a sacrificial combination. The feature captures the pattern of 'routine castling when the position screams for a concrete move,' a failure to override general principles with position-specific calculation.",
+    "confidence": 91
+  },
+  "4": {
+    "chip": "Bishop Retreat Loses Tempo",
+    "label": "A bishop retreats to a seemingly safe square but immediately loses tempo when the opponent attacks or exploits the new position.",
+    "description": "In every position, a bishop is moved to what appears to be a safe or active square, but the retreat either allows the opponent to attack it again with tempo (e.g., g4 chasing Bh5, or c5 attacking Bd6), leaves a previously defended square unguarded, or misplaces the bishop so it no longer serves its intended purpose. The common thread is that the bishop move is reactive and passive \u2014 the player is moving the bishop to preserve it, but the new square is either immediately challenged or tactically exploitable, handing the initiative to the opponent.",
+    "confidence": 82
+  },
+  "5": {
+    "chip": "King Walk Into Tactics",
+    "label": "King moves that step into tactical vulnerabilities, allowing immediate exploitation by checks, forks, or hanging pieces.",
+    "description": "In every position, the player moved their king to what appeared to be a safer or more active square, but the new king square created or exposed a concrete tactical weakness\u2014a diagonal, file, or rank that the opponent could immediately exploit with a check, fork, or free capture. The king move either abandoned the defense of a piece, stepped onto a line controlled by an enemy piece, or placed the king in proximity to enemy forces enabling a devastating combination. The unifying pattern is not the specific tactic that follows, but the act of king relocation that ignores how the new square interacts with the opponent's existing piece activity.",
+    "confidence": 82
+  },
+  "6": {
+    "chip": "Queen Drift Into Danger",
+    "label": "Queen moves to an unsafe square that immediately invites a forcing response attacking or exploiting the queen's new position.",
+    "description": "In every case, the player relocates their queen to what appears to be an active or safe square, but the new square either leaves a previously defended piece hanging, allows an immediate tactical blow (fork, pin, tempo-gaining attack) against the queen itself, or removes the queen from a critical defensive duty. The opponent then exploits the queen's new position with a forcing move that either wins material directly or gains decisive tempo, making the queen move the root cause of the collapse.",
+    "confidence": 72
+  },
+  "7": {
+    "chip": "King Escapes Checking Queen",
+    "label": "A queen check is played assuming the king is trapped, but the king simply walks to safety, wasting the check and losing critical tempo.",
+    "description": "In every position, a player delivers a queen check expecting the opponent's king to be driven into a worse position or trapped, but the king finds a safe escape square that neutralizes the threat entirely. The checking player incorrectly assumes the check is forcing or beneficial, when in reality the king's flight square either escapes all further checks, activates the king, or allows the opponent to consolidate a winning advantage. The pattern represents a fundamental miscalculation about king mobility: the attacker treats a check as automatically useful, failing to verify that the king has a safe, improving square available.",
+    "confidence": 88
+  },
+  "8": {
+    "chip": "Pawn Advance Backfires",
+    "label": "A pawn push that appears active or principled but immediately creates a tactical or structural weakness the opponent exploits.",
+    "description": "In every position, the blundering side advances a pawn (central, flank, or otherwise) with a plausible strategic idea\u2014gaining space, challenging an enemy pawn, or opening lines\u2014but the advance removes the pawn from a square it was defending, vacates a key square, or overextends the structure in a way the opponent immediately punishes. The refutation consistently targets the weakness or undefended piece/square that the pawn advance created, rather than responding to the intended threat. The feature fires on pawn moves that look constructive but fatally undermine the mover's own position by what they leave behind.",
+    "confidence": 85
+  },
+  "9": {
+    "chip": "Bishop Move Ignores Consequences",
+    "label": "A bishop move that overlooks an immediate tactical or positional refutation already present on the board.",
+    "description": "In every case, the player moves a bishop \u2014 whether developing, repositioning, or retreating it \u2014 without accounting for a concrete threat that the opponent can execute immediately in response. The bishop move either abandons defense of a key square, walks into a fork or pin, leaves another piece hanging, or simply wastes a tempo while the opponent has a decisive continuation already available. The unifying lesson is that before moving a bishop, the player must ask: what does my opponent get to do next?",
+    "confidence": 72
+  },
+  "10": {
+    "chip": "Queen Moves Off Defense",
+    "label": "The queen relocates and abandons a square or piece it was previously guarding, enabling an immediate tactical refutation.",
+    "description": "In every position, the blundering player moves their queen to a seemingly active or safe square without recognizing that the queen was performing a critical defensive duty from its previous square. The moment the queen steps away, an opponent's move \u2014 a capture, fork, check, or promotion \u2014 exploits the newly undefended piece, square, or back rank. The unifying coaching lesson is: before moving your queen, always ask what it was defending on its old square.",
+    "confidence": 82
+  },
+  "11": {
+    "chip": "King March in Endgame",
+    "label": "King activation and centralization decisions in pure pawn endgames",
+    "description": "Every position involves a king move as the critical decision point in a late endgame, where the king is being marched toward the center, a passed pawn, or opposition against the enemy king. The feature captures the evaluation of king step choices in pawn-heavy or pawnless endgames where small positional nuances like opposition, tempo, and king proximity to key squares determine wins, draws, or losses. Many of these are near-optimal or only marginally suboptimal, suggesting the feature activates on the archetype of 'king trudge decision' rather than necessarily on catastrophic errors.",
+    "confidence": 72
+  },
+  "12": {
+    "chip": "Passed Pawn Advance Decision",
+    "label": "Detects moves that advance a passed pawn toward promotion, whether correct or premature.",
+    "description": "In every position, the player pushes a passed pawn one square closer to promotion \u2014 sometimes correctly (0cp loss), sometimes as a blunder when other threats were more urgent or the advance allowed a tactical refutation. The unifying coaching lesson is that passed pawn advances must be evaluated not just for their promotion potential but against immediate tactical threats, king safety, and whether tempo is gained or lost. The feature fires on the decision point of 'push the passer now?' regardless of whether the answer is right or wrong.",
+    "confidence": 88
+  },
+  "13": {
+    "chip": "Routine Development Ignores Tactics",
+    "label": "A player makes a natural, principled developing knight move while completely overlooking an immediate tactical threat or opportunity.",
+    "description": "In every position, the player plays a textbook developing move (Nbd7, Nb1-c3, Nb1-d2, Ng1-f3, or Ng8-f6/e7) that follows general opening principles\u2014completing development, controlling center, preparing castling. However, each such move either ignores an existing tactical threat the opponent can exploit, abandons a piece or square that was being indirectly defended, or misses a forcing combination that should have been played instead. The feature captures the recurring coaching failure of prioritizing 'good habits' over concrete calculation\u2014development for its own sake when the position demands tactical alertness.",
+    "confidence": 82
+  },
+  "14": {
+    "chip": "Aggressive Knight Leap Backfires",
+    "label": "A knight is moved to an apparently active or dominant square but the move loses time, exposes weaknesses, or allows a strong refutation.",
+    "description": "In every position, a knight makes what appears to be an aggressive or centralizing leap \u2014 to squares like e5, d5, g5, f5, or g4 \u2014 but the move either gains nothing concrete, allows the opponent to respond with tempo, or directly creates tactical vulnerabilities. The common thread is not the specific consequence (tempo loss, fork, king safety) but the root cause: the knight jump looks powerful on the surface but fails because the destination square is either contestable, the knight becomes a target, or the move neglects a more pressing defensive or offensive duty. This is the classic 'ambitious knight lunge' blunder pattern where aesthetic centralization overrides concrete calculation.",
+    "confidence": 82
+  },
+  "15": {
+    "chip": "King Move Tempo Loss",
+    "label": "Detects king moves in endgames that waste a critical tempo or misplace the king relative to key pawns and squares.",
+    "description": "In every position, the blunder is a king move that either steps to a passive or wrong square, allowing the opponent's king or pawns to seize key territory one tempo faster. The feature fires on king moves in late-game positions where the difference between winning and losing (or drawing and losing) hinges on a single tempo of king opposition, triangulation, or race. The unifying coaching lesson is: in king-and-pawn endgames, every king move must be evaluated for tempo consequences \u2014 moving to the 'natural' or 'safe' square often concedes the critical tempo that decides the game.",
+    "confidence": 72
+  },
+  "16": {
+    "chip": "Rook Moves Away From Duty",
+    "label": "A rook move that abandons a critical defensive or offensive responsibility, allowing the opponent to immediately exploit the vacated square, file, or rank.",
+    "description": "In every position, the blundering player moves their rook to a seemingly active or logical square, but in doing so the rook leaves behind an important duty \u2014 defending a key pawn, controlling a critical file, supporting a mating threat, or guarding the king. The opponent then immediately capitalizes on the newly vacated square or undefended target with a forcing move (check, fork, passed pawn advance, or mating attack). The unifying pattern is not the type of mistake (tactical or positional) but the mechanism: the rook's relocation creates an exploitable hole that didn't exist one move earlier.",
+    "confidence": 82
+  },
+  "17": {
+    "chip": "Knight Move Abandons Defense",
+    "label": "A knight moves to an ostensibly active or centralizing square while abandoning a previously defended piece or square, leaving material hanging or creating a fatal tactical vulnerability.",
+    "description": "In every position, a knight is relocated to what appears to be an aggressive or natural outpost, but the move fails because it abandons the defense of another piece, pawn, or critical square. The player focuses on the knight's new destination and its apparent benefits (centralization, attack, tempo) while overlooking that the knight's departure creates or exposes an undefended hanging piece elsewhere on the board. The refutation in virtually every case is immediate and straightforward: the opponent simply captures the now-unprotected material that the knight was implicitly guarding.",
+    "confidence": 72
+  },
+  "18": {
+    "chip": "Rook Repositioning Tempo Loss",
+    "label": "Detecting rook (or major piece) moves that activate or reposition the piece but allow the opponent to gain decisive tempo or exploit a newly created weakness.",
+    "description": "In every position, a player moves a rook (occasionally another major piece) to what appears to be an active or logical square, but the opponent can immediately respond with a forcing move \u2014 a check, capture, or threat \u2014 that either wins material, delivers checkmate, or gains so much tempo that the original rook move's purpose is completely negated. The common coaching lesson is that rook activation must be evaluated not just for what the rook gains, but for what forcing resources the opponent acquires in response; moving a rook often changes the defensive geometry of the position in ways that are easy to overlook.",
+    "confidence": 62
+  },
+  "19": {
+    "chip": "Rook Relocation Backfires",
+    "label": "A rook move intended to improve position or solve an immediate problem instead abandons a critical defensive duty or opens a tactical vulnerability.",
+    "description": "In every position, the blundering side moves a rook to what appears to be a more active or safer square, but the relocation either removes the rook from a key defensive post (back rank, king shelter, critical file) or creates a new weakness the opponent immediately exploits. The player correctly identifies a local problem (attacked rook, passive placement, need to reinforce a pawn) but fails to recognize that the rook's departure triggers a greater tactical or structural crisis. The common failure is a rook move that solves one problem while abandoning a more important defensive responsibility.",
+    "confidence": 72
+  },
+  "20": {
+    "chip": "Knight Centralization Backfires",
+    "label": "A knight move to an apparently active or central square that ignores a more urgent tactical or positional priority in the position.",
+    "description": "In every position, the player moves a knight to what looks like an outpost, centralizing square, or active destination \u2014 but the move is a blunder because it either leaves another piece or pawn undefended, allows a devastating counter-tactic, or simply wastes the tempo needed to address an immediate threat. The unifying pattern is the player prioritizing the knight's relocation over the concrete demands of the position, whether that means stopping a passed pawn, defending the king, or capturing a hanging piece. The coaching lesson is: before improving a knight, verify there is no forcing continuation that punishes the tempo spent.",
+    "confidence": 82
+  },
+  "21": {
+    "chip": "Knight Relocation Backfires",
+    "label": "A knight moves to a new square but immediately creates or exposes a tactical or positional weakness that the opponent exploits.",
+    "description": "In every position, the blunder is a knight move \u2014 whether a retreat, centralization, or rerouting \u2014 that either abandons a critical defensive duty, lands on an unsafe square, or removes the knight from a square where it was performing an essential function. The opponent immediately capitalizes through forks, captures of now-undefended pieces, pawn attacks on the misplaced knight, or exploitation of newly opened lines. The feature detects knight relocations that look purposeful (centralizing, escaping attack, repositioning) but fatally miscalculate the consequences of leaving the previous square or occupying the new one.",
+    "confidence": 88
+  },
+  "22": {
+    "chip": "King Walk Into Fire",
+    "label": "King moves that step into immediate tactical punishment due to exposed placement",
+    "description": "In every position, the player voluntarily moved their king to a square that appeared safer or more active but immediately created or worsened a fatal vulnerability \u2014 whether to checks, discovered attacks, back-rank mates, or open lines. The king move itself was the blunder: not a failure to see an opponent's threat that already existed, but the act of walking the king into a new danger zone that the move itself created. The unifying coaching lesson is that king moves require concrete calculation of all checks and attacks against the new square, not just intuitive 'safety' reasoning.",
+    "confidence": 82
+  },
+  "23": {
+    "chip": "Pawn Capture Triggers Counterplay",
+    "label": "Capturing a pawn opens lines or removes a defender, enabling immediate tactical punishment.",
+    "description": "In every position, the blunder is a pawn capture that appears materially justified but immediately concedes something critical \u2014 either exposing the king, vacating a key square, opening a diagonal/file, or removing a defender. The opponent's refutation always exploits the direct consequence of that specific capture, not a pre-existing weakness. The common pattern is that the act of capturing itself creates the vulnerability that is instantly punished.",
+    "confidence": 82
+  },
+  "24": {
+    "chip": "Premature Bishop Sacrifice",
+    "label": "A bishop is sacrificed or aggressively thrust forward without sufficient compensation, losing material for inadequate attack.",
+    "description": "In virtually every case, the player moves a bishop to an aggressive square (most commonly Bxf7+, Bxh7+, or similar) hoping to launch a decisive attack or win material, but the opponent simply accepts the piece and emerges ahead by a full bishop with no sufficient compensation. The core error is overestimating the attacking potential of the bishop lunge while underestimating the defender's simple, calm responses\u2014typically just accepting the material. This feature detects positions where a bishop sacrifice looks tactically appealing but is objectively unsound due to insufficient follow-up.",
+    "confidence": 88
+  },
+  "25": {
+    "chip": "Simplification Backfires Badly",
+    "label": "A player captures or exchanges a piece expecting simplification but the recapture dramatically improves the opponent's position.",
+    "description": "In every position, the blundering side initiates an exchange or capture believing it will reduce complexity, trade off an active enemy piece, or reach a simpler endgame\u2014but the opponent's recapture either wins material, delivers checkmate, activates a piece, or creates unstoppable pawns. The common thread is not the tactical motif but the flawed reasoning: the player focuses on what they are removing and fails to evaluate what the recapture gives the opponent. This is the classic 'trading into a worse position' mistake where the resulting simplified position is catastrophically bad.",
+    "confidence": 82
+  },
+  "26": {
+    "chip": "Tempo-Losing Pawn Lunge",
+    "label": "A pawn move intended to gain tempo by attacking an enemy piece instead allows the piece to escape to a better square, wasting the move entirely.",
+    "description": "In every position, the player plays a pawn move (often f2-f3, f7-f6, g7-g6, c7-c6, a7-a6, etc.) specifically to attack or displace an enemy piece, expecting a forced response. The opponent's piece simply retreats or advances to an equal or superior square, rendering the pawn move a pure loss of tempo while simultaneously weakening the player's own pawn structure or king safety. The result is that the attacking player gains nothing from the forcing attempt while suffering lasting structural or tactical damage.",
+    "confidence": 72
+  },
+  "27": {
+    "chip": "Greedy Pawn Grab Blunder",
+    "label": "Capturing a pawn or minor material when doing so abandons a more urgent tactical or strategic priority.",
+    "description": "In every position, the player spots an apparently free or easily won pawn/piece and captures it, ignoring that the move away from their current position creates or leaves unresolved a decisive threat \u2014 checkmate, a fork, a passed pawn promotion, or a hanging piece. The unifying pattern is not the specific consequence but the cause: the player's attention is hijacked by immediately visible material gain, causing them to overlook what their opponent can do on the very next move. This is the classic 'greed blindness' pattern where short-term material thinking overrides calculation of the opponent's best reply.",
+    "confidence": 82
+  },
+  "28": {
+    "chip": "Tempo Wasted, Threat Ignored",
+    "label": "A pawn move wastes a tempo on a secondary idea while leaving an immediate tactical threat unaddressed.",
+    "description": "In every position, the blundering side plays a pawn move (typically a flank pawn push) with a plausible-looking local agenda \u2014 chasing a piece, grabbing space, or shoring up structure \u2014 while completely ignoring an already-present undefended piece, pin, or forcing sequence that the opponent immediately exploits. The pawn move does not contribute to solving the position's most urgent problem, and the one-tempo delay is precisely what allows the refutation to land with full force.",
+    "confidence": 82
+  },
+  "29": {
+    "chip": "Rook Lift Goes Wrong",
+    "label": "Rook repositioning moves that abandon defensive duties or create tactical vulnerabilities the opponent immediately exploits.",
+    "description": "In every position, a player moves a rook to an 'active' or 'improved' square \u2014 typically a rank lift or centralization \u2014 believing they are improving the piece, but the move either abandons a critical defensive square, allows an immediate tactical shot (fork, back-rank mate, hanging piece), or simply loses tempos that the opponent uses to seize the initiative. The unifying coaching lesson is that rook activity must be evaluated not just by where the rook is going, but by what defensive or structural duties it is abandoning in the process.",
+    "confidence": 82
+  },
+  "30": {
+    "chip": "Free Recapture Blindness",
+    "label": "Player moves a piece onto a square where it can be immediately recaptured for free, overlooking the opponent's recapture.",
+    "description": "In every position, the blundering player moves a piece (queen, rook, bishop, knight, or pawn) to a square that is already defended or can be recaptured by the opponent with no tactical justification \u2014 the opponent simply takes it back and wins material outright. The player either miscounts defenders, fails to see a diagonal/rank/file recapture, or is distracted by a superficial goal (giving check, winning a pawn) while ignoring that their moving piece lands en prise. The unifying coaching lesson is: before executing any capture or aggressive move, verify that the destination square is not immediately recaptured by the opponent at a material profit.",
+    "confidence": 72
+  },
+  "31": {
+    "chip": "Tempo-Wasting Prophylactic Blunder",
+    "label": "Playing a slow preparatory or prophylactic pawn move when the position demands immediate action.",
+    "description": "In every case, the player made a quiet, non-developing pawn move (a3, h3, b6, h6, etc.) intended to prevent a future threat or gain space, while ignoring an urgent tactical or dynamic requirement in the position. The opponent then exploited the wasted tempo by launching an immediate counter-strike \u2014 a piece sacrifice, central break, or tactical shot \u2014 that the prophylactic move did nothing to address. The unifying coaching lesson is: before playing a slow preparatory move, verify there is no forcing response that punishes the lost tempo.",
+    "confidence": 88
+  }
+}

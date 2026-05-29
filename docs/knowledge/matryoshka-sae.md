@@ -2,6 +2,16 @@
 
 Experiment to determine whether Matryoshka SAEs (Bussmann et al., ICML 2025) produce better hierarchical groupings than post-hoc decoder clustering on the standard BatchTopK SAE.
 
+## ⚠️ v1 vs v2 data (CRITICAL)
+
+All initial experiments ran on `maia3_blunder_diff.pt` (**v1**), which has a known bug: ~50% of positions (Black-to-move) had inverted blunder/best labels. The corrected data is `maia3_blunder_diff_v2.pt` (**v2**).
+
+**The structural findings (optimal k=16, prefix sizes, per-level k, L3 best) transfer to v2 — verified by re-running the full sweep.** But:
+- **Feature labels must use v2 models.** The 18K Opus position analyses (`all_positions_labeled_opus.json`) were generated from v2 positions. v1 model features can't be labeled (only 15 FEN matches). v2 model features match 100% by index.
+- v2 models live in `output/maia3_sae_v2/`. v1 models (in `output/maia3_sae/`) are deprecated for labeling but valid for architecture comparison.
+
+**v2 k-sweep confirms v1:** k=16 optimal (0 dead, 1361 interpretable, cos=0.283). v2 H1/L3 per-level Matryoshka: 0 dead, same fire-rate profiles as v1.
+
 ## Setup
 
 - **Input:** 200K Lichess blunders, Maia 3 layer-7 residual (512-dim), diff pooling (to_sq - from_sq), L2 normalized

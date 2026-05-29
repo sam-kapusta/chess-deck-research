@@ -138,6 +138,20 @@ s3://chess-stage-a-140023406996/sae/weights/matryoshka/
 Per-level k enforcement (novel modification). Groups [32, 256, 2048], each at its validated k.
 See `docs/knowledge/matryoshka-sae.md` for full comparison and methodology.
 
+## SAE Weights — Maia 3 Matryoshka V2 (CORRECT DATA, 2026-05-28)
+
+```
+s3://chess-stage-a-140023406996/sae/weights/matryoshka_v2/
+  matryoshka_v2_H1_p32_288_2336_k3_8_16.pt   ← H1 on v2: [32,256,2048] groups, k=[3,8,16]
+  matryoshka_v2_L3_p128_640_2688_k8_12_16.pt ← L3 on v2 (BEST): [128,512,2048], k=[8,12,16]
+  sweep_v2_k16_d2048.pt                       ← standard k=16 baseline on v2
+  full_sweep_v2_results.json                  ← all v2 sweep metrics
+```
+
+**v2 = corrected data** (`maia3_blunder_diff_v2.pt`, fixes the Black-to-move inverted-label bug).
+v2 model features match the 18K Opus analyses 100% by index — labelable. v1 models are not.
+Labels: `output/labels_matryoshka_v2_H1_top32.json` (32 top-level features, conf 62-91).
+
 ## SAE Weights — Maia 3 k-sweep (2026-05-28)
 
 ```
