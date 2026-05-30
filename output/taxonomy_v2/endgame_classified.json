@@ -1,0 +1,933 @@
+{
+ "18": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 18,
+  "chip": "King strays, own pawns fall"
+ },
+ "1348": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 1348,
+  "chip": "King drifts from decisive theater"
+ },
+ "874": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 874,
+  "chip": "King marches while pawn races decide"
+ },
+ "382": {
+  "topic": "rook_endgame",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 382,
+  "chip": "King maneuver squanders only winning move"
+ },
+ "424": {
+  "topic": "rook_endgame",
+  "reroute": null,
+  "confidence": 52,
+  "feature_id": 424,
+  "chip": "Passive king shuffle over concrete action"
+ },
+ "365": {
+  "topic": "rook_endgame",
+  "reroute": null,
+  "confidence": 88,
+  "feature_id": 365,
+  "chip": "Rook drifts while tempo expires"
+ },
+ "890": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 890,
+  "chip": "King retreats cede winning tempo"
+ },
+ "867": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 88,
+  "feature_id": 867,
+  "chip": "King misses faster march route"
+ },
+ "1491": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 62,
+  "feature_id": 1491,
+  "chip": "King marches to wrong flank"
+ },
+ "35": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 85,
+  "feature_id": 35,
+  "chip": "King advances to wrong wing"
+ },
+ "348": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 348,
+  "chip": "King takes wrong path in race"
+ },
+ "1649": {
+  "topic": null,
+  "reroute": "walked_into_tactic",
+  "confidence": 72,
+  "feature_id": 1649,
+  "chip": "King steps into forced mate"
+ },
+ "619": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 52,
+  "feature_id": 619,
+  "chip": "Flank pawn push over king activation"
+ },
+ "763": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 85,
+  "feature_id": 763,
+  "chip": "Flank pawn push loses king race"
+ },
+ "1625": {
+  "topic": "minor_piece_endgame",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 1625,
+  "chip": "Bishop repost squanders critical tempo"
+ },
+ "1636": {
+  "topic": "queen_endgame",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 1636,
+  "chip": "Queen check lets king escape"
+ },
+ "1136": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 62,
+  "feature_id": 1136,
+  "chip": "King square loses opposition or tempo"
+ },
+ "839": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 839,
+  "chip": "King move delays decisive pawn push"
+ },
+ "29": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 52,
+  "feature_id": 29,
+  "chip": "King advances into opponent's territory"
+ },
+ "938": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 97,
+  "feature_id": 938,
+  "chip": "King misses opposition, loses endgame"
+ },
+ "963": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 963,
+  "chip": "Prep move stalls pawn race"
+ },
+ "387": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 387,
+  "chip": "Bishop repositioned over king march"
+ },
+ "1892": {
+  "topic": null,
+  "reroute": "missed_a_tactic",
+  "confidence": 72,
+  "feature_id": 1892,
+  "chip": "King retreats when forcing moves win"
+ },
+ "145": {
+  "topic": "minor_piece_endgame",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 145,
+  "chip": "Bishop reposition over concrete pawn advance"
+ },
+ "1192": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 1192,
+  "chip": "King one file off loses race"
+ },
+ "1220": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 85,
+  "feature_id": 1220,
+  "chip": "King flees from passing pawn"
+ },
+ "372": {
+  "topic": "rook_endgame",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 372,
+  "chip": "Rook shuffle loses decisive tempo"
+ },
+ "895": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 895,
+  "chip": "Quiet pawn push over king activation"
+ },
+ "216": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 216,
+  "chip": "King to passive square loses opposition"
+ },
+ "420": {
+  "topic": null,
+  "reroute": "walked_into_tactic",
+  "confidence": 62,
+  "feature_id": 420,
+  "chip": "King steps into tactical vulnerability"
+ },
+ "1990": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 62,
+  "feature_id": 1990,
+  "chip": "Flank pawn push over king activation"
+ },
+ "1751": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 1751,
+  "chip": "Pawn push blocks king's path"
+ },
+ "903": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 903,
+  "chip": "King misses optimal march geometry"
+ },
+ "923": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 88,
+  "feature_id": 923,
+  "chip": "King to wrong square loses race"
+ },
+ "796": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 796,
+  "chip": "Unstoppable passed pawn advance missed"
+ },
+ "939": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 88,
+  "feature_id": 939,
+  "chip": "King advance loses critical opposition"
+ },
+ "918": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 918,
+  "chip": "Pawn check improves enemy king"
+ },
+ "683": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 683,
+  "chip": "Flank pawn push ignores promotion race"
+ },
+ "517": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 517,
+  "chip": "Flank pawn push over king activation"
+ },
+ "1897": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 1897,
+  "chip": "King vacates passed-pawn blockade square"
+ },
+ "709": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 709,
+  "chip": "King move delays critical pawn break"
+ },
+ "1414": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 1414,
+  "chip": "King grabs flank pawn, loses race"
+ },
+ "1483": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 85,
+  "feature_id": 1483,
+  "chip": "Passed pawn push ignores king safety"
+ },
+ "945": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 97,
+  "feature_id": 945,
+  "chip": "King picks wrong race direction"
+ },
+ "1615": {
+  "topic": "queen_endgame",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 1615,
+  "chip": "Queen misses only covering square"
+ },
+ "99": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 85,
+  "feature_id": 99,
+  "chip": "King grabs pawn, loses race"
+ },
+ "1978": {
+  "topic": null,
+  "reroute": "walked_into_tactic",
+  "confidence": 88,
+  "feature_id": 1978,
+  "chip": "King steps into knight fork"
+ },
+ "1967": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 62,
+  "feature_id": 1967,
+  "chip": "Check drives king to better square"
+ },
+ "1837": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 1837,
+  "chip": "Wing pawn push over king centralization"
+ },
+ "530": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 62,
+  "feature_id": 530,
+  "chip": "Pawn push while king undefended"
+ },
+ "1535": {
+  "topic": null,
+  "reroute": "missed_a_tactic",
+  "confidence": 82,
+  "feature_id": 1535,
+  "chip": "Bishop repositions while mate looms"
+ },
+ "808": {
+  "topic": "rook_endgame",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 808,
+  "chip": "King mishandles active pawn race"
+ },
+ "341": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 95,
+  "feature_id": 341,
+  "chip": "King move delays pawn advance"
+ },
+ "647": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 647,
+  "chip": "Flank pawn push over king activation"
+ },
+ "965": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 965,
+  "chip": "King moves before critical pawn advance"
+ },
+ "1310": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 1310,
+  "chip": "King escorts pawn, loses race"
+ },
+ "1131": {
+  "topic": "rook_endgame",
+  "reroute": null,
+  "confidence": 85,
+  "feature_id": 1131,
+  "chip": "Rook to pawn file over counterplay"
+ },
+ "1145": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 1145,
+  "chip": "Pawn push delays king activation"
+ },
+ "220": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 85,
+  "feature_id": 220,
+  "chip": "Premature pawn check blocks own king"
+ },
+ "416": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 95,
+  "feature_id": 416,
+  "chip": "Pawn push over king leadership"
+ },
+ "1557": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 90,
+  "feature_id": 1557,
+  "chip": "King detours lose pawn-race tempo"
+ },
+ "188": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 95,
+  "feature_id": 188,
+  "chip": "Pawn push before king leads"
+ },
+ "971": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 971,
+  "chip": "King moves delay pawn promotion"
+ },
+ "1838": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 85,
+  "feature_id": 1838,
+  "chip": "King steps into promotion mating net"
+ },
+ "1212": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 97,
+  "feature_id": 1212,
+  "chip": "King one square off, loses opposition"
+ },
+ "673": {
+  "topic": null,
+  "reroute": "walked_into_tactic",
+  "confidence": 72,
+  "feature_id": 673,
+  "chip": "King retreats to edge, invites mate"
+ },
+ "503": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 503,
+  "chip": "King steps, pawn promotes with check"
+ },
+ "1779": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 88,
+  "feature_id": 1779,
+  "chip": "Rook quits passed pawn blockade"
+ },
+ "1890": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 95,
+  "feature_id": 1890,
+  "chip": "Pawn advances to 7th unstoppable"
+ },
+ "1853": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 42,
+  "feature_id": 1853,
+  "chip": "King retreats to back rank"
+ },
+ "1919": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 1919,
+  "chip": "Promotes into guarded knight square"
+ },
+ "1964": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 1964,
+  "chip": "Premature or wrong pawn promotion"
+ },
+ "1146": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 1146,
+  "chip": "Pawn push over decisive piece move"
+ },
+ "1865": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 85,
+  "feature_id": 1865,
+  "chip": "Promotes without neutralizing defender first"
+ },
+ "144": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 144,
+  "chip": "King escorts pawn, strands itself"
+ },
+ "1200": {
+  "topic": "rook_endgame",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 1200,
+  "chip": "Rook leaves promotion square unguarded"
+ },
+ "67": {
+  "topic": "rook_endgame",
+  "reroute": null,
+  "confidence": 85,
+  "feature_id": 67,
+  "chip": "Rook to rank over instant promotion"
+ },
+ "253": {
+  "topic": "minor_piece_endgame",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 253,
+  "chip": "Bishop retreats to passive rim square"
+ },
+ "1344": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 88,
+  "feature_id": 1344,
+  "chip": "Rook misses pawn promotion path"
+ },
+ "404": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 88,
+  "feature_id": 404,
+  "chip": "Passed pawn advances prematurely to 7th"
+ },
+ "510": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 510,
+  "chip": "Premature pawn push delays promotion"
+ },
+ "1533": {
+  "topic": null,
+  "reroute": "missed_a_tactic",
+  "confidence": 88,
+  "feature_id": 1533,
+  "chip": "Penultimate-rank pawn ignores mating attack"
+ },
+ "1641": {
+  "topic": null,
+  "reroute": "missed_a_tactic",
+  "confidence": 85,
+  "feature_id": 1641,
+  "chip": "7th-rank push ignores mating attack"
+ },
+ "129": {
+  "topic": "rook_endgame",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 129,
+  "chip": "Rook behind pawn delays promotion"
+ },
+ "422": {
+  "topic": null,
+  "reroute": "walked_into_tactic",
+  "confidence": 72,
+  "feature_id": 422,
+  "chip": "Rook retreats to back rank, exposes king"
+ },
+ "1655": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 1655,
+  "chip": "Rim pawn push loses promotion tempo"
+ },
+ "1119": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 1119,
+  "chip": "Rook blocks pawn, misses attack"
+ },
+ "32": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 32,
+  "chip": "Flank pawn push over forcing piece"
+ },
+ "415": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 415,
+  "chip": "Pawn promoted before deflecting defender"
+ },
+ "958": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 958,
+  "chip": "King blocks own pawn's promotion"
+ },
+ "1453": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 95,
+  "feature_id": 1453,
+  "chip": "7th-rank push before king escort"
+ },
+ "594": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 594,
+  "chip": "Passed pawn push, bishop guards promotion"
+ },
+ "1392": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 88,
+  "feature_id": 1392,
+  "chip": "Premature pawn push surrenders promotion tempo"
+ },
+ "777": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 777,
+  "chip": "Rook blocks own promotion path"
+ },
+ "1480": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 1480,
+  "chip": "Near-promo pawn push skips forcing check"
+ },
+ "608": {
+  "topic": null,
+  "reroute": "missed_a_tactic",
+  "confidence": 72,
+  "feature_id": 608,
+  "chip": "Flank pawn push ignores checkmate"
+ },
+ "523": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 523,
+  "chip": "King chases wing pawn, abandons center"
+ },
+ "529": {
+  "topic": null,
+  "reroute": "walked_into_tactic",
+  "confidence": 92,
+  "feature_id": 529,
+  "chip": "Rook captures enable pawn promotion"
+ },
+ "981": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 85,
+  "feature_id": 981,
+  "chip": "7th-rank pawn promotes too early"
+ },
+ "624": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 624,
+  "chip": "Passed pawn push wins race"
+ },
+ "1338": {
+  "topic": "rook_endgame",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 1338,
+  "chip": "Rook chases pawn, surrenders tempo"
+ },
+ "1110": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 1110,
+  "chip": "King abandons pawn blockade duty"
+ },
+ "273": {
+  "topic": "queen_endgame",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 273,
+  "chip": "Queen picks wrong active square"
+ },
+ "88": {
+  "topic": "rook_endgame",
+  "reroute": null,
+  "confidence": 95,
+  "feature_id": 88,
+  "chip": "Rook chases pawn, abandons activity"
+ },
+ "1341": {
+  "topic": "minor_piece_endgame",
+  "reroute": null,
+  "confidence": 62,
+  "feature_id": 1341,
+  "chip": "Knight drifts while pawns advance"
+ },
+ "921": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 62,
+  "feature_id": 921,
+  "chip": "King misses sole correct square"
+ },
+ "1454": {
+  "topic": null,
+  "reroute": "walked_into_tactic",
+  "confidence": 85,
+  "feature_id": 1454,
+  "chip": "King avoids corner, enters fire"
+ },
+ "1953": {
+  "topic": null,
+  "reroute": "missed_a_tactic",
+  "confidence": 85,
+  "feature_id": 1953,
+  "chip": "Bishop grab misses queen opportunity"
+ },
+ "752": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 62,
+  "feature_id": 752,
+  "chip": "King retreats to wrong adjacent square"
+ },
+ "1090": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 1090,
+  "chip": "King steps wrong way, loses opposition"
+ },
+ "1266": {
+  "topic": null,
+  "reroute": "greedy_capture",
+  "confidence": 82,
+  "feature_id": 1266,
+  "chip": "Knight grabs lesser piece over rook"
+ },
+ "1709": {
+  "topic": null,
+  "reroute": "greedy_capture",
+  "confidence": 82,
+  "feature_id": 1709,
+  "chip": "King grabs pawn, passes race"
+ },
+ "355": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 355,
+  "chip": "King steps off drawing square"
+ },
+ "345": {
+  "topic": "rook_endgame",
+  "reroute": null,
+  "confidence": 95,
+  "feature_id": 345,
+  "chip": "Rook leaves critical defensive post"
+ },
+ "1276": {
+  "topic": "queen_endgame",
+  "reroute": null,
+  "confidence": 52,
+  "feature_id": 1276,
+  "chip": "Queen checks from afar"
+ },
+ "1899": {
+  "topic": null,
+  "reroute": "missed_a_tactic",
+  "confidence": 82,
+  "feature_id": 1899,
+  "chip": "Rook moves short of capture"
+ },
+ "1330": {
+  "topic": null,
+  "reroute": "hung_a_piece",
+  "confidence": 88,
+  "feature_id": 1330,
+  "chip": "Bishop to rim or open file"
+ },
+ "1196": {
+  "topic": null,
+  "reroute": "missed_a_tactic",
+  "confidence": 62,
+  "feature_id": 1196,
+  "chip": "Queen move misses forcing concrete solution"
+ },
+ "1877": {
+  "topic": null,
+  "reroute": "hung_a_piece",
+  "confidence": 95,
+  "feature_id": 1877,
+  "chip": "Bishop grabs, own queen hangs"
+ },
+ "85": {
+  "topic": "minor_piece_endgame",
+  "reroute": null,
+  "confidence": 82,
+  "feature_id": 85,
+  "chip": "Bishop repositioned while king idles"
+ },
+ "1881": {
+  "topic": "minor_piece_endgame",
+  "reroute": null,
+  "confidence": 72,
+  "feature_id": 1881,
+  "chip": "Wrong knight leaves outpost vacant"
+ },
+ "1935": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 62,
+  "feature_id": 1935,
+  "chip": "King drifts to rim, misplaced"
+ },
+ "111": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 111,
+  "chip": "King races lost pawn promotion"
+ },
+ "1385": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 85,
+  "feature_id": 1385,
+  "chip": "King chases pawn, misses race"
+ },
+ "558": {
+  "topic": null,
+  "reroute": "bad_trade",
+  "confidence": 82,
+  "feature_id": 558,
+  "chip": "Capture strips last defensive anchor"
+ },
+ "317": {
+  "topic": null,
+  "reroute": "bad_trade",
+  "confidence": 92,
+  "feature_id": 317,
+  "chip": "Rook trade surrenders last counterplay"
+ },
+ "236": {
+  "topic": "pawn_endgame",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 236,
+  "chip": "Flank pawn push over king march"
+ },
+ "626": {
+  "topic": null,
+  "reroute": "greedy_capture",
+  "confidence": 88,
+  "feature_id": 626,
+  "chip": "Rook grabs pawn, king recaptures"
+ },
+ "603": {
+  "topic": "rook_endgame",
+  "reroute": null,
+  "confidence": 52,
+  "feature_id": 603,
+  "chip": "Rook penetrates, misses concrete blow"
+ },
+ "1718": {
+  "topic": null,
+  "reroute": "greedy_capture",
+  "confidence": 72,
+  "feature_id": 1718,
+  "chip": "King capture cedes key opposition"
+ },
+ "1770": {
+  "topic": null,
+  "reroute": "greedy_capture",
+  "confidence": 92,
+  "feature_id": 1770,
+  "chip": "Bishop grabs pawn, king recaptures"
+ },
+ "792": {
+  "topic": null,
+  "reroute": "walked_into_tactic",
+  "confidence": 82,
+  "feature_id": 792,
+  "chip": "King steps onto enemy open line"
+ },
+ "53": {
+  "topic": "passed_pawn_promotion",
+  "reroute": null,
+  "confidence": 92,
+  "feature_id": 53,
+  "chip": "Passed pawn push skips urgent prep"
+ }
+}
