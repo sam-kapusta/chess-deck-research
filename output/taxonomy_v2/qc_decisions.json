@@ -1,0 +1,29 @@
+{
+ "rules": {
+  "Endgame Error": "Endgame-specific TECHNIQUE only: king activity/centralization/opposition, pawn races, promotion & passed-pawn handling, conversion. A fork/hang/missed-tactic that merely OCCURS in an endgame is filed by its mistake-type, NOT here."
+ },
+ "subcluster_moves": [
+  {
+   "fine_id": 143,
+   "from": "Endgame Error",
+   "reason": "slow-move-in-sharp-position / King steps into fork or mate -> tactical, not technique",
+   "retag": "Missed a Tactic / Walked Into a Tactic (per-feature)"
+  },
+  {
+   "fine_id": 161,
+   "from": "Endgame Error",
+   "reason": "incoherent: mix of king-loses-opposition (technique) + queen-abandons-guard + missed-check -> re-route per feature",
+   "retag": "per-feature"
+  }
+ ],
+ "subcluster_keep": [
+  {
+   "fine_id": 64,
+   "reason": "promotion/passed-pawn handling = real endgame technique"
+  },
+  {
+   "fine_id": 85,
+   "reason": "9-10/10 endgame king/pawn-race technique"
+  }
+ ]
+}
