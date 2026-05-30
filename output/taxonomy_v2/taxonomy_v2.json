@@ -41266,7 +41266,7 @@
     },
     "1180": {
       "feature_id": 1180,
-      "chip": "Rook to back rank misses urgency",
+      "chip": "Rook retreats to back rank",
       "title": "A rook moves to the player's own back rank for file occupation or development, missing an urgent tactical need in the position.",
       "description": "All 10/10 positions feature a rook moving to the player's own first/eighth rank (Re1/Re8/Rf1/Rf8/Rg1/Rc8), targeting what appears to be a useful open or semi-open file. These moves look natural and positionally motivated\u2014occupying files, activating idle rooks, supporting queens\u2014but in every case they miss more urgent tactical demands. In 5/10 positions, the rook move creates a new tactical vulnerability (becoming a fork target on e1/e8 in positions 3 and 7, exposing the back rank in positions 2 and 10, or abandoning a critical defensive file in position 1). In the remaining 5/10, the rook move wastes critical tempo when immediate forcing sequences were available (missed forks in positions 5 and 9, missed captures in position 4, move-order errors in positions 6 and 8). The average cp_loss of 1248 reflects that these seemingly routine moves occur at moments of extreme tactical sensitivity. Only 1.3 good moves were available on average, meaning these positions demanded precise action rather than generic development.",
       "category": "rook_misplacement",
@@ -58233,7 +58233,7 @@
     },
     "1696": {
       "feature_id": 1696,
-      "chip": "Quiet queen move ignores urgency",
+      "chip": "Queen retreats to passive square",
       "title": "Quiet queen repositioning to a seemingly natural square when the position demands an immediate concrete tactical response.",
       "description": "All 9/9 positions feature a non-forcing queen relocation move \u2014 no checks, no captures, no direct threats \u2014 to a 'natural-looking' square (d7, d8, d2, c8, or a6). In every case, the position contained an urgent tactical demand that the queen move ignores. The consequences vary: in 2/9 positions (Positions 5 and 9), the queen physically blocks a friendly bishop's retreat square (Qd7 blocks Bd7, Qc8 blocks Bc8), allowing the bishop to be trapped or sacrificially captured. In 3/9 positions (1, 6, 8), the queen abandons a critical defensive function \u2014 guarding a piece, a key pawn, or preventing a discovered/back-rank tactic. In 2/9 positions (2, 4), the player misses a dramatically superior forcing move (capturing a hanging queen, or a back-rank checking sequence). In 2/9 positions (3, 10), the queen lands on a square where it becomes tactically exploitable or fails to prevent an incoming attack. The average cp_loss of 1347 reflects that these 'quiet' moves often collapse winning or equal positions entirely. The unifying thread is that all moves prioritize abstract positional goals (connecting rooks, centralizing, supporting pawns) over the concrete tactical reality screaming for attention.",
       "category": "slow_play_punished",
@@ -63501,7 +63501,7 @@
     },
     "1855": {
       "feature_id": 1855,
-      "chip": "Rook to open file ignores crisis",
+      "chip": "Rook occupies contested open file",
       "title": "Moving a rook to challenge an opponent's piece on an open file when the position demands an urgent tactical action instead.",
       "description": "All 10/10 positions feature a rook moving to occupy or contest an open file \u2014 a natural-looking positional move that follows the general principle of 'rooks belong on open files.' In 9/10 cases, the rook specifically moves to directly confront an opposing rook on the same file or rank (Ra1 vs rook on a2, Re7 vs rook on f7, Rg2 vs rook on g6/g3, Rc2 vs rook on c3, Rd7 vs rook on d8, Rc8 vs rook on c1, Rfd1 vs rook on d2, Rd6 vs rook on d3). However, in every case, the position demands something far more urgent: 3/10 positions had hanging pieces to capture (positions 8, 9, 10), 3/10 had critical defensive squares being abandoned (positions 2, 3, 7), 2/10 allowed losing exchanges or forks (positions 4, 5), and 2/10 ignored existential king safety threats (positions 1, 6). The average cp_loss of 2203 is enormous, with 3/10 resulting in immediate mate or near-mate. Only 1.8 good moves were available on average, indicating these were sharp positions requiring precise calculation rather than routine development.",
       "category": "slow_play_punished",

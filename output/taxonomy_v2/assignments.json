@@ -8331,9 +8331,9 @@
   },
   "1180": {
     "category": "rook_misplacement",
-    "chip": "Rook to back rank misses urgency",
+    "chip": "Rook retreats to back rank",
     "confidence": 72,
-    "chip_generic": true,
+    "chip_generic": false,
     "feature_id": 1180
   },
   "1198": {
@@ -11908,9 +11908,9 @@
   },
   "1696": {
     "category": "slow_play_punished",
-    "chip": "Quiet queen move ignores urgency",
+    "chip": "Queen retreats to passive square",
     "confidence": 72,
-    "chip_generic": true,
+    "chip_generic": false,
     "feature_id": 1696
   },
   "1706": {
@@ -13014,9 +13014,9 @@
   },
   "1855": {
     "category": "slow_play_punished",
-    "chip": "Rook to open file ignores crisis",
+    "chip": "Rook occupies contested open file",
     "confidence": 82,
-    "chip_generic": true,
+    "chip_generic": false,
     "feature_id": 1855
   },
   "1865": {
