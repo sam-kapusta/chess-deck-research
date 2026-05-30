@@ -1,0 +1,300 @@
+{
+ "coarse_id": 13,
+ "n_features": 46,
+ "subclusters": [
+  {
+   "fine_id": 4,
+   "size": 24,
+   "features": [
+    {
+     "feature_id": 165,
+     "chip": "King steps away, asset hangs",
+     "fire_rate_pct": 4.952,
+     "description": "In 10/10 positions, the blunder is a king move (including one castling move) that abandons a critical defensive responsibility. In 9/10 cases, the king was directly guarding a specific piece or pawn, and by moving away, that asset becomes immediately capturable: Position 1 (Kc8 l"
+    },
+    {
+     "feature_id": 514,
+     "chip": "Rook lands on undefended square",
+     "fire_rate_pct": 1.538,
+     "description": "In 7/10 positions, the blundering move places a rook or knight on an undefended square that appears active but is immediately exploitable through forcing tactics. In 6/10 cases, the piece is directly won or captured via check sequences (Positions 1, 2, 4, 6, 7) or discovered atta"
+    },
+    {
+     "feature_id": 663,
+     "chip": "Knight leaves critical defensive post",
+     "fire_rate_pct": 1.222,
+     "description": "In 8/10 positions, the blunder is a direct capture or an attack on an enemy piece aimed at winning material. 5/10 moves are specifically bishop captures (Bxd3, Bxd5, Bxa2, Bxf2, Bxg4), while 3/10 are knight relocations (Nd6, Nh2, Nd4) and 2/10 are pawn advances attacking the enem"
+    },
+    {
+     "feature_id": 774,
+     "chip": "Pawn push ignores hanging piece",
+     "fire_rate_pct": 1.115,
+     "description": "In 10/10 positions, the player made a move with clear strategic intent (gaining space, challenging a piece, repositioning) while a piece was either already hanging or became capturable as a direct consequence. In 6/10 positions, the blunder was specifically a pawn push (f6, e5, d"
+    },
+    {
+     "feature_id": 854,
+     "chip": "Knight leaves key tactical square",
+     "fire_rate_pct": 0.925,
+     "description": "In 10/10 positions, the blunder involves moving or exchanging the specific piece that serves as the linchpin of the player's strongest available tactic. In Position 1, the Bh6 enables Rxf6 but is traded away; in Position 2, the Ng3 enables Nf3# but is captured on f1; in Position "
+    },
+    {
+     "feature_id": 904,
+     "chip": "Edge pawn push allows knight fork",
+     "fire_rate_pct": 13.986,
+     "description": "In 8/10 positions, the blunder is a single-square pawn push (a3, a6, h6, h3, or e6) aimed at an enemy knight sitting on an aggressive outpost (b4, b5, g5, g4, or d5), expecting the knight to retreat passively. Instead, the knight jumps FORWARD to deliver a fork \u2014 typically Nc2+ ("
+    },
+    {
+     "feature_id": 927,
+     "chip": "Bishop grab drops critical defense",
+     "fire_rate_pct": 0.976,
+     "description": "In 10/10 positions, the blunder is a bishop capture (Bx__) that prioritizes winning or exchanging material over addressing a critical tactical requirement. 8/10 captures target another bishop, 1/10 captures a knight, and 1/10 captures a rook \u2014 all are piece captures, never pawns."
+    },
+    {
+     "feature_id": 955,
+     "chip": "Pawn grabs wrong adjacent target",
+     "fire_rate_pct": 2.256,
+     "description": "In 8/10 positions, the blunder is a capture (Bxc8, exd3, dxc3, Bxe3, Bxf5, dxc3) or a pawn push that should have been a capture (e4 twice). In 7/10 cases, the SAME piece or pawn had direct access to a superior target: Position 1 (Bxc8 vs Bxa4 \u2014 same bishop, queen vs bishop), Posi"
+    },
+    {
+     "feature_id": 979,
+     "chip": "Pawn advance strips friendly piece cover",
+     "fire_rate_pct": 1.244,
+     "description": "In 9/10 positions, the blunder is a pawn advance that directly removes the pawn's diagonal or lateral defense of a friendly piece or pawn, leaving it immediately capturable. Specifically: Position 2 (d5 removes d6-pawn's protection of Ne5), Position 4 (h5 removes h6-pawn's protec"
+    },
+    {
+     "feature_id": 1051,
+     "chip": "Pawn capture dissolves cramping formation",
+     "fire_rate_pct": 1.004,
+     "description": "10/10 positions feature a capture that resolves strategic tension in the opponent's favor. In 9/10 cases, the blunder is a pawn capture; 8/10 involve trading away a pawn (or piece) that was part of a space-gaining, cramping formation (e5 pawns in positions 1/2/4/5/8, f5 pawn in p"
+    },
+    {
+     "feature_id": 1087,
+     "chip": "Last rook gives away defense",
+     "fire_rate_pct": 1.656,
+     "description": "In 10/10 positions, the blundering side was already significantly losing (avg eval ~10+ pawns disadvantage) and possessed very few pieces \u2014 typically just one rook or bishop as their sole defensive resource. The blunder in every case involves giving away this last piece, usually "
+    },
+    {
+     "feature_id": 1154,
+     "chip": "Bishop steps onto pawn-controlled square",
+     "fire_rate_pct": 3.397,
+     "description": "In 7/10 positions, the blunder move places a piece or pawn on a square where an adjacent enemy pawn immediately captures it: Bd6 falls to exd6 (position 1), Bg5 to hxg5 (position 3), Bf5 to exf5 (position 4), Bf3 to gxf3 (position 7), Bf4 to exf4 (position 8), f3 allows exf3 (pos"
+    },
+    {
+     "feature_id": 1208,
+     "chip": "King steps to edge, invites attack",
+     "fire_rate_pct": 1.437,
+     "description": "All 10/10 positions feature a king move as the blunder \u2014 no other piece type is involved. In 5/10 cases the king specifically moves to h6 (or h3 for White, the mirror square), walking toward the edge of the board where it becomes a target for checks, rook lifts, and pawn storms. "
+    },
+    {
+     "feature_id": 1238,
+     "chip": "Capture lets enemy king escape",
+     "fire_rate_pct": 0.848,
+     "description": "All 10/10 positions share a narrow decision point (avg 2.1 good moves) where the position demands one specific type of action, but the player instead pursues a secondary concern. In 5/10 positions the blunder is a capture or trade that looks natural but ignores a bigger issue (dx"
+    },
+    {
+     "feature_id": 1314,
+     "chip": "Wing pawn push, own piece hangs",
+     "fire_rate_pct": 13.594,
+     "description": "In 10/10 positions, the blunder is a quiet, non-capturing pawn advance on a wing file (b, f, g, or h \u2014 never a central d or e push) while a piece is hanging or tactically vulnerable to immediate capture. In 8/10 cases the tactical motif is explicitly 'hanging_piece' \u2014 the player'"
+    },
+    {
+     "feature_id": 1343,
+     "chip": "Pawn push invites knight fork",
+     "fire_rate_pct": 0.985,
+     "description": "In 9/10 positions, the blunder is a pawn advance; in 7/10 positions, the direct refutation involves a knight capturing the moved pawn or a newly-undefended piece (positions 1, 2, 3, 4, 7, 8, 10). In 5/10 cases (h3\u2192Nxh3+, c6\u2192Nxc6+, d6\u2192Nxd6+, f3\u2192Nxf3+, Nc3\u2192Nxc3+), the knight captur"
+    },
+    {
+     "feature_id": 1421,
+     "chip": "Rook blocks king's only escape",
+     "fire_rate_pct": 1.077,
+     "description": "In 10/10 positions, the blunder is a rook move played in a position where the king is under serious mating threats. In at least 7/10 cases, the rook physically occupies the king's only flight square, creating a fatal self-obstruction: Rh7 blocks h7 (king on h8), Rh2 blocks h2 (ki"
+    },
+    {
+     "feature_id": 1688,
+     "chip": "Pawn advance clears blocking diagonal",
+     "fire_rate_pct": 1.257,
+     "description": "In 6/10 positions, the blunder is a pawn advance that vacates a square serving as the sole blocker on a diagonal, directly exposing the player's own queen or bishop to capture. Positions 1, 4, and 5 all feature an e-pawn clearing the a8-h1 diagonal for a fianchettoed bishop to ca"
+    },
+    {
+     "feature_id": 1792,
+     "chip": "Pawn advance vacates knight fork square",
+     "fire_rate_pct": 1.166,
+     "description": "In 8/10 positions, the blundering move is a pawn advance that directly vacates the exact square an enemy knight needs to deliver a fork winning major material. The vacated squares and resulting forks are: f3\u2192Nf3+ (positions 1, 9), c6\u2192Nc6+ (positions 2, 5), f2\u2192Nf2+ (position 3), c"
+    },
+    {
+     "feature_id": 1811,
+     "chip": "King steps onto covered square",
+     "fire_rate_pct": 1.097,
+     "description": "In 8/10 positions the blunder is a direct king move, and in the remaining 2/10 a bishop moves to f8, either exposing the king on an open file or blocking its own escape. The defining feature is that the destination square is fatally covered by the opponent's heavy pieces along op"
+    },
+    {
+     "feature_id": 1823,
+     "chip": "Knight leaves d4/d5 outpost",
+     "fire_rate_pct": 1.123,
+     "description": "In 9/10 positions, a knight makes a capture that removes it from a dominant central square, and in 7/10 cases specifically the knight sits on d4 or d5 before the blunder (Positions 1, 2, 4, 5, 7, 9, 10). The remaining cases involve knights on other strong squares (d3, e4, g6) bei"
+    },
+    {
+     "feature_id": 1821,
+     "chip": "Queen grabs pawn, gets traded",
+     "fire_rate_pct": 1.447,
+     "description": "In 10/10 positions, the blundering side moved their strongest or most strategically important piece to make a capture (or forcing move), and the opponent's straightforward recapture eliminated that critical piece from the board. In 7/10 cases, the piece captured was a pawn (h7 th"
+    },
+    {
+     "feature_id": 1931,
+     "chip": "Knight jumps to covered square",
+     "fire_rate_pct": 0.808,
+     "description": "In 10/10 positions, the blunder is a knight move to a square where it is immediately capturable, and the primary refutation in every case is simply taking the knight. In 4/10 positions the knight delivers check (Ne5+, Ne5+, Nf4+, Nd6+) but can still be cleanly captured. In the re"
+    },
+    {
+     "feature_id": 1976,
+     "chip": "Queen trades itself for king recapture",
+     "fire_rate_pct": 1.038,
+     "description": "In 9/10 positions, the blundering move places a piece (usually the queen) on a square where the opponent's KING directly recaptures it. 6/10 positions specifically feature the queen being captured by the king (positions 1, 2, 3, 6, 7, 10). All 10 moves are either checks or captur"
+    }
+   ]
+  },
+  {
+   "fine_id": 147,
+   "size": 12,
+   "features": [
+    {
+     "feature_id": 170,
+     "chip": "King steps onto exploitable open line",
+     "fire_rate_pct": 1.952,
+     "description": "In 10/10 positions, the blunder is a king move that worsens the king's safety by stepping onto a tactically compromised square. In 6/10 cases (positions 1, 2, 3, 5, 8, 9), the best move was NOT a king move at all \u2014 the player reflexively moved the king when a piece move would sol"
+    },
+    {
+     "feature_id": 801,
+     "chip": "Queen drifts passive, loses control",
+     "fire_rate_pct": 2.503,
+     "description": "In 10/10 positions, the blunder is a queen move that displaces the queen from an active or needed post to a square where it loses its influence over the position's critical factors. 8/10 positions are endgames where queen activity is the primary resource. The queen moves to passi"
+    },
+    {
+     "feature_id": 909,
+     "chip": "Rook sorties abandon king defense",
+     "fire_rate_pct": 4.899,
+     "description": "In 10/10 positions, the blunder involves a piece relocating to create what looks like an aggressive 'threat' (usually targeting an enemy rook or knight) while abandoning a far more important role. In 7/10 cases, the piece specifically targets an enemy piece on an open file that s"
+    },
+    {
+     "feature_id": 953,
+     "chip": "Knight repositions while opponent's threat lands",
+     "fire_rate_pct": 1.957,
+     "description": "In 9/9 positions, the blunder is a knight move that attempts to improve the knight's placement rather than addressing an urgent tactical problem. In at least 7/9 positions, the knight starts from a clearly offside square (a2, a5, a6, h2, h4) and jumps toward the center or an atta"
+    },
+    {
+     "feature_id": 1173,
+     "chip": "Queen activates, leaves piece hanging",
+     "fire_rate_pct": 1.58,
+     "description": "In 10/10 positions, the blunder is a queen move to an apparently purposeful square \u2014 centralizing, attacking, or invading \u2014 that fatally neglects a defensive responsibility. In 6/10 cases (positions 1, 5, 7, 8, 9, 10), the queen was the sole defender of another piece (rook or bis"
+    },
+    {
+     "feature_id": 1340,
+     "chip": "Rook drifts, vacates key file",
+     "fire_rate_pct": 1.246,
+     "description": "In 10/10 positions, the blunder is a quiet rook move (no check, no capture, no forcing threat) that repositions the rook to a square that appears active but serves no concrete purpose. In 8/10 positions, the rook abandons a key file, rank, or defensive duty it was previously perf"
+    },
+    {
+     "feature_id": 1378,
+     "chip": "Rook vacates critical restraining square",
+     "fire_rate_pct": 1.052,
+     "description": "In 8/10 positions, the blunder specifically removes a piece from a square where it performs a critical tactical or defensive function (or captures material while leaving another piece undefended). In positions 2, 5, 8, the knight/pawn was moved away from a restraining square (c3,"
+    },
+    {
+     "feature_id": 1405,
+     "chip": "Knight vacates irreplaceable outpost square",
+     "fire_rate_pct": 1.28,
+     "description": "In 10/10 positions, the blunder is a knight move that relocates the piece from a square where it serves a critical function. In 8/10 cases, the knight departs a strong established outpost (e2, d6, f6, f5, e5, e4, b4) where it was either supporting a mating attack, blocking an ope"
+    },
+    {
+     "feature_id": 1775,
+     "chip": "Rook 'improves' past urgent duty",
+     "fire_rate_pct": 0.868,
+     "description": "In 10/10 positions, the blunder is a middlegame rook move that appears purposeful\u2014centralizing, attacking, defending, or activating\u2014but fails to address the most urgent tactical issue. In 4/10 cases (Rf4, Rg4, Rf3, Rc7), the rook lands on a square where it is immediately exploita"
+    },
+    {
+     "feature_id": 1796,
+     "chip": "Queen vacates sole defender square",
+     "fire_rate_pct": 1.429,
+     "description": "In 10/10 positions, the blunder is a queen move that relocates the queen away from a square or line where it was performing an irreplaceable defensive function. In 7/10 cases (positions 1, 2, 4, 5, 6, 7, 8), the queen was the sole defender of a specific piece or square, and movin"
+    },
+    {
+     "feature_id": 1886,
+     "chip": "Queen leaves king cover for activity",
+     "fire_rate_pct": 3.763,
+     "description": "In 10/10 positions, the blunder is a queen move that relocates the queen away from a square, piece, or king it was protecting to chase an offensive target (material, centralization, or counter-threats). In 8/10 positions, the queen specifically abandons king safety coverage\u2014eithe"
+    },
+    {
+     "feature_id": 1999,
+     "chip": "Rook leaves g-file mating post",
+     "fire_rate_pct": 1.11,
+     "description": "In 10/10 positions, the blunder is a rook move that removes the rook from a dominant attacking position \u2014 typically on the g-file (positions 1,3,4,5,8,10), the 7th rank (positions 1,6,9,10), or both \u2014 where it was the structural foundation of a mating net or decisive pressure aga"
+    }
+   ]
+  },
+  {
+   "fine_id": 28,
+   "size": 10,
+   "features": [
+    {
+     "feature_id": 229,
+     "chip": "Rook quits winning square for activity",
+     "fire_rate_pct": 2.226,
+     "description": "In 7/9 positions, the blunder is specifically a rook move that looks active (going to an open file, capturing a pawn, threatening a piece, moving to the 7th rank) but actually leaves the critical square where the tactic existed. In Position 1, the rook leaves d4 (where Rxc4 won m"
+    },
+    {
+     "feature_id": 597,
+     "chip": "Queen vacates file, king exposed",
+     "fire_rate_pct": 1.179,
+     "description": "In 9/10 positions, the queen was positioned on an open file directly between an enemy heavy piece (rook or queen) and the player's own king, serving as the sole shield/blocker on that line. The blundering move relocates the queen off this critical file, immediately enabling disco"
+    },
+    {
+     "feature_id": 657,
+     "chip": "Knight quits c2 guard duty",
+     "fire_rate_pct": 1.225,
+     "description": "In 9/10 positions, the blundering move is a knight relocation, and in 10/10 it is a minor piece voluntarily leaving a strong square for an inferior one. The critical function abandoned falls into two sub-types: in 5/10 positions (3, 4, 5, 10, and partially 2), the piece was defen"
+    },
+    {
+     "feature_id": 809,
+     "chip": "Queen leaves sole defender role",
+     "fire_rate_pct": 1.131,
+     "description": "In 7/10 positions, the blundering move directly relocates the sole defender of a critical asset\u2014a piece, a square, or a blocking function\u2014leaving that asset immediately exploitable. Positions 1 and 7 are near-identical: the queen leaves e3/e2 where it was the sole protector of a "
+    },
+    {
+     "feature_id": 1029,
+     "chip": "Queen vacates critical defensive square",
+     "fire_rate_pct": 1.122,
+     "description": "In 9/9 positions, the blundering move removes a piece from a square where it was performing an essential protective duty\u2014blocking a dangerous diagonal, contesting a key file, or restraining an opponent's forcing sequence. In 6/9 cases the move is a material capture (Bxf4, Bxg4, R"
+    },
+    {
+     "feature_id": 1099,
+     "chip": "Rook vacates critical defensive square",
+     "fire_rate_pct": 0.98,
+     "description": "7/9 positions involve rook moves or rook exchanges (Rxe4, Re1, Rxc1, Rxd1, Rxd8, Rxe8, plus the pawn moves that relate to piece protection). In 6/9 cases, the blunder is specifically a rook being traded or moved away from a square where it was guarding something critical: the d2 "
+    },
+    {
+     "feature_id": 1329,
+     "chip": "Rook quits critical defensive post",
+     "fire_rate_pct": 1.499,
+     "description": "In 10/10 positions, the blundering move involves voluntarily relocating a piece that was providing essential defensive coverage \u2014 either guarding another piece, blocking an enemy attack path, or controlling a critical square. In 4/10 cases (Rf4, Rxb4, Re8, Nc4), the moved piece w"
+    },
+    {
+     "feature_id": 1407,
+     "chip": "Knight quits dominant infiltration square",
+     "fire_rate_pct": 1.073,
+     "description": "In 9/10 positions, the blundering move involves voluntarily relocating a piece that was already optimally placed\u2014either deeply infiltrated in the opponent's camp or serving a critical positional/defensive function\u2014to a square that appears more active but actually degrades the pos"
+    },
+    {
+     "feature_id": 1431,
+     "chip": "Rook leaves critical defensive post",
+     "fire_rate_pct": 1.393,
+     "description": "In 10/10 positions, the blundering player moved a major piece (6/10 rooks, 4/10 queens) to what appeared to be an active or aggressive square\u2014doubling rooks, invading ranks, giving checks, or capturing material\u2014while that piece was currently performing an essential defensive duty"
+    },
+    {
+     "feature_id": 1717,
+     "chip": "Bishop vacates blocking square, exposes queen",
+     "fire_rate_pct": 0.904,
+     "description": "In 7/9 positions, the blundering piece was physically interposed on a critical line (file, rank, or diagonal) between an enemy attacker and a friendly high-value target. The move relocated this shield piece elsewhere, instantly exposing the target to capture. Specifically: Positi"
+    }
+   ]
+  }
+ ]
+}

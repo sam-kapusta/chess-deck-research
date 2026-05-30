@@ -1,0 +1,606 @@
+{
+ "coarse_id": 10,
+ "n_features": 88,
+ "subclusters": [
+  {
+   "fine_id": 46,
+   "size": 23,
+   "features": [
+    {
+     "feature_id": 168,
+     "chip": "Rook retreats to kingside back rank",
+     "fire_rate_pct": 1.03,
+     "description": "All 10/10 positions feature a rook moving to the player's own back rank, with 9/10 specifically going to kingside back-rank squares (f1, g1, f8, g8). In every case, the move is passive or defensive in nature\u2014either retreating from an active position or repositioning without purpo"
+    },
+    {
+     "feature_id": 202,
+     "chip": "Rook retreats block king escape",
+     "fire_rate_pct": 1.827,
+     "description": "9/10 positions involve a piece literally moving to the player's own back rank (1st rank for White, 8th rank for Black), with the remaining position (Qg2) being a deep retreat toward the back. All 10 moves are defensive/passive in nature, chosen to consolidate or protect rather th"
+    },
+    {
+     "feature_id": 569,
+     "chip": "Queen retreats to back rank",
+     "fire_rate_pct": 2.458,
+     "description": "9/10 positions involve moving the queen to e8 or e1 \u2014 the back rank on the e-file. 7/10 are Black playing Qe8 and 2/10 are White playing Qe1 (the remaining position, Ng1, is a thematically similar passive back-rank retreat). The common thread is that the queen leaves a square whe"
+    },
+    {
+     "feature_id": 632,
+     "chip": "Rook retreats to back rank passively",
+     "fire_rate_pct": 1.422,
+     "description": "All 10/10 positions feature a rook moving to the player's back rank (rank 1 for White, rank 8 for Black) on an open or semi-open file, giving the appearance of a natural developing/file-occupying move. In 7/10 cases (positions 1, 3, 4, 5, 6, 9, 10), the move directly left a piece"
+    },
+    {
+     "feature_id": 868,
+     "chip": "Bishop retreats to passive back rank",
+     "fire_rate_pct": 0.567,
+     "description": "All 10/10 positions feature a bishop moving to the player's own back rank \u2014 Be1/Bf1/Bd1 for White (rank 1) or Bd8/Bf8 for Black (rank 8). In 7/10 cases this was a genuine mistake (avg cp_loss of 2830 among the errors), while 3/10 were actually the best move (0cp loss), indicating"
+    },
+    {
+     "feature_id": 947,
+     "chip": "Rook half-lift invites tactical strike",
+     "fire_rate_pct": 18.132,
+     "description": "All 10/10 positions feature a rook moving forward along an open or semi-open file to an intermediate rank \u2014 the 3rd or 4th rank for White (Rc4, Re4, Rf3, Re3), or the 6th/7th rank for Black (Rd6, Re7). These are 'half-lifts' that stop short of full penetration. In 10/10 cases, th"
+    },
+    {
+     "feature_id": 983,
+     "chip": "Rook to back rank blocks king",
+     "fire_rate_pct": 1.462,
+     "description": "All 10/10 positions feature a rook moved to the player's own back rank (rank 1 for White, rank 8 for Black), and all 10/10 involve a critically exposed king. In 5/10 cases (positions 1, 2, 3, 7, 8), the rook move to the first rank ignores an immediate tactical threat to the playe"
+    },
+    {
+     "feature_id": 1042,
+     "chip": "Rook retreats into losing square",
+     "fire_rate_pct": 2.065,
+     "description": "All 10/10 positions feature a piece being moved to the player's own 1st or 2nd rank (ranks 1-2 for White, ranks 7-8 for Black): 6/10 retreat to the back rank (Qb1, Rh1, Bc1, Rh1, Rf1, Qg8) and 4/10 to the second rank (Re2, Rf7, Rb2, Rb7). In 9/10 cases, the retreated piece become"
+    },
+    {
+     "feature_id": 1091,
+     "chip": "Rook centralizes while king exposed",
+     "fire_rate_pct": 0.907,
+     "description": "10/10 positions feature moves played exclusively on the back rank (1st or 8th rank), with 8/10 being rook moves (Re1, Rf1, Re8, Rf8) and 2/10 being king retreats to h1. In 9/10 positions, the player's own king is explicitly exposed or vulnerable (on e2, f2, f7, e7, or weakened on"
+    },
+    {
+     "feature_id": 1180,
+     "chip": "Rook retreats to back rank",
+     "fire_rate_pct": 2.953,
+     "description": "All 10/10 positions feature a rook moving to the player's own first/eighth rank (Re1/Re8/Rf1/Rf8/Rg1/Rc8), targeting what appears to be a useful open or semi-open file. These moves look natural and positionally motivated\u2014occupying files, activating idle rooks, supporting queens\u2014b"
+    },
+    {
+     "feature_id": 1377,
+     "chip": "Retreat to home rank over urgency",
+     "fire_rate_pct": 0.853,
+     "description": "All 10/10 positions feature a piece moving backward to the player's own home territory: for Black, 7/7 moves go to the 7th rank (Nd7, Rf7, Nd7, Ne7, Re7, Bd7, Nc7), and for White, all 3 moves go to the 1st or 2nd rank (Re1, Rd2, Be2). These moves universally appear 'natural' \u2014 de"
+    },
+    {
+     "feature_id": 1395,
+     "chip": "Rook activation over forcing piece moves",
+     "fire_rate_pct": 1.252,
+     "description": "All 10/10 positions feature a rook moving to the player's back rank (1st rank for White, 8th rank for Black), typically from a corner or edge square onto an open or semi-open file. In 7/10 positions, the move is a significant mistake (avg ~4240 cp loss among errors), while 3/10 a"
+    },
+    {
+     "feature_id": 1436,
+     "chip": "Rook retreats behind passer prematurely",
+     "fire_rate_pct": 1.071,
+     "description": "7/10 positions feature the rook moving to the 1st or 8th rank, almost always behind the player's own passed pawn (Ra1 x3, Rc1, Rc1+, Ra8, Rb8). In 6/10 of these, the rook was previously placed on the 2nd or 7th rank exerting critical pressure on opponent's pawns (especially f2) o"
+    },
+    {
+     "feature_id": 1493,
+     "chip": "King retreats cede decisive tempo",
+     "fire_rate_pct": 1.123,
+     "description": "All 10 positions feature king moves in the endgame, with 8/10 being moves directly onto the back rank (rank 1 for White, rank 8 for Black), and the remaining 2 (Kf7, Kf2) also being retreating king moves toward the back rank. The consistent error is choosing a passive, defensive-"
+    },
+    {
+     "feature_id": 1501,
+     "chip": "King retreats to back rank, confined",
+     "fire_rate_pct": 1.207,
+     "description": "All 10/10 positions feature king moves to the absolute edge of the board (1st or 8th rank), with 9/10 landing exactly on rank 1 or 8 and 1/10 (Kf2) retreating toward the edge. In every case, the retreat sacrifices king activity and creates confinement: 6/10 positions explicitly c"
+    },
+    {
+     "feature_id": 1582,
+     "chip": "Rook retreats while king burns",
+     "fire_rate_pct": 1.339,
+     "description": "All 10/10 positions feature a rook moving to the player's back rank (rank 1 for White, rank 8 for Black). These moves look like reasonable 'development' or 'activation' \u2014 placing the rook on an open or semi-open file \u2014 but they are uniformly too slow or misdirected. In 7/10 posit"
+    },
+    {
+     "feature_id": 1612,
+     "chip": "Rook retreats abandon critical defense",
+     "fire_rate_pct": 1.283,
+     "description": "9/10 positions involve a piece being moved to the player's own back rank (1st rank for White, 8th rank for Black): Rd1, Re1, Bc1, Rc1, Nd1 for White; Rg8, Rd8, Rfe8, Ne8 for Black. The sole outlier is Rh5, which is still a passive repositioning that ignores critical threats. In 8"
+    },
+    {
+     "feature_id": 1670,
+     "chip": "Knight retreats to back rank",
+     "fire_rate_pct": 1.219,
+     "description": "All 10/10 positions feature a piece retreating to the player's back rank (1st or 8th rank) when the position demanded immediate active play. 7/10 are knight retreats (Nd8, Nc8, Nf8, Ne8, Ne1), 2/10 are queen retreats to d8, and 1/10 is a bishop retreat to e1. In every case, the r"
+    },
+    {
+     "feature_id": 1721,
+     "chip": "Rook retreats to back rank passively",
+     "fire_rate_pct": 3.429,
+     "description": "All 10/10 positions feature a rook moving to rank 1 or rank 8 (the back ranks). In 7/10 cases, the rook abandons a critical active role: blockading a passed pawn (position 3), pressuring the 2nd/7th rank (positions 2, 9), controlling a key file (positions 4, 7), or threatening pr"
+    },
+    {
+     "feature_id": 1733,
+     "chip": "Queen retreats to back rank",
+     "fire_rate_pct": 1.295,
+     "description": "10/10 positions feature a piece moving backward to the player's back rank (1st or 8th rank): Queens retreat to g8, d8, d1 (5/10); Bishops retreat to d1, c1, d8 (3/10); Rooks move to e1, f8, c1 (2/10). In every case, the position demanded urgent action \u2014 defending against mating t"
+    },
+    {
+     "feature_id": 1797,
+     "chip": "Queen to e2/e7 dodges crisis",
+     "fire_rate_pct": 1.344,
+     "description": "7/10 positions feature a piece moving specifically to e2 (White) or e7 (Black), with the remaining 3 going to adjacent back-rank squares (Bd2, Bd7, Rae8). All 10 moves are quiet, non-forcing piece repositions to the player's second rank or back rank. In every case, the position c"
+    },
+    {
+     "feature_id": 1933,
+     "chip": "King retreats cede winning initiative",
+     "fire_rate_pct": 2.252,
+     "description": "All 10/10 positions feature a king move retreating toward the player's home ranks (ranks 1-2 for White, ranks 7-8 for Black). The White moves (Ke2\u00d73, Kf1\u00d71) all retreat from rank 3 or 2 toward ranks 1-2, while the Black moves (Kf8, Kf7, Ke7, Ke8\u00d73) all retreat toward ranks 7-8. I"
+    },
+    {
+     "feature_id": 1973,
+     "chip": "Rook retreats to back rank passively",
+     "fire_rate_pct": 1.165,
+     "description": "All 10/10 positions feature a rook moving to the back rank (1st or 8th rank), choosing a passive or defensive posture over active alternatives. The destinations (h1, g1, g8, f8, h1, a8, a1, c1, d8, b1) are uniformly on rank 1 or rank 8. In 10/10 cases, the move prioritizes defend"
+    }
+   ]
+  },
+  {
+   "fine_id": 164,
+   "size": 9,
+   "features": [
+    {
+     "feature_id": 144,
+     "chip": "King escorts pawn, strands itself",
+     "fire_rate_pct": 1.264,
+     "description": "10/10 positions feature king moves in endgames with advanced passed pawns (typically 1-2 squares from promotion). In 9/10 cases, the king moves directly toward the passed pawn with the intent of escorting it to promotion. The common error is that this 'natural' approach is subopt"
+    },
+    {
+     "feature_id": 415,
+     "chip": "Pawn promoted before deflecting defender",
+     "fire_rate_pct": 0.852,
+     "description": "All 10/10 positions involve advancing or promoting a passed pawn in the endgame \u2014 the moves are f7, c8=Q, h2, e3, c2, c3, g1=Q, g7, c1=Q, and d8=Q. Of these, 6/10 involve promotions (4 to queen on the move itself, 2 pushing to the 7th/2nd rank one step from promotion). When these"
+    },
+    {
+     "feature_id": 624,
+     "chip": "Passed pawn push wins race",
+     "fire_rate_pct": 0.643,
+     "description": "All 10/10 positions are pawn endgames (or near-pawn endgames) where the move played advances a passed pawn closer to promotion. Specifically, 6/10 push the pawn to the 7th rank (from the moving side's perspective: d7, h7, c7, b2, h2, a7), while the remaining 4 push to the 5th or "
+    },
+    {
+     "feature_id": 981,
+     "chip": "7th-rank pawn promotes too early",
+     "fire_rate_pct": 0.328,
+     "description": "All 10/10 positions feature a pawn on the 7th rank (or 2nd for Black) promoting directly to a queen in a pure king-and-pawn endgame where the promoting side has an overwhelming advantage (+700 or forced mate). The feature fires almost exclusively on correct or near-correct moves:"
+    },
+    {
+     "feature_id": 1146,
+     "chip": "Pawn push over decisive piece move",
+     "fire_rate_pct": 1.178,
+     "description": "All 10/10 positions feature the player making a pawn advance when a superior piece move was available. Specifically, 8/10 involve pushing a passed pawn toward promotion (a7, h7, e6, a2, d6, e5, c2, a4), 1/10 is an actual promotion (e8=Q+), and 1/10 is a prophylactic pawn move (a3"
+    },
+    {
+     "feature_id": 1392,
+     "chip": "Premature pawn push surrenders promotion tempo",
+     "fire_rate_pct": 0.77,
+     "description": "All 10/10 positions feature a pawn being pushed to the 7th rank (from the promoting side's perspective: rank 2 for Black, rank 7 for White), placing it one square from queening. In 9/10 cases this is a significant error (avg cp_loss 2241), and 10/10 are rook endgames with advance"
+    },
+    {
+     "feature_id": 1480,
+     "chip": "Near-promo pawn push skips forcing check",
+     "fire_rate_pct": 0.675,
+     "description": "All 10/10 positions feature a passed pawn being advanced toward the promotion square, with 9/10 moves landing on the 2nd or 7th rank (c2, b2, a2, f2, e2, b2, b7, d7, b6). In 8/10 positions this occurs during endgames where the side to move holds a dominant material advantage (typ"
+    },
+    {
+     "feature_id": 1890,
+     "chip": "Pawn advances to 7th unstoppable",
+     "fire_rate_pct": 1.511,
+     "description": "All 10/10 positions involve pushing a passed pawn to the 7th rank (from the promoting side's perspective) \u2014 the 7th rank for White (h7, a7, a7, c7, a7) and the 2nd rank for Black (f2, a2, a2, h2, d2). Every position is an endgame (10/10) where the pawn is already far advanced and"
+    },
+    {
+     "feature_id": 1964,
+     "chip": "Premature or wrong pawn promotion",
+     "fire_rate_pct": 1.276,
+     "description": "8/10 positions involve a pawn on the 7th/2nd rank or an actual promotion move (d8=Q, g1=Q, g8=B+, a8=Q are direct promotions; f7 and b2 advance to the penultimate rank; a5 and b4 are aggressive pawn advances). 6/10 positions feature an actual pawn promotion as the move played. 4/"
+    }
+   ]
+  },
+  {
+   "fine_id": 173,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 53,
+     "chip": "Passed pawn push skips urgent prep",
+     "fire_rate_pct": 1.029,
+     "description": "All 10/10 positions feature the exact same move type: a passed pawn being pushed one square closer to its promotion square. The pawns advanced include c4\u2192c3 (2x), b3\u2192b2 (3x), g4\u2192g3, a3\u2192a2, g3\u2192g2, d6\u2192d7, and a5\u2192a6. In every case, the advance was premature because a preparatory mov"
+    },
+    {
+     "feature_id": 503,
+     "chip": "King steps, pawn promotes with check",
+     "fire_rate_pct": 1.826,
+     "description": "9/10 positions feature king moves (the exception being c4, which still mishandles a passed pawn situation). All 10 positions contain at least one passed pawn within 1-2 squares of promotion. In 7/10 cases, the correct approach was to use a piece (bishop in 5 cases, rook in 2) rat"
+    },
+    {
+     "feature_id": 594,
+     "chip": "Passed pawn push, bishop guards promotion",
+     "fire_rate_pct": 0.747,
+     "description": "8/10 positions involve pushing a passed pawn to the penultimate rank (7th for White, 2nd for Black) or promoting it suboptimally. In all 8 pawn-advance cases, an opponent's bishop already controls or can trivially reach the promotion square, making the advance futile: Position 2 "
+    },
+    {
+     "feature_id": 958,
+     "chip": "King blocks own pawn's promotion",
+     "fire_rate_pct": 0.7,
+     "description": "In 10/10 positions, the king moves directly onto the promotion square (or next advance square) of its own passed pawn. Specifically: Positions 1&2 have Kg8 blocking a g7 pawn, Positions 3&4 have Kf1 blocking an f2 pawn, Position 5 has Kf8 blocking an f7 pawn, Positions 6&10 have "
+    },
+    {
+     "feature_id": 1200,
+     "chip": "Rook leaves promotion square unguarded",
+     "fire_rate_pct": 1.155,
+     "description": "In 9/10 positions, a rook moves to attack, blockade, or seemingly improve its position, but the move fatally neglects the most urgent threat. 8/10 positions feature dangerous passed pawns where the rook's repositioning either leaves the promotion square unguarded (positions 3, 10"
+    },
+    {
+     "feature_id": 1344,
+     "chip": "Rook misses pawn promotion path",
+     "fire_rate_pct": 1.119,
+     "description": "8/10 positions feature a dangerous passed pawn within 1-2 moves of promotion, and in each case the player makes a move that appears to address the promotion threat but actually fails. The defensive failures take several forms: placing a piece on a square that doesn't actually cov"
+    },
+    {
+     "feature_id": 1779,
+     "chip": "Rook quits passed pawn blockade",
+     "fire_rate_pct": 1.634,
+     "description": "All 10/10 positions feature an advanced passed pawn (typically on the 6th or 7th rank) that is being blockaded or restrained by the moving piece. In 4/10 positions (1, 2, 3, 8), the piece physically abandons the blockade square, allowing the pawn to advance or promote. In 5/10 po"
+    },
+    {
+     "feature_id": 1919,
+     "chip": "Promotes into guarded knight square",
+     "fire_rate_pct": 1.328,
+     "description": "5/10 positions involve promoting a passed pawn into a square directly guarded by an enemy knight, which immediately captures the new queen (positions 2, 3, 5, 6, 7). In every single promotion case, the capturing piece is specifically a knight positioned one jump away from the pro"
+    }
+   ]
+  },
+  {
+   "fine_id": 141,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 66,
+     "chip": "Rook to queen's file, instantly lost",
+     "fire_rate_pct": 0.802,
+     "description": "In 10/10 positions, a rook is developed to an open file where the opponent's queen is already positioned on that same file, creating an immediate tactical vulnerability. The opponent's queen can simply capture the rook, and the player either cannot recapture due to back-rank mate"
+    },
+    {
+     "feature_id": 181,
+     "chip": "Bishop retreats to 2nd rank mid-crisis",
+     "fire_rate_pct": 1.581,
+     "description": "All 10/10 positions feature a minor piece (bishop or knight) being developed to the player's second rank (e7/d7 for Black, e2/d2 for White) during the opening phase. In every case, the position contained an urgent tactical requirement\u2014unresolved central tension (2/10), hanging pi"
+    },
+    {
+     "feature_id": 441,
+     "chip": "Doubling rooks over concrete tactics",
+     "fire_rate_pct": 1.0,
+     "description": "All 10/10 positions feature the player bringing their second rook to join the first on an open file \u2014 a textbook positional idea of doubling heavy pieces. However, in every case, a concrete tactical opportunity existed that demanded immediate action: 5/10 positions had a hanging "
+    },
+    {
+     "feature_id": 579,
+     "chip": "Flank pawn push ignores concrete action",
+     "fire_rate_pct": 1.053,
+     "description": "All 10/10 positions feature a non-capturing, non-checking single-step pawn advance, with 8/10 pushing to the 5th rank and 2/10 to the 4th rank. In every case, the player chose a committal, irreversible pawn push pursuing a speculative strategic plan (creating a passer, opening a "
+    },
+    {
+     "feature_id": 1283,
+     "chip": "King vacates rook-guarding rank/file",
+     "fire_rate_pct": 0.878,
+     "description": "9/10 positions feature a king that was performing a hidden blocking function on a rank or file, preventing an enemy rook from exploiting that line. In 6/10 positions (2, 4, 7, 8, 9, 10), the king move directly allowed an enemy rook to capture the player's own rook \u2014 the king had "
+    },
+    {
+     "feature_id": 1462,
+     "chip": "Knight retreats d2/e2, drops guard",
+     "fire_rate_pct": 0.877,
+     "description": "9/10 positions feature a knight moving to the player's second rank (d2 or e2 for White, d7 for Black), with 1/10 being a queen moving to e2 into a knight's capture range. The tactical consequences fall into clear sub-groups: 4/10 positions (1, 4, 6, 9) involve the knight on d7 bl"
+    },
+    {
+     "feature_id": 1646,
+     "chip": "Knight to e7 blocks own pieces",
+     "fire_rate_pct": 8.327,
+     "description": "9/10 positions feature a knight being developed to the player's second rank (e7 for Black in 6 positions, e2 for White in 3 positions, d7 in 1 position), with 1/10 being a queen move to e7 that blocks the knight from reaching that square. In 7/10 positions, the piece on the secon"
+    },
+    {
+     "feature_id": 1706,
+     "chip": "Rook leaves 7th rank battery",
+     "fire_rate_pct": 0.9,
+     "description": "In 8/10 positions, the player had two rooks powerfully doubled on the 7th rank (or 2nd rank for Black), creating overwhelming mating threats or positional domination against a trapped king. The mistake was sliding one rook laterally to a different file (or off the rank entirely) "
+    }
+   ]
+  },
+  {
+   "fine_id": 180,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 52,
+     "chip": "Rook to second rank loses tempo",
+     "fire_rate_pct": 0.564,
+     "description": "All 9/9 positions feature a rook moving to the player's own second rank (2nd rank for White, 7th rank for Black): Rh2, Re2, Rh2, Re2, Rc7, Re2, Rb2, Ra7, Rd2. In every case, the rook move is a non-forcing, non-capturing 'building' move \u2014 typically intended to double rooks, suppor"
+    },
+    {
+     "feature_id": 1170,
+     "chip": "Rook activity over forcing continuation",
+     "fire_rate_pct": 1.233,
+     "description": "All 10/10 positions feature a rook move that is non-capturing and non-checking, chosen for its apparent 'activity' (open file control, rank penetration) over a concrete forcing alternative. In 7/10 cases, the rook moves to the 7th rank or the opponent's 2nd rank (Re7 x4, Rh7, Ra2"
+    },
+    {
+     "feature_id": 1544,
+     "chip": "Rook retreats to second rank passively",
+     "fire_rate_pct": 0.955,
+     "description": "10/10 positions feature rook moves, and 9/10 specifically move a rook to the player's own second rank (f2, b2, e2, g2 for White; d7, f7, g7 for Black). The one exception (R6g3) still shares the defensive intent. In every case, the move attempts to shore up defenses passively\u2014bloc"
+    },
+    {
+     "feature_id": 1741,
+     "chip": "Rook invades 7th, drops defense",
+     "fire_rate_pct": 2.15,
+     "description": "9/10 positions feature a rook moving to the 7th rank from the player's perspective (Rg7, Rc7, Rd7, Rf7, Re7 for White; Re2, Rb2, Rc2 for Black), with 1/10 (Re6) being a closely related aggressive rook incursion to the 6th rank. In every case, the rook move looks strategically att"
+    },
+    {
+     "feature_id": 1833,
+     "chip": "Rook to 7th over forcing move",
+     "fire_rate_pct": 1.119,
+     "description": "All 10/10 positions feature a rook moving to the 7th rank from the mover's perspective (2nd rank for Black's Ra2/Rb2/Rd2/Rxa2/Re2, 7th rank for White's Rc7/Rd7/Rh7). In every case, the rook move appears 'active' \u2014 targeting pawns, invading the opponent's position \u2014 but is actuall"
+    },
+    {
+     "feature_id": 1958,
+     "chip": "Rook invades early, abandons defense",
+     "fire_rate_pct": 0.751,
+     "description": "9/10 positions feature rook moves (the exception being Nd2, which follows identical logic of abandoning a key post for aggression). In 8/10 cases, the rook moves specifically to a deep rank\u20147th rank (Re7, Rc7), 8th rank (Rh8, Rc8, Ra8), 6th rank (Rc6), or deep into the opponent's"
+    }
+   ]
+  },
+  {
+   "fine_id": 185,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 198,
+     "chip": "Rook to 7th abandons defense",
+     "fire_rate_pct": 1.338,
+     "description": "8/10 positions feature a rook moving specifically to the 7th rank (or 2nd rank for Black), and 5/10 involve doubling rooks on that rank (Rgg7, Rgg2, Ree7, Rdd7, Rgg2 \u2014 all disambiguated notation indicating a second rook joining the first). The remaining moves (Rg6, Re5, Rd2) are "
+    },
+    {
+     "feature_id": 972,
+     "chip": "Doubling rooks misses forcing strike",
+     "fire_rate_pct": 1.117,
+     "description": "All 10/10 positions feature a rook being moved to join the other rook on the same file or rank (doubling rooks), when the position demanded an immediate forcing move instead. The disambiguated notation confirms this pattern: Rcc6 (doubling on 6th rank), Reg8 (doubling on g-file),"
+    },
+    {
+     "feature_id": 1072,
+     "chip": "Rook doubles, abandons defensive post",
+     "fire_rate_pct": 0.937,
+     "description": "All 10/10 positions feature a rook move that doubles rooks on a rank or file \u2014 the disambiguating notation (Rcc2, Rbb7, Ree7, etc.) confirms a second rook already occupies the target rank. In 7/10 positions the doubling targets the 7th rank (from White's perspective) or 2nd rank "
+    },
+    {
+     "feature_id": 1443,
+     "chip": "Rook doubling surrenders forcing tempo",
+     "fire_rate_pct": 1.099,
+     "description": "All 10/10 positions feature the player moving their second rook to a file already occupied by their first rook (doubling rooks), when a more forcing concrete action was available. In 6/10 cases, there was an immediate capture or sacrifice available (Rxc2, Rxa3, Bxd3, Bxg2, Rxh7, "
+    },
+    {
+     "feature_id": 1850,
+     "chip": "Rook doubles, abandons defensive post",
+     "fire_rate_pct": 1.198,
+     "description": "All 10/10 positions show exactly the same structural move: the player already has one rook on a key rank or file and commits the second rook to join it, attempting to 'double rooks.' In 8/10 cases, this is doubling on the 2nd/7th rank (Rcc2 \u00d74, Rcc7, Rdd2, Rdd7, Rff7), while 2/10"
+    },
+    {
+     "feature_id": 1878,
+     "chip": "Rook restructures while forcing move exists",
+     "fire_rate_pct": 2.742,
+     "description": "All 10/10 positions feature a rook move that appears natural and constructive \u2014 doubling on a file, defending a rank, or centralizing \u2014 but fatally squanders tempo when a forcing continuation was available. In 4/10 cases the move doubled rooks on a file (R1e2, R1d2, R1e5, Rbc1), "
+    }
+   ]
+  },
+  {
+   "fine_id": 136,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 218,
+     "chip": "Queen infiltrates instead of forcing win",
+     "fire_rate_pct": 1.371,
+     "description": "10/10 positions feature a Queen or Rook making an aggressive move, typically infiltrating to the 7th rank or deep into the opponent's position. 8/10 moves land on the 7th rank (or its equivalent 2nd rank for Black): Qf7, Qe7, Ra7, Qd7+, Qxc7 for White, and Qd2, Rd2 for Black. 7/1"
+    },
+    {
+     "feature_id": 351,
+     "chip": "Rook invades back rank prematurely",
+     "fire_rate_pct": 0.92,
+     "description": "All 10/10 positions feature a queen or rook being sent directly to the opponent's back rank (1st or 8th rank), creating the appearance of an aggressive invasion or back-rank attack. In 6/10 cases a rook makes the move (Rb8, Re8, Re1, Rd8+, Rd1, Rc8) and in 4/10 a queen does (Qe1,"
+    },
+    {
+     "feature_id": 861,
+     "chip": "Queen sorties to h4/h5 punished",
+     "fire_rate_pct": 1.11,
+     "description": "8/10 positions feature queen moves specifically to h4 or h5, with the remaining 2 being conceptually identical wing-piece sorties (Qb4 and Ra5). All 10 moves target superficial tactical threats \u2014 f2/f7 attacks, g2 grabs, or kingside pressure \u2014 that are neutralized in one move by "
+    },
+    {
+     "feature_id": 919,
+     "chip": "Queen 'attacks' while mate waits",
+     "fire_rate_pct": 1.221,
+     "description": "9/10 positions feature a non-forcing heavy piece move (Queen or Rook) to an attacking-looking square when a direct tactical blow would have been dramatically stronger. 4/10 moves land on the 7th rank (Rfh7, Rg7, Qh7, Rb7), 4/10 move to kingside pressure squares (Qh5 x2, Qg2 x2), "
+    },
+    {
+     "feature_id": 1020,
+     "chip": "Knight lunges to f7, captured instantly",
+     "fire_rate_pct": 1.133,
+     "description": "10/10 positions feature moves that aggressively target a specific enemy piece or the king. 7/10 specifically attack heavy pieces (rooks or queens), with Qb8, Qf8, Qe1, Ra8 targeting back-rank pieces, and Nf7 (twice) and Nh7 attempting deep knight infiltrations toward rooks. 4/10 "
+    },
+    {
+     "feature_id": 1432,
+     "chip": "Rook activation over queen checkmate",
+     "fire_rate_pct": 1.524,
+     "description": "All 10/10 positions feature rook moves to open files or ranks. In 9/10 cases, the rook move directly targets or confronts the opponent's queen along that line (Re1 attacking Qe2/Qe4, Rf1 attacking Qf2, Rh1 attacking Qh2, Rf8 attacking Qf5/Qf7, Re8 challenging Qe7, Rd5 attacking Q"
+    }
+   ]
+  },
+  {
+   "fine_id": 168,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 67,
+     "chip": "Rook to rank over instant promotion",
+     "fire_rate_pct": 1.149,
+     "description": "9/10 positions feature an advanced passed pawn on the 2nd or 7th rank (one square from promotion). 9/10 moves are rook moves, with 5/10 being literally 'Rb1' and 7/10 placing the rook on the promotion rank (1st rank for Black, 8th for White). The mechanism is remarkably consisten"
+    },
+    {
+     "feature_id": 129,
+     "chip": "Rook behind pawn delays promotion",
+     "fire_rate_pct": 0.963,
+     "description": "10/10 positions feature rook moves in positions with advanced passed pawns (typically 1-2 squares from promotion). 6/10 moves specifically go to the first rank (Re1 or Rb1), and 7/10 are played by Black with a pawn on a2, c2, or f2. The feature captures a recognizable endgame pat"
+    },
+    {
+     "feature_id": 422,
+     "chip": "Rook retreats to back rank, exposes king",
+     "fire_rate_pct": 0.923,
+     "description": "7/10 positions feature rook moves to the back rank (Rh1 appears in 5/10, plus Rb1, Rd1+, and Rh8+). The remaining moves go to penultimate ranks (a7, a2, Bf7). Among the 7 positions that are actual mistakes (cp_loss > 0), all involve a piece moving to the 1st or 8th rank while the"
+    },
+    {
+     "feature_id": 777,
+     "chip": "Rook blocks own promotion path",
+     "fire_rate_pct": 0.667,
+     "description": "All 10/10 positions involve placing a piece on the 1st/8th rank on the exact file of an enemy passed pawn that is 1-2 squares from promotion. 8/10 are rook moves (Rc8, Rb8, Rd8, Rd8, Rg8, Rc1, Rc1, Rh8) and 2/10 are king moves (Ke1, Ka1) to the back rank. In every case, an oppone"
+    },
+    {
+     "feature_id": 1853,
+     "chip": "King retreats to back rank",
+     "fire_rate_pct": 1.367,
+     "description": "8/10 moves are king moves directly to the 1st or 8th rank (Kd8, Kg8, Kg1, Ke8, Kd1, Ke1, Kf1, and Kg2 to the 2nd rank). 1/10 is a queen retreat to the 8th rank (Qc8). The outlier is f3, a passive pawn move. 9/10 positions feature evaluations of approximately \u00b1500cp or more, indic"
+    }
+   ]
+  },
+  {
+   "fine_id": 109,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 127,
+     "chip": "Wrong rook vacates critical post",
+     "fire_rate_pct": 1.019,
+     "description": "9/10 positions feature disambiguated rook moves (Rff2, Rgf4, Ree3, Rfg5, Red2, Rde5, Rdh7, Rhg6, Ree7), meaning two rooks could reach the destination and the player chose the WRONG one. In every case, the moved rook was performing a vital function on its original square: guarding"
+    },
+    {
+     "feature_id": 391,
+     "chip": "Rook quits critical file laterally",
+     "fire_rate_pct": 1.638,
+     "description": "All 10/10 positions feature a rook being redeployed laterally from a central or semi-central file (d, e, or f) to a wing file (g or b, occasionally c). The notation consistently uses disambiguation (Reg8, Rfb1, Rdg1, etc.), confirming the player had two rooks and chose to redeplo"
+    },
+    {
+     "feature_id": 832,
+     "chip": "Wrong rook check abandons file",
+     "fire_rate_pct": 1.115,
+     "description": "All 10/10 positions feature a rook delivering check with notation disambiguation (Rh, Rb, R7, R2, R6, Re, Ra), meaning the player had two rooks that could potentially reach the check square and had to choose which one to move. In 5/10 positions (4, 5, 8, 3, 10), this choice was a"
+    },
+    {
+     "feature_id": 901,
+     "chip": "Rook leaves critical file duty",
+     "fire_rate_pct": 2.069,
+     "description": "In 9/10 positions, a rook is moved laterally from one open file to another (the remaining case is a queen retreat with similar logic). The disambiguation notation (Rdc8, Rcd1, Ref1, etc.) reveals the player had two rooks and chose to move the one serving a critical duty. In 7/10 "
+    },
+    {
+     "feature_id": 1380,
+     "chip": "Wrong knight vacates critical square",
+     "fire_rate_pct": 2.304,
+     "description": "8/9 positions feature disambiguated knight moves (Nfd2, Nce7, Nce7, Nge2, Ndf3, Nbc3, Nbd7, Nbd2), where the notation itself reveals two knights competed for attention. In 3/9 positions (1, 2, 6), the best move was literally the SAME destination square but with the OTHER knight ("
+    }
+   ]
+  },
+  {
+   "fine_id": 64,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 529,
+     "chip": "Rook captures enable pawn promotion",
+     "fire_rate_pct": 0.637,
+     "description": "All 10/10 positions share an identical geometric pattern: the player captures a piece sitting on the promotion square (8th/1st rank) of an enemy passed pawn that is one square from queening. In every case, the enemy pawn recaptures on that square and promotes simultaneously (e.g."
+    },
+    {
+     "feature_id": 1119,
+     "chip": "Rook blocks pawn, misses attack",
+     "fire_rate_pct": 0.852,
+     "description": "In 10/10 positions, the player moved a rook to the 1st or 8th rank specifically to address a dangerous passed pawn within 1-2 squares of promotion. The rook was placed directly in front of, or onto, the promotion square to physically stop queening. In 7/10 cases, the position fea"
+    },
+    {
+     "feature_id": 1533,
+     "chip": "Penultimate-rank pawn ignores mating attack",
+     "fire_rate_pct": 0.991,
+     "description": "All 10/10 positions feature a pawn capture that lands on the penultimate rank (7th rank for White, 2nd rank for Black), placing the pawn one square from promotion. In every case, the player's intent was to create an unstoppable queening threat, but the promotion is too slow or ea"
+    },
+    {
+     "feature_id": 1641,
+     "chip": "7th-rank push ignores mating attack",
+     "fire_rate_pct": 0.964,
+     "description": "10/10 positions feature a pawn being moved or captured onto the 7th rank (from the moving side's perspective), creating an immediate promotion threat. In 9/10 positions, this constitutes a serious blunder (avg cp_loss ~3952 excluding the non-blunder) because the player prioritize"
+    },
+    {
+     "feature_id": 1865,
+     "chip": "Promotes without neutralizing defender first",
+     "fire_rate_pct": 1.219,
+     "description": "All 10/10 positions involve either a direct pawn promotion (6/10: dxe8=R+, g8=Q+ \u00d72, d8=Q, b8=Q, g1=Q) or a pawn advance to the penultimate rank threatening promotion (4/10: h7, a3, c2, h2+). The mistakes (8/10 with cp_loss > 0, avg ~1500cp for those) share a common tactical fail"
+    }
+   ]
+  },
+  {
+   "fine_id": 190,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 793,
+     "chip": "Pawn capture opens fatal line",
+     "fire_rate_pct": 0.935,
+     "description": "All 10 positions feature pawn captures (always pxp) that create what appears to be a dangerous advanced pawn, typically 1-2 squares from promotion. In 8/10 cases (cxb2, cxb2, gxh7, fxg2, hxg6, hxg6, gxh7, dxc7), the resulting pawn lands on the 2nd or 7th rank threatening immediat"
+    },
+    {
+     "feature_id": 1712,
+     "chip": "King captures advancing passed pawn",
+     "fire_rate_pct": 1.123,
+     "description": "10/10 positions involve capturing a pawn, and in 9/10 cases the captured pawn is an advanced passed pawn (often on the 7th rank, one square from promotion). 8/10 captures are made by the king itself. 9/10 positions are endgames with heavily simplified material. The average cp_los"
+    },
+    {
+     "feature_id": 1874,
+     "chip": "Rook grabs pawn, promotion costs",
+     "fire_rate_pct": 1.272,
+     "description": "All 10/10 positions feature captures that grab material at the expense of a more critical need. 9/10 positions prominently feature advanced passed pawns (6th-7th rank) creating imminent promotion threats. In 7/10 cases, rooks capture pawns; the remaining involve a bishop, queen, "
+    },
+    {
+     "feature_id": 1879,
+     "chip": "flank pawn leap ignores punishment",
+     "fire_rate_pct": 0.996,
+     "description": "All 10/10 positions feature a pawn making its initial two-square advance (from the 2nd/7th rank to the 4th/5th rank). The specific punishments fall into three sub-categories: 4/10 positions (2, 3, 5, 9) enable a devastating en passant capture that creates an unstoppable passed pa"
+    },
+    {
+     "feature_id": 1893,
+     "chip": "Pawn push enables en passant fork",
+     "fire_rate_pct": 1.68,
+     "description": "All 10/10 positions feature a pawn advancing two squares from its starting rank, allowing the opponent to execute a crushing en passant capture. In 8/10 cases, the en passant capture creates a dangerous advanced passed pawn (positions 1, 2, 4, 6, 7, 8, 9, 10). In 2/10 cases, the "
+    }
+   ]
+  },
+  {
+   "fine_id": 171,
+   "size": 2,
+   "features": [
+    {
+     "feature_id": 404,
+     "chip": "Passed pawn advances prematurely to 7th",
+     "fire_rate_pct": 1.097,
+     "description": "All 10/10 positions feature the identical move type: pushing a passed pawn to the 7th rank (for White: a7, d7, h7, c7) or 2nd rank (for Black: b2, d2). In 8/10 cases this was a significant mistake (avg cp_loss 280 for the 8 errors), while 2/10 (positions 1 and 4) were actually co"
+    },
+    {
+     "feature_id": 1453,
+     "chip": "7th-rank push before king escort",
+     "fire_rate_pct": 0.804,
+     "description": "All 10/10 positions feature the exact same structural error: pushing a passed pawn to the 7th rank (White) or 2nd rank (Black) \u2014 the square immediately before promotion \u2014 prematurely. For White, the moves were c7, e7, h7, a7, d7; for Black, f2, b2, e2, d2, d2. In every case, the "
+    }
+   ]
+  }
+ ]
+}

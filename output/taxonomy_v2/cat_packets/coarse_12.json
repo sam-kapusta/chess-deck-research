@@ -1,0 +1,1164 @@
+{
+ "coarse_id": 12,
+ "n_features": 178,
+ "subclusters": [
+  {
+   "fine_id": 55,
+   "size": 28,
+   "features": [
+    {
+     "feature_id": 173,
+     "chip": "Rook grabs pawn, lands attacked",
+     "fire_rate_pct": 1.099,
+     "description": "7/10 positions involve directly capturing a pawn (Nxe4, Rxe4, Rxe5, Rxd5, Rxd3, Rxd5, and Rhf7 doubling on a pawn), with 5/10 specifically being rook captures on the d- or e-file. In each case, the capturing piece lands on a square where it immediately becomes a tactical target: "
+    },
+    {
+     "feature_id": 190,
+     "chip": "Rook lands on captured square",
+     "fire_rate_pct": 1.022,
+     "description": "In 6/10 positions (2, 3, 4, 5, 8, 10), the piece that moved is directly captured on the exact square it landed on \u2014 Qa1 taken by Rxa1, Bxh6 by Kxh6, Re3 by Nxe3, Rxh6 by gxh6 (after intermediate check), Rg1 by Bxg1+, and Bf4 by Bxf4+. In 4 of those 6, the capture comes WITH CHECK"
+    },
+    {
+     "feature_id": 232,
+     "chip": "Knight steps onto bishop diagonal",
+     "fire_rate_pct": 1.539,
+     "description": "9/10 positions show the identical tactical pattern: a knight relocates to a square directly attacked by an enemy bishop along its diagonal, where it can be captured for free. In Position 1, Ne3 lands on the g1 bishop's diagonal; in Position 2, Na4+ lands on the c2 bishop's diagon"
+    },
+    {
+     "feature_id": 249,
+     "chip": "Bishop walks onto attacked square",
+     "fire_rate_pct": 1.291,
+     "description": "All 10/10 positions feature a bishop being repositioned to what appears to be an active, developing, or pressuring square \u2014 but the square is tactically compromised. In 7/10 cases, the bishop lands on a square where it can be directly captured or trapped with structural/material "
+    },
+    {
+     "feature_id": 405,
+     "chip": "Queen repos into tempo-losing attack",
+     "fire_rate_pct": 4.734,
+     "description": "All 10/10 positions feature queen repositioning moves (no checks, no captures) to squares that appear logical on general principles\u2014centralization, file control, or attacking ambitions\u2014but are immediately punishable through concrete tactics. In 4/10 positions (1, 6, 8, 9), the qu"
+    },
+    {
+     "feature_id": 463,
+     "chip": "Queen to e7/e2 invites fork",
+     "fire_rate_pct": 1.19,
+     "description": "7/10 positions involve a piece moving to the e2 or e7 square, with 6/10 being specifically queen moves (Qe2 three times, Qe7 three times) and one being Ne7 that blocks the queen from reaching its best square. In all queen-to-e2 cases (Positions 2, 3, 4), the punishment involves a"
+    },
+    {
+     "feature_id": 557,
+     "chip": "Bishop retreats into knight capture",
+     "fire_rate_pct": 1.147,
+     "description": "In 10/10 positions, a bishop on the 4th or 5th rank (f4, c4, f5, or c5) is attacked by a knight on the adjacent h-file or a-file (h5, h4, a5, a4), and the player retreats the bishop exactly one diagonal square toward their own back rank to g3/b3/g6/b6. In 8/10 positions, the knig"
+    },
+    {
+     "feature_id": 646,
+     "chip": "Rook grabs pawn, hangs immediately",
+     "fire_rate_pct": 1.16,
+     "description": "8/10 positions feature a rook capturing a pawn (Rxa4, Rxd4, Rxh7, Rxe5, Rxa4, Rxb7, Rxd5, Rxh5), and in all 8 cases the rook moves to an undefended square where it is immediately won through a tactical reply exploiting the king's position. The mechanism is remarkably consistent: "
+    },
+    {
+     "feature_id": 678,
+     "chip": "Knight hops to undefended square",
+     "fire_rate_pct": 6.768,
+     "description": "All 10 positions feature a knight being relocated to a tactically vulnerable square. In 8/10 cases, the knight lands on a completely undefended square where it is immediately captured for free (Nd4 taken by bishop, Na6 taken by bishop, Ne2 taken after deflection, Nh6 taken by bis"
+    },
+    {
+     "feature_id": 757,
+     "chip": "Bishop repos to attacked square",
+     "fire_rate_pct": 3.124,
+     "description": "All 10/10 positions feature a bishop repositioning move that places the piece on an exposed square, resulting in immediate punishment. In 4/10 cases (Bc6, Bf6, Be4, Bf5), the bishop lands on an undefended square where it can be directly captured or its target moves away with temp"
+    },
+    {
+     "feature_id": 978,
+     "chip": "Knight lands on attacked square",
+     "fire_rate_pct": 0.806,
+     "description": "In 7/10 positions, the moved piece lands on a square directly controlled by an opponent's piece and is immediately captured or attacked with decisive tempo (Nc5 taken by Rxc5, Bd6 by Bxd6, Qd2 by Nxd2+, Bc2 by Bxc2, Qe7 targeted by Nd5, Nf7 taken by Qxf7, Bh6 vacates f8 enabling "
+    },
+    {
+     "feature_id": 1059,
+     "chip": "Queen moves into one-move capture",
+     "fire_rate_pct": 0.973,
+     "description": "In 5/10 positions, the moved piece is literally captured on its destination square on the very next move (Re3 by fxe3, Qe4 by dxe4, Rb3 by Qxb3, Qa1 by Bxa1, Rd8 via promotion on d8). In 3/10 additional positions, the piece lands on a square where it is immediately attacked with "
+    },
+    {
+     "feature_id": 1093,
+     "chip": "Queen to e-file invites knight fork",
+     "fire_rate_pct": 1.163,
+     "description": "9/10 positions involve the queen moving to a square on the e-file (Qe2 for White in 5 positions, Qe7 for Black in 3, Qe8 in 1), while the remaining position (c3) is an outlier. In 7/10 cases, the immediate refutation involves a knight jumping to d4 or d5 that directly attacks the"
+    },
+    {
+     "feature_id": 1135,
+     "chip": "Bishop moves to attacked square",
+     "fire_rate_pct": 1.016,
+     "description": "8/9 positions involve a bishop being moved to a square where it is completely undefended and immediately capturable by an opposing piece (usually another bishop along an open diagonal). In Position 2 (Bf6), the bishop lands on a square controlled by the opponent's Bc3. In Positio"
+    },
+    {
+     "feature_id": 1181,
+     "chip": "Rook deserts defensive post fatally",
+     "fire_rate_pct": 0.903,
+     "description": "9/10 positions feature a rook moving to an exposed square on ranks 3-6 (Re6, Rg6, Re3, Rg5, Rb6, Rf6, Rd5, Rg6, Rg4), with the remaining position (g3) sharing the same 'ignoring defensive obligations' theme. In 4/10 cases (positions 2, 4, 7, 9), the rook lands on a square directl"
+    },
+    {
+     "feature_id": 1244,
+     "chip": "Knight leaps to attacked outpost",
+     "fire_rate_pct": 1.658,
+     "description": "8/10 positions feature knight moves (Nd7, Ne4, Ng4, Nd4, Nf4, Nc3, Nd4, Nh4), with the remaining two (Qd2, e5) sharing the same underlying logic of placing a piece/pawn on a tactically unsound square. In 5/10 positions, the moved piece is immediately captured in the refutation li"
+    },
+    {
+     "feature_id": 1275,
+     "chip": "Bishop moves to attacked square",
+     "fire_rate_pct": 1.283,
+     "description": "8/10 positions involve an explicit bishop move (Bxf2+, Bxg2, Bh5, Bh5, Be3, Bg6+, Bg5, Bxf7+), while the remaining 2 (Ne6, f5) share the same conceptual error of an aggressive-looking piece/pawn advance that ignores tactical reality. In 5/10 cases, the bishop lands on a square wh"
+    },
+    {
+     "feature_id": 1351,
+     "chip": "Minor piece to undefended central square",
+     "fire_rate_pct": 1.175,
+     "description": "In 10/10 positions, a minor piece (5 bishops, 5 knights) is moved to a seemingly strong central or active square without adequate protection. In 8/10 cases (positions 1, 2, 3, 4, 5, 6, 8, 9), the moved piece itself is immediately captured by the opponent \u2014 by knights with check ("
+    },
+    {
+     "feature_id": 1360,
+     "chip": "Knight to bishop-capturable square",
+     "fire_rate_pct": 3.095,
+     "description": "7/10 positions feature knight moves to passive or vulnerable squares. In 6/10 positions (Nd2, Rf2, Qf3, Na3, Ng6, and Nh5), the moved piece lands on a square directly capturable by an opponent's bishop along an open diagonal \u2014 Bxd2+, Bxf2+, Bxf3, Bxa3, Bxg6, and Bxh5 respectively"
+    },
+    {
+     "feature_id": 1428,
+     "chip": "Minor piece lands on king's line",
+     "fire_rate_pct": 1.502,
+     "description": "In 8/10 positions, a minor piece (knight or bishop) is moved to a square that lies on the same file, rank, or diagonal as the player's own king and an enemy attacking piece, creating an immediate tactical vulnerability. In 7/10 cases, the piece can be captured with check or trigg"
+    },
+    {
+     "feature_id": 1586,
+     "chip": "Bishop lands on forked square",
+     "fire_rate_pct": 1.646,
+     "description": "7/10 positions involve a bishop being moved to a tactically vulnerable square where it's immediately punished: Be6 appears 3 times (positions 1, 2, 10) where the bishop lands alongside a knight on c6, enabling a d5 pawn fork of both pieces; Be3 (position 8) mirrors this exactly w"
+    },
+    {
+     "feature_id": 1643,
+     "chip": "Queen lands on attacked square",
+     "fire_rate_pct": 1.62,
+     "description": "All 10 positions feature queen moves that place the queen on a tactically unsafe square. In 7/10 positions, the queen lands on a square where it is immediately captured or won by an enemy minor piece: knight captures on g3 (positions 3 and 8), bishop captures on c2 (position 4), "
+    },
+    {
+     "feature_id": 1713,
+     "chip": "Bishop retreats to rim, gets trapped",
+     "fire_rate_pct": 0.522,
+     "description": "All 10/10 positions feature a bishop retreating backward along a diagonal to a square that appears safe or active but is tactically flawed. In 7/10 cases (positions 1, 2, 4, 5, 7, 10, and partially 6), the bishop lands on a square where an enemy pawn advance (c4, c5, g4, e4, or h"
+    },
+    {
+     "feature_id": 1758,
+     "chip": "Knight leaps to pawn-chase square",
+     "fire_rate_pct": 4.359,
+     "description": "10/10 positions feature a minor piece (8 knights, 2 bishops) leaping to an advanced square (typically 4th-7th rank) that appears threatening but lacks concrete justification. In 7/10 cases, the piece lands on a square immediately vulnerable to a simple pawn advance (g4 hitting Nf"
+    },
+    {
+     "feature_id": 1827,
+     "chip": "Rook lands on knight-attacked square",
+     "fire_rate_pct": 1.121,
+     "description": "The strongest signal in this feature is rooks being placed on squares directly attacked by enemy knights: 5/10 positions (Rb8 attacked by Nd7, Rc7+ attacked by Nd5, Rh5 attacked by Nf6, Rh6 attacked by Nf5, Rd4 attacked by Nc6) show this exact pattern where the rook is immediatel"
+    },
+    {
+     "feature_id": 1898,
+     "chip": "Rook capture bait trap",
+     "fire_rate_pct": 0.823,
+     "description": "8/10 positions show a piece being moved to a square where it is immediately captured or inescapably trapped by an opponent's piece that already controls that square. In positions 1 (Bd8 into Nxd8), 6 (Bc2 into Bxc2), 7 (Qb6 into Qxb6), 8 (Qxc2 recaptured by Bxc2), and 9 (Qxe5+ re"
+    },
+    {
+     "feature_id": 1985,
+     "chip": "Bishop lands on attacked square",
+     "fire_rate_pct": 1.006,
+     "description": "9/10 positions feature a bishop move that lands on a tactically vulnerable square where the opponent immediately captures or attacks it with devastating consequences. 4/10 positions show the specific pattern of ...Bg7 developing into an enemy bishop on h6, allowing Bxg7 which tra"
+    },
+    {
+     "feature_id": 1997,
+     "chip": "Bishop lunges to tactical target",
+     "fire_rate_pct": 6.99,
+     "description": "All 10/10 positions involve minor piece moves (5 knight moves, 5 bishop moves) to squares that appear attractive\u2014centralized, aggressive, or capturing material\u2014but prove tactically flawed. In 5/10 cases (Nc2, Bd6, Ne4, Nxd5, Nfd5), the piece lands on a square where it becomes an "
+    }
+   ]
+  },
+  {
+   "fine_id": 32,
+   "size": 19,
+   "features": [
+    {
+     "feature_id": 10,
+     "chip": "Bishop steps onto attacked square",
+     "fire_rate_pct": 1.396,
+     "description": "8/10 positions involve a bishop moving to a square where it is immediately capturable for free or near-free, and 9/10 are minor piece moves (8 bishops, 1 knight) to undefended squares. In 3/10 cases (positions 3, 7, 10), the bishop lands on a square directly attacked by an adjace"
+    },
+    {
+     "feature_id": 295,
+     "chip": "Bishop capture reactivates opponent's piece",
+     "fire_rate_pct": 1.236,
+     "description": "All 10/10 positions feature a bishop making a capture (Bx__) that appears to gain material or simplify favorably, but is actually a strategic mistake because the capturing bishop was performing a more important role than the piece/pawn taken. In 8/10 positions, the opponent's rec"
+    },
+    {
+     "feature_id": 311,
+     "chip": "Bishop vacates critical defensive square",
+     "fire_rate_pct": 1.229,
+     "description": "9/10 positions feature a bishop move (the 10th, Rxf5, is a capture on the square where the bishop should have captured instead). In all 10 positions, king safety is the dominant concern \u2014 either the player's own king is under attack or the opponent's king creates a tactical oppor"
+    },
+    {
+     "feature_id": 443,
+     "chip": "Capturing pawn abandons piece guard",
+     "fire_rate_pct": 0.808,
+     "description": "All 10/10 positions share an identical mechanism: a pawn makes a diagonal capture, but that pawn was the sole protector of a friendly piece or key pawn on an adjacent square. In 6/10 cases the abandoned piece is a knight (positions 1, 2, 3, 4, 6, 9), in 2/10 it's a bishop (positi"
+    },
+    {
+     "feature_id": 533,
+     "chip": "Rook lands on bishop's diagonal",
+     "fire_rate_pct": 5.643,
+     "description": "10/10 positions show the exact same tactical oversight: a major piece moves to a square directly controlled by an enemy bishop's diagonal, and the bishop simply captures it. In 9/10 cases the blundering piece is a rook; 1/10 is a queen. The capturing bishop sits on a long diagona"
+    },
+    {
+     "feature_id": 606,
+     "chip": "Rook grabs pawn, abandons defense",
+     "fire_rate_pct": 1.801,
+     "description": "All 10/10 positions feature a rook capturing a pawn (Rx_) that appears free or tempting, but the rook's departure from its prior square creates a concrete tactical vulnerability that the opponent exploits. In 5/10 positions (1, 3, 4, 6, 10), the best move sequence shows the same "
+    },
+    {
+     "feature_id": 602,
+     "chip": "Bishop moves to attacked square",
+     "fire_rate_pct": 1.6,
+     "description": "All 10/10 positions involve a bishop moving to a square where it is immediately lost \u2014 either captured outright or trapped with no escape. In 5/10 cases (Bxe3, Bxb5, Bxd5, Bxg5, Bxf3), the bishop captures a pawn only to be recaptured by a piece that was already defending that squ"
+    },
+    {
+     "feature_id": 664,
+     "chip": "Rook infiltrates undefended rank square",
+     "fire_rate_pct": 0.864,
+     "description": "In 10/10 positions, the player moves a major piece to a square where it is immediately captured by the opponent. 8/10 involve rooks specifically, while 2/10 involve queens. In 6/10 cases, the piece attempts a classic '7th rank infiltration' (Rc7, Re7, Re7, Rb2+, Re2+, Rc2) \u2014 movi"
+    },
+    {
+     "feature_id": 714,
+     "chip": "Queen grabs pawn, abandons kingside",
+     "fire_rate_pct": 2.206,
+     "description": "All 10/10 positions feature the queen capturing a pawn (Qxa2, Qxh3, Qxb7, Qxf2, Qxh2, Qxb2) on a peripheral or semi-peripheral square while urgent tactical or defensive needs exist elsewhere. In 8/10 cases, the opponent's king is under active attack or the player's own king faces"
+    },
+    {
+     "feature_id": 719,
+     "chip": "Minor piece steps onto pawn-guarded square",
+     "fire_rate_pct": 1.487,
+     "description": "All 10/10 positions share the exact same tactical error: a minor piece (bishop or knight) is moved to a square that is within the capture range of an enemy pawn, and the piece is simply taken by that pawn with no compensation. Specifically, 6/10 positions involve bishops (Bh3\u00d73, "
+    },
+    {
+     "feature_id": 943,
+     "chip": "Knight jumps to undefended rim square",
+     "fire_rate_pct": 1.302,
+     "description": "All 10 positions feature a knight jumping to an aggressive-looking square with zero defenders, where it is immediately captured. In 9/10 cases the knight is taken by the opponent's queen (Qxg4, Qxg5, or Qxh4), and in 1/10 by a rook (Rxd6). The destination squares are g4 (4/10), g"
+    },
+    {
+     "feature_id": 1009,
+     "chip": "Bishop moves to attacked square",
+     "fire_rate_pct": 1.47,
+     "description": "All 10/10 positions feature a bishop move to a square where it lacks adequate protection. In 9/10 cases, the bishop is captured or becomes capturable by a knight (positions 1-7, 9-10), with the remaining case (position 8) being a wrong capture-order error where the bishop leaves "
+    },
+    {
+     "feature_id": 1362,
+     "chip": "King captures rook, loses shelter",
+     "fire_rate_pct": 1.034,
+     "description": "10/10 positions feature the king making a capture (Kx...), and 9/10 specifically capture a rook that has infiltrated deep into the position. The king moves to an advanced or open square where it loses all pawn shelter and becomes immediately vulnerable to forcing sequences. In 6/"
+    },
+    {
+     "feature_id": 1406,
+     "chip": "Queen grabs rim pawn, abandons duty",
+     "fire_rate_pct": 1.143,
+     "description": "9/10 positions involve the queen moving to capture or target material (usually a pawn) on the board's periphery, while 1/10 (Bc1) shows the same pattern with a bishop. In 6/10 cases the move is a direct pawn capture (Qxf4, Qxb2, Qxa7, Qxg3, Qxh2, Qxh7), in 1/10 the queen moves to"
+    },
+    {
+     "feature_id": 1631,
+     "chip": "Queen grabs pawn, gets punished",
+     "fire_rate_pct": 1.19,
+     "description": "8/10 positions involve capturing material (usually a pawn) or attacking a piece, while 2/10 involve king moves to exposed squares. In all 10 cases, the piece lands on a square where it becomes tactically vulnerable\u2014trapped, pinned, skewered, or driven away with tempo. 6/10 are di"
+    },
+    {
+     "feature_id": 1747,
+     "chip": "King captures bait, enters checks",
+     "fire_rate_pct": 2.043,
+     "description": "10/10 positions feature a king capture (Kx...) where the king leaves a relatively safe square to take material that appears dangerous or free. In every case, the captured piece/pawn was effectively bait\u2014whether a knight (positions 2, 4, 9), bishop (5, 8), or pawn (1, 3, 6, 7, 10)"
+    },
+    {
+     "feature_id": 1774,
+     "chip": "Rook lands on queen's target",
+     "fire_rate_pct": 1.299,
+     "description": "All 10/10 positions feature a rook move to an unprotected square that falls to the opponent's queen. In 4/10 cases (positions 2, 4, 5, 6), the queen captures the rook directly on its destination square (Qxf8, Qxb1+, Qxg8+, Qxe1). In 4/10 cases (positions 1, 3, 7, 8), the queen fi"
+    },
+    {
+     "feature_id": 1818,
+     "chip": "Queen grabs pawn, loses tempo",
+     "fire_rate_pct": 1.41,
+     "description": "In 10/10 positions, the played move sends the queen (9/10) or rook (1/10) to capture or target material on a distant square \u2014 typically b2, c2, c7, b7, a4, or d3 \u2014 while abandoning essential responsibilities elsewhere on the board. In 8/10 cases the move is an explicit pawn captu"
+    },
+    {
+     "feature_id": 1940,
+     "chip": "Bishop lands undefended on g5",
+     "fire_rate_pct": 3.998,
+     "description": "In 8/10 positions, the blunder directly places a piece on a square where it has zero defenders, enabling the opponent to win material through simple capture or a secondary tactical blow. Specifically, 6/10 moves are bishop deployments to undefended squares (Bg5, Bf5, Bb6, Bg4, Bg"
+    }
+   ]
+  },
+  {
+   "fine_id": 8,
+   "size": 19,
+   "features": [
+    {
+     "feature_id": 123,
+     "chip": "Pawn chases queen, misses winning move",
+     "fire_rate_pct": 1.46,
+     "description": "All 10/10 positions feature an identical pattern: a pawn advance (h3, b6, a3, a5, h5, h4, g3, a6) played specifically to attack or chase the opponent's queen from an active square. In every case, the queen was perceived as annoying or threatening, but a far stronger concrete move"
+    },
+    {
+     "feature_id": 287,
+     "chip": "Bishop-chase pawn over urgent threats",
+     "fire_rate_pct": 1.851,
+     "description": "All 10/10 positions feature a pawn advancing one square to attack a diagonally-adjacent enemy bishop \u2014 the classic 'put the question to the bishop' move. Three positions play ...a6 against a bishop on b5, two play ...h6 against a bishop on g5, and the remainder target bishops on "
+    },
+    {
+     "feature_id": 332,
+     "chip": "Pawn chases knight, misses repost",
+     "fire_rate_pct": 1.409,
+     "description": "All 10/10 positions feature a pawn move that directly attacks an enemy knight: b3 attacks Nc4 (positions 1, 9), c4 attacks Nd5 (position 2), a3 attacks Nb4 (position 3), f3 attacks Ne4 (position 4), f6 attacks Ne5 (position 5), f4 attacks Ne5 (position 6), c5 attacks Nd4 (positio"
+    },
+    {
+     "feature_id": 362,
+     "chip": "Knight to e5 invites exchange",
+     "fire_rate_pct": 1.157,
+     "description": "All 10/10 positions feature a knight being played to a 'strong-looking' central square (e5 in 5 positions, f4 in 2, c5 in 2, e4 in 1, c3 in 1), prioritizing piece placement aesthetics over the concrete tactical demands of the position. In 6/10 cases (positions 2, 3, 6, 7, 10, and"
+    },
+    {
+     "feature_id": 478,
+     "chip": "Queen to a5 invites Bd2 refutation",
+     "fire_rate_pct": 1.14,
+     "description": "10/10 positions involve moving to the a5 square (9/10 are Queen moves to a5 or a4, 1/10 is a pawn move to a5). In all 10 positions, the opponent's king remains on e1, and the move targets (or prepares to target) the a5-e1 diagonal. 6/10 moves deliver check. 8/10 are played by Bla"
+    },
+    {
+     "feature_id": 499,
+     "chip": "pawn push enables knight fork",
+     "fire_rate_pct": 0.485,
+     "description": "All 10/10 positions share an identical pattern: a pawn move attacks a knight on an advanced square (b5, g5, d5, or b4), assuming the knight must retreat, but the knight instead jumps one square further forward to deliver a crushing fork. Specifically, 5/10 positions feature ...a6"
+    },
+    {
+     "feature_id": 509,
+     "chip": "Queen check allows productive interposition",
+     "fire_rate_pct": 2.983,
+     "description": "10/10 positions feature queen moves to attacking squares aimed at the opponent's king (g4, g5, h4, h5, f6, e4, a4). 6/10 deliver check, and nearly all target kingside squares on ranks 4-6. The core error in 8/10 positions (the ones with cp_loss > 0) is choosing the 'flashy' queen"
+    },
+    {
+     "feature_id": 504,
+     "chip": "Knight to center invites counter-tactic",
+     "fire_rate_pct": 3.122,
+     "description": "10/10 positions feature knight moves to seemingly powerful central or aggressive squares (e4 appears 3 times, plus f5, c3, f3, d5, c4, f4, e5). 5/10 deliver check and 4/10 directly attack the opponent's queen, making them appear forcing and strong. However, 8/10 are genuine mista"
+    },
+    {
+     "feature_id": 527,
+     "chip": "Pawn chases knight enabling forward fork",
+     "fire_rate_pct": 1.161,
+     "description": "All 10/10 positions feature a pawn move (a3 in 6 cases, g6 in 2, plus b3, c4, g4) played specifically to attack an enemy knight that appears dangerously active. In every single case, the knight does NOT need to retreat \u2014 instead it has a superior forward square available, typical"
+    },
+    {
+     "feature_id": 702,
+     "chip": "Pawn kick gifts knight superior square",
+     "fire_rate_pct": 2.351,
+     "description": "All 10/10 positions feature a pawn move that directly attacks an enemy knight on an aggressive or central outpost: b3 kicks Nc4, h6 kicks Ng5, g5 kicks Nh4, c3 kicks Nd4, h3 kicks Ng4, f6 kicks Ne5, c6 kicks Nd5, c4 kicks Nb5, f3 kicks Ne4, and g3 kicks Nf4. In every case, the pa"
+    },
+    {
+     "feature_id": 862,
+     "chip": "Pawn chase abandons defensive post",
+     "fire_rate_pct": 1.395,
+     "description": "10/10 positions feature a single-step pawn advance motivated by attacking or displacing a strong enemy piece. In at least 8/10 cases, the target is specifically a well-placed knight (f5, c5, c4, d5, f4, c3). In 9/10 cases, the advancing pawn was performing a critical defensive du"
+    },
+    {
+     "feature_id": 926,
+     "chip": "Harassing pawn misses forcing reply",
+     "fire_rate_pct": 0.91,
+     "description": "All 10/10 positions feature a non-forcing pawn advance aimed at harassing or displacing a specific enemy piece that is exerting pressure: h3 to kick a bishop on g4 (positions 1, 3, 6), h6 to kick a bishop on g5 (positions 5, 7), f6 to challenge a bishop on g5 (position 2), g4 to "
+    },
+    {
+     "feature_id": 1062,
+     "chip": "Knight to f6 invites refutation",
+     "fire_rate_pct": 1.42,
+     "description": "8/10 positions feature knight moves to apparently active squares, with 4/10 specifically being Nf6. In 6/10 positions, the knight move directly attacks the opponent's queen (positions 3, 4, 5, 7, 8, 9), creating the illusion of gaining tempo. However, in every case the knight lan"
+    },
+    {
+     "feature_id": 1202,
+     "chip": "Pawn push, knight captures immediately",
+     "fire_rate_pct": 1.033,
+     "description": "7/10 positions feature pawn advances that are immediately punished: in 5/10 cases (positions 2, 4, 8, 10, and partially 1), the advanced pawn lands on a square directly attackable by an enemy knight which simply captures it (Nxc4, Nxc5, Nxe4, Nxd5). In 2/10 cases (positions 1 and"
+    },
+    {
+     "feature_id": 1265,
+     "chip": "Pawn chase weakens key shelter",
+     "fire_rate_pct": 1.334,
+     "description": "8/10 positions feature a pawn advance specifically aimed at dislodging a powerfully posted enemy knight: g4 chasing Nf5 (positions 1, 6), g4 chasing Nh5 (position 7), g3 chasing Nf4 (position 8), f3 chasing Ne4 (position 2), f6 chasing Ne5 (position 10), c6 chasing Nd5 (position "
+    },
+    {
+     "feature_id": 1401,
+     "chip": "Bishop lunge misses enemy counter",
+     "fire_rate_pct": 3.927,
+     "description": "9/10 positions feature a bishop move (the lone exception is Nc4, a minor piece to the same type of 'aggressive outpost'). In all cases, the piece moves to a square that appears to create an immediate threat against a higher-value enemy piece \u2014 6/10 directly attack the opponent's "
+    },
+    {
+     "feature_id": 1434,
+     "chip": "h-pawn kick lets piece strike",
+     "fire_rate_pct": 0.899,
+     "description": "7/10 positions feature pawn kicks (h6, h3, or a6) directed at aggressively-posted pieces (usually a knight on g5, but also Ng4, Bg4, or Nb5), where the player assumes the attacked piece must retreat. In 5/10 cases specifically, h6 targets a knight on g5 that instead leaps forward"
+    },
+    {
+     "feature_id": 1587,
+     "chip": "f-pawn opens diagonal to king",
+     "fire_rate_pct": 0.874,
+     "description": "All 10/10 positions feature a pawn advancing one square to directly attack a strong enemy knight: f3 attacks knights on e4/g4 (4/10), f6 attacks knights on e5/g5 (5/10), c6 attacks a knight on b5 (1/10), and c3 attacks a knight on d4 (1/10). In 9/10 cases the moving side's king w"
+    },
+    {
+     "feature_id": 1939,
+     "chip": "Rook-pawn kick over queen check",
+     "fire_rate_pct": 0.572,
+     "description": "All 10/10 positions feature a rook pawn advance (a6 in 6 cases, a3 in 3, h6 in 1, h3 in 1) specifically intended to 'put the question' to an enemy bishop pressuring a knight (Bb5 targeting Nc6 in 7/10, Bb4 targeting Nc3 in 2/10, Bg5/Bg4 targeting Nf6/Nf3 in 2/10). In every case, "
+    }
+   ]
+  },
+  {
+   "fine_id": 116,
+   "size": 17,
+   "features": [
+    {
+     "feature_id": 122,
+     "chip": "Bishop drifts to attacked central square",
+     "fire_rate_pct": 1.624,
+     "description": "All 10/10 positions feature a bishop being repositioned (non-capture, non-check) to a central or semi-central square (f5, g4, e6, f4, d5, f6, c5, e4) that appears active but is tactically flawed. In 4/10 positions (5, 8, 10, and partially 6), the bishop lands on a square where it"
+    },
+    {
+     "feature_id": 222,
+     "chip": "Knight lunges to attacked central square",
+     "fire_rate_pct": 0.993,
+     "description": "9/10 positions feature knight moves to aggressive-looking squares that turn out to be tactically flawed. 4/10 specifically play Ne4 where the knight appears centralized but is inadequately supported\u2014after exchanges the recaptured pawn on e4 hangs (positions 1, 5) or a double atta"
+    },
+    {
+     "feature_id": 250,
+     "chip": "Bishop to open file, captured",
+     "fire_rate_pct": 1.506,
+     "description": "9/10 positions involve bishop moves (Be4, Bf4+, Bd3, Bd4, Bd6, Bd7, Bc5, Bd4, Bd4) and 1/10 a knight move (Nc3), all placing the piece on an apparently active or dominant square. In 8/10 positions, the piece is immediately captured or driven back with tempo on the very next move "
+    },
+    {
+     "feature_id": 408,
+     "chip": "Bishop lunges to attacked kingside square",
+     "fire_rate_pct": 0.927,
+     "description": "9/10 positions involve bishop moves to attacking squares (Bg5 x4, Bg4 x2, Bh6, Bf5, Bb4+), with 1/10 being a queen move (Qh4) that follows the same logic. In all 10 positions, the player places a piece on a superficially active or threatening square\u2014targeting an opponent's queen,"
+    },
+    {
+     "feature_id": 444,
+     "chip": "Knight grabs pawn, lands undefended",
+     "fire_rate_pct": 1.536,
+     "description": "All 10/10 positions feature a knight capturing a central or semi-central pawn (e5, e4, d5, d4, or c5) and landing on a square where it lacks adequate defense. In 8/10 cases, the knight is directly recaptured by a piece already targeting that square (rook on the file in positions "
+    },
+    {
+     "feature_id": 480,
+     "chip": "Knight leap leaves piece hanging",
+     "fire_rate_pct": 6.741,
+     "description": "All 10/10 positions feature a knight jumping to an apparently strong attacking or central square (Ne4 in 6/10, plus Ne5, Ng5, Ng4, Na5, Nxd5). In 7/10 cases, the knight move directly leaves another piece or pawn hanging \u2014 e.g., a bishop left undefended on b4 (positions 3, 9), ano"
+    },
+    {
+     "feature_id": 797,
+     "chip": "Rook lands on undefended square",
+     "fire_rate_pct": 1.039,
+     "description": "7/10 positions feature rook moves to apparently active middle-board squares (Rf4, Rf1, Rg3, Re5, Rd6, Re3, Rb6), with the remaining 3 being pawn/bishop moves that share the same underlying error. In 8/10 cases, the moved piece ends up on a square where it is either undefended, tr"
+    },
+    {
+     "feature_id": 899,
+     "chip": "Knight lunges to attacked outpost",
+     "fire_rate_pct": 1.341,
+     "description": "9/10 positions feature knight moves (Ne4, Ng5, Ne5, Nd5, Nb5) while 1/10 is a bishop lunge (Bg4) \u2014 all are forward, aggressive minor piece jumps to apparently strong squares. In 3/10 positions (Nd5, Nb5, Bg4), the piece lands on a square where it is simply captured by a pawn with"
+    },
+    {
+     "feature_id": 920,
+     "chip": "Queen to center invites tempo attacks",
+     "fire_rate_pct": 1.903,
+     "description": "All 10/10 positions feature non-capturing, non-checking queen moves to central or semi-central squares (d2, d3, d4, d6, d7, e3, e8, c7) that appear positionally motivated but create immediate tactical problems. In 6/10 positions, the queen lands on a square where it is immediatel"
+    },
+    {
+     "feature_id": 946,
+     "chip": "Queen centralizes onto attacked square",
+     "fire_rate_pct": 1.818,
+     "description": "10/10 positions feature queen moves to central or semi-central squares that appear dominant but are concretely punished. 8/10 moves land on rank 4 or 5 (e4\u00d72, d4, d5\u00d72, f4, c5, e5), with h5 and b3 as partial outliers still aimed at 'active' squares. The common thread is that the "
+    },
+    {
+     "feature_id": 1045,
+     "chip": "Knight jumps to e4/e5 undefended",
+     "fire_rate_pct": 1.305,
+     "description": "All 10/10 positions feature a knight jumping to a central or near-central square (e4 in 4 cases, e5 in 2, d5, d4, f6, f2) that appears powerful but is concretely refutable. In 5/10 positions (2, 4, 5, 7, 10), the knight can be immediately captured with material or positional gain"
+    },
+    {
+     "feature_id": 1187,
+     "chip": "Knight jumps to undefended central square",
+     "fire_rate_pct": 0.951,
+     "description": "9/10 positions feature knight moves to seemingly powerful squares (e5, c4, d4, c5, b5, h4, d3), and 1/10 is a bishop move to d4 following the same logic. In all 10 cases, the piece lands on an undefended square where the opponent can simply capture it, usually with a bishop (7/10"
+    },
+    {
+     "feature_id": 1194,
+     "chip": "Queen lands on tempo-losing square",
+     "fire_rate_pct": 3.413,
+     "description": "All 10/10 positions feature queen repositioning moves to squares that appear active or aggressive but are tactically flawed. In 7/10 positions (1, 3, 5, 6, 7, 9, 10), the queen lands on a square where it is immediately challenged with tempo by a minor piece, rook, or check \u2014 forc"
+    },
+    {
+     "feature_id": 1391,
+     "chip": "Queen lands on attacked central square",
+     "fire_rate_pct": 2.765,
+     "description": "All 10/10 positions feature a queen move to a central or semi-central square (b3, b6, a4, a5, c7, d5, d6) that appears to offer activity or pressure but is tactically deficient. In 7/10 positions, the queen lands on a square immediately or imminently attacked by a minor piece (us"
+    },
+    {
+     "feature_id": 1517,
+     "chip": "Rook to open square, undefended",
+     "fire_rate_pct": 0.704,
+     "description": "All 10/10 positions feature a rook being moved to what appears to be an aggressive or active square (open file, central rank, attacking something), but the rook is tactically vulnerable on arrival. In 6/10 positions (Positions 1, 3, 4, 6, 8, 9), the rook is directly captured on t"
+    },
+    {
+     "feature_id": 1778,
+     "chip": "Rook lands on attacked middle square",
+     "fire_rate_pct": 1.093,
+     "description": "All 10/10 positions feature a rook making a forward or lateral move that appears active \u2014 either capturing a pawn (4/10: Rxe6, Rxe6+, Rxb2, Rxb4) or centralizing to an ambitious square (6/10: Rc3, Rc6, Rc4, Re5, Re4, Rd4). In every case, the rook lands on a middle-rank square (ra"
+    },
+    {
+     "feature_id": 1912,
+     "chip": "Knight outpost falls to immediate capture",
+     "fire_rate_pct": 1.79,
+     "description": "All 10/10 positions feature a knight moving to an aggressive central square (e4, f4, e5, d4, d5, c4, f5) on the 4th or 5th rank that appears to be a strong outpost but is tactically vulnerable to immediate capture. In 8/10 positions, the knight is directly captured by a bishop or"
+    }
+   ]
+  },
+  {
+   "fine_id": 27,
+   "size": 15,
+   "features": [
+    {
+     "feature_id": 130,
+     "chip": "Pawn advance hangs piece",
+     "fire_rate_pct": 0.953,
+     "description": "9/10 positions feature the player making an aggressive move (check, pawn advance, tactical shot) while a piece is hanging or becomes hanging as a direct consequence. In 3/10 cases (positions 1, 6, 8), the moved piece lands on a square directly controlled by an opponent's bishop, "
+    },
+    {
+     "feature_id": 481,
+     "chip": "Rook activates, other rook hangs",
+     "fire_rate_pct": 0.54,
+     "description": "In 10/10 positions, the player moves a rook to an 'active' square (7th rank, open file, attacking position) while completely ignoring an immediate tactical threat to their OTHER rook. In 8/10 positions, the hanging rook is directly attacked by an enemy knight (positions 1-3: knig"
+    },
+    {
+     "feature_id": 526,
+     "chip": "Bishop placed on attacked square",
+     "fire_rate_pct": 1.35,
+     "description": "8/10 positions feature a minor piece (almost always a bishop) being placed on a square where it is directly hanging to an enemy piece, with the 'hanging_piece' tactical motif tagged explicitly in 8/10 cases. In 5/10 positions specifically, the bishop is placed on a square directl"
+    },
+    {
+     "feature_id": 554,
+     "chip": "Queen placed on attacked square",
+     "fire_rate_pct": 3.547,
+     "description": "9/10 positions show the player moving a piece or pawn directly to a square that is already attacked by an enemy piece, resulting in immediate material loss. In 4/10 cases it was a queen placed en prise (Qc4 hung to a d3-pawn, Qc8 hung to multiple pieces, Qf5 hung to a bishop on t"
+    },
+    {
+     "feature_id": 568,
+     "chip": "Knight lands on punishable square",
+     "fire_rate_pct": 1.087,
+     "description": "In 10/10 positions, a knight is moved to what appears to be an active, centralized, or purposeful square but is immediately punishable. In 7/10 positions (1, 4, 6, 7, 9, 10, and partially 3), the knight can be captured within 1-2 moves of landing \u2014 either directly hanging (Positi"
+    },
+    {
+     "feature_id": 621,
+     "chip": "Queen moves to attacked square",
+     "fire_rate_pct": 1.131,
+     "description": "9/10 positions feature a queen move to a square where the queen immediately hangs (can be captured for free or in a catastrophically unfavorable exchange). In 6/10 positions (1, 3, 4, 5, 6, 7), the queen is captured by an enemy knight that already occupied a square controlling th"
+    },
+    {
+     "feature_id": 609,
+     "chip": "Bishop moves to attacked square",
+     "fire_rate_pct": 1.204,
+     "description": "7/10 positions have 'hanging_piece' as their primary tactical motif. In 5/10 cases (positions 2, 3, 6, 8, 10), the player directly moved their own piece to a square where it could be captured by an enemy piece they overlooked (Bf5 hung to Nxf5, Ng5 hung to Bxg5, Bf4 hung to Nxf4,"
+    },
+    {
+     "feature_id": 864,
+     "chip": "Minor piece to attacked outpost",
+     "fire_rate_pct": 1.735,
+     "description": "8/10 positions feature minor piece moves (5 bishop, 3 knight) to squares that appear 'natural' or 'improving' but are concretely wrong. In 4/10 cases the piece is left hanging or tactically vulnerable (Bg4 captured by Nxg4, Nd5 by Nxd5, Bb5+ by Qxb5, Bh6 exposing the h8 rook). In"
+    },
+    {
+     "feature_id": 1174,
+     "chip": "Rook repositions onto attacked square",
+     "fire_rate_pct": 1.261,
+     "description": "8/10 positions feature rook moves, and in all 10 cases the moved piece lands on a square that creates an immediate hanging-piece vulnerability. In 4/10 positions (5, 6, 9, 10), the piece moves directly onto a square controlled by an opponent's piece along the same rank or file an"
+    },
+    {
+     "feature_id": 1316,
+     "chip": "Active rook leaves own piece hanging",
+     "fire_rate_pct": 2.218,
+     "description": "In 7/10 positions, the player made an active rook or queen move while leaving their own piece hanging or inadequately defended. Specifically: in positions 1 and 4, a rook attacked an enemy bishop while the player's own bishop was en prise; in positions 6 and 10, a rook/queen move"
+    },
+    {
+     "feature_id": 1397,
+     "chip": "Queen relocates, abandons defended piece",
+     "fire_rate_pct": 2.222,
+     "description": "In 10/10 positions, the player makes a non-forcing queen move (no check, no capture) to reposition the queen to a square that appears active or useful. In 7/10 cases, this directly leaves a specific piece or pawn undefended (Positions 2, 3, 5, 8, 9: hanging piece; Position 1: que"
+    },
+    {
+     "feature_id": 1420,
+     "chip": "Rook leaves critical post fatally",
+     "fire_rate_pct": 0.838,
+     "description": "9/10 positions feature rook moves (the exception being Bg4 which leaves the queen hanging). In 4/10 cases (Rxf3, Rh8, Rb2, Rc6), the rook moves directly to a square controlled by an opponent's piece and is immediately captured for free. In 5/10 cases (Rh3, Rd2+, Rg5, Rd1, Rf6), t"
+    },
+    {
+     "feature_id": 1648,
+     "chip": "Queen left hanging after move",
+     "fire_rate_pct": 1.267,
+     "description": "8/10 positions show the player making a move that directly results in one of their own pieces being captured or a mating threat being executed because a critical piece/square is left undefended. In Position 2 (Kf3), the rook on h5 is left hanging to Kxh5. In Position 4 (Kd7), the"
+    },
+    {
+     "feature_id": 1702,
+     "chip": "Own piece left en prise",
+     "fire_rate_pct": 4.705,
+     "description": "In 9/10 positions, the played move completely ignores a concrete threat to one of the player's own pieces, allowing the opponent to simply capture it. The hanging pieces are diverse (knight in positions 1, 5, 8, 9; bishop in positions 4, 7, 10; rook in position 3; rook as back-ra"
+    },
+    {
+     "feature_id": 1983,
+     "chip": "Queen leaves guard duty, piece hangs",
+     "fire_rate_pct": 2.004,
+     "description": "In 10/10 positions, the player made a queen move to a square that appeared aggressive or active (centralizing, targeting pawns, or repositioning for attack), but the queen was performing an essential defensive function on its original square. In 9/10 cases, the direct consequence"
+    }
+   ]
+  },
+  {
+   "fine_id": 94,
+   "size": 14,
+   "features": [
+    {
+     "feature_id": 115,
+     "chip": "Knight leaps to defended central square",
+     "fire_rate_pct": 2.822,
+     "description": "In 10/10 positions, a knight aggressively leaps to a central attacking square (f3, f6, e3, or e5) delivering check or creating a fork, but the knight is completely undefended on that square and is simply captured. 9/10 moves were checks or discovered checks, and 1/10 was a fork ("
+    },
+    {
+     "feature_id": 484,
+     "chip": "Pawn push vacates knight fork square",
+     "fire_rate_pct": 0.681,
+     "description": "In 9/10 positions, the player pushes a pawn to challenge or chase an enemy knight from a strong outpost, but the pawn advance directly vacates the critical square that enables a knight fork winning material. Specifically, in 8/10 positions the pawn literally moves OFF the square "
+    },
+    {
+     "feature_id": 519,
+     "chip": "Knight lands on pawn-capturable square",
+     "fire_rate_pct": 0.91,
+     "description": "7/10 positions involve knight moves played as aggressive attacks (checks, queen attacks, or forks). In 6/10 positions, the moved piece lands on a square directly capturable by an opponent's pawn (Ne6+ by fxe6, Nb5 by cxb5, Nf3+ by gxf3, Nxg3+ by hxg3, Qg6 by fxg6, Ne3 by fxe3). I"
+    },
+    {
+     "feature_id": 618,
+     "chip": "Rook moves into knight fork",
+     "fire_rate_pct": 1.183,
+     "description": "7/10 positions feature the identical tactical pattern: a rook or queen moves to a new square that creates a geometric vulnerability where an opponent's knight can deliver check to the king while simultaneously attacking the just-moved piece. In 6/10 positions (1,2,3,4,5,6), the m"
+    },
+    {
+     "feature_id": 962,
+     "chip": "Pawn vacates square, knight invades fork",
+     "fire_rate_pct": 0.513,
+     "description": "In 9/10 positions, the played move advances a pawn from c2\u2192c3, c7\u2192c6, f2\u2192f3, or f7\u2192f6, and the primary refutation is an enemy knight immediately invading the vacated square (c2, c7, f2, or f7) to deliver a fork \u2014 typically targeting two rooks or a king+rook. In 7/10 cases, the pa"
+    },
+    {
+     "feature_id": 1121,
+     "chip": "Knight sortie ignores urgent defense",
+     "fire_rate_pct": 1.209,
+     "description": "All 10/10 positions feature a knight making a non-capturing, non-checking move to an apparently active square that creates some form of offensive threat. In 7/10 cases the knight creates a fork or dual attack on enemy pieces (e.g., Ne3 forking Rd1+Bf5, Nc3 forking Qd1+Re1, Nd6 fo"
+    },
+    {
+     "feature_id": 1137,
+     "chip": "Textbook knight blocks winning tactic",
+     "fire_rate_pct": 1.067,
+     "description": "All 10/10 positions occur in the opening with both kings still in the center, and in every case the player develops a knight to its most 'textbook' square (Nf3 in 7/10, Nf6 in 3/10, Nc3 in 1/10) instead of executing an urgent concrete move. In 7/10 positions, a specific tactic wa"
+    },
+    {
+     "feature_id": 1160,
+     "chip": "Knight quits load-bearing defensive square",
+     "fire_rate_pct": 3.144,
+     "description": "7/9 positions involve a knight being relocated from a key defensive square to an ostensibly active or aggressive destination. In Position 2 (Nh5), the knight left g3 which guarded e2, enabling an Ne2+ fork. In Position 4 (Nb5), the knight left c3 which blocked the c-file, allowin"
+    },
+    {
+     "feature_id": 1551,
+     "chip": "Knight captured on queen-defended square",
+     "fire_rate_pct": 1.105,
+     "description": "In 10/10 positions, a knight makes a capture (9/10 are Nx captures, 1 is a knight move to create a fork). In 8/10 positions, the knight starts on a powerful centralized square (d5 in 5/10, d4 in 1/10, g4 in 2/10). The critical shared error is that the knight lands on a square whe"
+    },
+    {
+     "feature_id": 1558,
+     "chip": "Queen move creates knight fork target",
+     "fire_rate_pct": 1.173,
+     "description": "In 6/10 positions, the moved piece (queen or king) lands on a square that places it in direct geometric alignment with another friendly piece, creating a fork or pin vulnerability exploitable in 1-2 moves. Specifically, positions 1, 2, and 3 all feature a queen moving to a square"
+    },
+    {
+     "feature_id": 1555,
+     "chip": "Rook lands on fork target",
+     "fire_rate_pct": 1.022,
+     "description": "All 10/10 positions feature rook moves to seemingly active or purposeful squares (open files, active ranks, checks, blockading) that overlook concrete tactical vulnerabilities at the destination. In 5/10 positions (Rb4, Rd2, Rb5, Rc1+, Re7), the rook lands on a square directly ex"
+    },
+    {
+     "feature_id": 1639,
+     "chip": "Rook lands on knight-fork square",
+     "fire_rate_pct": 1.002,
+     "description": "8/10 positions feature the player's move directly enabling an opponent's knight fork that wins material, typically by forking the king with check and a rook or major piece. In positions 2, 3, 4, 8, and 9, the player places a rook on a square where a knight can simultaneously chec"
+    },
+    {
+     "feature_id": 1658,
+     "chip": "Knight sac on f2/f7 refuted",
+     "fire_rate_pct": 0.764,
+     "description": "All 10 positions feature a knight making a speculative capture on a classically 'weak' square \u2014 7/10 are Nxf2, 2/10 are Nxf7, and 1/10 is Nxc7+. In every case, the knight captures a pawn hoping to exploit fork geometry (typically threatening queen and rook simultaneously) or king"
+    },
+    {
+     "feature_id": 1875,
+     "chip": "Knight fork c2/c7 backfires",
+     "fire_rate_pct": 1.018,
+     "description": "9/10 positions involve knight moves, and 8/10 specifically feature knight forks targeting the c2 or c7 squares (4 positions each), typically delivering check while attacking a rook in the corner. The signature pattern is a knight jumping to c2+ (forking Ke1/Kd1 and Ra1) or Nxc7+ "
+    }
+   ]
+  },
+  {
+   "fine_id": 74,
+   "size": 10,
+   "features": [
+    {
+     "feature_id": 42,
+     "chip": "King steps onto check-exposed square",
+     "fire_rate_pct": 1.681,
+     "description": "7/10 positions feature king moves that step onto tactically vulnerable squares where checks, forks, or mates become possible. In Position 9, Ke8 walks into Qh8#; in Position 10, Kb6 enables Nxc4+ fork; in Position 6, Kf7 allows Qf4+ winning bishop and pawn with checks; in Positio"
+    },
+    {
+     "feature_id": 159,
+     "chip": "King advances into mating net",
+     "fire_rate_pct": 1.034,
+     "description": "9/10 positions feature direct king moves to squares that prove immediately exploitable (the exception, Nd7, self-blocks the king's escape square enabling mate). In 7/10 cases, the king moves forward or toward the center (Kh4, Kf3, Ke7, Kf7, Ke3, Kd6, Kd8) rather than retreating t"
+    },
+    {
+     "feature_id": 169,
+     "chip": "Castling into active enemy pieces",
+     "fire_rate_pct": 8.061,
+     "description": "10/10 positions feature the player voluntarily moving their king to a new square \u2014 7/10 via O-O-O, 1/10 via O-O, and 2/10 via manual king moves (Ke2, Kc7, Kh7). In every single case, the king lands on a square or in a zone where the opponent's already-active pieces can immediatel"
+    },
+    {
+     "feature_id": 288,
+     "chip": "King captures into mating net",
+     "fire_rate_pct": 1.273,
+     "description": "7/10 positions feature king captures (Kxe7, Kxe2, Kxd3, Kxf5, Kxg4, Kxf3, and position 7), while 8/10 moves overall are captures. In all 10 positions, the moved piece ends up on a square where it becomes immediately vulnerable to tactical exploitation \u2014 the king walks into mating"
+    },
+    {
+     "feature_id": 628,
+     "chip": "King advances into mating net",
+     "fire_rate_pct": 1.646,
+     "description": "All 10/10 positions involve king moves in situations where the king is already exposed and has extremely limited safe squares (avg 1.9 good moves available). In 8/10 cases, the king moves forward or toward enemy pieces rather than retreating to relative safety \u2014 Ke3 into the cent"
+    },
+    {
+     "feature_id": 985,
+     "chip": "King steps onto open attack lines",
+     "fire_rate_pct": 2.04,
+     "description": "All 10/10 positions feature king moves where the player attempts to relocate their king but chooses a square that increases tactical vulnerability rather than decreasing it. In 10/10 cases, the king moved onto a square directly in the line of fire of enemy pieces \u2014 onto open file"
+    },
+    {
+     "feature_id": 1084,
+     "chip": "King steps onto open rank/file",
+     "fire_rate_pct": 1.207,
+     "description": "8/10 positions feature king moves (Kd7, Kf1, Ke7, Ke8, Ke1, Kf8, Kh8, Kg8) that walk the king directly into a square where the opponent's rook or queen can immediately exploit an open rank or file. In 7/10 cases, the punishment involves a rook delivering check or mate on the rank"
+    },
+    {
+     "feature_id": 1386,
+     "chip": "King steps into instant check",
+     "fire_rate_pct": 0.899,
+     "description": "All 10/10 positions feature a king move as the blunder. In 9/10 cases, the king walks to a square where an enemy piece can immediately deliver check (or a capture becomes check) that was geometrically impossible on the previous square: Positions 1 and 6 have Kg7 walking into Nf5+"
+    },
+    {
+     "feature_id": 1505,
+     "chip": "King steps onto open attacking line",
+     "fire_rate_pct": 2.663,
+     "description": "All 10/10 positions feature king moves where the player must choose between multiple king destination squares, and selects one that exposes the king to tactical exploitation. In 8/10 positions, the chosen square falls on an open file, rank, or diagonal where opponent pieces deliv"
+    },
+    {
+     "feature_id": 1607,
+     "chip": "King centralizes into tactical refutation",
+     "fire_rate_pct": 1.341,
+     "description": "7/10 positions feature direct king moves (Kg3, Kf4, Kf7, Kg6, Kf3, Kc6, Kc2) that advance or reposition the king to an apparently active or centralizing square, while 3/10 feature pawn moves (a6, f6, e6) that either weaken the king's shelter or waste tempo when urgent counterplay"
+    }
+   ]
+  },
+  {
+   "fine_id": 192,
+   "size": 9,
+   "features": [
+    {
+     "feature_id": 137,
+     "chip": "King steps into forcing attack",
+     "fire_rate_pct": 2.34,
+     "description": "10/10 positions feature a king move (including one castling move) that worsens the king's tactical situation. In 8/10 cases, the king moves to a square where it immediately becomes vulnerable to forcing checks or mating attacks along newly-created lines (open files, diagonals, or"
+    },
+    {
+     "feature_id": 140,
+     "chip": "Bishop lands on pawn-fork diagonal",
+     "fire_rate_pct": 2.053,
+     "description": "10/10 positions share the same devastating pattern: the played move places a piece on a square that creates a dual vulnerability with another friendly piece, both sitting on adjacent diagonals of an advancing enemy pawn. In 7/10 cases, a central pawn advance (e5 in positions 1,2,"
+    },
+    {
+     "feature_id": 350,
+     "chip": "Queen lunges, falls behind tempo",
+     "fire_rate_pct": 1.587,
+     "description": "All 10 positions share a common pattern: the player moves a piece forward to an ostensibly aggressive square \u2014 creating a visible threat (fork, attack on queen, pressure on a diagonal) \u2014 but the threat is too slow or easily parried, and the move is immediately punished. In 3/10 p"
+    },
+    {
+     "feature_id": 409,
+     "chip": "King centralization invites fork/check",
+     "fire_rate_pct": 5.896,
+     "description": "All 10/10 positions feature king moves that appear to be natural endgame centralization or activation but land the king on a tactically vulnerable square. In 7/10 cases, the king walks directly into a fork or check that wins material or critical tempo (Positions 2, 3, 4, 6, 8, 10"
+    },
+    {
+     "feature_id": 451,
+     "chip": "King move invites knight fork",
+     "fire_rate_pct": 0.651,
+     "description": "All 10/10 positions feature a king move (including castling) as the blunder, making this the clearest unifying pattern. In 8/10 cases, the king's destination square is directly exploitable by the opponent's pieces\u2014specifically through knight forks (positions 4, 5, 7), diagonal ch"
+    },
+    {
+     "feature_id": 680,
+     "chip": "Rook grabs pawn, bishop strikes",
+     "fire_rate_pct": 1.125,
+     "description": "In 10/10 positions, a rook captures an apparently free or tempting pawn. In 9/10 cases, the opponent's bishop then exploits the rook's new square along a diagonal\u2014either forking the rook and king with check (positions 1, 4, 5, 6), pinning the rook to the king along a diagonal (po"
+    },
+    {
+     "feature_id": 1534,
+     "chip": "King steps onto forked square",
+     "fire_rate_pct": 2.232,
+     "description": "All 10/10 positions feature a king move that lands on a tactically vulnerable square, inviting an immediate punishing blow. In 4/10 cases (positions 1, 2, 9, 10), the king walks directly into a knight fork that wins major material (rook or queen). In 2/10 cases (positions 3, 7), "
+    },
+    {
+     "feature_id": 1659,
+     "chip": "King steps onto knight-fork square",
+     "fire_rate_pct": 4.263,
+     "description": "All 10/10 positions feature the identical tactical motif: the played move places a piece onto a square that completes a knight fork geometry. In 8/10 cases, it is specifically a king move that walks onto a square attackable by an enemy knight from a square that simultaneously att"
+    },
+    {
+     "feature_id": 1846,
+     "chip": "Rook lands on check-forked square",
+     "fire_rate_pct": 1.911,
+     "description": "9/10 positions feature a rook being moved to a square that appears purposeful \u2014 contesting a file, attacking a piece, or centralizing \u2014 but where it becomes tactically indefensible because the opponent can deliver check (via discovered attack, knight fork, or check sequence) and "
+    }
+   ]
+  },
+  {
+   "fine_id": 30,
+   "size": 9,
+   "features": [
+    {
+     "feature_id": 186,
+     "chip": "Bishop trapped grabbing rim pawn",
+     "fire_rate_pct": 1.112,
+     "description": "All 10/10 positions feature a bishop capturing an apparently undefended pawn on the opponent's back rank along the a- or c-file (8/10 are Bxa2, 1/10 Bxc2, 1/10 Bxa7, 1/10 Bxc7). In 7/10 cases, the bishop is literally trapped after the capture\u2014most commonly by a b-pawn advance (b3"
+    },
+    {
+     "feature_id": 247,
+     "chip": "Queen grabs wing pawn, abandons center",
+     "fire_rate_pct": 1.155,
+     "description": "10/10 positions feature the queen capturing a wing pawn on one of four specific squares: g2 (4 positions), b2 (2 positions), b7 (3 positions), or g7 (2 positions). In every case, the queen leaves an active central post (typically e4, d4, d5, g4, or g5) to grab a peripheral pawn o"
+    },
+    {
+     "feature_id": 397,
+     "chip": "Rook grabs edge pawn, abandons dominance",
+     "fire_rate_pct": 0.967,
+     "description": "All 10/10 positions feature a rook capturing an undefended pawn on the edge of the board (a-file: 5, g-file: 3, h-file: 2, b-file: 1). In every case, the rook was powerfully placed before the capture \u2014 on the 7th rank threatening the opponent's position (6/10), on the 2nd rank cr"
+    },
+    {
+     "feature_id": 508,
+     "chip": "Bishop lunges to rim, entombed",
+     "fire_rate_pct": 0.827,
+     "description": "All 10/10 positions feature a bishop moving to the kingside edge of the board \u2014 specifically the h-file or immediately adjacent corner squares. 8/10 land directly on the h-file (h1, h2, or h7), with the remaining two on g2 and f2. 4/10 are failed Greek Gift sacrifices (Bh7+) wher"
+    },
+    {
+     "feature_id": 1161,
+     "chip": "Queen grabs b2, gets trapped",
+     "fire_rate_pct": 0.88,
+     "description": "10/10 positions feature the queen capturing an apparently undefended wing pawn. 9/10 captures occur on the b-file (6x Qxb2, 3x Qxb7), with 1 on a7 and 1 on g2. In every case, the queen ventures to the edge of the board for a single pawn and is punished \u2014 9/10 positions have 'trap"
+    },
+    {
+     "feature_id": 1540,
+     "chip": "Queen grabs rim pawn, abandoned",
+     "fire_rate_pct": 1.288,
+     "description": "All 10/10 positions feature the queen capturing an undefended pawn on the edge of the board \u2014 8/10 on the a-file (a2, a6, a7) and 2/10 on the h-file (h2, h7). In every case, the queen moves TO a peripheral square to collect material worth only one pawn, while the position demands"
+    },
+    {
+     "feature_id": 1618,
+     "chip": "Queen grabs rim pawn, abandons king",
+     "fire_rate_pct": 2.106,
+     "description": "9/10 positions feature a queen capturing a pawn, and 10/10 are pawn captures on peripheral squares. 8/10 captures occur specifically on the a-file or h-file (the absolute edge of the board: a3\u00d72, a5, a7, h3\u00d72, h5, h7), with the remaining two on b5 and d4. In every case, the captu"
+    },
+    {
+     "feature_id": 1851,
+     "chip": "Bishop grabs rim pawn, collapses defense",
+     "fire_rate_pct": 1.247,
+     "description": "All 10/10 positions feature a bishop capturing material (pawns or pieces) on rim/corner squares (a2, a8, b2, b7, c7, g2, h7, h8). The captures target the absolute edge of the board \u2014 9/10 land on the a/b or g/h files, with 6/10 on corner-adjacent squares (a2, a8, h7, h8, g2). In "
+    },
+    {
+     "feature_id": 1948,
+     "chip": "Queen grabs rim pawn, abandons attack",
+     "fire_rate_pct": 11.131,
+     "description": "All 10/10 positions involve a major piece (queen in 6/10, rook in 4/10) capturing an undefended or loosely-defended pawn on a peripheral square. 10/10 captures target pawns on edge files (a-file: 4, b-file: 3, h-file: 2, c-file: 1). In every case, the capturing piece moves AWAY f"
+    }
+   ]
+  },
+  {
+   "fine_id": 119,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 479,
+     "chip": "King steps into immediate check",
+     "fire_rate_pct": 1.875,
+     "description": "All 10/10 positions feature a king move that places the monarch on a square directly within the checking range of an enemy piece, enabling an immediate forcing sequence. In 10/10 cases, the opponent's first punishing move is a check or capture-with-check: Qf7# (pos 1), Qg2+ (pos "
+    },
+    {
+     "feature_id": 541,
+     "chip": "Queen moves to attacked square",
+     "fire_rate_pct": 1.013,
+     "description": "9/10 positions involve queen moves (the outlier Nd7 follows the same logic). In 7/10 cases, the moved piece is directly captured or won through a short tactical sequence: Positions 1 (Qe7 taken by Qxe7), 2 (Qe3 won after deflection checks), 5 (Qc4 taken by Qxc4+), 6 (Qg5 lost to "
+    },
+    {
+     "feature_id": 565,
+     "chip": "King steps beside f7 mating square",
+     "fire_rate_pct": 0.878,
+     "description": "9/10 positions involve a king move that places the monarch adjacent to the critical f7 square (or f2 for White), enabling the opponent's queen to deliver immediate checkmate or initiate a lethal forcing sequence. In 7/10 cases (positions 1, 3, 5, 7, 9, 10 with Ke7/Kf8), the queen"
+    },
+    {
+     "feature_id": 771,
+     "chip": "Queen drifts to attacked rim square",
+     "fire_rate_pct": 1.172,
+     "description": "9/10 positions feature queen moves (with 1 rook move sharing the same pattern). 7/10 moves place the piece on the 7th or 8th rank (Qh7, Qc7, Qb7, Qh7, Qa7, Qc8, Rc8), while the remaining moves go to edge/corner squares (Qg1, Qb3, Qb2). In every case, the piece moves to a square t"
+    },
+    {
+     "feature_id": 990,
+     "chip": "Rook moves into enemy fire",
+     "fire_rate_pct": 0.91,
+     "description": "All 10/10 positions feature a quiet, non-forcing move (no captures or checks) played in a position demanding immediate tactical attention. In 7/10 cases, the moved piece lands directly on a square where it is immediately captured or won by an enemy long-range piece (Bf3 captured "
+    },
+    {
+     "feature_id": 1038,
+     "chip": "Back-rank check gifts king escape",
+     "fire_rate_pct": 1.105,
+     "description": "All 10/10 positions feature checks delivered specifically to the first or eighth rank (5 to rank 1: Qf1+, Qh1+, Qb1+, Qg1+, Qd1+; and 5 to rank 8: Qh8+, Qd8+, Rh8+, Qf8+, Qh8+). In 7/10 cases, the correct move was a quiet non-checking piece deployment (Bh3#, Rab8, Nxe6#, Nd6, Bd5"
+    },
+    {
+     "feature_id": 1148,
+     "chip": "Queen checks strand her on rim",
+     "fire_rate_pct": 1.248,
+     "description": "9/10 positions feature a queen giving check, and 9/10 moves land the queen on the 1st or 8th rank (Qb1+, Qd8+, Qd1+, Qh8+, Qf1+, Qc1+, Qa1+, Qe8, Qa8+), with Qd3+ being the sole outlier. In every case except Position 6 (where the check correctly forces a won queen trade), the opp"
+    },
+    {
+     "feature_id": 1503,
+     "chip": "Check deflects king, misses mate",
+     "fire_rate_pct": 1.274,
+     "description": "All 10/10 positions feature a queen delivering check, and in 9/10 the immediate intent is to capture an undefended piece (usually a rook) on the following move once the king is deflected. Specifically: Pos 1 (Qd1+ \u2192 Qxa4 wins rook), Pos 2 (Qc4+ \u2192 Qxa6 wins rook), Pos 5 (Qd5+ \u2192 Qx"
+    }
+   ]
+  },
+  {
+   "fine_id": 153,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 254,
+     "chip": "Knight check lands undefended",
+     "fire_rate_pct": 0.823,
+     "description": "All 10/10 positions feature a knight delivering check on a square where it is immediately capturable by the opponent, resulting in a net loss of material. In 8/10 cases, the primary tactical motif is 'hanging_piece' \u2014 the knight lands on a square unprotected by any friendly piece"
+    },
+    {
+     "feature_id": 400,
+     "chip": "Queen move abandons knight or rook",
+     "fire_rate_pct": 1.544,
+     "description": "All 10/10 positions feature a queen move (Qe4, Qc6, Qd2, Qf6, Qh4, Qf6, Qe7, Qb2, Qc2, Qe7) that leaves another friendly piece completely undefended and capturable on the very next move. In 10/10 cases the tactical motif is 'hanging_piece.' The abandoned piece is a knight in 6/10"
+    },
+    {
+     "feature_id": 727,
+     "chip": "Rook moves onto attacked square",
+     "fire_rate_pct": 1.34,
+     "description": "All 10/10 positions feature the identical pattern: the player moves a major piece (queen in 6/10, rook in 4/10) to a square where it is immediately captured by an enemy piece with no recapture available. In 9/10 cases the tactical motif is explicitly 'hanging_piece.' The capturin"
+    },
+    {
+     "feature_id": 836,
+     "chip": "Bishop relocates to undefended square",
+     "fire_rate_pct": 1.554,
+     "description": "10/10 positions feature a bishop being moved to a square where it hangs to an enemy piece with no defender. The tactical motif is 'hanging_piece' in all 10 cases. In 4/10 positions the bishop hangs to a knight (positions 3, 4, 7, 8 \u2014 knights on f2, d2, e3, d5 respectively capture"
+    },
+    {
+     "feature_id": 1129,
+     "chip": "Bishop lands undefended, queen captures",
+     "fire_rate_pct": 0.927,
+     "description": "7/10 positions are tagged with the 'hanging_piece' tactical motif, and in at least 6/10 cases the move directly places a piece on a square with zero defenders where the opponent captures it (Qxf5, Qxb7, Qxg5, Qxb5+, Qxa5, Kxh7). 6/10 moves are bishop moves (Bf5, Bb7, Bg5, Bb5, Ba"
+    },
+    {
+     "feature_id": 1581,
+     "chip": "Knight hops to attacked square",
+     "fire_rate_pct": 1.065,
+     "description": "All 10/10 positions feature a knight move to a square that appears active or threatening but is immediately capturable. In 9/10 cases the tactical motif is explicitly 'hanging_piece.' The knight lands on a square controlled by the opponent's pieces: in 4/10 cases an enemy knight "
+    },
+    {
+     "feature_id": 1579,
+     "chip": "Rook invades defended square freely",
+     "fire_rate_pct": 5.742,
+     "description": "10/10 positions feature a major piece (9 rooks, 1 queen) moving to a square where it is immediately captured by the opponent with no compensation. The tactical motif is 'hanging_piece' in 9/10 cases. The moves all look superficially aggressive \u2014 checks (2/10: Rg7+), back-rank/8th"
+    }
+   ]
+  },
+  {
+   "fine_id": 193,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 447,
+     "chip": "Bishop check activates opponent's king",
+     "fire_rate_pct": 1.003,
+     "description": "9/10 positions involve bishop moves (the exception being position 2's d7 pawn push), and 8/10 are specifically bishop checks that prove counterproductive. In 5/10 cases (positions 1, 4, 5, 7, 9), the bishop check drives the opponent's king to a demonstrably safer or more active s"
+    },
+    {
+     "feature_id": 598,
+     "chip": "King steps forward into tactics",
+     "fire_rate_pct": 1.046,
+     "description": "All 10/10 positions feature a voluntary (not forced by check) king move stepping forward from the back rank or a sheltered square into the center of the board. In 10/10 cases, the king moved to an adjacent forward square (e1\u2192d2, e8\u2192f7, c1\u2192b2, e8\u2192d7 (\u00d74), d1\u2192c2, d1\u2192e2, e8\u2192e7), and"
+    },
+    {
+     "feature_id": 627,
+     "chip": "Rook lands one square short",
+     "fire_rate_pct": 2.413,
+     "description": "7/10 positions feature the player delivering a check that is inferior to another available check \u2014 typically the piece lands on the wrong square (positions 2, 5, 6, 7, 9) or the checks are played in the wrong order (positions 3, 4). The remaining 3/10 positions (1, 8, 10) involve"
+    },
+    {
+     "feature_id": 880,
+     "chip": "King steps into check's crosshairs",
+     "fire_rate_pct": 1.468,
+     "description": "9/10 positions feature king moves (the exception being Bd8 in Position 8, a passive retreat with similar logic). In 8/10 positions, the king moves to a square that allows an immediate devastating check: back-rank rook checks (Positions 1, 6), knight checks leading to forks or mat"
+    },
+    {
+     "feature_id": 1056,
+     "chip": "King advances off back rank",
+     "fire_rate_pct": 0.826,
+     "description": "All 10/10 positions feature a premature, voluntary king move from the center where the king was already insecure. 7/10 moves specifically advance the king FORWARD off the back rank to the 2nd or 7th rank (Kd2 x5, Kf2, Ke7, Kf7), placing it on exposed squares vulnerable to diagona"
+    },
+    {
+     "feature_id": 1169,
+     "chip": "King shuffle enables new checks",
+     "fire_rate_pct": 1.345,
+     "description": "All 10/10 positions feature a voluntary, non-forced king move of exactly one square, typically from a corner or edge (h1\u2192g1 in 5/10, h8\u2192g8 in 2/10, h2\u2192g2, g8\u2192f8, a7\u2192b7 in the others). In 7/10 cases, the king specifically moves TO a square where a new check or tactical blow become"
+    },
+    {
+     "feature_id": 1864,
+     "chip": "Rook lands one square short",
+     "fire_rate_pct": 0.854,
+     "description": "8/10 positions feature moves that give check, and in 7/10 cases the best move was ALSO a check \u2014 revealing that the error isn't in choosing to be forcing, but in selecting the wrong destination square. In positions 2, 4, 7, and 10, the same piece needed to land just one or two sq"
+    }
+   ]
+  },
+  {
+   "fine_id": 89,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 2,
+     "chip": "Bishop lands on attacked square",
+     "fire_rate_pct": 1.207,
+     "description": "7/10 positions involve a bishop being moved to a square where it is immediately lost \u2014 either captured outright (positions 1, 2, 3, 5, 6) or won via a tactical sequence like a fork (position 9). 4/10 of these bishop moves deliver check (Bg5+, Ba3+, Bb4+, Bb4+), exemplifying the c"
+    },
+    {
+     "feature_id": 366,
+     "chip": "Queen moves into knight's reach",
+     "fire_rate_pct": 1.114,
+     "description": "8/10 positions show the identical tactical pattern: the queen is moved to a square where an enemy knight can immediately capture it (Nxh5, Nxd5, Nxd6, Nxf3, Nxd4, Nxd7, Nxb4, Nxg3). In 7/10 cases the queen move is a check, suggesting 'check blindness' \u2014 the player is so focused o"
+    },
+    {
+     "feature_id": 856,
+     "chip": "Check played over pawn capture",
+     "fire_rate_pct": 1.513,
+     "description": "7/10 positions show the same distinctive geometric pattern: the player moves a piece (usually delivering check) to the exact same square where a pawn capture would have been superior. In positions 2, 5, 7, and 10, a knight or queen check was played instead of a pawn capture to th"
+    },
+    {
+     "feature_id": 1034,
+     "chip": "Bishop captures miss forcing check",
+     "fire_rate_pct": 1.022,
+     "description": "In 9/10 positions, the player captures on the correct target square but with the wrong piece\u2014the best move also captures on that same square (or immediately adjacent) using a different attacker. Specifically: positions 2, 4, 5, 6, 7, and 9 show the best move capturing the exact s"
+    },
+    {
+     "feature_id": 1603,
+     "chip": "King steps onto captured square",
+     "fire_rate_pct": 1.236,
+     "description": "4/10 positions clearly feature a piece moving to a square where it is immediately captured for free (positions 2, 4, 6, 10), and these constitute the three highest cp_loss instances (9204, 9176, 9502). In positions 6 and 10, the piece gives check (Qf5+, Bb8+), creating the illusi"
+    },
+    {
+     "feature_id": 1680,
+     "chip": "Pawn blocks bishop's retreat square",
+     "fire_rate_pct": 0.991,
+     "description": "6/10 positions show a crystal-clear pattern: the player moves a pawn or knight to the exact square their bishop needs as a retreat path, allowing the opponent to win the bishop (via pawn advance or central strike). In positions 1, 4, and 8, the move b3 blocks the light-squared bi"
+    }
+   ]
+  },
+  {
+   "fine_id": 135,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 124,
+     "chip": "Queen promo gifted to rook",
+     "fire_rate_pct": 1.03,
+     "description": "All 10/10 positions feature a pawn promoting to a queen that is immediately captured by the opponent's rook on the next move. In every single case, the opponent's rook was already positioned on the promotion file (or could reach the promotion square in one move), making the captu"
+    },
+    {
+     "feature_id": 506,
+     "chip": "Pawn capture opens file to rook",
+     "fire_rate_pct": 0.734,
+     "description": "All 10/10 positions feature a pawn capturing sideways (always the format [file]x[file]), which removes that pawn from its original file and opens it completely. In every case, the player's own piece (rook or queen) sits undefended on that newly opened file, and the opponent alrea"
+    },
+    {
+     "feature_id": 607,
+     "chip": "Rook lands on bishop's diagonal",
+     "fire_rate_pct": 0.792,
+     "description": "10/10 positions show the identical pattern: a rook is moved to a 'natural-looking' development square (an open or semi-open file) that happens to lie at the end of a long, completely unobstructed diagonal controlled by an enemy bishop. In every case, the bishop can simply capture"
+    },
+    {
+     "feature_id": 1548,
+     "chip": "Rook exchange surrenders open file",
+     "fire_rate_pct": 0.967,
+     "description": "All 10/10 positions feature rooks from both sides occupying the same open file, and the mistake is always the player initiating the rook exchange by capturing the opponent's rook (Rx__). In 10/10 cases, the opponent recaptures with another rook (or the exchange otherwise leaves t"
+    },
+    {
+     "feature_id": 1794,
+     "chip": "Bishop lands on queen's capture square",
+     "fire_rate_pct": 6.886,
+     "description": "All 10/10 positions feature a bishop being moved to a square that is directly capturable by the opponent's queen along a clear line (diagonal or rank), with no piece defending the bishop's destination square. In every case the refutation is the trivially obvious Qx capture winnin"
+    }
+   ]
+  },
+  {
+   "fine_id": 105,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 274,
+     "chip": "Queen checks rim, misses mate",
+     "fire_rate_pct": 0.622,
+     "description": "9/10 positions feature a check (the lone exception, Bh1, is still a move to the h1 corner). 8/10 moves land on a corner square (h1 three times, b1 twice, h8 twice, c1 once). In 8/10 positions, a forced checkmate was available (positions 1,2,3,4,7,8,10 had mate-in-1 through mate-i"
+    },
+    {
+     "feature_id": 581,
+     "chip": "Knight into corner, permanently entombed",
+     "fire_rate_pct": 0.995,
+     "description": "8/10 positions feature a knight capturing a rook on a corner square (a1, h1, or h8), with 6/10 specifically being Nxa1. In the positions where this is a mistake (7/8 captures), the knight becomes completely trapped or irrelevant after landing in the corner. 7/10 positions feature"
+    },
+    {
+     "feature_id": 844,
+     "chip": "King retreats to corner, mating net",
+     "fire_rate_pct": 0.963,
+     "description": "All 10/10 positions feature king moves, and 9/10 land on edge or corner squares (a1, a8, h8, g8, f8, b1, a2, f2, kg5 being the exception). The catastrophic cases (4/10 with cp_loss >9000) all involve the king moving to a corner square (a1, a1, a8, f8) where it is immediately chec"
+    },
+    {
+     "feature_id": 898,
+     "chip": "Knight to rim abandons king",
+     "fire_rate_pct": 1.01,
+     "description": "All 10/10 positions feature a knight moving to a rim or corner square (a1, a8, h8, h7, h2, b8, c2, c7) while the player's own king faces lethal or near-lethal threats. In 6/10 cases the knight captures material (usually a rook in the corner: Nxa1 twice, Nxh8 twice, Nxa8, Nxc7), r"
+    },
+    {
+     "feature_id": 897,
+     "chip": "Knight corners itself capturing rook",
+     "fire_rate_pct": 0.894,
+     "description": "All 10/10 positions feature a knight capturing a rook (Nxh1, Nxa8, Nxa1, or Nxf8). In 9/10 cases, the capture lands the knight on a corner square (a1, a8, h1) where it becomes completely trapped and out of play. In 8/10 positions, the knight was previously on a powerful active sq"
+    }
+   ]
+  }
+ ]
+}

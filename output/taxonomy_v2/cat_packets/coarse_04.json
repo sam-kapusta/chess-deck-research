@@ -1,0 +1,1098 @@
+{
+ "coarse_id": 4,
+ "n_features": 166,
+ "subclusters": [
+  {
+   "fine_id": 13,
+   "size": 23,
+   "features": [
+    {
+     "feature_id": 95,
+     "chip": "Capture opens file to king",
+     "fire_rate_pct": 1.676,
+     "description": "All 8 positions feature pawn captures that resolve tension by moving the pawn away from its file, thereby opening that file (or a diagonal) which the opponent immediately exploits. In 6/8 positions, the opened line points directly at the capturer's own king: Position 2 (cxd5 open"
+    },
+    {
+     "feature_id": 197,
+     "chip": "Pawn capture dissolves structural restraint",
+     "fire_rate_pct": 0.985,
+     "description": "8/10 positions feature pawn moves (5 pawn captures + 3 pawn advances) that dissolve structural constraints the player's pawns were imposing on the opponent. In positions 1, 2, 3, 7, and 9 (gxh5, exf5, fxg5, dxe5, exd6), the player captures an enemy pawn that releases a blockade, "
+    },
+    {
+     "feature_id": 552,
+     "chip": "Bishop capture tears open king's file",
+     "fire_rate_pct": 1.505,
+     "description": "In 9/10 positions, the blundering side captures a piece (usually on the g-file) and the opponent's pawn recapture opens a devastating file (h-file, f-file, or g-file) aimed directly at the capturer's king, with a rook already positioned to exploit it. 8/10 moves are captures spec"
+    },
+    {
+     "feature_id": 578,
+     "chip": "hxg5 opens h-file fatally",
+     "fire_rate_pct": 0.409,
+     "description": "All 10/10 positions feature an h-pawn capturing a piece (bishop or knight) on g4 or g5, believing the material gain or piece elimination is favorable. In every case, the devastating refutation is the opponent's h-pawn recapturing (hxg5 or hxg4), which simultaneously opens the h-f"
+    },
+    {
+     "feature_id": 734,
+     "chip": "Capture opens file to king",
+     "fire_rate_pct": 1.318,
+     "description": "All 10/10 positions feature pawn captures (pxp) where the capturing pawn vacates its original file, opening it as an attacking corridor that the opponent immediately exploits against the player's king. In 6/10 cases, the move is hxg5 (or hxg4), opening the h-file toward a castled"
+    },
+    {
+     "feature_id": 829,
+     "chip": "Pawn capture opens king's file",
+     "fire_rate_pct": 1.082,
+     "description": "All 10/10 positions feature a pawn capture (lowercase notation: exf4, dxe4, cxd4, etc.) that opens a critical line exploited by the opponent's already-positioned heavy pieces. In 9/10 positions, the opened file or diagonal leads directly to the capturing player's own king, which "
+    },
+    {
+     "feature_id": 858,
+     "chip": "Capture opens file to king",
+     "fire_rate_pct": 1.23,
+     "description": "10/10 positions feature pawn captures (hxg, cxb, bxc, exf, dxe). In 8/10 cases, the capturing pawn was serving as a critical structural barrier \u2014 either shielding the king on its file (positions 1, 3, 6: h-pawn guarding the h-file), blocking an open file toward the king (position"
+    },
+    {
+     "feature_id": 891,
+     "chip": "Pawn capture opens king's file",
+     "fire_rate_pct": 0.982,
+     "description": "All 10/10 positions feature a pawn capture (axb, bxc, dxe, fxg, or gxf/gxh notation) where the capturing pawn leaves its original file, creating a newly opened line that the opponent immediately exploits. In 5/10 positions the g-pawn captures sideways, opening the g-file and expo"
+    },
+    {
+     "feature_id": 1237,
+     "chip": "Rook strips king-cover without compensation",
+     "fire_rate_pct": 0.694,
+     "description": "All 10/10 positions feature a rook capturing a pawn on the g-file (7/10: Rxg2, Rxg7, Rxg6) or h-file (3/10: Rxh2, Rxh7) adjacent to the opponent's castled or sheltered king. 9/10 of these captures deliver check, making them feel forcing and 'free.' The universal intent is to stri"
+    },
+    {
+     "feature_id": 1293,
+     "chip": "gxh pawn opens king's file",
+     "fire_rate_pct": 0.607,
+     "description": "10/10 positions feature a pawn capture of an enemy bishop that was provocatively placed adjacent to the king's pawn shield (h3, h6, or a6). In 9/10 cases the g-pawn captures toward the h-file (gxh3 or gxh6), while 1/10 is the analogous queenside pattern (bxa6 with a queenside-cas"
+    },
+    {
+     "feature_id": 1308,
+     "chip": "hxg6 rips open king's file",
+     "fire_rate_pct": 1.122,
+     "description": "8/10 positions feature a pawn capture (hxg6, fxg6, or hxg3) that removes a pawn from the player's own king shelter, ripping open the h-file or f-file directly toward their castled or exposed king. In every case, the opponent immediately exploits the newly opened file with heavy p"
+    },
+    {
+     "feature_id": 1337,
+     "chip": "Pawn capture ignores back-rank mate",
+     "fire_rate_pct": 1.354,
+     "description": "All 10/10 positions feature pawn captures that are non-forcing (no check, no unavoidable threat created). 6/10 are specifically h-pawn captures onto the g-file (hxg2, hxg6, hxg7), while the remaining 4 are flank pawn captures on the a/b/c files or a central release (bxc2, cxb7, a"
+    },
+    {
+     "feature_id": 1484,
+     "chip": "Shelter pawn capture opens king file",
+     "fire_rate_pct": 1.397,
+     "description": "All 10 positions feature pawn captures (fxg6, hxg6, exd4, etc.) where the capturing pawn was part of \u2014 or adjacent to \u2014 the player's king shelter. In 8/10 positions, the capture directly opens a file (g-file in positions 1, 4, 7; e-file in positions 3, 6; a-file in position 8) or"
+    },
+    {
+     "feature_id": 1509,
+     "chip": "Pawn capture opens king's file",
+     "fire_rate_pct": 1.256,
+     "description": "All 10 positions feature a pawn-takes-pawn capture that opens a critical line (file or diagonal) into the capturing player's own king position. In 9/10 positions, king_safety is the primary tactical motif exploited after the capture. The opponent's heavy pieces (rooks, queens) or"
+    },
+    {
+     "feature_id": 1543,
+     "chip": "Pawn capture opens king's diagonal",
+     "fire_rate_pct": 0.822,
+     "description": "All 10/10 positions feature a pawn capture (lowercase piece notation: fxe5, fxg3, exd4, cxb4, cxd5, cxd4, hxg4) that opens a line directly toward the capturing side's own king. In 8/10 positions, the punishment is an immediate check or queen invasion along the newly opened line ("
+    },
+    {
+     "feature_id": 1617,
+     "chip": "hxg-file pawn dissolves attack",
+     "fire_rate_pct": 1.332,
+     "description": "8/10 positions involve pawn captures, and 7/10 specifically feature captures on the g-file (hxg6, hxg5, hxg3, or fxg6). In nearly every case, the player had a dominant attacking position with forcing continuations available \u2014 5/10 positions had forced checkmates that were missed."
+    },
+    {
+     "feature_id": 1666,
+     "chip": "g-pawn capture destroys king shelter",
+     "fire_rate_pct": 0.944,
+     "description": "All 10/10 positions feature a pawn capture that resolves an existing pawn tension (e.g., gxf5, exd5, gxh5). In 7/10 cases, the capture specifically weakens the player's own king shelter \u2014 5/10 involve the g-pawn capturing (gxf5 or gxh5), destroying the castled king's shield, whil"
+    },
+    {
+     "feature_id": 1699,
+     "chip": "g-file pawn capture over forced win",
+     "fire_rate_pct": 1.09,
+     "description": "All 10 positions feature pawn captures (notation xNN) chosen over far superior forcing moves. 7/10 involve capturing an advanced pawn on the g-file (fxg6 appears 6 times, hxg6 once), with the remaining 3 being gxf4, axb4, and bxc3. In 8/10 cases, the best move was a forcing move "
+    },
+    {
+     "feature_id": 1707,
+     "chip": "Pawn capture opens lethal diagonal",
+     "fire_rate_pct": 0.8,
+     "description": "All 10/10 positions feature pawn captures (xd5, xb5, xe4, xg5, xf6, xc5) where the moving pawn was serving as a critical line-blocker. In 8/10 cases, the capture specifically opens a diagonal that an opponent's bishop or queen immediately exploits \u2014 often with check, a fork, or a"
+    },
+    {
+     "feature_id": 1748,
+     "chip": "Pawn capture opens king's file",
+     "fire_rate_pct": 0.792,
+     "description": "All 10 positions feature a pawn capture that removes a pawn serving as a critical barrier/shield, opening a line directly toward the capturing player's own king. 7/10 positions involve removing an h-pawn or f-pawn from the king's flank (positions 1-3, 5-8), directly opening the h"
+    },
+    {
+     "feature_id": 1777,
+     "chip": "Pawn capture strips king shelter",
+     "fire_rate_pct": 0.927,
+     "description": "7/10 positions involve captures where the player takes material that appears attractive but creates an immediate, exploitable weakness. 5/10 specifically involve pawn captures/advances that remove a critical pawn from king defense (gxh5 opening the g-file for mate, exf5 opening t"
+    },
+    {
+     "feature_id": 1883,
+     "chip": "Flank capture rips open edge file",
+     "fire_rate_pct": 0.827,
+     "description": "10/10 positions feature a pawn capture on a flank file (h, a, g, or b pawn) taking toward the center. In 8/10 cases, the specific mechanism is that after the capture and opponent's recapture, the outermost file (h-file or a-file) adjacent to the player's own castled king is rippe"
+    },
+    {
+     "feature_id": 1916,
+     "chip": "Capture opens file to own rook",
+     "fire_rate_pct": 1.026,
+     "description": "7/10 positions involve captures, and of those, 6/10 clearly remove a pawn or piece that was blocking a critical file or diagonal, directly exposing the player's own queen or rook to capture on that opened line. In positions 2 and 8, hxg6 opens the h-file exposing the h8 rook to Q"
+    }
+   ]
+  },
+  {
+   "fine_id": 37,
+   "size": 17,
+   "features": [
+    {
+     "feature_id": 259,
+     "chip": "Pawn grabs miss superior target",
+     "fire_rate_pct": 1.241,
+     "description": "All 10/10 positions feature a pawn capture (xNotation) as the mistake, where the player takes seemingly free or natural material but misses something far more important. In 4/10 positions (3, 7, 8, 9), the pawn capture catastrophically opens a line (diagonal or file) against the "
+    },
+    {
+     "feature_id": 380,
+     "chip": "Capture leaves queen undefended",
+     "fire_rate_pct": 1.361,
+     "description": "All 10/10 positions feature a capture that appears attractive \u2014 typically removing a well-placed or threatening enemy piece. In 8/10 positions (2, 3, 4, 5, 6, 7, 8, 10), the capture directly leaves the player's own queen undefended, allowing the opponent to simply take it on the "
+    },
+    {
+     "feature_id": 399,
+     "chip": "Bishop capture releases enemy piece",
+     "fire_rate_pct": 1.147,
+     "description": "All 10 positions feature a piece capture (8/10 with bishops, 2/10 with knights) that looks natural or obvious but severely damages the player's position. In 4/10 cases (positions 1, 7, 10, and partially 6), the correct move was to capture on the SAME square with a PAWN instead, p"
+    },
+    {
+     "feature_id": 426,
+     "chip": "Bishop recaptures onto attacked square",
+     "fire_rate_pct": 5.171,
+     "description": "9/10 positions feature a player choosing the wrong piece to make a capture, with 7/10 specifically using a Queen or Bishop to recapture when a pawn capture was optimal (positions 1, 2, 4, 5, 6, 8, 9). In 4/10 cases a Bishop captured instead of a pawn (Bxe5/Bxd5/Bxe4/Bxd5), in 2/1"
+    },
+    {
+     "feature_id": 433,
+     "chip": "Pawn capture removes king shield",
+     "fire_rate_pct": 1.41,
+     "description": "10/10 positions feature captures (9/10 are pawn captures, 1/10 is a king capture). In 8/10 positions with significant cp_loss (>100), the captured piece/pawn appeared to be free or dangerous material worth taking, but the pawn performing the capture was serving as a crucial shiel"
+    },
+    {
+     "feature_id": 428,
+     "chip": "Bishop grabs lesser piece over threat",
+     "fire_rate_pct": 1.143,
+     "description": "9/10 positions involve the player executing a capture that wins less material than the optimal capture available. In 4/10 positions (1, 3, 5, 7), a pawn captures another pawn when it could instead capture a full piece (knight, bishop, or rook) \u2014 often the same pawn could take in "
+    },
+    {
+     "feature_id": 470,
+     "chip": "Wrong pawn capture vacates guard",
+     "fire_rate_pct": 0.993,
+     "description": "In 8/10 positions, two pawns could capture on the same square and the player chose the wrong one (positions 1, 2, 3, 5, 6, 7, 8, 10). In the remaining 2/10 (positions 4 and 9), a pawn capture was played when a non-pawn move was far superior. The consistent error across all 10 pos"
+    },
+    {
+     "feature_id": 689,
+     "chip": "Wrong piece recaptures the queen",
+     "fire_rate_pct": 1.145,
+     "description": "All 10/10 positions involve capturing an enemy queen (or equivalent high-value piece) that is en prise to multiple attackers simultaneously. In 7/10 positions, the player chose the wrong capturing piece, costing an average of ~1500cp among the errors. The critical decision is alw"
+    },
+    {
+     "feature_id": 746,
+     "chip": "Pawn capture ignores king attack",
+     "fire_rate_pct": 1.518,
+     "description": "All 10 positions feature a pawn-takes-pawn capture that looks structurally or materially logical but fatally ignores a more pressing obligation. In 7/10 positions, the urgent need was king safety \u2014 either defending one's own king (positions 1, 5, 7, 8, 9) or avoiding opening line"
+    },
+    {
+     "feature_id": 1037,
+     "chip": "King captures into mating net",
+     "fire_rate_pct": 1.127,
+     "description": "In 10/10 positions, the player captures a tempting enemy piece that has infiltrated deep into their position. 8/10 moves are king captures, and 2/10 are rook captures that critically compromise king safety. The captured piece is a knight in 9/10 cases (and a bishop in 1/10), alwa"
+    },
+    {
+     "feature_id": 1197,
+     "chip": "Knight leaps to undefended square",
+     "fire_rate_pct": 0.791,
+     "description": "8/10 positions feature a knight being moved to a seemingly powerful or aggressive square (an outpost, a central square, or a square giving check) where it is completely undefended and can be immediately captured for free by the opponent. The capturing pieces vary \u2014 queen captures"
+    },
+    {
+     "feature_id": 1331,
+     "chip": "Queen checks land on attacked squares",
+     "fire_rate_pct": 1.149,
+     "description": "8/10 positions feature queen moves, and 5/10 are specifically queen checks that fail. In 6/10 positions (1, 3, 4, 5, 7, 8), the moved piece lands on a square where it is directly captured by the opponent\u2014by a rook (positions 3, 4), knight (position 5), opposing queen (positions 4"
+    },
+    {
+     "feature_id": 1355,
+     "chip": "Pawn capture exposes major piece",
+     "fire_rate_pct": 2.562,
+     "description": "All 10/10 positions feature a pawn capture (in axb notation format) that removes a pawn from a critical file or rank where it was acting as a screen/blocker between an enemy piece and the player's own undefended major piece. In 9/10 positions, the exposed piece is the player's ow"
+    },
+    {
+     "feature_id": 1497,
+     "chip": "Wrong capturer lands passively on e5",
+     "fire_rate_pct": 1.407,
+     "description": "All 10/10 positions involve the player executing a capture with a suboptimal piece. In 5/10 positions (3, 5, 6, 7, 9), the Queen should have captured on e5 or h5 but a lesser piece (rook, bishop, knight, or pawn) was used instead. In 2/10 positions (1, 8), a Knight capture was re"
+    },
+    {
+     "feature_id": 1746,
+     "chip": "Pawn grab abandons defensive post",
+     "fire_rate_pct": 0.955,
+     "description": "All 10/10 positions feature a pawn capture (xNotation) in the middlegame that prioritizes small material gain over a critical tactical or defensive need. In 6/10 positions (1, 2, 4, 5, 8, 9), the capturing pawn was itself serving a vital defensive function\u2014blocking a file, shield"
+    },
+    {
+     "feature_id": 1885,
+     "chip": "Bishop recapture gifts hanging piece",
+     "fire_rate_pct": 1.249,
+     "description": "All 10/10 positions involve a square where multiple friendly pieces can capture, and the player selects the inferior capturing piece. In 6/10 cases, a knight capture was best but the player used a bishop, queen, or king instead (positions 1, 2, 3, 4, 5, 8). In 2/10 cases, the kin"
+    },
+    {
+     "feature_id": 1913,
+     "chip": "Bishop grabs pawn, ignores king danger",
+     "fire_rate_pct": 1.837,
+     "description": "All 10/10 positions involve capturing a pawn \u2014 using various pieces (pawns, knights, bishops, queens, rooks, even the king) \u2014 when the position demanded something fundamentally different. In 6/10 cases, the player's own king was exposed or vulnerable, and the pawn grab allowed th"
+    }
+   ]
+  },
+  {
+   "fine_id": 38,
+   "size": 12,
+   "features": [
+    {
+     "feature_id": 62,
+     "chip": "Queen captures before zwischenzug",
+     "fire_rate_pct": 0.54,
+     "description": "All 10 positions feature a queen capturing the opponent's queen (Qx opponent's Q), with 10/10 positions already heavily winning for the capturing side (700+ centipawns or forced mate). In all 10 cases, exactly 1 good move was available \u2014 the queen capture itself \u2014 with alternativ"
+    },
+    {
+     "feature_id": 223,
+     "chip": "Rook trade surrenders active endgame resource",
+     "fire_rate_pct": 1.36,
+     "description": "9/10 positions feature a rook capturing the opponent's rook (1/10 is a queen trade), voluntarily liquidating into a pure pawn or minor-piece endgame that is dramatically worse than keeping major pieces on the board. In 9/10 cases the resulting endgame is lost due to the opponent'"
+    },
+    {
+     "feature_id": 212,
+     "chip": "Bishop grabs pawn, gets recaptured",
+     "fire_rate_pct": 1.184,
+     "description": "10/10 positions involve a bishop moving to a square where it is immediately captured or recaptured by the opponent. In 8/10 cases, the bishop specifically captures a pawn and is then recaptured, resulting in a catastrophic bishop-for-pawn trade (losing ~2 pawns of material). The "
+    },
+    {
+     "feature_id": 406,
+     "chip": "Queen grabs piece, loses queen",
+     "fire_rate_pct": 1.115,
+     "description": "In 10/10 positions, the player used their queen to capture a less valuable piece \u2014 a rook in 7/10 cases (positions 1, 2, 3, 4, 6, 9, 10) and a bishop in 3/10 cases (positions 5, 7, 8). In every case, the capture square was defended or reachable by an opponent's piece that immedia"
+    },
+    {
+     "feature_id": 476,
+     "chip": "Queen trade surrenders attacking pressure",
+     "fire_rate_pct": 0.588,
+     "description": "All 10/10 positions feature the player's queen capturing the opponent's queen directly (Qx on the square occupied by the enemy queen), resulting in a queen trade. In 9/10 cases this was a mistake (avg cp_loss 1259, heavily skewed by one missed mate-in-one). The errors share a com"
+    },
+    {
+     "feature_id": 873,
+     "chip": "Rook takes knight enters drawn endgame",
+     "fire_rate_pct": 1.19,
+     "description": "5/10 positions involve a rook literally capturing a knight to enter a pawn endgame (Rxd7, Rxe7+, Rxf7, Rxd3+ twice). In 4 of these 5 the simplification is correct (cp_loss 0-17) because the resulting pawn endgame is trivially won due to material advantage or unstoppable passed pa"
+    },
+    {
+     "feature_id": 1106,
+     "chip": "Knight grabs defended pawn, loses piece",
+     "fire_rate_pct": 0.614,
+     "description": "In 10/10 positions, a knight captures a pawn that is defended by an adjacent pawn which immediately recaptures, resulting in a net material loss of approximately one pawn's worth (knight \u2248 3 points traded for 1-2 pawns \u2248 1-2 points). The defending pawns are consistently on adjace"
+    },
+    {
+     "feature_id": 1247,
+     "chip": "BxN trade unleashes opponent's attack",
+     "fire_rate_pct": 0.934,
+     "description": "All 10/10 positions feature a bishop capturing a knight on a classic knight square (f3, f6, c3, or c6), appearing to be a normal minor piece exchange but costing an average of 1224 centipawns. The specific reason the trade is bad varies: in 4/10 positions (1, 2, 4, 8), the captur"
+    },
+    {
+     "feature_id": 1282,
+     "chip": "Rook capture trades itself off",
+     "fire_rate_pct": 0.985,
+     "description": "6/10 positions clearly show the losing side capturing an opponent's piece with their rook (Rxb6, Rxa3, Rxe6, Rxd3, Rxe4, Rxc1), resulting in a recapture that eliminates the player's only remaining rook and leaves them in a hopeless endgame with no counterplay. In all 6 cases, sup"
+    },
+    {
+     "feature_id": 1357,
+     "chip": "Rook grabs queen, misses check",
+     "fire_rate_pct": 0.978,
+     "description": "All 10/10 positions feature the player capturing the opponent's queen \u2014 8/10 with a Rook, 2/10 with their own Queen (trading). In 9/10 cases this is a significant mistake (avg cp_loss 4677, with 5/10 missing forced checkmate). The 'better' move was typically a check with a differ"
+    },
+    {
+     "feature_id": 1831,
+     "chip": "Queen takes defended Rook, loses material",
+     "fire_rate_pct": 1.012,
+     "description": "In 10/10 positions, the player's Queen captures an enemy Rook (Qx_), but the Rook is defended by another piece \u2014 a second Rook, a Queen, a Knight, a King, or a pawn \u2014 which immediately recaptures the Queen. The net result in every case is trading a Queen (~9 points) for a Rook (~"
+    },
+    {
+     "feature_id": 1891,
+     "chip": "Rook swap kills defensive resources",
+     "fire_rate_pct": 0.865,
+     "description": "10/10 positions feature a rook being moved to the same file as the opponent's rook, directly enabling a rook exchange that devastates the player's position. In every case, the resulting rookless endgame is decisively worse (avg 250cp loss) because the player's rook was providing "
+    }
+   ]
+  },
+  {
+   "fine_id": 151,
+   "size": 12,
+   "features": [
+    {
+     "feature_id": 119,
+     "chip": "Knight grab misses bigger win",
+     "fire_rate_pct": 1.23,
+     "description": "All 10/10 positions feature the player capturing an enemy knight that appears dangerous, menacing, or annoying \u2014 yet in every case a significantly better move was available. The captured knights were typically centralized intruders (d3, d4, e3, e5 in 7/10 positions), near-king at"
+    },
+    {
+     "feature_id": 531,
+     "chip": "Knight captures onto undefended central square",
+     "fire_rate_pct": 0.739,
+     "description": "All 10/10 positions involve a knight capturing a central pawn on d4, d5, or e5 during the opening. In 7/10 cases (positions 1-5, 8, 9), the knight lands on the central square completely undefended, where it is immediately recaptured by an opponent's piece\u2014typically a bishop on a "
+    },
+    {
+     "feature_id": 651,
+     "chip": "Nxe5 pawn recapture forks pieces",
+     "fire_rate_pct": 1.091,
+     "description": "In 10/10 positions, the player captures an enemy piece on a central square (d4, e5, e4, d5, or b1), and the opponent recaptures with a pawn that immediately creates a devastating follow-up threat. In 8/10 cases, the recapturing pawn forks two pieces simultaneously (typically a pi"
+    },
+    {
+     "feature_id": 662,
+     "chip": "Rook grabs offside minor piece",
+     "fire_rate_pct": 1.099,
+     "description": "In 10/10 positions, the player used a rook to capture a minor piece (bishop or knight) that was stranded, offside, or relatively harmless \u2014 on squares like a1, a8, h8, b1, d8, c3, c6. In every case, the captured piece was described as 'offside,' 'out of play,' 'trapped,' or 'not "
+    },
+    {
+     "feature_id": 910,
+     "chip": "King snatches bishop, loses tempo",
+     "fire_rate_pct": 0.881,
+     "description": "In 10/10 positions, the king captures an enemy bishop that has infiltrated to an adjacent square (7/10 on g7, 2/10 on g2, 1/10 on c2). In every case, the bishop was essentially trapped or harmless and could be captured later or ignored entirely. The critical error is tempo misall"
+    },
+    {
+     "feature_id": 986,
+     "chip": "Quiet pawn push, bishop hangs free",
+     "fire_rate_pct": 0.849,
+     "description": "In 8/10 positions, the player pushes a pawn one square forward as a 'supporting' or 'consolidating' move while a piece (almost always a bishop) is directly attacked and can be captured for free. In 3/10 cases, d3 leaves a bishop on c4 capturable by ...dxc4. In 3/10 cases, e3 leav"
+    },
+    {
+     "feature_id": 1081,
+     "chip": "Knight grabs pawn, queen punishes",
+     "fire_rate_pct": 1.34,
+     "description": "All 10 positions feature a knight capturing an undefended central pawn (7/10 Nxe4, 3/10 Nxe5 or Nxc3), where the capturing side's king is uncastled in 9/10 cases. The critical shared mechanism is that the knight capture leaves the knight stranded on its new square without adequat"
+    },
+    {
+     "feature_id": 1107,
+     "chip": "Knight repositions over forcing continuation",
+     "fire_rate_pct": 1.108,
+     "description": "In 9/10 positions (excluding #5 which was correctly played at 0cp loss), the player chose a visually tempting but suboptimal move over a more concrete, forcing continuation. The most striking sub-pattern involves knights capturing rooks in corner squares (h8, a8, h1) \u2014 this occur"
+    },
+    {
+     "feature_id": 1495,
+     "chip": "Corner knight reactivated before crisis",
+     "fire_rate_pct": 0.868,
+     "description": "All 10/10 positions feature a knight stranded on a corner or edge square (a8 in 4 positions, h8 in 3 positions, a1 in 2 positions, h1 in 1 position) where the player attempts to bring it back into play with a non-forcing knight jump toward the center. In every case, the knight ac"
+    },
+    {
+     "feature_id": 1614,
+     "chip": "Knight jumps to capturable outpost",
+     "fire_rate_pct": 1.526,
+     "description": "All 10/10 positions feature a knight jumping forward to a seemingly powerful central or semi-central square (c5, e4, e5, or b4) that looks like a strong outpost but is immediately capturable. In 9/10 cases, the refutation involves exchanging the knight and forcing a d-pawn recapt"
+    },
+    {
+     "feature_id": 1676,
+     "chip": "Central knight grab invites recapture",
+     "fire_rate_pct": 2.701,
+     "description": "All 10/10 positions feature a capture on a central square (d4, d5, e4, e5, e6, or c3) where the player grabs material but underestimates the opponent's recapture strength. In 8/10 cases, the best alternative moves involved improving piece activity, completing development, or expl"
+    },
+    {
+     "feature_id": 1900,
+     "chip": "Central pawn grab abandons tactical duty",
+     "fire_rate_pct": 0.856,
+     "description": "All 10/10 positions feature a pawn-takes-pawn capture on a central square (c4-e5 range) that resolves pawn tension in a structurally natural way but catastrophically ignores the position's immediate tactical demands. In 5/10 positions (2, 5, 6, 8, 9), the capture left the player'"
+    }
+   ]
+  },
+  {
+   "fine_id": 69,
+   "size": 12,
+   "features": [
+    {
+     "feature_id": 396,
+     "chip": "Bxd4 gifts queen d4 centralization",
+     "fire_rate_pct": 3.498,
+     "description": "All 10/10 positions feature a bishop capture, with 9/10 specifically capturing a centralized knight. The most striking sub-pattern appears in 4/10 positions where Bxd4 allows Qxd4 with devastating queen centralization (positions 1, 2, 6, 9). In these cases, the queen lands on the"
+    },
+    {
+     "feature_id": 659,
+     "chip": "Bishop takes knight, activates recapture",
+     "fire_rate_pct": 1.327,
+     "description": "In 9/10 positions, a bishop captures a knight (the 10th is a rook capturing a knight with identical logic). The target piece always appears to be the opponent's 'best piece' \u2014 a centralized knight on d4 (3 positions), a pressured knight on c6 (3 positions), a structurally importa"
+    },
+    {
+     "feature_id": 724,
+     "chip": "Bishop leaves critical diagonal for knight",
+     "fire_rate_pct": 1.391,
+     "description": "All 10/10 positions feature a bishop capturing a knight, with the target knights predominantly located on rim or semi-peripheral squares (a3, a4, b4, b5, c4, c5, g4, h4). In 8/10 cases, the captured knight appeared loose, offside, or poorly placed, making the capture look natural"
+    },
+    {
+     "feature_id": 726,
+     "chip": "Bishop swap leaves knight dominant",
+     "fire_rate_pct": 1.098,
+     "description": "All 10/10 positions feature a bishop capturing another bishop (Bx bishop), when the position demanded dealing with a critical knight first. In 9/10 cases, the opponent had a powerfully centralized knight (on e4, e5, d4, or d5) that was the true source of positional advantage, and"
+    },
+    {
+     "feature_id": 967,
+     "chip": "Rook takes defended minor piece",
+     "fire_rate_pct": 1.608,
+     "description": "All 10/10 positions feature a rook capturing a defended minor piece (bishop or knight), after which the defender recaptures and the capturing side loses the exchange (~2 pawns of material). In 5/10 cases the target is a bishop (positions 1, 3, 6, 8, 10) and in 5/10 cases a knight"
+    },
+    {
+     "feature_id": 1097,
+     "chip": "Rook grabs over stronger Queen",
+     "fire_rate_pct": 1.132,
+     "description": "9/10 positions feature Rook captures (Rx-), almost always taking a piece on an open file or attacking a target. In 4/10 positions (2, 4, 9, 10), the exact same square should have been captured by a minor piece instead (Nxd3 vs Rxd3, Nxd4 vs Rxd4, Bxg5 vs Rxg5, Nxf3 vs Rxf3) \u2014 the"
+    },
+    {
+     "feature_id": 1600,
+     "chip": "Piece grabs poisoned pawn, loses",
+     "fire_rate_pct": 1.091,
+     "description": "All 10/10 positions feature a piece (knight, bishop, rook, or queen) capturing a pawn that appears to be a free or weakly-defended target. In 6/10 cases, the capturing piece itself is immediately lost or trapped after the recapture (positions 2, 3, 6, 7, 9, 10 \u2014 where Bxb5 trades"
+    },
+    {
+     "feature_id": 1660,
+     "chip": "Queen grabs piece, loses to recapture",
+     "fire_rate_pct": 1.143,
+     "description": "In 9/10 positions, the queen captures a piece (Qxg7, Qxh7, Qxa2, Qxf7, Qxf7, Qxf5, Qxf5, Qxb2, Qxf2; the exception Rxg4 still results in queen loss). In 7/10 positions, the queen is immediately lost or captured after landing on the target square because a hidden defender recaptur"
+    },
+    {
+     "feature_id": 1705,
+     "chip": "Queen grabs b2/c2, king exposed",
+     "fire_rate_pct": 1.635,
+     "description": "All 10/10 positions feature the queen making a capture (Qx__) of material \u2014 9/10 capture a pawn and 1/10 captures a knight. In 7/10 cases, the target is specifically a b2 or c2 pawn on White's second rank, with the remaining captures on d4, e2, and g6. In 9/10 positions, it is Bl"
+    },
+    {
+     "feature_id": 1959,
+     "chip": "Knight grabs d4, loses material",
+     "fire_rate_pct": 1.165,
+     "description": "All 10/10 positions feature a capture on the d4 square that loses significant material. In 7/10 cases, Black's knight captures a seemingly vulnerable d4 pawn, while the remaining cases involve a bishop capture on d4 (1/10), a queen recapture on d4 (1/10), and rook captures on d4 "
+    },
+    {
+     "feature_id": 1975,
+     "chip": "Knight grabs pawn, queen recaptures",
+     "fire_rate_pct": 1.378,
+     "description": "9/10 positions feature a piece (knight or rook) capturing a pawn or minor piece, only to be immediately recaptured by the opponent's queen along a clear diagonal or line. The capturing pieces are knights (6/10: Nxf3+, Nxg4, Nxc5, Nxc2, Nxf2, Nxa6) or rooks (4/10: Rxf2, Ra3+, Rxd3"
+    },
+    {
+     "feature_id": 1993,
+     "chip": "Queen grabs b-pawn, gets trapped",
+     "fire_rate_pct": 0.827,
+     "description": "All 10/10 positions feature the queen capturing the b-pawn (Qxb2 for Black in 7 cases, Qxb7 for White in 3 cases) during the opening phase. In every single case, the capturing side has significant development deficits \u2014 undeveloped minor pieces, uncastled king \u2014 and the queen ven"
+    }
+   ]
+  },
+  {
+   "fine_id": 187,
+   "size": 11,
+   "features": [
+    {
+     "feature_id": 15,
+     "chip": "Rook grabs knight, misses better",
+     "fire_rate_pct": 1.908,
+     "description": "All 10/10 positions involve capturing a knight that appears tempting \u2014 described as 'misplaced,' 'trapped,' 'stray,' 'stranded,' or 'on the edge' \u2014 while a much stronger move exists. In 8/10 cases a rook does the capturing, and in 2/10 a queen. The knights targeted are consistent"
+    },
+    {
+     "feature_id": 63,
+     "chip": "Knight grabs corner rook, loses dominance",
+     "fire_rate_pct": 0.974,
+     "description": "10/10 positions feature a knight capture (Nx_) that prioritizes raw material gain over urgent positional needs. 9/10 are knight captures on corner squares (a1, a8, or h8), specifically taking rooks that appear 'free.' In every case, the knight was previously on a powerful, active"
+    },
+    {
+     "feature_id": 251,
+     "chip": "Pawn grabs piece, abandons post",
+     "fire_rate_pct": 0.873,
+     "description": "All 10/10 positions feature a pawn capturing a minor piece (bishop or knight), appearing to win material cheaply. In every case, the moved pawn was serving a more important purpose on its original square than the material it gained. In 5/10 positions (2, 8, 9, 10, and partially 7"
+    },
+    {
+     "feature_id": 800,
+     "chip": "Pawn captures over king shelter",
+     "fire_rate_pct": 1.435,
+     "description": "All 10/10 positions feature captures (pawn takes, piece takes, or queen takes) that prioritize winning material over addressing a critically exposed king. In 8/10 positions, the side making the capture has their king exposed or stuck in the center (e1 in positions 1, 3, 4, 10; e8"
+    },
+    {
+     "feature_id": 905,
+     "chip": "Queen grabs material, loses harmony",
+     "fire_rate_pct": 1.264,
+     "description": "All 10/10 positions feature captures of seemingly available material (pawns, minor pieces) where the capturing piece moves away from a critical duty or lands on a vulnerable square. In 8/10 cases, a non-capture or different capture was vastly superior \u2014 typically a consolidating,"
+    },
+    {
+     "feature_id": 1005,
+     "chip": "Queen grabs material, invites counterplay",
+     "fire_rate_pct": 1.909,
+     "description": "10/10 positions feature a capture that grabs material (pawns or pieces) that appears free or advantageous. 8/10 involve the queen making the capture directly. The captures all share a common flaw: they prioritize short-term material gain over piece coordination, defensive obligat"
+    },
+    {
+     "feature_id": 1287,
+     "chip": "Rook grabs piece, misses pawn",
+     "fire_rate_pct": 0.851,
+     "description": "10/10 positions feature a capture (bishop or rook taking material) aimed at eliminating what appears to be the most threatening target on the board. 7/10 involve rook captures and 3/10 bishop captures. 8/10 positions involve a dangerous passed pawn near promotion (e2, g7, d7, h8/"
+    },
+    {
+     "feature_id": 1466,
+     "chip": "Bishop captures lose pawn tempo",
+     "fire_rate_pct": 1.182,
+     "description": "9/10 positions involve a bishop move (8 captures, 1 quiet retreat) that appears natural or active but proves significantly worse than the correct alternative. The dominant sub-pattern (4/10: positions 1, 4, 6, 7) is capturing with the bishop when a pawn should have recaptured ins"
+    },
+    {
+     "feature_id": 1578,
+     "chip": "King drifts while pieces hang",
+     "fire_rate_pct": 2.589,
+     "description": "10/10 positions feature a quiet, non-capturing king move that ignores an immediate material crisis. In 7/10 cases (positions 1, 2, 3, 7, 8, 9, 10), a major piece (queen or rook) was directly hanging or about to be captured for free, and the correct move involved either capturing,"
+    },
+    {
+     "feature_id": 1630,
+     "chip": "Queen grabs material, misses priority",
+     "fire_rate_pct": 1.334,
+     "description": "All 10/10 positions feature the queen capturing material (pieces or pawns) in situations where a more precise move was required first. In 3/10 positions (4, 5, 9), the error was recapturing with the queen instead of a minor piece that would maintain better coordination. In 3/10 p"
+    },
+    {
+     "feature_id": 1698,
+     "chip": "Bishop grabs pawn, abandons defense",
+     "fire_rate_pct": 1.087,
+     "description": "9/10 positions feature a bishop capturing a pawn, and 10/10 are bishop moves that prioritize material gain or repositioning over critical positional demands. The captures target periphery pawns (g2, g5, g7, g3, h6, h3, e4, e6) rather than addressing the most urgent factor in the "
+    }
+   ]
+  },
+  {
+   "fine_id": 133,
+   "size": 11,
+   "features": [
+    {
+     "feature_id": 294,
+     "chip": "Bishop grabs rook, misses mate",
+     "fire_rate_pct": 3.852,
+     "description": "All 10/10 positions feature captures of enemy major pieces \u2014 9/10 specifically capture rooks, while 1/10 captures a queen. The captures target pieces that are undefended or readily available for taking. In 4/10 positions, the capture was actually the best or near-best move (0 cp "
+    },
+    {
+     "feature_id": 369,
+     "chip": "Pawn capture dissolves vital blockade",
+     "fire_rate_pct": 1.105,
+     "description": "All 10/10 positions feature a pawn-takes-pawn capture where the capturing pawn was performing a vital blocking or restraining function. In 10/10 cases, removing this pawn unleashes an immediate tactical response through the now-unguarded square, file, or diagonal. Specifically: i"
+    },
+    {
+     "feature_id": 498,
+     "chip": "Queen grabs material, abandons defense",
+     "fire_rate_pct": 1.461,
+     "description": "10/10 positions feature a capture of hanging or undefended material (pawns in 6/10, knights in 3/10, bishop in 1/10), with 9/10 being queen captures specifically. In every case, the capturing piece was performing a vital role before the capture: controlling key squares (Positions"
+    },
+    {
+     "feature_id": 704,
+     "chip": "Rook grabs piece over checkmate",
+     "fire_rate_pct": 3.406,
+     "description": "All 10/10 positions feature a capture of a major piece (6/10 capture rooks, 4/10 capture queens), and in every case the capturing side already holds a large advantage with the opponent's king exposed or weakly shielded. 10/10 positions have at least one king flagged as exposed or"
+    },
+    {
+     "feature_id": 1013,
+     "chip": "Pawn grabs knight, defense collapses",
+     "fire_rate_pct": 1.207,
+     "description": "All 10/10 positions feature a pawn capturing an enemy knight, prioritizing immediate material gain while overlooking a critical tactical vulnerability. In 10/10 cases, the captured piece is specifically a knight. The pawn performing the capture was typically serving a defensive f"
+    },
+    {
+     "feature_id": 1120,
+     "chip": "Queen capture abandons defensive post",
+     "fire_rate_pct": 1.615,
+     "description": "All 10/10 positions feature a queen capture (Qx__) that grabs material \u2014 pawns (4/10), pieces (3/10), or rooks (3/10) \u2014 while the queen was simultaneously performing an essential defensive duty. In 6/10 cases, the queen was directly protecting a piece that becomes hanging with ch"
+    },
+    {
+     "feature_id": 1178,
+     "chip": "Knight grab abandons key defender",
+     "fire_rate_pct": 1.56,
+     "description": "All 10/10 positions feature a capture that wins material \u2014 9/10 capture a pawn, 1/10 captures a minor piece. In 5/10 positions (1, 2, 4, 7, 9), the capturing piece abandons a critical defensive duty: protecting another piece (positions 4, 9 where Rxf7/Rxd4 leave knights hanging),"
+    },
+    {
+     "feature_id": 1221,
+     "chip": "Rook grabs pawn, abandons duty",
+     "fire_rate_pct": 2.237,
+     "description": "All 10/10 positions feature a major piece (rook in 7/10, queen in 3/10) capturing a pawn that appears free or lightly defended. In every case, the capturing piece moves away from a critical responsibility, creating a far larger vulnerability than the pawn is worth. The specific c"
+    },
+    {
+     "feature_id": 1703,
+     "chip": "Rook deserts king's defensive post",
+     "fire_rate_pct": 1.114,
+     "description": "10/10 positions feature a rook capture (Rx__) that grabs material \u2014 9/10 capture a pawn and 1/10 captures a minor piece. In every case, the rook was previously occupying or had access to a square/file/rank performing a vital function: blocking a passed pawn (1/10), defending the "
+    },
+    {
+     "feature_id": 1816,
+     "chip": "Rook grabs pawn, misses promotion",
+     "fire_rate_pct": 1.2,
+     "description": "All 10/10 positions feature a rook capture (Rx) of material \u2014 9/10 capture a pawn and 1/10 captures a knight. In every case, the rook abandons a critical defensive station or active position to grab material that appears free but is actually a tactical trap. The punishment most c"
+    },
+    {
+     "feature_id": 1896,
+     "chip": "Queen capture deserts back rank",
+     "fire_rate_pct": 1.388,
+     "description": "All 10/10 positions feature a major piece (Queen in 7/10, Rook in 3/10) capturing an enemy piece that appears strong, active, or free \u2014 but the capturing piece was secretly performing an essential defensive function. In 5/10 positions the abandoned duty was back-rank defense (pos"
+    }
+   ]
+  },
+  {
+   "fine_id": 59,
+   "size": 10,
+   "features": [
+    {
+     "feature_id": 73,
+     "chip": "Rook grab exposes king fatally",
+     "fire_rate_pct": 1.436,
+     "description": "All 10/10 positions involve capturing an enemy rook \u2014 this is perfectly consistent across the dataset. In 8/10 cases the capture is a significant blunder (avg cp_loss 4752), while 2/10 are actually the best move in already-lost positions. The core error pattern: the player sees a"
+    },
+    {
+     "feature_id": 100,
+     "chip": "Bishop grabs pawn, squanders tempo",
+     "fire_rate_pct": 1.37,
+     "description": "All 10 positions feature a bishop capturing a pawn (Bx_), and 9/10 target pawns forming or adjacent to the opponent's king shelter (g6 three times, h2 twice, h3 twice, f7 once, g3 once, with c7 as the lone outlier). In 9/10 cases this is a significant mistake (avg cp_loss 338 exc"
+    },
+    {
+     "feature_id": 154,
+     "chip": "Kingside pawn capture over king attack",
+     "fire_rate_pct": 0.946,
+     "description": "All 10/10 positions feature pawn captures (notation: [file]x[file][rank]), and all 10/10 positions have at least one severely exposed or weakly-shielded king mentioned in the position features. In 7/10 cases with significant centipawn loss (positions 1, 2, 5, 6, 8, 9, 10), the pa"
+    },
+    {
+     "feature_id": 277,
+     "chip": "Open-file rook capture triggers retaliation",
+     "fire_rate_pct": 0.904,
+     "description": "10/10 positions feature captures of major pieces on open or semi-open files (8/10 are rook captures, 2/10 queen captures). In 9/10 cases, the move is a significant mistake (avg cp_loss ~2964 excluding the correct move). The consistent error is initiating an exchange when pieces c"
+    },
+    {
+     "feature_id": 1152,
+     "chip": "Knight capture vacates critical square",
+     "fire_rate_pct": 1.701,
+     "description": "All 10 positions feature a knight capturing a pawn (Nx pawn). In 9/10 cases (excluding position 9 which was actually the best move at 0cp loss), the knight capture is a mistake because the knight's previous square was performing a critical defensive or coordinating function. In 4"
+    },
+    {
+     "feature_id": 1230,
+     "chip": "Rook grabs pawn, lands badly",
+     "fire_rate_pct": 2.348,
+     "description": "All 10 positions feature a rook capturing a pawn (Rx-pawn), with 9/10 being mistakes averaging 211cp loss. The captures target wing or peripheral pawns (a3 in 5/10, g6 in 2/10, plus b3, b6, c2, d5). In 3/10 positions, the player should have improved king or piece placement first "
+    },
+    {
+     "feature_id": 1356,
+     "chip": "Knight grabs rook, misses better",
+     "fire_rate_pct": 0.968,
+     "description": "All 10/10 positions feature a knight capturing a rook (Nx on a rook-occupied square). In 7/10 cases this was a mistake (avg cp_loss ~4191 for those), while 3/10 were actually the best move (0 cp_loss). When wrong, the errors fell into distinct categories: 2/10 missed an immediate"
+    },
+    {
+     "feature_id": 1437,
+     "chip": "Queen grabs pawn, king exposed",
+     "fire_rate_pct": 2.173,
+     "description": "All 10 positions feature queen captures (Qx__), with 9/10 capturing pawns and 1/10 capturing a bishop. In 8/10 positions, the queen capture is a significant mistake (avg cp_loss 1179 for the blunders), while 2/10 happen to be the best move. The consistent thread is a materialisti"
+    },
+    {
+     "feature_id": 1471,
+     "chip": "Rook exchange kills piece activity",
+     "fire_rate_pct": 1.544,
+     "description": "All 10 positions feature a rook capture (Rx) that initiates or completes a rook exchange in the middlegame. In 9/10 cases, this constitutes a significant mistake (avg cp_loss 2056 excluding the 0-loss outlier). The consistent thread is that the captured/exchanged rook was the pla"
+    },
+    {
+     "feature_id": 1624,
+     "chip": "Pawn captures release tension prematurely",
+     "fire_rate_pct": 0.866,
+     "description": "All 10/10 positions feature a pawn capturing another pawn on an adjacent file, resolving a tension that was a defining structural feature of the position. 7/10 are actual mistakes (avg 277cp loss among errors), while 3/10 are correct moves where the capturing side already held an"
+    }
+   ]
+  },
+  {
+   "fine_id": 148,
+   "size": 10,
+   "features": [
+    {
+     "feature_id": 136,
+     "chip": "Pawn grab loosens key piece",
+     "fire_rate_pct": 0.795,
+     "description": "8/10 positions involve captures (mostly pawn captures), and in 9/10 positions the moving side held a clear advantage before the blunder. The consistent pattern is: the player sees available material (usually a pawn) and grabs it immediately, when the position instead demanded a q"
+    },
+    {
+     "feature_id": 230,
+     "chip": "Bishop grabs pawn, hangs itself",
+     "fire_rate_pct": 1.265,
+     "description": "All 10/10 positions feature a bishop capture (Bx__) that constitutes a materialistic grab gone wrong. In 8/10 cases, the bishop captures a pawn; in 2/10 it captures a knight. The punishment falls into two sub-categories: in 4/10 positions (1, 4, 6, 10), the bishop is immediately "
+    },
+    {
+     "feature_id": 461,
+     "chip": "Knight capture cedes superior outpost",
+     "fire_rate_pct": 1.111,
+     "description": "All 10 positions feature a piece capture (7/10 knight captures, 3/10 bishop captures) where the player initiates or completes an exchange prematurely, missing a stronger preparatory move. In 9/10 positions, the analyses explicitly identify a move-order error where the same captur"
+    },
+    {
+     "feature_id": 460,
+     "chip": "Knight capture deserts defensive post",
+     "fire_rate_pct": 1.315,
+     "description": "All 10/10 positions feature a piece capture that wins material (typically a pawn) but fatally disrupts the captor's defensive contribution. In 8/10 cases, it's specifically a knight making the greedy capture. The piece being moved was serving a crucial function: blocking a diagon"
+    },
+    {
+     "feature_id": 1118,
+     "chip": "Rook grabs pawn, misses priority",
+     "fire_rate_pct": 1.272,
+     "description": "All 10/10 positions feature a rook capturing an enemy pawn (Rx pawn), and in every case this material grab is a significant mistake because something more important was required. In 3/10 positions (6, 8, 10), the player missed a forced mate or promotion-based win while grabbing a"
+    },
+    {
+     "feature_id": 1199,
+     "chip": "Rook trade surrenders dynamic counterplay",
+     "fire_rate_pct": 1.065,
+     "description": "All 10/10 positions feature captures that prioritize immediate material gain over maintaining dynamic piece activity. In 7/10 positions, a rook makes the capture, and in 6/10 positions specifically, the move initiates a rook-for-rook exchange that enters a structurally lost simpl"
+    },
+    {
+     "feature_id": 1227,
+     "chip": "Bishop grabs pawn, loses tempo",
+     "fire_rate_pct": 1.472,
+     "description": "10/10 positions feature a bishop making a capture (Bx__), and 9/10 specifically capture a pawn (the exception, Bxf6, captures a defended piece). In every case, the bishop grab is a materialistic impulse that ignores a more important positional or tactical consideration. In 4/10 c"
+    },
+    {
+     "feature_id": 1255,
+     "chip": "Bishop grabs rook, misses more",
+     "fire_rate_pct": 0.91,
+     "description": "All 10/10 positions feature the identical move pattern: a bishop captures a rook (winning the exchange, ~2 pawns of material). In every case, this materialistic capture is a significant mistake (avg 320cp loss). The better alternatives vary but follow recognizable sub-patterns: i"
+    },
+    {
+     "feature_id": 1333,
+     "chip": "Rook grabs material, misses attack",
+     "fire_rate_pct": 4.491,
+     "description": "All 10/10 positions feature a capture that wins visible material (a pawn or piece) but misses something far more important. In 3/10 cases (positions 1, 3, 8), the player grabbed material instead of delivering or continuing a forced mating attack. In 3/10 cases (positions 4, 5, 6)"
+    },
+    {
+     "feature_id": 1605,
+     "chip": "Queen grabs pawn, surrenders initiative",
+     "fire_rate_pct": 1.663,
+     "description": "10/10 positions feature a major piece (Queen in 7/10, Rook in 3/10) making a capture, with 9/10 targeting pawns specifically. The common error pattern (present in 7/10 positions with significant cp_loss) is choosing a materialistic capture when the position demands a forcing move"
+    }
+   ]
+  },
+  {
+   "fine_id": 29,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 51,
+     "chip": "Knight trades away dominant outpost",
+     "fire_rate_pct": 0.748,
+     "description": "In 10/10 positions, a knight occupying a dominant square (centralized outpost like e4, d5, e5, c4, f4, or e3) makes a capture of a nearby minor piece \u2014 typically a passive bishop on d2, e3, c2, e2, d3, e7, or d7. The capture appears to gain material or force a favorable trade, bu"
+    },
+    {
+     "feature_id": 580,
+     "chip": "Knight trades away dominant outpost",
+     "fire_rate_pct": 0.876,
+     "description": "10/10 positions feature a knight capture (Nx__) that surrenders the player's most dominant piece. In 8/10 cases, the player had a knight on a commanding outpost (d4, d5, e4, e5, or f4) and traded it for a clearly inferior or passive opponent's knight. 7/10 moves included check, s"
+    },
+    {
+     "feature_id": 631,
+     "chip": "Central knight trade kills advantage",
+     "fire_rate_pct": 0.877,
+     "description": "10/10 positions feature a knight capture (Nx__) that removes the player's own most dominant, best-placed knight from the board. In 8/10 cases, the traded knight occupied a commanding central outpost (e4 in positions 1, 2, 6, 8; e5 in position 3; c4 in position 9; d5 in positions "
+    },
+    {
+     "feature_id": 1290,
+     "chip": "Central knight leaves critical outpost",
+     "fire_rate_pct": 2.051,
+     "description": "All 10/10 positions feature a knight occupying a dominant central square (e4, e5, d4, d5, or c5) that is voluntarily moved away. In 6/10 cases the knight captures a less important piece (Nxd2, Nxc6, Nxf3, Nxc3), trading a powerfully placed piece for a passive one. In 3/10 cases t"
+    },
+    {
+     "feature_id": 1372,
+     "chip": "Bishop trade surrenders critical diagonal",
+     "fire_rate_pct": 1.419,
+     "description": "9/10 positions feature a bishop capture (Bx...) where the player uses their own most active or defensively critical bishop to capture an enemy minor piece, and 1/10 (Nxe3) captures a key defensive bishop at the wrong moment in a capture sequence. In all 10 positions, the piece be"
+    },
+    {
+     "feature_id": 1516,
+     "chip": "Bishop trade releases attacking pressure",
+     "fire_rate_pct": 1.102,
+     "description": "All 10 positions feature a bishop capture (Bx__) that initiates or completes a piece exchange, trading one's own bishop for an opponent's piece. In 10/10 cases, the exchange appears 'natural' or positionally motivated \u2014 eliminating a defender, trading bishops, or simplifying \u2014 bu"
+    },
+    {
+     "feature_id": 1621,
+     "chip": "Bishop swap activates opponent's pieces",
+     "fire_rate_pct": 1.701,
+     "description": "All 10/10 positions feature a bishop capture (Bx__) that trades away the player's active or strategically important bishop for a target that is passive, misplaced, or positionally irrelevant. In 9/10 cases the captured piece is a knight (the exception is Position 6 where the targ"
+    },
+    {
+     "feature_id": 1840,
+     "chip": "Bishop trades away dominant piece",
+     "fire_rate_pct": 1.442,
+     "description": "8/10 positions feature bishop captures (Bx moves), and 10/10 are voluntary exchanges where the player trades away their most active or positionally important piece. In 7/10 cases, the captured piece was the player's strongest positional asset: a dominant centralized bishop (posit"
+    }
+   ]
+  },
+  {
+   "fine_id": 99,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 383,
+     "chip": "Nxe5 enables dxe5 fork",
+     "fire_rate_pct": 1.242,
+     "description": "In 7/10 positions, Black plays Nxe5 capturing White's centralized knight with their own knight (rather than the bishop), which allows the crushing dxe5 pawn recapture that forks Black's bishop on d6 and knight on f6 simultaneously. In 6/7 of these Nxe5 cases, the best move was in"
+    },
+    {
+     "feature_id": 772,
+     "chip": "Knight grabs pawn, recapture backfires",
+     "fire_rate_pct": 0.945,
+     "description": "All 9/9 positions feature a knight capturing an enemy pawn (Nx-pawn), and in every case the capture triggers a tactical or exchange sequence where the opponent's recapture creates devastating consequences \u2014 forks (2/9), opening of diagonals or lines (2/9), unfavorable capture cha"
+    },
+    {
+     "feature_id": 1049,
+     "chip": "Knight move drops guarded square",
+     "fire_rate_pct": 1.038,
+     "description": "10/10 positions feature a knight move that looks natural or aggressive but overlooks a critical tactical consequence. In 6/10 positions, the specific pattern is Nxe5 (knight captures a White knight on e5) when the bishop should have captured instead (Bxe5); after dxe5, the advanc"
+    },
+    {
+     "feature_id": 1150,
+     "chip": "Pawn capture gifts knight fork square",
+     "fire_rate_pct": 0.984,
+     "description": "All 10/10 positions feature a pawn capturing an enemy pawn that appears threatening or advanced, where the 'obvious' recapture actually creates a worse problem than it solves. In 5/10 positions (1, 2, 3, 4, 9), the pawn capture directly vacates or creates a square that an enemy k"
+    },
+    {
+     "feature_id": 1335,
+     "chip": "Pawn capture cracks king shelter",
+     "fire_rate_pct": 1.153,
+     "description": "All 10/10 positions feature a pawn capture of an enemy piece, with 9/10 specifically capturing a bishop. In every case, the capture appears materialistic and natural\u2014the enemy piece looks free or en prise\u2014but the pawn capture is wrong because it either removes a critical defensiv"
+    },
+    {
+     "feature_id": 1512,
+     "chip": "Pawn push lets knight fall",
+     "fire_rate_pct": 1.73,
+     "description": "In 10/10 positions, the player has a knight that is under direct tactical threat (attacked by an enemy pawn or piece with no adequate defender), yet plays a slow, positional move instead of addressing the knight's crisis. In 9/10 cases, the opponent can immediately capture the kn"
+    },
+    {
+     "feature_id": 1669,
+     "chip": "Bishop grabs pawn, loses piece",
+     "fire_rate_pct": 1.036,
+     "description": "All 9/9 positions feature a minor piece (7 bishop captures, 2 knight captures) greedily capturing a defended pawn on a central or near-central square (d4, d5, e4, e5, c5, f6). In every case, the opponent recaptures cleanly, and the result is devastating: in 5/9 positions the capt"
+    },
+    {
+     "feature_id": 1739,
+     "chip": "Knight capture enables pawn fork",
+     "fire_rate_pct": 0.405,
+     "description": "In 9/9 positions, the player captured a well-placed enemy piece on a central square (e4, e5, or d5), and the opponent's pawn recapture created a devastating fork or dominant advanced pawn attacking multiple pieces. In 7/9 cases, the blunder was specifically a knight capture (Nxe5"
+    }
+   ]
+  },
+  {
+   "fine_id": 104,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 549,
+     "chip": "Bishop grabs pawn, misses forcing move",
+     "fire_rate_pct": 1.353,
+     "description": "8/10 positions feature bishop captures grabbing material (Bxh3, Bxc4, Bxh6, Bxf5, Bxd4, Bxh6, Bxc2, Bxg6), with the remaining two being analogous greedy/misguided moves (Nxf2 grabbing a pawn, Kg8 ignoring a free piece). In every case, the capture prioritizes immediate material ga"
+    },
+    {
+     "feature_id": 798,
+     "chip": "Pawn capture opens king's file",
+     "fire_rate_pct": 0.994,
+     "description": "All 10 positions feature captures that prioritize material gain over structural integrity. 8/10 moves are pawn captures (exf5, fxe3, dxc6, gxh6, fxg4, gxf3, dxe6, dxe5) and the remaining 2/10 are bishop captures of pawns (Bxe5, Bxg3). In every case, the capture removes a pawn tha"
+    },
+    {
+     "feature_id": 824,
+     "chip": "Rook capture lands on loose square",
+     "fire_rate_pct": 1.466,
+     "description": "7/10 positions involve captures (6 are rook captures of pawns/pieces: Rxc6, Rxc3, Rxe4, Rxf2, Rxg3+, Rxe5, plus Kxh6). The remaining 3 non-captures (Nd7, Be3, Nc3) similarly prioritize a 'natural-looking' static improvement over the position's urgent dynamic demands. In 9/10 case"
+    },
+    {
+     "feature_id": 989,
+     "chip": "Knight grabs pawn, misses mate",
+     "fire_rate_pct": 0.95,
+     "description": "8/10 positions feature a capture or check that wins material or gives a forcing move, yet misses a dramatically stronger tactical continuation. 6/10 moves are knight moves (Nd2+, Nxg2, Nxe6, Nxe3+, Ng6+, Nf8), while the remaining are bishop/rook captures of pawns (Rxh7, Bxa4, Bxh"
+    },
+    {
+     "feature_id": 1157,
+     "chip": "Rook grabs defended piece, recapture backfires",
+     "fire_rate_pct": 1.08,
+     "description": "9/10 positions feature a piece capturing a defended piece/pawn where the natural response is a recapture that fundamentally changes the material balance. 5/10 involve rook captures (Rxg5+, Rxe3+, Rxf3, Rxh5+, Rxe2+), and 3/10 involve bishop captures on e4. Critically, 4/10 positi"
+    },
+    {
+     "feature_id": 1651,
+     "chip": "Rook grabs pawn, loses piece",
+     "fire_rate_pct": 1.018,
+     "description": "10/10 positions involve captures of low-value targets (9/10 pawns, 1/10 a knight). 7/10 moves are specifically rook captures (Rxf3, Rxg6+, Rxd6, Rxd5, Rxf7, Rxh6+, Rxf1+), with the remaining being Bxd5, Nxf2, and Qxd6. The captured targets all appear tempting \u2014 they look free, we"
+    },
+    {
+     "feature_id": 1834,
+     "chip": "Knight grabs pawn, surrenders initiative",
+     "fire_rate_pct": 1.034,
+     "description": "10/10 positions involve a capture that wins material but surrenders the initiative. 8/10 are knight captures specifically (Nxh7, Nh2, Nxh2, Nxg7, Nxh7, Nxd2, Nxg2, Nxg5), while 2/10 are pawn captures (hxg6, gxh5) following the same logic. In 4/10 positions (4, 7, 9, 10), the corr"
+    },
+    {
+     "feature_id": 1966,
+     "chip": "Knight grab drops winning attack",
+     "fire_rate_pct": 1.303,
+     "description": "All 10 positions feature moves that prioritize an immediate, tangible gain\u2014capturing material, delivering a check, or making a forcing pawn break\u2014while missing a far more powerful continuation. 6/10 moves are knight captures (Nxd4, Nxg6, Nxe4, Nxf5, Na7+, and Ne8 attacking materi"
+    }
+   ]
+  },
+  {
+   "fine_id": 112,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 298,
+     "chip": "Bishop grabs pawn, misses mate",
+     "fire_rate_pct": 0.881,
+     "description": "8/10 positions feature bishop moves as the blunder, and 6/10 are specifically bishop captures of pawns (Bxb3, Bxb7, Bxb4, Bxc4, Bxh3, plus Bf7 overextending toward material). In nearly every case, the bishop prioritizes a small material gain or repositioning while a devastating t"
+    },
+    {
+     "feature_id": 885,
+     "chip": "Queen leaves sole defender role",
+     "fire_rate_pct": 2.097,
+     "description": "In 10/10 positions, the moved piece (queen in 8/10, king in 2/10) was performing a critical and irreplaceable defensive function before the blunder. In 6/10 positions (1, 4, 7, 8, and arguably 2, 6), the move directly leaves a specific piece en prise to immediate capture (Rf4, Rf"
+    },
+    {
+     "feature_id": 1629,
+     "chip": "b-pawn undefends knight, hangs piece",
+     "fire_rate_pct": 0.946,
+     "description": "8/10 positions feature b-pawn advances (b3 or b6), with the remaining 2/10 being other quiet wing pawn moves (g3, f6, g7+). In 4/10 positions (Positions 1, 7, 8, 10), the b-pawn advance directly removes pawn protection from a knight \u2014 specifically, b3 leaves the c3-knight undefen"
+    },
+    {
+     "feature_id": 1644,
+     "chip": "Bishop capture misses forcing blow",
+     "fire_rate_pct": 1.256,
+     "description": "All 10/10 positions involve a bishop capture (Bx__) that appears logical \u2014 removing a threatening piece, making a standard recapture, or neutralizing an obvious danger \u2014 but misses a significantly stronger alternative. In 6/10 cases (positions 1, 2, 3, 4, 5, 10), the missed move "
+    },
+    {
+     "feature_id": 1693,
+     "chip": "Knight captures before prep move",
+     "fire_rate_pct": 0.951,
+     "description": "All 10/10 positions feature a capture by a minor piece (7/10 knight captures, 3/10 bishop captures) that is executed too early in the sequence. In at least 6/10 cases, the exact same capture appears in the BEST line but only after a critical preparatory move (e.g., Position 10: B"
+    },
+    {
+     "feature_id": 1716,
+     "chip": "Pawn push leaves piece hanging",
+     "fire_rate_pct": 1.098,
+     "description": "All 10/10 positions feature a pawn move (advance or capture) that results in a piece being left en prise. In 7/10 cases the pawn move directly removes a defender from the piece (e.g., d5 leaving a knight on f6 unprotected from exf6, cxd4 removing the c-pawn that shielded b5/a6, d"
+    },
+    {
+     "feature_id": 1798,
+     "chip": "pawn capture ignores mating attack",
+     "fire_rate_pct": 0.702,
+     "description": "All 10/10 positions feature a pawn-takes-pawn capture (axb, gxf, bxc, cxd, dxe, hxg pattern) played while a far more urgent tactical demand exists elsewhere on the board. In 6/10 cases, the ignored threat is an immediate or near-immediate checkmate (positions 1, 3, 4, 5, 6 allow "
+    }
+   ]
+  },
+  {
+   "fine_id": 120,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 59,
+     "chip": "Queen grabs pawn, loses queen",
+     "fire_rate_pct": 0.911,
+     "description": "In 9/10 positions, the player's queen captures a pawn or piece on a square that is directly in the line of attack of the opponent's queen, allowing the opponent to immediately recapture (Qxc2\u2192Qxc2, Qxe5\u2192Qxe5, Qxg5\u2192Qxg5, Qxb2\u2192Qxb2, Qxd4\u2192Qxd4, Qxa5\u2192Qxa5, Qc4\u2192Qxc4, Qxg4\u2192Qxg4, Qxc2\u2192Q"
+    },
+    {
+     "feature_id": 255,
+     "chip": "Capture enables pawn promotion recapture",
+     "fire_rate_pct": 0.925,
+     "description": "In 8/10 positions, the player captures a piece on a square that is the promotion square of an advanced enemy pawn (on the 7th rank), allowing that pawn to recapture with immediate promotion to queen/rook WITH CHECK or CHECKMATE. The two remaining positions (4 and 6) follow the sa"
+    },
+    {
+     "feature_id": 586,
+     "chip": "Queen grabs piece, king checked",
+     "fire_rate_pct": 1.011,
+     "description": "8/10 positions show the same core mechanism: the player's queen captures a piece that appears undefended or advantageous to take (usually a rook on an open file), but the recapture comes with check against the player's own exposed king. In Position 1, Qxe5 is met by Qxe5+ with fo"
+    },
+    {
+     "feature_id": 1039,
+     "chip": "Rook capture enables queen recapture check",
+     "fire_rate_pct": 0.868,
+     "description": "In 9/10 positions, the blunder follows an identical geometric pattern: the player uses a rook to capture a piece on an open file (e, d, c, or f file), and the opponent immediately recaptures on that exact square with check \u2014 most commonly Qxe1+, Qxd8+, Qxd1+, Qxe8+, or Qxf7+ (8/1"
+    },
+    {
+     "feature_id": 1323,
+     "chip": "Pawn capture gifts knight invasion square",
+     "fire_rate_pct": 1.134,
+     "description": "In 9/10 positions, the blunder follows an identical geometric pattern: the player captures on square X (e.g., dxe5, cxd5, fxe5, bxc4, hxg6, Nxc5), and the primary refutation is the opponent's knight jumping to that EXACT same square X (Nxe5, Nxd5, Nxc4, Nxg6+, Nxc5). The knight l"
+    },
+    {
+     "feature_id": 1433,
+     "chip": "Recapture invites back-rank check",
+     "fire_rate_pct": 1.046,
+     "description": "7/10 positions feature the exact same pattern: the player captures an enemy piece (almost always with a rook) on the d-file or e-file, but a second enemy piece recaptures on that same square with check, exploiting a fatally weak back rank. In positions 1, 3, and 10, White capture"
+    }
+   ]
+  },
+  {
+   "fine_id": 126,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 178,
+     "chip": "pxp capture misses mating net",
+     "fire_rate_pct": 1.531,
+     "description": "All 10/10 positions feature a pawn capturing a pawn (pxp) as the blunder move, making this pattern perfectly consistent geometrically. In every case, the capture appears natural \u2014 winning material, resolving tension, or damaging the opponent's structure \u2014 but catastrophically ign"
+    },
+    {
+     "feature_id": 194,
+     "chip": "Pawn capture opens fatal line",
+     "fire_rate_pct": 1.73,
+     "description": "All 10/10 positions feature pawn captures (pxp) as the blunder. In 9/10 cases, the captured pawn was serving as a critical defensive barrier\u2014blocking a file from rook invasion (positions 1, 6, 8), shielding the king from diagonal attacks (positions 2, 4, 10), or maintaining struc"
+    },
+    {
+     "feature_id": 639,
+     "chip": "pxp misses check or fork",
+     "fire_rate_pct": 0.852,
+     "description": "All 10/10 positions feature a pawn capturing an enemy pawn (pxp), making this the defining geometric signature. In 8/10 cases this is a genuine mistake (avg cp_loss 219 across those 8), while 2/10 happen to be the best move (0 cp loss), suggesting the feature detects the mechanic"
+    },
+    {
+     "feature_id": 914,
+     "chip": "Pawn capture drops guard duty",
+     "fire_rate_pct": 2.232,
+     "description": "All 10/10 positions feature a pawn capturing another pawn (pxp), where the moving pawn was performing a vital defensive function \u2014 guarding a key square, supporting another pawn, blocking a dangerous diagonal, or shielding the king. In 10/10 cases the capture resolves tension or "
+    },
+    {
+     "feature_id": 1365,
+     "chip": "pxp grabs pawn, misses winning shot",
+     "fire_rate_pct": 1.656,
+     "description": "All 10/10 positions feature a pawn capturing an enemy pawn (pxp) that looks natural or free but squanders a much larger opportunity. In 8/10 cases, the best move was a non-capture that exploited a concrete tactical motif (queen check winning a piece, rook lift winning a queen, te"
+    },
+    {
+     "feature_id": 1734,
+     "chip": "pxp releases tension, aids opponent",
+     "fire_rate_pct": 0.954,
+     "description": "All 10/10 positions feature a pawn capturing a pawn (pxp) as the blunder, and in every case, the better moves involved piece play (capturing dangerous enemy pieces, repositioning pieces, or addressing urgent threats). 4/10 of the captures come with check (positions 2, 7, 8, 10), "
+    }
+   ]
+  },
+  {
+   "fine_id": 183,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 1224,
+     "chip": "Rook captures, wrong move order",
+     "fire_rate_pct": 1.034,
+     "description": "8/10 positions involve captures or checks that resolve material or structural tension at the wrong moment. In 7/10 cases, the error is specifically a move-order mistake where a preparatory move should have preceded the forcing action (e.g., Kb6 before axb3, e6 before fxg6, Qb3 be"
+    },
+    {
+     "feature_id": 1334,
+     "chip": "Pawn grab misses forcing sequence",
+     "fire_rate_pct": 1.085,
+     "description": "All 9/9 positions feature a pawn capture (fxe5, cxd4, dxe5, gxf3, bxc5, fxg5, gxh5) that wins or takes a piece/pawn but squanders a significantly stronger continuation. In 5/9 cases the error is specifically a move-order mistake where the pawn capture could be played LATER but pl"
+    },
+    {
+     "feature_id": 1387,
+     "chip": "Premature rook exchange ruins combination",
+     "fire_rate_pct": 0.765,
+     "description": "All 10/10 positions feature a rook capturing the opposing rook on the same open file (Rx_1/Rx_8 patterns), and in every case this exchange is premature or counterproductive. In 5/10 positions (3, 4, 6, 7, 9), the error is specifically a move-order mistake where a tactical blow (N"
+    },
+    {
+     "feature_id": 1611,
+     "chip": "Rook recaptures miss zwischenzug first",
+     "fire_rate_pct": 0.77,
+     "description": "All 10 positions involve a rook capture/recapture on a central or back-rank file (d1, d8, c1, c8, e1) where an enemy piece is 'obviously' meant to be taken. In 6/10 positions (1, 2, 3, 6, 8, 9), the error is failing to insert a critical zwischenzug (intermediate forcing move, usu"
+    },
+    {
+     "feature_id": 1901,
+     "chip": "Bishop grabs rook, ignores counter-blow",
+     "fire_rate_pct": 1.359,
+     "description": "All 10/10 positions feature a bishop capturing a higher-value piece (9/10 rooks, 1/10 queen), motivated by the appeal of winning material immediately. In 4/10 cases (positions 1, 3, 7, 8), the error is a move-order mistake where a preparatory move (Nxc6, Qxe2+, Qxd3, f5) should p"
+    }
+   ]
+  }
+ ]
+}

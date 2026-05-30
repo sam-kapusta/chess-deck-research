@@ -1,0 +1,432 @@
+{
+ "coarse_id": 6,
+ "n_features": 64,
+ "subclusters": [
+  {
+   "fine_id": 9,
+   "size": 15,
+   "features": [
+    {
+     "feature_id": 151,
+     "chip": "Bishop drifts to rim, punished",
+     "fire_rate_pct": 1.184,
+     "description": "All 10/10 positions feature a bishop relocating from a useful post to a peripheral square (a-file, b-file, g-file, or h-file), where it is immediately punished. In 7/10 cases the bishop lands on the actual rim (a- or h-file: Ba4, Ba4, Ba6, Ba5, Ba7, Bh4, Bg4), with the remaining "
+    },
+    {
+     "feature_id": 221,
+     "chip": "Knight retreats to rim over tactics",
+     "fire_rate_pct": 10.347,
+     "description": "8/9 positions feature a knight moving from a central or actively-placed square to a peripheral square (a-file, h-file, b-file, or g-file), while the position demanded immediate tactical engagement. The most common specific move is Na4 (appearing in 5/9 positions), where the c3-kn"
+    },
+    {
+     "feature_id": 442,
+     "chip": "Knight to rim over urgent defense",
+     "fire_rate_pct": 1.536,
+     "description": "9/10 positions feature moves to rim or near-rim squares: specifically, 7/10 involve moves to the a-file (Na3 twice, Qa3, Qa5, Qa6, a6, axb6), while Qb6 and Nh6 are also edge-directed moves. Only Bf5 (1/10) is not a clear rim move, though it shares the pattern of placing a piece o"
+    },
+    {
+     "feature_id": 490,
+     "chip": "Knight to rim invites immediate capture",
+     "fire_rate_pct": 0.99,
+     "description": "9/10 positions feature a knight moving to a rim square on the a-file or h-file (Nh6 x4, Nh3 x2, Na6 x2, Na3 x1), with only 1/10 (Nc6) deviating from the strict rim pattern. All 10 moves place a knight on the 3rd or 6th rank. 8/10 occur in the opening phase, representing premature"
+    },
+    {
+     "feature_id": 545,
+     "chip": "Knight leaves critical defensive post",
+     "fire_rate_pct": 1.35,
+     "description": "8/10 positions involve minor piece moves (5 knights, 3 bishops) that relocate a piece from an important functional square to a worse one. In 6/10 cases, the destination is a rim square (Nh5, Na7, Bh2, Na4, Bb5, Bc3 on the edge of action). In 9/10 positions, the piece was performi"
+    },
+    {
+     "feature_id": 894,
+     "chip": "Rook retreats to rim, abandons defense",
+     "fire_rate_pct": 1.595,
+     "description": "All 10/10 positions feature a rook moving to a rim file (a, b, g, or h file), forsaking a critical defensive function. In 6/10 cases the rook specifically left the e-file where it was guarding a pawn (e4 in positions 2, 6), protecting a piece indirectly (d4 knight in position 7, "
+    },
+    {
+     "feature_id": 1019,
+     "chip": "Queen to rim vacates key squares",
+     "fire_rate_pct": 2.663,
+     "description": "9/10 positions feature a piece moving to the a-file or h-file on ranks 4 or 5 (Nh5, Na4, Ra5, Qh4, Qa4, Nh4, Ba5, Ba5, Qa5), with only 1/10 (Nc5) deviating geometrically but sharing the same thematic error. In every case, the move looks superficially active\u2014targeting a specific p"
+    },
+    {
+     "feature_id": 1028,
+     "chip": "Rim pawn push cedes tempo",
+     "fire_rate_pct": 1.552,
+     "description": "All 10/10 positions feature moves to edge files (a, b, or h) or rank-1 squares that create no immediate threat. 6/10 are bishop moves to rim squares (Ba5, Ba6, Bb1, Bh5, Bh4, plus Nb2 as a minor piece). 4/10 are quiet pawn pushes on the a or h file (b5, a3, a4, h6). None are chec"
+    },
+    {
+     "feature_id": 1052,
+     "chip": "Knight to rim chases bishop",
+     "fire_rate_pct": 1.083,
+     "description": "All 9/9 positions feature a knight moving to the absolute rim of the board (a-file or h-file), and in at least 8/9 cases the explicit intent is to attack or chase an enemy bishop (Bc4 in 6 positions, Bf5 in 2, Bg3 in 1). This is a well-known positional motif (e.g., ...Na5 vs Bc4 "
+    },
+    {
+     "feature_id": 1379,
+     "chip": "Knight to rim abandons f7",
+     "fire_rate_pct": 0.906,
+     "description": "8/10 positions feature a knight moving to the rim specifically to attack an opponent's bishop: 6/10 are Na5 targeting a bishop on c4, and 2/10 are Nh5 targeting a bishop on f4. These are mirror-image maneuvers where a knight leaves a central 6th-rank square (c6 or f6) and jumps t"
+    },
+    {
+     "feature_id": 1412,
+     "chip": "Bishop drifts to undefended rim",
+     "fire_rate_pct": 1.097,
+     "description": "8/10 positions feature bishop moves, with 1 knight move (Na6) and 1 pawn move (h6). The defining geometric pattern is movement to rim squares: 8/10 moves land on the a-file or h-file (Ba6, Bh6, h6, Ba3, Bh4, Bh3, Bh4, Na6), with the remaining two (Bf4, Bb5) going to exposed squar"
+    },
+    {
+     "feature_id": 1461,
+     "chip": "Knight to rim abandons key square",
+     "fire_rate_pct": 1.621,
+     "description": "All 10 positions feature a piece moving to a rim or near-rim square: 8/10 land directly on the a-file or h-file (Nh5, Rh4, Nh4, Rh5, Rh4, Bh6, Ba4, plus Nb5/Nb4 on the b-file), while 2/10 land on g or b files (Qg4, Nb4). In every case, the moved piece was performing a crucial rol"
+    },
+    {
+     "feature_id": 1550,
+     "chip": "Knight to rim abandons kingside defense",
+     "fire_rate_pct": 1.399,
+     "description": "9/10 positions feature a knight moving to a rim or corner square (Na3 x3, Na6 x2, Na7, Nb8, Nh1, Nh6), while 1/10 is a bishop retreating to the edge (Bb6). In all 10 positions, there is an immediate tactical crisis \u2014 typically a king safety emergency (8/10 involve direct mating t"
+    },
+    {
+     "feature_id": 1595,
+     "chip": "Knight to rim deserts central duty",
+     "fire_rate_pct": 2.565,
+     "description": "All 10 positions feature a minor piece moving to one of the 'graveyard' squares on the rim's second/seventh rank: Nh2 (4/10), Nh7 (3/10), Na7 (2/10), and Bh2 (1/10). In 9/10 cases it's a knight; 9/10 occur in the middlegame. The piece invariably leaves a critical post where it wa"
+    },
+    {
+     "feature_id": 1971,
+     "chip": "Knight to rim burns tempo",
+     "fire_rate_pct": 1.504,
+     "description": "All 10/10 positions feature a minor piece being placed on one of four specific rim squares: a3 (3 positions), a6 (2 positions), h3 (2 positions), or h6 (3 positions). 8/10 moves are knight moves and 2/10 are bishop moves, but all share the geometry of placing a minor piece on the"
+    }
+   ]
+  },
+  {
+   "fine_id": 86,
+   "size": 13,
+   "features": [
+    {
+     "feature_id": 278,
+     "chip": "Bishop retreat ignores forcing reply",
+     "fire_rate_pct": 1.748,
+     "description": "All 10/10 positions feature a non-capturing, non-checking bishop move that repositions the bishop to a seemingly reasonable square while ignoring the position's urgent demands. In 8/10 cases, the bishop moves backward or sideways to a more passive square (Bd3, Bc2, Bc3, Bf7, Bg3,"
+    },
+    {
+     "feature_id": 648,
+     "chip": "Bishop retreats cede critical tempo",
+     "fire_rate_pct": 1.431,
+     "description": "9/10 positions feature a bishop being moved to a passive or back-rank square (Bc1 x3, Bd8, Bf1, Bd1, Bg3, Bc7, Bd2), with the remaining position showing a similarly passive king retreat (Ke7). In all 10 cases, the move is a slow piece repositioning that squanders a critical tempo"
+    },
+    {
+     "feature_id": 791,
+     "chip": "Bishop repositioned while tactics wait",
+     "fire_rate_pct": 1.359,
+     "description": "8/10 positions involve bishop moves specifically, with the remaining 2 being analogous rook repositioning moves sharing the same error pattern. The bishops are moved to squares that are either self-entombing (Bh1, Bf1, Bh2 \u2014 3/10 positions bury the bishop behind own pawns or in a"
+    },
+    {
+     "feature_id": 826,
+     "chip": "Queen centralizes while tactics demand precision",
+     "fire_rate_pct": 2.126,
+     "description": "8/10 positions feature a queen move to a central or active-looking square (c5, e4, d4, h3, d6, f4), with the remaining 2 being analogous piece-improving moves (Be4, Re5). All 10 moves are non-capturing, non-checking 'repositioning' moves that prioritize piece placement over urgen"
+    },
+    {
+     "feature_id": 831,
+     "chip": "Queen drift abandons critical square",
+     "fire_rate_pct": 17.614,
+     "description": "All 10/10 positions feature a queen repositioned to a central or semi-central square (ranks 3-6, files d-g) that appears active but accomplishes nothing concrete. In 10/10 cases the move is a non-forcing, non-capturing queen relocation (no checks, no captures). In 6/10 positions,"
+    },
+    {
+     "feature_id": 988,
+     "chip": "Bishop retreats from critical diagonal",
+     "fire_rate_pct": 0.995,
+     "description": "All 10/10 positions feature a bishop being moved away from an aggressive or functionally critical square to a seemingly reasonable but actually inferior destination. In 8/10 cases the bishop retreats backward along a diagonal; in 2/10 (Be6, Bf6) it repositions laterally but still"
+    },
+    {
+     "feature_id": 1140,
+     "chip": "Rook retreats from active duty square",
+     "fire_rate_pct": 1.529,
+     "description": "All 10/10 positions feature a rook making a non-capturing, non-checking repositioning move \u2014 typically a retreat or lateral shuffle \u2014 that abandons a square where the rook was performing a critical function. In 7/10 positions the rook moved backward toward its own back rank (R5e2"
+    },
+    {
+     "feature_id": 1164,
+     "chip": "Knight drifts from critical post",
+     "fire_rate_pct": 1.063,
+     "description": "10/10 positions feature a non-forcing repositioning move (no captures, no checks) that takes a piece away from where it was critically needed. In 7/10 cases, the piece abandons a specific defensive function: the knight guarding central squares (Na5, Position 1), the rook defendin"
+    },
+    {
+     "feature_id": 1179,
+     "chip": "Knight retreats abandon key guard square",
+     "fire_rate_pct": 8.824,
+     "description": "10/10 positions feature a piece being moved AWAY from a square where it performed a vital defensive or positional function, replaced by a passive repositioning. 5/10 involve knight retreats from key squares (f6\u2192d7 twice, c3\u2192e2 twice, d5\u2192e7), and 4/10 involve queen retreats from a"
+    },
+    {
+     "feature_id": 1235,
+     "chip": "Knight to outpost skips forcing capture",
+     "fire_rate_pct": 1.466,
+     "description": "All 10 positions feature a non-capturing piece relocation to a square that appears strategically desirable\u2014typically a central outpost or active diagonal. 9/10 moves are minor piece relocations (7 knight moves to squares like d5, c4, b4, d4, d3; 2 bishop moves to e4, f5, c4), and"
+    },
+    {
+     "feature_id": 1554,
+     "chip": "Bishop retreats abandon critical diagonal",
+     "fire_rate_pct": 1.571,
+     "description": "8/10 positions involve bishop moves and 2/10 involve queen moves, but all 10 share the defining characteristic of retreating a piece backward along a diagonal to a more passive square when the position demanded concrete or active play. In 10/10 cases the retreating piece was prev"
+    },
+    {
+     "feature_id": 1720,
+     "chip": "Bishop shuffle surrenders decisive initiative",
+     "fire_rate_pct": 1.004,
+     "description": "All 10/10 positions feature a bishop moving exactly one diagonal square (g4\u2192h3, g4\u2192f5, c4\u2192b5, b5\u2192c4, c4\u2192b3, h5\u2192g6, g5\u2192h4, g4\u2192h5, f5\u2192e6, g4\u2192h5) \u2014 a short, non-capturing repositioning that appears natural but catastrophically wastes tempo. In 8/10 cases, the bishop was already perf"
+    },
+    {
+     "feature_id": 1817,
+     "chip": "Queen repositions while tactics burn",
+     "fire_rate_pct": 2.901,
+     "description": "All 10/10 positions feature a non-forcing queen move (no check, no capture) to a square that appears natural or purposeful but critically disconnects the queen from its most important role in the position. In 7/10 positions, only 1 good move was available, indicating razor-sharp "
+    }
+   ]
+  },
+  {
+   "fine_id": 76,
+   "size": 11,
+   "features": [
+    {
+     "feature_id": 12,
+     "chip": "Bishop retreats when concrete action needed",
+     "fire_rate_pct": 1.264,
+     "description": "All 10/10 positions feature a bishop being repositioned to a less active square \u2014 typically a back-rank, corner, or rim square \u2014 when the position urgently required a different type of move entirely. In 8/10 cases, the bishop destination was on rank 1, 7, or 8 (b8, g8, f8, h8, e7"
+    },
+    {
+     "feature_id": 193,
+     "chip": "Knight retreats to rim, misses win",
+     "fire_rate_pct": 1.191,
+     "description": "All 10/10 positions feature a minor piece (knight or bishop) retreating to a passive square on the edge or corner of the board: Nb1 appears 4 times, Ba2 twice, Ba7 twice, plus Nb8, Ba1, and Bh2. Every single move goes to the first/second rank or the a/h-file rim. In 10/10 cases, "
+    },
+    {
+     "feature_id": 436,
+     "chip": "Queen retreats gift free development",
+     "fire_rate_pct": 1.022,
+     "description": "All 10 positions feature a queen that has already been developed to an active or infiltrated square, and the player retreats it passively rather than exploiting concrete tactical opportunities. 6/10 positions involve retreating the queen all the way back to d8 (its starting squar"
+    },
+    {
+     "feature_id": 491,
+     "chip": "Bishop retreats to edge, hangs",
+     "fire_rate_pct": 1.107,
+     "description": "10/10 positions feature a bishop moving to a square on rank 1, rank 8, or the a-file edge \u2014 all destination squares (a7, h8, b7, a1, a1, b1, a8, c1, e8, d1) lie on the absolute perimeter of the board. In 8/10 positions, the move involves the bishop retreating to the player's own "
+    },
+    {
+     "feature_id": 560,
+     "chip": "Bishop retreats while tactics exist",
+     "fire_rate_pct": 1.834,
+     "description": "All 10/10 positions feature a bishop moving to a less active square along its current diagonal, retreating toward the edge of the board. In 8/10 cases the bishop retreats toward the g/h-file rim (Bg6, Bh6, Bg3, Bh4, Bh3, Bh5), while the remaining 2 retreat toward the a/b-file or "
+    },
+    {
+     "feature_id": 679,
+     "chip": "King retreats to edge, loses mobility",
+     "fire_rate_pct": 2.236,
+     "description": "10/10 positions feature a king move toward the nearest board edge\u20148/10 retreat directly backward to the back rank (g2\u2192g1, e7\u2192e8, e2\u2192e1, g7\u2192g8, d2\u2192d1, etc.) while 2/10 move sideways into a corner (b7\u2192a7, g8\u2192h8). In every case, the better alternative was a lateral move (Kc1, Kf1, K"
+    },
+    {
+     "feature_id": 813,
+     "chip": "Queen retreats to rim, king exposed",
+     "fire_rate_pct": 1.302,
+     "description": "9/10 positions feature queen moves to passive squares on the board's periphery (corners, edges, back rank), with 1/10 being a rook retreat that follows the same logic. The destination squares are overwhelmingly on the 1st/8th rank or a/h files: Qa2, Qd1, Qb1, Qh7, Rf1, Qc2, Qa7, "
+    },
+    {
+     "feature_id": 837,
+     "chip": "Bishop shuffles to rim, squanders tactics",
+     "fire_rate_pct": 0.902,
+     "description": "All 10/10 positions feature a bishop retreating exactly one square along its current diagonal toward the edge/corner of the board: c4\u2192b3 (4 positions), c5\u2192b6 (2 positions), f4\u2192g3, b4\u2192a3, g4\u2192h3, and f5\u2192g6. In every case, the bishop moves from a more active central/semi-central squ"
+    },
+    {
+     "feature_id": 974,
+     "chip": "Queen retreats to back rank passively",
+     "fire_rate_pct": 1.288,
+     "description": "All 10/10 positions feature the queen retreating to the player's back rank (8th rank for Black in 9/10 cases, 1st rank for White in 1/10). The destinations are universally passive squares: Qc8 (5/10), Qf8 (2/10), Qd8 (1/10), Qe8 (1/10), Qf1 (1/10). In every case, the position dem"
+    },
+    {
+     "feature_id": 1079,
+     "chip": "Bishop retreats to rim, loses tempo",
+     "fire_rate_pct": 1.0,
+     "description": "All 10/10 positions feature a bishop moving to the peripheral ranks of the board: 4/10 go to the absolute back rank (d1, g8, c8, h8), 3/10 go to corners (a1, g8, h8), and the remaining moves land on the 2nd or 7th rank (c7, e7, f2, d2, g7). In every case, the bishop previously oc"
+    },
+    {
+     "feature_id": 1570,
+     "chip": "Knight retreats to back rank edge",
+     "fire_rate_pct": 1.24,
+     "description": "9/10 positions feature a knight retreating, and 1/10 a bishop, with 9/10 destination squares on the literal 1st or 8th rank (e8, a8, c1, d1, b8, c1, b1, f1) and 1/10 on the 2nd rank (d2). In every case, the piece leaves an active centralized post: from d6\u2192e8 (positions 1,5), b6\u2192a"
+    }
+   ]
+  },
+  {
+   "fine_id": 24,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 280,
+     "chip": "Rook repost ignores mated king",
+     "fire_rate_pct": 1.117,
+     "description": "All 10/10 positions feature a critically exposed king under immediate tactical pressure, where the player makes a piece repositioning move that appears constructive but fatally ignores the king's peril. 8/10 moves are rook moves (Rc8, Rf1, Rc1, Rf1, Rg1, Rd7, Rb8, Rd7), with the "
+    },
+    {
+     "feature_id": 305,
+     "chip": "King to h1 surrenders tempo",
+     "fire_rate_pct": 1.056,
+     "description": "8/10 positions feature the literal move Kh1 (White) or Kh8 (Black), tucking the king into the absolute corner square. The remaining 2 positions involve the king already sitting on h1/h8 while the player makes another passive move (h6, Rxb6) that ignores threats to that cornered k"
+    },
+    {
+     "feature_id": 394,
+     "chip": "Active rook ignores promotion race",
+     "fire_rate_pct": 0.979,
+     "description": "All 10 positions share a common pattern: the player chose a superficially aggressive or active move while missing a specific, concrete tactical priority. 6/10 moves are rook relocations to 'active' squares (Rc1, Rb6+, Rb8+, Ra5, Rd5, Rc3+), with 3 of those being checks. The remai"
+    },
+    {
+     "feature_id": 534,
+     "chip": "Rook retreats to passive back rank",
+     "fire_rate_pct": 3.826,
+     "description": "All 10 positions feature a rook move to a passive or remote square. 8/10 moves specifically send the rook to the back rank (1st or 8th rank: Ra8, Rh1, Rc8, Ra8, Rh8, Re1, Rd1, Rh1), while the remaining 2 (Rc4, Ra6) still relocate the rook away from its critical active post. In ev"
+    },
+    {
+     "feature_id": 998,
+     "chip": "Rook 'active' move ignores mating net",
+     "fire_rate_pct": 1.076,
+     "description": "8/10 positions feature explicit king safety crises where the played move ignores or worsens the situation. 7/10 moves are rook moves to seemingly 'active' squares (Rb1, Rg8, Rc1, Rg1, Rc1, Re8, Re8), with the remaining being a knight retreat, a queen relocation, and a king captur"
+    },
+    {
+     "feature_id": 1223,
+     "chip": "Bishop retreats block king escape",
+     "fire_rate_pct": 2.128,
+     "description": "9/10 positions feature bishop moves (the exception being Rg8), and in virtually all cases the piece retreats toward the back rank or a passive square (Be1, Bf8\u00d72, Bd8, Bc8, Be3, Be7, Bc3). The core error is consistent: the player chooses a 'consolidating' or 'defensive-looking' r"
+    },
+    {
+     "feature_id": 1292,
+     "chip": "Rook lands on knight-forkable square",
+     "fire_rate_pct": 4.928,
+     "description": "All 10 positions feature rook moves to squares that appear active and pawn-targeting. 6/10 moves place the rook on the 7th or 8th rank (Rf7, Rb7, Rb8, Re7, Rd7, Rg6 on the 6th), while the remaining 4 (Ra5, Ra2, Rc2, Rc1) send the rook sideways to attack specific pawns. In 4/10 po"
+    },
+    {
+     "feature_id": 1439,
+     "chip": "Bishop retreats to h1 corner",
+     "fire_rate_pct": 0.928,
+     "description": "6/10 positions feature the literal move Bh1, where the player retreats a bishop (typically from an active central square like e4, f3, or g2) to the h1 corner. In all 6 Bh1 cases, the bishop was performing a vital role on its original square \u2014 controlling key diagonals, pressuring"
+    }
+   ]
+  },
+  {
+   "fine_id": 26,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 285,
+     "chip": "Rook to 7th abandons concrete duty",
+     "fire_rate_pct": 1.246,
+     "description": "7/10 positions involved a rook move to an aggressive-looking square, with 6/10 specifically being rook-to-seventh-rank moves (Rd7, Rd7, Rb7, Ra7, Rf7, Rd2-as-infiltration). In every case, the position demanded a more urgent action: capturing a hanging/critical piece (positions 2,"
+    },
+    {
+     "feature_id": 751,
+     "chip": "Quiet d-file move gifts tempo",
+     "fire_rate_pct": 1.016,
+     "description": "7/10 positions feature a piece moving to d2 or d7 on the d-file (Kd2, Qd7\u00d74, Nd7, Rd7, Rd2), while the remaining 3 are equally passive non-forcing moves (g6\u00d72, Ne2). All 10 positions had very few good alternatives (avg 1.8), meaning they were critical moments requiring precision."
+    },
+    {
+     "feature_id": 915,
+     "chip": "Rook captures before coordinating pieces",
+     "fire_rate_pct": 1.269,
+     "description": "7/10 positions involve rook moves (Rxf5, Rxd4, Rxf5, Rxd5, Rb5, Rde1, Rxh8), and 8/10 involve direct captures or moves targeting material. In every case, the correct move was a quiet repositioning or preparatory move: Positions 1 and 2 both required Bf3 (bishop retreat), Position"
+    },
+    {
+     "feature_id": 940,
+     "chip": "Rook grabs rim pawn, misses mate",
+     "fire_rate_pct": 1.357,
+     "description": "All 10 positions feature a rook capturing a pawn (Rx_), with 8/10 targeting rim pawns on the a-file or h-file. In 6/10 positions, this greedy capture allows or overlooks an immediate checkmate (back-rank mates in positions 1, 2, 4; king mating nets in positions 5, 7, 10). In the "
+    },
+    {
+     "feature_id": 1158,
+     "chip": "Knight retreats to rim square",
+     "fire_rate_pct": 1.177,
+     "description": "6/10 positions feature a knight retreating specifically to h2 or h7 (Nh2 twice, Nh7 four times), making this the dominant geometric signal. The remaining 4 positions share the broader pattern of passive, non-forcing moves (Kh7, g4, Kf2, Kb7/Re6) that waste tempo and abandon criti"
+    },
+    {
+     "feature_id": 1485,
+     "chip": "King retreats cede critical tempo",
+     "fire_rate_pct": 1.129,
+     "description": "8/10 positions feature direct king moves (Kh1, Kb7, Kc8, Kg1, Kh2, Kh8, O-O counted as king move), while the remaining 2 (b6 and Rg1/Rf7) are similarly passive moves motivated by perceived safety or consolidation. In 10/10 cases, the position demanded immediate concrete action \u2014 "
+    },
+    {
+     "feature_id": 1856,
+     "chip": "Knight grabs rim piece, misses fork",
+     "fire_rate_pct": 0.719,
+     "description": "7/10 positions feature knight moves, and 6/10 specifically involve a knight capturing a relatively passive piece (usually a bishop on the rim: a6, b7, b7, g7, h7, f2) when the knight had a far stronger tactical use from its current or a nearby square. In Position 1, the c7-knight"
+    },
+    {
+     "feature_id": 1922,
+     "chip": "Rim pawn push over active piece",
+     "fire_rate_pct": 1.204,
+     "description": "9/10 positions feature pawn pushes on the a, b, or h files (the rim columns), while the remaining position (Re7) is similarly a passive repositioning move. In every case, the best available move involved urgent active play: piece sacrifices (Rf6+ in position 1), piece activation "
+    }
+   ]
+  },
+  {
+   "fine_id": 161,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 961,
+     "chip": "Queen/King drifts to rim",
+     "fire_rate_pct": 1.371,
+     "description": "All 10/10 positions feature the Queen or King moving to the absolute edge of the board \u2014 specifically the a-file (5 positions: Qa5\u00d73, Qa4, Qa6) or the h-file (5 positions: Kh5\u00d72, Kh4\u00d72, Qh5+). In every case, the piece lands on ranks 4-6 of the rim. The consequences vary but clust"
+    },
+    {
+     "feature_id": 1260,
+     "chip": "rim pawn over forcing central break",
+     "fire_rate_pct": 1.294,
+     "description": "All 10/10 positions feature a move landing on either the a-file or h-file \u2014 the extreme edges of the board. Specifically, 6/10 involve h-file moves (h6 appears 3 times, plus Bh6, Qh4, and h4) while 4/10 involve a-file moves (Ra2, a4, Qa3, Ba6). In every case, the position demande"
+    },
+    {
+     "feature_id": 1456,
+     "chip": "Queen drifts to rim, abandons guard",
+     "fire_rate_pct": 1.206,
+     "description": "In 10/10 positions, the played move removes a piece from a square or sector where it was performing a critical defensive or coordinating role\u2014guarding another piece, controlling a key square, or maintaining a tactical threat. 7/10 moves land on the a-file or h-file (board edges: "
+    },
+    {
+     "feature_id": 1786,
+     "chip": "King drifts to edge, loses opposition",
+     "fire_rate_pct": 1.192,
+     "description": "All 10 positions feature king moves, and 9/10 involve the king moving toward the edge of the board or away from the critical area of play. 5/10 moves specifically go to the h-file (Kh3, Kh4, Kh5, Kh5, Kh4), while others drift to the a-file (Ka6), c-file away from action (Kc6, Kc3"
+    },
+    {
+     "feature_id": 1888,
+     "chip": "g/h pawn push misses forced check",
+     "fire_rate_pct": 1.349,
+     "description": "All 10/10 positions feature moves landing on rank 3 (7 positions: g3, Qg3, h3, Kg3, h3, Kb3, Kg3) or rank 6 (3 positions: g6, Qh6, Qa6). In 8/10 positions, the move lands on the g-file or h-file. The critical 'why bad' pattern: in 8/10 mistake positions, the correct move was an i"
+    }
+   ]
+  },
+  {
+   "fine_id": 159,
+   "size": 4,
+   "features": [
+    {
+     "feature_id": 669,
+     "chip": "Queen check lets king escape",
+     "fire_rate_pct": 1.015,
+     "description": "7/9 positions involve queen moves that are forcing but counterproductive, and 5/9 are specifically premature queen checks (Qh8+, Qh1+, Qh1+, Qxf6+, Qh8+). In 4/9 cases, the check lands specifically on h1 or h8 along the h-file. In virtually all positions, the player held a signif"
+    },
+    {
+     "feature_id": 1300,
+     "chip": "h-file pawn over forced capture",
+     "fire_rate_pct": 1.686,
+     "description": "9/9 positions share the same fundamental error: the player makes a non-forcing move (no check, no capture, no real threat) while ignoring an urgent tactical demand. 7/9 moves specifically go to the g/h files or b-file edges (Bh7, Kh2, Ng5, Bh6, h4, Nh6, Nh5), with 6/9 landing on "
+    },
+    {
+     "feature_id": 1553,
+     "chip": "h3/a3 push over forced response",
+     "fire_rate_pct": 0.938,
+     "description": "8/9 positions feature moves on the a, b, g, or h files (the board edges), with 4/9 being h-file pawn pushes (h3, h3, h6, hxg2) and 3/9 being captures on the a/b files (Rxa7, Rxa6, Kxb2). The average good moves available was only 1.2, meaning nearly every position had exactly ONE "
+    },
+    {
+     "feature_id": 1987,
+     "chip": "Queen repost over concrete piece action",
+     "fire_rate_pct": 4.51,
+     "description": "All 9/9 positions feature a queen relocation to a seemingly aggressive square when the position demanded a concrete move with a different piece. In 7/9 cases, the queen lands on the g-file or h-file (g3, g4, g5, g5, g6, h5, h6), with the remaining two (Qe7, Qb3) also being superf"
+    }
+   ]
+  }
+ ]
+}

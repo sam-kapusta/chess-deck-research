@@ -1,0 +1,846 @@
+{
+ "coarse_id": 8,
+ "n_features": 124,
+ "subclusters": [
+  {
+   "fine_id": 0,
+   "size": 13,
+   "features": [
+    {
+     "feature_id": 79,
+     "chip": "Rim pawn push over king activation",
+     "fire_rate_pct": 0.925,
+     "description": "All 10/10 positions feature pawn moves as the mistake, and 8/10 are specifically on the a-file or h-file (the rim). The phase is overwhelmingly endgame (8/10). In every case, the position demanded immediate king activation or forcing play: positions 1, 2, and 3 all needed king ce"
+    },
+    {
+     "feature_id": 101,
+     "chip": "Rook-pawn push amid crisis",
+     "fire_rate_pct": 0.988,
+     "description": "All 10/10 positions feature a single-square advance of a rook pawn (a-pawn or h-pawn) \u2014 specifically 7/10 are ...a6 and 3/10 are h3 or h6. In every case, the position required immediate concrete action: capturing an attacked piece (Position 7: Nxd2 wins White's queen), executing "
+    },
+    {
+     "feature_id": 242,
+     "chip": "Wing pawn push surrenders endgame tempo",
+     "fire_rate_pct": 1.123,
+     "description": "All 10/10 positions feature pawn advances as the mistake, with 8/10 being wing pawn pushes (h-file: 6 positions, a-file: 2 positions). In 7/10 positions the phase is endgame, where tempi are especially precious. The correct alternatives in 8/10 cases involved piece or king moves "
+    },
+    {
+     "feature_id": 270,
+     "chip": "King repositions, misses forcing win",
+     "fire_rate_pct": 1.547,
+     "description": "All 10/10 positions feature king moves in endgame positions where the moving side holds a massive advantage (evaluations ranging from +582 to forced mate). 8/10 positions feature advanced passed pawns near promotion as a central theme. The average number of good moves is only 1.6"
+    },
+    {
+     "feature_id": 410,
+     "chip": "Flank pawn push over forcing strike",
+     "fire_rate_pct": 0.932,
+     "description": "All 10 positions feature non-capturing pawn advances on the flanks (h-pawn in 5/10, b-pawn in 2/10, a/c/f-pawns in 3/10) in simplified positions where both kings are exposed and centralized. 7/10 are endgames and 3/10 are simplified middlegames; every single position features at "
+    },
+    {
+     "feature_id": 572,
+     "chip": "Passed pawn pushed into capture",
+     "fire_rate_pct": 1.052,
+     "description": "All 10/10 positions feature a pawn advance that is immediately punished by the opponent capturing the advanced pawn. In 9/10 cases, the phase is an endgame where patient play was essential. In at least 4/10 positions (h6, e6, f3, e6), the capture comes with check, gaining a devas"
+    },
+    {
+     "feature_id": 866,
+     "chip": "a/h-pawn push over urgent action",
+     "fire_rate_pct": 2.166,
+     "description": "All 10/10 positions feature a one-square advance of a rook pawn (a-pawn in 7/10, h-pawn in 3/10) during the middlegame when urgent tactical or strategic demands exist elsewhere on the board. In 10/10 cases, the correct move was a concrete piece action \u2014 a capture (positions 1, 6,"
+    },
+    {
+     "feature_id": 1071,
+     "chip": "Flank pawn push, king uncastled",
+     "fire_rate_pct": 1.175,
+     "description": "All 10/10 positions share the same critical feature: the moving side's king is still on its starting square (e1 or e8) when a flank pawn is pushed aggressively. 7/10 positions involve a g-pawn advance (g4 or g5) while 3/10 involve a b-pawn advance (b4 or b5), but the underlying e"
+    },
+    {
+     "feature_id": 1096,
+     "chip": "Pawn push before king activation",
+     "fire_rate_pct": 1.212,
+     "description": "All 10/10 positions feature non-capturing pawn advances in endgame (9/10) or late middlegame (1/10) positions with exposed kings and active pawn promotion themes. Every position involves passed pawns or pawn races where tempo is critical. Among the 5 positions where the move was "
+    },
+    {
+     "feature_id": 1349,
+     "chip": "Flank pawn push exposes uncastled king",
+     "fire_rate_pct": 2.504,
+     "description": "All 10/10 positions feature a flank pawn advance (g-pawn in 6/10, b-pawn in 2/10, h-pawn in 2/10) that pushes forward without adequate piece support. In 9/10 positions, the moving side's king is still in the center (uncastled), making the structural damage self-inflicted and irre"
+    },
+    {
+     "feature_id": 1441,
+     "chip": "b-pawn push before king support",
+     "fire_rate_pct": 1.763,
+     "description": "8/10 positions feature pawn advances as the mistake move, with 4/10 specifically advancing the b-pawn (three b5 moves and one b4). 7/10 positions are endgames with exposed kings on both sides, where the correct plan required king activation or piece repositioning BEFORE advancing"
+    },
+    {
+     "feature_id": 1667,
+     "chip": "King advance into endgame check",
+     "fire_rate_pct": 1.141,
+     "description": "All 10/10 positions feature a king move that advances forward (toward the center or the opponent's side) during the endgame, motivated by the general principle that kings should be active in endgames. However, in every case the advance exposes the king to concrete tactical vulner"
+    },
+    {
+     "feature_id": 1692,
+     "chip": "Space thrust opens king diagonal",
+     "fire_rate_pct": 0.907,
+     "description": "All 10 positions feature a one-step pawn advance (d5 in 4/10, f4/f5 in 3/10, e5 in 1/10, d4 in 1/10, c7 in 1/10) played as an aggressive space-grabbing thrust. In 8/10 positions, the side making the move has an uncastled or exposed king. In 9/10 positions, the pawn advance direct"
+    }
+   ]
+  },
+  {
+   "fine_id": 127,
+   "size": 11,
+   "features": [
+    {
+     "feature_id": 286,
+     "chip": "Queen drifts to g5 abandoning defense",
+     "fire_rate_pct": 1.514,
+     "description": "All 10/10 positions feature a queen moving to g4 or g5 (7 to g5, 3 to g4) during the middlegame with same-side kingside castling. In every case, the queen arrives on a seemingly aggressive kingside square but has no concrete threats\u2014no checks, no captures, and no forcing follow-u"
+    },
+    {
+     "feature_id": 453,
+     "chip": "King centralizes while concrete move wins",
+     "fire_rate_pct": 1.062,
+     "description": "All 10 positions feature a king move to a central or semi-central square in an endgame (8/10) or late middlegame (2/10), following the general principle of 'activate the king.' However, in 9/10 cases the position demanded a more concrete action: a piece delivering check with mate"
+    },
+    {
+     "feature_id": 445,
+     "chip": "Queen vacates square, knight invades",
+     "fire_rate_pct": 2.733,
+     "description": "All 10/10 positions feature a voluntary queen move in the middlegame where the queen leaves a functional post for a seemingly reasonable but tactically flawed square. In 6-7/10 cases, the direct punishment involves an opponent's knight jumping to or through the square the queen n"
+    },
+    {
+     "feature_id": 656,
+     "chip": "King advances into check or fork",
+     "fire_rate_pct": 1.276,
+     "description": "All 10 positions feature a king move that advances the king forward from a relatively sheltered square toward the center or a tactical target. In 8/10 positions this occurs in the middlegame with queens still on the board. The most common motivation is approaching a passed pawn t"
+    },
+    {
+     "feature_id": 764,
+     "chip": "King advances into punishing check",
+     "fire_rate_pct": 1.328,
+     "description": "All 10/10 positions feature a king moving forward (toward the center or away from the back rank) to a square that is immediately tactically exploitable. In 8/10 positions, this occurs in the middlegame where queens, rooks, and bishops remain active\u2014making king centralization prem"
+    },
+    {
+     "feature_id": 1092,
+     "chip": "Bishop developed into pawn attack",
+     "fire_rate_pct": 3.833,
+     "description": "All 10/10 positions feature a bishop being developed to a seemingly reasonable central square (e3, e6, d6, c4, d3) during the opening or early middlegame, when a concrete tactical opportunity was available instead. In 7/10 cases, the bishop move directly creates a tactical vulner"
+    },
+    {
+     "feature_id": 1231,
+     "chip": "King steps into knight fork range",
+     "fire_rate_pct": 1.436,
+     "description": "All 10/10 positions feature single-square king moves in endgames with open central files and exposed kings. In 3/10 positions (1, 3, 9), the king walked onto a square within knight fork/check range (c3 forkable from e4, d6 checkable from b5, c6 checkable from e7) when an adjacent"
+    },
+    {
+     "feature_id": 1319,
+     "chip": "King steps onto attacked rank",
+     "fire_rate_pct": 1.444,
+     "description": "All 10/10 positions feature a voluntary king move (no capture, no escape from check) during the middlegame that relocates the king from a relatively sheltered square to a more exposed one where enemy pieces can immediately deliver devastating tactical blows. In 10/10 cases the ki"
+    },
+    {
+     "feature_id": 1527,
+     "chip": "Knight centralizes while pawns race",
+     "fire_rate_pct": 1.034,
+     "description": "All 10 positions feature a knight moving to a classically 'strong' central square (Ne4 in 4/10, Ne3 in 3/10, Nd4/Nc3/Nc6 in 1/10 each) that appears to improve the piece but fatally wastes tempo. 9/10 positions are endgames where passed pawns are racing to promote and every tempo "
+    },
+    {
+     "feature_id": 1599,
+     "chip": "Rook lift while tactics demand action",
+     "fire_rate_pct": 1.088,
+     "description": "All 10/10 positions feature a rook being repositioned to what appears to be an active or constructive square (lifts to the 3rd/6th rank, shifts along files, etc.) in the middlegame. However, in every case the rook move is too slow for the position's concrete demands. In 3/10 posi"
+    },
+    {
+     "feature_id": 1982,
+     "chip": "King steps into fork or passer",
+     "fire_rate_pct": 0.822,
+     "description": "8/10 positions feature king moves, predominantly to central squares (d1, d2, d5, d6, d8, c3), almost always in endgame positions involving passed pawns. The remaining 2/10 are pawn advances (c3, e4) that similarly prioritize passed pawn objectives over immediate threats. In 7/10 "
+    }
+   ]
+  },
+  {
+   "fine_id": 182,
+   "size": 9,
+   "features": [
+    {
+     "feature_id": 268,
+     "chip": "Flank pawn push over decisive strike",
+     "fire_rate_pct": 1.173,
+     "description": "All 10/10 positions feature a single-step flank pawn advance (h3 in 4 positions, h6 in 2, b3 in 2, a3 in 1, a6 in 1) \u2014 exclusively on the a, b, or h files. In every case, the move is described as 'prophylactic' or 'preparatory' (creating king luft, preventing hypothetical piece i"
+    },
+    {
+     "feature_id": 299,
+     "chip": "Flank pawn push abandons tactical crisis",
+     "fire_rate_pct": 0.888,
+     "description": "10/10 positions feature a one-square flank pawn advance on the b-file or g-file (b6\u00d73, b3\u00d73, g6\u00d72, g3\u00d71, b4\u00d71) played as a perceived prophylactic or preparatory move. In every case, the position contains an urgent tactical crisis that the pawn move completely ignores. 9/10 positi"
+    },
+    {
+     "feature_id": 374,
+     "chip": "flank pawn push over concrete defense",
+     "fire_rate_pct": 0.995,
+     "description": "All 10 positions feature a single-step flank pawn advance (8/10 are rook-pawn moves: 6x a6, 2x a3, 2x h3, plus 1x f6) played in positions where the clock is ticking on a concrete tactical or developmental need. In 6/10 positions, the move was ...a6 by Black, typically intending t"
+    },
+    {
+     "feature_id": 472,
+     "chip": "Rook-pawn push over concrete action",
+     "fire_rate_pct": 1.047,
+     "description": "All 10/10 positions feature a single-square rook pawn advance (a3 in 4 positions, a6 in 5 positions, h3 in 1 position) played as a 'prophylactic' or preparatory move in situations where the position urgently demanded concrete action. In 9/10 cases the stated intent was preventing"
+    },
+    {
+     "feature_id": 507,
+     "chip": "Rim pawn push surrenders decisive tempo",
+     "fire_rate_pct": 0.89,
+     "description": "All 10/10 positions feature a single-square advance of a rim or near-rim pawn (h6 in 4 cases, a6 in 2, b3 in 2, a3 in 1, g6 in 1, h3 in 1) played with vague 'prophylactic' or 'consolidating' intent. In every case, the position contained an urgent tactical demand: 8/10 involved a "
+    },
+    {
+     "feature_id": 1011,
+     "chip": "Pawn advance quits guard duty",
+     "fire_rate_pct": 1.313,
+     "description": "All 10/10 positions feature a single-step pawn advance where the pawn was already optimally placed for a structural role. In 5/10 positions (1, 3, 6, 8, 10), the pawn was guarding an adjacent pawn or blocking a critical diagonal toward the king, and its advance immediately expose"
+    },
+    {
+     "feature_id": 1632,
+     "chip": "Rim pawn push over forcing capture",
+     "fire_rate_pct": 0.783,
+     "description": "10/10 positions feature a single-square rim pawn advance (9/10 h-pawn, 1/10 a-pawn) played as a prophylactic 'luft' move in positions with extremely narrow best-move windows (avg 1.3 good moves available). In every case, the position demanded one specific forcing move: capturing "
+    },
+    {
+     "feature_id": 1839,
+     "chip": "Rim pawn push over concrete action",
+     "fire_rate_pct": 0.661,
+     "description": "All 10/10 positions feature a single-step rook pawn advance (h3 in 3, a3 in 3, a6 in 2, h6 in 2) played with prophylactic intent \u2014 trying to prevent an opponent's advance or piece incursion on the rim. In every case, the position demanded immediate tactical or dynamic action inst"
+    },
+    {
+     "feature_id": 1952,
+     "chip": "Rim pawn push over forced win",
+     "fire_rate_pct": 1.086,
+     "description": "10/10 positions feature a single-step pawn advance on the a, g, or h files (h3 in 5 positions, h6 in 2, a3 in 2, g6 in 1) played as a prophylactic 'luft' or waiting move when the position contained an urgent tactical demand. In 5/10 positions, the player missed capturing a hangin"
+    }
+   ]
+  },
+  {
+   "fine_id": 10,
+   "size": 9,
+   "features": [
+    {
+     "feature_id": 339,
+     "chip": "Kg1-h1 invites knight fork",
+     "fire_rate_pct": 0.927,
+     "description": "All 10/10 positions feature the identical move pattern: the king shuffles one square from g1 to h1 (8 positions) or g8 to h8 (2 positions) as a pseudo-prophylactic move, typically intended to escape a diagonal or avoid vague future threats. In every case, the position demanded im"
+    },
+    {
+     "feature_id": 486,
+     "chip": "King retreats into fork or mate",
+     "fire_rate_pct": 2.666,
+     "description": "All 10/10 positions feature a king moving to a corner square (a8, b8, h8, g8, g1, b1) or back-rank square (d1, e1) as a perceived prophylactic safety measure. In every case, the position demanded immediate concrete action \u2014 a tactic, a forced trade, or a critical pawn move \u2014 rath"
+    },
+    {
+     "feature_id": 548,
+     "chip": "King flees into diagonal check",
+     "fire_rate_pct": 1.613,
+     "description": "10/10 positions feature a king moving one square as a 'defensive' escape from perceived pressure, but landing on a square with greater tactical vulnerability. In 6/10 positions (1,2,3,6,9 and partially 7), the correct move was a pawn advance (g3 or g6) to block the file or diagon"
+    },
+    {
+     "feature_id": 625,
+     "chip": "King corners over forced winning move",
+     "fire_rate_pct": 0.812,
+     "description": "All 10/10 positions feature a king move to the nearest corner square (Kh1, Kh8, or Ka1) played as a prophylactic 'safety' move when the position had exactly one good move requiring immediate, forceful action. In 10/10 cases, the average number of good moves available was 1.0, mea"
+    },
+    {
+     "feature_id": 642,
+     "chip": "King tuck lets opponent execute",
+     "fire_rate_pct": 1.155,
+     "description": "All 10/10 positions feature the exact same type of mistake: the king moves one square from its castled position toward the nearest corner (g8\u2192h8, g1\u2192h1, c1\u2192b1, c8\u2192b8) as a perceived prophylactic or 'improving' move. In every case, the position urgently required concrete action \u2014 "
+    },
+    {
+     "feature_id": 781,
+     "chip": "King centralizes into tactical crossfire",
+     "fire_rate_pct": 0.738,
+     "description": "All 10/10 positions feature a king taking one diagonal step forward from a relatively sheltered square (f8\u2192e7, g8\u2192f7, g1\u2192f2, f1\u2192e2, c1\u2192d2) into a more exposed central position. In every case, the move was voluntary (not forced by check) and intended as a consolidation/prophylacti"
+    },
+    {
+     "feature_id": 816,
+     "chip": "King corners itself over decisive action",
+     "fire_rate_pct": 0.932,
+     "description": "All 10/10 positions feature a king move to the corner square (Kh1 in 6/10, Kh8 in 3/10, Kb8 in 1/10) played as a slow 'improving' or prophylactic move when the position urgently required concrete action. In 3/10 cases, a forced checkmate was available (positions 1, 3 had mate-in-"
+    },
+    {
+     "feature_id": 933,
+     "chip": "King shuffle invites fork or check",
+     "fire_rate_pct": 1.21,
+     "description": "All 10/10 positions feature a king moving exactly one square from a sheltered position (typically castled kingside on g1/h8/g8) toward the center or along a nearby file (g1\u2192f2, g1\u2192g2, h2\u2192g3, h8\u2192h7, g8\u2192g7). In every case, the king move is a quiet, non-forcing 'improvement' that ei"
+    },
+    {
+     "feature_id": 1502,
+     "chip": "King shuffle loses critical tempo",
+     "fire_rate_pct": 1.207,
+     "description": "All 10/10 positions feature the identical geometric move: the king shuffles one square from g1 to h1 (6 positions, White) or g8 to h8 (4 positions, Black) \u2014 tucking into the corner behind the castled rook pawn. In every case, the position demanded urgent concrete action: 4/10 pos"
+    }
+   ]
+  },
+  {
+   "fine_id": 178,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 22,
+     "chip": "Quiet pawn step misses forced win",
+     "fire_rate_pct": 1.492,
+     "description": "All 10/10 positions feature a quiet, non-capturing, non-checking pawn move (9/10 specifically to the 3rd rank from the mover's perspective: b3, g3, f3, b6, f6, g6). In every case, the position demanded immediate forcing action \u2014 9/10 had missed tactics available (checks, captures"
+    },
+    {
+     "feature_id": 171,
+     "chip": "3rd-rank push ignores forcing resource",
+     "fire_rate_pct": 1.296,
+     "description": "All 10/10 positions feature a non-capturing, non-checking pawn advance to the 3rd rank from the player's perspective (White: f3, h3, a3, c3, b3; Black: a6, f6, b6, a6, b6). In every case, the position contained a forcing tactical resource \u2014 a capture (6/10), a check (3/10), or an"
+    },
+    {
+     "feature_id": 172,
+     "chip": "Prophylactic pawn nudge surrenders initiative",
+     "fire_rate_pct": 1.703,
+     "description": "All 10/10 positions feature a single-square pawn advance to the player's own 3rd rank (f3, h3, a3, g3 for White; c6, h6, f6 for Black). Every move is non-capturing, non-checking, and prophylactic/structural in nature \u2014 solidifying pawn chains, preventing piece incursions, or 'pre"
+    },
+    {
+     "feature_id": 464,
+     "chip": "Flank pawn push over urgent defense",
+     "fire_rate_pct": 1.176,
+     "description": "10/10 positions feature a single-step pawn advance to the player's own third rank (3rd for White: b3, h3, a3, c3; 6th for Black: b6, b6, h6, g6, a6, a6), all on non-central files (a, b, c, g, or h \u2014 never d or e). 10/10 positions had urgent tactical or strategic demands that the "
+    },
+    {
+     "feature_id": 815,
+     "chip": "Quiet pawn push over forced defense",
+     "fire_rate_pct": 2.038,
+     "description": "8/9 positions feature a single-square pawn advance to the player's 3rd rank (d3, e3, b3, f3, g3, b6, b6, f3), with only one outlier (d4 locking the center). All 9 moves are non-forcing, non-capturing pawn moves played during the middlegame when the position demanded urgent action"
+    },
+    {
+     "feature_id": 982,
+     "chip": "Fianchetto prep over urgent defense",
+     "fire_rate_pct": 3.469,
+     "description": "All 10/10 positions feature a one-square pawn advance to the third rank (from the moving player's perspective: b3, g3, b6, c6, e6, g6) in positions with urgent tactical demands. In 8/10 cases, the explicit intent was to prepare a bishop fianchetto (Bb2, Bg2, Bb7, or Bg7), while t"
+    },
+    {
+     "feature_id": 1447,
+     "chip": "Quiet pawn push ignores forcing reply",
+     "fire_rate_pct": 0.879,
+     "description": "All 10/10 positions feature a single-square pawn advance to the 3rd rank from the mover's perspective (b3/c3 for White, b6/c6/e6 for Black). Every move is a quiet, preparatory pawn push\u2014typically intending fianchetto, structural reinforcement, or slow positional plans. In 10/10 c"
+    },
+    {
+     "feature_id": 1942,
+     "chip": "b3 pawn push over tactical shot",
+     "fire_rate_pct": 0.781,
+     "description": "All 10/10 positions feature a single-square, non-capturing pawn advance played in a middlegame position that demands concrete tactical engagement. The move b3 specifically accounts for 6/10 instances, with the remaining being f3, g3, e3, b6, and c6 \u2014 all quiet one-square pawn pus"
+    }
+   ]
+  },
+  {
+   "fine_id": 91,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 71,
+     "chip": "King flees into mating net",
+     "fire_rate_pct": 2.163,
+     "description": "10/10 positions feature a king move played in the middlegame when the position demanded concrete piece action. In 8/10 cases, the correct move involved active piece play: capturing an attacking piece (Qxg5, hxg5), blocking a critical file or diagonal (Qf5, Ne7, Be6, Rf7, f5, Qf2)"
+    },
+    {
+     "feature_id": 76,
+     "chip": "Bishop shuffle over central pawn break",
+     "fire_rate_pct": 0.773,
+     "description": "In 10/10 positions, the player made a piece redeployment move (8/10 were bishop moves) instead of executing an available central action \u2014 typically a pawn break (e5, d5, f5) or a central capture (Nxd4, Nxe4). In 9/10 cases the best move directly engaged the opponent's center. The"
+    },
+    {
+     "feature_id": 334,
+     "chip": "King steps onto back-rank mate square",
+     "fire_rate_pct": 2.548,
+     "description": "All 10/10 positions feature a king move played with prophylactic/defensive intent in the middlegame, where the player perceived king danger and tried to sidestep threats by relocating the king. In every case, the position demanded an aggressive forcing move instead (perpetual che"
+    },
+    {
+     "feature_id": 550,
+     "chip": "King tuck creates knight/diagonal shots",
+     "fire_rate_pct": 1.259,
+     "description": "All 10/10 positions feature a voluntary king move one step toward the rook-pawn file (7x Kh7, 2x Kh2, 1x Kg2) during the middlegame with no immediate threat forcing the move. In every case, the player intended the move as a 'safe' prophylactic tuck \u2014 stepping off a file, diagonal"
+    },
+    {
+     "feature_id": 977,
+     "chip": "King shuffle over concrete action",
+     "fire_rate_pct": 1.161,
+     "description": "All 10/10 positions feature a non-forced, one-square king move during the middlegame when the position urgently demanded active play. In every case, the best move was a concrete action: a pawn break (f5, h6, e4, g5 in 4/10), a tactical capture or exchange (Bxe4, Nxe5 in 3/10), or"
+    },
+    {
+     "feature_id": 1424,
+     "chip": "King move abandons critical defense",
+     "fire_rate_pct": 0.812,
+     "description": "All 10/10 positions feature a voluntary (non-forced) king move in the middlegame that appears prophylactic or repositional but creates immediate tactical vulnerabilities. In 6/10 positions (1, 7, 8, 9, 10, and 6), the king was defending a specific pawn or square from its original"
+    },
+    {
+     "feature_id": 1683,
+     "chip": "Bishop move ignores mating threat",
+     "fire_rate_pct": 1.259,
+     "description": "All 10/10 positions feature a minor piece move (7 bishop moves, 3 knight moves) played in a middlegame where the player's king faces an immediate mating threat or catastrophic tactical vulnerability. In 7/10 positions, the correct move involved a completely different piece type ("
+    },
+    {
+     "feature_id": 1689,
+     "chip": "King tucks while position demands action",
+     "fire_rate_pct": 1.702,
+     "description": "All 10/10 positions feature king moves during the middlegame that waste critical tempo or create new vulnerabilities. In 7/10 positions, the king move was intended as a prophylactic safety measure (tucking into a corner or retreating), but the position actually demanded immediate"
+    }
+   ]
+  },
+  {
+   "fine_id": 2,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 74,
+     "chip": "Pawn blocks knight's ideal square",
+     "fire_rate_pct": 1.481,
+     "description": "9/10 positions feature a pawn advancing one square to the knight's ideal development square: f3 blocks Ng1-f3 (positions 1, 3, 7), c3 blocks Nb1-c3 (positions 2, 5, 8), f6 blocks Ng8-f6 (positions 4, 9), and c6 blocks Nb8-c6 (position 6). The remaining position (10, Kd2) shares t"
+    },
+    {
+     "feature_id": 344,
+     "chip": "King-flank pawn push over hanging pieces",
+     "fire_rate_pct": 0.556,
+     "description": "All 10 positions feature a single-step pawn advance to the third rank on the same wing as the player's castled king (g3 in 6/10, c3 in 2/10, g6 in 2/10, c6 in 1/10). In every case, the king is nearby (10/10 moves are on the same flank as the player's king). These moves mimic 'luf"
+    },
+    {
+     "feature_id": 742,
+     "chip": "g6/g3 pawn cracks king shelter",
+     "fire_rate_pct": 1.234,
+     "description": "10/10 positions feature a one-square pawn advance to the player's own third rank (f3/g3 for White in 6 positions, g6 for Black in 3 positions, e6 for Black in 1 position). In 9/10 cases, the move specifically advances the f-pawn or g-pawn near the castled king. The common error i"
+    },
+    {
+     "feature_id": 1116,
+     "chip": "c3 pawn blocks best knight square",
+     "fire_rate_pct": 0.965,
+     "description": "All 10 positions feature a pawn advance to the player's 3rd rank (c3 in 7/10, c6 in 2/10, f3/f6 in 1/10 each) chosen as a 'solidifying' move when the position demanded immediate concrete action. In 6/10 positions, the pawn directly blocked a knight from occupying that exact squar"
+    },
+    {
+     "feature_id": 1451,
+     "chip": "d/e pawn blocks own piece retreat",
+     "fire_rate_pct": 0.782,
+     "description": "All 10 positions feature a single-step pawn advance on the d or e file to the player's third rank (d3/e3 for White, d6/e6 for Black) played as a 'solidifying' move in the opening. In 7/10 positions, the pawn directly blocks a critical diagonal needed by the player's own pieces: p"
+    },
+    {
+     "feature_id": 1674,
+     "chip": "Queen to f3 cages knight",
+     "fire_rate_pct": 1.518,
+     "description": "All 10 positions feature a piece moving to f3 (for White, 6/10) or f6 (for Black, 4/10). In at least 6/10 positions, the move directly blocks a knight's retreat path to that square, creating a trapped piece: Position 1 (Bf6 blocks Ng4\u2192f6), Position 2 (Qf3 complicates Ng5\u2192f3), Pos"
+    },
+    {
+     "feature_id": 1945,
+     "chip": "Shelter pawn advance opens king",
+     "fire_rate_pct": 0.417,
+     "description": "All 10/10 positions feature a pawn advance immediately adjacent to the player's own king that destroys critical shelter. The moves are f3 (4/10), g3 (2/10), g5 (2/10), g6 (1/10), and c6 (1/10) \u2014 every single one advances a pawn that was shielding the king. In 7/10 cases, the corr"
+    },
+    {
+     "feature_id": 1972,
+     "chip": "Shelter pawn push opens diagonal",
+     "fire_rate_pct": 0.736,
+     "description": "All 10/10 positions involve pushing a pawn one square from its original second rank to the third rank (f2\u2192f3, g7\u2192g6, f7\u2192f6, b2\u2192b3, c2\u2192c3) in the immediate vicinity of the player's king. In every case, the pawn had not previously moved and was part of (or adjacent to) the king's p"
+    }
+   ]
+  },
+  {
+   "fine_id": 108,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 87,
+     "chip": "King advances into mating net",
+     "fire_rate_pct": 1.399,
+     "description": "All 10/10 positions feature a king move that advances the king forward (toward the opponent's side or deeper into the center) from an already somewhat exposed square. In 10/10 cases, the king was already vulnerable and the advancing move increased its exposure to checks, mating n"
+    },
+    {
+     "feature_id": 1253,
+     "chip": "King advances into checks and forks",
+     "fire_rate_pct": 1.226,
+     "description": "All 10/10 positions feature a king move that advances toward the center or opponent's territory rather than retreating or staying on its current square. In 10/10 cases the king moves forward (e.g., d2\u2192e3, f7\u2192e6, e2\u2192d3, c8\u2192c7, b3\u2192c4), never backward. In 5/10 positions (1, 5, 8, 9,"
+    },
+    {
+     "feature_id": 1280,
+     "chip": "Pawn check lets king escape safely",
+     "fire_rate_pct": 3.038,
+     "description": "All 10/10 positions feature a pawn advancing one square to deliver check against an exposed enemy king. In 8/10 cases this is a significant mistake (avg cp_loss ~2500 for the errors), while only 2/10 are actually the best move. The exposed kings sit on unusual squares (c3, g5, h4"
+    },
+    {
+     "feature_id": 1402,
+     "chip": "King centralizes into enemy mating net",
+     "fire_rate_pct": 1.208,
+     "description": "All 10/10 positions feature king moves where an already-exposed king advances or centralizes into greater tactical vulnerability. In 9/10 cases, the king moves toward the center or forward (toward enemy forces) rather than retreating. The positions are already difficult (avg star"
+    },
+    {
+     "feature_id": 1504,
+     "chip": "King advance exposes mating net",
+     "fire_rate_pct": 1.443,
+     "description": "All 10/10 positions feature a king advancing forward (toward higher ranks for White, lower ranks for Black, or toward the center) rather than retreating or staying safe. In 6/10 positions, the correct move was a different king move to a safer square (retreating or sideways), whil"
+    },
+    {
+     "feature_id": 1589,
+     "chip": "Knight leaves d4 pawn unguarded",
+     "fire_rate_pct": 1.302,
+     "description": "All 10/10 positions feature a knight decentralizing from a square where it defended or supported a critical central pawn. In 6/10 cases the specific move is Na4, typically chasing an enemy queen on b6 that can simply capture the now-undefended d4 pawn instead of retreating. In 8/"
+    },
+    {
+     "feature_id": 1645,
+     "chip": "Diagonal bishop check blocked easily",
+     "fire_rate_pct": 1.153,
+     "description": "All 10/10 positions feature a bishop moving along a long diagonal to create an immediate threat \u2014 5/10 are direct checks (Bc4+, Ba3+, Bf5+, Bxg5+, Bc5+), and the remaining 5 attack key pieces (Bh6 pins the queen, Bf4 attacks the queen, Ba6 attacks a rook, Bc6 attacks a rook, Ba3 "
+    },
+    {
+     "feature_id": 1954,
+     "chip": "Pawn check drives king to safety",
+     "fire_rate_pct": 0.776,
+     "description": "All 10/10 positions feature a pawn advancing one square to deliver a diagonal check against an exposed enemy king wandering in the open (typically in the center or on a wing). In every case, the check appears aggressive but is catastrophically counterproductive. In 7/10 positions"
+    }
+   ]
+  },
+  {
+   "fine_id": 42,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 143,
+     "chip": "Passed pawn push over king safety",
+     "fire_rate_pct": 4.546,
+     "description": "All 10/10 positions feature a pawn advance as the blunder move \u2014 specifically an advanced or passed pawn being pushed one square further toward promotion. In 9/10 cases, the pawn pushed is explicitly a passed pawn or creates one. The common error is prioritizing the 'slow' threat"
+    },
+    {
+     "feature_id": 195,
+     "chip": "Pawn push mistimes king-pawn race",
+     "fire_rate_pct": 1.127,
+     "description": "10/10 positions feature tempo_loss as a tagged motif, and 10/10 involve passed pawns where timing is paramount. The moves are all quiet single-square advances (king steps or pawn pushes) with no checks, captures, or immediate threats. 8/10 are endgames, typically pawn races or qu"
+    },
+    {
+     "feature_id": 848,
+     "chip": "Pawn lunge over decisive piece move",
+     "fire_rate_pct": 1.117,
+     "description": "All 10/10 positions feature a single-step pawn advance attempting to 'break through' the position \u2014 attacking an opponent's pawn chain, opening files, or storming the kingside. In 9/10 cases the side playing was White. In every case, the correct move was a piece move: tactical fi"
+    },
+    {
+     "feature_id": 987,
+     "chip": "Passed pawn push ignores king escape",
+     "fire_rate_pct": 2.246,
+     "description": "All 10/10 positions feature a pawn advance as the blunder, and at least 9/10 involve pushing a passed pawn (or near-passed pawn) forward prematurely. The best moves instead demanded piece/king improvement (7/10 positions had king moves or piece repositioning as the best alternati"
+    },
+    {
+     "feature_id": 984,
+     "chip": "Pawn push over forced tactical reply",
+     "fire_rate_pct": 0.783,
+     "description": "All 10/10 positions feature a single-square pawn advance as the blunder, spanning every file from a to h across both colors. The critical commonality is that each pawn move is a slow, non-forcing action played in a position where urgent tactical issues demand immediate attention."
+    },
+    {
+     "feature_id": 1006,
+     "chip": "Pawn push over urgent preparation",
+     "fire_rate_pct": 0.864,
+     "description": "All 10/10 positions feature a pawn advance \u2014 specifically a passed pawn push or pawn advance aimed at creating/supporting a promotion threat \u2014 played prematurely before a critical preparatory move. In 10/10 cases the analyses identify 'tempo_loss' as a core tag, and 10/10 involve"
+    },
+    {
+     "feature_id": 1500,
+     "chip": "h/a-pawn push over forcing reply",
+     "fire_rate_pct": 1.204,
+     "description": "All 10/10 positions feature a single-square advance of a rook pawn (h-pawn in 6/10, a-pawn in 4/10) played as a slow, non-forcing 'useful' move \u2014 creating luft, preventing hypothetical intrusions, or gaining marginal wing space \u2014 in positions where urgent tactical or strategic ac"
+    },
+    {
+     "feature_id": 1523,
+     "chip": "Pawn push over urgent piece duty",
+     "fire_rate_pct": 0.935,
+     "description": "All 10/10 positions feature a single-square pawn advance toward the opponent's side as the mistake. In 8/10 cases, the correct move was a piece move (bishop, king, or knight repositioning) rather than any pawn push. The most common consequence is allowing the opponent to establis"
+    }
+   ]
+  },
+  {
+   "fine_id": 78,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 30,
+     "chip": "h-pawn hook invites kingside assault",
+     "fire_rate_pct": 1.407,
+     "description": "9/10 positions feature h-pawn advances (h3 for White, h6 for Black) and 1/10 features a6, all played as prophylactic measures to prevent opponent activity (stopping g5, Bg4, b5, etc.). In every case, the pawn move backfires catastrophically: 7/10 positions see the opponent advanc"
+    },
+    {
+     "feature_id": 239,
+     "chip": "h-pawn luft over urgent tactics",
+     "fire_rate_pct": 0.512,
+     "description": "All 10/10 positions feature the same move type: a single-square h-pawn advance (h3 for White in 7/10, h6 for Black in 3/10) intended as 'luft' to give the king an escape square. In every case, the position contained an urgent tactical demand that made this quiet move catastrophic"
+    },
+    {
+     "feature_id": 452,
+     "chip": "King shuffle over forcing capture",
+     "fire_rate_pct": 1.435,
+     "description": "All 10 positions feature a king move to a rook-pawn file square (9/10 specifically to h7 or h2, with 1 Ka2 variant). In every case, the player's intent was prophylactic king safety \u2014 stepping off the back rank or creating 'luft' \u2014 but the position demanded exactly one forcing act"
+    },
+    {
+     "feature_id": 932,
+     "chip": "Quiet pawn push over forced mate",
+     "fire_rate_pct": 0.964,
+     "description": "9/10 positions feature pawn moves (h6, h6, h6, g3, h3, f6, a2+, d2, b4), with the remaining 1/10 being a passive piece retreat (Nf8). In 5/10 positions, the move was specifically a kingside pawn 'luft' push (h6\u00d73, g3, h3) intended to create escape squares or prophylactically addr"
+    },
+    {
+     "feature_id": 1155,
+     "chip": "h-pawn push over urgent tactics",
+     "fire_rate_pct": 0.822,
+     "description": "All 10/10 positions feature the h-pawn advancing one square (h3 for White, h6 for Black) as a reflexive prophylactic move intended to kick or prevent an enemy piece (usually a knight) from g4/g5. In 3/10 positions (2, 6, 8), moving the h-pawn literally removed the last barrier pr"
+    },
+    {
+     "feature_id": 1183,
+     "chip": "h-pawn nudge over concrete action",
+     "fire_rate_pct": 0.907,
+     "description": "All 10/10 positions feature the h-pawn advancing one square (h2-h3 for White in 6 positions, h7-h6 for Black in 4 positions) as a prophylactic or bishop-challenging move. In 7/10 cases, an enemy bishop was already on g4/g5 or threatening to go there, and the player reflexively 'p"
+    },
+    {
+     "feature_id": 1870,
+     "chip": "h-pawn luft over urgent defense",
+     "fire_rate_pct": 1.839,
+     "description": "10/10 positions feature an h-pawn advance (h3 for White in 5 cases, h6 for Black in 4 cases, h5 in 1 case) intended as a prophylactic 'luft' move for the castled king. In every single case, the position contained an urgent tactical demand that the h-pawn move completely ignored: "
+    }
+   ]
+  },
+  {
+   "fine_id": 145,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 121,
+     "chip": "Castling into exploitable structural weakness",
+     "fire_rate_pct": 0.764,
+     "description": "All 10/10 positions feature castling moves (8 O-O, 2 O-O-O) played as 'natural' developing moves that ignore urgent tactical demands. In 4/10 positions (2, 3, 6, 7), castling misses a concrete tactic the player should execute first (capturing a hanging piece, winning the exchange"
+    },
+    {
+     "feature_id": 208,
+     "chip": "Castles while tactics demand action",
+     "fire_rate_pct": 0.988,
+     "description": "All 10/10 positions feature castling moves (9 O-O, 1 O-O-O) played when urgent tactical opportunities or necessities existed that required priority. In 10/10 cases, both kings were still in or near the center, creating a false sense of urgency about king safety. In 10/10 position"
+    },
+    {
+     "feature_id": 395,
+     "chip": "Castling over decisive tactical strike",
+     "fire_rate_pct": 1.299,
+     "description": "All 10/10 positions feature castling (7 O-O-O, 3 O-O) played when a specific tactical opportunity existed that the player overlooked. In 8/10 positions, only 1 good move was available within 50cp of optimal, meaning these were critical decision points requiring precision rather t"
+    },
+    {
+     "feature_id": 807,
+     "chip": "Castling surrenders decisive tempo advantage",
+     "fire_rate_pct": 1.249,
+     "description": "All 10/10 positions feature castling (O-O) played as a 'safe' or 'automatic' move when a specific, time-sensitive tactical opportunity existed. In 10/10 cases, the opponent's king was exposed, stuck in the center, or otherwise vulnerable, creating a narrow window for decisive act"
+    },
+    {
+     "feature_id": 994,
+     "chip": "Castling into pre-aimed attack",
+     "fire_rate_pct": 1.56,
+     "description": "All 10/10 positions feature castling (O-O or O-O-O) played as an automatic 'improving' move when the position screamed for something more concrete. In 4/10 cases (positions 4, 5, 6, 10), castling missed a clear winning tactic available that turn (capturing a hanging piece, execut"
+    },
+    {
+     "feature_id": 1906,
+     "chip": "O-O over urgent tactical response",
+     "fire_rate_pct": 1.312,
+     "description": "All 10/10 positions feature kingside castling (O-O) played as a 'safe' developing move when urgent tactical demands exist. In 9/10 positions the game is still in the opening phase with both kings near the center, making castling feel natural and principled. However, in every case"
+    },
+    {
+     "feature_id": 1989,
+     "chip": "Castling over concrete forcing move",
+     "fire_rate_pct": 0.804,
+     "description": "All 10/10 positions feature castling moves (2 kingside O-O, 8 queenside O-O-O/O-O-O+). In 9/10 cases, the castling is a significant mistake (avg cp_loss 1193), with only Position 8 being correct (0 cp_loss). In every erroneous case, there was exactly 1 good move available, and th"
+    }
+   ]
+  },
+  {
+   "fine_id": 20,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 185,
+     "chip": "Queen sorties invite knight fork",
+     "fire_rate_pct": 1.406,
+     "description": "All 10/10 positions involve a queen move during the opening phase while at least one king (usually both) remains in the center uncastled. In 10/10 cases, the best alternatives were simple developing moves (castling, developing minor pieces, or supportive pawn moves). The queen la"
+    },
+    {
+     "feature_id": 604,
+     "chip": "Rook move delays urgent castling",
+     "fire_rate_pct": 1.133,
+     "description": "All 10/10 positions feature a rook move played when the moving side's king is still in the center (e1 or e8). In 5/10 positions, the single best move was literally castling (O-O or O-O-O). The rook moves target seemingly logical squares \u2014 open files (d, f, g, c) \u2014 but ignore the "
+    },
+    {
+     "feature_id": 699,
+     "chip": "Bishop sac on h-pawn premature",
+     "fire_rate_pct": 0.911,
+     "description": "6/10 positions feature a bishop capturing the h-pawn (h2 or h7) with check in a classic Greek Gift pattern that is tactically unsound. Specifically, 3/10 are Bxh2+ by Black and 2/10 are Bxh7+ by White, all in the middlegame with same-side castling. In every case, the attacker lac"
+    },
+    {
+     "feature_id": 1638,
+     "chip": "Castles into assembled attacking forces",
+     "fire_rate_pct": 1.05,
+     "description": "All 10/10 positions feature a castling move (O-O or O-O-O) that places the king on the exact wing where the opponent has already assembled attacking forces. In 3/10 positions (4, 6, 10), kingside castling walks into a textbook Greek Gift sacrifice (Bxh7+ or Bxh2+) where the oppon"
+    },
+    {
+     "feature_id": 1672,
+     "chip": "King tuck invites check or mate",
+     "fire_rate_pct": 0.908,
+     "description": "All 10/10 positions feature a king move (including castling) played instead of a concrete forcing move that was available. In 6/10 positions, the move was a king tuck to the h-file (Kh2 or Kh7), while 3/10 were queenside castling and 1/10 was Ke7 or Kd7. In every case, at least o"
+    },
+    {
+     "feature_id": 1679,
+     "chip": "King steps onto open diagonal",
+     "fire_rate_pct": 1.192,
+     "description": "All 10/10 positions feature an uncastled king moving exactly one square forward from its starting rank \u2014 Ke2 in 6/10 (White), Ke7 in 3/10 (Black), and Kd7 in 1/10 (Black). In every case, the king was already under pressure on its starting square and the player attempted to 'castl"
+    },
+    {
+     "feature_id": 1803,
+     "chip": "Bishop sac on h6 busts nothing",
+     "fire_rate_pct": 1.734,
+     "description": "All 10/10 positions feature a minor piece (bishop or knight) capturing a pawn on the castled king's outermost shelter squares \u2014 h3 (4/10), h6 (4/10), or g6 (2/10) \u2014 sacrificing a full piece for one pawn with the hope of generating a mating attack against the exposed king. 9/10 po"
+    }
+   ]
+  },
+  {
+   "fine_id": 191,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 325,
+     "chip": "Routine knight dev over forcing move",
+     "fire_rate_pct": 1.405,
+     "description": "All 10 positions feature developing the queenside knight (b1 for White, b8 for Black) to a 'natural' square, with 9/10 going to the most passive option (d2 or d7) and 1/10 to c3. In every case, the player chose automatic-looking development over a critical tactical opportunity: 1"
+    },
+    {
+     "feature_id": 327,
+     "chip": "Queen retreats while tactics burn",
+     "fire_rate_pct": 3.458,
+     "description": "10/10 positions feature a non-forcing, non-capturing piece development move to a 'natural' square on the 2nd/3rd rank (from the player's perspective): e7 appears 5 times (Black), d2 twice (White), plus Qe2, Qd7, and Be3. In every case, the position demanded sharp concrete action "
+    },
+    {
+     "feature_id": 599,
+     "chip": "Queen to d2/e2 over concrete action",
+     "fire_rate_pct": 1.014,
+     "description": "All 10 positions feature a queen move to a 'natural developing square' on the player's second rank (d2/e2 for White, d7/e7 for Black) \u2014 the most stereotypical 'textbook' queen placement. In 10/10 cases, the moving side's king remains uncastled in the center. In 10/10 cases, the p"
+    },
+    {
+     "feature_id": 860,
+     "chip": "Bishop to d7 too passive",
+     "fire_rate_pct": 1.214,
+     "description": "10/10 positions feature a piece being developed to the second rank (d7 for Black in 6 cases, d2 for White in 3 cases, e7 in 1 case, Nd2 in 1 case) as a seemingly routine developing move. In every case, the position contained urgent tactical requirements that demanded either a mor"
+    },
+    {
+     "feature_id": 877,
+     "chip": "Bishop development ignores urgent demand",
+     "fire_rate_pct": 0.987,
+     "description": "All 10/10 positions feature the same geometric move: developing the kingside bishop one square diagonally to its 'natural' square (Be2 for White's f1-bishop in 5 cases, Be7 for Black's f8-bishop in 4 cases, Bd2 in 1 case). In every case, the position contained a specific urgent d"
+    },
+    {
+     "feature_id": 1752,
+     "chip": "Bishop develops while position screams",
+     "fire_rate_pct": 2.066,
+     "description": "All 10/10 positions feature a bishop moving to the player's own second rank: Bd7 (4 positions), Be7 (3 positions), or Be2 (3 positions). In every case, the move is a quiet, 'natural-looking' developing move that prioritizes routine development over an urgent tactical or strategic"
+    },
+    {
+     "feature_id": 1842,
+     "chip": "Bishop to e7 over urgent defense",
+     "fire_rate_pct": 1.086,
+     "description": "7/10 positions involve a piece being placed on the e2 square (White) or e7 square (Black) \u2014 the 'default' development squares in the opening. Strikingly, in 5/10 cases (positions 1, 2, 4, 8, 9), the correct move was to place a DIFFERENT piece on the exact same square: the player "
+    }
+   ]
+  },
+  {
+   "fine_id": 88,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 3,
+     "chip": "Bc4xf7+ without Ng5 support",
+     "fire_rate_pct": 0.947,
+     "description": "All 10/10 positions feature White playing Bxf7+ on move 3 from a bishop stationed on c4, sacrificing a full minor piece for a single pawn with check. In every case, White has only developed the light-squared bishop (and has e4 played), with no knights, no queen access, and no oth"
+    },
+    {
+     "feature_id": 105,
+     "chip": "Bishop to d-file blocks defense",
+     "fire_rate_pct": 1.107,
+     "description": "All 10/10 positions feature a piece moving to the d-file on the player's own side \u2014 d2 or d3 for White (6 positions), d7 for Black (4 positions). These are uniformly quiet, non-forcing 'developing' moves: 5/10 are knights to d2, 2/10 are bishops to d3, 2/10 are knights to d7, and"
+    },
+    {
+     "feature_id": 1101,
+     "chip": "Knight develops while position burns",
+     "fire_rate_pct": 1.091,
+     "description": "All 10/10 positions feature a non-forcing minor piece move (7 knight moves, 3 bishop moves) to a 'textbook' development square (d2 four times, d7 twice, plus e2, e6, b7) while a critical tactical demand goes unaddressed. In 4/10 positions (3, 6, 7, 10), the move actively removes "
+    },
+    {
+     "feature_id": 1211,
+     "chip": "6th-rank pawn thrust gifts capture",
+     "fire_rate_pct": 0.974,
+     "description": "All 10/10 positions feature pawn advances (no piece moves, no captures) played as speculative attacks. 9/10 push the pawn to the '6th rank' relative to the moving side (rank 6 for White, rank 3 for Black), representing deep advances into enemy territory. In every case, the refuta"
+    },
+    {
+     "feature_id": 1960,
+     "chip": "Pawn consolidates while tactics expire",
+     "fire_rate_pct": 1.089,
+     "description": "All 10/10 positions feature a player choosing a small, consolidating pawn advance\u2014specifically d3 for White (5/10) or e6/e5 for Black (5/10)\u2014at a critical moment when concrete tactical opportunities exist. In 10/10 cases, the move creates no threats, attacks no enemy pieces, and "
+    },
+    {
+     "feature_id": 1992,
+     "chip": "Knight to e7/d2 over concrete tactic",
+     "fire_rate_pct": 1.024,
+     "description": "All 10/10 positions feature a minor piece being moved to one of three 'textbook' development squares: d2 for White (4 positions) or d7/e7 for Black (6 positions). Every single move is non-forcing \u2014 no captures, no checks, no threats \u2014 choosing routine piece placement over urgent "
+    }
+   ]
+  },
+  {
+   "fine_id": 139,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 106,
+     "chip": "Fianchetto bishop ignores concrete emergency",
+     "fire_rate_pct": 0.854,
+     "description": "All 10/10 positions feature a bishop being developed to a fianchetto-style long diagonal (Bb7 in 6 positions, Bb2 in 3, Bg7 in 1) \u2014 a 'natural-looking' quiet developing move that completely ignores a concrete tactical emergency. In 5/10 positions, the move ignores a direct king s"
+    },
+    {
+     "feature_id": 132,
+     "chip": "Bishop to b2/b7 diagonal blocked",
+     "fire_rate_pct": 1.357,
+     "description": "All 10/10 positions feature a bishop being developed to a seemingly natural long-diagonal square, with 7/10 specifically going to b2 or b7 (classic fianchetto squares). In every case, the position demanded concrete action rather than routine development. In 5/10 positions, the bi"
+    },
+    {
+     "feature_id": 146,
+     "chip": "Fianchetto prep pawn over crisis",
+     "fire_rate_pct": 1.32,
+     "description": "All 10/10 positions feature a pawn advance to prepare a bishop fianchetto (b3, b6, g3, or g6) that is confirmed in every analysis as intending to place a bishop on the long diagonal. In 10/10 cases, the move ignores an urgent concrete demand \u2014 whether a tactical threat (fork in p"
+    },
+    {
+     "feature_id": 1175,
+     "chip": "Fianchetto while tactics demand action",
+     "fire_rate_pct": 0.876,
+     "description": "All 10/10 positions feature a bishop being developed to a fianchetto square on a long diagonal (7 Bg7, 3 Bg2, 1 Bb7) as a 'natural' opening developing move while a critical tactical situation is ignored. In 4/10 positions, the player missed a free material capture (hanging piece "
+    },
+    {
+     "feature_id": 1620,
+     "chip": "Fianchetto while tactics burn",
+     "fire_rate_pct": 1.043,
+     "description": "10/10 positions feature a bishop being developed to a long diagonal square \u2014 specifically 9/10 are pure fianchetto moves (Bb7, Bg7, Bg2, Bb2) and 1/10 is a quiet bishop development to e2. In every single case, the position contained an urgent tactical demand: either a forcing win"
+    }
+   ]
+  },
+  {
+   "fine_id": 121,
+   "size": 3,
+   "features": [
+    {
+     "feature_id": 93,
+     "chip": "g-pawn push over forcing reply",
+     "fire_rate_pct": 0.629,
+     "description": "8/10 positions involve the exact same geometric move: a one-square g-pawn advance (g6 for Black in 4 positions, g3 for White in 4 positions). The remaining 2 outliers (e6, a5) are analogous slow pawn pushes. In all 10 positions, only 1 good move existed within 50cp of the best ev"
+    },
+    {
+     "feature_id": 729,
+     "chip": "g-pawn fianchetto over urgent play",
+     "fire_rate_pct": 0.925,
+     "description": "All 10/10 positions feature the identical geometric move \u2014 advancing the g-pawn one square (g6 for Black, g3 for White) \u2014 with the explicit intent of fianchettoing the bishop. In every single case (10/10), the moving side's king is still uncastled and sitting in the center. The p"
+    },
+    {
+     "feature_id": 1234,
+     "chip": "Queen drifts to 3rd rank",
+     "fire_rate_pct": 4.127,
+     "description": "All 10/10 positions feature a piece moving to the 3rd rank from the moving side's perspective (rank 3 for White: Qb3, Qa3, Kg3, Rh3, Ra3, Ra3; rank 6 for Black: Kg6, Kg6, Qa6, Qb6). This geometric consistency is absolute. The moves share a common strategic error: 10/10 are tagged"
+    }
+   ]
+  }
+ ]
+}

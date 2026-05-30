@@ -1,0 +1,612 @@
+{
+ "coarse_id": 7,
+ "n_features": 93,
+ "subclusters": [
+  {
+   "fine_id": 31,
+   "size": 19,
+   "features": [
+    {
+     "feature_id": 81,
+     "chip": "Bishop quits dominant central outpost",
+     "fire_rate_pct": 0.951,
+     "description": "All 10/10 positions feature a bishop voluntarily relocated from a dominant, functionally critical square to a passive or peripheral one. In 8/10 cases, the bishop occupied a central or advanced outpost (d5, e6, d4, c3, c2, f5, e2, g6) where it was performing an irreplaceable role"
+    },
+    {
+     "feature_id": 307,
+     "chip": "Knight centralizes while mate looms",
+     "fire_rate_pct": 11.693,
+     "description": "All 10/10 positions feature a knight moving from a peripheral or less-active square to a classically strong central outpost (c4, c5, c6, d3, d5, e3, e4, e5), yet in every case there is an urgent tactical crisis left unaddressed. In 5/10 positions, the blunder allows immediate che"
+    },
+    {
+     "feature_id": 318,
+     "chip": "Knight leaves vital defensive square",
+     "fire_rate_pct": 1.585,
+     "description": "All 10/10 positions feature knight moves to seemingly strong squares (d4, d5, e5, d7, a5, h5, g4) that appear aggressive or purposeful \u2014 attacking pieces, occupying outposts, or challenging opponent's pieces. However, in 7/10 cases the knight was performing a vital defensive func"
+    },
+    {
+     "feature_id": 407,
+     "chip": "Knight hops to attacked outpost",
+     "fire_rate_pct": 1.654,
+     "description": "All 10 positions feature a knight being relocated to a square that looks attractive on general principles (centralization, pawn attacks, outposts) but is concretely wrong. In 4/10 cases (Nd4, Nd6, Nd5, Nc6), the knight moves to a seemingly powerful central outpost that is actuall"
+    },
+    {
+     "feature_id": 435,
+     "chip": "Knight centralizes, drops defensive duty",
+     "fire_rate_pct": 1.478,
+     "description": "All 10/10 positions feature a knight moving to a seemingly strong square (d4, d5, e4, f5, c5, g5, d7 \u2014 classic 'outpost' or 'attacking' destinations) while leaving a critical defensive task unfulfilled. In 6/10 positions, the knight was guarding a specific pawn or square whose ab"
+    },
+    {
+     "feature_id": 805,
+     "chip": "Knight leaves dominant outpost square",
+     "fire_rate_pct": 1.382,
+     "description": "In 10/10 positions, a knight is moved from a square where it performs a critical function (attacking, defending, or controlling key squares) to a destination that looks appealing but is objectively worse. In 5/10 cases (positions 1, 6, 8, 9, 10), the knight leaves a dominant outp"
+    },
+    {
+     "feature_id": 822,
+     "chip": "Knight leaps to outpost, drops defender",
+     "fire_rate_pct": 1.515,
+     "description": "All 10/10 positions feature a knight leaping to a classical central outpost \u2014 d4 (6 positions), e5 (3 positions), or d5 (2 positions) \u2014 that appears positionally dominant but creates immediate tactical vulnerabilities by vacating its prior square. In 7/10 cases, the knight was th"
+    },
+    {
+     "feature_id": 888,
+     "chip": "Knight leaps to capturable central outpost",
+     "fire_rate_pct": 0.876,
+     "description": "All 10 positions feature a knight leaping aggressively to a central outpost (d5 in 6/10, e5 in 2/10, d4 in 2/10, e4 in 1/10) where it appears to create powerful threats but is immediately capturable with devastating consequences. In 7/10 positions, after the opponent simply captu"
+    },
+    {
+     "feature_id": 900,
+     "chip": "Knight lunges forward, drops guard",
+     "fire_rate_pct": 1.157,
+     "description": "All 10/10 positions feature a knight moving forward to a seemingly strong outpost (central squares like d4, e4, e5, or advanced squares like b5, c5, h5, f6) that looks actively placed but is concretely wrong. In 5/10 positions (1, 3, 4, 8, and indirectly 2), the knight abandons a"
+    },
+    {
+     "feature_id": 999,
+     "chip": "Knight retreats from dominant outpost",
+     "fire_rate_pct": 3.572,
+     "description": "All 10/10 positions involve voluntarily moving a knight FROM a dominant or active square (d4, d5, e4, e5, f5, c5, g5) TO a passive or inferior square (f5, b4, h3, c5, f3, g4, d3, e7, e7, h6). In every case, the knight occupied a classically powerful outpost \u2014 6/10 from the canoni"
+    },
+    {
+     "feature_id": 1076,
+     "chip": "Knight abandons outpost, gets trapped",
+     "fire_rate_pct": 2.105,
+     "description": "In 9/10 positions, a knight occupies a powerful outpost or dominant central square (d4, e5, d6, b6, f4, d3) and abandons it to jump to a square attacking an enemy heavy piece (usually a rook or queen). In all 10 cases, the attacked piece simply sidesteps to a better square, and t"
+    },
+    {
+     "feature_id": 1303,
+     "chip": "Knight retreats instead of decisive blow",
+     "fire_rate_pct": 0.849,
+     "description": "In 10/10 positions, the player moved a piece away from a square where it was performing a critical tactical or strategic function, replacing a forcing opportunity with a quiet repositioning move. Most strikingly, 4/10 involve knights abandoning dominant central outposts (c4\u2192e3, f"
+    },
+    {
+     "feature_id": 1359,
+     "chip": "Knight lunges, abandons pawn defense",
+     "fire_rate_pct": 1.709,
+     "description": "All 9 positions feature a knight jumping aggressively forward to an apparently strong square (central outpost, attacking an enemy piece, or targeting a weakness) while critically abandoning a defensive responsibility. In 5/9 positions (Positions 2, 5, 6, 8, 10), the knight was th"
+    },
+    {
+     "feature_id": 1438,
+     "chip": "Knight centralizes while tactics burn",
+     "fire_rate_pct": 1.353,
+     "description": "All 10/10 positions feature a knight jumping to a classically 'strong' square (e5 in 5 cases, e4 in 2, d5 in 2, b4 in 1), creating what appears to be a powerful centralization or outpost. However, in every case, the position demanded something more concrete \u2014 a forcing check (pos"
+    },
+    {
+     "feature_id": 1511,
+     "chip": "Knight leaps, leaves king exposed",
+     "fire_rate_pct": 4.866,
+     "description": "All 10 positions feature knight moves to visually impressive squares (e5\u00d73, d5\u00d72, e4, d4, g5, b6, d7) \u2014 classic 'outpost' or 'attacking' destinations. In 7/10 positions, the knight was performing a critical defensive function before moving (guarding the king, protecting key pawns"
+    },
+    {
+     "feature_id": 1722,
+     "chip": "Bishop quits dominant square, loses sting",
+     "fire_rate_pct": 1.371,
+     "description": "10/10 positions feature a piece that was already excellently positioned \u2014 on an infiltration square, dominant outpost, or critical file \u2014 being voluntarily relocated to a worse square. In 3/10 cases (Be4, Bb3, Bd3), the piece was specifically an infiltrated bishop on c2 that move"
+    },
+    {
+     "feature_id": 1731,
+     "chip": "Knight vacates critical guard square",
+     "fire_rate_pct": 4.158,
+     "description": "All 10/10 positions feature a knight moving away from a square where it performed a crucial function \u2014 either maintaining a dominant outpost, defending a key weakness, or enabling a winning tactic. In 7/10 cases, the knight departed from a strong central square (e5, e4, d5, c5, c"
+    },
+    {
+     "feature_id": 1836,
+     "chip": "Knight leap strands hanging bishop",
+     "fire_rate_pct": 1.113,
+     "description": "All 10/10 positions feature a knight making an ambitious move \u2014 either capturing a pawn (7/10: Nxd4, Nxg5) or jumping to a strong outpost (3/10: Ne5, Nd5, Nb5, Ng4) \u2014 while leaving another friendly piece hanging to a trivial one-move pawn capture. In 5/10 positions (1, 3, 4, 7, 8"
+    },
+    {
+     "feature_id": 1914,
+     "chip": "Knight to outpost, tactically punished",
+     "fire_rate_pct": 1.748,
+     "description": "All 10/10 positions feature a knight move to a square that appears positionally desirable (central outposts like d4, e4, d5, f6, f3; active-looking squares like c4, b6, d3) but is concretely wrong. In 6/10 cases (Positions 1-3, 6, 9, 10), the knight was performing a vital functio"
+    }
+   ]
+  },
+  {
+   "fine_id": 44,
+   "size": 16,
+   "features": [
+    {
+     "feature_id": 49,
+     "chip": "Rook vacates dominant controlling square",
+     "fire_rate_pct": 7.008,
+     "description": "In 10/10 positions, a rook that was already perfectly placed on a dominant square (controlling a critical file, restraining a passed pawn, pinning pieces, or enabling a tactical sequence) was relocated to what appeared to be a more aggressive or purposeful square. In 8/10 cases t"
+    },
+    {
+     "feature_id": 69,
+     "chip": "Retreat exposes f-pawn or key square",
+     "fire_rate_pct": 1.22,
+     "description": "10/10 positions involve retreating a knight or rook from a square where it performed an essential defensive function \u2014 guarding a vulnerable pawn, blocking a dangerous diagonal, or controlling a critical square \u2014 to a passive back-rank square (e8, e1, d1, d2, or e3). In 4/10 case"
+    },
+    {
+     "feature_id": 90,
+     "chip": "Rook leaves critical defensive square",
+     "fire_rate_pct": 7.482,
+     "description": "All 10/10 positions feature a rook moving away from a square where it was performing a critical function \u2014 whether supporting a tactical threat, defending the king, controlling a key file, or protecting a piece. In 6/10 cases the rook retreated backward (Rff1, Rdd1, Rf2, Rff1, Rd"
+    },
+    {
+     "feature_id": 233,
+     "chip": "Knight quits f6 kingside guard",
+     "fire_rate_pct": 1.187,
+     "description": "All 10/10 positions feature a knight being voluntarily moved from an active defensive post to a passive square, with devastating consequences for king safety. In 8/10 cases, the knight departed from the f-file (f6 in 4 positions, f3 in 3 positions, f2 in 1 position), where it was"
+    },
+    {
+     "feature_id": 335,
+     "chip": "Knight quits post, threats land",
+     "fire_rate_pct": 2.863,
+     "description": "In 10/10 positions, a knight is moved from a square where it performed a critical function (defending key weaknesses, controlling invasion squares, or enabling concrete tactics) to a less effective square that fails to address the position's primary demands. In 8/10 cases, the kn"
+    },
+    {
+     "feature_id": 378,
+     "chip": "Queen vacates dominant multi-duty square",
+     "fire_rate_pct": 0.787,
+     "description": "In 9/10 positions, the queen occupied a dominant square performing multiple critical functions simultaneously (attacking the enemy king, controlling key squares, defending pieces, or paralyzing opponent's army), and was moved to a square that appeared active\u2014often via a check (4/"
+    },
+    {
+     "feature_id": 454,
+     "chip": "Central pawn push abandons key square",
+     "fire_rate_pct": 6.428,
+     "description": "All 9/9 positions feature a pawn advancing from e3/e4/e6/d3/d4/f4 to the 4th or 5th rank (e4, e5, d4, d5, or f5) in positions with closed or semi-closed centers. In every case, the pawn was performing a critical structural role\u2014supporting an adjacent pawn, guarding a key square, "
+    },
+    {
+     "feature_id": 682,
+     "chip": "Queen vacates critical defensive square",
+     "fire_rate_pct": 1.087,
+     "description": "10/10 positions involve moving the queen (7/10) or king (3/10) \u2014 the two highest-value pieces \u2014 to squares that appear active, aggressive, or centralizing but actually leave critical vulnerabilities exposed. In 6/10 cases (positions 1, 3, 8, 10, 6, 9), the queen specifically aban"
+    },
+    {
+     "feature_id": 687,
+     "chip": "Knight retreats over immediate tactical strike",
+     "fire_rate_pct": 1.626,
+     "description": "9/10 positions involve knight moves that relocate the piece to a worse square, while 10/10 positions feature a missed concrete tactic as the best alternative. In 7/10 cases, the knight leaves a strong central or semi-central post (c4, c5, c6, e2, c3, f4, d7) for a peripheral or p"
+    },
+    {
+     "feature_id": 716,
+     "chip": "Rook slides off critical rank",
+     "fire_rate_pct": 2.92,
+     "description": "All 10/10 positions feature a rook sliding to a seemingly more active square while abandoning a critical defensive function. In 6/10 cases, the rook leaves a rank it was guarding (the 6th rank in positions 1, 5, 8; the 7th rank in positions 6, 7; the f-file/f6 square in position "
+    },
+    {
+     "feature_id": 865,
+     "chip": "Knight retreats, leaves pawn undefended",
+     "fire_rate_pct": 1.264,
+     "description": "In 10/10 positions, the player moved a knight away from a square where it was performing a vital role (defending a pawn, controlling a key square, or poised for an immediate tactic) to a less effective square as part of a slow repositioning plan. In 6/10 cases the knight moved to"
+    },
+    {
+     "feature_id": 922,
+     "chip": "Knight quits post, defense collapses",
+     "fire_rate_pct": 3.836,
+     "description": "In 10/10 positions, the player moved a knight FROM a strong, centrally-placed or defensively critical square TO capture an enemy piece on a less important square. In 8/10 cases, the knight was on a powerful central post (e4, d5, e6, d4) and moved to a peripheral square (c3, c4, f"
+    },
+    {
+     "feature_id": 1518,
+     "chip": "Knight quits c3/c6 defensive post",
+     "fire_rate_pct": 2.391,
+     "description": "All 9 positions feature a knight jumping forward to an active-looking square (e4 in 5/9, e5 in 2/9, plus f4, b5, a5). In 7/9 cases the knight departs from c3 or c6, squares where it was serving critical defensive or coordinating functions. In 8/9 positions at least one king remai"
+    },
+    {
+     "feature_id": 1668,
+     "chip": "Knight quits critical defensive post",
+     "fire_rate_pct": 2.592,
+     "description": "All 9/9 positions feature a knight moving from a strong, actively-placed square to an inferior one. In 8/9 cases, the knight departs a clearly superior post: f3\u2192h4 (abandoning g5 control), e3\u2192f1 (abandoning g2 guard), e4\u2192d2 (leaving centralization), d5\u2192c7 (leaving dominant outpos"
+    },
+    {
+     "feature_id": 1664,
+     "chip": "Rook deserts critical file/square",
+     "fire_rate_pct": 3.16,
+     "description": "9/10 positions feature a rook moving away from a file or square where it was tactically essential \u2014 either enabling a forcing combination, defending a critical weakness, or blocking an enemy invasion. In 6/10 cases the rook moves laterally along a rank to an adjacent file (f2\u2192e2,"
+    },
+    {
+     "feature_id": 1753,
+     "chip": "Rook quits key rank or post",
+     "fire_rate_pct": 1.28,
+     "description": "All 10/10 positions feature rook moves where the piece is relocated from (or fails to reach) its optimal square. In 6/10 positions (R2e5, Rac2, R7d5, R3d5, R2a5, Rf4), the rook explicitly leaves a powerful post\u2014most commonly the 2nd/7th rank or a square providing essential defens"
+    }
+   ]
+  },
+  {
+   "fine_id": 49,
+   "size": 15,
+   "features": [
+    {
+     "feature_id": 155,
+     "chip": "Knight leaves critical defensive post",
+     "fire_rate_pct": 1.22,
+     "description": "In 10/10 positions, the player moved a piece (knights in 6/10, bishops in 2/10, rooks in 2/10) to a 'constructive-looking' square \u2014 centralizing, developing, attacking, or repositioning \u2014 while that piece (or its previous position) was performing a critical defensive function. In"
+    },
+    {
+     "feature_id": 620,
+     "chip": "Queen leaves sole defender role",
+     "fire_rate_pct": 1.145,
+     "description": "8/10 positions show the same core pattern: the moved piece was performing a critical defensive function (sole defender of another piece or maintaining a pin/geometric relationship that protected a piece), and by moving it to a greedy or aggressive-looking square, the player left "
+    },
+    {
+     "feature_id": 803,
+     "chip": "Knight departs, defended piece falls",
+     "fire_rate_pct": 1.265,
+     "description": "All 10/10 positions feature knight moves that appear constructive\u2014captures (7/10), centralizations (2/10), or development (1/10)\u2014but catastrophically ignore a more urgent positional or tactical need. In 5/10 cases the knight was performing a silent defensive function (blocking a "
+    },
+    {
+     "feature_id": 1003,
+     "chip": "Pawn advance drops adjacent piece",
+     "fire_rate_pct": 1.126,
+     "description": "All 10/10 positions feature a pawn advance where the moved pawn was the sole (or primary) defender of something critical. In 4/10 positions (2, 8, 9, 10), a b-pawn or d-pawn advance removed the defense of an adjacent piece (knight on c6, bishop on c5), allowing an immediate captu"
+    },
+    {
+     "feature_id": 1017,
+     "chip": "Bishop developed, queen left hanging",
+     "fire_rate_pct": 2.038,
+     "description": "All 10/10 positions share an identical core pattern: the player's queen is directly attacked or undefended on an open line (diagonal, file, or by a knight), and instead of addressing this critical threat, the player makes an unrelated move \u2014 developing a piece, pushing a pawn, or"
+    },
+    {
+     "feature_id": 1016,
+     "chip": "Bishop retreats, leaves piece hanging",
+     "fire_rate_pct": 3.44,
+     "description": "In 10/10 positions, a minor piece (bishop in 7/10, knight in 3/10) is repositioned with a quiet, non-capturing move to what appears to be a more active or natural square. In 9/10 cases, the moved piece was performing a critical but non-obvious defensive function\u2014either directly d"
+    },
+    {
+     "feature_id": 1032,
+     "chip": "Knight quits rook-shielding post",
+     "fire_rate_pct": 1.185,
+     "description": "In 10/10 positions, a knight moves away from a critical defensive post, and in at least 8/10, the knight was specifically functioning as a physical shield or direct defender of a friendly rook\u2014blocking a file or rank from enemy penetration, or serving as the sole piece protecting"
+    },
+    {
+     "feature_id": 1320,
+     "chip": "Defender moves, critical square collapses",
+     "fire_rate_pct": 0.933,
+     "description": "In 8/10 positions, the moved piece was the linchpin holding the position together \u2014 it was defending another piece, guarding a critical square, or maintaining a positional bind. The player moved this piece for a tempting reason (material capture in 5/10: Qxe2, Bxa3, Bxf1, Nxh7, R"
+    },
+    {
+     "feature_id": 1383,
+     "chip": "Pawn capture drops defensive duty",
+     "fire_rate_pct": 0.88,
+     "description": "8/10 positions involve pawn moves (7/10 specifically pawn captures) where the moved pawn was quietly performing a critical defensive function\u2014shielding the king, maintaining tension that pinned an opponent's pawn to a defensive duty, or indirectly supporting another piece. In pos"
+    },
+    {
+     "feature_id": 1507,
+     "chip": "Rook leaves sole-protected piece",
+     "fire_rate_pct": 3.558,
+     "description": "All 10/10 positions feature a rook move that prioritizes activation or offense while abandoning a critical defensive role. In 8/10 cases, the rook was the sole protector of a specific piece or pawn (Position 1: d1 rook defended d4 knight; Position 2: f8 rook defended f7 pawn; Pos"
+    },
+    {
+     "feature_id": 1522,
+     "chip": "Rook leaves partner rook hanging",
+     "fire_rate_pct": 1.802,
+     "description": "10/10 positions share an identical tactical pattern: the player moves a piece that was providing the sole defense of another major piece (almost always a rook defending its partner rook), leaving that partner completely undefended and capturable. In 9/10 cases the moved piece is "
+    },
+    {
+     "feature_id": 1627,
+     "chip": "Queen drifts to rim, king exposed",
+     "fire_rate_pct": 3.002,
+     "description": "In 10/10 positions, the moved piece (queen in 9/10, bishop in 1/10) was performing an essential defensive function \u2014 guarding key squares adjacent to the king, protecting critical pawns in the king's shield, or maintaining coordination with other defenders. The destination square"
+    },
+    {
+     "feature_id": 1784,
+     "chip": "Bishop captures, deserts critical post",
+     "fire_rate_pct": 2.355,
+     "description": "In 10/10 positions, a minor piece (8/10 bishops, 2/10 knights) that was serving as the linchpin of the position's defensive structure captured a pawn, removing itself from its essential post. The captured pawns were overwhelmingly kingside pawns (8/10 on g7, g6, g2, h2, f2, or f3"
+    },
+    {
+     "feature_id": 1944,
+     "chip": "Pawn advance drops guarded square",
+     "fire_rate_pct": 2.28,
+     "description": "All 10/10 positions feature pawn moves (advances or captures) that prioritize gaining space or attacking over maintaining a critical defensive responsibility. In 8/10 cases, the advancing pawn was directly protecting something vital: another pawn (positions 1, 6, 8), a piece (pos"
+    },
+    {
+     "feature_id": 1984,
+     "chip": "Shield pawn capture opens king file",
+     "fire_rate_pct": 1.298,
+     "description": "In 9/10 positions, the moved pawn was directly adjacent to the king and serving as a critical component of the king's pawn shield (b2 shielding kings on b1/c1, c2 shielding king on b1, b7 shielding king on c8, c7 shielding king on d8, f2 shielding king on g1/g2, g2 shielding king"
+    }
+   ]
+  },
+  {
+   "fine_id": 165,
+   "size": 12,
+   "features": [
+    {
+     "feature_id": 379,
+     "chip": "Bishop quits defensive diagonal/file",
+     "fire_rate_pct": 1.449,
+     "description": "All 10 positions feature bishop moves where the bishop departs from a critical defensive station. In 8/10 positions, the bishop was blocking an open file or diagonal that led directly to the player's own king (e.g., blocking the e-file in positions 2, 3, 6, 7, 10; guarding the fi"
+    },
+    {
+     "feature_id": 592,
+     "chip": "Rook leaves critical defensive post",
+     "fire_rate_pct": 1.155,
+     "description": "All 10/10 positions feature a rook relocating to what appears to be an 'active' square \u2014 the 7th rank (positions 1, 6), the 4th rank (positions 2, 5, 7, 10), the 2nd rank (positions 3, 9), the 5th rank (position 8), or delivering a check (position 4). In every case, the rook was "
+    },
+    {
+     "feature_id": 775,
+     "chip": "Knight leaves critical restraint square",
+     "fire_rate_pct": 1.757,
+     "description": "9/10 positions feature knight moves (the sole exception being Re4 in position 2, which follows the same functional principle). In every case, the piece occupied a square where it served a critical function\u2014creating tactical threats that restrained the opponent (positions 1, 4, 6,"
+    },
+    {
+     "feature_id": 928,
+     "chip": "Knight retreats, central pawn falls",
+     "fire_rate_pct": 1.364,
+     "description": "All 10/10 positions feature a knight moving from an active third/sixth-rank post to a passive second/seventh-rank square \u2014 specifically c3\u2192e2 (4 positions), c6\u2192e7 (3 positions), f6\u2192d7 (2 positions), and f3\u2192d2 (1 position). In every case, the knight was performing a critical defen"
+    },
+    {
+     "feature_id": 1027,
+     "chip": "Queen move drops defended piece",
+     "fire_rate_pct": 1.215,
+     "description": "In 7/10 positions, the queen was performing a critical defensive duty (protecting a knight, bishop, or pawn) and moved to a square that looked purposeful\u2014centralizing, attacking, or regrouping\u2014while severing its defensive connection to a piece that the opponent then captured for "
+    },
+    {
+     "feature_id": 1043,
+     "chip": "Rook doubles on redundant file",
+     "fire_rate_pct": 1.844,
+     "description": "9/10 positions involve rook moves (the exception being Qc1 in Position 4, which follows the same logic of choosing a passive grouping over a forcing continuation). In all cases, the moved rook occupied a critical file, rank, or penetration square where it performed an essential f"
+    },
+    {
+     "feature_id": 1130,
+     "chip": "Bishop vacates load-bearing defensive square",
+     "fire_rate_pct": 1.593,
+     "description": "In 10/10 positions, the player moved a bishop that was performing a vital but non-obvious defensive function \u2014 blocking a file (5/10: positions 1, 2, 5, 8, 10), defending a hanging piece (2/10: positions 4, 9), or shielding the king from diagonal/file attacks (3/10: positions 3, "
+    },
+    {
+     "feature_id": 1251,
+     "chip": "Knight leaves critical restraint square",
+     "fire_rate_pct": 1.004,
+     "description": "9/10 positions involve knight moves (one bishop move shares the identical pattern). In all 10 cases, the piece occupied a square where it performed a critical function \u2014 restraining the opponent's king (positions 1, 2, 6, 7, 9, 10), enabling a superior forcing sequence (positions"
+    },
+    {
+     "feature_id": 1311,
+     "chip": "Knight leaps abandon critical guard",
+     "fire_rate_pct": 1.095,
+     "description": "All 10/10 positions feature knight moves to aggressively-placed squares that appear strong on the surface. In 6/10 positions (1, 4, 6, 8, 3, 9), the knight was performing a critical defensive function\u2014guarding a key square (e2 in pos 6, d3 in pos 4), protecting a pawn (e6 in pos "
+    },
+    {
+     "feature_id": 1325,
+     "chip": "Queen leaves critical guard square",
+     "fire_rate_pct": 3.223,
+     "description": "All 10/10 positions feature a major piece (7/10 queens, 3/10 rooks) that was performing a vital strategic function on its current square \u2014 guarding a piece (Position 9: Qa8 defending Bc6), preventing a pawn break (Position 4: Qb5 stopping ...b5), controlling a promotion square (P"
+    },
+    {
+     "feature_id": 1541,
+     "chip": "Knight leaves critical defensive square",
+     "fire_rate_pct": 1.194,
+     "description": "All 10 positions share a common pattern: the player moves a piece or pawn that was performing a critical (often non-obvious) function\u2014blocking a diagonal, guarding a key square, anchoring an attack, or maintaining structural integrity\u2014tempted by a seemingly attractive alternative"
+    },
+    {
+     "feature_id": 1571,
+     "chip": "Bishop vacates critical restraint square",
+     "fire_rate_pct": 1.773,
+     "description": "9/10 positions feature bishop moves (the outlier c3 shares the same passive-repositioning logic). In every case, the moved piece was performing a critical function \u2014 restraining an opponent's piece (Position 1: Bg4 restrained Nf3 from reaching d4), defending a key pawn (Positions"
+    }
+   ]
+  },
+  {
+   "fine_id": 57,
+   "size": 11,
+   "features": [
+    {
+     "feature_id": 45,
+     "chip": "Queen capture abandons guarded piece",
+     "fire_rate_pct": 0.976,
+     "description": "7/9 positions involve a capture that removes the moving piece from a square where it was performing a vital defensive function \u2014 typically guarding another piece or blocking a dangerous line. In 6/9 cases, it is specifically the Queen that makes the erroneous capture (Qxe7 x2, Qx"
+    },
+    {
+     "feature_id": 269,
+     "chip": "Bishop leaves critical defensive post",
+     "fire_rate_pct": 1.088,
+     "description": "All 10/10 positions feature a bishop capture (Bx...) where the bishop was performing an essential defensive function prior to the move. In 8/10 cases, the bishop was guarding a critical square (f8 in positions 2 and 6, the a5-e1 diagonal in position 3, h7 in position 6), protecti"
+    },
+    {
+     "feature_id": 427,
+     "chip": "Recapture opens fatal diagonal",
+     "fire_rate_pct": 0.943,
+     "description": "All 10 positions feature a pawn capture where the chosen pawn was performing a critical defensive function\u2014typically guarding a diagonal toward the king or blocking an open file. In 6/10 positions (1, 2, 4, 5, 7, 10), there was an alternative pawn or piece that could recapture on"
+    },
+    {
+     "feature_id": 492,
+     "chip": "Pawn capture abandons vital shield",
+     "fire_rate_pct": 1.882,
+     "description": "All 10/10 positions feature pawn captures (pxp) where the moving pawn was performing a vital defensive function \u2014 blocking a dangerous diagonal, shielding the king along an open file, or defending a key square. In 8/10 cases, the removed pawn was specifically blocking an opponent"
+    },
+    {
+     "feature_id": 575,
+     "chip": "Capturing pawn deserts guarded piece",
+     "fire_rate_pct": 1.049,
+     "description": "9/10 positions feature pawn captures and all 10 are captures that look natural or productive on the surface but critically remove the player's own piece from a square where it was performing an essential guarding role. In 4/10 positions (Positions 1, 5, 6, 7), the capturing piece"
+    },
+    {
+     "feature_id": 637,
+     "chip": "Knight capture vacates king guard",
+     "fire_rate_pct": 1.138,
+     "description": "All 10/10 positions feature a knight making a materially-motivated capture (Nx__) that removes it from a square where it was performing an essential defensive function. In 8/10 cases, the knight was guarding key squares around its own king or blocking dangerous lines (f3 guarding"
+    },
+    {
+     "feature_id": 840,
+     "chip": "Queen vacates critical guard square",
+     "fire_rate_pct": 1.215,
+     "description": "In 8/10 positions, the moved piece was performing a vital function on its original square \u2014 blocking a diagonal (Position 1: Qe7 blocked Bd6-f8), maintaining a blockade (Position 7: Kg6 stopped the h-pawn), preserving a recapture option (Positions 5, 8: Queen on d8/d7 enabled Qxf"
+    },
+    {
+     "feature_id": 1232,
+     "chip": "Capture strips sole piece defender",
+     "fire_rate_pct": 1.028,
+     "description": "All 10/10 positions feature captures where the moving piece was performing an essential protective function. In 8/10 cases, the capturing piece was the sole defender of another piece or was blocking a critical line: Position 1 (knight guarded e7 recapture for queen), Position 4 ("
+    },
+    {
+     "feature_id": 1591,
+     "chip": "Bishop relocates, abandons critical guard",
+     "fire_rate_pct": 0.936,
+     "description": "8/10 positions clearly show a piece being relocated from a square where it was serving a critical defensive purpose \u2014 blocking a passed pawn, guarding a key square against forks/mates, or protecting another piece. The moves typically look constructive on the surface (developing a"
+    },
+    {
+     "feature_id": 1763,
+     "chip": "Rook quits critical defensive square",
+     "fire_rate_pct": 1.038,
+     "description": "7/9 positions clearly show a piece being moved away from a square where it was performing a vital defensive function\u2014typically blocking a dangerous diagonal or defending a key square/piece. In positions 1, 2, and 3, the moved piece (rook or queen) was blocking a critical diagonal"
+    },
+    {
+     "feature_id": 1925,
+     "chip": "Knight vacates critical defensive square",
+     "fire_rate_pct": 1.01,
+     "description": "At least 6/9 positions show a piece that was performing a critical role \u2014 blocking a file, defending a pawn, or restraining an enemy passed pawn \u2014 being moved away, immediately allowing the opponent to exploit the now-unguarded line or square. In Position 4, the queen left f2 (bl"
+    }
+   ]
+  },
+  {
+   "fine_id": 66,
+   "size": 9,
+   "features": [
+    {
+     "feature_id": 297,
+     "chip": "Knight moves desert critical guard duty",
+     "fire_rate_pct": 1.134,
+     "description": "In 10/10 positions, the player chose a move that appeared active, aggressive, or positionally natural (centralization, capture, pawn advance, open-file occupation) while ignoring that the moved piece \u2014 or the resulting position \u2014 had a critical tactical requirement that was viola"
+    },
+    {
+     "feature_id": 352,
+     "chip": "Knight relocates, defensive square collapses",
+     "fire_rate_pct": 2.747,
+     "description": "In 10/10 positions, the player voluntarily relocated a minor piece (8/10 knights, 2/10 bishops) to what appeared to be a better square \u2014 an outpost, a more central square, or a more active diagonal \u2014 but the move catastrophically backfired. In 6/10 cases (Nc4, Nge7, Nf5, Nh7, Nh2"
+    },
+    {
+     "feature_id": 1269,
+     "chip": "g/b pawn push over decisive action",
+     "fire_rate_pct": 0.607,
+     "description": "In 10/10 positions, the player moved a pawn one square forward on the file immediately adjacent to an enemy advanced pawn (g3/g6/g5 reacting to h-file or f-file thorn pawns in 8/10 cases; b6 reacting to an advanced c6-pawn in 2/10 cases). The intent was always defensive \u2014 to 'add"
+    },
+    {
+     "feature_id": 1496,
+     "chip": "Pawn advance abandons critical defender",
+     "fire_rate_pct": 0.917,
+     "description": "In 10/10 positions, the player made a forward-advancing move \u2014 8/10 were pawn pushes (f7, d5, d5, d4, g4, b7, b4) and 2/10 were knight leaps to aggressive squares (Nd4, Ng5, Ne3 counts as 3 knight moves total) \u2014 that abandoned a critical defensive duty. The moved unit was activel"
+    },
+    {
+     "feature_id": 1583,
+     "chip": "Bishop retreats, surrenders king pressure",
+     "fire_rate_pct": 0.431,
+     "description": "In 10/10 positions, the player moved a bishop that was aggressively stationed directly adjacent to the opponent's king \u2014 on h7 (4 positions: 1, 3, 4, 6), h2 (4 positions: 5, 7, 8, 10), or f2 (2 positions: 2, 9) \u2014 to a retreated or centralized square further from the king (e4, h4,"
+    },
+    {
+     "feature_id": 1642,
+     "chip": "Bishop drifts forward, drops guard",
+     "fire_rate_pct": 1.042,
+     "description": "In 10/10 positions, the player moved a piece (queens 5x, bishops 4x, knight 1x) to a seemingly active or aggressive square that created no real threats while abandoning a critical defensive responsibility or ignoring an urgent tactical demand. In 7/10 positions, the moved piece w"
+    },
+    {
+     "feature_id": 1708,
+     "chip": "Rook quits a-file, pawn falls",
+     "fire_rate_pct": 2.423,
+     "description": "In 10/10 positions, the player moved a rook to a seemingly active file (b-file, c-file, d-file, or e-file) to 'contest' enemy pieces or pressure central targets. In at least 7/10 cases, the rook specifically left the a-file, directly abandoning defense of the a-pawn (a2, a3, a6, "
+    },
+    {
+     "feature_id": 1860,
+     "chip": "Knight leaves mating-net post",
+     "fire_rate_pct": 0.845,
+     "description": "In 10/10 positions, the player moved a knight that was already optimally placed \u2014 typically adjacent to or restricting the enemy king \u2014 to a different square that appeared active but dismantled the position's tactical foundation. In 8/10 cases, the knight was directly restricting"
+    },
+    {
+     "feature_id": 1936,
+     "chip": "Rook quits key defensive square",
+     "fire_rate_pct": 1.475,
+     "description": "In 10/10 positions, the player chose a move that appeared to increase piece activity (centralizing a queen, giving a check, repositioning to an attacking square) but actually removed a piece from a vital defensive post. In 8/10 positions, the moved piece was directly guarding a s"
+    }
+   ]
+  },
+  {
+   "fine_id": 90,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 120,
+     "chip": "Bishop grabs pawn, wrecks position",
+     "fire_rate_pct": 1.432,
+     "description": "All 10/10 positions feature a bishop capturing a pawn on a central or near-central square (c4, d4, d5\u00d72, d6, e4, e5\u00d73, f5). In every case, the bishop was serving a more important purpose before the capture \u2014 either defending the king (positions 7, 10), maintaining positional pres"
+    },
+    {
+     "feature_id": 551,
+     "chip": "Queen centralizes, misses forcing continuation",
+     "fire_rate_pct": 1.838,
+     "description": "All 10/10 positions feature a queen moving to a central square on the c or d file (ranks 3-7): four Qd3, two Qc3, one each of Qc6, Qc7, Qd4, Qd5. In every case, the queen centralization looks natural and 'improving' but misses a more forcing alternative. In 7/10 positions, a conc"
+    },
+    {
+     "feature_id": 707,
+     "chip": "Knight vacates diagonal, exposes g-pawn",
+     "fire_rate_pct": 1.665,
+     "description": "9/10 positions feature a knight stationed on f3, f6, or c3 that is the sole piece blocking a long diagonal (typically a1-h8 or a8-h1) aimed at the g-pawn sheltering the castled king. In all 10 cases, the knight is moved to an aggressive-looking central square (d4, d5, e4, e5, f5,"
+    },
+    {
+     "feature_id": 993,
+     "chip": "Knight centralizes onto undefended square",
+     "fire_rate_pct": 1.881,
+     "description": "All 10/10 positions feature a knight moving to one of the four ideal central squares (e5 in 6 positions, e4 in 2, d4 in 2, d5 in 1), choosing 'textbook centralization' over the position's actual demands. In 8/10 cases, the knight lands on an inadequately supported or outright und"
+    },
+    {
+     "feature_id": 1519,
+     "chip": "Bishop centralizes onto undefended square",
+     "fire_rate_pct": 1.296,
+     "description": "All 10/10 positions feature a bishop being actively moved to a seemingly purposeful central or active square (d3, c4, d4, f4, e4\u00d74, e6, c5 \u2014 predominantly 4th-rank centralization). In 8/10 cases, the bishop lands on a completely unprotected square or one whose defender is illusor"
+    },
+    {
+     "feature_id": 1531,
+     "chip": "Rook centralizes, vacates critical post",
+     "fire_rate_pct": 1.702,
+     "description": "All 10/10 positions feature a rook move to a seemingly logical square (central or open file), yet every single one is a tempo-wasting mistake. In 6/10 cases the rook moves to the e-file, in 3/10 to the d-file, and 1/10 to each of the c-file and g-file \u2014 all 'natural-looking' cent"
+    },
+    {
+     "feature_id": 1937,
+     "chip": "Knight quits embedded outpost prematurely",
+     "fire_rate_pct": 5.346,
+     "description": "In 10/10 positions, a knight is moved to a 'textbook' central square (d4, d5, e4, e5, c5, or c6), but in at least 8/10 cases, the knight was already on a FAR more powerful square deeply embedded in the opponent's position (d3 in positions 1, 7; e3 in positions 3, 4; c2 in positio"
+    },
+    {
+     "feature_id": 1977,
+     "chip": "Knight leaves critical defensive post",
+     "fire_rate_pct": 1.55,
+     "description": "All 10/10 positions involve a knight being moved to an aesthetically attractive square (typically centralizing: d5, e5, e4, d4, e3, d3, b5, h4) while abandoning a critical role it was performing on its original square. In 4/10 positions (1, 5, 8, and partially 4), the knight was "
+    }
+   ]
+  },
+  {
+   "fine_id": 174,
+   "size": 3,
+   "features": [
+    {
+     "feature_id": 830,
+     "chip": "Knight develops while king burns",
+     "fire_rate_pct": 6.854,
+     "description": "All 8/8 positions feature a knight being developed to a standard 'textbook' square (c3, c6, d2, or d7) while a critical tactical issue goes unaddressed. In 5/8 positions, the ignored crisis was king safety \u2014 either the player's own king was vulnerable to a sacrifice (Bxh2+, Bxh7+"
+    },
+    {
+     "feature_id": 1373,
+     "chip": "Knight developed in tactical emergency",
+     "fire_rate_pct": 0.99,
+     "description": "All 10/10 positions feature a knight being developed from its starting square to a classical development square (Nc3, Nc6, Nf6, Ne2) \u2014 textbook moves in a normal opening. However, in every case the position is tactically critical: 9/10 positions have an exposed or centralized kin"
+    },
+    {
+     "feature_id": 1623,
+     "chip": "Knight develops while tactics burn",
+     "fire_rate_pct": 1.08,
+     "description": "All 10/10 positions feature a knight being developed to one of the four classical 'textbook' squares (Nc3, Nf3, Nc6, or Nf6) \u2014 moves that would be perfectly reasonable in a calm position but are catastrophically wrong given the specific tactical demands of the moment. In 6/10 pos"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,852 @@
+{
+ "coarse_id": 0,
+ "n_features": 128,
+ "subclusters": [
+  {
+   "fine_id": 80,
+   "size": 18,
+   "features": [
+    {
+     "feature_id": 0,
+     "chip": "a/b pawn push gifts tempo",
+     "fire_rate_pct": 1.085,
+     "description": "8/10 moves are literal a-pawn or b-pawn advances (a4, a5, b3, b4), with the remaining two being Qa5 (queen to the a-file rim) and f6 (a different flank pawn push). 10/10 positions had concrete tactical opportunities or urgent threats being ignored: missed winning combinations (Bx"
+    },
+    {
+     "feature_id": 91,
+     "chip": "Pawn advance gifts fork tempo",
+     "fire_rate_pct": 1.096,
+     "description": "8/10 positions feature pawn advances (d3, e6, f4, f4, d6, h4, e3, d6) and 2/10 feature knight moves (Nd4+, Nd5), but all 10 share the critical trait of being non-forcing moves played in positions demanding immediate tactical resolution. In 10/10 cases, the position had a concrete"
+    },
+    {
+     "feature_id": 234,
+     "chip": "Pawn push ignores forced mate",
+     "fire_rate_pct": 0.88,
+     "description": "9/10 positions feature pawn advances (e6, e4, c6, c6, b4, c4, d3, e6, e3), with only 1/10 being a piece move (Ne4) that shares the same 'aggressive but non-forcing' quality. At least 7/10 specifically involve advancing a passed pawn or a pawn intended to become dangerous. In ever"
+    },
+    {
+     "feature_id": 289,
+     "chip": "f4 push abandons urgent defense",
+     "fire_rate_pct": 1.026,
+     "description": "7/10 positions feature pawn advances (f4 in 4/10, plus d5, c4, b4), while the remaining 3/10 are piece moves/captures (Rg4, Bxe4, Nxe5) that similarly prioritize offense over defense. In all 10 positions, the move appears active \u2014 gaining space, material, or piece activity \u2014 but "
+    },
+    {
+     "feature_id": 358,
+     "chip": "Bishop development over forcing move",
+     "fire_rate_pct": 4.654,
+     "description": "All 10/10 positions feature a bishop being moved to a 'natural' developing square (c4, c5, d2, e3, e6, f4, f5) when the position critically demands something more forcing. In 10/10 cases the move is a non-capturing, non-checking bishop development that looks reasonable but misses"
+    },
+    {
+     "feature_id": 388,
+     "chip": "Pawn push ignores exposed king",
+     "fire_rate_pct": 1.204,
+     "description": "8/10 positions feature pawn advances (c6, g4, d5, f5, f5, b6, h6, plus fxg5 as a pawn capture), with 7 of these pushing to the 5th or 6th rank. 9/10 positions feature at least one exposed king with a weak or nonexistent pawn shield. The average number of good moves is only 2.0, i"
+    },
+    {
+     "feature_id": 417,
+     "chip": "Pawn push over king rescue",
+     "fire_rate_pct": 1.021,
+     "description": "10/10 positions feature Black playing with a dangerously exposed king (on squares like b4, c6, d5, h8, h7 with weak or absent pawn shields). 9/10 moves are single-square pawn advances (f5, h5, c5, h5, e4, c5, a5, c3, g5), with only one king move (Kh7) as the exception. In 6/10 ca"
+    },
+    {
+     "feature_id": 495,
+     "chip": "Pawn push over forced mating continuation",
+     "fire_rate_pct": 1.272,
+     "description": "8/10 positions feature pawn advances (d5, d6, h5, e4, b5, b5, c6, c7) that look aggressive or progressive but ignore the tactical demands of the position. The remaining 2/10 (Qxd2, Rc8) similarly chose 'natural-looking' moves over critical forcing continuations. In 4/10 cases (po"
+    },
+    {
+     "feature_id": 842,
+     "chip": "Pawn push leaves camp exposed",
+     "fire_rate_pct": 1.536,
+     "description": "9/10 positions feature an aggressive, forward-looking move (7/10 are pawn advances: f5, d5, d5, c3, d3, g4, b4; 3/10 are piece moves: Ne4, Qf4, Qg4) that appears to attack the opponent's pieces or gain space but overlooks a critical tactical vulnerability in the player's own camp"
+    },
+    {
+     "feature_id": 991,
+     "chip": "Bishop to center one move early",
+     "fire_rate_pct": 2.316,
+     "description": "All 10/10 positions feature a minor piece (6 bishops, 4 knights) being moved to a visually appealing square (e5, d5, f4, c4, f5, b4, c6) that appears strategically desirable but is played one tempo too early. In 7/10 cases, the exact same piece move or destination appears in the "
+    },
+    {
+     "feature_id": 1219,
+     "chip": "Queen checks invite defensive interpositions",
+     "fire_rate_pct": 1.702,
+     "description": "All 10/10 positions involve queen moves to ostensibly active or threatening squares that prioritize aggression over precision. 4/10 are premature queen checks (Qg6+, Qc5+, Qd6+, Qe6+) where the check allows a defensive interposition or wastes a tempo when a non-checking move was "
+    },
+    {
+     "feature_id": 1241,
+     "chip": "Pawn pushes over king defense",
+     "fire_rate_pct": 1.103,
+     "description": "All 10 positions share a common structure: the player's position contains a critical tactical vulnerability (usually king exposure \u2014 present in 9/10 positions), yet the player ignores this to pursue their own agenda. 4/10 moves are queen captures or queen moves targeting material"
+    },
+    {
+     "feature_id": 1278,
+     "chip": "King advances onto forked square",
+     "fire_rate_pct": 1.072,
+     "description": "9/10 positions feature king moves (the outlier is b5, a pawn advance with a similar 'overextension' logic). In all cases, the moving side advances their king (or pawn) to what appears to be an active, centralized square, but this square is tactically vulnerable to an immediate te"
+    },
+    {
+     "feature_id": 1324,
+     "chip": "Queen to b4 invites tempo",
+     "fire_rate_pct": 1.988,
+     "description": "All 10/10 positions feature queen moves that appear active or threatening but are strategically misguided. In 6/10 positions the queen specifically moves to the b4/b5 area (Qb4 x4, Qb4+, Qb5+), while the remaining 4 involve other premature queen centralizations (Qe6, Qh2, Qg4, Qe"
+    },
+    {
+     "feature_id": 1361,
+     "chip": "Flank pawn push over forcing capture",
+     "fire_rate_pct": 1.154,
+     "description": "6/10 positions feature a non-capturing flank pawn advance (h5 in 4 positions, h4, c5, f5) when the correct move was a forcing piece action (capture, check, or retreat). In 8/10 positions, the move played was a pawn move of some kind. The core error in 7/10 blunders is tempo loss "
+    },
+    {
+     "feature_id": 1492,
+     "chip": "Pawn push over defensive emergency",
+     "fire_rate_pct": 0.933,
+     "description": "All 10/10 positions feature a move that looks logical in isolation \u2014 advancing a pawn, repositioning a piece to an active square, or delivering a check \u2014 but catastrophically wastes the critical tempo the position demanded. In 5/10 cases the move is a pawn advance (a4, a4, f5, f5"
+    },
+    {
+     "feature_id": 1598,
+     "chip": "Pawn push skips urgent prep move",
+     "fire_rate_pct": 1.095,
+     "description": "All 10/10 positions feature pawn advances that are either the right strategic idea executed with incorrect move order, or pawn pushes that ignore more urgent positional needs. In 4/10 positions (2, 3, 7, 10), the exact same pawn advance appears in the best move's continuation but"
+    },
+    {
+     "feature_id": 1686,
+     "chip": "Pawn push over king/rook duty",
+     "fire_rate_pct": 1.0,
+     "description": "10/10 positions feature pawn moves (8 non-capture advances, 2 pawn captures). 9/10 positions involve active passed pawns or pawn promotion races as a dominant positional theme. In 8/10 cases the pawn move was a mistake (avg cp_loss 1160), while 2/10 were actually optimal (positio"
+    }
+   ]
+  },
+  {
+   "fine_id": 53,
+   "size": 16,
+   "features": [
+    {
+     "feature_id": 24,
+     "chip": "Queenside pawn push gifts mating tempo",
+     "fire_rate_pct": 1.158,
+     "description": "All 10/10 positions feature a non-capturing, non-checking pawn advance in a middlegame position where the tactical demands are acute. In 7/10 cases the pawn push is on the queenside (b3, b5, c4) while the critical action is elsewhere (king safety, back-rank threats, piece activat"
+    },
+    {
+     "feature_id": 177,
+     "chip": "Pawn push over winning piece move",
+     "fire_rate_pct": 1.292,
+     "description": "All 10/10 positions feature a pawn push (h4, f4, f5, d5, g5, f4, f4, c5, b4, g4) played in lieu of an immediately necessary piece move. In every case, the position contained urgent tactical demands: 6/10 had winning combinations available (Rh3, Qe4, Qf6+, Rg6, Re4, Be5+), 2/10 re"
+    },
+    {
+     "feature_id": 176,
+     "chip": "Pawn push over forcing piece play",
+     "fire_rate_pct": 1.961,
+     "description": "All 10/10 positions feature non-capturing, non-forcing pawn advances (b5, e5, e4, g4, g4, e5, f4, g5, d4, e4) pushed aggressively toward the opponent's territory when the position demanded immediate concrete action. In 8/10 cases, the best move involved active piece play (rook in"
+    },
+    {
+     "feature_id": 245,
+     "chip": "King improvement loses critical tempo",
+     "fire_rate_pct": 1.524,
+     "description": "All 10/10 positions feature king moves that lose a decisive tempo. In 6/10 cases, a non-king move was urgently needed first (pawn breaks like b3, a4, exd4; captures like Rxg5; checks like g5+; or piece repositioning like Bf6). In 4/10 cases, the king needed to move but to a diffe"
+    },
+    {
+     "feature_id": 320,
+     "chip": "Slow pawn push surrenders critical tempo",
+     "fire_rate_pct": 0.996,
+     "description": "All 10/10 positions feature a non-capturing, non-checking pawn push played when the position urgently required something else. The 'something else' varies: in 3/10 positions a decisive tactic was available (skewer, mate-in-2, piece capture with check), in 4/10 positions a piece n"
+    },
+    {
+     "feature_id": 364,
+     "chip": "Wing pawn push burns forcing tempo",
+     "fire_rate_pct": 1.639,
+     "description": "9/10 positions feature a wing pawn advance (h4 in 4 cases, h5 in 3 cases, g4 in 1, b5 in 1) and the remaining position features Qh5 with the same thematic intent. In every case, the position demanded an immediate forcing continuation: 4/10 required perpetual checks to hold a draw"
+    },
+    {
+     "feature_id": 770,
+     "chip": "Rook shuffle loses forcing sequence",
+     "fire_rate_pct": 1.206,
+     "description": "All 10/10 positions feature a rook move that is non-capturing and non-checking, aimed at 'improving' the rook's placement (centralizing, occupying an open file, or challenging an opponent's piece). In every case, the position required an immediate forcing move \u2014 typically a captu"
+    },
+    {
+     "feature_id": 802,
+     "chip": "Bishop misses king escape square",
+     "fire_rate_pct": 0.914,
+     "description": "10/10 positions involve a bishop move, and 9/10 deliver check (mostly discovered checks where the bishop clears a line for a rook). In every case, a better bishop destination existed: Position 1 needed Bc4+ not Bd5+ (to maintain perpetual), Position 2 needed Bh3+ not Bf3+ (to for"
+    },
+    {
+     "feature_id": 814,
+     "chip": "Pawn advance over urgent piece play",
+     "fire_rate_pct": 1.98,
+     "description": "All 10/10 positions feature a non-forcing, non-capturing pawn advance (c6\u00d75, e3, c3, c4, g5, e6) chosen to address long-term structural concerns\u2014solidifying pawn chains, preparing queenside expansion, reinforcing central squares\u2014while ignoring a critical short-term demand. In 10/"
+    },
+    {
+     "feature_id": 889,
+     "chip": "Rook to b-file skips crisis",
+     "fire_rate_pct": 1.045,
+     "description": "All 10/10 positions feature a non-capturing, non-checking rook move to a back-rank square, with 8/10 specifically going to the b-file (Rb8 or Rb1). In every case, the position demanded urgent tactical action with a different piece: 4/10 required capturing or challenging a dominan"
+    },
+    {
+     "feature_id": 976,
+     "chip": "Wing pawn push cracks king shelter",
+     "fire_rate_pct": 1.298,
+     "description": "All 10/10 positions feature a non-capturing pawn advance, with 8/10 being wing pawn pushes (g4/g5: 6 times, h4/h5: 2 times, b5: 2 times). In 9/10 cases, the strongest alternative was a piece move or tactical capture (Ng4, Qh6, Qh4, Kb8, Nxc4+, Bd2, Ba6, Qf7, dxc3 en passant), whi"
+    },
+    {
+     "feature_id": 1166,
+     "chip": "Rook retreats when tactics decide",
+     "fire_rate_pct": 1.607,
+     "description": "All 10/10 positions feature a rook being moved to the back rank (c1, e1, b1, d1, or b8 for Black) in a non-capturing, non-checking manner. In every case, the position demanded urgent tactical action: 4/10 required an immediate pawn break or advancement (e6, f6, c6+, d5), 3/10 req"
+    },
+    {
+     "feature_id": 1327,
+     "chip": "Bishop retreats when forcing play wins",
+     "fire_rate_pct": 1.095,
+     "description": "10/10 positions feature a bishop retreating to the back rank, with 9/10 going specifically to the piece's original starting square (c8 for Black's queenside bishop, c1 for White's queenside bishop, f1 for White's kingside bishop). In every single case, the position demanded immed"
+    },
+    {
+     "feature_id": 1546,
+     "chip": "King centralizes before urgent break",
+     "fire_rate_pct": 2.6,
+     "description": "All 10/10 positions feature a king move toward the center or off the back rank that looks like sound endgame technique but fatally wastes a critical tempo. In every case, there was an urgent concrete action that needed to precede the king move: pawn breaks (c5 in positions 3,4; e"
+    },
+    {
+     "feature_id": 1613,
+     "chip": "Rook to back rank loses tempo",
+     "fire_rate_pct": 2.652,
+     "description": "All 10/10 positions feature a non-capturing, non-checking rook move to the back rank (e1/e8 or g1/g8), placing the rook on a seemingly natural open or semi-open file. In every case, the position demanded an immediate forcing move instead: 6/10 required a capture (Bxf3, Bxc6+, Bxd"
+    },
+    {
+     "feature_id": 1783,
+     "chip": "Rook to e-file over forcing tactic",
+     "fire_rate_pct": 1.111,
+     "description": "10/10 positions feature non-forcing rook moves to back-rank squares, with 9/10 specifically being rook-to-e-file moves (Re1/Re8) and the remaining one (Rb1) sharing the same generic 'activate the rook on an open file' logic. In every case, the position demanded concrete tactical "
+    }
+   ]
+  },
+  {
+   "fine_id": 96,
+   "size": 14,
+   "features": [
+    {
+     "feature_id": 25,
+     "chip": "Flank pawn push over king centralisation",
+     "fire_rate_pct": 1.129,
+     "description": "All 10/10 positions feature a non-capturing flank pawn advance (a-file or h-file in 7/10 cases; b-file or g-file in 3/10) in positions that demanded urgent concrete action. 10/10 analyses identify 'tempo_loss' as the core tactical motif. The best moves available were overwhelming"
+    },
+    {
+     "feature_id": 135,
+     "chip": "Flank pawn push ignores mating net",
+     "fire_rate_pct": 3.263,
+     "description": "All 10/10 positions feature single-step pawn advances on flank files (a-file: 6 positions, b-file: 2 positions, h-file: 2 positions) played when the position urgently required a different type of move. In 7/10 positions, the critical need was king safety\u2014either creating flight sq"
+    },
+    {
+     "feature_id": 203,
+     "chip": "b-pawn push over urgent defense",
+     "fire_rate_pct": 1.129,
+     "description": "10/10 positions feature a slow, non-forcing flank pawn advance (9/10 specifically the b-pawn to b4 or b5, 1/10 the g-pawn to g5) played instead of addressing an urgent tactical demand. In 7/10 positions the center was closed or semi-closed, likely tempting the player into believi"
+    },
+    {
+     "feature_id": 359,
+     "chip": "Flank pawn push over crisis response",
+     "fire_rate_pct": 8.409,
+     "description": "All 10/10 positions feature a quiet pawn advance (overwhelmingly on flank files: 6/10 on a/b-files, 2/10 on g/h-files) played in positions that demand urgent piece activity or threat-addressing moves. In 9/10 positions, the analyses tag 'tempo_loss' as a key factor. In 9/10, 'mis"
+    },
+    {
+     "feature_id": 783,
+     "chip": "Flank pawn push over urgent tactics",
+     "fire_rate_pct": 1.268,
+     "description": "All 10/10 positions feature a quiet, non-forcing pawn move (no captures, no checks) played in a position where concrete tactical action was urgently required. 9/10 moves are on the flanks or wing files (g-file: 5, b-file: 2, a-file: 1, f-file: 1), with only c6 being semi-central."
+    },
+    {
+     "feature_id": 1035,
+     "chip": "Flank pawn push over winning tactic",
+     "fire_rate_pct": 6.426,
+     "description": "All 10 positions feature a quiet, non-forcing pawn move on a flank file (7/10 are literal rim pawn moves on the a-file or h-file; the remaining 3 are on the b, c, or g files). In every case, the position contained an urgent tactical requirement\u2014either a winning combination to exe"
+    },
+    {
+     "feature_id": 1040,
+     "chip": "Pawn push over hanging piece",
+     "fire_rate_pct": 1.076,
+     "description": "All 10/10 positions feature a non-capturing, non-checking pawn advance on the b, c, or g file (3 on b-file, 3 on c-file, 4 on g-file) played instead of an urgent tactical obligation. In every case, the average number of good moves available was exactly 1.0, meaning the position d"
+    },
+    {
+     "feature_id": 1299,
+     "chip": "Flank pawn push over king defense",
+     "fire_rate_pct": 1.702,
+     "description": "10/10 positions feature a flank pawn advance (a-file: 7/10, h-file: 2/10, g-file: 1/10) as the mistake. In 8/10 cases, the pawn push is a clear tempo waste that ignores an urgent positional or tactical requirement: 4/10 positions needed immediate king racing or centralization to "
+    },
+    {
+     "feature_id": 1399,
+     "chip": "Flank pawn push over forcing move",
+     "fire_rate_pct": 2.046,
+     "description": "All 10/10 positions feature a pawn advance on the a-file (3 cases), g-file (2 cases), or h-file (5 cases) \u2014 exclusively flank pawns pushed one square in positions that urgently required something else. 10/10 moves are non-forcing (no check, no capture, no direct threat), and 10/1"
+    },
+    {
+     "feature_id": 1473,
+     "chip": "Flank pawn push over winning tactic",
+     "fire_rate_pct": 1.934,
+     "description": "All 10/10 positions feature a non-forcing pawn advance on a flank file (5 on the b-file, 2 on the h-file, 2 on the g-file, 1 on the a-file) chosen over an immediate concrete requirement. In 8/10 positions, the blunder ignores critical king safety concerns (exposed kings on e1, un"
+    },
+    {
+     "feature_id": 1652,
+     "chip": "Flank pawn push gifts forcing tempo",
+     "fire_rate_pct": 1.847,
+     "description": "All 10/10 positions feature a non-central pawn push (files a, b, c, f, or g) that is slow and non-forcing, played in a position where one specific concrete move (a capture, check, piece activation, or direct attack on a weakness) was urgently required. 9/10 positions had 'tempo_l"
+    },
+    {
+     "feature_id": 1807,
+     "chip": "Flank pawn push over forced reply",
+     "fire_rate_pct": 1.883,
+     "description": "All 10 positions feature a single-square advance of a flank pawn (a-file or g/h-file) \u2014 specifically a3 (4/10), a6 (2/10), g6 (2/10), h6 (1/10), and g5 (1/10). In every case, the position demanded immediate forcing action: 3/10 had hanging or undefended pieces that needed saving "
+    },
+    {
+     "feature_id": 1820,
+     "chip": "Wing pawn push surrenders mating tempo",
+     "fire_rate_pct": 1.353,
+     "description": "All 10/10 positions feature a single-square pawn advance on one of the four wing files (a-file: 3/10, b-file: 3/10, h-file: 3/10, f-file: 1/10) in positions where immediate tactical or defensive action was required. In 8/10 positions, the player's or opponent's king was criticall"
+    },
+    {
+     "feature_id": 2007,
+     "chip": "Flank pawn push over forcing sequence",
+     "fire_rate_pct": 1.065,
+     "description": "All 10/10 positions feature a flank pawn push (h-file: 6/10, g-file: 2/10, a-file: 1/10, f-file: 1/10) that is non-forcing \u2014 no check, no capture, no immediate threat requiring a response. In every case, the position contained an urgent tactical priority that the pawn move comple"
+    }
+   ]
+  },
+  {
+   "fine_id": 79,
+   "size": 12,
+   "features": [
+    {
+     "feature_id": 8,
+     "chip": "Wing pawn push over urgent defense",
+     "fire_rate_pct": 0.853,
+     "description": "10/10 positions feature pawn advances, and 9/10 are specifically wing pawn pushes on the g-file (7 times: g4 or g5) or b-file (3 times: b4 or b5), with only 1 central pawn push (e3). All 10 moves are attacking in intent \u2014 trying to chase enemy pieces off strong squares or gain fl"
+    },
+    {
+     "feature_id": 117,
+     "chip": "Flank pawn push gifts attack tempo",
+     "fire_rate_pct": 1.351,
+     "description": "All 10/10 positions feature a pawn push that wastes a critical tempo in a position requiring urgent concrete play. 9/10 are flank pawn advances (a-file: 6 positions, c-file: 3 positions, g-file: 1 position), with only 1 central push (e4). In 8/10 cases, the opponent has an active"
+    },
+    {
+     "feature_id": 304,
+     "chip": "Flank pawn push amid crisis",
+     "fire_rate_pct": 1.232,
+     "description": "All 10/10 positions feature a single-square pawn advance (no captures, no checks) played in a position with a critical tactical emergency. 9/10 moves are on the a, b, or c files (queenside flank pawn pushes), with the lone exception being g4. In every case, the position demanded "
+    },
+    {
+     "feature_id": 309,
+     "chip": "Passed pawn push over urgent duty",
+     "fire_rate_pct": 2.004,
+     "description": "All 10/10 positions feature pawn advances as the blundering move. In at least 8/10 cases, the pawn being advanced is specifically a passed pawn (d6, e2, f4, g6, b3, g2, b7, d3 are all passed pawn pushes; g4 and b5 are aggressive non-passed pushes ignoring tactical issues). The co"
+    },
+    {
+     "feature_id": 649,
+     "chip": "Flank pawn push ignores development",
+     "fire_rate_pct": 1.15,
+     "description": "All 10/10 positions feature pawn advances played with aggressive intent when the position demands patience, consolidation, or addressing immediate threats. 8/10 are specifically flank pawn pushes (g5\u00d74, g4\u00d72, b5, b4), while 2/10 are semi-central advances (c4, d2). In every case, "
+    },
+    {
+     "feature_id": 756,
+     "chip": "Central pawn push exposes own king",
+     "fire_rate_pct": 0.809,
+     "description": "All 10/10 positions feature pawn advances that look aggressive and space-gaining but are tactically premature. 7/10 involve central pawn pushes (d or e pawns), while 3/10 are kingside pawn storms (f6, g4, g4). In 6/10 positions, the better alternative was a piece development or c"
+    },
+    {
+     "feature_id": 1100,
+     "chip": "Pawn advances cause overextension blunders",
+     "fire_rate_pct": 0.938,
+     "description": "All 10/10 moves are forward/advancing in nature \u2014 pawn pushes (e5, g4, g5+, fxg6, c5), piece advances (Ne3, Re5), king advances (Ke4), or forward captures (Nxd5, Kxb5). Not a single retreat appears. In 9/10 cases the best move was more restrained: retreats (Kd2, Nf1), quiet devel"
+    },
+    {
+     "feature_id": 1271,
+     "chip": "Rook-pawn push over piece defense",
+     "fire_rate_pct": 1.315,
+     "description": "All 10/10 positions feature pawn moves (9 advances, 1 capture) played instead of urgent piece-based solutions. In 7/10 cases, the pawn pushed was on the a-file (3) or h-file (4), making rook pawn advances especially over-represented. The best moves in these positions consistently"
+    },
+    {
+     "feature_id": 1529,
+     "chip": "4th-rank push over forcing reply",
+     "fire_rate_pct": 0.889,
+     "description": "9/10 positions feature pawn advances (with 1 knight move to d4), and 9/10 of all moves land on the 4th rank. In every case, the player chose a 'space-gaining' or 'structural' pawn push when the position demanded immediate tactical action. In 5/10 positions (1, 2, 7, 8, 10), the b"
+    },
+    {
+     "feature_id": 1592,
+     "chip": "Pawn push ignores back-rank mate",
+     "fire_rate_pct": 1.5,
+     "description": "All 10/10 positions feature quiet pawn advances as the blunder move \u2014 no captures, no checks, purely strategic pushes. In 8/10 cases, the pawn being pushed is a passed pawn or creates passed-pawn threats (e6, b6, c5, b3, c4, d6, d7, b5). Critically, 8/10 positions allow immediate"
+    },
+    {
+     "feature_id": 1847,
+     "chip": "Space-grab pawn over urgent duty",
+     "fire_rate_pct": 0.698,
+     "description": "All 10/10 positions feature an aggressive pawn advance (d4, e4, f5, g4, d5, e5) that prioritizes gaining space or attacking enemy pieces over addressing a critical immediate obligation. In 10/10 cases, the correct move involved either a piece move, a capture, castling, or prophyl"
+    },
+    {
+     "feature_id": 1951,
+     "chip": "Central push opens bishop diagonal",
+     "fire_rate_pct": 0.982,
+     "description": "All 10 positions feature a single-step pawn advance (no captures) on the c, e, or f file that pushes past a supported pawn duo or chain. In 10/10 cases, the player chose an aggressive space-gaining pawn push when quieter alternatives existed. In 7/10 positions, the best move was "
+    }
+   ]
+  },
+  {
+   "fine_id": 101,
+   "size": 11,
+   "features": [
+    {
+     "feature_id": 80,
+     "chip": "h-rook to center abandons urgency",
+     "fire_rate_pct": 2.364,
+     "description": "In 8/10 positions, the move specifically involves the h-rook (Rh prefix in notation) being transferred to a central or semi-central file (e8 in 5 cases, g8 in 2, f8/f1/e1 in others). All 10 moves are rook activations to seemingly natural squares \u2014 open or semi-open files where a "
+    },
+    {
+     "feature_id": 225,
+     "chip": "Rook centralization over urgent defense",
+     "fire_rate_pct": 3.705,
+     "description": "All 10/10 positions feature a rook moving from the a-file (or h-file in one case) to a central file (d or e), specified with the prefix 'Ra' or 'Rh' indicating it's the previously-inactive rook being brought into play. These are textbook 'developing' moves that would be reasonabl"
+    },
+    {
+     "feature_id": 323,
+     "chip": "Rb-file development over forced response",
+     "fire_rate_pct": 1.11,
+     "description": "All 10/10 positions feature a rook moving to the b-file (Rb1 or Rb8) as a seemingly natural developing/activating move, while a critical tactical obligation goes unaddressed. In 9/10 positions, there was a specific one-move tactic available (winning material, defending a hanging "
+    },
+    {
+     "feature_id": 440,
+     "chip": "Bishop quits e-file or diagonal shield",
+     "fire_rate_pct": 1.615,
+     "description": "8/10 positions feature bishop moves and 2/10 feature knight moves \u2014 all minor piece relocations that look like natural improvements but fatally abandon a defensive duty. In 4/10 positions (2, 3, 7, and 1), the piece was blocking or supporting the e-file, and its departure enabled"
+    },
+    {
+     "feature_id": 670,
+     "chip": "Re1/Re8 surrenders critical tempo",
+     "fire_rate_pct": 0.851,
+     "description": "All 10/10 positions feature the same move pattern: placing a rook on the e-file (Re1 for White, Re8 for Black) as a natural-looking developing move in positions that demand urgency. In 10/10 cases, specific concrete alternatives existed\u2014tactical shots (b4 fork in position 1, Bxf3"
+    },
+    {
+     "feature_id": 697,
+     "chip": "Rook drifts to b-file quietly",
+     "fire_rate_pct": 1.061,
+     "description": "All 10/10 positions feature a rook moving to the b-file (Rb8 for Black in 8/10, Rb1 for White in 2/10), typically shifting one square laterally from the a-file. In every case, the position contained an urgent tactical demand \u2014 whether defending against a mating threat (1/10 allow"
+    },
+    {
+     "feature_id": 1007,
+     "chip": "Rook to e-file over urgency",
+     "fire_rate_pct": 1.313,
+     "description": "All 10/10 positions feature the exact same type of move: a rook being placed on the e-file (Re1 for White in 4/10 cases, Re8 for Black in 6/10 cases) as a generic centralizing/developing move. In every single case, the position demanded something far more urgent: 6/10 had concret"
+    },
+    {
+     "feature_id": 1080,
+     "chip": "Rook to center over urgent tactic",
+     "fire_rate_pct": 0.85,
+     "description": "All 10/10 positions feature a rook being moved to a central file (d-file or e-file) as a 'natural development' move, with 9/10 specifically being Ra-file rook moves (Rad1, Rad8, Rae1) and 1/10 being Rc1. In every case, the position contained an urgent tactical or strategic demand"
+    },
+    {
+     "feature_id": 1328,
+     "chip": "Rook to e-file over forcing move",
+     "fire_rate_pct": 1.191,
+     "description": "All 10 positions feature a rook move that appears actively placed\u2014centralizing, advancing on the e-file, or capturing a pawn\u2014but actually wastes a critical tempo when the position demanded immediate tactical action. In 7/10 positions, the rook move was on or toward the e-file (Re"
+    },
+    {
+     "feature_id": 1469,
+     "chip": "Rook to e-file over forcing tactic",
+     "fire_rate_pct": 1.692,
+     "description": "9/10 positions feature a rook moving to the e-file (Re1 or Re8), with 1/10 being a similar passive rook repositioning (Rb8). In all 10 cases, the player chose a 'natural' developing rook move\u2014placing it on an open or semi-open central file\u2014while ignoring an immediate concrete tac"
+    },
+    {
+     "feature_id": 1514,
+     "chip": "Pawn capture ignores mating attack",
+     "fire_rate_pct": 1.05,
+     "description": "All 10/10 positions feature a pawn capturing a pawn on an adjacent file (axb, hxg, cxd, fxe, fxg, bxc patterns), resolving structural tension in what appears to be a natural or automatic move. However, in every case the position contained a far more critical demand: 6/10 position"
+    }
+   ]
+  },
+  {
+   "fine_id": 60,
+   "size": 11,
+   "features": [
+    {
+     "feature_id": 103,
+     "chip": "Queen repost surrenders forcing initiative",
+     "fire_rate_pct": 1.04,
+     "description": "All 10/10 positions feature a major piece (queen or rook) being repositioned to an apparently purposeful square \u2014 often aiming for a file battery, flank attack, or material target \u2014 while the position demands immediate concrete action. The moves are uniformly non-forcing (0/10 in"
+    },
+    {
+     "feature_id": 211,
+     "chip": "Rook drifts while tactics burn",
+     "fire_rate_pct": 0.885,
+     "description": "All 10/10 positions feature a non-forcing rook move to a 'logical' square (open file, semi-open file, or b-file for queenside play) that completely ignores the position's urgent tactical requirements. In 10/10 cases, the rook move is a quiet developing/improving move with zero im"
+    },
+    {
+     "feature_id": 421,
+     "chip": "Rook drifts from critical file",
+     "fire_rate_pct": 1.77,
+     "description": "All 10/10 positions feature a non-capturing, non-checking rook move to a new file \u2014 a seemingly natural 'developing' or 'improving' move that looks reasonable on the surface but catastrophically ignores the position's tactical demands. In 10/10 cases the rook move addresses a sec"
+    },
+    {
+     "feature_id": 505,
+     "chip": "Quiet rook move in forcing position",
+     "fire_rate_pct": 2.881,
+     "description": "All 10/10 positions feature a quiet, non-capturing, non-checking rook move to a seemingly natural square (open file, central file, or active rank) in positions that urgently demanded concrete forcing action. In 10/10 cases, the best move involved a DIFFERENT piece (bishop, queen,"
+    },
+    {
+     "feature_id": 577,
+     "chip": "Rook shifts to contested file prematurely",
+     "fire_rate_pct": 1.133,
+     "description": "10/10 positions feature quiet (non-capture, non-check) moves directing a king or rook toward an opponent's piece or pawn \u2014 either a king marching toward a target (7/10) or a rook shifting to a contested file (3/10). In 8/10 cases, the move appears purposeful and 'correct by insti"
+    },
+    {
+     "feature_id": 596,
+     "chip": "Queen drifts off critical file",
+     "fire_rate_pct": 1.06,
+     "description": "All 10/10 positions feature a quiet, non-forcing queen move (no captures, no checks) that repositions the queen away from a square where it was performing a vital tactical function. In 8/10 cases, the queen was actively contesting or dominating an open file (e-file, f-file, c-fil"
+    },
+    {
+     "feature_id": 1228,
+     "chip": "Rook vacates critical defensive square",
+     "fire_rate_pct": 1.099,
+     "description": "All 10/10 positions feature a rook being moved to an open or semi-open file (c-file, d-file, e-file, or b-file) in a non-forcing manner \u2014 no checks, captures, or direct threats. In every case, the move looks 'textbook' positional (contesting a file, doubling rooks, activating a p"
+    },
+    {
+     "feature_id": 1243,
+     "chip": "Rook shuffles off critical file",
+     "fire_rate_pct": 2.51,
+     "description": "All 10/10 positions feature a rook moving sideways (typically one file over) in a non-forcing manner\u2014no checks, no captures, no direct threats. In 7/10 positions, the rook specifically abandons an open or semi-open file where it was exerting critical pressure (c-file in positions"
+    },
+    {
+     "feature_id": 1459,
+     "chip": "Rook drifts off critical file",
+     "fire_rate_pct": 1.209,
+     "description": "All 10 positions feature a non-forcing piece move (no checks, no captures, no immediate threats) that relocates a piece to a seemingly natural or 'improving' square, but fatally abandons its current critical function. In 7/10 positions, the moved piece was directly guarding a key"
+    },
+    {
+     "feature_id": 1569,
+     "chip": "Rook to open file over concrete action",
+     "fire_rate_pct": 2.025,
+     "description": "All 10/10 positions feature a rook being placed on an open or semi-open file (c-file 5 times, d-file 4 times, b-file once) from a passive home square, with the notation specifying which rook moved (Rf- 8/10, Rh- 2/10), confirming both rooks were available. In every case, the move"
+    },
+    {
+     "feature_id": 1681,
+     "chip": "Rook shuffle abandons critical file",
+     "fire_rate_pct": 2.038,
+     "description": "All 10/10 positions feature a quiet, non-capturing rook move to a different file \u2014 repositioning along the back ranks to 'improve' placement on a seemingly attractive file. In 10/10 cases, this rook shuffle ignores the single most urgent tactical demand in the position. The posit"
+    }
+   ]
+  },
+  {
+   "fine_id": 122,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 261,
+     "chip": "Rook slides to b-file passively",
+     "fire_rate_pct": 1.662,
+     "description": "10/10 positions feature a rook moving to an adjacent file (typically b-file or c-file) as a non-forcing 'improvement' move in positions requiring immediate concrete action. 7/10 specifically move a rook to b1/b8 from a neighboring file, while 2/10 go to c1 and 1/10 slides to g8 f"
+    },
+    {
+     "feature_id": 398,
+     "chip": "Rook vacates critical file/rank",
+     "fire_rate_pct": 1.083,
+     "description": "All 10/10 positions feature rook moves that reposition the rook away from its optimal placement. In 7/10 cases, the rook moves laterally along a rank to a different file (Re5, Rb3, Rb7\u00d72, Rh1, Rd6, Re1), while 2/10 involve vertical file moves (Rd7, Ra8) and 1/10 is a near-lateral"
+    },
+    {
+     "feature_id": 567,
+     "chip": "Bishop development over forcing sequence",
+     "fire_rate_pct": 1.255,
+     "description": "10/10 positions feature a quiet, non-checking, non-capturing piece move to a conventionally desirable square in a position with extreme tactical urgency. 6/10 moves are bishop developments (Be7, Bf6, Bg5, Be3, Bd3, Be3), 3/10 are rook moves to open files (Re1, Re8, Rd7), and 1/10"
+    },
+    {
+     "feature_id": 810,
+     "chip": "King grabs g/h-pawn, invites attack",
+     "fire_rate_pct": 1.064,
+     "description": "9/10 positions feature the king capturing (or moving toward) an advanced passed pawn on the g- or h-file, typically one square from promotion. In 6/10 cases the move is specifically Kxg7, and in 3/10 it's Kxh7 (plus Kxh2 and Kg5 as analogues). The critical insight shared across a"
+    },
+    {
+     "feature_id": 1021,
+     "chip": "Rook to open file drops guard",
+     "fire_rate_pct": 1.773,
+     "description": "8/10 positions involve placing a piece on an open file or seemingly active square as a 'routine improvement' that actually creates a critical tactical vulnerability. Specifically: 5/10 moves are rooks going to open files (Re8, Rd8\u00d72, Rc1, Rb2), 3/10 are queens placed on active-lo"
+    },
+    {
+     "feature_id": 1486,
+     "chip": "Rook slides to wrong open file",
+     "fire_rate_pct": 0.758,
+     "description": "9/10 positions involve a rook move (1/10 is a queen move to a rook's intended square), and 9/10 target the 1st or 8th rank along an open file. The moves all look like 'natural' piece activation\u2014placing a heavy piece on an open file to pressure a target. However, 4/10 positions ar"
+    },
+    {
+     "feature_id": 1552,
+     "chip": "Bishop activity over king shelter",
+     "fire_rate_pct": 1.332,
+     "description": "9/10 positions feature a bishop move to an apparently aggressive square (attacking a piece, pinning, developing to an active diagonal), while 1/10 is a supporting pawn push (f4) with similar intent. In all 10 positions, the move prioritizes optical piece activity over addressing "
+    },
+    {
+     "feature_id": 1628,
+     "chip": "Rook drifts to queenside pawn",
+     "fire_rate_pct": 1.547,
+     "description": "All 10/10 positions feature a major piece (8 rooks, 2 queens) relocating to a secondary target, typically a pawn. 7/10 moves go specifically to the a-file or b-file (Ra4, Rcb5, Qa4, Rb1, Rb7, Ra1, Qb4), while the remaining 3 (Rd6, Rd5, Re5) involve similar lateral displacement to"
+    }
+   ]
+  },
+  {
+   "fine_id": 172,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 386,
+     "chip": "Rook to e-file misses concrete win",
+     "fire_rate_pct": 1.072,
+     "description": "9/10 positions feature a rook move to an open or semi-open file aimed at the opponent's king, with 8/10 specifically being rook-to-e-file moves (Re1 or Re8). In 8/10 cases the opponent's king was still in the center, making the rook move appear logical under the principle 'put ro"
+    },
+    {
+     "feature_id": 644,
+     "chip": "Lateral rook shift breaks doubled-rook coordination",
+     "fire_rate_pct": 1.467,
+     "description": "9/10 positions involve a rook moving laterally along a rank to a different file (1/10 is a queen making a similar passive lateral shift). In at least 7/10 positions, the player had doubled rooks on an open file (usually the d-file) and moved one rook sideways to another file (c, "
+    },
+    {
+     "feature_id": 1026,
+     "chip": "Rook check drives king to safety",
+     "fire_rate_pct": 1.073,
+     "description": "All 10/10 positions feature a rook delivering check along an open file (primarily the e-file or d-file) against a king that appears exposed in the center. In 9/10 cases this was a significant blunder (avg ~4800cp loss), and in 8/10 positions there was only 1 good move available, "
+    },
+    {
+     "feature_id": 1207,
+     "chip": "Rook contests file over concrete strike",
+     "fire_rate_pct": 1.205,
+     "description": "All 10/10 positions feature a rook moving to an open or semi-open file (d-file: 3, e-file: 4, f-file: 2, c-file: 1) where the opponent already has a piece established. In every case, the move is a 'natural-looking' positional idea to contest file control, but the position actuall"
+    },
+    {
+     "feature_id": 1477,
+     "chip": "Rook to open file over forcing tactics",
+     "fire_rate_pct": 0.983,
+     "description": "All 10/10 positions feature a rook moving to the 1st or 8th rank on an open file (d-file or f-file), appearing to follow the textbook principle of 'occupy open files with rooks.' However, these moves are uniformly catastrophic (avg 2133cp loss). In 6/10 positions, a much stronger"
+    },
+    {
+     "feature_id": 1488,
+     "chip": "Rook quits central open file",
+     "fire_rate_pct": 1.127,
+     "description": "In 10/10 positions, a rook moves sideways along a rank (almost always the back rank) from a critical open file to a less important file. Specifically, 8/10 involve abandoning the d-file or e-file \u2014 the central contested open files where both sides had rooks facing each other. In "
+    },
+    {
+     "feature_id": 1855,
+     "chip": "Rook occupies contested open file",
+     "fire_rate_pct": 3.067,
+     "description": "All 10/10 positions feature a rook moving to occupy or contest an open file \u2014 a natural-looking positional move that follows the general principle of 'rooks belong on open files.' In 9/10 cases, the rook specifically moves to directly confront an opposing rook on the same file or"
+    },
+    {
+     "feature_id": 1956,
+     "chip": "Rook seizes file, abandons duty",
+     "fire_rate_pct": 1.072,
+     "description": "All 10/10 positions feature a rook moving to an open or semi-open file with the explicit intent of 'contesting' or 'seizing' file control \u2014 a textbook strategic principle applied at the wrong moment. In every case, the position demanded something more concrete: 4/10 positions req"
+    }
+   ]
+  },
+  {
+   "fine_id": 118,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 522,
+     "chip": "Rim pawn push over winning capture",
+     "fire_rate_pct": 0.965,
+     "description": "8/10 positions feature a quiet, non-forcing move played when a concrete winning or critical tactic was available. 6/10 moves are specifically single-step advances of the a-pawn (a6 x3) or h-pawn (h3, h6 x2) \u2014 the most peripheral, tempo-wasting pawn moves in chess. In 7/10 positio"
+    },
+    {
+     "feature_id": 753,
+     "chip": "rim pawn push over decisive action",
+     "fire_rate_pct": 3.012,
+     "description": "All 10/10 positions feature a quiet, single-square pawn advance that creates no immediate threat while ignoring a critical demand in the position. 8/10 moves are on the a-file or h-file (the absolute rim), with the remaining two on the b-file and f-file \u2014 all peripheral. The tact"
+    },
+    {
+     "feature_id": 973,
+     "chip": "h-pawn push over forcing center",
+     "fire_rate_pct": 1.014,
+     "description": "10/10 positions feature a non-developing rook pawn advance (9/10 are h4 or h5, 1/10 is a5) played instead of urgent concrete moves in the center. In 8/10 cases, at least one side's king was still uncastled or inadequately safe, making tempo critically valuable. In 10/10 positions"
+    },
+    {
+     "feature_id": 1031,
+     "chip": "Rim pawn push over forced win",
+     "fire_rate_pct": 0.923,
+     "description": "10/10 positions feature quiet pawn advances on rim or flank files during endgames. 6/10 moves are specifically a-pawn advances (five a4 moves plus one a5), while the remainder are b3, b4, c5, g5, and h5\u2014all on non-central files. In 9/10 positions, the move ignores an urgent tacti"
+    },
+    {
+     "feature_id": 1218,
+     "chip": "Rim pawn push over urgent defense",
+     "fire_rate_pct": 1.198,
+     "description": "9/10 positions feature a player making a non-forcing, quiet move when an immediate tactical emergency exists. 6/10 moves are pawn pushes on the rim files (h5, h5, h3, a3, a5, hxg6), with c3 adding a 7th pawn advance. The remaining non-pawn moves (Nf6, Rfe1) are similarly quiet an"
+    },
+    {
+     "feature_id": 1296,
+     "chip": "Edge pawn push over decisive shot",
+     "fire_rate_pct": 2.942,
+     "description": "All 10/10 positions feature a single-square pawn advance that is quiet, non-capturing, and non-checking. 6/10 are on the edge files (a or h), with the remaining 4 on the b, c, or g files. 9/10 analyses explicitly tag 'tempo_loss' as a core issue. The positions share a critical ur"
+    },
+    {
+     "feature_id": 1841,
+     "chip": "Rim pawn push gifts opponent tempo",
+     "fire_rate_pct": 1.159,
+     "description": "8/10 positions feature a slow, non-forcing move (predominantly quiet a-file or b-file pawn pushes) played when the position urgently demanded concrete tactical action. Specifically, 6/10 moves are literal rim/flank pawn advances (a6 appears 3 times, b5 once, b4 once, h3 once), wh"
+    },
+    {
+     "feature_id": 1991,
+     "chip": "Flank pawn push over winning shot",
+     "fire_rate_pct": 1.392,
+     "description": "10/10 positions feature a quiet pawn move played instead of a critical piece move. 8/10 moves are on the a, b, or h files (the flanks), with the remaining 2 being f-pawn moves. In 6/10 cases, a direct tactical shot was available (back-rank mate, knight fork winning the exchange, "
+    }
+   ]
+  },
+  {
+   "fine_id": 75,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 180,
+     "chip": "Bishop to b-file invites queen fork",
+     "fire_rate_pct": 0.833,
+     "description": "In 10/10 positions, a bishop moves to the b-file (Bb4 for Black or Bb5 for White) during the opening while the player's king remains uncastled on the e-file. In 9/10 positions, the bishop lands completely undefended. The critical punishment in 8/10 positions is a queen check on t"
+    },
+    {
+     "feature_id": 384,
+     "chip": "Passive queen blocks central retreat",
+     "fire_rate_pct": 1.308,
+     "description": "All 10 positions occur in the opening phase with at least one king uncastled. The moves are uniformly passive queen or bishop placements to the d-file or e-file on the 2nd/7th rank (Qd2 in 5/10, Qe2 in 2/10, Qe7/Qd7/Be7/Bd2 in 3/10). In at least 7/10 positions, the moved piece ph"
+    },
+    {
+     "feature_id": 430,
+     "chip": "f-rook quits file for center",
+     "fire_rate_pct": 2.973,
+     "description": "All 10/10 positions feature the player moving their f-rook (the rook remaining on f1/f8 after kingside castling) to a central file \u2014 9/10 to the e-file and 1/10 to the d-file. In every case, this is a non-forcing, 'natural-looking' development move that contests an open or semi-o"
+    },
+    {
+     "feature_id": 666,
+     "chip": "Rook retreats to back rank passively",
+     "fire_rate_pct": 1.109,
+     "description": "9/10 positions feature rook moves to the player's own back rank (1st or 8th rank), with the one outlier (Bxd5) sharing the thematic error of ignoring king safety for material concerns. The rook destinations cluster on the f-file (4/10: Rf1, Rf1, Rf8, Rf8) and g-file (3/10: Rcg1, "
+    },
+    {
+     "feature_id": 1750,
+     "chip": "Flank pawn nudge amid crisis",
+     "fire_rate_pct": 1.351,
+     "description": "All 10/10 positions feature a single-step pawn advance on a flank file (g-file: 5/10, f-file: 2/10, b-file: 2/10, h-file: 1/10) played during the middlegame when the position urgently demands piece activity, addressing tactical threats, or evacuating the king. In every case, the "
+    },
+    {
+     "feature_id": 1941,
+     "chip": "Rook to e-file over forcing move",
+     "fire_rate_pct": 3.177,
+     "description": "10/10 positions feature a rook being moved to the e-file (e1 for White, e8 for Black), with 8/10 specifically being the f-rook after kingside castling (Rfe1/Rfe8). In 9/10 cases, this was a significant blunder (avg 232cp loss) because a concrete forcing move was available \u2014 a kni"
+    }
+   ]
+  },
+  {
+   "fine_id": 155,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 390,
+     "chip": "Pawn push over hanging piece",
+     "fire_rate_pct": 1.052,
+     "description": "All 10 positions feature a forward-advancing, non-forcing move (8/10 pawn advances: g5\u00d73, b4\u00d72, e5, f5, h4; 2/10 knight jumps: Nd5, Nb5) chosen over a concrete tactical necessity. In 6/10 cases, a piece was hanging or undefended that needed to be captured or saved (positions 3, 4"
+    },
+    {
+     "feature_id": 674,
+     "chip": "f/g pawn push over king safety",
+     "fire_rate_pct": 1.228,
+     "description": "All 10 positions feature a non-forcing pawn advance chosen over an urgent concrete need. 10/10 moves are pawn pushes; 7/10 involve f-pawn or g-pawn moves (g4, f3\u00d73, f6\u00d72, g5) that directly weaken the king's shelter, while the remaining 3 (c3, c6\u00d72) are slow queenside pawns that w"
+    },
+    {
+     "feature_id": 725,
+     "chip": "h-pawn push over hanging material",
+     "fire_rate_pct": 0.943,
+     "description": "8/10 positions feature an h-pawn push (h3, h4, h5, or h6), and all 10 are non-developing pawn moves played during the opening phase (8/10) or early middlegame (2/10). In every single case, the position demanded urgent concrete action \u2014 either capturing hanging material (positions"
+    },
+    {
+     "feature_id": 782,
+     "chip": "Rook development ignores exposed king",
+     "fire_rate_pct": 1.168,
+     "description": "All 10/10 positions feature a rook being placed on the back rank (e1/e8/f1/f8) as a natural-looking 'developing' or 'activating' move, when the position actually demands immediate attention to a concrete tactical crisis. In 9/10 positions, one side's king is dangerously exposed ("
+    },
+    {
+     "feature_id": 1384,
+     "chip": "Pawn push amid hanging pieces",
+     "fire_rate_pct": 1.565,
+     "description": "9/10 positions feature pawn moves (5 f-pawn pushes, 2 c-pawn pushes, 2 a-pawn pushes) with 1 passive rook retreat. In all 10 cases, the position contained an immediate tactical crisis requiring concrete resolution\u2014a hanging piece (3/10), a dangerous pin or alignment (2/10), an at"
+    },
+    {
+     "feature_id": 1887,
+     "chip": "Pawn push over forced defense",
+     "fire_rate_pct": 1.033,
+     "description": "8/10 positions feature single-step, non-capturing pawn advances, and the remaining 2 are similarly slow, non-forcing piece relocations. In every case, the position demanded immediate tactical attention \u2014 capturing a hanging piece (position 4), addressing a mating threat (position"
+    }
+   ]
+  },
+  {
+   "fine_id": 137,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 438,
+     "chip": "Wing pawn exposes uncastled king",
+     "fire_rate_pct": 1.402,
+     "description": "All 10/10 positions feature pawn moves (no piece moves) played in the opening phase when development is severely incomplete. 7/10 are specifically kingside wing pawn advances (g or h file: h5, h4, h5, g5, g4, h4, h6), while 3/10 are e-pawn pushes (e5, e6, e6) that create structur"
+    },
+    {
+     "feature_id": 429,
+     "chip": "Wing pawn over urgent piece play",
+     "fire_rate_pct": 0.922,
+     "description": "9/10 positions feature pawn moves (the 10th is Nh3, a knight move to the rim), with 6/10 being pawn captures specifically. 8/10 moves involve the a, b, g, or h files \u2014 peripheral wing actions. All 10 positions have at least one exposed or weakly-shielded king, creating tactical u"
+    },
+    {
+     "feature_id": 1163,
+     "chip": "Wing pawn push over urgent tactics",
+     "fire_rate_pct": 1.24,
+     "description": "9/10 positions feature pawn advances (the exception, position 9, has 0 cp_loss and is effectively a non-blunder). 8/10 are specifically wing pawn pushes on the a, b, f, or g files. In every case, the position demanded urgent concrete action\u2014a tactic (Ng4 in position 1), addressin"
+    },
+    {
+     "feature_id": 1217,
+     "chip": "Flank pawn push over urgent defense",
+     "fire_rate_pct": 2.08,
+     "description": "All 10/10 positions feature pawn pushes as the blunder move, with 9/10 being specifically on the a, b, or h files (the wings/flanks). The moves are: a5, h3, b5, h5, a4, b5, a4, h5, f6, a6 \u2014 exclusively non-capturing, non-checking pawn advances that fail to address the position's "
+    },
+    {
+     "feature_id": 1580,
+     "chip": "Wing pawn push over rook activation",
+     "fire_rate_pct": 3.588,
+     "description": "All 10/10 positions feature a non-capturing, non-checking pawn advance on a wing file (a, b, f, g, or h) when the best moves all involve piece play \u2014 rook activations (Rf1, Rb4, Rg4, Rg5, Ra6), knight repositioning (Nf1, Nxf6+), or king safety moves (Ka8). In 9/10 positions the m"
+    }
+   ]
+  },
+  {
+   "fine_id": 181,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 818,
+     "chip": "Rook to open file over tactics",
+     "fire_rate_pct": 1.243,
+     "description": "10/10 positions feature a non-forcing rook move to a seemingly useful open or semi-open file (c-file, d-file, or b-file), where the player defaults to 'develop the rook' instincts while ignoring an urgent tactical problem. In 8/10 cases, the rook specifically comes from the a-fil"
+    },
+    {
+     "feature_id": 1105,
+     "chip": "Rook drifts to edge file",
+     "fire_rate_pct": 1.221,
+     "description": "All 10/10 positions feature a rook moving to a non-forcing, passive square rather than executing urgent tactical or defensive duties. 8/10 moves place the rook on an edge file (a-file: Ra2, Ra2, Ra8, Ra7, Ra6, Ra6; h-file: Rh7, Rh8), with the remaining 2 (Rd6, Rf7) still represen"
+    },
+    {
+     "feature_id": 1171,
+     "chip": "Rook shuffle misses forcing reply",
+     "fire_rate_pct": 1.812,
+     "description": "All 10 positions feature the a-rook (Ra1 or Ra8) being moved one or two squares sideways to the b-file or c-file in a generic activating gesture, while a critical forcing opportunity goes unexploited. 10/10 moves are non-forcing (no check, capture, or direct threat). The average "
+    },
+    {
+     "feature_id": 1498,
+     "chip": "Rook drifts to rim passively",
+     "fire_rate_pct": 1.192,
+     "description": "All 10/10 positions feature a rook being moved to a passive, non-forcing square in a position that demands concrete tactical play. 8/10 moves go to rim files (a-file: 5 moves, h-file: 3 moves), with the remaining two going to relatively peripheral squares (c2, f3). The average nu"
+    },
+    {
+     "feature_id": 1832,
+     "chip": "Rook drifts to rim, abandons file",
+     "fire_rate_pct": 1.344,
+     "description": "10/10 positions feature a non-forcing repositioning move that places a piece on an edge square (a-file, b-file, or back rank) when the position demanded urgent, forcing play. 9/10 moves land on the first two files (a or b) or the back rank (Ra1\u00d72, Rh1, Qb7, Rc8, Rb8, Bb7, Qb3, Qd"
+    }
+   ]
+  }
+ ]
+}

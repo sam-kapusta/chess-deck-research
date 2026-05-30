@@ -1,0 +1,240 @@
+{
+ "coarse_id": 14,
+ "n_features": 36,
+ "subclusters": [
+  {
+   "fine_id": 25,
+   "size": 16,
+   "features": [
+    {
+     "feature_id": 21,
+     "chip": "King move gifts opponent tempo",
+     "fire_rate_pct": 1.893,
+     "description": "5/6 positions show the player making a quiet, 'natural-looking' move (pawn push, king move, or piece repositioning) that ignores an urgent tactical or strategic demand. In 5/6 cases the move is tagged as 'tempo_loss' \u2014 the player had a forcing or precise move available but chose "
+    },
+    {
+     "feature_id": 65,
+     "chip": "Bishop drifts to punishable square",
+     "fire_rate_pct": 1.513,
+     "description": "All 9/9 positions involve moving an already-developed minor piece (7/9 bishops, 2/9 knights) to a new square that is either passive, immediately challengeable, or inferior to its starting post. The 'tempo_loss' tag appears in 8/9 analyses, confirming the central issue. In 7/9 cas"
+    },
+    {
+     "feature_id": 77,
+     "chip": "Bishop retreat surrenders forcing initiative",
+     "fire_rate_pct": 1.182,
+     "description": "All 10 positions feature a player choosing a quiet, non-forcing move\u2014typically a piece repositioning or pawn push\u2014when the position demanded urgent concrete action. 7/10 moves involved tactical motifs tagged as 'tempo_loss', and 9/10 were tagged 'missed_tactic'. The best moves in"
+    },
+    {
+     "feature_id": 258,
+     "chip": "Rook repositions while urgency elsewhere",
+     "fire_rate_pct": 1.031,
+     "description": "All 10 positions share a remarkably narrow decision point (average 1.3 good moves available) where the position demanded addressing ONE urgent requirement \u2014 yet the player chose a move pursuing a peripheral or secondary goal instead. In 9/10 positions, the analyses tag 'tempo_los"
+    },
+    {
+     "feature_id": 331,
+     "chip": "Pointless check burns decisive tempo",
+     "fire_rate_pct": 1.247,
+     "description": "9/10 positions show a player choosing a move that appears purposeful (aggressive placement, check, counterplay attempt) but fundamentally misreads the position's priorities, wasting decisive tempo. The 'tempo_loss' tag appears in 8/10 positions, and 'piece_activity' in 8/10, conf"
+    },
+    {
+     "feature_id": 376,
+     "chip": "Knight departs critical defensive post",
+     "fire_rate_pct": 0.926,
+     "description": "7/10 positions involve knight moves specifically, with the remaining 3 being one pawn push and two rook moves. In 9/10 positions, the analysis tags 'tempo_loss' as a factor, and 8/10 tag 'missed_tactic' \u2014 the player chooses a repositioning/improving move when an immediate crisis "
+    },
+    {
+     "feature_id": 458,
+     "chip": "King retreats cede decisive tempo",
+     "fire_rate_pct": 0.971,
+     "description": "10/10 positions feature king moves that retreat toward the player's own back rank rather than advancing or taking the most direct path toward the critical area of play. 9/10 are explicitly identified as 'tempo_loss' errors. The kings retreat from active squares (c6\u2192c7, d6\u2192e7, f6\u2192"
+    },
+    {
+     "feature_id": 722,
+     "chip": "Quiet pawn push over forcing capture",
+     "fire_rate_pct": 1.175,
+     "description": "9/10 positions feature moves tagged as 'tempo_loss' where the player chose a quiet structural or developmental move while a forcing tactical opportunity or critical defensive need was available. 10/10 positions had 'piece_activity' as a key factor, meaning the best moves all invo"
+    },
+    {
+     "feature_id": 1024,
+     "chip": "Rook drifts while pawn advances",
+     "fire_rate_pct": 1.403,
+     "description": "9/9 positions are tagged with 'tempo_loss' as the tactical motif, and 8/9 are endgame positions. In each case, the player makes a move that appears reasonable or even active (5/9 are rook moves, often along the a-file), but which addresses a secondary concern instead of executing"
+    },
+    {
+     "feature_id": 1048,
+     "chip": "King retreats lose opposition tempo",
+     "fire_rate_pct": 1.026,
+     "description": "9/10 positions feature king moves that retreat backward (toward the player's own back rank or away from the center of action). 8/10 are explicitly tagged with 'tempo_loss' as the primary tactical motif. The phase is overwhelmingly endgame (9/10), predominantly pawn endgames (7/10"
+    },
+    {
+     "feature_id": 1111,
+     "chip": "Pawn push over piece crisis",
+     "fire_rate_pct": 1.002,
+     "description": "All 10 positions share a defining pattern: the player chose a non-urgent, strategically motivated move while an immediate tactical obligation existed. In 9/10 cases the 'tempo_loss' tag applies\u2014the move wastes a critical tempo on a secondary goal. The tactical motif is 'hanging_p"
+    },
+    {
+     "feature_id": 1288,
+     "chip": "Flank pawn push over urgent threat",
+     "fire_rate_pct": 1.138,
+     "description": "9/10 positions feature a move that appears aggressive or purposeful (advancing a pawn or jumping a knight forward) but critically misorders priorities, losing tempo against the opponent's most urgent threat. The 'tempo_loss' tag appears in 9/10 positions, making it the dominant u"
+    },
+    {
+     "feature_id": 1513,
+     "chip": "Bishop repositioned while king exposed",
+     "fire_rate_pct": 1.44,
+     "description": "In 10/10 positions, the player chose a non-forcing piece repositioning or 'improving' move when the position demanded urgent concrete action. The tempo_loss tag appears in 8/10 analyses, and missed_tactic in 7/10. Specifically: 8/10 moves are minor piece relocations (4 knight mov"
+    },
+    {
+     "feature_id": 1588,
+     "chip": "Pawn move misses critical priority",
+     "fire_rate_pct": 0.773,
+     "description": "All 10 positions share a common structure: the player identifies something seemingly logical to address (a threatened pawn, an annoying piece, a file to contest) but this target is secondary to the position's actual critical requirement. 10/10 moves were tagged as 'tempo_loss' in"
+    },
+    {
+     "feature_id": 1690,
+     "chip": "Pawn push surrenders forcing initiative",
+     "fire_rate_pct": 0.875,
+     "description": "In 9/10 positions (excluding Position 5 which was correctly played at 0cp loss), the player chose a slower, less-forcing move when a significantly stronger forcing alternative existed. The 'tempo_loss' tag appears in 7/10 analyses, and 'missed_tactic' in 8/10. Specifically: 4/10 "
+    },
+    {
+     "feature_id": 1815,
+     "chip": "Bishop repositioned while tactics screamed",
+     "fire_rate_pct": 1.22,
+     "description": "All 10 positions share a consistent pattern: the player chose a move that addresses a secondary concern (king safety, piece repositioning, pawn advance, centralization) while ignoring the single most urgent tactical requirement. 9/10 positions were tagged 'tempo_loss' and 10/10 t"
+    }
+   ]
+  },
+  {
+   "fine_id": 58,
+   "size": 11,
+   "features": [
+    {
+     "feature_id": 243,
+     "chip": "Rook shuffle over forced concrete action",
+     "fire_rate_pct": 1.472,
+     "description": "All 10/10 positions feature a non-capturing, non-checking rook repositioning move, and 8/10 use algebraic disambiguation (Rcd3, Rdc7, Rdf7, etc.) indicating two rooks were available and the player chose to move one toward the other for 'coordination.' In every case, the analyses "
+    },
+    {
+     "feature_id": 459,
+     "chip": "Check/reposition ignores forced reply",
+     "fire_rate_pct": 0.951,
+     "description": "All 10/10 positions share the defining characteristic of tempo loss: the player chose a move that appears active, aggressive, or improving\u2014repositioning a piece (Ne2, Nd5, Ng2, Bd7, Bh3, Rgb7, Qf6), giving check (Qe7+, b6+), or making a capture (gxh3)\u2014but each failed to address t"
+    },
+    {
+     "feature_id": 561,
+     "chip": "Pawn checks abandon critical plan",
+     "fire_rate_pct": 1.161,
+     "description": "9/10 positions are tagged with 'tempo_loss' as the primary error pattern. The moves consistently appear logical on the surface\u2014checks (3/10: h2+, Bh2+, Bc5+), pawn advances that seem attacking (5/10: f3, c5, h2, b3, h4), captures/development that look natural (2/10: Nxf7, Nc6)\u2014ye"
+    },
+    {
+     "feature_id": 787,
+     "chip": "Forcing rook check burns winning edge",
+     "fire_rate_pct": 1.375,
+     "description": "8/10 positions feature tempo_loss as a core tag, and 7/10 involve missed tactics \u2014 the connecting thread is that in already-winning positions (9/10 are White with large advantages or forced mates), the player chooses the most OBVIOUS aggressive continuation rather than the most P"
+    },
+    {
+     "feature_id": 941,
+     "chip": "Rook improves while threats land",
+     "fire_rate_pct": 0.956,
+     "description": "8/10 positions feature moves tagged with 'tempo_loss' \u2014 the player makes a seemingly reasonable improving move but critically misjudges the position's urgency. 5/10 moves are knight maneuvers (Ngxe5, Nc5, Ne4, Nc7, Nxe4) that look natural but are either premature or out of sequen"
+    },
+    {
+     "feature_id": 1382,
+     "chip": "Premature check drives king safe",
+     "fire_rate_pct": 0.94,
+     "description": "9/10 positions are tagged with 'tempo_loss' as the core error, and the average number of good moves available was only 1.5, meaning these are razor-sharp positions with almost no margin for error. The moves themselves are diverse in piece type (5/10 rook moves, 3/10 pawn pushes, "
+    },
+    {
+     "feature_id": 1390,
+     "chip": "Pawn push over forcing tactical resource",
+     "fire_rate_pct": 0.963,
+     "description": "9/10 positions were tagged with 'tempo_loss' and 8/10 with 'missed_tactic', revealing the core pattern: the player defaults to a 'logical-looking' positional move while a concrete tactical opportunity goes unexploited. 5/10 moves are pawn pushes challenging the opponent's pawn st"
+    },
+    {
+     "feature_id": 1408,
+     "chip": "Pawn push surrenders decisive tempo",
+     "fire_rate_pct": 1.111,
+     "description": "9/10 positions are tagged with 'tempo_loss' as the core error mechanism, and 8/10 feature passed pawns as a dominant positional element. 6/10 blunders are literal pawn advances (e6, a6, g6, f3, h2, h5) that look purposeful but waste the crucial tempo needed for the position's con"
+    },
+    {
+     "feature_id": 1419,
+     "chip": "Knight check squanders decisive moment",
+     "fire_rate_pct": 1.399,
+     "description": "All 10/10 positions feature critical moments where very few good moves exist (avg 1.4 good moves), and the player chose a 'natural-looking' aggressive or materialistic move instead of the one truly decisive continuation. 6/10 moves are knight maneuvers (Ng5+, Nb4, Nb4, Ne4, Ne4, "
+    },
+    {
+     "feature_id": 1530,
+     "chip": "Routine recapture delays urgent action",
+     "fire_rate_pct": 1.042,
+     "description": "9/10 positions show the player choosing a move that appears reasonable on general principles\u2014a routine recapture (bxc3, cxd3), a piece repositioning (Nh6, Rdf8, Bg7, Rf1, Ke8), a quiet pawn push (b6), or a simplifying exchange (Bxd6)\u2014but critically wastes tempo when immediate act"
+    },
+    {
+     "feature_id": 1715,
+     "chip": "a-pawn push over forcing reply",
+     "fire_rate_pct": 0.929,
+     "description": "10/10 positions share the tag 'tempo_loss' and feature positions where the average number of good moves is just 1.4, meaning extreme precision is required. In 9/10 positions (excluding position 7 where cp_loss=0), the player chose a non-urgent action\u2014typically a slow pawn push (a"
+    }
+   ]
+  },
+  {
+   "fine_id": 1,
+   "size": 9,
+   "features": [
+    {
+     "feature_id": 57,
+     "chip": "Quiet pawn push skips decisive check",
+     "fire_rate_pct": 1.052,
+     "description": "9/10 positions involve non-forcing, non-checking, non-capturing moves, and 8/10 are specifically quiet pawn pushes (a3, a6, f6, f5, g5, h6, c6, h4). The 'tempo_loss' tag appears in 9/10 analyses, confirming the core pattern. In every case, the position demanded immediate action: "
+    },
+    {
+     "feature_id": 302,
+     "chip": "Quiet bishop drift loses decisive tempo",
+     "fire_rate_pct": 2.107,
+     "description": "All 10 positions feature quiet bishop moves (no captures, no checks) that reposition the piece to a seemingly improved square but squander a decisive tempo. The tag 'tempo_loss' appears in 9/10 analyses, and 'piece_activity' in 10/10. In 7/10 positions, the correct move was eithe"
+    },
+    {
+     "feature_id": 525,
+     "chip": "King repositions while plan executes",
+     "fire_rate_pct": 1.455,
+     "description": "All 10 positions share the pattern of a quiet, non-forcing move (no checks, no captures, no pawn breaks) that appears reasonable on the surface but fundamentally misjudges the position's urgency. In 8/10 positions, 'tempo_loss' was explicitly identified as a core issue. The moves"
+    },
+    {
+     "feature_id": 611,
+     "chip": "Quiet rook move over forcing strike",
+     "fire_rate_pct": 0.974,
+     "description": "All 10/10 positions share the same fundamental error: the player chose a quiet, non-forcing move (no check, no capture, no direct threat) when the position screamed for immediate concrete action. The 'tempo_loss' tag appears in all 10 positions, confirming this is the unifying th"
+    },
+    {
+     "feature_id": 838,
+     "chip": "Rook centralizes to active square",
+     "fire_rate_pct": 2.06,
+     "description": "All 10/10 positions feature a player making a non-forcing move that looks reasonable on general principles (centralization, activation, or development) while completely ignoring a single concrete, urgent demand. The 'tempo_loss' tag appears in all 10 positions, confirming this as"
+    },
+    {
+     "feature_id": 875,
+     "chip": "Rook improves while position demands action",
+     "fire_rate_pct": 6.936,
+     "description": "10/10 positions feature a quiet rook move (no check, no capture, no direct threat) that looks like natural piece improvement but critically wastes tempo. The 'tempo_loss' tag appears in 9/10 analyses, and 'piece_activity' in 10/10. In 4/10 cases (Positions 3, 4, 9, 10), the corre"
+    },
+    {
+     "feature_id": 1562,
+     "chip": "Queen retreats cede forcing initiative",
+     "fire_rate_pct": 1.653,
+     "description": "10/10 positions feature a non-forcing move (no check, no capture, no unavoidable threat) played in lieu of an available forcing continuation. The 'tempo_loss' tag appears in all 10 analyses. In 5/10 positions (1, 2, 3, 5, 8), the best move was an immediate check or sacrifice with"
+    },
+    {
+     "feature_id": 1677,
+     "chip": "King retreats when forcing move required",
+     "fire_rate_pct": 0.858,
+     "description": "8/10 positions share the explicit tag 'tempo_loss' in their analysis, and 8/10 feature 'piece_activity' as a core theme. The blunders are all non-capturing, non-checking quiet moves (piece retreats, developments, or king walks) played in positions where one specific forcing conti"
+    },
+    {
+     "feature_id": 1902,
+     "chip": "Bishop retreats cede winning tempo",
+     "fire_rate_pct": 1.513,
+     "description": "All 10 positions feature a minor piece (7/10 bishops, 3/10 knights) being moved from an active or aggressive post to a less effective square in a single quiet, non-forcing move. In 10/10 cases the analyses tag 'tempo_loss' as the core error. In 8/10 positions, the piece was expli"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,996 @@
+{
+ "coarse_id": 2,
+ "n_features": 151,
+ "subclusters": [
+  {
+   "fine_id": 144,
+   "size": 22,
+   "features": [
+    {
+     "feature_id": 179,
+     "chip": "Rook repositions, surrenders tactical tempo",
+     "fire_rate_pct": 1.095,
+     "description": "9/10 positions involve rook moves and 10/10 involve a piece being repositioned to a seemingly improved or active square that ignores the position's tactical urgency. In 6/10 cases (positions 1, 3, 4, 5, 8, 10), the player missed a superior forcing continuation \u2014 a sacrifice, pawn"
+    },
+    {
+     "feature_id": 184,
+     "chip": "Queen jumps to attacked square",
+     "fire_rate_pct": 1.466,
+     "description": "All 10/10 positions feature queen moves that appear purposeful (giving check, creating threats, centralizing) but place the queen on a square where it becomes a tactical liability. In 5/10 positions (2, 4, 5, 6, 9), the queen lands on a square where it directly hangs to an enemy "
+    },
+    {
+     "feature_id": 449,
+     "chip": "Pawn advance abandons key square",
+     "fire_rate_pct": 1.016,
+     "description": "In 9/10 positions (excluding the 0cp-loss position 5), the played move appears purposeful and aggressive\u2014gaining space, centralizing a piece, or winning material\u2014but fatally removes protection from something the opponent immediately exploits. Specifically: 4/10 positions feature "
+    },
+    {
+     "feature_id": 473,
+     "chip": "Bishop centralizes into tactical refutation",
+     "fire_rate_pct": 2.849,
+     "description": "All 10/10 positions feature a bishop being moved to what appears to be a more active or centralized square, but the move is actually a significant mistake. In 4/10 cases (positions 3, 6, 7, 9), the bishop abandons a critical defensive or blocking function\u2014guarding a file, shieldi"
+    },
+    {
+     "feature_id": 515,
+     "chip": "Knight vacates king's guard square",
+     "fire_rate_pct": 0.957,
+     "description": "All 10/10 positions involve knight moves that appear active or tactical but catastrophically abandon the knight's critical positional or defensive function. In 6/10 positions (2, 4, 5, 7, 9, 10), the knight was specifically guarding the king\u2014either covering invasion squares (e5, "
+    },
+    {
+     "feature_id": 532,
+     "chip": "Rook lands on knight-fork square",
+     "fire_rate_pct": 0.856,
+     "description": "All 10/10 positions feature rook moves to seemingly logical squares (open files, defending pieces, escaping attacks) that miss more urgent tactical requirements. In 6/10 positions (1, 4, 5, 6, 10, and partially 3), the rook specifically lands on a square exploitable by a knight f"
+    },
+    {
+     "feature_id": 613,
+     "chip": "Bishop relocates, key square exposed",
+     "fire_rate_pct": 0.925,
+     "description": "All 10/10 positions feature a bishop being moved to a seemingly natural or 'improved' square, with 9/10 being single-step diagonal relocations. In every case, the bishop was already performing a vital function on its original square that the player failed to recognize: controllin"
+    },
+    {
+     "feature_id": 661,
+     "chip": "Active rook move, zero concrete gain",
+     "fire_rate_pct": 1.908,
+     "description": "All 10/10 positions feature a rook moving to a square that appears active or purposeful \u2014 penetrating to the 7th rank, occupying an open file, attacking a piece, or delivering check \u2014 but the move is actually a significant mistake. In 3/10 positions (positions 2, 3, and partially"
+    },
+    {
+     "feature_id": 671,
+     "chip": "Rook drifts from critical file",
+     "fire_rate_pct": 2.507,
+     "description": "All 10/10 positions feature a rook repositioning move (never a capture or check) that sends the rook to a square that appears logical \u2014 doubling on an open file, contesting a file, or centralizing \u2014 but actually misidentifies where the battle's critical demands lie. In 6/10 posit"
+    },
+    {
+     "feature_id": 730,
+     "chip": "Queen strays, king cover collapses",
+     "fire_rate_pct": 1.429,
+     "description": "All 10/10 positions feature a queen relocating to a seemingly active or threatening square (checks, attacks on pawns, centralization) while the moving side's king remains uncastled or exposed in the center. In 10/10 cases, the queen was previously performing an essential function"
+    },
+    {
+     "feature_id": 841,
+     "chip": "Rook repositions while crisis demands action",
+     "fire_rate_pct": 0.999,
+     "description": "9/10 positions feature rook moves (plus one queen move in Position 1) that reposition a major piece to a 'generally useful' square\u2014typically a new file or rank\u2014while completely ignoring an urgent tactical demand. In 4/10 cases (Positions 1, 9, 10, and 2), the moved piece was actu"
+    },
+    {
+     "feature_id": 912,
+     "chip": "Queen repositions while tactic exists",
+     "fire_rate_pct": 1.182,
+     "description": "9/10 positions involve moving a bishop (5/10) or queen (4/10) to a square that appears purposeful\u2014aiming at the opponent's king, controlling a file, or pursuing a thematic strategic plan\u2014but actually fails the concrete demands of the position. In 7/10 cases, a specific tactic was"
+    },
+    {
+     "feature_id": 956,
+     "chip": "Knight leaps to refuted outpost",
+     "fire_rate_pct": 1.294,
+     "description": "All 10/10 positions feature knight moves to squares that appear active or centralizing but are concretely refuted. In 6/10 positions (3, 4, 6, 7, 10, and partially 1), the knight abandons a critical defensive or controlling post \u2014 guarding key squares, blocking pawn breaks, or ma"
+    },
+    {
+     "feature_id": 1248,
+     "chip": "Rook 'activates' ignoring concrete duty",
+     "fire_rate_pct": 2.377,
+     "description": "All 10/10 positions feature rook moves that appear positionally sensible\u2014placing rooks on open files, activating them to 'useful' squares, or supporting pawns\u2014but critically miss urgent tactical requirements. In 4/10 cases (positions 5, 6, 9, 10), the rook move wastes a crucial t"
+    },
+    {
+     "feature_id": 1354,
+     "chip": "Rook redeployment when forcing move wins",
+     "fire_rate_pct": 5.224,
+     "description": "All 10/10 positions feature a rook move that appears logically motivated (supporting a passed pawn, doubling on a file, defending a weakness, attacking a piece) but is ultimately too slow for the demands of the position. In 5/10 cases (positions 2, 4, 6, 7, 10), the correct move "
+    },
+    {
+     "feature_id": 1446,
+     "chip": "Knight retreats from critical post",
+     "fire_rate_pct": 0.902,
+     "description": "10/10 positions feature a knight being moved (never a capture) to a square that appears natural or useful but catastrophically fails to address the position's tactical crisis. In 5/10 cases (positions 1, 2, 3, 9, 10), the knight abandons a critical defensive or offensive post (gu"
+    },
+    {
+     "feature_id": 1524,
+     "chip": "Bishop quits guard, exposes key square",
+     "fire_rate_pct": 1.272,
+     "description": "All 10/10 positions feature bishop moves that appear aggressive but are fundamentally misguided. In 6/10 cases (positions 2, 3, 5, 6, 9, and 1), the bishop was actively performing a crucial defensive or positional role \u2014 guarding key squares (f4, d4, c3), supporting central pawns"
+    },
+    {
+     "feature_id": 1536,
+     "chip": "Knight centralization over forcing action",
+     "fire_rate_pct": 16.607,
+     "description": "10/10 positions feature a knight moving forward to what appears to be a dominant outpost square (e5 in 6/10, c5 in 2/10, e4/g5/b4 in the remainder), with none being captures or checks. In 9/10 cases, the position demanded concrete action \u2014 exploiting an exposed king, seizing an o"
+    },
+    {
+     "feature_id": 1556,
+     "chip": "Rook quits king-side shield",
+     "fire_rate_pct": 1.328,
+     "description": "10/10 positions feature rook moves that appear purposeful\u2014targeting pawns, giving checks, centralizing, or joining attacks\u2014but are strategically flawed because they abandon the rook's more important defensive function. In 8/10 positions, king safety was the primary factor comprom"
+    },
+    {
+     "feature_id": 1742,
+     "chip": "Rook centralizes into tactical targets",
+     "fire_rate_pct": 1.024,
+     "description": "All 10/10 positions feature a rook moving to a square that appears useful for centralization, file control, or doubling, but actually creates or exposes a tactical weakness. In 5/10 positions (1, 3, 8, 10, and partially 4), the rook itself becomes a direct target on its new squar"
+    },
+    {
+     "feature_id": 1826,
+     "chip": "Rook drifts, misses capture or defense",
+     "fire_rate_pct": 1.175,
+     "description": "10/10 positions feature rook moves to seemingly logical squares (open files, attacking enemy pieces, centralizing) that are actually slow tempo-losers in critical positions. In 5/10 cases (positions 5, 7, 8, 9, and partially 4), the rook move missed an immediate capture of an und"
+    },
+    {
+     "feature_id": 1876,
+     "chip": "Queen lunge surrenders critical defensive post",
+     "fire_rate_pct": 2.458,
+     "description": "All 10/10 positions involve queen moves to squares that appear powerful, central, or aggressive, but which fail to address the position's critical tactical need. In 3/10 cases (positions 1, 2, 5), the queen abandons defense of a piece or key diagonal, leaving material hanging or "
+    }
+   ]
+  },
+  {
+   "fine_id": 45,
+   "size": 19,
+   "features": [
+    {
+     "feature_id": 118,
+     "chip": "Knight vacates critical defensive square",
+     "fire_rate_pct": 2.578,
+     "description": "All 10/10 positions feature a knight moving to a 'natural' or seemingly active square while unknowingly abandoning a crucial defensive function from its origin square. In 4/10 positions (Positions 1, 3, 8, and partially 5), the knight on b8 was the sole defender of the c6 pawn an"
+    },
+    {
+     "feature_id": 138,
+     "chip": "Queen drifts, knight hangs instantly",
+     "fire_rate_pct": 1.053,
+     "description": "In 8/8 positions, the player makes a quiet queen repositioning move (no checks, no captures) that looks purposeful but severs a critical defensive connection. In 5/8 cases, the queen specifically abandons protection of a knight (d7 knight in positions 1, 5, 6; a5 knight in positi"
+    },
+    {
+     "feature_id": 152,
+     "chip": "Bishop vacates knight's guardian diagonal",
+     "fire_rate_pct": 0.513,
+     "description": "10/10 positions feature a bishop move that looks natural or active but fatally breaks a hidden tactical connection. In 7/10 cases, the bishop was directly or indirectly protecting a knight from capture (positions 1, 2, 4, 5, 9 leave knights immediately hanging; positions 3, 10 re"
+    },
+    {
+     "feature_id": 342,
+     "chip": "King flees wrong flank, loses opposition",
+     "fire_rate_pct": 1.685,
+     "description": "All 10/10 positions feature king moves that travel in the wrong direction relative to the critical theater of operations. In 5/10 positions (Positions 1, 2, 5, 4, 7), the king advances toward the kingside where the pawn structure is completely locked, while the winning/drawing pl"
+    },
+    {
+     "feature_id": 600,
+     "chip": "King relocates into mating net",
+     "fire_rate_pct": 1.149,
+     "description": "All 10/10 positions feature king moves (including castling as a king move) where the player relocates the king to a seemingly safer square, but the move removes a vital defensive connection. In 5/10 positions (1, 3, 5, 6, 10), the king was directly or indirectly defending an adja"
+    },
+    {
+     "feature_id": 849,
+     "chip": "Bishop quits sole defensive post",
+     "fire_rate_pct": 1.611,
+     "description": "All 9/9 positions feature a bishop being moved to what appears to be a more 'active' or 'natural' square, but each move critically abandons a defensive responsibility. In 6/9 positions (Positions 1, 3, 6, 8, 9, and 2), the bishop was the sole defender of a specific piece or pawn,"
+    },
+    {
+     "feature_id": 907,
+     "chip": "Rook defends pawn, cedes initiative",
+     "fire_rate_pct": 1.107,
+     "description": "All 10/10 positions involve rook moves, and in 9/10 the rook relocates specifically to defend a pawn (c4, a4, h4, h7, h3, f4, a3, a4). The remaining position (Re6) moves the rook to attack an irrelevant pawn rather than positioning behind a critical passed pawn. In every case, th"
+    },
+    {
+     "feature_id": 917,
+     "chip": "King move drops defended piece",
+     "fire_rate_pct": 1.107,
+     "description": "9/10 positions feature a king move (6/10 are castling, 3/10 are regular king moves) that abandons defense of a piece, and 1/10 features a rook moving away from a critical defensive post (back rank). In 8/10 cases, the king was the sole or critical defender of a specific piece (Ne"
+    },
+    {
+     "feature_id": 995,
+     "chip": "Rook seeks file, abandons post",
+     "fire_rate_pct": 1.518,
+     "description": "All 10/10 positions feature a rook move that appears natural\u2014targeting an open file, attacking a piece, or doubling rooks\u2014but fatally misses the position's actual requirement. In 5/10 cases (positions 1, 2, 3, 4, 5), the rook abandons a critical defensive duty: leaving f2 undefen"
+    },
+    {
+     "feature_id": 1044,
+     "chip": "Rook leaves critical defensive square",
+     "fire_rate_pct": 1.768,
+     "description": "All 10 positions feature a rook move (7/10) or bishop move (3/10) that appears active or purposeful\u2014filing a rook on an open file, giving a check, developing a bishop, or capturing a pawn\u2014but fatally ignores an immediate tactical crisis. In 6/10 positions, the move specifically l"
+    },
+    {
+     "feature_id": 1307,
+     "chip": "Pawn advance drops guarded piece",
+     "fire_rate_pct": 1.061,
+     "description": "9/10 positions feature pawn moves (7/10 are pawn captures specifically), and in 8/10 cases the moved pawn was performing a vital but non-obvious defensive function \u2014 either directly guarding another piece, blocking a dangerous diagonal, or maintaining a tactical threat that indir"
+    },
+    {
+     "feature_id": 1481,
+     "chip": "Queen deserts d2 piece guardian",
+     "fire_rate_pct": 1.437,
+     "description": "All 10/10 positions feature queen moves that relocate the queen away from where it was performing an essential function. In 6/10 positions (1, 4, 5, 7, 8, and partially 2), the queen directly leaves a piece undefended \u2014 specifically, in 4 of those cases the abandoned piece sits o"
+    },
+    {
+     "feature_id": 1549,
+     "chip": "Rook develops while pieces hang",
+     "fire_rate_pct": 3.202,
+     "description": "All 10/10 positions feature a rook being placed on an open or semi-open file as a 'natural developing move' while a critical tactical emergency demands immediate attention. In 9/10 cases, a piece is directly hanging or under imminent capture threat: knights hanging to pawn captur"
+    },
+    {
+     "feature_id": 1572,
+     "chip": "Castling leaves hanging piece",
+     "fire_rate_pct": 0.907,
+     "description": "All 10/10 positions feature castling played while an urgent tactical issue demands immediate attention. In 7/10 cases, a specific piece is directly hanging or effectively undefended (Position 2: Bf4, Position 3: Nc4, Position 5: Bc4, Position 6: Bd4, Position 7: Qc5, Position 9: "
+    },
+    {
+     "feature_id": 1682,
+     "chip": "Queen drifts, defended piece hangs",
+     "fire_rate_pct": 1.353,
+     "description": "All 10 positions feature queen moves that abandon a critical responsibility in pursuit of apparent activity. In 6/10 positions (2, 3, 4, 5, 7, 8), the tactical motif is explicitly 'hanging_piece' \u2014 the queen move leaves a specific piece or pawn undefended that the opponent immedi"
+    },
+    {
+     "feature_id": 1757,
+     "chip": "Pawn steps off guarded piece",
+     "fire_rate_pct": 1.381,
+     "description": "All 9 positions feature pawn moves that abandon a defensive function the pawn was performing. In 4/9 positions (h4, cxb3, g5+, b4), the pawn was directly protecting a piece \u2014 the rook on g4, bishop on d3, bishop on f5, or knight on c3 \u2014 and moving it left that piece immediately c"
+    },
+    {
+     "feature_id": 1806,
+     "chip": "Rook leaves piece hanging behind",
+     "fire_rate_pct": 1.264,
+     "description": "All 10/10 positions feature rook moves that appear active or forcing on the surface but create concrete tactical vulnerabilities. In 5/10 positions (1, 4, 6, 7, 9), the rook move abandons defense of another piece, leaving it hanging (bishop on d3 in positions 7 and 9, queen on h4"
+    },
+    {
+     "feature_id": 1928,
+     "chip": "Knight development ignores hanging pieces",
+     "fire_rate_pct": 1.521,
+     "description": "All 10/10 positions feature a non-forcing minor piece development move (knight or bishop) to a 'natural' square while an immediate tactical crisis demands attention. In 8/10 cases, a piece is directly hanging and capturable \u2014 either the player's own undefended piece (positions 2,"
+    },
+    {
+     "feature_id": 1949,
+     "chip": "Knight leaves post, defense collapses",
+     "fire_rate_pct": 2.218,
+     "description": "All 10/10 positions involve knight moves that look like natural piece improvements but catastrophically abandon critical duties. In 4/10 cases, the knight specifically leaves d2 (three times to b3, once to e4), surrendering access to key tactical routes or defensive coverage. In "
+    }
+   ]
+  },
+  {
+   "fine_id": 6,
+   "size": 17,
+   "features": [
+    {
+     "feature_id": 4,
+     "chip": "King advances into mating net",
+     "fire_rate_pct": 1.487,
+     "description": "All 10 positions feature king moves that advance toward the center, toward the opponent, or toward the board edge, when the correct moves were almost universally king retreats toward the back rank. In 3/10 positions (1, 3, 7), the advancing king walked into immediate checkmate. I"
+    },
+    {
+     "feature_id": 17,
+     "chip": "King flees to fatal back-rank square",
+     "fire_rate_pct": 1.667,
+     "description": "All 10/10 positions feature a quiet king relocation (never a capture) where the player instinctively tries to escape pressure but moves to a square with worse tactical vulnerabilities. In 7/10 positions, the move results in checkmate within 1-4 moves or forced mate (positions 2, "
+    },
+    {
+     "feature_id": 104,
+     "chip": "King takes queen, drops endgame",
+     "fire_rate_pct": 1.135,
+     "description": "All 10/10 positions share an identical move structure: the king captures an enemy queen that is on an adjacent square, transitioning from a piece-imbalanced endgame into a pure pawn endgame. In 10/10 cases, only 1 good move was available, and in 9/10 positions the alternative kin"
+    },
+    {
+     "feature_id": 134,
+     "chip": "King steps into mating net",
+     "fire_rate_pct": 2.029,
+     "description": "All 10/10 positions feature a king move that reduces the king's available escape squares, walking into a mating net or perpetual check cage. In 7/10 positions the result is immediate forced checkmate (within 1-2 moves), while in 3/10 the result is perpetual check drawing a won po"
+    },
+    {
+     "feature_id": 319,
+     "chip": "Bishop steps onto attacked square",
+     "fire_rate_pct": 0.912,
+     "description": "In 10/10 positions, Black moves a bishop to a seemingly natural or defensive square that is directly attacked by an enemy piece. In 9/10 cases, the capturing piece delivers check or checkmate upon taking the bishop (8/10 result in immediate checkmate or forced mate within 1-3 mov"
+    },
+    {
+     "feature_id": 308,
+     "chip": "Knight reposition over forced win",
+     "fire_rate_pct": 1.232,
+     "description": "10/10 positions share the pattern of a player choosing a quiet piece improvement move when an immediate concrete action was required. In 4/10 cases (positions 1, 3, 5, 7), a forced checkmate was available but the player chose a repositioning move instead. In 2/10 cases (positions"
+    },
+    {
+     "feature_id": 593,
+     "chip": "King steps into check or mate",
+     "fire_rate_pct": 3.063,
+     "description": "All 10/10 positions feature a king move as the blunder, and in 9/10 cases the king walks to a square where it becomes MORE vulnerable to tactical exploitation than on its original square. In 8/10 positions the move converts a losing-but-survivable position into forced checkmate ("
+    },
+    {
+     "feature_id": 737,
+     "chip": "King retreats to back rank checkmate",
+     "fire_rate_pct": 1.092,
+     "description": "All 10/10 positions feature a king retreating to the back rank (h1, h8, or e8) seeking perceived safety, but instead walking into immediate tactical catastrophe. In 5/10 cases the result is forced checkmate (positions 1, 5, 6, 7, 9, 10), and in the remaining cases the evaluation "
+    },
+    {
+     "feature_id": 755,
+     "chip": "King to edge, own pawns trap",
+     "fire_rate_pct": 1.046,
+     "description": "All 10 positions feature king moves, and 8/10 involve the king moving to a square where it becomes catastrophically confined. In 6/10 positions (3, 5, 7, 8, 9, 10), the king walks directly into a back-rank or corner mate where its own pawns seal off all escape squares \u2014 enabling "
+    },
+    {
+     "feature_id": 819,
+     "chip": "Pawn push over decisive piece move",
+     "fire_rate_pct": 1.167,
+     "description": "All 10/10 positions feature a pawn move (either a push or capture) chosen over a drastically superior piece move. In 6/10 positions, forced checkmates were available (positions 3, 6, 7, 9, 10 had mates between 1-16 moves; position 1 had a queen-winning combination). In 7/10 posit"
+    },
+    {
+     "feature_id": 975,
+     "chip": "King steps into back-rank mate",
+     "fire_rate_pct": 1.242,
+     "description": "All 10/10 positions feature king moves as the blunder, with the king relocating to a square where its escape routes become fatally restricted. In 6/10 positions (1, 3, 5, 6, 7, 8), the king moves directly to the back rank and allows immediate or near-immediate checkmate (Rb8#, Rh"
+    },
+    {
+     "feature_id": 1156,
+     "chip": "Kingside pawn exposes mating square",
+     "fire_rate_pct": 0.972,
+     "description": "9/10 positions involve advancing a kingside pawn (f, g, or h file) in front of the player's own king, while 1/10 (Ng4) removes a piece from king defense with identical consequences. In 6/10 cases, the move directly allows checkmate or forced mate (positions 4, 5, 6, 7, 10 yield i"
+    },
+    {
+     "feature_id": 1172,
+     "chip": "Rook chases pawn, abandons crisis",
+     "fire_rate_pct": 1.393,
+     "description": "All 10/10 positions feature rook moves that pursue secondary objectives \u2014 typically pawn captures or 'active-looking' placements \u2014 while the position demanded something far more urgent. In 3/10 positions (1, 2, 4), a checkmate in one was available but the rook moved elsewhere. In"
+    },
+    {
+     "feature_id": 1665,
+     "chip": "Bishop develops, misses forcing shot",
+     "fire_rate_pct": 1.226,
+     "description": "9/10 positions feature a minor piece (7 bishops, 2 knights) being moved to what appears to be a natural, active square\u2014developing, attacking something, or improving placement\u2014while a much more urgent tactical demand exists. In 3/10 cases (positions 3, 4, 8), a forcing tactical sh"
+    },
+    {
+     "feature_id": 1781,
+     "chip": "Quiet king move enters mating net",
+     "fire_rate_pct": 1.022,
+     "description": "All 10/10 positions involve a quiet (non-capturing, non-checking) king move that catastrophically worsens the position. In 4/10 cases (positions 2, 8, 9, and partially 1), the king move allows immediate or near-immediate checkmate (mate-in-1 to mate-in-3). In 5/10 cases (position"
+    },
+    {
+     "feature_id": 1852,
+     "chip": "King steps into mating net",
+     "fire_rate_pct": 1.516,
+     "description": "All 10/10 positions feature king moves as the blunder, with the king relocating to a square where it becomes more tactically vulnerable. In 3/10 positions (1, 2, 8), the king walks directly into a forced checkmate (cp_loss 8896-9235). In 4/10 positions (2, 4, 8, 9), the best move"
+    },
+    {
+     "feature_id": 1957,
+     "chip": "Queen grabs rook, misses mate",
+     "fire_rate_pct": 0.786,
+     "description": "All 10/10 positions feature a queen capturing a rook on a back-rank square (a1 in 5 cases, h1 in 2, a8 in 1, b8 in 1, f8 in 1, e1 in 1), luring the queen to the edge/corner of the board far from the decisive action. In 8/10 positions, a forced checkmate was available (or immediat"
+    }
+   ]
+  },
+  {
+   "fine_id": 100,
+   "size": 12,
+   "features": [
+    {
+     "feature_id": 46,
+     "chip": "Knight repositioning loses tempo",
+     "fire_rate_pct": 0.984,
+     "description": "All 10/10 positions feature a quiet minor piece move (5 knights, 5 bishops) that is neither a check nor a capture \u2014 purely a repositioning move. In 9/10 positions, the analysis explicitly identifies 'tempo_loss' as a primary tag, and in all 10/10, a more forcing alternative exist"
+    },
+    {
+     "feature_id": 167,
+     "chip": "Queen grabs bait, misses zwischenzug",
+     "fire_rate_pct": 1.421,
+     "description": "All 10 positions feature queen moves (7/10 captures, 3/10 checks) that look natural and aggressive but are tactically misguided. In 7/10 cases, the queen captures material (pawns in positions 6, 10; pieces/queens in positions 2, 3, 5, 7, 9), while 3/10 deliver purposeless checks "
+    },
+    {
+     "feature_id": 205,
+     "chip": "Bishop repost while tactics scream",
+     "fire_rate_pct": 1.581,
+     "description": "9/10 positions feature bishop moves and 1/10 a knight move, all sharing the characteristic of being 'natural-looking' piece improvements that catastrophically misjudge the tactical demands of the position. In 5/10 cases (positions 2, 4, 5, 6, 7), the minor piece move specifically"
+    },
+    {
+     "feature_id": 328,
+     "chip": "Bishop drifts to attacked square",
+     "fire_rate_pct": 1.075,
+     "description": "All 10/10 positions feature minor piece moves (7 bishop moves, 3 knight moves) that look superficially reasonable \u2014 repositioning, capturing a pawn, or 'improving' piece placement \u2014 but catastrophically ignore the position's tactical demands. In 5/10 positions (1, 2, 4, 10, and p"
+    },
+    {
+     "feature_id": 465,
+     "chip": "Knight centralizes, misses forcing win",
+     "fire_rate_pct": 2.42,
+     "description": "All 10/10 positions feature a knight move that appears active, centralizing, or aggressive but squanders a much stronger tactical opportunity. In 7/10 positions, the correct move was NOT a knight move at all \u2014 it was a queen check (positions 8, 9), a rook sacrifice/capture (posit"
+    },
+    {
+     "feature_id": 677,
+     "chip": "Exposed king advances into mating net",
+     "fire_rate_pct": 1.138,
+     "description": "All 10/10 positions feature king moves in situations where the king is already exposed and away from pawn shelter. In 9/10 cases, the king advances or moves laterally rather than retreating to safety. In 8/10 positions, the side making the move is already losing significantly (ev"
+    },
+    {
+     "feature_id": 1030,
+     "chip": "Knight repositions while crisis burns",
+     "fire_rate_pct": 1.325,
+     "description": "All 10/10 positions feature a knight move that is non-capturing and non-checking \u2014 a purely repositioning maneuver that looks attractive (centralizing, attacking a piece, rerouting) but fatally ignores a more urgent tactical need. In 4/10 cases (positions 1, 5, 7, 8), the knight "
+    },
+    {
+     "feature_id": 1134,
+     "chip": "Rook grabs material, misses order",
+     "fire_rate_pct": 1.355,
+     "description": "8/10 positions involve captures with rooks or queens, while 2/10 are rook checks \u2014 all are 'obvious-looking' aggressive moves by major pieces. In 9/10 positions, the correct alternative was either a different check (positions 3, 5, 6, 8, 10), a different capture target/piece (pos"
+    },
+    {
+     "feature_id": 1151,
+     "chip": "Rook leaves critical defensive post",
+     "fire_rate_pct": 1.512,
+     "description": "10/10 positions feature exposed kings on both sides with weak pawn shields, and 9/10 involve advanced passed pawns creating promotion threats. 7/10 moves are rook moves, with 4/10 being checks and 2/10 being captures. 7/10 positions are endgames. The feature fires on 'active-look"
+    },
+    {
+     "feature_id": 1203,
+     "chip": "Rook check drives king to safety",
+     "fire_rate_pct": 1.429,
+     "description": "All 10/10 positions involve delivering check with a major piece (queen: 7/10, rook: 3/10) against a king that has lost its pawn shelter or wandered into the open. Every single position explicitly notes the checked king as 'exposed' or having a 'weak pawn shield,' with kings sitti"
+    },
+    {
+     "feature_id": 1449,
+     "chip": "Queen check drives king to safety",
+     "fire_rate_pct": 1.554,
+     "description": "10/10 positions feature queen moves in open positions where both kings are exposed. 6/10 are direct queen checks, while the remaining include queen captures or aggressive-looking queen repositionings. 7/10 positions identify 'tempo_loss' as the primary tactical motif \u2014 the queen "
+    },
+    {
+     "feature_id": 1701,
+     "chip": "Bishop develops, exposed king punished",
+     "fire_rate_pct": 1.02,
+     "description": "All 10/10 positions feature the moving side's king being exposed, uncastled, or lacking adequate pawn shelter. All 10/10 blunders are minor piece moves (7 bishop, 3 knight) that appear active or aggressive but critically ignore the king's tactical vulnerability. In 9/10 cases, th"
+    }
+   ]
+  },
+  {
+   "fine_id": 35,
+   "size": 12,
+   "features": [
+    {
+     "feature_id": 206,
+     "chip": "Rook grabs pawn, misses mate",
+     "fire_rate_pct": 0.74,
+     "description": "All 10/10 positions involve a rook move that delivers check, and 9/10 involve a discovered check where the rook vacates a line to uncover an attack from a bishop or queen behind it. The critical shared error in 9/10 positions is that multiple rook destinations deliver the same di"
+    },
+    {
+     "feature_id": 266,
+     "chip": "Knight check lands on wrong square",
+     "fire_rate_pct": 0.815,
+     "description": "All 10/10 positions feature a knight delivering check to the wrong square. In 9/10 cases, a discovered check mechanism exists (knight moves to unmask a bishop/queen), and the player chose a suboptimal landing square for the knight. In 4/10 positions (2, 4, 8, 9), the correct move"
+    },
+    {
+     "feature_id": 401,
+     "chip": "Queen check lets king escape",
+     "fire_rate_pct": 4.766,
+     "description": "10/10 positions feature a check being delivered, with 9/10 being queen checks and 1/10 a rook check. In 9/10 cases the check is a mistake (avg cp_loss ~3430 for the 9 errors). The key pattern: the player gives a check against an exposed or advanced king without a concrete follow-"
+    },
+    {
+     "feature_id": 547,
+     "chip": "Bishop check lands on wrong square",
+     "fire_rate_pct": 0.95,
+     "description": "All 10/10 positions feature a move that delivers check but is significantly inferior to the best available option. In 7/10 cases, the move involves a discovered check mechanism where the piece lands on the wrong destination square (positions 1, 2, 7, 8, 9) or the discovered check"
+    },
+    {
+     "feature_id": 776,
+     "chip": "Knight check lets king improve",
+     "fire_rate_pct": 1.276,
+     "description": "10/10 positions involve a knight delivering check. In 8/10 cases, the check is a clear mistake (avg ~193cp loss excluding the extreme outlier), losing tempo because the knight must retreat or reaches an inferior square while the opponent's king actually improves its position. 7/1"
+    },
+    {
+     "feature_id": 1132,
+     "chip": "Queen check drives king to safety",
+     "fire_rate_pct": 1.294,
+     "description": "All 10/10 positions feature a queen delivering check (Qh3+, Qd3+, Qe3+, Qg6+, Qe1+, Qxe6+, Qb5+, Qf5+), and in 9/10 cases this check is a meaningful mistake (avg cp_loss 2058, with one position at 0 cp_loss being a harmless transposition). The consistent error is that the check e"
+    },
+    {
+     "feature_id": 1168,
+     "chip": "Knight check drives king to safety",
+     "fire_rate_pct": 3.159,
+     "description": "All 10/10 positions feature a knight delivering check that turns out to be a serious blunder. In every case, a non-checking move (or a different piece's check) was dramatically stronger \u2014 often by thousands of centipawns. The checks are seductive because they're forcing, but they"
+    },
+    {
+     "feature_id": 1593,
+     "chip": "Queen check lets opponent regroup",
+     "fire_rate_pct": 1.275,
+     "description": "10/10 positions feature a check (+) that fails to achieve any constructive goal. In 4/10 cases (positions 3, 5, 7, 8), the player gave check instead of capturing a hanging piece (an undefended rook worth 5+ pawns of material). In 6/10 cases (positions 1, 2, 4, 6, 9, 10), the chec"
+    },
+    {
+     "feature_id": 1768,
+     "chip": "Queen check ruins discovery setup",
+     "fire_rate_pct": 1.057,
+     "description": "All 10/10 positions feature a Queen delivering check, and 9/10 of these are severe mistakes (avg ~6400cp loss for the 9 blunders). In 5/10 positions (1, 2, 5, 6, 10), the correct move was a BISHOP check on the same or nearby square that would have enabled a discovered attack/chec"
+    },
+    {
+     "feature_id": 1829,
+     "chip": "Knight check strands piece, aids king",
+     "fire_rate_pct": 1.482,
+     "description": "All 10/10 positions feature a knight delivering check that proves counterproductive. In 5/10 cases (positions 1, 3, 8, 9, and partially 10), the knight becomes trapped or stranded on its destination square after the king sidesteps. In 5/10 cases (positions 2, 4, 5, 6, 7), the kni"
+    },
+    {
+     "feature_id": 1835,
+     "chip": "Queen check drives king to safety",
+     "fire_rate_pct": 1.417,
+     "description": "10/10 positions feature a Queen delivering check, and 9/10 of these checks are mistakes (the one exception, Position 8, lost 0cp). The core pattern is choosing a flashy queen check over a quieter but vastly superior alternative. In 7/10 positions, the check drives the opponent's "
+    },
+    {
+     "feature_id": 1894,
+     "chip": "Rook check improves enemy king",
+     "fire_rate_pct": 0.942,
+     "description": "All 10/10 positions feature a rook delivering check that is tactically or strategically counterproductive. In 10/10 cases the move is a rook check (+), and in every case the check fails to accomplish anything constructive. The specific harms vary: in 5/10 positions the check acti"
+    }
+   ]
+  },
+  {
+   "fine_id": 34,
+   "size": 11,
+   "features": [
+    {
+     "feature_id": 89,
+     "chip": "Queen sallies out, king exposed",
+     "fire_rate_pct": 1.552,
+     "description": "All 10/10 positions feature the moving side's king critically exposed (tagged king_safety in every case), and in every instance the played move sends a piece (queen 5/10, rook 4/10, knight 1/10) to a square that appears active or aggressive while completely ignoring the urgent de"
+    },
+    {
+     "feature_id": 219,
+     "chip": "f4 pawn push ignores mating net",
+     "fire_rate_pct": 1.108,
+     "description": "8/10 positions feature king_safety as the primary tactical motif, and in all 10 cases the player chose a 'proactive' move (attacking an opponent's piece, advancing a pawn, centralizing) while their position demanded immediate defensive or tactical action. In 5/10 positions (1, 4,"
+    },
+    {
+     "feature_id": 696,
+     "chip": "Bishop activity over forcing continuations",
+     "fire_rate_pct": 1.486,
+     "description": "All 10/10 positions feature bishop moves to apparently active squares\u2014attacking pieces, centralizing, pinning, or capturing pawns\u2014that miss much stronger tactical resources. In 8/10 cases, a devastating concrete continuation existed (forced mate, discovered attack, queen sacrific"
+    },
+    {
+     "feature_id": 794,
+     "chip": "Rook 'improves' over forcing capture",
+     "fire_rate_pct": 1.549,
+     "description": "All 10/10 positions feature a rook move to a seemingly active square \u2014 an open file, an attacking rank, or a centralized post \u2014 that is neither a capture nor a check. In every case, the position demanded immediate concrete action that was missed. In 3/10 positions (1, 2, 7), the "
+    },
+    {
+     "feature_id": 1018,
+     "chip": "Knight repositions while king burns",
+     "fire_rate_pct": 1.8,
+     "description": "All 10/10 positions feature a knight move that is neither a check nor a capture \u2014 a pure repositioning to a seemingly 'active' or 'aggressive' square. In every case, the position demanded urgent action: 4/10 required addressing immediate mating threats against the player's own ki"
+    },
+    {
+     "feature_id": 1138,
+     "chip": "Rook move blocks king's escape",
+     "fire_rate_pct": 1.31,
+     "description": "All 10 positions feature a rook move made when the player's king is exposed or vulnerable. In 4/10 positions (1, 2, 6, 10), the rook directly occupies the king's critical escape square (f8 or g8), enabling perpetual checks or immediate checkmate. In 2/10 (positions 3, 4), the roo"
+    },
+    {
+     "feature_id": 1233,
+     "chip": "Bishop repositions, abandons critical duty",
+     "fire_rate_pct": 1.109,
+     "description": "9/10 positions feature severely exposed kings (both sides frequently have weak pawn shields), and 8/10 involve open files or ranks creating immediate tactical vulnerability. The played moves consistently choose an 'active-looking' action\u2014a piece reposition to an aggressive square"
+    },
+    {
+     "feature_id": 1538,
+     "chip": "Rook abandons defensive file for activity",
+     "fire_rate_pct": 1.161,
+     "description": "All 10 positions feature rook moves to 'active' squares\u2014attacking pawns, invading ranks, or giving checks. In 9/10 positions, the player's king is exposed or vulnerable. The core error in 8/10 cases is that the rook abandons a critical defensive axis (a key file or proximity to t"
+    },
+    {
+     "feature_id": 1528,
+     "chip": "Rook deserts king's defensive post",
+     "fire_rate_pct": 1.016,
+     "description": "9/10 positions featured critically exposed kings where king safety was the overriding concern. 8/10 moves were rook moves to apparently active squares (open files, 2nd/7th ranks, central positions). In 5/10 positions, the correct move was specifically a king move (Ka8, Kg2, Kd7, "
+    },
+    {
+     "feature_id": 1822,
+     "chip": "Rook activation over forcing shot",
+     "fire_rate_pct": 2.532,
+     "description": "8/10 positions feature mutually exposed kings with weak pawn shields in open or semi-open positions. The moves played are overwhelmingly 'active-looking' \u2014 rooks to the 7th rank or central files (5/10), queens to central squares like d3/d4/c4 (3/10), and kings centralizing to d4/"
+    },
+    {
+     "feature_id": 1844,
+     "chip": "Rook stops short of forcing blow",
+     "fire_rate_pct": 2.791,
+     "description": "All 10/10 positions involve rook moves to squares that appear active or aggressive (open files, attacking ranks, doubling positions) but fail to deliver the critical blow. In 7/10 positions, a forcing move (check or capture) was available that would have maintained a forced mate "
+    }
+   ]
+  },
+  {
+   "fine_id": 134,
+   "size": 10,
+   "features": [
+    {
+     "feature_id": 33,
+     "chip": "Rook lift abandons defensive rank",
+     "fire_rate_pct": 2.978,
+     "description": "All 10/10 positions feature a rook moving from its home rank to a middle rank (3rd, 4th, 5th, or 6th) without a capture or check \u2014 a classic 'rook lift' intended to create attacking potential. In 7/10 positions, the rook lift directly abandoned back-rank or second-rank defensive "
+    },
+    {
+     "feature_id": 98,
+     "chip": "Rook lift lets defense consolidate",
+     "fire_rate_pct": 2.817,
+     "description": "All 10/10 positions feature a rook moving to an intermediate rank (3rd, 4th, or 6th) with the intent of swinging laterally toward the opponent's king \u2014 a classic 'rook lift' maneuver. In every case, the attacker has a strong queen already targeting the enemy king and a clearly wi"
+    },
+    {
+     "feature_id": 623,
+     "chip": "Rook invades before preparation complete",
+     "fire_rate_pct": 1.96,
+     "description": "All 10/10 positions feature a rook making an aggressive-looking move \u2014 invading the 2nd/7th rank, advancing to the 6th/8th rank, giving check, or capturing \u2014 that is tactically premature. In 5/10 cases (positions 1, 2, 4, 6, 7), the rook invades an advanced rank without first neu"
+    },
+    {
+     "feature_id": 676,
+     "chip": "King steps into file harassment",
+     "fire_rate_pct": 1.267,
+     "description": "All 7/7 positions feature king moves to more central or forward squares that appear active but create tactical vulnerabilities. In 5/7 positions, the king walks into an open file or rank where it immediately faces checks (Positions 1, 4, 5, 6) or allows the opponent's king/pieces"
+    },
+    {
+     "feature_id": 710,
+     "chip": "Rook targets pawn, abandons post",
+     "fire_rate_pct": 1.716,
+     "description": "All 10 positions feature a rook (9/10) or queen (1/10) moving to an open rank or file to attack an enemy pawn \u2014 typically to the 2nd/7th rank (positions 2, 5, 7, 8, 10), the 3rd/6th rank (positions 1, 3, 6, 9), or the a-file (position 4). In every case, the 'active' pawn-targetin"
+    },
+    {
+     "feature_id": 718,
+     "chip": "Rook 'attacks' queen, abandons post",
+     "fire_rate_pct": 2.9,
+     "description": "In 10/10 positions, a rook is moved to a file or rank where it 'targets' an enemy queen that doesn't need to move. The queen either has a stronger forward square available (positions 1, 4), can simply ignore the attack while exploiting what the rook abandoned (positions 3, 5, 6, "
+    },
+    {
+     "feature_id": 876,
+     "chip": "Rook invades wrong rank/file",
+     "fire_rate_pct": 1.523,
+     "description": "All 10/10 positions feature a rook moving aggressively into the opponent's position\u2014to the 7th rank, 8th rank, or equivalent deep infiltration squares. These moves appear natural and attacking (invading open files, giving checks, making captures), but they consistently miss more "
+    },
+    {
+     "feature_id": 911,
+     "chip": "Rook penetrates to undefended rank square",
+     "fire_rate_pct": 1.011,
+     "description": "9/10 positions feature rook moves, and 8/9 of those rook moves target the opponent's back rank (8th/1st rank) or second rank (7th/2nd rank) \u2014 the classic 'deep penetration' squares. 6/10 moves involve check or capture, making them appear forcing and powerful. However, the blunder"
+    },
+    {
+     "feature_id": 1425,
+     "chip": "Rook invades 7th rank prematurely",
+     "fire_rate_pct": 1.179,
+     "description": "All 10/10 positions feature a rook moving to the opponent's back ranks \u2014 specifically 9/10 to the opponent's 2nd rank (7th rank from the attacker's perspective) and 1/10 to the 1st rank. The move always looks strategically appealing (a rook on the 7th is a classic positional adva"
+    },
+    {
+     "feature_id": 1619,
+     "chip": "Rook activity over forcing pawn/check",
+     "fire_rate_pct": 1.576,
+     "description": "All 10/10 positions feature a rook move, and 9/10 occur in the endgame phase. In 8/10 cases, the rook moves to a deep penetrating rank (7th or 8th rank from the opponent's perspective) or to an active-looking square on an open file. Positions consistently feature passed pawns (10"
+    }
+   ]
+  },
+  {
+   "fine_id": 68,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 55,
+     "chip": "Pawn push over forcing king attack",
+     "fire_rate_pct": 1.314,
+     "description": "10/10 positions feature at least one king that is exposed, uncastled, or has a critically weak pawn shield. In 8/10 positions, the player chose a non-forcing move (pawn advance, passive retreat, or wrong capture order) when the position demanded an immediate forcing solution\u2014a ch"
+    },
+    {
+     "feature_id": 94,
+     "chip": "pawn push ignores mating attack",
+     "fire_rate_pct": 1.837,
+     "description": "All 10/10 positions feature a single-square pawn advance that appears purposeful or aggressive but critically ignores the tactical demands of the position. In 6/10 cases (positions 1, 2, 3, 4, 5, 6), the player pushes a pawn while an immediate tactical threat exists that requires"
+    },
+    {
+     "feature_id": 556,
+     "chip": "Pawn push over urgent piece action",
+     "fire_rate_pct": 1.468,
+     "description": "All 10/10 positions feature a non-capturing, non-checking pawn advance played when the position contains an urgent tactical obligation. In 5/10 cases (Positions 2, 4, 8, 9, 10), the player completely ignores an existing threat or misses a forced winning/saving sequence. In 4/10 c"
+    },
+    {
+     "feature_id": 731,
+     "chip": "Quiet pawn lets bishop fall",
+     "fire_rate_pct": 1.03,
+     "description": "In 9/10 positions, a bishop is under immediate attack (by a pawn or knight) and requires urgent action \u2014 either retreat, exchange, or counterattack. Instead, the player makes a quiet, non-forcing move (typically a one-square pawn push to the 3rd rank) that completely ignores the "
+    },
+    {
+     "feature_id": 1033,
+     "chip": "Shelter pawn lets attack break through",
+     "fire_rate_pct": 1.212,
+     "description": "All 10/10 positions feature a quiet (non-capturing, non-checking) pawn push on a file immediately adjacent to the player's own exposed king. In every case, the king has a weak pawn shield or is directly exposed (10/10 positions explicitly tag king vulnerability). The pawn moves a"
+    },
+    {
+     "feature_id": 1067,
+     "chip": "Quiet pawn push surrenders initiative",
+     "fire_rate_pct": 1.476,
+     "description": "All 10/10 positions feature a non-capturing, non-checking pawn advance played instead of addressing an urgent tactical obligation. In 8/10 cases, king safety was a critical factor (either the player's own exposed king or the opponent's vulnerable king needing immediate exploitati"
+    },
+    {
+     "feature_id": 1252,
+     "chip": "Queen move lets knight fork stand",
+     "fire_rate_pct": 1.598,
+     "description": "In 10/10 positions, the player makes a non-forcing queen move (no check, no capture) to a central or semi-central square that appears active or purposeful. In 9/10 positions, an enemy knight deeply infiltrated in the player's territory creates immediate tactical threats (forks, a"
+    },
+    {
+     "feature_id": 1442,
+     "chip": "Shield pawn advance opens king",
+     "fire_rate_pct": 1.073,
+     "description": "All 10/10 positions feature a severely exposed king (the player's own in most cases) under immediate or imminent tactical threat. In every case, the player chose a quiet, non-forcing move \u2014 no checks, no captures, no direct threats \u2014 that either actively worsened king safety or s"
+    }
+   ]
+  },
+  {
+   "fine_id": 131,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 191,
+     "chip": "Bishop check surrendered, mating net collapses",
+     "fire_rate_pct": 1.631,
+     "description": "All 10/10 positions feature a bishop delivering check that is immediately captured by the opponent, resulting in significant material or strategic loss. In 8/10 cases, the bishop is directly recaptured on its checking square (by rook, knight, bishop, or queen). In 5/10 positions,"
+    },
+    {
+     "feature_id": 555,
+     "chip": "Queen check strands piece on rim",
+     "fire_rate_pct": 1.263,
+     "description": "All 10/10 positions feature a check ('+') that accomplishes nothing forced or beneficial. In 9/10 cases the opponent's king simply sidesteps to a safe (often improved) square, and in 1/10 the check is blocked by a useful pawn advance. 6/10 are queen checks (often to corner/edge s"
+    },
+    {
+     "feature_id": 612,
+     "chip": "Rook grabs pawn, lost for nothing",
+     "fire_rate_pct": 1.148,
+     "description": "10/10 positions feature a rook delivering check as the blunder move, and 8/10 specifically involve the rook capturing a pawn with check near the opponent's king. In every case, the opponent has a straightforward recapture (by knight, queen, bishop, rook, or pawn) that leaves the "
+    },
+    {
+     "feature_id": 700,
+     "chip": "Queen check strands piece peripherally",
+     "fire_rate_pct": 0.789,
+     "description": "All 10/10 positions feature a queen delivering check to a back-rank square (rank 1 or rank 8: a1, a8, b1, b8, c1, c8, f8). In every case, the opponent easily deals with the check\u2014either by stepping the king to a safe square (7/10) or blocking with a useful interposition (3/10)\u2014le"
+    },
+    {
+     "feature_id": 715,
+     "chip": "Rook check improves enemy king",
+     "fire_rate_pct": 1.044,
+     "description": "All 10/10 positions feature a rook delivering check along an open file or rank, and in every case the check is easily parried while the opponent's position actually improves. In 8/10 positions, the opponent's king moves to a demonstrably better square after the check (centralizin"
+    },
+    {
+     "feature_id": 708,
+     "chip": "Bishop check hits wrong square",
+     "fire_rate_pct": 0.607,
+     "description": "All 10/10 positions feature a bishop move that delivers check \u2014 8/10 are discovered checks where the bishop vacates a line to unleash another piece, while 2/10 are direct bishop checks. In 8/10 cases, there exists an alternative bishop move (often also giving check) to a DIFFEREN"
+    },
+    {
+     "feature_id": 1277,
+     "chip": "Rook check drives king forward",
+     "fire_rate_pct": 1.23,
+     "description": "All 10/10 positions feature a major piece (9/10 rook, 1/10 queen) delivering check to an exposed king in an endgame. In every case, the check fails to create any lasting threat \u2014 the opponent's king simply sidesteps to an equal or superior square. 10/10 analyses identify 'tempo_l"
+    },
+    {
+     "feature_id": 1281,
+     "chip": "Queen corner check, king escapes safer",
+     "fire_rate_pct": 1.085,
+     "description": "All 10/10 positions feature a queen delivering check to one of the four corner squares (a1, a8, h1, or h8). In every case, the check is premature \u2014 the opponent's king calmly sidesteps to a square that is actually safer or better-connected than its original position. 10/10 positi"
+    }
+   ]
+  },
+  {
+   "fine_id": 177,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 450,
+     "chip": "King flees passer, collapses position",
+     "fire_rate_pct": 2.477,
+     "description": "All 10/10 positions feature king moves that retreat or sidestep in the wrong direction relative to the board's most important threat. In 7/10 cases, the king moves away from a dangerous passed pawn that needs blockading or contesting (positions 3, 5, 7, 8, 10 involve fleeing from"
+    },
+    {
+     "feature_id": 543,
+     "chip": "Queen quits king's defensive sector",
+     "fire_rate_pct": 6.393,
+     "description": "All 10/10 positions feature queen moves that relocate the queen away from the critical sector of the board. In 8/10 cases, king safety is the primary tactical motif being violated\u2014the queen leaves a square where it defends key squares around an exposed king (Positions 1, 2, 3, 4,"
+    },
+    {
+     "feature_id": 761,
+     "chip": "Knight retreats to rim self-trap",
+     "fire_rate_pct": 0.975,
+     "description": "10/10 positions feature king safety as the critical tactical concern, and in every case the played move worsens the player's own king safety through self-obstruction. 4/10 moves are knight retreats to the board's edge (Nh2 \u00d73, Nb8 \u00d71) that either block the king's escape route or "
+    },
+    {
+     "feature_id": 878,
+     "chip": "Rook blocks pawn, surrenders activity",
+     "fire_rate_pct": 1.094,
+     "description": "All 10/10 positions feature a rook moving to directly blockade or neutralize a dangerous passed pawn (typically 1-2 squares from promotion). In every case, the rook lands on the file of the passed pawn in a defensive/blocking posture. The passed pawns blockaded were on d6, a6, a7"
+    },
+    {
+     "feature_id": 1418,
+     "chip": "Queen vacates dominant pressure post",
+     "fire_rate_pct": 4.673,
+     "description": "All 10/10 positions feature queen moves where the queen leaves a square of maximum influence \u2014 often threatening mate, pinning the opponent's king to a vulnerable corridor, or preventing a key tactical operation \u2014 and relocates to a square that looks reasonable but loses the posi"
+    },
+    {
+     "feature_id": 1463,
+     "chip": "Queen vacates critical defensive post",
+     "fire_rate_pct": 1.313,
+     "description": "All 10/10 positions feature a queen move that displaces the queen from a post where it was defending a key piece, controlling a critical square, or maintaining pressure that constrained the opponent. In 5/10 cases the queen moves toward the board's edge or corner (Qa5, Qxa2, Qb4,"
+    },
+    {
+     "feature_id": 1475,
+     "chip": "Rook misses critical rank for passer",
+     "fire_rate_pct": 0.969,
+     "description": "All 10 positions feature a rook move that places the rook on a square that appears reasonable but is fundamentally misplaced relative to the position's most urgent demand. 8/10 positions involve dangerous passed pawns near promotion, where the rook needed to be on a specific squa"
+    },
+    {
+     "feature_id": 1930,
+     "chip": "Knight leaves critical post",
+     "fire_rate_pct": 0.978,
+     "description": "All 10/10 positions feature a piece that was performing a critical function (blockading a passed pawn, supporting a key advance, maintaining active pressure, or occupying a vital square) being voluntarily moved away from that post. 4/10 positions involve giving checks that appear"
+    }
+   ]
+  },
+  {
+   "fine_id": 158,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 182,
+     "chip": "Knight leaves file, king exposed",
+     "fire_rate_pct": 1.385,
+     "description": "10/10 positions feature a knight moving away from a square where it was performing a vital defensive role, directly enabling a king-safety catastrophe. In at least 7/10 cases, the knight was specifically blocking an open or semi-open file (c-file in Position 2, g-file in Position"
+    },
+    {
+     "feature_id": 381,
+     "chip": "Rook quits file, pawn promotes",
+     "fire_rate_pct": 1.182,
+     "description": "10/10 positions feature a dangerous passed pawn (within 1-2 squares of promotion) that was being blockaded or restrained by the moving piece. In 9/10 cases, a rook that was sitting on the critical file controlling the pawn's advance moves laterally to a different file (Ra2 off c-"
+    },
+    {
+     "feature_id": 952,
+     "chip": "Knight departs, queen hangs immediately",
+     "fire_rate_pct": 4.838,
+     "description": "All 10/10 positions feature a knight being relocated from a square where it served a vital structural role. In 6/10 cases (positions 1, 4, 7, 8, and partially 6 and 10), the knight was blocking a line (diagonal or file) that protected a queen from capture\u2014once removed, the queen "
+    },
+    {
+     "feature_id": 1047,
+     "chip": "Queen departs, defended piece hangs",
+     "fire_rate_pct": 1.732,
+     "description": "All 10/10 positions feature a queen move that removes the queen from a square where it was performing an essential defensive function \u2014 the sole or critical protector of another piece or key square. In 6/10 cases (positions 1, 2, 3, 4, 6, 8), the queen was the only defender of a "
+    },
+    {
+     "feature_id": 1167,
+     "chip": "Rook quits file, bishop hangs",
+     "fire_rate_pct": 1.298,
+     "description": "8/10 positions involve rook moves, and in 7/10 the rook was actively stationed on an open file (e-file, d-file, c-file, or h-file) where it defended another piece or enabled a tactical combination. When the rook is relocated to a seemingly useful but actually inferior square, the"
+    },
+    {
+     "feature_id": 1240,
+     "chip": "Development severs queen's defensive line",
+     "fire_rate_pct": 1.849,
+     "description": "In 7/10 positions, a knight or bishop develops to a square on the d-file (d2, d3, d6, or d7) that physically interposes between the queen and a piece it was defending, leaving that piece hanging. The clearest sub-group (positions 1, 2, 6, 7, 8 \u2014 5/10) involves a piece landing on "
+    },
+    {
+     "feature_id": 1345,
+     "chip": "Rook moves onto attacked square",
+     "fire_rate_pct": 1.491,
+     "description": "All 10 positions share a critical feature: an immediate forcing move (check, capture, or fork) was required, but instead a 'logical-looking' repositioning or improving move was played. In 6/10 positions, the move directly left a piece hanging \u2014 either the moved piece itself was p"
+    }
+   ]
+  },
+  {
+   "fine_id": 125,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 112,
+     "chip": "King steps onto mating rank/diagonal",
+     "fire_rate_pct": 1.324,
+     "description": "10/10 positions feature king moves that voluntarily walk onto a critical line \u2014 either the back rank or an open diagonal \u2014 where the opponent's pieces can immediately deliver checks, win material, or deliver checkmate. In 8/10 cases, the king moves to the back rank (g8, f8, c1, g"
+    },
+    {
+     "feature_id": 207,
+     "chip": "King steps onto checked rank/file",
+     "fire_rate_pct": 0.841,
+     "description": "9/10 positions feature king moves (the exception being b5, a pawn move-order error in a king-pawn endgame). In at least 8/10 cases, the king specifically steps onto a rank, file, or diagonal where an opponent's piece or promoting pawn can deliver check or checkmate immediately. T"
+    },
+    {
+     "feature_id": 544,
+     "chip": "Rook drifts to back rank",
+     "fire_rate_pct": 1.782,
+     "description": "9/10 positions show the rook moving to the opponent's back rank (rank 8 for White, rank 1 for Black), while 1/10 (Rg2) shows a similar drift toward the opponent's side of the board. All 10 positions are endgames where the rook had an urgent local duty \u2014 defending a critical pawn "
+    },
+    {
+     "feature_id": 650,
+     "chip": "Rook check improves opposing king",
+     "fire_rate_pct": 1.357,
+     "description": "10/10 positions feature a rook delivering check to an opposing king that is exposed (lacking pawn shelter or on an open file/rank). 7/10 occur in endgames where king activity is critical. While 5/10 moves are actually the best or near-best move (0cp loss), the remaining 5 lose si"
+    },
+    {
+     "feature_id": 1911,
+     "chip": "Midline pawn contact locks endgame structure",
+     "fire_rate_pct": 1.1,
+     "description": "All 10/10 positions feature a pawn advancing to the 4th rank (White: b4\u00d74, c4\u00d71) or 5th rank (Black: g5\u00d73, a5\u00d71, f5\u00d71) \u2014 crossing the board's midline into contact with the opponent's pawns. In every case, this confrontational pawn push commits the structure too early, and 10/10 p"
+    },
+    {
+     "feature_id": 1950,
+     "chip": "Rook drifts to edge file",
+     "fire_rate_pct": 1.238,
+     "description": "All 10/10 positions feature a rook move that relocates the rook away from the critical sector of the board. In 9/10 positions (all endgames), the rook abandons either: a key file controlling a passed pawn (positions 2, 4, 6, 7, 8), a back-rank/mating-net defensive duty (positions"
+    }
+   ]
+  },
+  {
+   "fine_id": 199,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 126,
+     "chip": "Rook vacates back rank fatally",
+     "fire_rate_pct": 0.86,
+     "description": "9/10 positions feature a rook move (the 10th is a king move with the same thematic error) that leaves a critical defensive station for an illusory aggressive square. 5/10 positions directly result in back-rank checkmate or mating nets after the rook vacates the 8th rank (Position"
+    },
+    {
+     "feature_id": 1352,
+     "chip": "Rook deserts back-rank coverage",
+     "fire_rate_pct": 1.103,
+     "description": "10/10 positions feature rook moves played with aggressive intent\u2014doubling on a file, giving check, or infiltrating\u2014that fatally neglect the rook's existing defensive duty. In 7/10 positions, the abandoned responsibility is specifically back-rank or mating-square coverage (Positio"
+    },
+    {
+     "feature_id": 1460,
+     "chip": "Rook quits vital defensive post",
+     "fire_rate_pct": 1.17,
+     "description": "All 10/10 positions feature a rook moving away from a vital defensive assignment to pursue an apparently active goal \u2014 attacking a piece, centralizing, or contesting a file \u2014 that proves irrelevant to the position's actual demands. In 6/10 cases the rook abandons back-rank or key"
+    },
+    {
+     "feature_id": 1765,
+     "chip": "Rook vacates critical defensive post",
+     "fire_rate_pct": 1.847,
+     "description": "All 10/10 positions feature a rook making a non-capturing, non-checking move to what appears to be a useful defensive square, but in doing so the rook vacates a square where it was performing an irreplaceable defensive task. In 6/10 cases the rook was guarding against king-safety"
+    },
+    {
+     "feature_id": 1924,
+     "chip": "Rook quits back rank, enables mate",
+     "fire_rate_pct": 2.412,
+     "description": "All 10/10 positions feature a rook that was guarding the 1st or 8th rank moving away to an ostensibly active or material-gaining square, instantly enabling a back-rank checkmate or mating sequence. In 10/10 cases the tactical motif is back_rank mate. The king in every position is"
+    },
+    {
+     "feature_id": 1934,
+     "chip": "Rook quits file, invites mate",
+     "fire_rate_pct": 2.08,
+     "description": "8/10 positions feature rook moves and 2/10 feature queen moves, all sharing the same structural error: the piece redirects from a critical defensive post to an aggressive/greedy square. In 6/10 positions, the punishment directly exploits king safety (back-rank mates in positions "
+    }
+   ]
+  },
+  {
+   "fine_id": 184,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 142,
+     "chip": "Queen grabs back-rank, ignores king",
+     "fire_rate_pct": 1.127,
+     "description": "10/10 positions feature a queen capturing a piece on the first or eighth rank, with 7/10 specifically targeting corner squares (a1, h1, a8, h8) and the remaining 3 on near-corner or edge back-rank squares (b8, g1, g8, e8). In 8/10 positions, the core punishment is a devastating a"
+    },
+    {
+     "feature_id": 821,
+     "chip": "King corners on h1/h8 fatally",
+     "fire_rate_pct": 1.71,
+     "description": "All 10/10 positions feature the king moving to the h-file corner square (Kh1 for White, Kh8 for Black) during the middlegame. In 8/10 cases, the primary refutation directly exploits the h-file against the cornered king: 5/10 involve immediate rook sacrifices on h2/h7 (Rxh2+ or Rx"
+    },
+    {
+     "feature_id": 1089,
+     "chip": "King flees center into mating net",
+     "fire_rate_pct": 1.726,
+     "description": "In 10/10 positions, the king faces extreme pressure from enemy rooks (usually doubled on a rank or file), and must choose its escape direction with only 1-2 viable options. In the 7 positions with significant cp_loss, the king moved TOWARD the center or an open file (Kc1 toward d"
+    },
+    {
+     "feature_id": 1190,
+     "chip": "Rook grabs piece, back-rank collapses",
+     "fire_rate_pct": 0.898,
+     "description": "All 10/10 positions feature a rook capturing a piece on the 1st or 8th rank (Rx_1 or Rx_8), after which the opponent's second heavy piece recaptures on that same square with check, initiating a forced back-rank mating sequence. In every case, the blundering side's king is entombe"
+    },
+    {
+     "feature_id": 1259,
+     "chip": "Rook to g1/g8 traps king",
+     "fire_rate_pct": 0.946,
+     "description": "10/10 positions feature a king trapped on a corner back-rank square (h1/h8 in 9/10, a8 in 1/10), and the blunder places a heavy piece on the adjacent back-rank square as passive defense. 9/10 moves specifically go to g1 or g8 (the g-file back rank square next to the cornered king"
+    }
+   ]
+  }
+ ]
+}

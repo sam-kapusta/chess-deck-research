@@ -1,0 +1,390 @@
+{
+ "coarse_id": 16,
+ "n_features": 58,
+ "subclusters": [
+  {
+   "fine_id": 63,
+   "size": 14,
+   "features": [
+    {
+     "feature_id": 273,
+     "chip": "Queen picks wrong active square",
+     "fire_rate_pct": 1.73,
+     "description": "In 10/10 positions, the player moved their queen to a square that appeared strong (centralized, attacking, material-grabbing) but was actually a mistake\u2014and in all 10 cases, the best move was also a queen move (or queen trade) to a different square. The player correctly identifie"
+    },
+    {
+     "feature_id": 603,
+     "chip": "Rook penetrates, misses concrete blow",
+     "fire_rate_pct": 0.731,
+     "description": "All 10 positions feature a rook move to a seemingly aggressive or active square that turns out to be a significant error. In 5/10 positions (1, 3, 4, 5, 8), the best move was a rook exchange or simplification that the player avoided in favor of maintaining/increasing rook 'activi"
+    },
+    {
+     "feature_id": 752,
+     "chip": "King retreats to wrong adjacent square",
+     "fire_rate_pct": 1.401,
+     "description": "All 10/10 positions feature king moves played as defensive or prophylactic retreats that select the wrong destination square. In 8/10 cases, the correct move was also a king move (just to a different adjacent square), meaning the player correctly identified the need to move the k"
+    },
+    {
+     "feature_id": 792,
+     "chip": "King steps onto enemy open line",
+     "fire_rate_pct": 0.811,
+     "description": "10/10 positions involve king moves where the king is already exposed or on an awkward square, and the player attempts to improve its placement but selects the wrong destination. In 8/10 cases, only 1 good king destination existed (avg good moves: 1.4), making these razor-thin dec"
+    },
+    {
+     "feature_id": 921,
+     "chip": "King misses sole correct square",
+     "fire_rate_pct": 1.538,
+     "description": "All 10/10 positions are endgames featuring king moves where the player selects a seemingly reasonable destination square but misses the one (or two) correct options. The average number of good moves available was only 1.8, indicating these are positions with razor-thin margins wh"
+    },
+    {
+     "feature_id": 1090,
+     "chip": "King steps wrong way, loses opposition",
+     "fire_rate_pct": 1.397,
+     "description": "All 10/10 positions feature king moves that go in the wrong direction. In 8/10 cases, the best move was also a king move but to a different square (typically the opposite direction or toward the center), while in 2/10 cases (positions 6 and 8) the king shouldn't have moved at all"
+    },
+    {
+     "feature_id": 1196,
+     "chip": "Queen move misses forcing concrete solution",
+     "fire_rate_pct": 1.108,
+     "description": "All 9 positions share an extremely narrow solution space (avg 1.2 good moves available), meaning the position demanded one specific precise move. In 5/9 positions (1, 3, 4, 5, 10), the error was using the WRONG PIECE for the task\u2014capturing with the Queen when the Bishop should ca"
+    },
+    {
+     "feature_id": 1266,
+     "chip": "Knight grabs lesser piece over rook",
+     "fire_rate_pct": 1.348,
+     "description": "In 9/10 positions, the best move was also a knight move\u2014meaning the player identified the correct piece to move but chose the wrong square. In 6/10 cases (positions 1, 3, 4, 6, 8, 10), the knight could have captured a MORE VALUABLE target (rook on g1/h8/h7, or a strategically cri"
+    },
+    {
+     "feature_id": 1330,
+     "chip": "Bishop to rim or open file",
+     "fire_rate_pct": 1.196,
+     "description": "All 10/10 positions feature a bishop being moved to a square that creates an immediate tactical liability. In 9/10 cases, the best alternative moves were ALSO bishop moves to different squares, confirming the error is specifically about choosing the wrong destination. The vulnera"
+    },
+    {
+     "feature_id": 1454,
+     "chip": "King avoids corner, enters fire",
+     "fire_rate_pct": 1.524,
+     "description": "All 10/10 positions involve king moves that select the wrong destination square, walking into an immediate tactical vulnerability. In 7/10 cases, the best move was also a king move but to a different, safer square (typically Kh1 or Kh8 \u2014 the corner). The played moves chose more c"
+    },
+    {
+     "feature_id": 1881,
+     "chip": "Wrong knight leaves outpost vacant",
+     "fire_rate_pct": 1.031,
+     "description": "All 10/10 positions feature disambiguated knight moves (algebraic notation specifies WHICH knight moves because both could reach the target square), and in every case the player chose the wrong knight. In 6/10 positions (1, 3, 4, 6, 8, 10), the correct move was actually moving th"
+    },
+    {
+     "feature_id": 1877,
+     "chip": "Bishop grabs, own queen hangs",
+     "fire_rate_pct": 1.127,
+     "description": "8/10 moves are bishop captures or bishop moves, and 9/10 are captures or forcing moves that prioritize winning material on the target square while neglecting a bigger liability in the position. In at least 6/10 positions (1, 4, 7, 9, 10, and arguably 3), the move directly leaves "
+    },
+    {
+     "feature_id": 1899,
+     "chip": "Rook moves short of capture",
+     "fire_rate_pct": 1.274,
+     "description": "In 9/10 positions, the correct move was an immediate capture of a vulnerable enemy piece (hanging, under-defended, or positionally dominant), and in 9/10 cases the piece that SHOULD have made the capture is the very piece that moved \u2014 but to the wrong square. Position 1: b-pawn g"
+    },
+    {
+     "feature_id": 1953,
+     "chip": "Bishop grab misses queen opportunity",
+     "fire_rate_pct": 1.44,
+     "description": "In 9/10 positions, the best move involved the queen \u2014 whether delivering check (positions 1, 4, 7), capturing a more valuable target (positions 2, 6), or centralizing to a dominant square (positions 3, 5, 9, 10). Instead, the actual moves played were exclusively non-queen actions"
+    }
+   ]
+  },
+  {
+   "fine_id": 33,
+   "size": 11,
+   "features": [
+    {
+     "feature_id": 38,
+     "chip": "Bishop repositions while threats loom",
+     "fire_rate_pct": 1.711,
+     "description": "All 10 positions share a common pattern: the player makes a natural-looking 'improving' move (piece development, repositioning, or a positional pawn break) while ignoring the position's most critical tactical demand. In 6/10 positions, the blunder is specifically a bishop move to"
+    },
+    {
+     "feature_id": 64,
+     "chip": "Queen repost ignores concrete demand",
+     "fire_rate_pct": 1.845,
+     "description": "10/10 positions feature queen moves to seemingly active or aggressive squares. In 8/10 positions, these moves are genuine mistakes (avg cp_loss ~3943 for the blunders), while 2/10 (positions 7 and 8) are actually correct moves where the queen reposition is justified. The consiste"
+    },
+    {
+     "feature_id": 113,
+     "chip": "Rook repositions while opponent invades",
+     "fire_rate_pct": 0.967,
+     "description": "8/10 positions feature rook moves as the blunder (the remaining two are a queen retreat and a pawn push). In all 10 cases, the played move is a slow, non-forcing repositioning to a 'natural-looking' square \u2014 defending a pawn, doubling on a file, or improving placement \u2014 while the"
+    },
+    {
+     "feature_id": 248,
+     "chip": "Bishop develops amid tactical emergency",
+     "fire_rate_pct": 1.071,
+     "description": "In 10/10 positions, the player chose a quiet piece development or repositioning move when the position demanded an immediate, often forcing response to a critical tactical problem. In 7/10 cases, the blunder was a rook or bishop moving to a 'natural-looking' square (Rg8, Rb8, Bg5"
+    },
+    {
+     "feature_id": 583,
+     "chip": "Bishop repositions while tactics demand concrete action",
+     "fire_rate_pct": 1.451,
+     "description": "8/10 positions feature a significant blunder (avg 3041cp loss) where the player chose a quiet piece repositioning move instead of addressing an immediate tactical demand. All 10 moves share the same geometric character: they are non-forcing piece moves (no checks, no captures, no"
+    },
+    {
+     "feature_id": 1294,
+     "chip": "Knight leaps to attacked forward square",
+     "fire_rate_pct": 1.401,
+     "description": "In 7/10 positions, a knight makes the blundering move, while 2/10 involve bishops and 1/10 a rook\u2014but all share the same structural error. The piece leaves a strong or stable position to jump forward to a superficially aggressive square that turns out to be tactically flawed. In "
+    },
+    {
+     "feature_id": 1444,
+     "chip": "Bishop leaves critical defensive diagonal",
+     "fire_rate_pct": 17.483,
+     "description": "In 8/10 positions, the blundering move develops a piece (usually a bishop or queen) to an 'active-looking' square that either places it on a tactically exploitable square or abandons a critical defensive function. 7/10 positions feature the blundering side's king still in the cen"
+    },
+    {
+     "feature_id": 1678,
+     "chip": "Rook leaps to active square prematurely",
+     "fire_rate_pct": 1.216,
+     "description": "9/10 positions share the pattern of a piece being relocated to an apparently active or aggressive square that misses the position's actual demand. In 7/10 cases the blunder is a rook move to a 'natural-looking' square (7th rank, open file, checking square, attacking something). I"
+    },
+    {
+     "feature_id": 1694,
+     "chip": "Queen relocates into tactical trap",
+     "fire_rate_pct": 2.191,
+     "description": "In 8/10 positions, the blunder is a queen move; the remaining 2/10 are rook moves that share the same structural error. In every case, the player repositions a major piece to a square that appears reasonable (defensive consolidation, attacking probe, material grab) but creates a "
+    },
+    {
+     "feature_id": 1723,
+     "chip": "Premature rook check skips preparation",
+     "fire_rate_pct": 2.244,
+     "description": "8/10 positions feature rook checks, and 10/10 feature rook moves to seemingly active squares (back ranks, open files). The consistent error is executing the rook move prematurely without necessary preparation. In 6/10 cases (positions 1, 3, 4, 6, 7, 9), the correct sequence requi"
+    },
+    {
+     "feature_id": 1800,
+     "chip": "Rook repositions while pawns decide",
+     "fire_rate_pct": 1.286,
+     "description": "10/10 positions feature rook moves to seemingly natural or active squares (open files, central squares, the seventh rank) that are non-forcing and repositional in nature. In 9/10 cases these moves are mistakes (avg 160cp loss), with the core error being tempo loss: 9/10 positions"
+    }
+   ]
+  },
+  {
+   "fine_id": 82,
+   "size": 10,
+   "features": [
+    {
+     "feature_id": 7,
+     "chip": "Knight move over king activation",
+     "fire_rate_pct": 1.554,
+     "description": "10/10 positions involve knight moves that appear natural or aggressive but misaddress the position's critical need. In at least 6/10 positions, the best move was king activation (Kf3, Ke6, Kf1, Ke3, Kd5), yet the player chose a knight relocation instead. 8/10 positions are endgam"
+    },
+    {
+     "feature_id": 78,
+     "chip": "Bishop development delays queen urgency",
+     "fire_rate_pct": 0.544,
+     "description": "In 10/10 positions, the best available move was a queen move (Qa5, Qb5, Qe3, Qb3, Qxg5, Qxd5, etc.), yet the player chose a bishop development (7/10: Bd6\u00d73, Bc5, Be7, Bc4, Bb5) or pawn push (3/10: c5, c4, c6) instead. The queen moves were needed for diverse reasons \u2014 exploiting a"
+    },
+    {
+     "feature_id": 160,
+     "chip": "Rook clusters near king instead of escaping",
+     "fire_rate_pct": 1.604,
+     "description": "In 8/10 meaningful positions (excluding positions 3 and 7 where the move was essentially best in a resignable position), the player placed a piece adjacent to their own king as a 'bodyguard' (Rg2 near Kh2, Qg1 near Kh1, Qf1 near Kg1, Nf3 near Kh1, Rg8 near Kh8, Re8 near Kg8) inst"
+    },
+    {
+     "feature_id": 566,
+     "chip": "Rook move neglects king flight",
+     "fire_rate_pct": 0.835,
+     "description": "In 9/10 positions, the correct move was a quiet king retreat to safety (Kf8, Kh1, Kh8, Kf7, Kh2, Kh7, Kh8, Kh1), and in the remaining position (Position 8), the best move was c5 blocking a dangerous diagonal toward the king. Instead, all 10 players moved a non-king piece \u2014 rooks "
+    },
+    {
+     "feature_id": 750,
+     "chip": "Capture vacates critical defensive square",
+     "fire_rate_pct": 0.901,
+     "description": "In 10/10 positions, the player chose a move that appeared natural or attractive \u2014 a capture (6/10: Bxf8, bxa5, Bxh2, Bxg6, and arguably Ng5/Nf5 attacking pieces), a forward king march (2/10: Kf6, Ke6), or an aggressive pawn/piece advance (2/10: g4, f3) \u2014 while the position demand"
+    },
+    {
+     "feature_id": 879,
+     "chip": "King flees into mating net",
+     "fire_rate_pct": 4.193,
+     "description": "All 10/10 positions feature a king move played under significant pressure where the player defaults to a 'get the king to safety' instinct that proves catastrophic. In 4/10 positions (3, 5, 7, 10), the best move was not a king move at all \u2014 the correct response was a piece move ("
+    },
+    {
+     "feature_id": 1754,
+     "chip": "Rook move delays king evacuation",
+     "fire_rate_pct": 0.574,
+     "description": "In 10/10 positions, the player moved a rook instead of the king, and in 9/10 positions the best move was explicitly a king move (Ke6, Ke7, Kf7, Kf2, Kh8, Kg8, Kf5, etc.). The remaining position (Position 5) was already a forced mate where king moves were the best alternatives. In"
+    },
+    {
+     "feature_id": 1769,
+     "chip": "Pawn advance over forced defense",
+     "fire_rate_pct": 0.872,
+     "description": "In 10/10 positions, the player chose a move that appeared reasonable from a strategic or developmental standpoint \u2014 developing a piece (Be7, Bd5, Bg2), centralizing (Qd4, Ke2), pushing a pawn (f3, d4, f6), or making a capture (dxe5, bxc6) \u2014 while a single critical tactical threat"
+    },
+    {
+     "feature_id": 1857,
+     "chip": "Pawn push over king retreat",
+     "fire_rate_pct": 1.232,
+     "description": "In 10/10 positions, the player's king was exposed or vulnerable (explicitly noted in position features). In 8/10 positions, the single best move was a king retreat to safety (Kh6, Kf7, Kd1, Kg2, Kd8, Kd4, etc.), yet the player chose a 'constructive' pawn advance (7/10: b4, f5, f4"
+    },
+    {
+     "feature_id": 1955,
+     "chip": "Pawn push over king defense",
+     "fire_rate_pct": 1.043,
+     "description": "In 10/10 positions, the player chose a non-forcing, forward-looking aggressive move \u2014 pawn advances (7/10: f3, e5, c4, f5, exf7, f4, e5) or aggressive bishop developments (3/10: all Bb4) \u2014 when the position demanded either defensive precision or a more forcing tactical blow. In 8"
+    }
+   ]
+  },
+  {
+   "fine_id": 72,
+   "size": 9,
+   "features": [
+    {
+     "feature_id": 50,
+     "chip": "Pawn push over piece activation",
+     "fire_rate_pct": 0.79,
+     "description": "All 10/10 positions feature a pawn advance as the blunder, and in 9/10 cases the best available move was a piece move (typically a knight jump: Nb7, Ne3, Ne2, Nc4, Ne5 in 5 positions; or bishop/rook activation: Ra8, Bg6, Bf4 in 3 positions). In 6/10 positions, the pushed pawn was"
+    },
+    {
+     "feature_id": 84,
+     "chip": "Bishop move ignores exposed king",
+     "fire_rate_pct": 1.439,
+     "description": "In 8/8 positions, the blunder was a minor piece (bishop or knight) repositioning move that ignored a critical king safety crisis. In 6/8 positions, the correct move was specifically a KING move (Kh2, Kf1/Kh1, Kd2, Kd7, Kc8, Kh8) or direct king-safety action (Qg4 attacking exposed"
+    },
+    {
+     "feature_id": 156,
+     "chip": "Knight to c6/c3 invites punishment",
+     "fire_rate_pct": 0.494,
+     "description": "9/10 positions feature knight moves (plus 1 bishop move with identical logic) that look like normal piece development or repositioning but catastrophically ignore an urgent positional demand. In 5/10 positions, the correct move was a king escape (Kf8, Kb8, Kg1, Ke2, or similar). "
+    },
+    {
+     "feature_id": 189,
+     "chip": "Pawn push ignores piece solutions",
+     "fire_rate_pct": 0.775,
+     "description": "All 10/10 positions feature a forward pawn advance (d5, f5, f4, c4, c5, a4, h4) as the blunder, while the best moves were overwhelmingly piece actions: 7/10 had a capture or piece development as the top recommendation (exf4, exf5, Bxc4, Bb4, Nd5, etc.), and the remaining position"
+    },
+    {
+     "feature_id": 256,
+     "chip": "Quiet pawn push over urgent piece",
+     "fire_rate_pct": 0.655,
+     "description": "All 10/10 positions feature a quiet, non-capturing pawn push as the blunder. In 9/10 cases, the best move was an active piece move \u2014 typically a rook move (Rc8, Rb7+, Rc1, Rb5, Rxe3) or a capture/piece activation (Qxb6, Nxe4, Ng5). The average cp_loss of 1202 and only 1.4 good mo"
+    },
+    {
+     "feature_id": 513,
+     "chip": "Pawn push leaves bishop hanging",
+     "fire_rate_pct": 1.027,
+     "description": "All 10/10 positions feature pawn moves as the blunder. In 9/10 cases, the best alternative was a piece move or purposeful piece capture (Qf6, Nh4, Bh5, Bxf3, Nxf3, exd5, hxg2, Bxg5). The pawn moves consistently make an irreversible commitment at the exact moment the position dema"
+    },
+    {
+     "feature_id": 615,
+     "chip": "King shuffle into mating net",
+     "fire_rate_pct": 1.286,
+     "description": "9/10 positions feature a king move as the blunder (Kc5, Kf1\u00d73, Kg1, Kd8, Kg8, Kc2, Kh8), with the remaining position (Qd2) being a similarly passive piece retreat. In all 10 cases, only 1-3 good moves existed (avg 1.4), meaning the positions demanded precise calculation rather th"
+    },
+    {
+     "feature_id": 942,
+     "chip": "Pawn push over urgent piece play",
+     "fire_rate_pct": 1.998,
+     "description": "9/10 positions feature a pawn advance as the blunder (a6, d5, c4, b6, d5, g5, e4, f3, f4), with only 1/10 being a piece move (Nd5). In contrast, the best alternatives were overwhelmingly piece moves: 8/10 positions had queen moves as the top recommendation (Ra2/Qb1/Nc3, a6/Kb8/Qx"
+    },
+    {
+     "feature_id": 1109,
+     "chip": "Pawn move abandons king defense",
+     "fire_rate_pct": 0.848,
+     "description": "9/10 positions feature a pawn move as the blunder (h4, cxb4, axb4, exf3, dxe5, bxa5, c5, hxg4, g4), with only one exception being a knight move (Nh4). Critically, in 9/10 positions the correct move was a PIECE move \u2014 Rfe1, Qe4, Bxd5, Bb7, Rh3, Kf2, Qc1, Qd6, Rd2 \u2014 meaning the pla"
+    }
+   ]
+  },
+  {
+   "fine_id": 128,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 28,
+     "chip": "King advances into mating net",
+     "fire_rate_pct": 2.064,
+     "description": "All 10/10 positions feature king moves as the blunder, and in 8/10 cases the king advances toward the center or toward the opponent's attacking pieces (Ke6 forward from d7, Kg3 forward from f2, Kd5 central from c6, Kf5 forward from g4, Kd5 central from e6, Kg5 forward from h4, Ke"
+    },
+    {
+     "feature_id": 786,
+     "chip": "King steps off back rank fatally",
+     "fire_rate_pct": 1.379,
+     "description": "All 10/10 positions feature king moves advancing one square, typically forward from the back rank or current shelter toward a more exposed square. In 7/10 cases, the correct move was a non-king move (captures like Bxc5, Nxf3, Bxa3, Rxg6, or queen moves like Qd1, Bc8), while in 3/"
+    },
+    {
+     "feature_id": 859,
+     "chip": "King retreats into mating diagonal",
+     "fire_rate_pct": 1.48,
+     "description": "All 10/10 positions feature a non-capturing king move retreating toward the back rank, starting square, or corner. In 5/10 cases the move is specifically Ke8 (king returning to its starting square from f7). In 7/10 positions (Black's moves), the king retreats from an exposed squa"
+    },
+    {
+     "feature_id": 1318,
+     "chip": "King advances into rook/queen fire",
+     "fire_rate_pct": 0.685,
+     "description": "9/10 positions feature king moves that advance or drift toward exposed squares (Ka3, Kh3, Kb6, Kh6, Ka6, Kf3, Kd2) when the correct move was to retreat to the back rank or corner (Kg1, Kb1, Kh1, Kg8, Kc8, Kc6). In 7/10 cases, the specifically correct move was a king retreat to th"
+    },
+    {
+     "feature_id": 1700,
+     "chip": "King retreats into back-rank mate",
+     "fire_rate_pct": 1.274,
+     "description": "All 10 positions feature king moves, with 9/10 retreating toward the back rank or corner (Ke8, Kg1, Kg8, Kd7, Kf8, Kd8). The remaining move (Kg3) similarly abandons a critical defensive post. In 7/10 positions, the best move was NOT a king move at all but rather an active piece m"
+    },
+    {
+     "feature_id": 1711,
+     "chip": "King advances into open mating net",
+     "fire_rate_pct": 1.935,
+     "description": "All 10/10 positions feature a king move that advances the king FORWARD (away from its own back rank or corner) into more exposed territory. In 9/10 positions, the correct alternative was either retreating the king backward (Ke2, Ke7, Kc2, Kh8, Kg8, Kh1, Kb8) or playing a non-king"
+    },
+    {
+     "feature_id": 1848,
+     "chip": "King advances into open-file checkmate",
+     "fire_rate_pct": 5.726,
+     "description": "All 10/10 positions feature a king move that advances the monarch forward or centrally into an exposed position, when the correct move was to retreat or stay back. In 9/10 cases, the best move was a king retreat (Kc3, Kh4, Kf8, Ke7, Kh7, Kd6, Kh1, Kg8, Kd1) or in 1/10 a defensive"
+    }
+   ]
+  },
+  {
+   "fine_id": 186,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 133,
+     "chip": "Bishop development delays king evacuation",
+     "fire_rate_pct": 1.212,
+     "description": "9/10 positions feature an exposed king on an open file or vulnerable square where the engine's best move was a king retreat/evacuation (Kd8, Kf8, Kc8, Kd7, Kb6, Kh7, Kh3, Kc1). Instead, the player chose a 'developing' or 'shielding' move with another piece\u2014typically a bishop to e"
+    },
+    {
+     "feature_id": 403,
+     "chip": "King steps forward, invites attack",
+     "fire_rate_pct": 1.103,
+     "description": "In 10/10 positions, the player moved their king to a more exposed square when a safer retreat existed. In 8/10 cases, the best move was retreating the king toward the back rank or corner (Kg8, Kh8, Kb2, Kf1), while the blunder moved the king forward or centrally (Kf7, Kd7, Kc3, K"
+    },
+    {
+     "feature_id": 1000,
+     "chip": "Queen check lets king sidestep",
+     "fire_rate_pct": 3.756,
+     "description": "In 10/10 positions, the queen was already optimally placed on a dominant square (typically a central file like e4, e5, e6, f5, f6, or an aggressive post like e3/c6) and was moved to a less effective peripheral square. In 4/10 cases the move was a check (Qc7+, Qc1+, Qd1+, Qa8+) th"
+    },
+    {
+     "feature_id": 1127,
+     "chip": "Queen moves strand exposed king",
+     "fire_rate_pct": 0.717,
+     "description": "In 9/10 positions, the best move was a king move to escape an exposed square, but the player instead moved their queen (9/10) or rook (1/10). The kings were consistently exposed \u2014 on h3, f3, d6, h8, e6, g7, e4, g7, and f3 \u2014 sitting on open files, diagonals, or ranks vulnerable to"
+    },
+    {
+     "feature_id": 1305,
+     "chip": "g-pawn push ignores king escape",
+     "fire_rate_pct": 0.869,
+     "description": "In 10/10 positions, the player advanced a kingside pawn (g-file in 8/10, f-file in 2/10) with the explicit intent of attacking an enemy queen that was pressuring the exposed king. In every single case, the best move was instead a KING move to a safer square (Kf8, Kg8, Kh6, Kg2, K"
+    },
+    {
+     "feature_id": 1367,
+     "chip": "King steps onto tactically loaded square",
+     "fire_rate_pct": 1.616,
+     "description": "In 10/10 positions, the player moved a high-value piece (king in 7/10, queen in 3/10) to a square that seemed reasonable or active but was specifically vulnerable to a tactical blow along an open line, diagonal, or fork pattern. The correct alternative was almost always an adjace"
+    },
+    {
+     "feature_id": 1573,
+     "chip": "Rook move strands escaping king",
+     "fire_rate_pct": 1.361,
+     "description": "In 8/10 positions the blunder was a rook move, and in 7/10 the engine's best move was a king move (Kg8, Kf8, Kg1, Ke7, Ke3, etc.). The player consistently chose to reposition a rook \u2014 usually with a defensive or challenging intent against an enemy queen \u2014 rather than evacuating t"
+    }
+   ]
+  }
+ ]
+}

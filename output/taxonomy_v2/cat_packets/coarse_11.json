@@ -1,0 +1,726 @@
+{
+ "coarse_id": 11,
+ "n_features": 109,
+ "subclusters": [
+  {
+   "fine_id": 22,
+   "size": 18,
+   "features": [
+    {
+     "feature_id": 85,
+     "chip": "Bishop repositioned while king idles",
+     "fire_rate_pct": 1.101,
+     "description": "All 10/10 positions feature a bishop being repositioned to a square that appears constructive but wastes a critical tempo. In 8/10 positions (endgames), king activity was the paramount concern \u2014 positions 1, 4, 8, and 9 explicitly required king moves as the best alternative, whil"
+    },
+    {
+     "feature_id": 88,
+     "chip": "Rook chases pawn, abandons activity",
+     "fire_rate_pct": 1.562,
+     "description": "10/10 positions are rook endgames where the played move is a rook relocation that targets a specific enemy pawn. In every case, the attacked pawn is either easily advanced past the rook (positions 1, 5, 8, 10), adequately defended by the king's approach (positions 3, 4), or irrel"
+    },
+    {
+     "feature_id": 111,
+     "chip": "King races lost pawn promotion",
+     "fire_rate_pct": 0.992,
+     "description": "10/10 positions feature the LOSING side making a king move in a deeply decided endgame (all evaluations exceed 500cp against the moving side). 10/10 positions involve at least one unstoppable passed pawn that the opponent's king is trying to approach or intercept. The defending k"
+    },
+    {
+     "feature_id": 236,
+     "chip": "Flank pawn push over king march",
+     "fire_rate_pct": 0.897,
+     "description": "10/10 positions are pawn endgames (or near-pawn endgames) where the player advances a pawn that either wastes a critical tempo or creates a fixed structural weakness. In 7/10 cases, the correct move involved either king activity first (Positions 1, 4, 9, 10) or advancing a DIFFER"
+    },
+    {
+     "feature_id": 317,
+     "chip": "Rook trade surrenders last counterplay",
+     "fire_rate_pct": 0.931,
+     "description": "In 10/10 positions, the move is a rook capture (Rx__) that trades away the moving side's last significant piece. In 9/10 positions, the side making the move was already losing (avg eval heavily against them), and the rook was their only remaining active piece providing counterpla"
+    },
+    {
+     "feature_id": 345,
+     "chip": "Rook leaves critical defensive post",
+     "fire_rate_pct": 1.302,
+     "description": "All 10/10 positions are rook endgames where the player makes a rook repositioning move that looks active or purposeful but fatally abandons a crucial defensive responsibility. In 10/10 cases, the move is a non-capturing, non-checking rook move to a 'natural-looking' square (7th r"
+    },
+    {
+     "feature_id": 355,
+     "chip": "King steps off drawing square",
+     "fire_rate_pct": 1.331,
+     "description": "9/10 positions feature king moves, and 8/10 are pure king-and-pawn endgames. In 9/10 cases, the moving side is already significantly losing (evaluations typically -550 to -750 from their perspective). The critical blunders (positions 1, 4, 8, 10) all share the pattern of the king"
+    },
+    {
+     "feature_id": 558,
+     "chip": "Capture strips last defensive anchor",
+     "fire_rate_pct": 0.975,
+     "description": "All 10/10 positions are endgames where the player makes a committal move that permanently destroys their own defensive infrastructure. In 6/10 cases, the move is a capture that trades away the player's last or most critical piece (Nxd5, Nxe4, Bxc5, Bxd1, Bxa5, hxg5), while in 4/1"
+    },
+    {
+     "feature_id": 626,
+     "chip": "Rook grabs pawn, king recaptures",
+     "fire_rate_pct": 0.757,
+     "description": "10/10 positions are endgames where the player captures material with a major piece (5 Queen captures, 5 Rook captures). In at least 8/10 positions, the target is a passed pawn near promotion. In 9/10 cases, the capture comes with check. The critical shared error: in at least 7/10"
+    },
+    {
+     "feature_id": 1110,
+     "chip": "King abandons pawn blockade duty",
+     "fire_rate_pct": 2.071,
+     "description": "All 10/10 positions are endgames where the side making the king move is already losing significantly (evaluations range from -400 to -800+ for the moving side). In every case, the defending king makes a move that appears reasonable\u2014often toward the center or along a logical-looki"
+    },
+    {
+     "feature_id": 1276,
+     "chip": "Queen checks from afar",
+     "fire_rate_pct": 1.301,
+     "description": "All 10/10 positions feature a move that wastes a critical tempo in a position demanding immediate, forcing action. 7/10 are endgame positions where single tempi are decisive. The wasted tempi take several forms: pointless checks where the opponent's king simply steps to a better "
+    },
+    {
+     "feature_id": 1341,
+     "chip": "Knight drifts while pawns advance",
+     "fire_rate_pct": 1.575,
+     "description": "All 10/10 positions are endgames where a knight is moved to a square that appears active but is strategically disconnected from the critical action. In 7/10 cases, the urgent threat involves unstoppable passed pawns that the knight cannot address from its new square (positions 1,"
+    },
+    {
+     "feature_id": 1338,
+     "chip": "Rook chases pawn, surrenders tempo",
+     "fire_rate_pct": 6.36,
+     "description": "All 10/10 positions are rook endgames where the player makes a pawn-oriented rook move that loses critical tempo. In 9/10 cases, the rook moves specifically to attack or blockade a pawn (Rb5\u2192b7, Rd5\u2192b5, Ra4\u2192c4, Rg6\u2192g5, Rh2\u2192h-pawn, Rb7\u2192b6, Ra1\u2192b-pawn, Rh7\u2192h5, Ra3\u2192a5), while 1/10 i"
+    },
+    {
+     "feature_id": 1385,
+     "chip": "King chases pawn, misses race",
+     "fire_rate_pct": 0.99,
+     "description": "10/10 positions are endgames where the played move is a king move, and 10/10 involve critical passed pawn dynamics where an enemy pawn is advanced or threatening promotion. In 9/10 cases, the king moves toward the enemy's passed pawn or promotion square in a futile attempt to sto"
+    },
+    {
+     "feature_id": 1709,
+     "chip": "King grabs pawn, passes race",
+     "fire_rate_pct": 1.371,
+     "description": "All 10/10 positions are endgames where the player makes a king move, with 9/10 being king captures of pawns (Kxd5, Kxa5, Kxh4, Kxa3, Kxc6, Kxc6, Kxg3, Kxc4, Kxh3) and 1/10 being a king move toward material (Kc4). The consistent error is that the king prioritizes winning material "
+    },
+    {
+     "feature_id": 1718,
+     "chip": "King capture cedes key opposition",
+     "fire_rate_pct": 0.622,
+     "description": "10/10 positions are endgames where the side to move is already deeply lost (average eval ~670cp against them). 10/10 moves are king captures (Kx__). At least 9/10 involve the king capturing a rook, with the remaining case being a pawn capture. In 10/10 cases, the capture is the b"
+    },
+    {
+     "feature_id": 1770,
+     "chip": "Bishop grabs pawn, king recaptures",
+     "fire_rate_pct": 0.562,
+     "description": "10/10 positions are endgames where the player uses their only remaining minor piece (bishop or knight) to capture an advanced or passed pawn, after which the opponent recaptures with the king. The targets are consistently dangerous pawns: promotion-threatening pawns on a2, a3, a7"
+    },
+    {
+     "feature_id": 1935,
+     "chip": "King drifts to rim, misplaced",
+     "fire_rate_pct": 1.0,
+     "description": "All 10/10 positions are endgames where the player advances the king to a seemingly aggressive square that turns out to be misplaced. In 10/10 cases the move is tagged as a tempo loss \u2014 the king either gets immediately driven back by the opponent (e.g., checked by an advancing paw"
+    }
+   ]
+  },
+  {
+   "fine_id": 132,
+   "size": 15,
+   "features": [
+    {
+     "feature_id": 188,
+     "chip": "Pawn push before king leads",
+     "fire_rate_pct": 0.602,
+     "description": "10/10 positions are pure pawn endgames (king+pawns only, with one queen-vs-pawns exception). 10/10 moves played are pawn advances toward promotion. In the 6 positions with meaningful cp_loss (positions 1, 2, 3, 4, 5, 6), the best move was consistently a king move (Kb3, Kd6, Ke6, "
+    },
+    {
+     "feature_id": 341,
+     "chip": "King move delays pawn advance",
+     "fire_rate_pct": 0.747,
+     "description": "10/10 positions are pure king-and-pawn endgames with minimal material (1-2 pawns maximum on the board). 10/10 moves are king moves made by the side with a decisive advantage (evaluations ranging from \u00b1530 to \u00b11110). 10/10 positions involve a passed pawn that needs king support to"
+    },
+    {
+     "feature_id": 416,
+     "chip": "Pawn push over king leadership",
+     "fire_rate_pct": 0.647,
+     "description": "All 10/10 positions are pure King+Pawn vs King endgames with a single passed pawn and a decisive advantage (avg eval ~\u00b1555cp). In every case, the move played is a one-square pawn advance toward promotion. In 7/10 positions, a king move was strictly better or equally good (Kf5, Kh"
+    },
+    {
+     "feature_id": 709,
+     "chip": "King move delays critical pawn break",
+     "fire_rate_pct": 0.997,
+     "description": "All 10/10 positions are pure king-and-pawn endgames with an average of only 1.2 good moves available, making them razor-sharp precision moments. Every move played is a one-square king move (no captures or checks). In 4/10 positions (1, 2, 5, 8), the king move was a serious blunde"
+    },
+    {
+     "feature_id": 796,
+     "chip": "Unstoppable passed pawn advance missed",
+     "fire_rate_pct": 1.135,
+     "description": "All 10/10 positions are pure king-and-pawn endgames with decisive winning advantages (evaluations ranging from +641 to +862 cp). All 10/10 moves are pawn advances (not king moves or captures). At least 9/10 directly advance a passed pawn toward its promotion square (c3, g6, h2, d"
+    },
+    {
+     "feature_id": 839,
+     "chip": "King move delays decisive pawn push",
+     "fire_rate_pct": 1.413,
+     "description": "10/10 positions are pure king-and-pawn endgames with decisive evaluations (~600-750cp). 10/10 moves played are king moves. 10/10 positions feature passed pawn dynamics where the strategic tension is between king centralization and immediate pawn advancement. The evaluations clust"
+    },
+    {
+     "feature_id": 867,
+     "chip": "King misses faster march route",
+     "fire_rate_pct": 3.186,
+     "description": "All 10/10 positions are endgames with king moves, and 9/10 are pure king-and-pawn endgames (one has a rook). All positions feature evaluations of +483 or greater magnitude, meaning the game is already effectively decided. In every case, the kings are far apart (typically on oppos"
+    },
+    {
+     "feature_id": 939,
+     "chip": "King advance loses critical opposition",
+     "fire_rate_pct": 1.113,
+     "description": "10/10 positions are pure king-and-pawn endgames with no other pieces on the board, and all moves played are king advances toward a natural target (a capturable pawn or a dominant central square). The feature fires on positions where the critical decision involves precise king man"
+    },
+    {
+     "feature_id": 945,
+     "chip": "King picks wrong race direction",
+     "fire_rate_pct": 0.953,
+     "description": "All 10/10 positions are pure king-and-pawn endgames with no other pieces, and all 10/10 involve pawn races where both sides have passed or potential passed pawns advancing toward promotion on opposite wings. The moves are exclusively king moves choosing a direction amid the race."
+    },
+    {
+     "feature_id": 971,
+     "chip": "King moves delay pawn promotion",
+     "fire_rate_pct": 0.63,
+     "description": "All 10/10 positions are pure king-and-pawn endgames with no other pieces on the board. 10/10 moves are king moves, and 10/10 positions feature at least one advanced passed pawn threatening promotion. The evaluations are heavily decisive (avg |eval| ~550cp), indicating won/lost po"
+    },
+    {
+     "feature_id": 1145,
+     "chip": "Pawn push delays king activation",
+     "fire_rate_pct": 0.694,
+     "description": "10/10 positions are pure king-and-pawn endgames with no pieces remaining. 10/10 moves played are single-step pawn advances of passed or semi-passed pawns. 10/10 positions feature active promotion races where at least one pawn is within 1-3 moves of queening. In the 8/10 positions"
+    },
+    {
+     "feature_id": 1212,
+     "chip": "King one square off, loses opposition",
+     "fire_rate_pct": 0.525,
+     "description": "All 10/10 positions are pure king-and-pawn endgames with no other pieces on the board. Every single move is a king move. The consistent error is a tempo loss: the king moves to a square that appears natural or centralizing but is precisely one square worse than the optimal destin"
+    },
+    {
+     "feature_id": 1414,
+     "chip": "King grabs flank pawn, loses race",
+     "fire_rate_pct": 0.959,
+     "description": "10/10 positions are pure king-and-pawn endgames with decisive evaluations (all \u00b1549 or greater). In all 10, the kings are separated on opposite wings of the board, and the capturing king takes an enemy pawn on the flank where it is already located, while the opponent's king is fa"
+    },
+    {
+     "feature_id": 1491,
+     "chip": "King marches to wrong flank",
+     "fire_rate_pct": 1.832,
+     "description": "All 10/10 positions are endgames featuring a king move as the played move. The positions are overwhelmingly decided (8/10 have evaluations beyond \u00b1600cp), and the king moves represent a reflexive 'activate the king' instinct rather than calculated precision. In the positions with"
+    },
+    {
+     "feature_id": 1636,
+     "chip": "Queen check lets king escape",
+     "fire_rate_pct": 1.486,
+     "description": "All 10/10 positions are endgames where one side has an overwhelming advantage with a queen against minimal material (pawns, occasionally a lone minor piece). Every single move is a queen move, and 4/10 are queen checks (Qf5+, Qc5+, Qd5+, Qc7+). Despite the positions being complet"
+    }
+   ]
+  },
+  {
+   "fine_id": 157,
+   "size": 13,
+   "features": [
+    {
+     "feature_id": 18,
+     "chip": "King strays, own pawns fall",
+     "fire_rate_pct": 2.247,
+     "description": "All 10/10 positions are endgames featuring king moves, with 9/10 being pure king-and-pawn endgames. In at least 5/10 positions (1, 2, 5, 6, 9), the king moved toward the opponent's pawns to attack them while leaving its own critical pawn undefended (g3 in pos 1, g-pawn blockade i"
+    },
+    {
+     "feature_id": 35,
+     "chip": "King advances to wrong wing",
+     "fire_rate_pct": 1.701,
+     "description": "All 10/10 positions are endgames with king moves to central or near-central squares (ranks 3-6, files b-e). 9/10 are pure king-and-pawn endgames (one includes a bishop). The specific destination squares cluster heavily on the c-file (Kc5 \u00d73, Kc4 \u00d72, Kc6 \u00d71) and e-file (Ke4 \u00d72, Ke"
+    },
+    {
+     "feature_id": 99,
+     "chip": "King grabs pawn, loses race",
+     "fire_rate_pct": 0.926,
+     "description": "All 10/10 positions are pawn endgames featuring active promotion races with at least one highly advanced passed pawn (typically 1-2 squares from queening). In every case, the king captures an enemy pawn (Kx__) while the opponent has an unstoppable or nearly-unstoppable passed paw"
+    },
+    {
+     "feature_id": 220,
+     "chip": "Premature pawn check blocks own king",
+     "fire_rate_pct": 0.664,
+     "description": "All 10/10 positions are pure king-and-pawn endgames with both kings exposed and in close proximity (often near-opposition on the same file or adjacent files). 9/10 moves are single-step pawn advances that deliver check to the opposing king, while the remaining move (b4) is a pawn"
+    },
+    {
+     "feature_id": 365,
+     "chip": "Rook drifts while tempo expires",
+     "fire_rate_pct": 2.339,
+     "description": "All 10/10 positions are rook endgames featuring passed pawns and exposed kings where tempo is critical. In every case, the player moves the rook to a seemingly reasonable square (b5, d7, a7, d8, etc.) that creates no immediate threat and addresses no urgent problem. The correct m"
+    },
+    {
+     "feature_id": 517,
+     "chip": "Flank pawn push over king activation",
+     "fire_rate_pct": 1.031,
+     "description": "All 10/10 positions feature pawn advances, and every single move is on a wing file (a, b, f, g, or h \u2014 never a central d/e pawn). 9/10 positions are endgames. In the positions with meaningful cp_loss (positions 1, 3, 5, 7, 8, 9, 10), the best move was almost always a KING move: P"
+    },
+    {
+     "feature_id": 683,
+     "chip": "Flank pawn push ignores promotion race",
+     "fire_rate_pct": 1.057,
+     "description": "10/10 positions are endgames featuring dangerous passed pawns (usually the opponent's, within 1-3 moves of promotion). 10/10 blundered moves are non-capturing flank pawn advances (a, b, f, g, or h file \u2014 never a central pawn). In every case, the correct move involved piece activi"
+    },
+    {
+     "feature_id": 903,
+     "chip": "King misses optimal march geometry",
+     "fire_rate_pct": 1.157,
+     "description": "All 10/10 positions are endgames featuring active king marches toward enemy pawn weaknesses, with 9/10 being pure pawn endgames (one has a bishop). The king is already exposed and actively placed in every case, moving toward vulnerable enemy pawns with the intent to capture them."
+    },
+    {
+     "feature_id": 918,
+     "chip": "Pawn check improves enemy king",
+     "fire_rate_pct": 1.07,
+     "description": "All 10/10 positions are endgames featuring passed pawns or connected passers in a promotion race. Every single move is a pawn advance, and 8/10 deliver check. The positions universally feature exposed kings on both sides (10/10) and weak pawn shields. The feature fires on the agg"
+    },
+    {
+     "feature_id": 1131,
+     "chip": "Rook to pawn file over counterplay",
+     "fire_rate_pct": 0.704,
+     "description": "All 10/10 positions are rook endgames featuring a passed pawn exactly one square from promotion (b7\u2192b8, c7\u2192c8, f7\u2192f8, h7\u2192h8, a7\u2192a8, etc.). In every case, the player moves their rook to the file of the promotion square or the advanced pawn, intending to directly capture the promot"
+    },
+    {
+     "feature_id": 1483,
+     "chip": "Passed pawn push ignores king safety",
+     "fire_rate_pct": 1.01,
+     "description": "All 10/10 positions are endgames, and all 10/10 moves are single-step pawn advances of passed pawns (a5, h5, g4, f3, a4, h3, b6, a6, a4, d3). The feature fires specifically on the concept of advancing a passed pawn toward promotion in simplified positions. 7/10 are on rim or near"
+    },
+    {
+     "feature_id": 1615,
+     "chip": "Queen misses only covering square",
+     "fire_rate_pct": 0.955,
+     "description": "10/10 positions are endgames featuring a queen battling against dangerous passed pawns 1-2 squares from promotion. 8/10 moves are queen checks, while the remaining 2 are non-checking queen moves. The critical error in 8/10 positions is selecting the wrong queen destination square"
+    },
+    {
+     "feature_id": 1838,
+     "chip": "King steps into promotion mating net",
+     "fire_rate_pct": 0.594,
+     "description": "All 10/10 positions are pure King+Pawn vs lone King endgames where the side making the move is the losing/defending side trying to intercept or blockade a single passed pawn near promotion. In every case, the defending king moves toward the pawn or its promotion path (Kf6 toward "
+    }
+   ]
+  },
+  {
+   "fine_id": 84,
+   "size": 13,
+   "features": [
+    {
+     "feature_id": 372,
+     "chip": "Rook shuffle loses decisive tempo",
+     "fire_rate_pct": 1.169,
+     "description": "All 10/10 positions are rook endgames where the player made a rook move that appeared purposeful but was actually a tempo-wasting misdirection. In 6/10 positions, the best move was a KING move (Kg5, Kb4, Kd6, Kxh2, Kg5, Kd2), yet the player chose a rook repositioning instead. In "
+    },
+    {
+     "feature_id": 530,
+     "chip": "Pawn push while king undefended",
+     "fire_rate_pct": 0.839,
+     "description": "All 10 positions feature pawn advances (on the a, b, f, g, or h files) in endgame positions where the king faces an existential crisis. In 8/10 positions, the best alternative was a king move (Ke2, Kd2, Kc3, Kf4, Kh3, Kh5, Kd6, Kf5). In 10/10 positions, the tag 'tempo_loss' was i"
+    },
+    {
+     "feature_id": 619,
+     "chip": "Flank pawn push over king activation",
+     "fire_rate_pct": 1.597,
+     "description": "All 10/10 positions feature pawn advances in the endgame that waste tempo or create weaknesses. In at least 5/10 positions (2, 7, 10, 1, 3), the best move was a king move or piece move rather than a pawn push \u2014 the player chose to push material forward instead of activating their"
+    },
+    {
+     "feature_id": 647,
+     "chip": "Flank pawn push over king activation",
+     "fire_rate_pct": 0.854,
+     "description": "10/10 positions are endgames where the mistake is a pawn advance rather than a king move (or preparatory piece move). In 8/10 positions, the best move was a king move (Kf3, Kf6, Kf7, Kc6, Bg6/Kf6, Kf3, Kh7, etc.), while the player instead committed a pawn forward. 8/10 moves are "
+    },
+    {
+     "feature_id": 763,
+     "chip": "Flank pawn push loses king race",
+     "fire_rate_pct": 1.502,
+     "description": "10/10 positions are endgames and every move played is a one-square pawn advance on a non-central file (a, b, c, g, or h). In 8/10 positions, the best alternative was a king move (Kd3, Ke6, Kf2, Kd5, etc.) that would have maintained active king positioning or blocked the opponent'"
+    },
+    {
+     "feature_id": 890,
+     "chip": "King retreats cede winning tempo",
+     "fire_rate_pct": 1.849,
+     "description": "All 10/10 positions are pure endgames featuring king moves that retreat toward the back rank or move sideways away from the critical sector. In every case, the best move was either advancing the king toward targets (Ke4, Kc5, Kf5) or immediately pushing a pawn (g4, b4, g5, f4+). "
+    },
+    {
+     "feature_id": 963,
+     "chip": "Prep move stalls pawn race",
+     "fire_rate_pct": 1.321,
+     "description": "10/10 positions feature passed pawns as the central strategic element, and 9/10 are endgames. The unifying thread is that each position presents a critical tempo decision: advance the passed pawn immediately, or make a preparatory move first? In the positions where the move was c"
+    },
+    {
+     "feature_id": 965,
+     "chip": "King moves before critical pawn advance",
+     "fire_rate_pct": 0.745,
+     "description": "10/10 positions are endgames, and all moves are king moves in positions featuring passed pawns or critical pawn races. In the 4 positions with significant cp_loss (>100cp: positions 1, 3, 4, 9 averaging 360cp loss), the king moved when a time-sensitive pawn advance was required f"
+    },
+    {
+     "feature_id": 1310,
+     "chip": "King escorts pawn, loses race",
+     "fire_rate_pct": 0.893,
+     "description": "All 10/10 positions feature king moves in endgames with passed pawns, where the player moves their king toward a passed pawn to support its promotion. In every case, the position demanded immediate concrete action instead: in 4/10 cases the correct move was an active rook move (R"
+    },
+    {
+     "feature_id": 1348,
+     "chip": "King drifts from decisive theater",
+     "fire_rate_pct": 5.05,
+     "description": "All 10/10 positions feature king moves in endgames where the king travels in the wrong direction\u2014away from the sector where the decisive battle is occurring. In 7/10 cases, the king moved toward the kingside when the queenside held the critical passed pawns or breakthrough potent"
+    },
+    {
+     "feature_id": 1625,
+     "chip": "Bishop repost squanders critical tempo",
+     "fire_rate_pct": 1.754,
+     "description": "All 10/10 positions are endgames where the player made a quiet, non-forcing bishop move to a seemingly active or useful square, when the position demanded immediate concrete action. In 7/10 cases, the best move was a king move (Kg7, Kf4, Kd1, Kf2, Kg8, c4+, h5 etc.) or pawn push "
+    },
+    {
+     "feature_id": 1751,
+     "chip": "Pawn push blocks king's path",
+     "fire_rate_pct": 1.113,
+     "description": "All 10/10 positions are endgames where the mistake is a pawn push instead of active play. In 6/10 positions (b5 vs Kb5, g6 vs Kg6, h3 vs Kh3, c6 vs Kc6, f3 vs Kf3, f3 vs Kf3), the pawn literally occupies the exact square where the king should move, blocking its own king's optimal"
+    },
+    {
+     "feature_id": 1990,
+     "chip": "Flank pawn push over king activation",
+     "fire_rate_pct": 1.141,
+     "description": "All 10 positions feature a one-square pawn advance on a non-central file (9/10 on the a, g, or h files; 1/10 on the c-file) that wastes a critical tempo. In 6/10 positions (endgames), the correct move was immediate king activation (Kg4, Kd6, Kc4, Kc1) or a forcing pawn break (h4,"
+    }
+   ]
+  },
+  {
+   "fine_id": 179,
+   "size": 10,
+   "features": [
+    {
+     "feature_id": 29,
+     "chip": "King advances into opponent's territory",
+     "fire_rate_pct": 1.311,
+     "description": "9/10 positions are endgames with both kings exposed and weak pawn shields. In 8/10 positions, the two kings are within 2 diagonal squares of each other. All 10 moves are forward/aggressive \u2014 advancing toward the opponent's king via checks (3/10: Nd5+, Rb5+, Nd4+), attacking pawns"
+    },
+    {
+     "feature_id": 216,
+     "chip": "King to passive square loses opposition",
+     "fire_rate_pct": 1.328,
+     "description": "This feature fires on positions featuring aggressive king movement in simplified endgames with exposed kings on both sides. 8/10 positions are endgames, and 8/10 moves are king moves advancing toward enemy pawns. All 10 positions share the characteristic of both kings being expos"
+    },
+    {
+     "feature_id": 348,
+     "chip": "King takes wrong path in race",
+     "fire_rate_pct": 1.56,
+     "description": "10/10 positions are endgames featuring king moves in positions where king races and passed pawn dynamics are decisive. 10/10 have both kings exposed with weak or absent pawn shields. 9/10 are pure pawn endgames (one has a bishop/knight, one a rook). The average number of good mov"
+    },
+    {
+     "feature_id": 420,
+     "chip": "King steps into tactical vulnerability",
+     "fire_rate_pct": 1.15,
+     "description": "All 10/10 positions feature king moves in endgames with exposed, actively maneuvering kings. The positions are highly simplified: 4/10 are pure king-and-pawn endgames, 4/10 are rook endgames with few or no pawns, and 2/10 are minor piece endgames. In every case, both kings lack p"
+    },
+    {
+     "feature_id": 874,
+     "chip": "King marches while pawn races decide",
+     "fire_rate_pct": 2.029,
+     "description": "All 10/10 positions feature king moves (no other piece type) in simplified endgame or endgame-like positions where both kings are exposed and actively placed outside their pawn shields. 8/10 are pure endgames and 2/10 are simplified middlegames with endgame character. In all case"
+    },
+    {
+     "feature_id": 895,
+     "chip": "Quiet pawn push over king activation",
+     "fire_rate_pct": 1.153,
+     "description": "All 10/10 positions feature single-step pawn advances (no double pushes, no captures, no checks). 8/10 are endgame positions and 10/10 have both kings described as exposed with weak pawn shields. The moves span various files (d, e, h, b, f) with no strong directional bias, but sh"
+    },
+    {
+     "feature_id": 1136,
+     "chip": "King square loses opposition or tempo",
+     "fire_rate_pct": 1.432,
+     "description": "All 10/10 positions feature king moves, and 9/10 are endgames with large existing imbalances (evaluations ranging from \u00b1500 to \u00b11000+). Every position shows both kings exposed with weak or absent pawn shields. The average number of good moves available is only 2.1, indicating the"
+    },
+    {
+     "feature_id": 1649,
+     "chip": "King steps into forced mate",
+     "fire_rate_pct": 1.769,
+     "description": "10/10 positions feature king moves in simplified endgames with both kings exposed and actively participating (no castled safety). 9/10 positions have large material or evaluation imbalances (typically +300cp to +800cp or more) before the move is played. In 6/10 positions, the kin"
+    },
+    {
+     "feature_id": 1967,
+     "chip": "Check drives king to better square",
+     "fire_rate_pct": 0.891,
+     "description": "All 10/10 positions involve pawn advances in simplified endgames, and 8/10 of these advances give check. The positions are overwhelmingly pawn-centric endgames (pure king-and-pawn or king-rook-pawn). In every case, a passed pawn is pushed forward, usually with the tempo-gaining a"
+    },
+    {
+     "feature_id": 1978,
+     "chip": "King steps into knight fork",
+     "fire_rate_pct": 0.92,
+     "description": "All 10/10 positions feature king moves in endgame (9/10) or middlegame (1/10) positions where knights are the central tactical element. In 10/10 cases, the king move loses tempo relative to a more direct solution. The pattern splits into two main sub-types: in 3/10 positions (1, "
+    }
+   ]
+  },
+  {
+   "fine_id": 152,
+   "size": 10,
+   "features": [
+    {
+     "feature_id": 145,
+     "chip": "Bishop reposition over concrete pawn advance",
+     "fire_rate_pct": 1.248,
+     "description": "7/10 positions involve bishop moves, with the remaining 3 being queen moves (2) and a king/knight move each. 7/10 occur in endgame positions. The defining characteristic is a quiet, non-capturing piece repositioning move to what appears to be a more 'active' square. In the 7/10 p"
+    },
+    {
+     "feature_id": 382,
+     "chip": "King maneuver squanders only winning move",
+     "fire_rate_pct": 4.603,
+     "description": "9/10 positions feature a king move as the mistake (the lone exception, Qd1, is a queen retreat that functions identically as a passive repositioning). 8/10 are endgame positions. In every case, the player treated the position as requiring slow maneuvering and chose to 'improve' t"
+    },
+    {
+     "feature_id": 387,
+     "chip": "Bishop repositioned over king march",
+     "fire_rate_pct": 1.384,
+     "description": "10/10 positions feature a bishop being repositioned to a new diagonal (no captures, no checks) in positions dominated by passed pawn races. 9/10 are endgames and all 10 involve passed pawns as the central strategic element. Among the high-cp-loss positions (5/10 lost >300cp), the"
+    },
+    {
+     "feature_id": 424,
+     "chip": "Passive king shuffle over concrete action",
+     "fire_rate_pct": 2.212,
+     "description": "All 10/10 positions feature quiet king moves (no checks, no captures) that are passive or retreating in character. 9/10 occur in the endgame where king activity is paramount. In 6/10 positions, the best move was a forcing piece move (Re6+, Rd8+, Rb5, Bg2, etc.) rather than any ki"
+    },
+    {
+     "feature_id": 808,
+     "chip": "King mishandles active pawn race",
+     "fire_rate_pct": 0.815,
+     "description": "10/10 positions are rook endgames featuring active passed pawn races. 7/10 moves are king moves (Ke2, Ke7, Kf2, Kf4, Kc2, Ka1, Kb5) and 3/10 are rook moves (Rb2, Ra8, Rc1) \u2014 all are quiet, non-forcing moves that look natural but fatally mishandle the passed pawn situation. The sp"
+    },
+    {
+     "feature_id": 938,
+     "chip": "King misses opposition, loses endgame",
+     "fire_rate_pct": 1.406,
+     "description": "9/10 positions feature king moves (the one exception is h6, a tempo-wasting pawn push). 8/10 are pure king-and-pawn endgames with decisive evaluations already in place. The consistent pattern is the king choosing a plausible destination square that fails to optimize the specific "
+    },
+    {
+     "feature_id": 1535,
+     "chip": "Bishop repositions while mate looms",
+     "fire_rate_pct": 0.829,
+     "description": "10/10 positions feature a non-capturing bishop move that relocates the piece to a new diagonal. 9/10 occur in endgame positions with exposed kings and active pawn play. The moves target squares that appear 'better' for the bishop (e.g., centralizing on d5/e5, activating on long d"
+    },
+    {
+     "feature_id": 1557,
+     "chip": "King detours lose pawn-race tempo",
+     "fire_rate_pct": 0.611,
+     "description": "10/10 positions are endgames featuring king moves during active pawn races with passed pawns on both sides. 8/10 are pure king-and-pawn endgames, and the remaining 2 involve rook endgames with passed pawns. In all cases, both sides have passed pawns racing to promote, and the kin"
+    },
+    {
+     "feature_id": 1837,
+     "chip": "Wing pawn push over king centralization",
+     "fire_rate_pct": 0.878,
+     "description": "9/10 positions are endgames with exposed kings and pawn tension, where the player commits a pawn advance instead of improving king activity. 8/10 moves are pawn pushes (h5\u00d73, h4\u00d72, a5, g6, f3, c4), and the remaining move (Kf3) is a king lunge toward a flank pawn rather than centr"
+    },
+    {
+     "feature_id": 1892,
+     "chip": "King retreats when forcing moves win",
+     "fire_rate_pct": 1.258,
+     "description": "8/10 positions feature king moves, and of those, 7/8 are king moves specifically TO the back rank (f8, d8, g8, d1, f1). 9/10 positions are endgames. The 6 actual blunders (positions 1, 3, 4, 8, 9, 10) all share the same pattern: the player chose a quiet, retreating king move when"
+    }
+   ]
+  },
+  {
+   "fine_id": 195,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 217,
+     "chip": "Rook drifts to board edge",
+     "fire_rate_pct": 1.386,
+     "description": "10/10 positions are rook endgames where the blundering move sends the rook to a distant, passive square far from the position's critical tension. 8/10 moves land on the a-file or h-file (the absolute board edges: Rh1\u00d73, Ra8\u00d72, Ra6, Rh8, Ra2), while the remaining two (Rc3, Re7+) s"
+    },
+    {
+     "feature_id": 246,
+     "chip": "Rook slides past concrete target",
+     "fire_rate_pct": 0.715,
+     "description": "10/10 positions feature non-capturing rook moves in endgame or late middlegame positions with exposed kings and open files. In the positions where these are actual mistakes (6/10 with cp_loss \u226513), the rook relocates to a square that appears active or centralized but lacks a conc"
+    },
+    {
+     "feature_id": 636,
+     "chip": "King centralizes onto open file",
+     "fire_rate_pct": 0.908,
+     "description": "10/10 positions feature a king move as the blunder, and 9/10 occur in rook endgames. In every case, the king advances to what appears to be an active or centralizing square, but lands on an open file or rank where the opponent delivers an immediate check. Specifically: Position 1"
+    },
+    {
+     "feature_id": 758,
+     "chip": "Rook slides off critical defensive file",
+     "fire_rate_pct": 1.824,
+     "description": "All 10/10 positions feature rook moves in the endgame, and 9/10 involve the rook sliding laterally along a rank (rather than vertically along a file). The catastrophic blunders (positions 1, 3, 5, 9, 10 with cp_loss >300) all share the pattern of a rook leaving a critical defensi"
+    },
+    {
+     "feature_id": 1257,
+     "chip": "King retreats when tempo decisive",
+     "fire_rate_pct": 2.417,
+     "description": "10/10 positions feature king moves, and 8/10 occur in endgames with passed pawns as a central theme. In the significant blunders (positions 2, 4, 5, 6, 8, 9, 10), the king consistently moves to a square that appears safe or centralizing but is actually too passive relative to the"
+    },
+    {
+     "feature_id": 1285,
+     "chip": "Rook quits passed-pawn blockade square",
+     "fire_rate_pct": 1.064,
+     "description": "10/10 positions are rook endgames featuring dangerous passed pawns as the decisive factor, and all 10 blunders are rook moves that prioritize apparent activity over essential defensive function. In 7/10 positions, the rook was directly blockading or restraining an opponent's pass"
+    },
+    {
+     "feature_id": 1342,
+     "chip": "Rook drifts from pawn-support file",
+     "fire_rate_pct": 0.682,
+     "description": "All 10/10 positions feature rook moves, with 8/10 occurring in endgames and 10/10 involving passed pawns as the central strategic element. In the significant errors (positions 1, 2, 7, 8, 10 with cp_loss > 50), the rook consistently selects a square targeting a secondary objectiv"
+    },
+    {
+     "feature_id": 1704,
+     "chip": "Pawn push over critical piece move",
+     "fire_rate_pct": 1.163,
+     "description": "All 10/10 positions feature a pawn advance as the blunder, while the correct move was a piece move in every case: king centralization/evacuation (5/10: Kd4, Kh2, Ke2, Kf1, Ke6), rook repositioning (4/10: Rf8, Rf1, Ra1, Rc8), or a pawn capture that eliminates an enemy threat (2/10"
+    }
+   ]
+  },
+  {
+   "fine_id": 85,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 32,
+     "chip": "Flank pawn push over forcing piece",
+     "fire_rate_pct": 0.835,
+     "description": "10/10 positions feature a pawn push on a non-central file (a-file: 2, b-file: 2, c-file: 2, f-file: 1, g-file: 1, h-file: 2). 9/10 are endgame positions and 10/10 involve passed pawn themes where the pushed pawn is either already passed or aims to become one. 10/10 positions feat"
+    },
+    {
+     "feature_id": 253,
+     "chip": "Bishop retreats to passive rim square",
+     "fire_rate_pct": 1.098,
+     "description": "10/10 positions feature bishop moves in endgames, and 9/10 involve the bishop relocating to a square on the rim of the board (rank 1/2, rank 7/8, or the a/h files). Specific destinations include corners (h1, a1), back-rank squares (e1, e1, f1, c1), near-corner squares (h2), edge-"
+    },
+    {
+     "feature_id": 510,
+     "chip": "Premature pawn push delays promotion",
+     "fire_rate_pct": 1.006,
+     "description": "All 10/10 positions involve a single-square pawn advance, and 8/10 occur in endgame positions (the remaining 2 are late middlegame/endgame transitions). The moves target central and kingside files: e-file (3x), d-file (2x), g-file (2x), f-file (2x), c-file (1x), advancing predomi"
+    },
+    {
+     "feature_id": 523,
+     "chip": "King chases wing pawn, abandons center",
+     "fire_rate_pct": 0.637,
+     "description": "10/10 positions are pawn endgames (or near-pawn endgames) where the played move is a king step away from the center toward the edge of the board, targeting an enemy pawn for capture. In every case the king moves from a semi-central file (c, d, e, f, g) one square toward the rim ("
+    },
+    {
+     "feature_id": 608,
+     "chip": "Flank pawn push ignores checkmate",
+     "fire_rate_pct": 0.645,
+     "description": "10/10 positions involve single-step pawn advances, and 9/10 occur in endgames. 8/10 moves are on the wing files (a-file: 3, g-file: 2, h-file: 3), with only 2 on semi-central files (c6, d6). In 7/10 positions, the best move was either a king move (positions 1, 5, 7, 9, 10) or a p"
+    },
+    {
+     "feature_id": 673,
+     "chip": "King retreats to edge, invites mate",
+     "fire_rate_pct": 1.81,
+     "description": "10/10 positions are endgames where the played move is a king retreat toward the board's edge or corner. The destination squares are all within one step of a corner or on the outermost rank/file (a8, g1, b1, a1, h1, a2, c8, g1, a7, h7). In the most severe cases (4/10 positions wit"
+    },
+    {
+     "feature_id": 1655,
+     "chip": "Rim pawn push loses promotion tempo",
+     "fire_rate_pct": 0.949,
+     "description": "10/10 positions are endgames featuring active promotion races where the player pushes a pawn on the a, b, or h file instead of addressing a more critical immediate priority. 8/10 moves are specifically rim pawn advances (a-file or h-file), while 2/10 are b-file pushes. In every c"
+    }
+   ]
+  },
+  {
+   "fine_id": 138,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 153,
+     "chip": "Wing pawn swap releases key tension",
+     "fire_rate_pct": 0.741,
+     "description": "All 10/10 positions are endgames featuring a pawn-takes-pawn capture on the flank files. Specifically, 7/10 involve the a- or b-file (axb or bxa or cxb), and 6/10 involve the g- or h-file (hxg, gxh, gxf). Every single move resolves direct pawn tension where two pawns are in conta"
+    },
+    {
+     "feature_id": 265,
+     "chip": "Pawn swap crowns enemy passer",
+     "fire_rate_pct": 1.089,
+     "description": "All 10/10 positions feature a pawn-takes-pawn capture, and 8/10 occur in endgame positions centered on passed pawns and pawn promotion races. The captures universally resolve tension between adjacent file pawns (a\u00d7b, h\u00d7g, b\u00d7c, g\u00d7f, e\u00d7d). Crucially, when these moves ARE mistakes ("
+    },
+    {
+     "feature_id": 1023,
+     "chip": "Pawn exchange enables opponent passed pawn",
+     "fire_rate_pct": 0.63,
+     "description": "All 9/9 positions are endgames where the player makes a pawn capture that resolves existing pawn tension between adjacent files. In 7/9 positions, the better alternative was a king move (improving king position before committing to the exchange) or maintaining the tension entirel"
+    },
+    {
+     "feature_id": 1730,
+     "chip": "pxp releases tension, gifts passed pawn",
+     "fire_rate_pct": 0.601,
+     "description": "All 10/10 positions feature a pawn-takes-pawn capture that resolves pawn tension in a simplified endgame (9/10 endgame, 1/10 late middlegame). 10/10 moves are pxp captures on an adjacent file. The positions overwhelmingly involve pure pawn endgames or near-pure endgames (9/10 are"
+    },
+    {
+     "feature_id": 1735,
+     "chip": "Pawn trade creates passed pawn",
+     "fire_rate_pct": 0.804,
+     "description": "All 10/10 positions are endgames featuring pawn-takes-pawn captures that resolve direct pawn tension (where two pawns attack each other on adjacent files). 9/10 involve kingside or central pawns (f/g files predominantly: gxf4 appears 4 times, fxe5 twice, fxg4 twice, gxh5 and gxf5"
+    },
+    {
+     "feature_id": 1908,
+     "chip": "Pawn trade frees opponent's king",
+     "fire_rate_pct": 0.878,
+     "description": "All 10/10 positions feature pawn-takes-pawn captures in the endgame on files e through h, where the opponent's king is exposed and typically 1-2 squares from the capture square. 8/10 moves deliver check. The captures resolve critical pawn tension that was restraining the opponent"
+    }
+   ]
+  },
+  {
+   "fine_id": 166,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 610,
+     "chip": "Rook misses dangerous promotion pawn",
+     "fire_rate_pct": 1.277,
+     "description": "10/10 positions feature major piece captures or forcing moves in positions with large advantages (avg eval ~600+ cp). 9/10 are endgame positions. 9/10 involve rook moves specifically (1 queen). 7/10 involve capturing an enemy pawn\u2014usually a dangerous passed pawn near promotion (p"
+    },
+    {
+     "feature_id": 768,
+     "chip": "Rook grabs pawn, abandons mate",
+     "fire_rate_pct": 1.387,
+     "description": "All 10/10 positions feature a pawn capture in an already-won endgame (evaluations ranging from +600 to forced mate). Every single capture targets an enemy pawn specifically \u2014 never a piece. The capturing side uses a major piece (Rook in 5/10, Queen in 4/10) or King (1/10). In 7/1"
+    },
+    {
+     "feature_id": 1279,
+     "chip": "Pawn capture misses forcing blow",
+     "fire_rate_pct": 0.852,
+     "description": "All 10 positions feature a pawn-takes-pawn capture removing an opponent's advanced or passed pawn in a position where the capturing side already holds a large advantage (avg eval ~+800 in the capturing side's favor). 9/10 are endgames and 10/10 involve capturing a pawn that has p"
+    },
+    {
+     "feature_id": 1464,
+     "chip": "Rook grabs piece, abandons mate",
+     "fire_rate_pct": 1.278,
+     "description": "All 10 positions feature captures of high-value enemy pieces (rooks or queens), and 7/10 are captures delivered with check, making them feel maximally forcing and natural. Yet in 9/10 positions (excluding Position 2 at 0 cp loss), a forced checkmate or perpetual check existed tha"
+    },
+    {
+     "feature_id": 1654,
+     "chip": "King capture gifts pawn endgame",
+     "fire_rate_pct": 0.957,
+     "description": "All 10/10 positions feature the King capturing a major piece (7/10 Rooks, 3/10 Queens) in the endgame phase, entering a pawn endgame or near-pawn endgame. The captures are overwhelmingly forced: the average number of good moves is only 1.2, and 7/10 positions have a cp_loss of 10"
+    }
+   ]
+  },
+  {
+   "fine_id": 117,
+   "size": 4,
+   "features": [
+    {
+     "feature_id": 923,
+     "chip": "King to wrong square loses race",
+     "fire_rate_pct": 1.079,
+     "description": "All 10/10 positions feature king moves, with 9/10 occurring in endgames involving passed pawns and promotion races. The 'tempo_loss' tactical motif was identified in 8/10 positions, and 'passed_pawn' appeared in 9/10. The serious blunders (positions 2, 4, 6, 8 with cp_loss 169-81"
+    },
+    {
+     "feature_id": 1192,
+     "chip": "King one file off loses race",
+     "fire_rate_pct": 1.203,
+     "description": "All 10/10 positions involve king moves in the endgame where the king selects the wrong destination square among several adjacent options. The tempo loss tag appears in 9/10 positions, confirming the consistent mechanism of error. In 7/10 positions, the king moved to a square one "
+    },
+    {
+     "feature_id": 1220,
+     "chip": "King flees from passing pawn",
+     "fire_rate_pct": 1.248,
+     "description": "In 10/10 positions, the mistake is a king move in the endgame that heads in the wrong direction relative to the decisive action. The 'tempo_loss' tag was identified in 10/10 analyses, and 'passed_pawn' appeared in 9/10, establishing these as the defining features. The critical pa"
+    },
+    {
+     "feature_id": 1897,
+     "chip": "King vacates passed-pawn blockade square",
+     "fire_rate_pct": 1.048,
+     "description": "All 10/10 positions feature king moves as the blunder, and 9/10 occur in endgames dominated by passed pawn dynamics. The tag 'tempo_loss' appears in all 10 analyses, and 'passed_pawn' in 9/10. The specific manifestations cluster into three sub-types: (1) King directly abandons a "
+    }
+   ]
+  }
+ ]
+}

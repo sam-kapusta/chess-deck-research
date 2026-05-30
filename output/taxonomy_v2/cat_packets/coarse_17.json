@@ -1,0 +1,450 @@
+{
+ "coarse_id": 17,
+ "n_features": 67,
+ "subclusters": [
+  {
+   "fine_id": 16,
+   "size": 24,
+   "features": [
+    {
+     "feature_id": 58,
+     "chip": "Rook grab creates tactical liability",
+     "fire_rate_pct": 1.115,
+     "description": "All 10 positions share the characteristic of having very few good moves (avg 1.8), meaning they demand precise tactical identification of the one critical action required. In 5/10 cases (positions 1, 2, 6, 8, 9), the best move was a simple capture of undefended or poorly-defended"
+    },
+    {
+     "feature_id": 109,
+     "chip": "King steps one square into mate",
+     "fire_rate_pct": 1.438,
+     "description": "All 10/10 positions feature an exposed king under heavy pressure choosing between adjacent squares, with an average of only 1.2 good moves available. In every case, the king retreats to what appears to be a natural shelter square but actually creates a devastating tactical vulner"
+    },
+    {
+     "feature_id": 141,
+     "chip": "Pawn leaves critical square unguarded",
+     "fire_rate_pct": 1.397,
+     "description": "All 10 positions share a critical characteristic: they are extremely narrow decision points (average 1.5 good moves available) where the player chose a 'textbook' or 'obvious-looking' move instead of the one precise move the position demanded. In 4/10 positions (3, 4, 6, 7), a pa"
+    },
+    {
+     "feature_id": 158,
+     "chip": "Rook drift over urgent king shelter",
+     "fire_rate_pct": 1.157,
+     "description": "All 10 positions share the characteristic of having extremely few good options (avg 1.4 good moves), demanding one precise action. In 7/10 cases, king safety was the critical ignored priority (positions 2, 3, 5, 6, 8, 9, 10). In 2/10 cases, a hanging piece or decisive tactic was "
+    },
+    {
+     "feature_id": 201,
+     "chip": "Pawn push over forcing capture",
+     "fire_rate_pct": 0.844,
+     "description": "10/10 positions featured a player choosing a 'reasonable-looking' move (pawn advance, quiet development, routine capture) when the position demanded one specific forcing move. The average good moves available was only 1.6, meaning these were critical junctures with extremely narr"
+    },
+    {
+     "feature_id": 226,
+     "chip": "Queen defends instead of attacks",
+     "fire_rate_pct": 2.568,
+     "description": "All 10 positions share a remarkably consistent pattern: a sharp position with only ~1 good move available (avg 1.2), where the player chose a passive or defensive-looking piece move instead of the one forcing/active continuation that was required. 9/10 positions feature tempo_los"
+    },
+    {
+     "feature_id": 370,
+     "chip": "Pawn push ignores forcing reply",
+     "fire_rate_pct": 0.951,
+     "description": "All 10 positions share an extremely narrow set of acceptable continuations (average 1.4 good moves), creating critical decision points where the player must find the ONE specific tactical solution. Instead, the player consistently chose moves that appear logical and purposeful \u2014 "
+    },
+    {
+     "feature_id": 389,
+     "chip": "h-file push over pressing need",
+     "fire_rate_pct": 1.091,
+     "description": "All 10 positions share a situation where the player had very few good options (avg 1.9 good moves) demanding precise play, yet chose a move that appeared active or logical but catastrophically ignored the position's most pressing concrete need. In 4/10 positions, the correct move"
+    },
+    {
+     "feature_id": 570,
+     "chip": "King steps into fatal check pattern",
+     "fire_rate_pct": 1.391,
+     "description": "All 10 positions share a critical structural feature: extremely few good moves available (average 1.4), meaning the player faced a do-or-die decision. In every case, the player chose a destination square that appeared safe or active but had a concrete tactical flaw exploitable by"
+    },
+    {
+     "feature_id": 584,
+     "chip": "Knight jumps miss urgent priority",
+     "fire_rate_pct": 1.264,
+     "description": "All 10 positions share a striking structural similarity: there were on average only 1.2 good moves available, meaning the position demanded extreme precision with essentially one correct path. In every case, the player chose a move that appears active, aggressive, or strategicall"
+    },
+    {
+     "feature_id": 630,
+     "chip": "Pawn picks lesser square over best",
+     "fire_rate_pct": 0.646,
+     "description": "The defining pattern across these positions is selecting a superficially attractive option while missing a dramatically superior one at a narrow decision point (avg 1.8 good moves available). In 4/10 positions (3, 7, 8, 9), the SAME pawn had two legal captures or could capture vs"
+    },
+    {
+     "feature_id": 672,
+     "chip": "Rook repositions over concrete urgency",
+     "fire_rate_pct": 0.966,
+     "description": "All 10 positions share a defining characteristic: the position required immediate, specific concrete action (promoting a pawn, winning material, defending a rank, maintaining a key piece), but the player chose a move that 'looks good' \u2014 repositioning a piece, gaining space, or ma"
+    },
+    {
+     "feature_id": 745,
+     "chip": "Rook misses critical defense",
+     "fire_rate_pct": 1.05,
+     "description": "9/9 positions share a defining characteristic: the position was on a knife's edge with very few good moves (avg 2.1), yet the player chose a 'reasonable-looking' move that ignored the most critical demand of the position. In 3/9 cases (Nxa3, Rxa2, fxe5), the move was a greedy mat"
+    },
+    {
+     "feature_id": 1095,
+     "chip": "Knight to outpost skips forcing reply",
+     "fire_rate_pct": 2.38,
+     "description": "All 10/10 positions feature a minor piece (7 knight moves, 3 bishop moves) being placed on a classically 'strong' square \u2014 outposts, central squares, or attacking diagonals \u2014 that looks positionally desirable but misses the one urgent tactical requirement. In 10/10 cases, the ave"
+    },
+    {
+     "feature_id": 1225,
+     "chip": "Rook 'activity' abandons critical defense",
+     "fire_rate_pct": 3.532,
+     "description": "All 10 positions feature rook moves that look 'natural' or 'active' but catastrophically miss the position's urgent requirement. In 7/10 positions, the critical need was king safety (either defending the player's own exposed king or preventing a mating attack). In 2/10 cases (Rxh"
+    },
+    {
+     "feature_id": 1388,
+     "chip": "Quiet rook move over forcing response",
+     "fire_rate_pct": 1.365,
+     "description": "10/10 positions feature a player choosing a quiet, 'improving' move (pawn push, piece repositioning, or prophylactic king move) when the position demanded a concrete forcing response. The average number of good moves available was only 1.7, meaning these are critical-moment posit"
+    },
+    {
+     "feature_id": 1403,
+     "chip": "Bishop grabs lesser piece over queen",
+     "fire_rate_pct": 1.502,
+     "description": "9/10 positions involve bishop or knight moves (6 bishop, 3 knight), with 7/10 being captures or checks that LOOK forcing but aren't the best. The average good moves available was only 1.6, meaning these positions had essentially ONE critical path that the player missed. In 4/10 c"
+    },
+    {
+     "feature_id": 1448,
+     "chip": "a4/h-pawn push over priority",
+     "fire_rate_pct": 1.068,
+     "description": "8/10 positions featured a move that appeared purposeful\u2014advancing a pawn, developing a piece, giving a check, or making a capture\u2014but critically failed to address the ONE thing the position demanded. The positions are characterized by extreme narrowness (avg 1.8 good moves availa"
+    },
+    {
+     "feature_id": 1506,
+     "chip": "Rook to open file misses strike",
+     "fire_rate_pct": 1.877,
+     "description": "9/10 positions feature major piece moves (7 rook moves, 2 queen moves) that appear 'natural' \u2014 contesting an open file, giving a check, or connecting rooks \u2014 but catastrophically fail to address the position's urgent tactical demands. The average good moves available was only 1.5"
+    },
+    {
+     "feature_id": 1695,
+     "chip": "Rook routine move misses only resource",
+     "fire_rate_pct": 1.188,
+     "description": "All 10 positions share an extremely narrow set of good options (average 1.3 good moves available), meaning each demanded a single specific concrete solution. In 10/10 cases, the player chose a 'routine' or 'natural-looking' chess move \u2014 doubling rooks (Rcd8), defending passively "
+    },
+    {
+     "feature_id": 1710,
+     "chip": "Rook repositioned while tactics demanded",
+     "fire_rate_pct": 1.341,
+     "description": "In all 10/10 positions, the player chose a 'reasonable-looking' piece move (repositioning, development, file-contesting, or wrong check) while the position had a narrow critical forcing move that was drastically superior. The average number of good moves available was only 1.6, m"
+    },
+    {
+     "feature_id": 1932,
+     "chip": "Queen vacates key defensive square",
+     "fire_rate_pct": 1.194,
+     "description": "All 10 positions share a critical pattern: the player moves a piece that was the sole (or key) defender of a vital square or the only preventer of a lethal tactic. 9/10 positions had only 1-2 good moves available (avg 1.2), indicating razor-thin defensive margins where one piece "
+    },
+    {
+     "feature_id": 1929,
+     "chip": "Rook drifts from critical sector",
+     "fire_rate_pct": 1.038,
+     "description": "All 10 positions share a common structure: the position demanded one specific urgent action (addressing a hanging piece, exchanging to simplify, eliminating a key defender, or avoiding a fatal weakening), but the player chose a reasonable-looking alternative that catastrophically"
+    },
+    {
+     "feature_id": 1986,
+     "chip": "King steps into check or fork",
+     "fire_rate_pct": 1.407,
+     "description": "9/10 positions had only 1-2 good moves available (avg 1.5), making these critical decision points with an extremely narrow correct path. In every case, the player chose a move that looks superficially reasonable\u2014developing a piece (Nh6 \u00d72), repositioning (Nb3, Qe8, Be7), grabbing"
+    }
+   ]
+  },
+  {
+   "fine_id": 21,
+   "size": 14,
+   "features": [
+    {
+     "feature_id": 37,
+     "chip": "King drifts edge, enters mating net",
+     "fire_rate_pct": 2.32,
+     "description": "All 10 positions feature king moves that go to the wrong square when very few good options exist (avg 1.7 good moves). In 9/10 positions, the best move was king centralization (typically toward e/d files: Ke6 in 4 cases, Kxd6/Kxe5 captures in 2 cases, Kd3/Kc3/Kc4 in 3 cases). The"
+    },
+    {
+     "feature_id": 489,
+     "chip": "Rook leaves critical defensive post",
+     "fire_rate_pct": 1.011,
+     "description": "All 10 positions share the critical characteristic of having essentially only one acceptable move (avg 1.2 good moves available) combined with catastrophic punishment for alternatives (avg 2136 cp_loss). In 5/10 positions the blunder was a capture that seemed natural (Qxd7, Rxd6,"
+    },
+    {
+     "feature_id": 542,
+     "chip": "King grabs wing pawn, drops tempo",
+     "fire_rate_pct": 1.096,
+     "description": "7/10 positions involve king moves (6 of which are king captures of enemy pawns on the wing/edge: Kxh4, Kxa6, Kxh7, Kxa6, Kxa7, plus Ka5 approach), while the remaining 3 involve pieces jumping to visually active squares (Ne4 twice, Qg3, Qd6). The critical observation is that 5/10 "
+    },
+    {
+     "feature_id": 652,
+     "chip": "Bishop drifts, abandons critical post",
+     "fire_rate_pct": 0.774,
+     "description": "9/10 positions feature quiet (non-capturing) bishop moves to new squares, with an average cp_loss of 2884 indicating catastrophic errors. In 6/10 cases, the bishop was already performing a vital function (controlling a promotion square in Position 2, preventing a knight fork in P"
+    },
+    {
+     "feature_id": 711,
+     "chip": "Rook repost while king collapses",
+     "fire_rate_pct": 1.083,
+     "description": "In 8/9 positions, the blunder was a rook move or rook capture (Rc7, Rf7, Rf2, Re3, Re2, Ra2, Re2, Rxc3) with one pawn push (d6). All 9 positions featured critically exposed kings where only 1-2 moves survived (avg good moves: 1.1). The correct moves were consistently forcing or d"
+    },
+    {
+     "feature_id": 1078,
+     "chip": "Queen lands on exploitable square",
+     "fire_rate_pct": 1.2,
+     "description": "All 10 positions share two defining characteristics: extremely high centipawn losses (average 5154cp) and very few good alternatives (average 2.1 good moves), meaning these are razor-sharp positions demanding extreme precision. 6/10 moves are queen moves to active-looking squares"
+    },
+    {
+     "feature_id": 1210,
+     "chip": "Quiet pawn push over forcing advance",
+     "fire_rate_pct": 0.961,
+     "description": "All 10/10 positions feature a non-forcing pawn advance as the mistake, with an average cp_loss of 326 and only 1.2 good moves available on average, indicating narrow critical moments. In 5/10 positions (1, 3, 7, 8, 9), the correct move was the SAME pawn advanced TWO squares inste"
+    },
+    {
+     "feature_id": 1435,
+     "chip": "Wing pawn push over hanging piece",
+     "fire_rate_pct": 1.42,
+     "description": "All 10/10 positions feature a quiet single-step pawn advance on a wing file (b-file: 5 positions, c-file: 2, h-file: 2, a-file: 1) when the position contained an urgent tactical opportunity \u2014 a hanging piece to capture (4/10), a forcing sacrifice or combination (3/10), or a criti"
+    },
+    {
+     "feature_id": 1470,
+     "chip": "Queen grabs material, misses mate",
+     "fire_rate_pct": 1.129,
+     "description": "All 10 positions share an extremely narrow set of correct options (avg 1.3 good moves available), combined with a very high average cp_loss of 4169. In 5/10 positions, the move played was a material capture (Qxc4, Qxe4, Qxd6, Bxb5, or the pawn-grab motivation behind Kh3). In 6/10"
+    },
+    {
+     "feature_id": 1597,
+     "chip": "Wing pawn push over king activation",
+     "fire_rate_pct": 0.873,
+     "description": "All 10 positions feature single-step pawn advances in endgame positions, with 9/10 on wing files (b-file: 6 times, g-file: 3 times, a-file: 1 time) and only 1 central push (e5). In the positions with significant cp loss (positions 2, 5, 7, 9, 10 averaging ~342cp loss), the correc"
+    },
+    {
+     "feature_id": 1714,
+     "chip": "Central push over forcing piece move",
+     "fire_rate_pct": 1.206,
+     "description": "8/10 positions feature a central pawn advance (c5, d4, c4, e4, d5, d4, e5, d6+), while the remaining 2 are slow piece moves (Rce2, Rf6). In the 8 clear mistakes (positions 1-8, avg cp_loss ~366 excluding the mate), the correct move was overwhelmingly a PIECE action: a capture of "
+    },
+    {
+     "feature_id": 1771,
+     "chip": "King move surrenders pawn-race tempo",
+     "fire_rate_pct": 0.897,
+     "description": "All 10 positions feature a one-square king move, and in 7/10 cases, a pawn move or pawn capture was clearly superior (positions 1, 3, 6, 8, 9, 10 needed pawn pushes; position 2 needed Ke6 or h5). The average cp_loss of 2743 is driven by three catastrophic cases (positions 1, 3, 1"
+    },
+    {
+     "feature_id": 1814,
+     "chip": "Queen grabs material over survival",
+     "fire_rate_pct": 1.298,
+     "description": "8/10 positions feature moves that directly capture material or attack enemy pieces (Qxh7, Qxd8+, Qxb2, Qxd1+, Ra1 targeting Na2, h5 attacking Ng6, Nb5 targeting pawns, Ng5 targeting h7), while the remaining 2/10 (Nf6, Qc7) are superficially active-looking moves that ignore critic"
+    },
+    {
+     "feature_id": 1880,
+     "chip": "Knight leaps to attacked central square",
+     "fire_rate_pct": 1.282,
+     "description": "All 9 positions feature knight moves to aggressive central squares (c4, e5, d4, d5, c5, f5 \u2014 all on the 4th or 5th rank). In 8/9 cases these are mistakes averaging 262cp loss, while 1/9 (Nxd5+) is actually the best move. The knight moves are universally 'seductive' \u2014 they involve"
+    }
+   ]
+  },
+  {
+   "fine_id": 19,
+   "size": 11,
+   "features": [
+    {
+     "feature_id": 11,
+     "chip": "King steps onto exploitable open line",
+     "fire_rate_pct": 1.602,
+     "description": "All 10/10 positions feature a king move in the middlegame where the king is already exposed and lacking pawn shelter. In 9/10 cases the move is a significant blunder (avg cp_loss 3065), while position 8 is the rare correct version. The kings attempt to consolidate or escape press"
+    },
+    {
+     "feature_id": 213,
+     "chip": "King corners itself over concrete action",
+     "fire_rate_pct": 0.923,
+     "description": "10/10 positions feature king moves to corner or near-corner squares (8/10 specifically Kh1, plus Ka1, Kg1, Kh8, Kh2) during the middlegame. In 9/10 cases these moves are significant mistakes (avg cp_loss 266 excluding the one correct instance). 9/10 analyses explicitly identify '"
+    },
+    {
+     "feature_id": 466,
+     "chip": "Pawn push before piece prep",
+     "fire_rate_pct": 1.062,
+     "description": "All 10/10 positions feature a single-step pawn advance as the move played. In 7/10 cases this is a significant mistake (avg cp_loss ~450 for the errors), while 3/10 are correct or nearly correct. The critical distinguishing factor is TIMING: in the 7 erroneous positions, the corr"
+    },
+    {
+     "feature_id": 516,
+     "chip": "Bishop repost ignores pressing danger",
+     "fire_rate_pct": 2.346,
+     "description": "All 10/10 positions feature a bishop repositioning move that appears to centralize, activate, or improve the bishop's placement, but catastrophically ignores a more pressing need. The average cp_loss of 2106 reflects the severity of these errors. In 3/10 positions (3, 6, 8), the "
+    },
+    {
+     "feature_id": 765,
+     "chip": "King shuffles onto exposed files",
+     "fire_rate_pct": 2.06,
+     "description": "10/10 positions feature voluntary king moves (not escaping check) in complex middlegame/endgame positions with active piece tension. In 9/10 positions, the king move was a significant mistake (avg cp_loss 2094 excluding the one correct instance). The best moves in these positions"
+    },
+    {
+     "feature_id": 959,
+     "chip": "Pawn push over concrete capture",
+     "fire_rate_pct": 1.245,
+     "description": "All 10/10 positions feature a pawn advance as the played move \u2014 this is the most consistent geometric signal. In 9/10 cases these are mistakes (avg 249cp loss), with only position 10 (d6) being correct. The core error pattern: the player chose a superficially aggressive or logica"
+    },
+    {
+     "feature_id": 1289,
+     "chip": "Knight reroute over forcing strike",
+     "fire_rate_pct": 3.334,
+     "description": "All 10/10 positions involve knight moves, making this the defining geometric constant. In 9/10 cases (excluding position 7 which was actually correct at 0 cp_loss), the knight is slowly repositioned\u2014either retreating from an active post or rerouting to a 'better' square\u2014when the "
+    },
+    {
+     "feature_id": 1521,
+     "chip": "King steps onto check diagonal",
+     "fire_rate_pct": 2.934,
+     "description": "10/10 positions feature king moves exclusively, making this the defining geometric pattern. In 8/10 cases, the king move is a significant mistake (avg cp_loss 2142). The errors fall into two sub-types: in 4/10 positions (1, 4, 5, 9), a forcing tactical move (check or pawn break) "
+    },
+    {
+     "feature_id": 1539,
+     "chip": "Kingside pawn push over mating blow",
+     "fire_rate_pct": 0.775,
+     "description": "All 10/10 positions feature pawn pushes as the played move. In 9/10 cases these are blunders (avg cp_loss 3195 excluding the 0-loss outlier), turning winning or equal positions into lost ones or throwing away forced mates. In 7/10 positions, the best move was a piece move (Queen,"
+    },
+    {
+     "feature_id": 1662,
+     "chip": "Knight quits post, king exposed",
+     "fire_rate_pct": 1.173,
+     "description": "10/10 positions feature knight moves that create forks or attack multiple pieces simultaneously. In 9/10 cases, these forks are blunders (avg cp_loss 2333) because the knight was performing a vital function before moving. The most common target square is f2 (5/10 positions), with"
+    },
+    {
+     "feature_id": 1802,
+     "chip": "Queening overlooks back-rank mate",
+     "fire_rate_pct": 0.49,
+     "description": "All 10/10 positions feature a pawn promoting to a Queen. In 8/10 cases this was a mistake (avg cp_loss ~4870 across all, but ~6088 for the 8 errors specifically). The errors cluster into clear sub-types: 3/10 positions missed a critical intermediate check before promoting (Positi"
+    }
+   ]
+  },
+  {
+   "fine_id": 102,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 228,
+     "chip": "Rook move misses king safety",
+     "fire_rate_pct": 1.184,
+     "description": "All 10/10 positions feature a non-capturing, non-checking rook move to a seemingly logical square (open file, attacking an enemy piece, developing). In every case, only 1 good move existed (avg good moves: 1.0), and the average centipawn loss was a catastrophic 3010cp. The best m"
+    },
+    {
+     "feature_id": 563,
+     "chip": "Queen check drives king to safety",
+     "fire_rate_pct": 3.012,
+     "description": "All 10/10 positions feature the player giving a queen check (+) that turns out to be a serious blunder. The average centipawn loss is 4017, with 4/10 positions squandering a forced checkmate. In 6/10 cases, the check drives the opponent's king to a safer square (positions 1, 4, 5"
+    },
+    {
+     "feature_id": 1113,
+     "chip": "Queen check abandons winning resource",
+     "fire_rate_pct": 2.742,
+     "description": "All 10/10 positions feature a queen move as the blunder, and 7/10 are queen checks. The average centipawn loss is a catastrophic 4140, with only 1.4 good moves available on average, indicating razor-sharp positions requiring precision. The core pattern is a player choosing an agg"
+    },
+    {
+     "feature_id": 1608,
+     "chip": "Central pawn push over urgent defense",
+     "fire_rate_pct": 1.085,
+     "description": "All 10/10 positions feature a quiet pawn push (no captures, no checks) on a central or semi-central file (c, d, e, or f) when a critical tactical threat exists that demands urgent attention. The average centipawn loss is an enormous 4008, reflecting that these are catastrophic bl"
+    },
+    {
+     "feature_id": 1791,
+     "chip": "O-O-O into queenside attack",
+     "fire_rate_pct": 1.111,
+     "description": "All 10/10 positions feature O-O-O (queenside castling) as the blunder, with an average centipawn loss of 250. In 9/10 positions the game is still in the opening phase, and in most cases the center is closed (8/10 explicitly noted). The critical shared pattern is that the castling"
+    },
+    {
+     "feature_id": 1824,
+     "chip": "Queen plays plausible move, misses only save",
+     "fire_rate_pct": 1.397,
+     "description": "All 10 positions share an extremely narrow margin for error (average 1.6 good moves available) combined with a catastrophic average loss of 4715 centipawns. In 8/10 positions, the player was already in a difficult or losing position where only 1-2 moves avoided disaster. The blun"
+    }
+   ]
+  },
+  {
+   "fine_id": 143,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 5,
+     "chip": "King retreats stall pawn race",
+     "fire_rate_pct": 1.286,
+     "description": "All 10/10 positions share exactly 1 good move available, creating razor-thin decision points. 9/10 positions feature passed pawns or imminent promotion threats as the dominant strategic factor. 7/10 are endgames, and the remaining 3 middlegame positions all involve simplification"
+    },
+    {
+     "feature_id": 13,
+     "chip": "King steps into fork or mate",
+     "fire_rate_pct": 1.094,
+     "description": "All 10 positions share a remarkably low average of only 1.6 good moves available, indicating razor-thin margins where only one or two continuations maintain the evaluation. In 6/10 positions, there was exactly ONE good move. The missed tactics include: mate in 1 (2/10 positions: "
+    },
+    {
+     "feature_id": 1162,
+     "chip": "Knight move misses forcing reply",
+     "fire_rate_pct": 1.153,
+     "description": "9/10 positions (excluding the 0cp-loss outlier) share a common structure: the position demands a specific, often forcing response (a check, a key capture, or addressing an immediate threat), but the player instead makes a 'reasonable-looking' move that ignores the critical demand"
+    },
+    {
+     "feature_id": 1216,
+     "chip": "King shuffle over concrete urgency",
+     "fire_rate_pct": 0.784,
+     "description": "10/10 positions share the pattern of choosing a slow, non-urgent move when the position demanded one precise action. The average number of good moves available was only 1.3, meaning these are razor-sharp positions with essentially ONE correct continuation. 7/10 moves are quiet re"
+    },
+    {
+     "feature_id": 1375,
+     "chip": "Knight move skips critical demand",
+     "fire_rate_pct": 1.435,
+     "description": "All 10 positions share a common structure: there is ONE critical concrete demand (a tactic to execute, a threat to neutralize, or a defensive duty to maintain), yet the player makes a move that looks productive on the surface while completely ignoring this demand. 8/10 positions "
+    }
+   ]
+  },
+  {
+   "fine_id": 51,
+   "size": 4,
+   "features": [
+    {
+     "feature_id": 175,
+     "chip": "Castling over decisive forcing shot",
+     "fire_rate_pct": 1.265,
+     "description": "In 10/10 positions, the player chose to castle (O-O or O-O-O) when a specific forcing tactical shot was available that was far stronger. The average cp_loss was 258, indicating these were severe mistakes. Only 1.4 good moves were available on average, meaning the positions were r"
+    },
+    {
+     "feature_id": 312,
+     "chip": "Knight repost ignores mating net",
+     "fire_rate_pct": 2.122,
+     "description": "9/9 positions had exactly 1 good move available, creating a razor-thin defensive requirement. In 6/9 positions, the refutation after the blunder was forced checkmate (positions 1, 3, 6, 8, 9 allowed mate in 1-3 moves; position 5 allowed a crushing attack). 7/9 moves were knight r"
+    },
+    {
+     "feature_id": 321,
+     "chip": "Queen leaves mating square unguarded",
+     "fire_rate_pct": 3.264,
+     "description": "9/10 positions resulted in checkmate-in-one after the blunder, with an average cp_loss of 8632. In every case, the player moved a major piece (queen in 7/10, rook in 3/10) away from a critical defensive duty to pursue an offensive or materialistic goal. In 6/10 positions, the mov"
+    },
+    {
+     "feature_id": 950,
+     "chip": "Rook quits critical defensive post",
+     "fire_rate_pct": 1.903,
+     "description": "In 10/10 positions, the player's move allows a forced checkmate \u2014 in 9/10 cases mate-in-1 or mate-in-2, and in 1/10 a forced mate-in-13. The average number of good moves available was only 1.8, indicating razor-sharp positions where survival depended on addressing a single critic"
+    }
+   ]
+  },
+  {
+   "fine_id": 176,
+   "size": 3,
+   "features": [
+    {
+     "feature_id": 439,
+     "chip": "Captures ignore lethal king exposure",
+     "fire_rate_pct": 1.29,
+     "description": "10/10 positions feature critically exposed or vulnerable kings (kings on f7, f8, c8, d8, h4, h2, e1, or with shattered pawn shields). 6/10 positions have only 1 good move available, and the average is just 1.8 good moves\u2014indicating razor-thin margins for error. 7/10 of the moves "
+    },
+    {
+     "feature_id": 1404,
+     "chip": "Rook misses mating rank or file",
+     "fire_rate_pct": 1.066,
+     "description": "10/10 positions feature exposed or weakly-shielded kings as the dominant tactical element. The average cp_loss is 3941 with only 2.0 good moves available on average, indicating these are critical moments requiring precise calculation. In 4/10 positions (1, 2, 7, 10), a forced che"
+    },
+    {
+     "feature_id": 1458,
+     "chip": "Natural move ignores exposed king",
+     "fire_rate_pct": 0.809,
+     "description": "10/10 positions feature at least one exposed or vulnerable king (weak pawn shield, king in center, king on open file/rank). The average number of good moves is only 1.4, indicating extremely narrow tactical corridors. The moves played vary widely in piece type (rooks, bishops, pa"
+    }
+   ]
+  }
+ ]
+}

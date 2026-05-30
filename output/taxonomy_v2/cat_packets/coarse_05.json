@@ -1,0 +1,870 @@
+{
+ "coarse_id": 5,
+ "n_features": 129,
+ "subclusters": [
+  {
+   "fine_id": 5,
+   "size": 15,
+   "features": [
+    {
+     "feature_id": 147,
+     "chip": "Flank pawn lunge gifts free capture",
+     "fire_rate_pct": 0.774,
+     "description": "All 10/10 positions feature a pawn advance on the a, b, g, or h file \u2014 never a central pawn move. In 6/10 positions (positions 2, 3, 4, 5, 7, 9), the advanced pawn was directly capturable for free, typically by a bishop with a clear diagonal (Bxg5 in three cases, Bxb5, Qxb4, Bxg4"
+    },
+    {
+     "feature_id": 149,
+     "chip": "Central push surrenders knight outpost",
+     "fire_rate_pct": 1.157,
+     "description": "All 10 positions feature a one-square central pawn advance (d, e, or f file) that permanently surrenders pawn control over a diagonally adjacent square. In 8/10 positions, the opponent's knight immediately occupies the newly unguarded square as a powerful outpost (Position 1: e4 "
+    },
+    {
+     "feature_id": 601,
+     "chip": "Pawn thrust ignores immediate refutation",
+     "fire_rate_pct": 1.197,
+     "description": "All 10 positions share a common structure: the player makes a move that appears to accomplish something positive \u2014 developing a piece (Bg5, Bf5), giving a check (Qh3+, Bh6+), seizing space or files (d4, b5, g5, Rd7), preparing something (a6), or winning material (Bxg4) \u2014 but each"
+    },
+    {
+     "feature_id": 850,
+     "chip": "Bishop storms king shelter prematurely",
+     "fire_rate_pct": 1.048,
+     "description": "7/10 positions feature a capture or pawn advance targeting squares on the f-file or g-file directly adjacent to the enemy king (g2 in positions 1 and 8, f6 in positions 3 and 4, f7 in position 6, g6 in position 7, g7 in position 10). In each case, the move attempts to breach the "
+    },
+    {
+     "feature_id": 1002,
+     "chip": "d-pawn push ignores attacked knight",
+     "fire_rate_pct": 1.348,
+     "description": "In 8/10 positions, the player has a knight (on f3 or f6) directly attacked by an enemy e-pawn (on e4 or e5), and instead of relocating the knight, pushes the d-pawn (d3 or d6) to counter-attack the threatening e-pawn. The opponent simply captures the knight with the e-pawn (exf3 "
+    },
+    {
+     "feature_id": 1046,
+     "chip": "Pawn push drops diagonal guard",
+     "fire_rate_pct": 4.777,
+     "description": "All 10/10 positions feature a pawn advance that removes the moving pawn's diagonal defense of a neighboring pawn, piece, or critical square. In 8/10 cases, the abandoned target is an adjacent pawn (b4 left by b3\u2192b4, c4 left by b3\u2192b4, e5 left by d6\u2192d5, d6 left by c7\u2192c6, b4 left by"
+    },
+    {
+     "feature_id": 1165,
+     "chip": "Bishop develops onto pawn-attacked square",
+     "fire_rate_pct": 0.458,
+     "description": "10/10 positions share an identical pattern: a bishop is developed to what would normally be an 'active' square (targeting f7, f2, or the center), but that square is directly controlled by an opponent's central pawn that can immediately capture it. In 7/10 cases, it's Bc4 into a d"
+    },
+    {
+     "feature_id": 1214,
+     "chip": "Flank pawn pushed to undefended square",
+     "fire_rate_pct": 1.215,
+     "description": "All 10 positions feature a flank pawn advance (a, b, g, or h file) that lands on an undefended square. In 9/10 positions, the pushed pawn is immediately capturable \u2014 by a queen (positions 2, 3, 6), rook (positions 4, 5, 8, 10), or bishop (position 7). In 4/10 cases (positions 2, "
+    },
+    {
+     "feature_id": 1270,
+     "chip": "Knight on d5 swallowed by rook",
+     "fire_rate_pct": 1.986,
+     "description": "8/9 positions involve a piece moving to or capturing on a d-file square (d3, d4, d5, or d6) where it becomes immediately vulnerable to recapture, typically by an enemy rook already stationed on the open d-file. In 5/9 cases (positions 2, 3, 6, 8, 9), a minor piece lands on d5 or "
+    },
+    {
+     "feature_id": 1415,
+     "chip": "Bishop moves to knight-attacked square",
+     "fire_rate_pct": 2.061,
+     "description": "9/10 positions feature a bishop being moved to a square where an enemy knight immediately captures it for free. In 5/10 cases (positions 1, 3, 7, 8, and the Bd3 in position 6), the capturing knight is centrally posted on e5, exploiting its control of g4 or d3. In positions 4, 9, "
+    },
+    {
+     "feature_id": 1452,
+     "chip": "King captures onto exposed f-file",
+     "fire_rate_pct": 0.894,
+     "description": "In 10/10 positions, an enemy minor piece (knight or bishop) has infiltrated to a square directly adjacent to the king (f1, f8, or g7), and the player reflexively captures it with the king rather than finding a superior alternative. In 9/10 cases, the king moves from the g-file to"
+    },
+    {
+     "feature_id": 1510,
+     "chip": "Knight developed, attacked piece abandoned",
+     "fire_rate_pct": 1.2,
+     "description": "9/10 positions show the identical pattern: the player has a piece (usually a knight, once a bishop) directly attacked by an enemy pawn, and instead of saving or exchanging that piece, they develop their OTHER knight to a textbook square (Nc3, Nc6, Nf3, or Nf6). In positions 1-2, "
+    },
+    {
+     "feature_id": 1542,
+     "chip": "Pawn promotes into controlled square",
+     "fire_rate_pct": 0.61,
+     "description": "10/10 positions involve pushing a passed pawn to the 7th rank or promoting it, with the target square directly attacked by an opponent's piece. In 8/10 cases, the controlling piece is a bishop on a long diagonal (e.g., Bc4 controlling f1, Bb4 controlling e1, Bf7 controlling a2, B"
+    },
+    {
+     "feature_id": 1740,
+     "chip": "Bishop develops onto pawn's capture square",
+     "fire_rate_pct": 1.072,
+     "description": "All 10 positions share the pattern of a player executing a 'textbook' move \u2014 developing a piece, castling, or advancing a pawn for space \u2014 while ignoring the most immediate tactical reality: material is or will be en prise. In 4/10 positions (Bc4 x3, Bf4), a bishop is developed d"
+    },
+    {
+     "feature_id": 1981,
+     "chip": "Bishop deserts rook-pawn defender",
+     "fire_rate_pct": 1.52,
+     "description": "All 10 positions feature a bishop moving away from a square where it was the sole defender of a rook-pawn (b-file or g-file), allowing the opponent to immediately capture that pawn with devastating consequences. The pattern splits into four symmetric sub-cases: 3/10 positions sho"
+    }
+   ]
+  },
+  {
+   "fine_id": 23,
+   "size": 14,
+   "features": [
+    {
+     "feature_id": 161,
+     "chip": "Flank pawn push ignores center",
+     "fire_rate_pct": 1.464,
+     "description": "10/10 positions feature a pawn advance intended to gain space or expand on the flank, but which immediately weakens the position by removing that pawn from a defensive role. 6/10 are specifically b-pawn advances (b4 appears 4 times for White, b5 and b6 once each for Black), while"
+    },
+    {
+     "feature_id": 375,
+     "chip": "g/c pawn crawl abandons crisis",
+     "fire_rate_pct": 1.196,
+     "description": "10/10 positions feature a flank pawn (g or c file) advancing one square to the 3rd rank from the player's perspective (g6/c6 for Black, g3/c3 for White) as a slow, non-forcing move in a position requiring immediate concrete action. In 7/10 positions, the move specifically pushes "
+    },
+    {
+     "feature_id": 590,
+     "chip": "g3/h3 pawn cracks king shelter",
+     "fire_rate_pct": 0.643,
+     "description": "10/10 positions feature a single-square pawn advance on a file adjacent to (or on) the castled king's position, intended as a passive defensive measure: 7/10 are g2-g3 by White, 2/10 are b7-b6 by Black (king castled queenside on b8), and 1/10 is h2-h3. In all cases, the pawn was "
+    },
+    {
+     "feature_id": 634,
+     "chip": "Flank pawn push delays king activation",
+     "fire_rate_pct": 0.851,
+     "description": "10/10 positions feature pawn advances on the outermost files (a-file: 4 positions, h-file: 3 positions, g-file: 3 positions) during pure or near-pure pawn endgames. In every case, the advance commits the pawn structure on one flank before the timing is right, either locking pawns"
+    },
+    {
+     "feature_id": 728,
+     "chip": "Flank pawn push loosens king shelter",
+     "fire_rate_pct": 0.992,
+     "description": "All 10/10 positions feature a pawn advance on the same flank as the player's own king, intended to fix or stabilize the pawn structure defensively. In 7/10 cases, the move is specifically a g- or h-pawn advance near a kingside-castled king (g4 for White with king on g1/g2, g5 for"
+    },
+    {
+     "feature_id": 769,
+     "chip": "g-pawn advance exposes f-pawn shelter",
+     "fire_rate_pct": 0.85,
+     "description": "9/10 positions involve advancing the g-pawn one square (g6 for Black with king on h7, or g3 for White with king on h2). In all 9 cases, the g-pawn previously protected the adjacent f-pawn (f7 or f2), and its advance leaves that f-pawn undefended. The primary refutation in 8/10 po"
+    },
+    {
+     "feature_id": 1064,
+     "chip": "g6/h3 pawn shelter holes",
+     "fire_rate_pct": 0.693,
+     "description": "10/10 positions feature a single-step pawn advance on the file adjacent to (or directly in front of) the castled king: 7/10 are g6/g3 (the knight-pawn), 2/10 are h3 (the rook-pawn near a kingside-castled king), and 1/10 is a3 (near a queenside-castled king on b1). All moves share"
+    },
+    {
+     "feature_id": 1246,
+     "chip": "g-pawn chases bishop, cracks shelter",
+     "fire_rate_pct": 0.582,
+     "description": "All 10/10 positions feature an identical pattern: a g-pawn advance (g4 for White, g5 for Black) aimed at dislodging an enemy bishop sitting on h5 (6/10) or h4 (4/10). In 9/10 positions, the player's king was castled kingside or nearby, meaning the g-pawn advance directly weakened"
+    },
+    {
+     "feature_id": 1396,
+     "chip": "g-pawn advance holes kingside shelter",
+     "fire_rate_pct": 1.286,
+     "description": "All 10/10 positions feature a g-pawn advance (g5, g4, or g3) made by the side whose king is castled kingside, directly weakening their own pawn shield. In 9/10 cases, the primary motivation was to chase an active enemy piece from a strong square near the kingside (bishop on h5/f4"
+    },
+    {
+     "feature_id": 1637,
+     "chip": "Fianchettoed bishop deserts king diagonal",
+     "fire_rate_pct": 1.231,
+     "description": "All 10/10 positions feature a fianchettoed bishop (g7, g2, or b7) being moved away from its defensive diagonal where it protected the castled king. In 7/10 cases the bishop was on g7 or g2 defending a kingside-castled king; in 1/10 it was on b7 defending a queenside-castled king."
+    },
+    {
+     "feature_id": 1808,
+     "chip": "g-pawn advance opens rank checks",
+     "fire_rate_pct": 2.343,
+     "description": "9/10 positions involve advancing the g-pawn (7 are g3, 1 is g4, 1 is g2), with the remaining position featuring f6 and f5 advances following the same logic. In 8/10 cases, the king was already exposed on h2 or h3 (the kingside flank), and the pawn advance removed a critical shiel"
+    },
+    {
+     "feature_id": 1805,
+     "chip": "g-pawn push breaks king shelter",
+     "fire_rate_pct": 0.834,
+     "description": "7/9 positions involve the player advancing a pawn that forms part of their own king's pawn shield \u2014 in 6/9 cases specifically the g-pawn (g3 for White or g6 for Black), and in 1 case the b-pawn near a queenside-castled king. In all these cases, the opponent already had pieces (ty"
+    },
+    {
+     "feature_id": 1867,
+     "chip": "Kingside pawn advance strips shelter",
+     "fire_rate_pct": 2.227,
+     "description": "9/10 positions feature a kingside pawn advance (f4 or g4/g5) where the moved pawn was part of the king's defensive infrastructure. In 8/10 cases the king sits on g1, g2, or h1, relying on the f2 and/or g2 pawns as a shield. The advance removes the pawn from its defensive post, op"
+    },
+    {
+     "feature_id": 1927,
+     "chip": "Flank pawn push ignores king danger",
+     "fire_rate_pct": 0.515,
+     "description": "10/10 positions feature a flank pawn advance to the 3rd rank from the player's perspective (7x b3, 2x b6, 1x g3, 1x g6). In 9/10 cases, the move is motivated by defending a specific pawn (usually b2, b7, or g7) from queen pressure or preventing the opponent's queen from accessing"
+    }
+   ]
+  },
+  {
+   "fine_id": 40,
+   "size": 12,
+   "features": [
+    {
+     "feature_id": 1,
+     "chip": "En passant opens files, frees pieces",
+     "fire_rate_pct": 0.426,
+     "description": "All 10/10 positions feature White making an en passant capture (exf6 in 5 cases, dxc6, gxf6, fxg6, and exd6 twice). In every case, the capturing pawn was a powerful advanced pawn (e5 in 7/10, d5/g5/f5 in the others) that served as the backbone of White's spatial advantage\u2014restric"
+    },
+    {
+     "feature_id": 23,
+     "chip": "f-pawn chase misses capture",
+     "fire_rate_pct": 0.963,
+     "description": "8/10 positions feature pushing the f-pawn (f3 for White or f6 for Black) to expel an annoying enemy bishop, while 1/10 uses c6 to chase a bishop on b5, and 1/10 develops a knight into the bishop's target square instead of chasing it. In all 10 cases, a much stronger tactical move"
+    },
+    {
+     "feature_id": 56,
+     "chip": "Indirect move lets bishop escape",
+     "fire_rate_pct": 1.369,
+     "description": "In 10/10 positions, an enemy bishop was immediately capturable (hanging or directly takeable), yet the player chose an indirect response instead of the simple capture. In 5/10 positions (1, 2, 5, 6, 10), White had a Black bishop intruding deep in their territory (usually on c3 or"
+    },
+    {
+     "feature_id": 337,
+     "chip": "Knight grabs pawn, loses piece",
+     "fire_rate_pct": 0.914,
+     "description": "9/10 positions feature a knight capturing a pawn that is threatening/attacking a bishop, with the best move in every case being a simple bishop retreat (Bg3 in 7/10, Bb3 in 2/10). Specifically, 7/10 positions involve Nxg5 where White's bishop on h4 is being challenged by Black's "
+    },
+    {
+     "feature_id": 493,
+     "chip": "Bishop to g-file hangs undefended",
+     "fire_rate_pct": 0.502,
+     "description": "All 10/10 positions feature a bishop developed to the g-file (g4 or g5) attempting to pin a knight against the queen in the opening. In 5/10 positions (White playing Bg5), the 'pinned' Nf6 simply captures the undefended e4 pawn, simultaneously breaking the pin and leaving the Bg5"
+    },
+    {
+     "feature_id": 686,
+     "chip": "f-pawn opens king's diagonal",
+     "fire_rate_pct": 1.536,
+     "description": "All 10/10 positions involve advancing the f-pawn forward from in front of a castled king (9 White playing f2-f3 or f2-f4, 1 Black playing f7-f6). In at least 8/10 positions, the core punishment directly exploits the newly opened long diagonal to the king (a7-g1 for White or a2-g8"
+    },
+    {
+     "feature_id": 806,
+     "chip": "Knight leaves diagonal, queen hangs",
+     "fire_rate_pct": 0.598,
+     "description": "In 10/10 positions, a knight served as the sole piece blocking an enemy bishop's diagonal access to the player's queen, and the knight was moved away, exposing the queen to immediate capture. In 9/10 cases, the bishop sat on g4 or h5 pinning through a knight on f3 or e2 to a quee"
+    },
+    {
+     "feature_id": 896,
+     "chip": "Bxf3 activates queen on f3",
+     "fire_rate_pct": 0.983,
+     "description": "In 10/10 positions, a bishop captures (or moves to) a square where the opponent's queen can recapture, gaining a powerful centralized post. Specifically, 7/10 involve Black playing Bxf3 hoping White will recapture gxf3 (damaging the kingside pawn structure), but White's strongest"
+    },
+    {
+     "feature_id": 944,
+     "chip": "Bishop pins trivially broken by castling",
+     "fire_rate_pct": 1.329,
+     "description": "All 10/10 positions feature a bishop moving to a wing square (b5, b4, g5, g4, or a4) to create a pin or pseudo-pin against a knight \u2014 typically Nc6 pinned to Ke8 (6/10 via Bb5), Nf6 pressured via Bg5 (2/10), Nf3 pinned via Bg4 (1/10), or Nc3 pinned via Bb4 (1/10). In every case, "
+    },
+    {
+     "feature_id": 1141,
+     "chip": "Bishop to g5/g4 hangs immediately",
+     "fire_rate_pct": 1.55,
+     "description": "All 10 positions feature a bishop developed to g4 (4/10) or g5 (6/10), and in at least 7/10 cases the immediate tactical punishment follows the identical pattern: the opponent captures or deflects the f3/f6 knight (which is the only piece theoretically associated with defending t"
+    },
+    {
+     "feature_id": 1545,
+     "chip": "h3/a3 pawn ignores capture refutation",
+     "fire_rate_pct": 1.034,
+     "description": "All 10 positions feature a one-square rook-pawn advance intended to 'put the question' to an opponent's actively-placed piece \u2014 most commonly a bishop pinning a knight. In 8/10 positions, White plays h3 against a Bg4 that pins Nf3, expecting the bishop to retreat; instead, the bi"
+    },
+    {
+     "feature_id": 1732,
+     "chip": "Queen wing check, free block",
+     "fire_rate_pct": 1.234,
+     "description": "All 10/10 positions feature a queen delivering check from a wing square (a4, a5, h4, or h5) while the enemy king sits in the center during the opening or early middlegame. In every case, the check is trivially blocked \u2014 6/10 by a developing piece move (typically ...Bd7 blocking Q"
+    }
+   ]
+  },
+  {
+   "fine_id": 95,
+   "size": 12,
+   "features": [
+    {
+     "feature_id": 54,
+     "chip": "Pawn break ignores hanging pieces",
+     "fire_rate_pct": 1.433,
+     "description": "All 10/10 positions feature a pawn advance that creates diagonal contact with an opponent's strong advanced pawn (c6 vs d5 in 4 positions, f6 vs e5 in 2, b3 vs c4 in 2, a6 vs b5 in 1, e6 vs d5 in 1). In every case, the pawn break is a reasonable positional idea in the abstract\u2014ai"
+    },
+    {
+     "feature_id": 224,
+     "chip": "Pawn push abandons guarded piece",
+     "fire_rate_pct": 1.011,
+     "description": "All 10/10 positions feature an aggressive-looking forward pawn advance that actually undermines the player's own position. In 7/10 cases the pawn was an e- or f-pawn (f5 appeared 5 times, e4/e5 appeared 3 times), and in 9/10 cases the best alternative was a piece move, developmen"
+    },
+    {
+     "feature_id": 638,
+     "chip": "Pawn break squanders urgent tactic",
+     "fire_rate_pct": 1.621,
+     "description": "All 10/10 positions feature a pawn advance in a closed or semi-closed center, and all 10/10 are characterized as either premature (lacking preparation) or mistimed (missing something more urgent). The positions split into two related sub-patterns: in 6/10 cases (e4, f5, f4, f4, e"
+    },
+    {
+     "feature_id": 717,
+     "chip": "Central pawn push left undefended",
+     "fire_rate_pct": 2.245,
+     "description": "All 10/10 positions feature a central pawn advance (d5, e5, d4, or e4) in a closed or semi-closed center where patient development was required. In every case, the pawn was insufficiently defended: the opponent could capture it and the player could not recapture satisfactorily, r"
+    },
+    {
+     "feature_id": 767,
+     "chip": "Center pawn push over piece shot",
+     "fire_rate_pct": 5.724,
+     "description": "All 10/10 positions feature a pawn advance (9/10 are center or queenside pawns on the c, d, or e files) in sharp tactical positions where the player needed to act with pieces instead. In 8/10 cases, a concrete tactical shot was available (winning material, trapping a piece, or ad"
+    },
+    {
+     "feature_id": 970,
+     "chip": "Pawn chases knight, opens king",
+     "fire_rate_pct": 1.397,
+     "description": "All 10/10 positions feature the exact same pattern: the player advances a pawn to attack an enemy knight, but the pawn move creates critical weaknesses or squanders more important opportunities. The targeted knights were on f4 (2x), h4 (3x), g4 (1x), f5 (1x), e4 (2x), d4 (1x), an"
+    },
+    {
+     "feature_id": 1065,
+     "chip": "Pawn push surrenders forcing initiative",
+     "fire_rate_pct": 1.38,
+     "description": "All 10/10 positions feature a pawn advance as the mistake. In 9/10 cases, the primary tactical motif is explicitly tagged as 'tempo_loss.' The positions divide into two sub-patterns: (1) move-order errors where a different pawn or piece should go first (positions 1, 2, 3, 5, 8 \u2014 "
+    },
+    {
+     "feature_id": 1188,
+     "chip": "Pawn advance opens king diagonal",
+     "fire_rate_pct": 0.628,
+     "description": "All 10/10 positions feature pawn advances that fatally compromise the player's own king safety. In 8/10 cases, the pawn move directly opens a diagonal toward the player's king, allowing the opponent to deliver check, capture with check, or execute a mating sequence along that dia"
+    },
+    {
+     "feature_id": 1205,
+     "chip": "quiet pawn push over forcing piece move",
+     "fire_rate_pct": 0.8,
+     "description": "All 10/10 positions feature the same error type: the player advances a pawn (c5, e4, d6, f4, d3, b4) in a position that urgently demands a forcing response\u2014whether a piece move, tactical combination, check, capture, or specific defensive resource. 8/10 positions are explicitly ta"
+    },
+    {
+     "feature_id": 1525,
+     "chip": "f/h pawn push opens king",
+     "fire_rate_pct": 1.104,
+     "description": "All 10/10 positions feature single-step pawn advances that create concrete weaknesses the opponent immediately exploits. 7/10 involve pawns advancing on the f-file or adjacent to the player's castled/exposed king (f5, f6, h6, f3), directly compromising king safety by opening diag"
+    },
+    {
+     "feature_id": 1585,
+     "chip": "Pawn break over king safety",
+     "fire_rate_pct": 1.11,
+     "description": "All 10/10 positions feature a pawn advance that directly confronts an opponent's pawn (f3 attacks e4/g4, g6 attacks f5, d5/d6 attacks e5/c4, f6 attacks e5, c4 attacks d5, h5 attacks g6). In every case, the player chose this slow, non-forcing structural challenge over something mo"
+    },
+    {
+     "feature_id": 1675,
+     "chip": "Pawn push lets target escape",
+     "fire_rate_pct": 3.769,
+     "description": "All 10/10 positions share an identical pattern: the player advances a pawn to attack an enemy piece (a bishop in 8/10 cases, a knight in 1/10, and a queen in 1/10) when a direct tactical shot\u2014a capture, fork, or forcing sequence\u2014was immediately available. The missed tactics inclu"
+    }
+   ]
+  },
+  {
+   "fine_id": 130,
+   "size": 12,
+   "features": [
+    {
+     "feature_id": 330,
+     "chip": "Bishop to g5/g4 hangs piece",
+     "fire_rate_pct": 1.231,
+     "description": "In 10/10 positions, a bishop is developed to g4 (Black) or g5 (White) in a position where the opposing side already has a bishop on the corresponding diagonal (g5/h4 for White or g4/h5 for Black) that pressures the f3 or f6 knight. This creates a 'mirrored bishop' tension where t"
+    },
+    {
+     "feature_id": 571,
+     "chip": "Knight leaps to unguarded g5",
+     "fire_rate_pct": 2.46,
+     "description": "All 10/10 positions involve a knight jumping forward from its standard development square (f3 in 8/10 White positions, f6 in 2/10 Black positions) to an aggressive but completely undefended destination square (g5 in 7/10, h5 in 2/10, h4 in 1/10, e5 in 1/10). In every case, the kn"
+    },
+    {
+     "feature_id": 573,
+     "chip": "Knight to g5/g4 hangs instantly",
+     "fire_rate_pct": 1.062,
+     "description": "9/10 positions feature a knight jumping to g5 (6 cases) or g4 (3 cases) targeting the opponent's f-pawn, with 1/10 being a bishop to g4 instead. In all 10 positions, the piece lands on an undefended square in the opening phase with both kings still in the center. 8/10 are immedia"
+    },
+    {
+     "feature_id": 779,
+     "chip": "g-pawn push cedes dark squares",
+     "fire_rate_pct": 1.074,
+     "description": "7/10 positions involve pushing the g-pawn one square (g6 for Black, g3 for White) as a seemingly natural attempt to chase away a powerfully posted attacking piece \u2014 most commonly a knight on f5 or h5. In all 7 cases, the opponent's piece does NOT retreat but instead exploits the "
+    },
+    {
+     "feature_id": 893,
+     "chip": "Queen to g3/g6 deserts duty",
+     "fire_rate_pct": 1.743,
+     "description": "All 10/10 positions feature a heavy piece (Queen or Rook) moving to g3 (White, 5/10) or g6 (Black, 5/10) \u2014 symmetric third-rank g-file squares. In every case, the move appears to be building a kingside attack (threatening the opponent's king, supporting g-file pressure, or coordi"
+    },
+    {
+     "feature_id": 1122,
+     "chip": "Knight rim lunge drops h5/h4",
+     "fire_rate_pct": 1.271,
+     "description": "All 10/10 positions feature a knight moving from the f-file to the h-file (Nf6\u2192h5 for Black in 6 cases, Nf3\u2192h4 for White in 4 cases), invariably intending to attack an opponent's bishop sitting on g3, g5, f4, or f5. In 5/10 positions, the knight lands completely undefended and is"
+    },
+    {
+     "feature_id": 1286,
+     "chip": "Knight Ng5/g4 queen-bait",
+     "fire_rate_pct": 0.993,
+     "description": "10/10 positions involve a knight jumping to the g-file (g5 or g4) targeting the f7 or f2 pawn, mimicking the Fried Liver Attack pattern. In all 10 cases, the knight lands on a completely undefended square where the opponent's queen can simply capture it for free along an unobstru"
+    },
+    {
+     "feature_id": 1440,
+     "chip": "Bishop to h6/h3 hangs immediately",
+     "fire_rate_pct": 0.639,
+     "description": "All 10/10 positions involve a bishop moving to the h-file's third/sixth rank (Bh6 for White, Bh3 for Black) aiming at the opponent's g-pawn near their castled king, typically in conjunction with a queen already on the g-file (Qg3/Qg6). In every case, the move is premature and cre"
+    },
+    {
+     "feature_id": 1634,
+     "chip": "h-pawn kick drops knight",
+     "fire_rate_pct": 0.649,
+     "description": "All 10/10 positions feature the same move pattern: pushing h3 (White, 4 positions) or h6 (Black, 6 positions) to 'put the question' to an enemy bishop sitting on g4 or g5 that is pressuring a knight on f3/f6. In every case, there exists a more urgent tactical obligation that make"
+    },
+    {
+     "feature_id": 1830,
+     "chip": "g-pawn chase cracks king shelter",
+     "fire_rate_pct": 0.827,
+     "description": "In 10/10 positions, the player advances their g-pawn one square (g7-g6 for Black in 6 positions, g2-g3 for White in 4 positions) specifically to chase an enemy Queen sitting on h5 (all 6 Black cases) or h4 (all 4 White cases). This is the quintessential 'natural-looking defensive"
+    },
+    {
+     "feature_id": 1845,
+     "chip": "Bishop to h-file, g-pawn attacks",
+     "fire_rate_pct": 1.124,
+     "description": "All 10/10 positions feature a bishop non-capture repositioning move that simultaneously abandons a critical function and lands on a square immediately punishable by a pawn advance. In 6/10 positions (1,2,5,8,9,10), the bishop moves to the h-file (Bh5 or Bh4), where a g-pawn advan"
+    },
+    {
+     "feature_id": 1905,
+     "chip": "Bishop retreats to h-file, trapped",
+     "fire_rate_pct": 0.838,
+     "description": "In 10/10 positions, a bishop that was actively posted on the g-file (g4 for Black, g5 for White) \u2014 typically pressuring a knight on f3/f6 \u2014 retreats to the h-file rim (h5 or h4) instead of exchanging or retreating to a safer interior square. In every single case, the opponent pun"
+    }
+   ]
+  },
+  {
+   "fine_id": 87,
+   "size": 9,
+   "features": [
+    {
+     "feature_id": 887,
+     "chip": "Pawn push invites bishop sacrifice",
+     "fire_rate_pct": 1.192,
+     "description": "All 10 positions share a common structure: the player faces a visible concern (an annoying piece, a threat, a capture opportunity, or a check available) and responds with the most 'automatic' or 'natural-looking' move \u2014 but this reactive move creates or exposes a deeper vulnerabi"
+    },
+    {
+     "feature_id": 931,
+     "chip": "hxg capture ignores urgent threats",
+     "fire_rate_pct": 1.181,
+     "description": "All 10/10 positions feature the exact same mechanical move: an h-pawn capturing onto the g-file (8/10 hxg6, 2/10 hxg3), intended to rip open the h-file for a kingside attack. In every case, this capture is premature or misguided because it ignores a more urgent issue. In 3/10 pos"
+    },
+    {
+     "feature_id": 934,
+     "chip": "Rook to h3/h6 hangs immediately",
+     "fire_rate_pct": 1.259,
+     "description": "8/10 positions feature moves landing on or targeting the h-file (specifically h3 or h6 in 7/10 cases), with 9/10 moves ending on the 3rd or 6th rank. All 10 moves are aggressive in nature, attempting to create immediate kingside threats (mating attacks, piece captures, or pawn ad"
+    },
+    {
+     "feature_id": 1295,
+     "chip": "Bishop sac on h-pawn backfires",
+     "fire_rate_pct": 1.362,
+     "description": "All 9/9 positions feature a bishop capturing the h-pawn (h3 for Black, h6 for White) that is protected by the g-pawn, sacrificing a full piece to open the g-file and land the queen on h3/h6 with apparent mating threats. In every case the sacrifice is unsound: the attacker gives u"
+    },
+    {
+     "feature_id": 1568,
+     "chip": "Bishop sac cracks open kingside",
+     "fire_rate_pct": 1.373,
+     "description": "8/10 positions feature a bishop capturing a kingside pawn (Bxh3 in 5 positions, Bxh6, Bxg6, and Bxg3 in the others), while the remaining 2 involve a bishop aggressively repositioning toward the kingside (Bf4, Be5). In all cases, the player's intent was to generate a kingside atta"
+    },
+    {
+     "feature_id": 1567,
+     "chip": "Bishop to h6 misses forcing check",
+     "fire_rate_pct": 1.128,
+     "description": "8/10 positions feature bishop moves and 2/10 feature knight moves, all directed aggressively toward a weakened enemy king position. 4/10 positions specifically play Bh6 aimed at restricting a king on h8 with a compromised pawn shield. 9/10 positions feature an enemy king with a w"
+    },
+    {
+     "feature_id": 1590,
+     "chip": "Bishop sac on h3/h6 backfires",
+     "fire_rate_pct": 0.843,
+     "description": "All 10/10 positions feature a bishop that was actively placed on g4 (Black) or g5 (White), pressuring the opponent's knight on f3/f6, being challenged by the h-pawn (h3 or h6). Instead of the correct response\u2014trading for the knight (Bxf3/Bxf6 was best or near-best in 9/10 positio"
+    },
+    {
+     "feature_id": 1884,
+     "chip": "Rook pawn nudge over decisive attack",
+     "fire_rate_pct": 1.119,
+     "description": "All 10/10 positions share an identical geometric pattern: a rook pawn (a-pawn or h-pawn) advances one square to attack an enemy knight posted on the adjacent file (b4/b5 or g4/g5). In every case, the move is a low-priority prophylactic nudge that ignores urgent tactical demands. "
+    },
+    {
+     "feature_id": 1963,
+     "chip": "Bishop to h6 deserts d4",
+     "fire_rate_pct": 0.835,
+     "description": "10/10 positions feature a bishop moving to the h-file (h6 in 8 cases, capturing on h3 in 2 cases) with the explicit intent of attacking or dismantling a fianchettoed kingside structure \u2014 all 10 positions have a fianchettoed bishop on g7 as the target. The move is consistently a m"
+    }
+   ]
+  },
+  {
+   "fine_id": 110,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 72,
+     "chip": "King steps onto bishop diagonal",
+     "fire_rate_pct": 2.052,
+     "description": "8/10 positions show the identical geometric error: the blundering move places a piece directly onto a diagonal controlled by the opponent's bishop, where only a single rook currently blocks that diagonal. In 7/10 cases the piece is specifically the king (Kg3, Kg7, Kg3, Ka1, Kg8, "
+    },
+    {
+     "feature_id": 275,
+     "chip": "Pawn unblocks bishop's queen diagonal",
+     "fire_rate_pct": 1.931,
+     "description": "9/10 positions show the exact same tactical catastrophe: the player moves a piece (pawn or knight) that was the ONLY blocker on a diagonal between an enemy bishop and their own queen, allowing the bishop to capture the queen outright. In 7/10 cases, it's a pawn advance or capture"
+    },
+    {
+     "feature_id": 455,
+     "chip": "Rook blocks king's escape square",
+     "fire_rate_pct": 1.528,
+     "description": "All 10/10 positions share an identical tactical catastrophe: the player moves their own piece to the single square their king needs as an escape route, enabling an immediate or near-immediate checkmate. In 7/10 cases the self-blocking piece is a rook (Rd8, Rg8, Rg1, Rb8, Rg1, Rf8"
+    },
+    {
+     "feature_id": 691,
+     "chip": "Queen steps onto open diagonal",
+     "fire_rate_pct": 1.353,
+     "description": "7/10 positions show the identical core error: a piece is moved to a square that lies directly on an unobstructed diagonal controlled by an enemy bishop or queen, allowing immediate capture. Specifically, positions 2 and 8 feature Qh3 captured by a bishop along the e6/d7-h3 diagon"
+    },
+    {
+     "feature_id": 845,
+     "chip": "Pawn blocks bishop's retreat square",
+     "fire_rate_pct": 1.405,
+     "description": "6/10 positions show the exact same geometric pattern: a pawn advance to b3, b6, or g3 that physically occupies a square the player's bishop needs for retreat, enabling the opponent to trap or severely restrict that bishop. In positions 2, 3, and 6, ...b6 blocks the c5-bishop's re"
+    },
+    {
+     "feature_id": 1082,
+     "chip": "Bishop lands on pawn-fork diagonal",
+     "fire_rate_pct": 3.086,
+     "description": "8/10 positions show the exact same geometric pattern: a minor piece is placed on a square such that it and another friendly piece occupy the same rank, separated by exactly one file, allowing a central pawn advance to fork both diagonally. Specifically, positions 1, 2, and 6 feat"
+    },
+    {
+     "feature_id": 1427,
+     "chip": "Bishop trapped after corner pawn grab",
+     "fire_rate_pct": 0.991,
+     "description": "5/10 positions show the exact same geometric pattern: a bishop captures an undefended pawn on a2 or a7, then gets trapped by the opponent advancing b3 or b6 respectively, sealing the only escape diagonal. Positions 1, 10 feature Bxa2 trapped by b3; positions 3, 4, 6 feature Bxa7 "
+    },
+    {
+     "feature_id": 1863,
+     "chip": "Pawn blocks own diagonal attacker",
+     "fire_rate_pct": 2.753,
+     "description": "All 10/10 positions share an identical geometric error: the player moves a piece or pawn onto a square that lies directly between their own attacking piece and an undefended enemy target along a diagonal. In Position 1, Qe3 blocks c1-g5 (Bxg5 wins queen). In Position 2, Nf6 block"
+    }
+   ]
+  },
+  {
+   "fine_id": 67,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 128,
+     "chip": "Knight-file pawn cracks king shelter",
+     "fire_rate_pct": 0.904,
+     "description": "In 10/10 positions, an enemy bishop sits intrusively on the rook file adjacent to the player's king (h2 in positions 1 and 6, h7 in positions 4, 5, and 8, a2 in positions 3 and 7, a7 in positions 2, 9, and 10). In every case, the player advances the neighboring knight-file pawn o"
+    },
+    {
+     "feature_id": 241,
+     "chip": "b-pawn chase opens king shelter",
+     "fire_rate_pct": 1.163,
+     "description": "In 7/10 positions, there is a deeply infiltrated enemy bishop (on a2 in positions 2, 3, 9, 10; on c2 in position 1; on a7 in positions 5 and 6) and the player advances a b-pawn (b3 or b6) specifically to chase, trap, or block this bishop. In all cases the king is castled queensid"
+    },
+    {
+     "feature_id": 263,
+     "chip": "Rook chases queen, loses tempo",
+     "fire_rate_pct": 0.91,
+     "description": "All 10/10 positions feature an enemy queen infiltrated deep into the player's position on b7 (6 positions, Black plays Rb8) or b2 (4 positions, White plays Rb1), and the blunder is always the reflexive rook-to-back-rank move to 'attack' the queen. This natural-looking response fa"
+    },
+    {
+     "feature_id": 736,
+     "chip": "Knight raids c2, gets stranded",
+     "fire_rate_pct": 1.09,
+     "description": "9/10 positions feature a knight invasion (the exception is a bishop doing the same thing in position 3), and 5/10 specifically go to c2 targeting the a1 rook. In all 10 positions, the piece aggressively enters enemy territory attempting to win material through a fork or direct at"
+    },
+    {
+     "feature_id": 884,
+     "chip": "b-pawn exposes queenside king",
+     "fire_rate_pct": 0.996,
+     "description": "9/10 positions feature the identical pattern: an enemy bishop has infiltrated deep into the player's queenside on a2 (3 positions, White plays b3) or a7 (6 positions, Black plays b6), and the player advances the b-pawn to challenge, trap, or chase that bishop. In every case this "
+    },
+    {
+     "feature_id": 1060,
+     "chip": "Rook-pawn nudge ignites knight leap",
+     "fire_rate_pct": 1.071,
+     "description": "In 10/10 positions, the player advances a rook pawn (a3, a6, or h6) to 'ask the question' of an enemy knight posted on the 4th or 5th rank (b4, b5, or g5). In every single case, the knight's strongest response is to jump FORWARD into the position rather than retreat \u2014 typically d"
+    },
+    {
+     "feature_id": 1272,
+     "chip": "b/g pawn exposes rook diagonal",
+     "fire_rate_pct": 0.504,
+     "description": "10/10 positions show the identical geometric pattern: the player advances their b-pawn (b2\u2192b3 or b7\u2192b6) or g-pawn (g2\u2192g3 or g7\u2192g6) one square forward, removing the sole blocker on a long diagonal (a1-h8 or a8-h1) and leaving a corner rook (a1, a8, h1, or h8) completely undefended"
+    },
+    {
+     "feature_id": 1426,
+     "chip": "h-pawn advance gifts bishop sacrifice",
+     "fire_rate_pct": 0.683,
+     "description": "All 10/10 positions feature the same geometric pattern: the player advances their h-pawn one square (h7\u2192h6 for Black in 7 cases, h2\u2192h3 for White in 3 cases) to 'put the question' to an enemy bishop actively posted on g5 (7/10) or g4 (3/10), adjacent to the player's castled king. "
+    }
+   ]
+  },
+  {
+   "fine_id": 163,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 488,
+     "chip": "Pawn steps off guarding square",
+     "fire_rate_pct": 1.226,
+     "description": "In 7/10 positions, the blundered pawn move directly removed the sole pawn defender of a neighboring piece or pawn: Position 1 (d4 unguards e4 pawn), Position 3 (g4 unguards h4 bishop), Position 4 (f4 unguards g4 bishop), Position 5 (h5 unguards g5 bishop), Position 6 (d5 unguards"
+    },
+    {
+     "feature_id": 713,
+     "chip": "Pawn push over forced piece move",
+     "fire_rate_pct": 2.208,
+     "description": "All 10/10 positions feature single-step pawn advances that appear natural (gaining space, attacking pieces, or creating threats) but are catastrophically ill-timed. In 6/10 cases, the pawn advance directly vacates or removes the defense of a critical square (e5 vacates e6, e4 bre"
+    },
+    {
+     "feature_id": 762,
+     "chip": "Pawn advance abandons defensive post",
+     "fire_rate_pct": 1.075,
+     "description": "All 10/10 positions feature pawn advances as the blunder move \u2014 every single mistake is a pawn pushing forward. In 8/10 cases, the advanced pawn was performing a specific defensive function that its movement destroyed: blocking a critical diagonal (positions 5, 8 \u2014 g4 blocked e6-"
+    },
+    {
+     "feature_id": 881,
+     "chip": "Pawn push breaks defensive chain",
+     "fire_rate_pct": 2.49,
+     "description": "All 10 positions feature single-square pawn advances that break a critical defensive relationship in the player's own pawn structure. In 8/10 cases, the pushed pawn was directly protecting an adjacent pawn (g2 protecting f2 in positions 2 and 5, g7 protecting h7 in position 3, c5"
+    },
+    {
+     "feature_id": 968,
+     "chip": "Shelter pawn advance exposes king",
+     "fire_rate_pct": 3.213,
+     "description": "8/10 positions feature pawn advances of pawns directly adjacent to the player's own king (c4 near Kd1, f5 near Kg8, f3 near Kg1, b6 near Kc8, h5 near Kh8, h3 near Kg1, g3 near Kf1, g4 near Kf1), while 2/10 feature bishop moves that abandon defensive posts shielding the king (Be3 "
+    },
+    {
+     "feature_id": 1242,
+     "chip": "Pawn advance strips king shelter",
+     "fire_rate_pct": 1.492,
+     "description": "All 10/10 positions feature single-step pawn advances that look aggressive or purposeful (gaining space, attacking enemy pawns, creating breakthroughs) but fatally compromise the player's position. In 8/10 cases, the advanced pawn was directly guarding a critical square adjacent "
+    },
+    {
+     "feature_id": 1336,
+     "chip": "Pawn push abandons guard duty",
+     "fire_rate_pct": 1.58,
+     "description": "All 10/10 positions feature pawn advances in already-losing positions (avg starting eval ~+900cp for the stronger side). In at least 7/10 cases, the pawn was specifically guarding a critical adjacent square or piece, and advancing it immediately allowed enemy invasion or capture:"
+    },
+    {
+     "feature_id": 1455,
+     "chip": "Pawn advance vacates guard square",
+     "fire_rate_pct": 1.289,
+     "description": "All 10/10 positions feature non-capturing, single-square pawn advances that appear active or prophylactic but actually destroy a critical element of the player's own defensive structure. In 7/10 cases, the advanced pawn was directly controlling a key square that the opponent imme"
+    }
+   ]
+  },
+  {
+   "fine_id": 39,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 244,
+     "chip": "Castling king abandons e7 defender",
+     "fire_rate_pct": 0.904,
+     "description": "10/10 positions feature the identical tactical error: the king (on e1 or e8) is the sole defender of an adjacent piece, and castling removes that defense, leaving the piece freely capturable. In 7/10 positions, Black's king on e8 defends a piece on e7 (6 cases) or d7 (1 case), an"
+    },
+    {
+     "feature_id": 1015,
+     "chip": "Ke8 opens h5-e8 diagonal",
+     "fire_rate_pct": 0.965,
+     "description": "10/10 positions arise from Italian Game / Two Knights Defense lines where White sacrificed a knight on f7 (Nxf7 Kxf7), leaving Black's king exposed on f7 but up material. In all 10 cases, Black retreats the king backward (9/10 play Ke8, 1/10 plays Kf8) instead of the correct cons"
+    },
+    {
+     "feature_id": 1268,
+     "chip": "Nxf7 fork traps knight h8",
+     "fire_rate_pct": 0.901,
+     "description": "8/10 positions feature the identical tactical error: a knight on g5 captures on f7, attempting to fork Black's queen (on d6) and rook (on h8). 7/10 positions are the exact same Fried Liver/Italian Game position where the refutation is 7...Qc6, which simultaneously escapes the for"
+    },
+    {
+     "feature_id": 1302,
+     "chip": "Knight leaps to undefended square",
+     "fire_rate_pct": 1.241,
+     "description": "10/10 positions occur in Italian Game (1.e4 e5, Bc4) opening structures with both kings still in the center. In every case, a knight makes a premature aggressive forward leap\u20146/10 play Ng5 (attempting the Fried Liver f7 attack), 3/10 play Nxe5 (grabbing the e5 pawn expecting a d4"
+    },
+    {
+     "feature_id": 1410,
+     "chip": "King shuffles instead of castling",
+     "fire_rate_pct": 1.089,
+     "description": "All 10 positions share the exact same destination square: f1 for White or f8 for Black (the square the king occupies after kingside castling). In 10/10 positions, the king had not yet castled and remained on e1/e8. In 8/10 cases, the king itself moved to f1/f8 as a one-step 'arti"
+    },
+    {
+     "feature_id": 1622,
+     "chip": "Qe7 blocks bishop, prevents castling",
+     "fire_rate_pct": 1.04,
+     "description": "9/10 positions feature Black playing ...Qe7 in response to White's e5 pawn attacking a knight on f6, and 10/10 occur in the opening with both kings in the center. In all 9 Black cases, the queen on e7 blocks the f8-bishop from developing to e7 or d6, making kingside castling impo"
+    },
+    {
+     "feature_id": 1995,
+     "chip": "e-pawn vacates e7 shield",
+     "fire_rate_pct": 1.181,
+     "description": "7/10 positions share an identical or near-identical pattern: after 1.d4 d5 2.Bg5, Black advances the e-pawn (6/10 play ...e6, 1/10 plays ...e5), vacating the critical e7 square that was the sole barrier shielding the queen on d8 from the bishop on g5 along the g5-f6-e7-d8 diagona"
+    }
+   ]
+  },
+  {
+   "fine_id": 170,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 31,
+     "chip": "Bxf7+ bishop sac insufficient compensation",
+     "fire_rate_pct": 1.139,
+     "description": "10/10 positions feature a bishop capturing the opponent's f-pawn with check in the opening phase, with both kings still in the center. 9/10 are White playing Bxf7+ from c4, and 1/10 is the mirror image (Black playing Bxf2+ from c5). In all 10 cases, the sacrificing side has woefu"
+    },
+    {
+     "feature_id": 641,
+     "chip": "Knight sac on f2/f7 uncompensated",
+     "fire_rate_pct": 0.539,
+     "description": "All 10/10 positions feature a minor piece (knight in 9/10, bishop in 1/10) capturing the f-pawn directly in front of the opponent's king (f7 in 4/10 positions played by White, f2 in 6/10 positions played by Black). In every case, the sacrifice occurs in the opening (9/10) or earl"
+    },
+    {
+     "feature_id": 804,
+     "chip": "Knight on f7/f2 refuted",
+     "fire_rate_pct": 0.957,
+     "description": "All 10/10 positions feature a knight capturing on f7 (6 by White) or f2 (4 by Black) \u2014 the classic weak pawn defended primarily by the king. In 9/10 cases this occurs in the opening with both kings still in the center. The players attempt familiar tactical motifs: Fried Liver-sty"
+    },
+    {
+     "feature_id": 847,
+     "chip": "Bishop sac on f7 without follow-up",
+     "fire_rate_pct": 0.522,
+     "description": "All 10/10 positions feature a bishop capturing the opponent's f-pawn with check (9/10 Bxf7+ by White, 1/10 Bxf2+ by Black) during the opening phase with a closed center. In every case, the sacrifice is completely unsound: the attacker gives up a full bishop (\u22483 pawns) for only on"
+    },
+    {
+     "feature_id": 1036,
+     "chip": "Bxh7+ lacks mating follow-up",
+     "fire_rate_pct": 1.036,
+     "description": "All 10/10 positions feature a bishop capturing a pawn with check to expose the enemy king \u2014 7/10 are Bxh7+, 2/10 are Bxh2+ (the mirror image for Black), and 1/10 is Bxf2+ or Bxf7+ targeting the f-pawn instead. In every case, the sacrifice is unsound: the attacker lacks sufficient"
+    },
+    {
+     "feature_id": 1968,
+     "chip": "Knight sac on f7/f2 misfires",
+     "fire_rate_pct": 0.659,
+     "description": "All 10/10 positions involve a piece sacrifice capturing the f-pawn (f7 or f2) \u2014 the classically weak square defended only by the king. 7/10 are Nxf7 by White, 2/10 are Nxf2 by Black, and 1/10 is Bxf2+ by Black. All 10 occur in the opening with both kings still in the center. In e"
+    }
+   ]
+  },
+  {
+   "fine_id": 149,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 139,
+     "chip": "f-pawn advance opens h4 diagonal",
+     "fire_rate_pct": 0.634,
+     "description": "All 10/10 positions arise from King's Gambit structures (1.e4 e5 2.f4) where White's f-pawn has already advanced from f2 to f4, partially weakening the kingside. In every case, White then moves the f-pawn again\u20148/10 via fxe5 capture and 2/10 via f4-f5 advance\u2014before developing an"
+    },
+    {
+     "feature_id": 536,
+     "chip": "fxe5 strips h4-e1 diagonal",
+     "fire_rate_pct": 0.696,
+     "description": "All 10/10 positions are King's Gambit openings (1.e4 e5 2.f4) where White plays 3.fxe5 before developing any pieces. In every case, the f-pawn on f4 was the sole remaining barrier on the h4-e1 diagonal after f2 was vacated on move 2. By capturing on e5, White completely strips th"
+    },
+    {
+     "feature_id": 744,
+     "chip": "fxe5 opens h4-e1 diagonal",
+     "fire_rate_pct": 1.167,
+     "description": "5/10 positions are the identical or near-identical blunder: White plays fxe5 in a King's Gambit setup (after 1.e4 e5 2.f4) with the king still on e1, removing the only pawn blocking the h4-e1 diagonal, immediately allowing Qh4+ followed by Qxe4+ forking king and h1-rook. Position"
+    },
+    {
+     "feature_id": 1159,
+     "chip": "f4-pawn leaves h4-e1 diagonal",
+     "fire_rate_pct": 0.954,
+     "description": "10/10 positions feature the identical blunder: White plays fxe5 with the f4-pawn in an early King's Gambit or King's Gambit-like opening structure where the king remains on e1. In every case, the f4-pawn was the sole defender of the h4-e1 diagonal, and its removal by capturing on"
+    },
+    {
+     "feature_id": 1184,
+     "chip": "Knight sacrifice on e5 refuted",
+     "fire_rate_pct": 0.739,
+     "description": "10/10 positions are the identical Four Knights Game position after 1.e4 e5 2.Nf3 Nc6 3.Nc3 Nf6, where White plays the Halloween Gambit 4.Nxe5. In every case, White's f3-knight captures Black's e5-pawn, sacrificing a full piece since Black's c6-knight simply recaptures on e5. The "
+    },
+    {
+     "feature_id": 1309,
+     "chip": "f-pawn opens fatal diagonal",
+     "fire_rate_pct": 1.038,
+     "description": "9/10 positions involve the f-pawn moving (either advancing ...f6 or capturing fxe5), which fatally opens a diagonal leading directly to the king. In 6/10 positions, White plays fxe5 in a King's Gambit structure, removing the f4 pawn that was the sole guardian of the h4-e1 diagona"
+    }
+   ]
+  },
+  {
+   "fine_id": 77,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 997,
+     "chip": "Knight sac on f2/f7 refuted",
+     "fire_rate_pct": 0.371,
+     "description": "All 10/10 positions feature a knight capturing the f-pawn (f2 for Black, f7 for White) adjacent to the opponent's king that remains on its starting square. In every case, the knight had been aggressively posted on a square attacking f2/f7 (typically g4 for Black's knight, e5 or g"
+    },
+    {
+     "feature_id": 1274,
+     "chip": "f-pawn exposes king's diagonal",
+     "fire_rate_pct": 1.119,
+     "description": "All 10 positions feature the f-pawn advancing one square (f7-f6 in 8/10 positions as Black, f2-f3 in 2/10 as White) with the intent of challenging the opponent's strong central e-pawn (e5 or e4). In every case, the f-pawn was performing a critical defensive role: guarding diagona"
+    },
+    {
+     "feature_id": 1332,
+     "chip": "f-pawn opens king diagonal",
+     "fire_rate_pct": 1.084,
+     "description": "All 10/10 positions feature an f-pawn advance (f2\u2192f3/f4 for White or f7\u2192f6 for Black) played in the opening while the moving side's king remains uncastled in the center. In 10/10 cases, the move's intent was to challenge or dislodge a powerful enemy knight centralized on e4 (for "
+    },
+    {
+     "feature_id": 1799,
+     "chip": "fxe5 opens diagonal to king",
+     "fire_rate_pct": 1.384,
+     "description": "8/10 positions feature an f-pawn capturing toward the e-file (7 fxe5 by White, 1 fxe4 by Black), all in the opening phase with the king still in the center. In 7/8 of these f-pawn captures, the immediate refutation is Qh4+ (or Qh5+), exploiting the now-completely-open diagonal to"
+    },
+    {
+     "feature_id": 1866,
+     "chip": "f-pawn opens king diagonal",
+     "fire_rate_pct": 1.091,
+     "description": "All 10 positions feature a move to the f6 square (Black) or f3 square (White) during the opening phase with the king still in the center. 7/10 are f-pawn advances (6x ...f6, 1x f3) that critically weaken the diagonal leading to the uncastled king (e8-h5 for Black, e1-a6 for White"
+    },
+    {
+     "feature_id": 1872,
+     "chip": "Knight leaps, abandons key defensive post",
+     "fire_rate_pct": 0.968,
+     "description": "All 10/10 positions feature a knight making a forward, aggressive-looking jump to a seemingly powerful square. In 7/10 cases, the knight departs from the f-file (f3 for White or f6 for Black), which is typically the key defensive post supporting central pawns. In 6/10 positions, "
+    }
+   ]
+  },
+  {
+   "fine_id": 167,
+   "size": 3,
+   "features": [
+    {
+     "feature_id": 457,
+     "chip": "Rook leaves f8, f7 falls",
+     "fire_rate_pct": 0.432,
+     "description": "8/10 positions feature Black playing Re8, moving the rook from f8 where it defended the critical f7 pawn. In all 8 of these cases, the opponent had a queen and knight (typically Qh4/Qh5/Qh6 + Ng5) battery aimed at f7/h7, and the rook on f8 was the sole defender preventing a Qh7+/"
+    },
+    {
+     "feature_id": 1301,
+     "chip": "Nf6 misses Qxf7 mate",
+     "fire_rate_pct": 1.052,
+     "description": "In 10/10 positions, Black's king remained on e8 (uncastled) with the f7 pawn under direct or latent attack from a White piece battery \u2014 typically a Bishop on c4 combined with a Queen (positions 1, 2, 3, 5, 9) or Knight on g5 (positions 4, 7). In all 10 cases, Black played a knigh"
+    },
+    {
+     "feature_id": 1430,
+     "chip": "Knight leaves f6, bishop hangs",
+     "fire_rate_pct": 0.672,
+     "description": "8/10 positions feature a knight on f6 (Black) or f3 (White) that was performing a critical shielding/defensive function for a bishop on e7 or e2. In all 8 cases, an opponent's bishop (typically on g5 for White attacking Be7, or Bg4 for Black attacking Be2) was being blocked by th"
+    }
+   ]
+  },
+  {
+   "fine_id": 194,
+   "size": 3,
+   "features": [
+    {
+     "feature_id": 872,
+     "chip": "Bishop trade releases f-file pressure",
+     "fire_rate_pct": 1.08,
+     "description": "8/9 positions feature a bishop capturing a knight (7/9 specifically on the f-file: f6 or f3), prematurely releasing tension that was generating a larger advantage. In 6/9 cases, the bishop was actively pressuring from g5/h4 (targeting f6) or g4 (targeting f3), creating pins or re"
+    },
+    {
+     "feature_id": 964,
+     "chip": "Bishop takes knight, recapture activates foe",
+     "fire_rate_pct": 0.919,
+     "description": "All 10/10 positions feature a bishop capturing a knight (9/10 on f3 or f6, 1/10 on c6). In every case, the bishop was actively pressuring the knight from a diagonal (g4\u2192f3 in 5 positions, g5\u2192f6 in 4 positions, b5\u2192c6 in 1 position), and this pressure was creating tension that enab"
+    },
+    {
+     "feature_id": 1790,
+     "chip": "BxNf3/f6 hangs own queen",
+     "fire_rate_pct": 1.152,
+     "description": "All 9/9 positions feature a bishop capturing a knight on either f3 (5 positions, Black playing Bg4xNf3) or f6 (4 positions, White playing Bg5xNf6). In every case, the bishop had been pressuring the knight for some time, making the capture feel like a 'natural' culmination of the "
+    }
+   ]
+  }
+ ]
+}

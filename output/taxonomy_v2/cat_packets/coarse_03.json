@@ -1,0 +1,1014 @@
+{
+ "coarse_id": 3,
+ "n_features": 154,
+ "subclusters": [
+  {
+   "fine_id": 54,
+   "size": 26,
+   "features": [
+    {
+     "feature_id": 14,
+     "chip": "Pawn push lets knight fork",
+     "fire_rate_pct": 2.53,
+     "description": "10/10 positions feature a slow, non-forcing move (9/10 are pawn pushes like e6, g5, f5, a5, d3, g3; 1/10 is passive piece development Be6) played when the position demands urgent action. In 8/10 cases, the direct punishment is a knight jumping to a powerful square: Ng5 fork (posi"
+    },
+    {
+     "feature_id": 27,
+     "chip": "Pawn push over forcing capture",
+     "fire_rate_pct": 1.039,
+     "description": "All 10/10 positions feature a non-forcing move (no check, no capture) played in a position that required an immediate concrete tactical response. 7/10 moves are single-step pawn advances (d6, g3, f3, f6, e4, d5, c6) aimed at generic positional goals like challenging the center, g"
+    },
+    {
+     "feature_id": 82,
+     "chip": "Pawn push while mate looms",
+     "fire_rate_pct": 1.083,
+     "description": "All 10/10 positions feature a slow, non-forcing move played in a position with acute tactical tension demanding immediate action. 5/10 are pawn advances (g4, c5, g4, h4, c5), 4/10 are quiet rook moves to 'active' squares (Re2, Rd8, Re8, Rd8), and 1/10 is a king move (Ke6). In eve"
+    },
+    {
+     "feature_id": 92,
+     "chip": "h/a pawn push over forced capture",
+     "fire_rate_pct": 0.57,
+     "description": "10/10 positions feature a single-square advance of a rook pawn (a-file or h-file): 7/10 are h-pawn pushes (six to h6, one to h3), and 3/10 are a-pawn pushes (a3, a6, a4). All 10 moves are non-capturing, non-checking, and create no immediate forcing threat. In every case, the best"
+    },
+    {
+     "feature_id": 164,
+     "chip": "Autopilot pawn push over forced capture",
+     "fire_rate_pct": 1.018,
+     "description": "9/10 positions feature pawn moves (g6, f6, d5, h6, b3, a6, f5, c4, e5) and 1/10 is a non-forcing bishop move (Bb5), all sharing the characteristic of being slow, non-forcing moves in positions requiring urgent action. 8/10 positions had only 1-3 good moves available (avg 1.8), in"
+    },
+    {
+     "feature_id": 293,
+     "chip": "Flank pawn push over urgent piece",
+     "fire_rate_pct": 1.593,
+     "description": "All 10/10 positions feature quiet, non-capturing pawn advances played in positions that demanded immediate forcing action. 7/10 moves were specifically queenside flank pawn pushes (b3 \u00d73, b6 \u00d72, c3, c4), with the remaining 3 being kingside pawn moves (g3, g4, f5). The average num"
+    },
+    {
+     "feature_id": 291,
+     "chip": "h-pawn push over forced tactic",
+     "fire_rate_pct": 1.375,
+     "description": "7/10 positions feature moves directed to the a-file or h-file (a5, h4\u00d73, a4, Kh5, Kh2), while the remaining 3 (Nf3, Nf6, Ke7) are similarly quiet, 'natural-looking' moves. All 10 moves share the property of being non-forcing\u2014no checks, captures, or immediate threats\u2014in positions "
+    },
+    {
+     "feature_id": 314,
+     "chip": "Pawn push over urgent development",
+     "fire_rate_pct": 1.25,
+     "description": "10/10 positions share the pattern of ignoring an immediate tactical or developmental need in favor of a slow, non-forcing move. 7/10 of the actual moves played are pawn pushes (b4, f3, a5, d6, d4, f6, b5), while the remaining 3 are piece moves that abandon critical defensive duti"
+    },
+    {
+     "feature_id": 564,
+     "chip": "Pawn push while pieces hang",
+     "fire_rate_pct": 1.168,
+     "description": "All 10 positions share a common pattern: the player makes a slow, non-forcing move (8/10 are pawn advances like a4, g4, b5, e3, e6; 2/10 are Nh5 knight-to-rim maneuvers) while the position urgently demands addressing a concrete tactical vulnerability or developmental priority. In"
+    },
+    {
+     "feature_id": 622,
+     "chip": "Pawn chases bishop, crisis ignored",
+     "fire_rate_pct": 1.212,
+     "description": "8/10 positions feature a slow pawn advance specifically targeting an enemy bishop (h5 attacking Bg6/Bg4, a4 attacking Bb5, b5 attacking Bc4, a3 challenging Bb4, c5 challenging Bb4, b3 challenging Ba4, g4 attacking Bf3), while the remaining 2/10 are flank pawn advances in endgames"
+    },
+    {
+     "feature_id": 635,
+     "chip": "b/g pawn push ignores mating net",
+     "fire_rate_pct": 1.177,
+     "description": "All 10/10 positions feature pawn advances (no piece moves) played when the moving side's king is critically exposed to immediate tactical threats. 7/10 moves are b-file pawn pushes (b3, b4, b5\u00d73, b6), with the remainder being a4, g4, g5, and d4 \u2014 all slow, non-defensive pawn move"
+    },
+    {
+     "feature_id": 695,
+     "chip": "Kingside pawn push over urgent defense",
+     "fire_rate_pct": 1.381,
+     "description": "All 10/10 positions feature a non-forcing pawn advance played in a position with an urgent tactical need. 9/10 moves are specifically kingside pawn pushes (g4, g5, g6, h4, h5, or f6), with only 1 queenside pawn push (c5). In every case, the best moves were piece moves or captures"
+    },
+    {
+     "feature_id": 795,
+     "chip": "Quiet pawn push over forced defense",
+     "fire_rate_pct": 1.371,
+     "description": "10/10 positions feature quiet, non-forcing moves (no checks, no captures, no direct threats) \u2014 moves like bishop developments, pawn pushes for space, or piece repositionings that pursue a strategic plan. In 9/10 cases these are mistakes because the position demanded immediate tac"
+    },
+    {
+     "feature_id": 799,
+     "chip": "Flank pawn push over concrete action",
+     "fire_rate_pct": 1.339,
+     "description": "9/10 positions feature pawn pushes (h6, f4, a3, c5, h4, e5, h4, g5, h6) and 1/10 a king move (Kh5), all of which are non-forcing, preparatory, or prophylactic moves. The average number of good moves available was only 1.7, meaning these were narrow critical moments requiring prec"
+    },
+    {
+     "feature_id": 1069,
+     "chip": "King move over forcing capture",
+     "fire_rate_pct": 1.256,
+     "description": "9/10 positions feature 'tempo_loss' as a primary tag, and in all cases the played move is non-forcing (no check, no meaningful capture, no immediate threat) while a forcing alternative existed. 5/10 moves are quiet king moves (Kg4, Kd4, Kg5, Kf4, Kf1), 3/10 are passive bishop mov"
+    },
+    {
+     "feature_id": 1126,
+     "chip": "f-pawn creep surrenders critical tempo",
+     "fire_rate_pct": 1.128,
+     "description": "9/10 positions feature one-square pawn advances (with 5/10 specifically being f-pawn pushes: f3, f4, f4, f5, f6), while 1/10 is a quiet rook repositioning. All 10 moves share the defining trait of being non-forcing (no checks, captures, or direct threats) in positions where the e"
+    },
+    {
+     "feature_id": 1229,
+     "chip": "King drift over concrete capture",
+     "fire_rate_pct": 0.976,
+     "description": "7/10 positions feature unnecessary king moves (Kh7, Kg2, Kc6, Kh2, Kg7, Kb3, Kh2) and the remaining 3/10 are quiet pawn pushes (g5, a3, g4). All 10 moves share the critical property of being completely non-forcing \u2014 no checks, no captures, no direct threats \u2014 played in positions "
+    },
+    {
+     "feature_id": 1250,
+     "chip": "King shuffle over decisive action",
+     "fire_rate_pct": 1.085,
+     "description": "All 10/10 moves are quiet and non-forcing \u2014 no captures, no checks, no direct threats. 5/10 are single king moves (Kg3, Kd3, Kf6, Kf3, Ke4), 4/10 are pawn pushes (f5, g5, g4, and the opening's equivalent Bg4/Rc8 which are similarly 'improving' moves). The positions share an extre"
+    },
+    {
+     "feature_id": 1363,
+     "chip": "Rim pawn push over urgent defense",
+     "fire_rate_pct": 1.192,
+     "description": "All 10/10 positions feature a non-capturing, non-checking pawn push played instead of addressing an urgent tactical or safety need. 7/10 moves are rim pawn advances (a-file or h-file: a4, a4, a6, a6, a5, h5, h5), with the remaining 3 being other non-forcing pawn moves (b3, e5, f6"
+    },
+    {
+     "feature_id": 1371,
+     "chip": "Slow pawn push over forced tactic",
+     "fire_rate_pct": 1.393,
+     "description": "All 10 positions share a critical feature: the player chose a non-forcing move (no check, no capture, no direct threat) in a position where only immediate tactical action could maintain the evaluation. 6/10 moves were slow pawn pushes (c4, f4, g5, f4, f3, b5) and 4/10 were passiv"
+    },
+    {
+     "feature_id": 1537,
+     "chip": "Flank pawn push over forcing capture",
+     "fire_rate_pct": 0.848,
+     "description": "10/10 positions feature a non-capturing, non-checking, non-threatening move played when the position required immediate tactical action. 7/10 moves are flank pawn advances (a4, h5, h3, h5, b3, g5, g4) and 3/10 are passive bishop moves (Bh6, Bf4, Bf8). In contrast, the best moves "
+    },
+    {
+     "feature_id": 1663,
+     "chip": "Rim pawn push over urgent action",
+     "fire_rate_pct": 1.113,
+     "description": "10/10 positions feature quiet, non-forcing single-square pawn pushes on the rim or flank. 6/10 are specifically ...b6, while the remaining 4 are a4, a5, d3, or h3 \u2014 all sharing the character of slow preparatory moves. In every case, the position demanded urgent concrete action: e"
+    },
+    {
+     "feature_id": 1764,
+     "chip": "Quiet pawn push over urgent tactic",
+     "fire_rate_pct": 1.168,
+     "description": "All 10 positions share a strikingly consistent pattern: the player makes a quiet, non-forcing move \u2014 typically a pawn push \u2014 in a position where urgent tactical demands exist. 6/10 moves are pure pawn advances (c5, a4, a3, g6, h5, c4) that gain no immediate contact with the oppon"
+    },
+    {
+     "feature_id": 1812,
+     "chip": "Quiet pawn push skips forced strike",
+     "fire_rate_pct": 1.122,
+     "description": "10/10 positions feature a non-forcing, non-capturing, non-checking move played in a position of extreme tactical urgency. 8/10 are one-square pawn pushes (g5, b3, f4, f6, d3, c3, e5, f5) and 2/10 are quiet bishop moves (Be7, Bc6). In every case, the position demanded either an im"
+    },
+    {
+     "feature_id": 1918,
+     "chip": "Flank pawn push over forced capture",
+     "fire_rate_pct": 1.157,
+     "description": "9/10 positions feature a quiet pawn push (b6, h5, b3, h4, b3, f4, a5, g5, c6), with 1/10 being a quiet knight redeployment (Nd4). All 10 moves are non-capturing, non-checking, and create no immediate threat. The 'tempo_loss' tag appears in all 10 analyses. In 5/10 positions, a ha"
+    },
+    {
+     "feature_id": 1988,
+     "chip": "King steps into fork or check",
+     "fire_rate_pct": 3.718,
+     "description": "10/10 positions feature a non-forcing move (no check, capture, or direct threat) played in a sharp position where the engine found very few good alternatives (avg 1.6 good moves). 6/10 moves are king moves (Ke7 x3, Ke8, Kd2, O-O-O) that actively walk the king into tactical danger"
+    }
+   ]
+  },
+  {
+   "fine_id": 41,
+   "size": 16,
+   "features": [
+    {
+     "feature_id": 271,
+     "chip": "Bishop drifts, drops key guard",
+     "fire_rate_pct": 14.725,
+     "description": "In 10/10 positions, the player makes a quiet (non-checking, non-capturing) bishop move to a square that appears attractive\u2014attacking a piece, controlling a key diagonal, or centralizing. However, in every case this 'improvement' is punished because it either abandons a critical d"
+    },
+    {
+     "feature_id": 316,
+     "chip": "Bishop relocation over forced central break",
+     "fire_rate_pct": 1.048,
+     "description": "10/10 positions feature quiet, non-forcing piece relocations (7/10 bishop moves, 3/10 queen-to-c2 moves) to seemingly 'useful' squares when the position critically demanded immediate action. The average number of good moves was only 1.6, meaning these were all high-precision mome"
+    },
+    {
+     "feature_id": 367,
+     "chip": "Bishop retreats cede key restraint",
+     "fire_rate_pct": 1.218,
+     "description": "10/10 positions involve quiet minor piece repositioning moves (7 bishop moves, 3 knight moves) that abandon a critical defensive or restraining function. In 9/10 cases the move is non-forcing (no check, no real threat), squandering tempo when concrete action was required. The pie"
+    },
+    {
+     "feature_id": 437,
+     "chip": "Quiet bishop retreat misses forced win",
+     "fire_rate_pct": 1.038,
+     "description": "All 10/10 positions feature a quiet bishop move (no check, no capture, no immediate threat) that retreats or repositions the bishop to a passive square, while the position contained a far stronger forcing continuation. In 5/10 cases, a forced checkmate in 2-4 moves was missed (po"
+    },
+    {
+     "feature_id": 537,
+     "chip": "Bishop repositions amid forcing tactics",
+     "fire_rate_pct": 2.575,
+     "description": "All 10 positions feature a quiet, non-forcing bishop (6/10) or queen (4/10) move to a seemingly useful square that completely ignores the position's urgent tactical requirements. In 10/10 cases the move was neither a check nor a capture \u2014 purely a 'developing' or 'repositioning' "
+    },
+    {
+     "feature_id": 820,
+     "chip": "Rook deserts back-rank coverage",
+     "fire_rate_pct": 1.377,
+     "description": "10/10 positions involve a major piece (rook or queen) making a quiet, non-forcing move \u2014 no check, no capture, no immediate must-answer threat. In 9/10 cases (excluding Position 3, which is not actually a blunder), the moved piece was performing an essential defensive function th"
+    },
+    {
+     "feature_id": 1063,
+     "chip": "King steps into immediate check",
+     "fire_rate_pct": 1.405,
+     "description": "All 10/10 positions feature a quiet, non-forced king move where the player voluntarily relocates the king to a seemingly safer or more active square, but the destination square is tactically compromised. In 7/10 cases, the king move allows an immediate check (Qb5+ in pos 1, Rxe2+"
+    },
+    {
+     "feature_id": 1074,
+     "chip": "Bishop move abandons king shelter",
+     "fire_rate_pct": 1.221,
+     "description": "9/10 positions feature king safety as the central issue that the blunder ignores. 7/10 involve clear tempo loss where the piece must return or the opponent gains a free move to strike. 8/10 feature a missed tactic that was the position's actual demand. The blunders are diverse in"
+    },
+    {
+     "feature_id": 1182,
+     "chip": "Queen centralizes, abandons critical guard",
+     "fire_rate_pct": 3.89,
+     "description": "All 10/10 positions feature a quiet (non-check, non-capture) queen move to a central or semi-central square (c3-f5 zone) that appears active but critically fails to address the position's urgent tactical demands. In at least 4/10 positions (3, 4, 6, 10), the correct move was a fo"
+    },
+    {
+     "feature_id": 1195,
+     "chip": "Knight repositions to wrong square",
+     "fire_rate_pct": 2.985,
+     "description": "All 10 positions feature a quiet, non-forcing piece repositioning move that looks reasonable (centralization, development, pawn defense) but completely ignores the one thing the position urgently requires. In 2/10 cases (Rf5, Rg5), the rook occupies the exact square the king need"
+    },
+    {
+     "feature_id": 1258,
+     "chip": "Quiet queen drift surrenders initiative",
+     "fire_rate_pct": 2.175,
+     "description": "All 10/10 positions feature a quiet (non-capturing, non-checking) queen relocation from an active or functionally critical square to a passive or disconnected one. In 10/10 cases, the queen was either maintaining attacking pressure against an exposed king (Positions 3, 5, 6, 7, 8"
+    },
+    {
+     "feature_id": 1312,
+     "chip": "Queen move abandons undefended piece",
+     "fire_rate_pct": 1.77,
+     "description": "All 10/10 positions feature a queen move that is non-forcing (no check, no capture, no real threat) played during the opening when the position demands something urgent. In 5/10 positions (all four Qf3 moves plus Qd2), the queen move leaves the player's own piece completely undef"
+    },
+    {
+     "feature_id": 1350,
+     "chip": "Bishop lands on attacked square",
+     "fire_rate_pct": 0.887,
+     "description": "10/10 positions feature quiet, natural-looking moves (piece development, repositioning, or pawn advances) that ignore an immediate tactical vulnerability requiring a specific response. The average number of good moves was only 1.4, meaning these positions demanded extreme precisi"
+    },
+    {
+     "feature_id": 1604,
+     "chip": "Quiet rook move abandons tension",
+     "fire_rate_pct": 1.061,
+     "description": "All 10 positions feature a quiet (non-check, non-capture) piece repositioning move that looks like normal piece improvement but catastrophically ignores the tactical demands of the position. In 9/10 cases the moved piece is a major piece (queen or rook); only 1/10 involves a bish"
+    },
+    {
+     "feature_id": 1785,
+     "chip": "King tucks into mating net",
+     "fire_rate_pct": 2.216,
+     "description": "All 10/10 positions feature a quiet, non-forcing king move (one square, no capture, no check) played in a position that demanded urgent tactical or strategic action. In 6/10 cases, the king move was a pure tempo loss\u2014the player shuffled the king to a 'safer' or 'more comfortable'"
+    },
+    {
+     "feature_id": 1795,
+     "chip": "Rook to open file misses mate",
+     "fire_rate_pct": 0.999,
+     "description": "All 10/10 positions feature a quiet, non-forcing rook move to a square that appears reasonable by general principles (open file, central placement, back rank) but catastrophically ignores the position's critical tactical priority. In 4/10 cases (positions 1, 2, 4, 7), the king wa"
+    }
+   ]
+  },
+  {
+   "fine_id": 83,
+   "size": 13,
+   "features": [
+    {
+     "feature_id": 44,
+     "chip": "King shuffle over forcing sequence",
+     "fire_rate_pct": 0.996,
+     "description": "9/10 positions feature a one-square king move (Kb7, Kg2, Kg7, Kf2, Kb2, Kf8) with no capture, no escape from check, and no direct threat created. The remaining position (h5) is a similarly slow, non-forcing move. In 7/10 positions, these moves are genuine mistakes (avg ~220cp los"
+    },
+    {
+     "feature_id": 282,
+     "chip": "Knight tucks to c2/e7, hangs",
+     "fire_rate_pct": 1.411,
+     "description": "9/10 positions feature non-forcing moves (no checks, no meaningful captures) made in positions where only 1-2 good moves exist (avg 1.8). 7/10 are minor piece moves (4 knight, 3 bishop), and 4/10 specifically land on b2 or c2 squares\u2014classic 'tucking away' destinations. In at lea"
+    },
+    {
+     "feature_id": 349,
+     "chip": "h-pawn push over urgent defense",
+     "fire_rate_pct": 0.973,
+     "description": "6/9 positions feature rim pawn pushes (5 h-pawn moves: h6, h5, h4, h5, h3; plus one a-pawn: a3), while the remaining 3 are passive piece moves (Rg2, Qg8, Bd1). All 9/9 moves are non-forcing\u2014no checks, no captures, no direct threats\u2014played in positions where the evaluation demande"
+    },
+    {
+     "feature_id": 605,
+     "chip": "Knight repost lets threat materialize",
+     "fire_rate_pct": 1.576,
+     "description": "All 10 positions share a defining characteristic: the player chose a quiet, repositioning or developing move in a position that demanded immediate tactical resolution. 7/10 moves are minor piece repositions (5 knight moves to seemingly active squares like Ng6, Nf6, Ng3, Nd7, Nf3,"
+    },
+    {
+     "feature_id": 653,
+     "chip": "Quiet rook move surrenders initiative",
+     "fire_rate_pct": 1.136,
+     "description": "8/10 positions feature rook moves to seemingly active squares (Rd1, Rb1, Rh7, Rc2, Rf5, Rb1, Re4, Rg5), with the remaining 2 being a quiet queen move (Qe5) and a knight retreat (Nb7). All 10 moves share a defining characteristic: they are non-forcing (no checks, no captures, no i"
+    },
+    {
+     "feature_id": 705,
+     "chip": "Bishop development over concrete defense",
+     "fire_rate_pct": 1.325,
+     "description": "All 10 positions share a strikingly consistent pattern: the player chose a quiet, non-forcing piece move (no checks, no captures, no threats) when the position demanded specific concrete action. 8/10 moves are minor piece developments or repositionings (6 bishop moves: Be7\u00d72, Bd7"
+    },
+    {
+     "feature_id": 735,
+     "chip": "Knight retreats cede forcing initiative",
+     "fire_rate_pct": 2.202,
+     "description": "All 9 positions share a striking common thread: the played move is entirely non-forcing (no checks, no captures, no direct attacks on pieces), chosen in positions where only 1-2 good moves exist (avg 1.6) and those good moves are concrete/forcing. In 6/9 positions, a knight is mo"
+    },
+    {
+     "feature_id": 773,
+     "chip": "Quiet knight move misses forcing reply",
+     "fire_rate_pct": 1.508,
+     "description": "All 10 positions share a remarkably consistent pattern: the player chose a non-forcing piece relocation when the position had only ~1.3 good moves available, almost always a concrete forcing response. 7/10 moves are knight moves (Nb4, Nd7, Na3, Ng8, Ne8, Nh5, Ne2) with the remain"
+    },
+    {
+     "feature_id": 925,
+     "chip": "Quiet pawn push over forcing reply",
+     "fire_rate_pct": 1.168,
+     "description": "All 10 positions share a common pattern: the player chose a quiet, non-forcing move (no checks, captures, or direct threats) while the position demanded urgent concrete action. 6/10 are pawn pushes (f5, f5, b5, d5, g5, d4), 2/10 are passive piece retreats (Bd7, Nf2), 1/10 is a pr"
+    },
+    {
+     "feature_id": 957,
+     "chip": "Quiet rook move gifts decisive tempo",
+     "fire_rate_pct": 1.512,
+     "description": "8/10 positions feature rook moves (Ra7, Rf2, Rg7, Rfe1, Ra2, Rf8, Rd5, Re7) with the remaining two being similarly passive piece repositioning (Qd7, Kf7). All 10 moves share the critical trait of being quiet, non-forcing repositioning moves\u2014no checks, no captures, no direct threa"
+    },
+    {
+     "feature_id": 1409,
+     "chip": "Rook repositions while tactics demand concrete response",
+     "fire_rate_pct": 1.232,
+     "description": "All 10 positions share the pattern of a non-forcing 'improving' move (no checks, no captures, no direct threats) played in a critically sharp position with very few acceptable alternatives (avg 1.7 good moves). 5/10 are rook moves to seemingly active squares (Rd8, Rb5, Rd1, Rd6, "
+    },
+    {
+     "feature_id": 1696,
+     "chip": "Queen retreats to passive square",
+     "fire_rate_pct": 2.375,
+     "description": "All 9/9 positions feature a non-forcing queen relocation move \u2014 no checks, no captures, no direct threats \u2014 to a 'natural-looking' square (d7, d8, d2, c8, or a6). In every case, the position contained an urgent tactical demand that the queen move ignores. The consequences vary: i"
+    },
+    {
+     "feature_id": 1719,
+     "chip": "Pawn push over forcing capture",
+     "fire_rate_pct": 1.091,
+     "description": "All 10 positions share a striking pattern: the player chose a quiet, non-forcing move when exactly one concrete tactical blow was available. 7/10 moves were pawn pushes (d6, a6, a6, d6, h3, h5, c5) and 3/10 were passive piece moves (Nbd2, Nf3, Kb8). The best moves in these positi"
+    }
+   ]
+  },
+  {
+   "fine_id": 140,
+   "size": 12,
+   "features": [
+    {
+     "feature_id": 107,
+     "chip": "King centralization blunder",
+     "fire_rate_pct": 1.364,
+     "description": "10/10 positions feature quiet (non-capturing, non-checking) King or Queen moves toward central or 'active' squares. 7/10 are King moves and 3/10 are Queen moves. 8/10 occur in endgames where 'centralize your king' is a dominant heuristic. In 8/10 positions (excluding the 2 with 0"
+    },
+    {
+     "feature_id": 231,
+     "chip": "Queen repost delays forcing blow",
+     "fire_rate_pct": 2.053,
+     "description": "10/10 positions feature a quiet, non-forcing repositioning move played when a concrete tactical blow was available. 7/10 are queen moves to seemingly natural squares (Qe2 x3, Qc7 x3, Qe7 x1), with the remaining 3 being other quiet piece placements (Ke2, Bg7, Bb7). In every case, "
+    },
+    {
+     "feature_id": 267,
+     "chip": "Quiet bishop move in crisis",
+     "fire_rate_pct": 1.23,
+     "description": "10/10 positions feature a non-forcing piece repositioning move (no checks, no captures, no direct threats) played in a critical position where only 1-3 good moves exist. 6/10 are bishop moves (Bd4, Bf6, Bc6, Ba2, Bd4, Ba4) and 4/10 are queen moves (Qe8, Qb2, Qb4, Qa6), all moving"
+    },
+    {
+     "feature_id": 313,
+     "chip": "Quiet queen move cedes forcing tempo",
+     "fire_rate_pct": 1.24,
+     "description": "All 10/10 positions feature quiet, non-forcing moves (no checks, no captures, no immediate threats) played in positions that demanded precise tactical responses. 6/10 moves are queen relocations to seemingly natural squares (Qe1, Qd2, Qe5, Qb2, Qd2), 2/10 are passive bishop devel"
+    },
+    {
+     "feature_id": 759,
+     "chip": "Quiet queen retreats forfeit tactical edge",
+     "fire_rate_pct": 1.076,
+     "description": "All 10 positions feature a quiet queen move (no checks, no captures) to a seemingly natural square when the position urgently demanded concrete tactical play. 7/10 moves specifically placed the queen on the c-file (Qc7 x4, Qc8 x2, Qc2 x1), with the remaining three going to nearby"
+    },
+    {
+     "feature_id": 834,
+     "chip": "Queen drift abandons critical post",
+     "fire_rate_pct": 1.164,
+     "description": "All 10/10 positions feature quiet queen repositioning moves \u2014 short, non-forcing relocations to a nearby square that appears reasonable but fatally disrupts the queen's essential role. In 7/10 positions, the queen starts on or near the open d-file and slides one file sideways (Qc"
+    },
+    {
+     "feature_id": 843,
+     "chip": "King retreats surrender forcing continuation",
+     "fire_rate_pct": 2.111,
+     "description": "10/10 positions feature a non-forcing, quiet move (no checks, no captures, no direct threats) played instead of a concrete tactical opportunity. 7/10 moves are specifically king moves to perceived safety squares (Kb8, Kb2, Kh1, O-O, Kc2, O-O, Kb1), while the remaining 3/10 are pa"
+    },
+    {
+     "feature_id": 1103,
+     "chip": "Bishop retreats forfeit forcing tempo",
+     "fire_rate_pct": 1.085,
+     "description": "All 10/10 positions share a single unmistakable pattern: the player chose a non-forcing, passive piece move (typically a retreat or quiet repositioning) when the position demanded an immediate concrete tactical blow. 7/10 moves are bishop retreats/repositions to passive squares ("
+    },
+    {
+     "feature_id": 1306,
+     "chip": "Bishop/queen drift misses forcing win",
+     "fire_rate_pct": 1.329,
+     "description": "10/10 positions feature a quiet, non-forcing piece move (no checks, no captures, no direct threats) when the position demanded immediate concrete action. 6/10 moves are bishop relocations (Bh3, Be3, Bd7, Bf6, Bb5, Be3) and 4/10 are queen repositionings (Qc7, Qc7, Qe2, Qd3). In ev"
+    },
+    {
+     "feature_id": 1745,
+     "chip": "Bishop reposition over forced response",
+     "fire_rate_pct": 1.001,
+     "description": "All 10 positions feature a quiet, non-forcing move (no checks, no threats) when the position demanded concrete action. 6/10 are bishop repositioning moves (Ba4, Ba5, Be6, Ba4, Bf6, Bg5) to seemingly logical squares, while 4/10 are rook exchanges/moves (Rxb1, Rxf1, Rxd1, Ree8). In"
+    },
+    {
+     "feature_id": 1861,
+     "chip": "Queen drifts, defended piece hangs",
+     "fire_rate_pct": 3.214,
+     "description": "10/10 positions feature quiet, non-capturing, non-checking repositioning moves to squares that appear more active or centralized. 7/10 are queen moves specifically (Qc3, Qe6, Qg6, Qg6, Qf3, Qb5, Qf6). In every case, the piece was fulfilling a critical function on its original squ"
+    },
+    {
+     "feature_id": 1903,
+     "chip": "Knight repost over forcing sequence",
+     "fire_rate_pct": 3.683,
+     "description": "10/10 positions feature a non-forcing piece repositioning move (no checks, no captures, no direct threats) played in a position where a specific forcing tactical sequence was available and critical. 5/10 moves are knight maneuvers to seemingly active central squares (Nf4, Ng3, Nd"
+    }
+   ]
+  },
+  {
+   "fine_id": 124,
+   "size": 12,
+   "features": [
+    {
+     "feature_id": 276,
+     "chip": "Knight centralized amid king crisis",
+     "fire_rate_pct": 1.636,
+     "description": "In 9/10 positions, the player chose a non-forcing piece improvement move (typically a minor piece moving to a 'nice' central or active square) while ignoring an urgent tactical necessity. 8/10 moves were minor piece moves (5 knight moves: Nc5, Nf5, Ne3, Nf3, Nd4; 3 bishop moves: "
+    },
+    {
+     "feature_id": 432,
+     "chip": "Bishop repositions while forcing win waits",
+     "fire_rate_pct": 1.027,
+     "description": "In 9/10 positions, the player chose a quiet piece-improving move (developing, repositioning, or blockading) when a concrete forcing move was available and required. 5/10 moves were specifically bishop repositioning moves (Bb1, Bb3, Bh3, Bd7, Bd3), all placing the bishop on a 'nat"
+    },
+    {
+     "feature_id": 732,
+     "chip": "Rook vacates critical defensive square",
+     "fire_rate_pct": 1.061,
+     "description": "All 10/10 positions feature a non-forcing 'improving' move (no checks, no captures) that relocates a piece away from a square where it was performing a critical function the player failed to recognize. In 8/10 cases, the piece was directly preventing an opponent's tactical blow: "
+    },
+    {
+     "feature_id": 833,
+     "chip": "Bishop repositions while tactics demand action",
+     "fire_rate_pct": 2.549,
+     "description": "8/10 positions feature bishop moves to 'active-looking' squares (Bf6 x3, Be6, Bc6, Bb6, Be4, Bf3), with the remaining 2 being other quiet 'improvement' moves (Na3, d3). In ALL 10 positions, the player chose a non-forcing piece repositioning move when the position demanded urgent "
+    },
+    {
+     "feature_id": 913,
+     "chip": "Bishop shuffle over forcing blow",
+     "fire_rate_pct": 2.849,
+     "description": "In 10/10 positions, the player chose a quiet, non-forcing piece relocation (no checks, no captures, no pawn breaks) when the position urgently demanded concrete tactical action. 8/10 moves were bishop repositioning moves, and all shared the character of 'improving' a piece's squa"
+    },
+    {
+     "feature_id": 1057,
+     "chip": "Active queen vacates critical defensive post",
+     "fire_rate_pct": 1.129,
+     "description": "All 10 positions share a critical feature: the player makes a non-forcing 'improving' move (developing, repositioning, grabbing space) in a position where only 1-2 moves are acceptable (avg 1.6 good moves). In 8/10 cases, the move abandons a critical defensive function \u2014 Ba6 aban"
+    },
+    {
+     "feature_id": 1445,
+     "chip": "Bishop repositions while forcing move exists",
+     "fire_rate_pct": 0.896,
+     "description": "9/10 positions feature bishop moves (Bh6, Bc5, Bc5, Ba6, Ba5, Ba6, Bf4, Bd3, Bf4) and the remaining position (h5) shares the same underlying error. In all 10 positions, the player chose a non-forcing 'improving' move \u2014 typically relocating a bishop to an active-looking square \u2014 i"
+    },
+    {
+     "feature_id": 1560,
+     "chip": "Bishop development over critical defense",
+     "fire_rate_pct": 1.225,
+     "description": "10/10 positions feature a quiet, non-forcing minor piece development move (9/10 are bishop moves to stereotypical squares: Bd7 x3, Be7 x4, Be2 x2, Bd6 x1; plus one Nbd2) played in a position that demands immediate concrete action. In every case, the player treats a tactically cri"
+    },
+    {
+     "feature_id": 1789,
+     "chip": "Quiet rook/piece move over forced win",
+     "fire_rate_pct": 1.68,
+     "description": "All 10/10 positions feature the player choosing a quiet, non-forcing move (no checks, no captures, no direct threats) aimed at general piece improvement or development, while the position urgently demanded concrete tactical action. In 4/10 cases, the move was a piece repositionin"
+    },
+    {
+     "feature_id": 1813,
+     "chip": "Knight develops instead of forcing shot",
+     "fire_rate_pct": 1.124,
+     "description": "8/10 positions show the player choosing a quiet, 'improving' move (typically a minor piece development or repositioning) when a concrete forcing move was available and necessary. In 6/10 positions, the move played was specifically a minor piece development (Bd8, Nc3, Bd7, Ng5, Nc"
+    },
+    {
+     "feature_id": 1915,
+     "chip": "Queen reposition lets king escape",
+     "fire_rate_pct": 1.166,
+     "description": "9/10 positions feature queen moves (the exception being Rh5, a rook repositioning), and all 10 moves share the critical property of being non-forcing\u2014no checks, no captures, no immediate threats. In every case, the player chose to reposition their piece to a seemingly 'better' or"
+    },
+    {
+     "feature_id": 1946,
+     "chip": "Bishop repositions while captures hang",
+     "fire_rate_pct": 0.904,
+     "description": "8/10 positions feature a quiet piece-improving move (usually bishop or knight repositioning) played at a moment when concrete tactical action was required. 4/10 specifically play Bc3 as a positional/developmental move. 7/10 are minor piece moves (bishops or knights). The common e"
+    }
+   ]
+  },
+  {
+   "fine_id": 43,
+   "size": 12,
+   "features": [
+    {
+     "feature_id": 300,
+     "chip": "Knight capture invites lethal reply",
+     "fire_rate_pct": 1.129,
+     "description": "All 10 positions share a critical pattern: the player chooses a tempting-looking aggressive move over a less obvious but far stronger continuation. In 8/10 cases, the played move is a capture, check, or aggressive piece advance (Ne6, hxg6, Nxe5, Nxd6+, fxg6, Nb6+, gxh6, c7), whil"
+    },
+    {
+     "feature_id": 315,
+     "chip": "Knight move misses urgent priority",
+     "fire_rate_pct": 1.465,
+     "description": "All 10 positions share a critical structural feature: extremely narrow good-move counts (avg 1.9 good moves available), meaning the position demands one specific action NOW. In 10/10 cases, the player chose a move that addresses a secondary concern\u2014development (Ne7), space (g5, h"
+    },
+    {
+     "feature_id": 462,
+     "chip": "Rook misses forcing sequence",
+     "fire_rate_pct": 1.088,
+     "description": "All 9 positions share a critical characteristic: they are razor-sharp situations (avg 2.0 good moves available) where only one or two precise forcing moves maintain the evaluation, yet the player chose a 'seductive' alternative that looks natural or aggressive but is non-forcing."
+    },
+    {
+     "feature_id": 471,
+     "chip": "Rook retreats when forcing move exists",
+     "fire_rate_pct": 1.022,
+     "description": "All 10 positions share a striking pattern: the player makes a quiet, non-forcing piece repositioning move when the position urgently demands concrete action. In every case, the best moves available were forcing \u2014 captures (positions 3, 9), pawn breaks (positions 4, 5, 10), checks"
+    },
+    {
+     "feature_id": 483,
+     "chip": "g4/h4 push cracks shelter",
+     "fire_rate_pct": 0.958,
+     "description": "All 10 positions share a common pattern: the player makes an aggressive-looking move when the position demands something else entirely. 6/10 moves are flank pawn advances (g4 appears 3 times, h4 once, g5 once, b5 once), while the remaining 4 are greedy/speculative piece moves (Nx"
+    },
+    {
+     "feature_id": 512,
+     "chip": "Bishop develops while knight strikes",
+     "fire_rate_pct": 1.705,
+     "description": "All 10 positions feature bishop moves that prioritize natural-looking development, repositioning, or non-critical captures/checks over urgent tactical demands. In 10/10 cases, the played move is a bishop move; in 9/10 cases, the best move was with a different piece entirely (6/10"
+    },
+    {
+     "feature_id": 595,
+     "chip": "Knight repositions while check waits",
+     "fire_rate_pct": 7.314,
+     "description": "All 10 positions share one critical pattern: the player chose a quiet 'improving' move (repositioning a piece or pushing a pawn) in a position that demanded an immediate forcing continuation. In 6/10 positions, the best move was a check (Bc5+, c3+, Bh5+, Qh4+, Ra1+, Nxd3+); in 2/"
+    },
+    {
+     "feature_id": 748,
+     "chip": "Bishop develops while king burns",
+     "fire_rate_pct": 1.188,
+     "description": "All 10 positions share a defining characteristic: they are narrow tactical moments (avg 1.5 good moves available) where the position demands ONE specific urgent action, yet the player chooses an 'improving' move that would be reasonable in a calmer position. 8/10 moves are piece "
+    },
+    {
+     "feature_id": 1058,
+     "chip": "Rook repost misses forcing reply",
+     "fire_rate_pct": 1.026,
+     "description": "All 10 positions share a critical feature: extremely narrow margins (avg 1.8 good moves available) where only one or two specific moves maintain the evaluation, yet the player chose a 'reasonable-looking' move that addresses a secondary concern. 6/10 moves are rook repositions to"
+    },
+    {
+     "feature_id": 1085,
+     "chip": "Quiet knight move in razor-sharp position",
+     "fire_rate_pct": 1.317,
+     "description": "All 10 positions share a defining characteristic: the player chose a 'quiet' or 'improving' move \u2014 developing a piece to a natural square, advancing a pawn for activity, or repositioning \u2014 when the position demanded immediate concrete action. In 5/10 cases (Bg2, Nf3#2, Qh3, Qf6, "
+    },
+    {
+     "feature_id": 1917,
+     "chip": "King drifts while position burns",
+     "fire_rate_pct": 1.247,
+     "description": "All 10/10 positions share a devastating pattern: the player makes a passive king move (6/10: Ke3, Kc1, Kg1, Kg3, Kb6, Kc5) or a purposeless queen repositioning (4/10: Qb4, Qf6, Qe3, Qh3) in a position where urgent concrete action is required. In every case, the best move involves"
+    },
+    {
+     "feature_id": 1974,
+     "chip": "Pawn grab misses urgent defense",
+     "fire_rate_pct": 1.153,
+     "description": "All 10 positions share a defining characteristic: extremely narrow tactical situations (avg 1.5 good moves available) where the player chose a 'natural-looking' move driven by a secondary goal while ignoring the position's most critical tactical element. 5/10 moves are captures t"
+    }
+   ]
+  },
+  {
+   "fine_id": 7,
+   "size": 10,
+   "features": [
+    {
+     "feature_id": 47,
+     "chip": "Knight develops while piece hangs",
+     "fire_rate_pct": 2.234,
+     "description": "10/10 positions share the same fundamental error: the player makes a non-forcing, quiet piece move (development, repositioning, or retreat) while a critical piece is tactically vulnerable \u2014 either their own piece is en prise, they remove a key defender from a piece, or they miss "
+    },
+    {
+     "feature_id": 290,
+     "chip": "Bishop improves while king exposed",
+     "fire_rate_pct": 3.62,
+     "description": "10/10 positions show the same fundamental error: the player makes a move that appears to improve piece activity or centralization (Be5, Ng5, Be6, Qe4, Bf4, etc.) while a critical tactical vulnerability goes unaddressed. In 8/10 cases, the ignored threat directly involves king saf"
+    },
+    {
+     "feature_id": 643,
+     "chip": "g/f-pawn strips king shelter",
+     "fire_rate_pct": 1.087,
+     "description": "9/10 positions involve pushing a pawn on the f-file or g-file directly in front of or adjacent to the player's own king (g3, g5, g6, g6, g6, f6, f6, g3), with 1/10 pushing a c-pawn near an exposed king on d3, and 1/10 moving the king itself to an exposed g2 square. In all 10 case"
+    },
+    {
+     "feature_id": 1115,
+     "chip": "Queen to e2 invites Re8 pin",
+     "fire_rate_pct": 0.94,
+     "description": "10/10 positions feature king_safety as the dominant tactical theme, with the played move either directly worsening king exposure or ignoring an urgent tactical threat related to the king's vulnerability. 3/10 positions involve Qe2 placing the queen on the e-file directly in front"
+    },
+    {
+     "feature_id": 1123,
+     "chip": "Knight left hanging undefended",
+     "fire_rate_pct": 2.944,
+     "description": "All 10/10 positions share the same core mistake: the player makes a quiet, non-forcing move with clear positional intent (developing, centralizing, advancing a pawn, or improving the king) while a critical piece is left hanging or a devastating capture/mate exists. In 4/10 positi"
+    },
+    {
+     "feature_id": 1298,
+     "chip": "Queen deserts exposed king's cover",
+     "fire_rate_pct": 1.476,
+     "description": "In 9/10 positions, the player's own king was explicitly described as exposed or vulnerable, and the queen was the primary (often sole) piece capable of providing defensive cover. In all 10 positions, the queen move played prioritized offensive goals\u2014counterplay against the oppone"
+    },
+    {
+     "feature_id": 1532,
+     "chip": "Queen pursues goals, king exposed",
+     "fire_rate_pct": 1.209,
+     "description": "All 10 positions share a remarkably consistent pattern: the player makes a move that appears purposeful\u2014developing (Nc3), centralizing (Qd4, Qc2), attacking (Qa5, Qh6, Qh7, Qg4), repositioning (Rg8, Kb7), or gaining space (g4)\u2014but fundamentally ignores the ONE urgent task the pos"
+    },
+    {
+     "feature_id": 1547,
+     "chip": "Rook targets passer, misses mate",
+     "fire_rate_pct": 1.196,
+     "description": "8/10 positions feature prominent passed pawns as the central strategic theme, and in 7/10 cases the rook move specifically targets a passed pawn (supporting own passer from behind, blockading opponent's passer, or moving to its file). However, the position demanded an immediate t"
+    },
+    {
+     "feature_id": 1559,
+     "chip": "Rook captures expose own king",
+     "fire_rate_pct": 1.407,
+     "description": "All 10 positions share a critical pattern: the player makes a move that appears active, productive, or materially gaining (captures in 6/10, piece 'improvements' in 4/10) while ignoring the position's single most urgent tactical demand. In 8/10 cases, king safety is the neglected"
+    },
+    {
+     "feature_id": 1640,
+     "chip": "Bishop to g4/g5 amid crisis",
+     "fire_rate_pct": 1.05,
+     "description": "All 10 positions share a critical structural feature: the position contains an urgent tactical obligation (a hanging piece, a mating threat, a forced sequence) that requires immediate attention, but the player instead plays a quiet, non-forcing 'improvement' move. 5/10 positions "
+    }
+   ]
+  },
+  {
+   "fine_id": 175,
+   "size": 10,
+   "features": [
+    {
+     "feature_id": 110,
+     "chip": "Pawn push over emergency defense",
+     "fire_rate_pct": 1.597,
+     "description": "All 10/10 positions feature an immediate critical threat (mate, hanging piece, unstoppable promotion, or devastating check sequence) that the player completely ignores in favor of a 'quiet' move \u2014 typically a pawn advance (5/10: c5, h4, c5, a5, e5) or piece repositioning (5/10: B"
+    },
+    {
+     "feature_id": 524,
+     "chip": "Central pawn push over urgent defense",
+     "fire_rate_pct": 0.988,
+     "description": "All 10/10 positions feature a quiet, non-capturing central pawn push (7x e6, 1x e5, 1x e3, 2x d3, 1x d6) played as if the position were calm and developmental, when in fact an immediate tactical emergency existed. In 4/10 positions, the move left a piece directly hanging (bishop "
+    },
+    {
+     "feature_id": 538,
+     "chip": "Queen retreats abandon defended pieces",
+     "fire_rate_pct": 3.164,
+     "description": "7/10 positions clearly show a quiet, non-forcing piece redeployment that leaves a piece or pawn undefended or opens a tactical vulnerability. In 4/10 cases (positions 1, 8, 9, 10), the moved piece directly abandoned defense of hanging material (a knight on h5, a rook on d2, the e"
+    },
+    {
+     "feature_id": 785,
+     "chip": "Bishop drifts while king exposed",
+     "fire_rate_pct": 1.351,
+     "description": "All 10/10 positions feature quiet, non-capturing, non-checking bishop moves to 'natural' squares (diagonals like g7, b7, e6, e7, a6, c4, e2) during middlegame positions with severe king safety concerns. In every case, the exposed king (10/10 positions flag king exposure) required"
+    },
+    {
+     "feature_id": 846,
+     "chip": "flank pawn push over urgent defense",
+     "fire_rate_pct": 1.167,
+     "description": "All 10/10 positions feature a quiet pawn advance on the a, b, c, g, or h file \u2014 never a central pawn \u2014 that ignores an immediate tactical emergency. In 4/10 cases, the player overlooked a hanging piece that could be captured or needed protection (positions 2, 4, 5, 9). In 5/10 ca"
+    },
+    {
+     "feature_id": 1139,
+     "chip": "Bishop develops while threats ignored",
+     "fire_rate_pct": 1.581,
+     "description": "All 10/10 positions feature a quiet, non-forcing bishop development move (Bd3, Be7, or Bd6) to a 'textbook' square during the opening (9/10) or early middlegame (1/10). In every case, the position demanded something more urgent: 3/10 positions had a hanging piece the player eithe"
+    },
+    {
+     "feature_id": 1416,
+     "chip": "Knight develops ignoring queen attack",
+     "fire_rate_pct": 1.095,
+     "description": "9/10 positions feature piece development or repositioning moves (Nc3 x5, Nc6, Bg4, Bf8, Bb4) plus one quiet pawn push (a4), all played as if the position were calm when in fact an immediate tactical threat demands urgent attention. In 5/10 positions (all identical), White plays N"
+    },
+    {
+     "feature_id": 1743,
+     "chip": "Knight development exposes critical defender",
+     "fire_rate_pct": 0.902,
+     "description": "10/10 positions feature quiet, non-forcing moves (9/10 minor piece development, 1/10 a pawn push) played in positions with extreme tactical sharpness where only 1-2 good moves existed. In 5/10 cases (positions 1, 3, 4, 5, 7), the developing move removed a piece from a critical bl"
+    },
+    {
+     "feature_id": 1843,
+     "chip": "Bishop move strips key defender",
+     "fire_rate_pct": 0.883,
+     "description": "In 8/10 positions, the played move directly created or ignored a hanging piece situation: Position 1 (Qb3+ left Bd3 undefended), Position 2 (Ba5 abandoned defense of e7), Position 3 (c3 ignored queen hanging on d1), Position 4 (f6 left queen fatally exposed on e-file), Position 5"
+    },
+    {
+     "feature_id": 1909,
+     "chip": "Kb1 tuck over concrete action",
+     "fire_rate_pct": 1.41,
+     "description": "7/10 positions feature the exact move Kb1, while all 10 share the pattern of a quiet, non-forcing prophylactic or developmental move played at a moment requiring immediate concrete action. In 8/10 positions, White had castled queenside and the king was already adequately safe on "
+    }
+   ]
+  },
+  {
+   "fine_id": 114,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 83,
+     "chip": "Bishop retreats when capture wins",
+     "fire_rate_pct": 1.429,
+     "description": "9/10 positions feature a bishop move (the exception being Ned7, which follows the same logic). In all 10 cases, the played move is a non-forcing, non-capturing relocation of a piece that was under tension or at a critical decision point. In 6/10 positions, the clearly best move w"
+    },
+    {
+     "feature_id": 210,
+     "chip": "King castles, misses forcing reply",
+     "fire_rate_pct": 8.979,
+     "description": "All 10 positions share a critical feature: only ~1 good move existed (avg 1.1 good moves available), yet the player chose a quiet, non-forcing move instead. 6/10 moves were castling (5 O-O-O, 1 O-O), and 7/10 were king moves (adding Kh3). The remaining 3 were quiet piece developm"
+    },
+    {
+     "feature_id": 535,
+     "chip": "King castles over urgent tactics",
+     "fire_rate_pct": 1.385,
+     "description": "9/10 positions feature a king relocation move (7 castling O-O/O-O-O, plus Kb1 and Kc7), while 1/10 (Rb8) is a similarly quiet preparatory move. In all 10 cases, the player chose a non-forcing 'improving' move that ignores an urgent tactical requirement. In 6/10 positions (1, 3, 7"
+    },
+    {
+     "feature_id": 658,
+     "chip": "Bishop move over forcing check",
+     "fire_rate_pct": 1.117,
+     "description": "9/10 positions feature at least one critically exposed king, and in all 10 cases the player chose a non-forcing move (typically a pawn capture or quiet piece reposition) over an urgent forcing alternative. 6/10 moves are captures targeting pawns (fxg3, Rxa5, Rxg2, Rxh4, Rxb3, Bxe"
+    },
+    {
+     "feature_id": 1102,
+     "chip": "g-pawn push over forcing continuation",
+     "fire_rate_pct": 1.327,
+     "description": "All 10 positions feature a quiet, non-forcing pawn move played in a critical tactical moment where a concrete forcing continuation was available. 9/10 moves are pure pawn moves (the exception, Bxg6, is a speculative sacrifice involving the kingside pawn structure). 7/10 specifica"
+    },
+    {
+     "feature_id": 1267,
+     "chip": "Kg7 invites diagonal/file attack",
+     "fire_rate_pct": 1.255,
+     "description": "8/10 positions feature literal king moves (5x Kg7, plus Ke5, Ke1, Kh2) while 2/10 feature premature pawn promotions that serve a similar strategic error. In all 10 positions, the player had urgent tactical moves available (captures of hanging/vulnerable pieces, attacks against ex"
+    },
+    {
+     "feature_id": 1828,
+     "chip": "King move over urgent tactic",
+     "fire_rate_pct": 12.556,
+     "description": "7/10 positions feature literal king moves (Kg3, O-O, Kd2, Kh2, Kg3, Kd4, Kf2), while the remaining 3 are similarly quiet, non-forcing moves (Rde8, e6, f3) that share the same error type. In all 10 positions, an immediate tactical demand existed\u2014a hanging piece (6/10), an availabl"
+    },
+    {
+     "feature_id": 1873,
+     "chip": "King drifts to exposed c6/b6",
+     "fire_rate_pct": 1.282,
+     "description": "8/10 positions feature at least one critically exposed king in the center or on unusual squares. 6/10 moves played are king moves, and 9/10 are quiet moves (no checks, only 1 capture). The average number of good moves available is just 1.6, meaning these are extreme 'only-move' p"
+    }
+   ]
+  },
+  {
+   "fine_id": 48,
+   "size": 8,
+   "features": [
+    {
+     "feature_id": 262,
+     "chip": "King retreats into mating nets",
+     "fire_rate_pct": 1.547,
+     "description": "All 10/10 positions feature a passive king retreat (always a non-capturing move, always toward an edge or corner) played instead of an active tactical solution. In 7/10 cases, the correct move was a simple capture of a hanging or undefended piece (Rxd8, Qxg5, hxg5, Rxc8, Bxb7, Kx"
+    },
+    {
+     "feature_id": 468,
+     "chip": "Quiet pawn push over forced capture",
+     "fire_rate_pct": 1.228,
+     "description": "9/10 positions feature a quiet pawn move (c3, d6, d6, c4, b4, b4, d5, d3, h6) and 1/10 a passive rook retreat (Ra8), all ignoring a critical tactical demand involving an undefended piece. In 4/10 cases (positions 1, 4, 6, 8), the player missed capturing an opponent's hanging or u"
+    },
+    {
+     "feature_id": 518,
+     "chip": "Rook 'improves' over forcing continuation",
+     "fire_rate_pct": 3.164,
+     "description": "All 10/10 positions feature a quiet, non-forcing rook move to a central or semi-open file (e, d, c, or f), appearing to 'improve' the rook's placement in a standard positional manner. However, in every case the position demanded something far more concrete: 7/10 positions had a s"
+    },
+    {
+     "feature_id": 738,
+     "chip": "Quiet pawn push over forced tactic",
+     "fire_rate_pct": 0.847,
+     "description": "9/10 positions feature a one-square pawn advance and 1/10 a passive rook retreat \u2014 all non-forcing moves with no check, no capture, and no direct threat. In every case, the position demanded immediate concrete action: 6/10 positions had a winning tactic available to the player (d"
+    },
+    {
+     "feature_id": 996,
+     "chip": "Quiet pawn move over forced capture",
+     "fire_rate_pct": 2.01,
+     "description": "All 10/10 positions share the critical feature that the player chose a quiet, non-forcing move (no checks, no captures, no direct threats) in a position where concrete tactical action was urgently required. In 3/10 cases (c6, Nh7, c5), the player missed an immediately available w"
+    },
+    {
+     "feature_id": 1098,
+     "chip": "Pawn push ignores forcing reply",
+     "fire_rate_pct": 0.996,
+     "description": "In 10/10 positions, the player made a move that would be reasonable in a different context but catastrophically ignores the ONE critical demand of the position. In 5/10 cases (positions 3, 5, 6, 7, 10), the player ignored an immediate concrete threat from the opponent (Rxc2+, Qxb"
+    },
+    {
+     "feature_id": 1685,
+     "chip": "Quiet pawn push leaves piece hanging",
+     "fire_rate_pct": 1.417,
+     "description": "In 10/10 positions, the player chose a quiet, non-forcing move (no check, no capture, no direct material threat) while an urgent tactical situation demanded immediate action regarding an undefended piece. In 6/10 cases (Nc6, Kh6, Qa5, Rh3, Qa6, h3), the move left the player's OWN"
+    },
+    {
+     "feature_id": 1749,
+     "chip": "Rook leaves file, misses capture",
+     "fire_rate_pct": 2.306,
+     "description": "10/10 positions feature a quiet major piece repositioning move (8 rook moves, 2 queen moves) that abandons a concrete tactical opportunity. In 8/10 cases, the correct move was a direct capture of undefended material (Rxd3, Qxc5+, fxe5/Rxe5, Rxc5, Rf7, Rxf1+, Rxe6, Rxb6, Rxg2), wh"
+    }
+   ]
+  },
+  {
+   "fine_id": 107,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 43,
+     "chip": "King steps into fork or net",
+     "fire_rate_pct": 1.149,
+     "description": "All 10/10 positions share the same fundamental error: choosing a quiet, non-forcing move (no capture, no check, no pawn break) in a tactically critical position where only 1-2 moves maintain the evaluation. 6/10 are king moves that walk into tactical danger (Kf2 into a fork, Kg2 "
+    },
+    {
+     "feature_id": 1014,
+     "chip": "Quiet rook move over forcing strike",
+     "fire_rate_pct": 10.093,
+     "description": "All 10 positions share the same fundamental error: playing a quiet, non-forcing move when the position demanded immediate concrete action. In 10/10 cases, the played move was non-forcing (no check, no capture, no direct threat). In 7/10 positions, the best available move was a ca"
+    },
+    {
+     "feature_id": 1053,
+     "chip": "King shuffle invites fork or attack",
+     "fire_rate_pct": 3.413,
+     "description": "All 10 positions share the same fundamental error: a quiet, non-capturing, non-checking piece repositioning move is played when the position demands specific tactical action. 10/10 moves are non-forcing piece shuffles \u2014 5/10 are king walks (Kf2, Ke3, Kh6, Kh7, Kh7), 4/10 are bish"
+    },
+    {
+     "feature_id": 1176,
+     "chip": "Quiet rook move skips forcing continuation",
+     "fire_rate_pct": 1.212,
+     "description": "All 10 positions share the same fundamental error: choosing a quiet, non-forcing move when exactly one critical forcing continuation existed. 8/10 moves are rook moves and 2/10 are king moves, but all 10 are non-capturing, non-checking, non-threatening moves. In every case, the c"
+    },
+    {
+     "feature_id": 1650,
+     "chip": "Pawn push over piece urgency",
+     "fire_rate_pct": 1.015,
+     "description": "All 10/10 positions feature the same fundamental error: the player chose an aggressive one-square pawn advance when the correct approach required piece moves (king repositioning, rook activation, or defensive consolidation). In 9/10 positions, the top recommended moves were piece"
+    },
+    {
+     "feature_id": 1767,
+     "chip": "Flank pawn push over piece move",
+     "fire_rate_pct": 1.031,
+     "description": "All 10/10 positions feature the same fundamental error: the player chose a quiet, non-capturing, non-checking pawn advance when the position urgently required piece moves or tactical shots. In 8/10 cases, the best move was a piece move (Qc2, Kf2, Bd6, Qe4+, Rd1+, Qc7, Rd8, Kg6) w"
+    },
+    {
+     "feature_id": 1961,
+     "chip": "Quiet pawn push over forced tactic",
+     "fire_rate_pct": 1.429,
+     "description": "All 10/10 positions share the same fundamental error: the player chose a 'normal-looking' quiet move \u2014 one that would be reasonable in a less critical position \u2014 while ignoring an urgent tactical demand. In 5/10 cases the move was a slow pawn push (c6 three times, c5, e5), in 3/1"
+    }
+   ]
+  },
+  {
+   "fine_id": 189,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 162,
+     "chip": "Quiet pawn push over decisive strike",
+     "fire_rate_pct": 1.064,
+     "description": "8/10 moves played are single-square pawn advances (b3, e7, a5, c5, d4, f3, h5, h4), while the remaining 2 are quiet piece moves (Na5, Bb4). The 'tempo_loss' tag appears in 9/10 positions. In 8/10 cases, the best available move was a forcing continuation: a check (Qh4+, g3+, Qxf7+"
+    },
+    {
+     "feature_id": 200,
+     "chip": "Quiet pawn push over forcing capture",
+     "fire_rate_pct": 1.098,
+     "description": "In 10/10 positions, the player chose a quiet, non-forcing move (pawn push, knight maneuver, or passive rook move) when a concrete tactical opportunity existed. 6/10 moves were slow pawn advances (d3, f3, f6, e3, c5, cxb5), 3/10 were knight repositioning moves to the rim or a vuln"
+    },
+    {
+     "feature_id": 324,
+     "chip": "Pawn push over active piece play",
+     "fire_rate_pct": 1.397,
+     "description": "In 10/10 positions, the player chose a quiet, non-forcing move when the position demanded immediate concrete action. 7/10 of the played moves were pawn advances (gxh7, h4, a5, g6, c4, g5, d5), and the remaining 3 were quiet piece/king moves (Bf6, Bf4, Kb7). In contrast, the best "
+    },
+    {
+     "feature_id": 1022,
+     "chip": "Quiet pawn push ignores forcing reply",
+     "fire_rate_pct": 0.911,
+     "description": "10/10 positions involved playing a slow, non-urgent move when the position required addressing an immediate tactical crisis. 7/10 moves were quiet pawn pushes (e5, a5, d3, h5, h5, e3, cxd4), 2/10 were king moves to vulnerable squares (Kb8, Kd7), and 1/10 was a bishop development "
+    },
+    {
+     "feature_id": 1422,
+     "chip": "Pawn push over forcing piece action",
+     "fire_rate_pct": 1.159,
+     "description": "8/10 positions had only 1 good move available (avg 1.5), yet the player chose a non-forcing, 'improving' move that lost a critical tempo. 6/10 moves played were pawn pushes (g4, g4, g5, e4, fxe5, b4), while the remaining were quiet piece shuffles (Kc3, Rae1, Kf8, Qe6). In contras"
+    },
+    {
+     "feature_id": 1520,
+     "chip": "Flank pawn push over piece rescue",
+     "fire_rate_pct": 1.246,
+     "description": "8/9 moves played are single pawn advances (h4, a5, b4, f4, h6, a5, g6, exf6), with the one outlier being a quiet queen centralization (Qd3). In contrast, the correct moves were overwhelmingly piece actions: 7/9 required piece moves (Kh3, Bxb1, Bxb4, Ne5, Qc8, Bf4, Ne3+), with onl"
+    },
+    {
+     "feature_id": 1756,
+     "chip": "Flank pawn push over central break",
+     "fire_rate_pct": 0.855,
+     "description": "7/10 positions feature the player making a slow, non-forcing move (typically a flank pawn push or preparatory move) when the position urgently required a specific concrete action \u2014 usually a central pawn break or forcing sequence. In positions 1 and 3, the player chose a6 (prophy"
+    }
+   ]
+  },
+  {
+   "fine_id": 146,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 296,
+     "chip": "Rook repositions amid forcing tactics",
+     "fire_rate_pct": 1.229,
+     "description": "All 10/10 positions share the critical feature that the player chose a quiet piece repositioning move (no check, no capture, no direct threat) when the position was tactically critical with only 1-2 good moves available (avg 1.5). In 10/10 cases, the position demanded a forcing c"
+    },
+    {
+     "feature_id": 385,
+     "chip": "Quiet pawn move over forced capture",
+     "fire_rate_pct": 1.137,
+     "description": "All 10 positions share a critical feature: the player makes a 'reasonable-looking' quiet move (no checks, no forcing threats) in a position where only 1.9 good moves existed on average, meaning concrete calculation was essential. In 7/10 positions, there was a hanging or tactical"
+    },
+    {
+     "feature_id": 419,
+     "chip": "Rook repost while threats explode",
+     "fire_rate_pct": 0.989,
+     "description": "All 10 positions share a remarkably consistent pattern: the player chose a calm, non-forcing move (piece repositioning, pawn structure consolidation, or piece 'improvement') when the position had an extremely narrow tactical window requiring immediate concrete action (avg only 1."
+    },
+    {
+     "feature_id": 823,
+     "chip": "Rook repost drops defended square",
+     "fire_rate_pct": 1.334,
+     "description": "All 10 positions share a common pattern: the player makes a quiet, non-forcing repositioning move that appears constructive but ignores the position's immediate tactical demand. In 8/10 cases, the move directly leaves a piece or critical square undefended (Positions 1, 2, 3, 4, 5"
+    },
+    {
+     "feature_id": 1050,
+     "chip": "King steps to central square",
+     "fire_rate_pct": 3.425,
+     "description": "All 10 positions share a consistent pattern: the player makes a quiet, non-forcing piece repositioning move to a square that looks attractive (outpost, central square, active diagonal) while the position demanded a specific tactical solution. In 10/10 cases, the move played is a "
+    },
+    {
+     "feature_id": 1201,
+     "chip": "Quiet move at tactical breaking point",
+     "fire_rate_pct": 1.236,
+     "description": "All 10 positions share a striking commonality: the player chose a quiet, non-forcing move (no checks, no captures, no immediate threats) in a position where the tactical tension was at a breaking point. In 7/10 positions, the blunder either allowed or missed forced checkmate (pos"
+    },
+    {
+     "feature_id": 1787,
+     "chip": "Rook repositioned while tactics burn",
+     "fire_rate_pct": 0.744,
+     "description": "All 10 positions share a common error: the player makes a quiet, non-forcing piece repositioning move in a position that demanded concrete tactical precision. In 10/10 cases the move played involves no check, no capture, and no immediate threat \u2014 it's purely a 'piece improvement'"
+    }
+   ]
+  },
+  {
+   "fine_id": 188,
+   "size": 6,
+   "features": [
+    {
+     "feature_id": 343,
+     "chip": "Bishop retreats while captures win",
+     "fire_rate_pct": 1.27,
+     "description": "All 10/10 positions feature a bishop being moved without capturing to a quiet repositioning square (g6 in 5 cases, g3 in 2, f5/f4/e6 in the remaining 3). In every case, the bishop moves to what appears to be a stable, defensible square along a diagonal rather than engaging in a c"
+    },
+    {
+     "feature_id": 448,
+     "chip": "Bishop relocates while forcing moves exist",
+     "fire_rate_pct": 1.266,
+     "description": "9/10 positions are tactically charged middlegames where the played move is a quiet piece relocation to an 'ambitious' square (7th rank, central outpost, infiltration square, or attacking diagonal). 9/10 moves are non-captures \u2014 quiet moves that look like positional improvements. "
+    },
+    {
+     "feature_id": 477,
+     "chip": "Bishop retreats from critical diagonal",
+     "fire_rate_pct": 1.328,
+     "description": "All 10/10 positions feature a bishop being moved along its own diagonal in a non-forcing, repositioning manner \u2014 no captures, no checks, just quiet relocation. In 9/10 cases, the bishop retreats backward from an advanced/aggressive post toward the player's own side (Bg3 from c7 t"
+    },
+    {
+     "feature_id": 1389,
+     "chip": "Queen retreats while captures hang",
+     "fire_rate_pct": 1.191,
+     "description": "In 10/10 positions, the player chose a quiet, non-forcing repositioning move instead of executing an available concrete tactical action. The moves overwhelmingly target 'standard' development squares: 5/10 go specifically to e7, 2/10 to e2, and the remaining 3 go to similarly pas"
+    },
+    {
+     "feature_id": 1476,
+     "chip": "Rook lands on bishop's diagonal",
+     "fire_rate_pct": 1.554,
+     "description": "8/10 positions involve rook moves and all 10 are quiet, non-forcing repositioning moves \u2014 no checks, no captures, no direct threats. The strongest sub-pattern is rooks placed on squares controlled by an opponent's bishop along a diagonal: 4/10 positions (Rc8 into Bxc8, Re5 into B"
+    },
+    {
+     "feature_id": 1969,
+     "chip": "Bishop roams while tactics scream",
+     "fire_rate_pct": 3.488,
+     "description": "All 10/10 positions feature a bishop being moved to a new square without giving check or making a capture \u2014 purely quiet repositioning moves. In 6/10 cases (positions 1, 2, 3, 5, 8, 10), the bishop was slowly rerouted to a 'better' diagonal while urgent tactics or forcing moves w"
+    }
+   ]
+  }
+ ]
+}

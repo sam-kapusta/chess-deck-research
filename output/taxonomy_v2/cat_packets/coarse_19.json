@@ -1,0 +1,426 @@
+{
+ "coarse_id": 19,
+ "n_features": 63,
+ "subclusters": [
+  {
+   "fine_id": 73,
+   "size": 16,
+   "features": [
+    {
+     "feature_id": 6,
+     "chip": "Rook repositions, ignores hanging pieces",
+     "fire_rate_pct": 1.003,
+     "description": "8/9 positions feature a rook being moved (the exception, Kxb7, leaves a rook hanging). In every case, the move follows a 'sensible' positional principle\u2014placing rooks on open files (Rd1, Rad1, Rhe1, Rab8, Rhb1), defending a pawn (Rb1), capturing material (Rxf5), or repositioning "
+    },
+    {
+     "feature_id": 39,
+     "chip": "Rook activity leaves queen hanging",
+     "fire_rate_pct": 1.003,
+     "description": "All 9/9 positions feature rook moves that prioritize activity\u2014seizing files, attacking enemy pieces, or invading ranks\u2014while overlooking an immediate tactical vulnerability. In 4/9 positions (Rf6, Re2, Rg5, Rab8), the rook itself moves to a square where it is directly capturable "
+    },
+    {
+     "feature_id": 108,
+     "chip": "Rook shuffles while tactics burn",
+     "fire_rate_pct": 1.234,
+     "description": "All 9/9 positions feature a rook being moved from its corner file (a or h) to the adjacent file (b or g) on the back rank \u2014 7/9 are specifically the a-rook to the b-file (Rab8 or Rab1), while 2/9 are rook-to-g8 moves. In every case, the position contained an urgent concrete deman"
+    },
+    {
+     "feature_id": 357,
+     "chip": "Queen check lets king escape safely",
+     "fire_rate_pct": 1.294,
+     "description": "All 9/9 positions feature a queen delivering check (+) that the opponent's king easily sidesteps, after which the queen is fatally misplaced. In 7/9 cases, the refutation is simply the king walking to a square where it's actually SAFER than before (Kh2, Kg6, Kf1, Kh1, Kb2, etc.),"
+    },
+    {
+     "feature_id": 892,
+     "chip": "Rook leaves critical defensive post",
+     "fire_rate_pct": 0.852,
+     "description": "8/9 positions feature rook moves (the exception being a passive pawn move with similar characteristics). In every case, the rook is relocated with a superficially logical intent\u2014defending a pawn (Ra1, Rh7), controlling a file (Rc8, Rd8), attacking material (Rg5), or repositioning"
+    },
+    {
+     "feature_id": 966,
+     "chip": "Rook deployment ignores queen fork",
+     "fire_rate_pct": 1.259,
+     "description": "In 9/9 positions, the player made a move that appeared active\u2014typically placing a rook or piece on an open file to challenge a powerful enemy piece (usually a queen)\u2014while ignoring a far more urgent tactical vulnerability in their own position. In 7/9 cases, the move was a rook d"
+    },
+    {
+     "feature_id": 992,
+     "chip": "Rook leaves f8, king exposed",
+     "fire_rate_pct": 1.536,
+     "description": "All 9/9 positions feature a rook move that abandons a vital defensive post, with 7/9 specifically involving Black's f8-rook leaving (Re8, Rd8, Rfe8, Rf6) and the remaining 2 involving White's rook vacating a key defensive square (Rf3 abandoning g2 defense, Rc1 abandoning e1/e2 co"
+    },
+    {
+     "feature_id": 1128,
+     "chip": "King flees into mating net",
+     "fire_rate_pct": 0.881,
+     "description": "All 9/9 positions feature a king move motivated by escaping perceived pressure (open file, check threats, attacking pieces) that paradoxically worsens the position by creating a new, more severe tactical vulnerability. In 4/9 positions (Ka8, Kh8, Kf4, Kf1) the king retreats to a "
+    },
+    {
+     "feature_id": 1249,
+     "chip": "Knight vacates critical control square",
+     "fire_rate_pct": 2.083,
+     "description": "All 9/9 positions feature a knight move to a square that looks superficially strong \u2014 central outposts, checks, or attacking moves \u2014 but catastrophically ignores the position's actual tactical demands. In 6/9 positions, the knight abandons a square where it was performing a vital"
+    },
+    {
+     "feature_id": 1635,
+     "chip": "Bishop vacates critical defensive square",
+     "fire_rate_pct": 0.942,
+     "description": "8/9 positions involve bishop moves where the bishop vacates a square that was performing an essential defensive or structural role. In 4/9 positions (Bh4, Bd7, Bxc7, and partially Bg7), the bishop was physically blocking a file or defending a specific pawn, and its removal immedi"
+    },
+    {
+     "feature_id": 1687,
+     "chip": "Rook seeks action, king exposed",
+     "fire_rate_pct": 1.413,
+     "description": "All 9 positions feature a major piece (rook in 7/9, queen in 2/9) moving to a seemingly powerful square\u2014a central square, the 7th/8th rank, or an open file\u2014when the correct move was either a simplifying trade (4/9: Rxc1, Rxc1, Rxc6, Qxe2) or a defensive retreat to protect the kin"
+    },
+    {
+     "feature_id": 1726,
+     "chip": "Rook to open file, punished tactically",
+     "fire_rate_pct": 3.485,
+     "description": "8/9 positions involve rook moves (Rh7, Rd6, Rc7, Rc7, Rc8, Rd2, Rad8, Re8) and 1/9 a queen move (Qg2), all placing major pieces on 'natural-looking' squares along open files or ranks. In every case, the move appears positionally motivated\u2014contesting a file, occupying the 7th rank"
+    },
+    {
+     "feature_id": 1759,
+     "chip": "Bishop leaves file, exposes rook",
+     "fire_rate_pct": 0.852,
+     "description": "In 9/9 positions, a bishop is relocated from a square where it served a crucial but non-obvious protective role. In 5/9 cases (positions 5, 8, 10, 4, 9), the bishop was physically blocking an open file \u2014 shielding a friendly rook from an enemy rook's attack \u2014 and moving it immedi"
+    },
+    {
+     "feature_id": 1780,
+     "chip": "Rook activity abandons critical infrastructure",
+     "fire_rate_pct": 1.625,
+     "description": "All 9/9 positions involve rook moves to squares that appear superficially active\u2014open files, checks, or attacking positions\u2014but are fundamentally flawed. In 4/9 positions (Rd1, Rh8, Re1 in position 5, Rg2), the rook abandons a critical defensive function: guarding a piece, protec"
+    },
+    {
+     "feature_id": 1810,
+     "chip": "Rook vacates sole defender role",
+     "fire_rate_pct": 2.278,
+     "description": "All 9/9 positions feature a rook move that abandons a critical defensive responsibility. In 7/9 cases, the rook was the sole protector of another piece that immediately hangs after the move (Rf7 leaving Rb8 undefended in Position 1; Re1 leaving Rf7 hanging in Position 2; Ra1 leav"
+    },
+    {
+     "feature_id": 1910,
+     "chip": "Rook quits f-file for pawn",
+     "fire_rate_pct": 0.628,
+     "description": "8/9 positions feature a rook move (the exception being Qxh1 in position 3). In all 9 cases, the piece leaves a critical attacking line to grab material on a distant or peripheral square. 5/9 positions specifically involve a discovered check where the player chose the WRONG destin"
+    }
+   ]
+  },
+  {
+   "fine_id": 98,
+   "size": 12,
+   "features": [
+    {
+     "feature_id": 157,
+     "chip": "Queen hanging, pawn captures elsewhere",
+     "fire_rate_pct": 2.47,
+     "description": "All 9/9 positions share the exact same critical error: the player's queen is undefended and immediately capturable, yet they play some other move\u2014often a capture or seemingly useful developing move\u2014instead of saving their queen. In 9/9 cases, the primary refutation is a direct on"
+    },
+    {
+     "feature_id": 199,
+     "chip": "King captures rook into check sequence",
+     "fire_rate_pct": 1.321,
+     "description": "All 9/9 positions feature king moves, with 8/9 being king captures of an enemy piece directly adjacent to the king. Specifically, 7/9 captures target a rook that has invaded the king's vicinity (Kxe2, Kxf7, Kxf8, Kxc2, Kxf2, Kxf7, Kxc2), 1/9 captures a knight (Kxg4), and 1/9 is a"
+    },
+    {
+     "feature_id": 469,
+     "chip": "Rook capture releases winning tension",
+     "fire_rate_pct": 1.014,
+     "description": "9/10 positions feature a rook making a capture of an enemy piece (the exception is Position 4's Bxc6, still a piece exchange). In 8/10 positions, the capture was a clear mistake because it simplified tension prematurely. The better moves fell into two categories: in 4/10 position"
+    },
+    {
+     "feature_id": 497,
+     "chip": "Rook steps onto queen-controlled file",
+     "fire_rate_pct": 0.7,
+     "description": "All 9/9 positions share an identical tactical pattern: a rook is moved to an open file (d-file in 6 cases, c-file in 2, a-file in 1) where the opponent's queen already controls that same file, allowing the queen to simply capture the rook. In 9/9 cases, the primary refutation is "
+    },
+    {
+     "feature_id": 778,
+     "chip": "Bishop grab ignores mating net",
+     "fire_rate_pct": 1.027,
+     "description": "All 9/9 positions feature a bishop move that prioritizes material acquisition or repositioning over addressing an immediate lethal tactical threat. In 7/9 cases, the bishop makes a capture (typically grabbing a pawn: Bxc2, Bxe4, Bxd3, Bxh6, Bxh3, Bxa3, or a piece). The remaining "
+    },
+    {
+     "feature_id": 1185,
+     "chip": "Bishop grab ignores knight fork",
+     "fire_rate_pct": 3.38,
+     "description": "All 9/9 positions feature the player capturing an enemy bishop \u2014 the target is always a bishop (Bxf5, Bxb5, fxg5 taking Bg5, cxb5 taking Bb5, Bxe7, Bxe6, cxb4 taking Bb4, Nxc1 taking Bc1, Bxb4). In every case, this bishop capture is a 'distraction capture' that addresses a second"
+    },
+    {
+     "feature_id": 1273,
+     "chip": "Bishop trades itself for pawn",
+     "fire_rate_pct": 1.758,
+     "description": "All 9/9 positions feature a bishop capturing a pawn (Bx[pawn square]), and in every case this is a significant mistake because the bishop's value far exceeds the pawn taken. In 4/9 positions (Bxh6, Bxh7+, Bxh6, Bxh3), the bishop is sacrificed on the kingside with insufficient att"
+    },
+    {
+     "feature_id": 1263,
+     "chip": "Pawn captures wrong piece",
+     "fire_rate_pct": 1.069,
+     "description": "All 9/9 positions feature a capture that ignores the most urgent tactical element. In 7/9 cases, the player captures the wrong enemy piece: a bishop on the rim instead of a central threat (Bxa2), a knight on c6 instead of an infiltrated bishop (dxc6 twice), a knight on e4 instead"
+    },
+    {
+     "feature_id": 1317,
+     "chip": "Bishop grabs material, misses priority",
+     "fire_rate_pct": 2.277,
+     "description": "All 9/9 positions feature a bishop making a capture (Bx__) that wins material \u2014 often significant material like a queen (2/9), rook (3/9), or well-placed piece (4/9). However, in every case the capture is a mistake because it prioritizes the material grab over something far more "
+    },
+    {
+     "feature_id": 1472,
+     "chip": "Knight Misses Hanging Piece",
+     "fire_rate_pct": 0.795,
+     "description": "9/9 positions share a common structure: the position has ONE critical tactical requirement (a hanging piece to capture, a mate to deliver or defend against, or a key piece to save), but the player instead makes a 'reasonable-looking' active move that addresses a secondary concern"
+    },
+    {
+     "feature_id": 1923,
+     "chip": "Capture strips king's defensive guard",
+     "fire_rate_pct": 3.777,
+     "description": "All 9/9 positions feature a capture of seemingly free or winning material where the capturing unit was performing an essential but unrecognized defensive duty. In 6/9 cases, a pawn captures a piece (gxh6, dxe4, gxf6, exd2, exf6, gxh3), opening a file or diagonal directly toward t"
+    },
+    {
+     "feature_id": 1920,
+     "chip": "Knight captures central pawn",
+     "fire_rate_pct": 1.294,
+     "description": "All 9 positions share a common thread: the player chose a move that appears immediately productive but ignores the position's most urgent requirement. 4/9 moves are material-grabbing captures (Nxd7, exd4, cxb4, Na2+\u2192exchange), 3/9 are piece moves targeting enemy pawns or king (Bh"
+    }
+   ]
+  },
+  {
+   "fine_id": 36,
+   "size": 10,
+   "features": [
+    {
+     "feature_id": 292,
+     "chip": "Pawn push over critical defense",
+     "fire_rate_pct": 1.427,
+     "description": "8/9 positions show the player making a forward-advancing move (6/9 are pawn pushes: h5, a5, a4, d6, h2, c3; plus Kxc5 capturing a pawn, Na5 advancing a knight, and Rf8 repositioning a rook) when the position contains a critical, time-sensitive tactical demand that must be address"
+    },
+    {
+     "feature_id": 693,
+     "chip": "Wing pawn push over king rescue",
+     "fire_rate_pct": 1.37,
+     "description": "All 9/9 positions feature a quiet, non-forcing pawn advance on a wing file (a, b, c, or h) played while the moving side's king is dangerously exposed. In 9/9 cases, the position demanded immediate forcing play \u2014 either a tactical shot (Be3+ in position 5, Qe3+ in position 2, Qg7 "
+    },
+    {
+     "feature_id": 1010,
+     "chip": "Queen to rim deserts kingside",
+     "fire_rate_pct": 1.481,
+     "description": "9/9 positions feature a king (usually the player's own) that is acutely vulnerable \u2014 exposed on f1/d2/c1/d8 without castling, or with a fatally weak pawn shield. In every case, the player chose a move that either removed a key defender from the king's vicinity (Qa5, Qa4, Qh5, Na4"
+    },
+    {
+     "feature_id": 1054,
+     "chip": "Quiet pawn push loses decisive tempo",
+     "fire_rate_pct": 1.039,
+     "description": "All 9/9 positions feature a pawn advance (or wrong pawn promotion) played when the position urgently required a piece move or tactically precise alternative. In 7/9 cases, the best move was a knight move (Nf6, Na4, Nc6, Nb5, e8=N+) or piece redeployment, yet the player chose a qu"
+    },
+    {
+     "feature_id": 1061,
+     "chip": "Pawn push ignores king activity",
+     "fire_rate_pct": 0.764,
+     "description": "In 5/7 positions, the correct move was explicitly moving the player's own king (Kc7, Kd1, Kb6, Kd7/Kd5/Kd6 in positions 3, 5, 6, and 8), yet the player chose a knight move or pawn push instead. In position 9, the key was advancing a pawn WITH CHECK against the opponent's king (e2"
+    },
+    {
+     "feature_id": 1083,
+     "chip": "h-pawn push over king rescue",
+     "fire_rate_pct": 0.73,
+     "description": "9/9 positions feature a kingside pawn advance (8/9 specifically h-pawn pushes, 1/9 an f-pawn push). In every case, the position demanded a specific urgent action \u2014 a piece relocation (Ba4, Bxb2, Bg6 in 3/9), a king move (Kg6, Kg2, Kh7, Ka4 in 4/9), or a critical defensive maneuve"
+    },
+    {
+     "feature_id": 1393,
+     "chip": "King-shelter pawns pushed forward",
+     "fire_rate_pct": 0.99,
+     "description": "In 9/9 positions, the player's king had an urgent safety concern\u2014either an exposed king needing shelter (positions 2, 4, 5, 7 with weakened castled positions), an uncastled king needing to evacuate (positions 3, 6, 9, 10), or a piece threat targeting the king area (position 8). I"
+    },
+    {
+     "feature_id": 1596,
+     "chip": "Flank pawn push over urgent defense",
+     "fire_rate_pct": 0.835,
+     "description": "9/9 positions feature a single-step flank pawn advance (6/9 are h-pawn moves specifically, with the remaining being a5, f5, and b4) played in positions requiring urgent tactical responses. In 7/9 cases, the correct move involved active piece play: queen exchanges (Positions 1, 4,"
+    },
+    {
+     "feature_id": 1859,
+     "chip": "Wing pawn push over hanging piece",
+     "fire_rate_pct": 2.558,
+     "description": "All 9/9 positions feature a non-capturing pawn advance on a wing file (a, b, c, or h) played when the position contains a screaming tactical emergency. In 7/9 positions, the player's own piece is directly en prise to a simple one-move capture (bishops on g5, c5, d4, d3; knights o"
+    },
+    {
+     "feature_id": 1926,
+     "chip": "Passive rook move over forcing win",
+     "fire_rate_pct": 1.409,
+     "description": "All 9/9 positions feature a rook being passively placed on an open or semi-open file (d, e, b, or c-file) on the back rank, without delivering a check or capture, when the position urgently demanded a forcing move. In 4/9 cases, material was hanging and could be captured immediat"
+    }
+   ]
+  },
+  {
+   "fine_id": 71,
+   "size": 9,
+   "features": [
+    {
+     "feature_id": 166,
+     "chip": "Queen grabs rim, misses win",
+     "fire_rate_pct": 1.832,
+     "description": "9/9 positions feature captures on peripheral squares: 5/9 are queen captures on the h-file (Qxh8, Qxh6\u00d73, Qxh1+), 2/9 are bishop captures on a1 (Bxa1\u00d72), and the remaining captures target b4 and b5. In 8/9 cases these are clear mistakes where the player grabs apparently 'free' ma"
+    },
+    {
+     "feature_id": 192,
+     "chip": "Knight sac on f7 misfires",
+     "fire_rate_pct": 0.951,
+     "description": "8/9 positions involve captures on f7 or f2 (the classically weak f-pawn squares), with the remaining position (Nxb2) targeting an analogous weak pawn near the opponent's king. 7/9 moves use a knight for the capture, typically hoping to create a fork on queen and rook. In 5/9 posi"
+    },
+    {
+     "feature_id": 204,
+     "chip": "King captures into pin or mate",
+     "fire_rate_pct": 1.153,
+     "description": "All 9/9 positions feature the King capturing a major piece (Queen in 7/9 cases, Rook in 2/9 cases) on an immediately adjacent square. In 8/9 positions this occurs in the endgame phase. In 6/9 positions the capture is actually the best or only viable move (cp_loss 0-3), while in t"
+    },
+    {
+     "feature_id": 546,
+     "chip": "Rook grabs pawn, lands trapped",
+     "fire_rate_pct": 1.477,
+     "description": "9/9 positions involve capturing a pawn with a significant piece. 7/9 captures occur on the a-file or h-file (a2, a7, h2, h7, h7, h7, h3), with the remaining two on central squares (d5, d6). 6/9 involve rooks doing the capturing. The critical shared consequence is that the capturi"
+    },
+    {
+     "feature_id": 553,
+     "chip": "Bishop repositions to hanging square",
+     "fire_rate_pct": 1.277,
+     "description": "8/9 positions involve bishop moves (Bg7, Be5, Bb5, Bf6, Bd2, Be3, Bb7, Bc6), with only one knight move (Ng3) as an outlier. In 7/9 cases, the moved piece lands on a square where it is directly capturable or winnable through a short tactical sequence (hanging piece tagged in 7/9 a"
+    },
+    {
+     "feature_id": 857,
+     "chip": "Knight grabs central pawn, backfires",
+     "fire_rate_pct": 1.314,
+     "description": "All 9/9 positions feature a knight capturing a pawn on a central or near-central square (e4, d4, d5, e5, c4, or f5), motivated by winning seemingly free or advantageous central material. The captures appear natural\u2014targeting undefended or poorly defended pawns\u2014but consistently ba"
+    },
+    {
+     "feature_id": 1070,
+     "chip": "Queen grabs wing pawn, abandons king",
+     "fire_rate_pct": 1.837,
+     "description": "9/9 positions feature a piece capturing a wing or edge pawn (a2, b2, a7, b7, a5, g2, c7) on a square far removed from the player's own king. 8/9 involve the queen making the capture; 1/9 is a bishop capture (Bxg2). In every case, the player's king was already exposed or facing la"
+    },
+    {
+     "feature_id": 1609,
+     "chip": "Knight grabs center, misses priority",
+     "fire_rate_pct": 1.733,
+     "description": "All 9/9 positions feature a minor piece (7/9 knight, 2/9 bishop) capturing material on a central square (e5 in 5 positions, plus e4, c4, d5, f6). In every case, the capture appears attractive \u2014 winning a pawn or gaining centralization \u2014 but ignores a more important priority. In 3"
+    },
+    {
+     "feature_id": 1727,
+     "chip": "Bishop sac on f7 misfires",
+     "fire_rate_pct": 3.424,
+     "description": "9/9 positions feature bishop moves in the opening that give up the bishop for insufficient compensation. The dominant sub-pattern is the speculative Bxf7+/Bxf2+ sacrifice: 5/9 positions involve the bishop capturing on f7 or f2 with check, winning only a pawn while the opponent's "
+    }
+   ]
+  },
+  {
+   "fine_id": 47,
+   "size": 7,
+   "features": [
+    {
+     "feature_id": 209,
+     "chip": "Bishop nudge over forcing blow",
+     "fire_rate_pct": 1.631,
+     "description": "All 9/9 positions feature a bishop moving exactly one square diagonally in a non-capturing, non-checking repositioning move. In every case, the position contained a concrete tactical opportunity (a hanging piece, a forcing combination, a critical pawn break, or a checking sequenc"
+    },
+    {
+     "feature_id": 329,
+     "chip": "Quiet pawn push surrenders critical tempo",
+     "fire_rate_pct": 0.895,
+     "description": "All 9/9 positions feature a quiet, non-capturing, non-checking pawn advance played in a critically sharp position where immediate forcing moves were required. In 9/9 cases, the best moves were piece moves (queen checks, rook repositions, bishop captures, or defensive blocks) rath"
+    },
+    {
+     "feature_id": 906,
+     "chip": "Knight quits king guard duty",
+     "fire_rate_pct": 0.847,
+     "description": "All 9/9 positions feature a knight being relocated from a square where it performed a vital defensive function (guarding key squares adjacent to the king, serving as the only interposing piece, or blocking critical files/diagonals) to a more 'active' or aggressive-looking square."
+    },
+    {
+     "feature_id": 1012,
+     "chip": "Passive rook move in forcing position",
+     "fire_rate_pct": 1.008,
+     "description": "All 9/9 positions feature a rook move that is passive, non-forcing (no checks, no captures, no direct attacks), and purely consolidating or repositioning in nature. In every case, the position demanded immediate sharp play \u2014 typically with a completely different piece type. In 3/"
+    },
+    {
+     "feature_id": 1261,
+     "chip": "King flees into mating cage",
+     "fire_rate_pct": 2.988,
+     "description": "All 9/9 positions feature a king move as the blunder, with the king already exposed and under severe pressure in the middlegame. In 9/9 cases, the king was attempting to flee danger or reposition, but instead walked into a square where immediate or near-immediate checkmate existe"
+    },
+    {
+     "feature_id": 1411,
+     "chip": "Bishop develops, queen left hanging",
+     "fire_rate_pct": 1.218,
+     "description": "In 9/9 positions, the player's queen was under direct attack by an opponent's piece or pawn, and instead of moving the queen to safety, the player made a routine developing move (bishop, knight, or rook to a natural square). In every single case, the opponent could simply capture"
+    },
+    {
+     "feature_id": 1601,
+     "chip": "Pawn lunge opens king shelter",
+     "fire_rate_pct": 4.934,
+     "description": "All 9/9 positions feature a single pawn advance that directly attacks an opponent's piece (queen in 5/9, bishop/rook/knight in 3/9, king via check in 1/9), intending to gain tempo by forcing that piece to move. However, in every case the pawn push backfires catastrophically. The "
+    }
+   ]
+  },
+  {
+   "fine_id": 15,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 588,
+     "chip": "Rook leaves f-file, king exposed",
+     "fire_rate_pct": 0.709,
+     "description": "All 9/9 positions feature the identical geometric move: a rook sliding from the f-file to the e-file (Rfe1 for White or Rfe8 for Black). In every case, the rook on the f-file was serving a crucial defensive function near the castled king, and its departure to the e-file \u2014 a routi"
+    },
+    {
+     "feature_id": 1114,
+     "chip": "Bishop sortie to rim hangs",
+     "fire_rate_pct": 0.817,
+     "description": "All 9/9 positions feature a bishop moving to an edge square (h6 in 5 positions, h3 in 2, Ba3 in 1, Bg5 in 1) with the explicit intent of trading off the opponent's bishop \u2014 typically a fianchettoed bishop on g7 (5/9) or g2 (2/9). In every case, the bishop sortie is strategically "
+    },
+    {
+     "feature_id": 1374,
+     "chip": "e-pawn advance invites Ndb5\u2013Nd6",
+     "fire_rate_pct": 0.679,
+     "description": "9/9 positions feature Black with a fianchettoed bishop on g7 in an opening structure, and all moves are e-pawn advances (...e6 in 7/9, ...e5 in 2/9). In 7/9 positions, the setup is specifically an Accelerated Dragon where White has knights on c3 and d4 with a bishop on e3, and th"
+    },
+    {
+     "feature_id": 1398,
+     "chip": "g-pawn step cracks castled shelter",
+     "fire_rate_pct": 0.724,
+     "description": "All 9/9 positions feature the same geometric move: a one-square g-pawn advance (g2-g3 for White in 4 positions, g7-g6 for Black in 5 positions) directly in front of or adjacent to the castled king. In every case, the move was played with defensive or prophylactic intent \u2014 blockin"
+    },
+    {
+     "feature_id": 1616,
+     "chip": "Rae1 over forcing central tactic",
+     "fire_rate_pct": 1.026,
+     "description": "All 9/9 positions feature the identical structural move: the a-rook crossing to the e-file (Rae1 for White, Rae8 for Black) as a seemingly natural centralization. In every case, this 'improving' move is a critical-moment blunder (avg 325cp loss) because the position demands immed"
+    }
+   ]
+  },
+  {
+   "fine_id": 197,
+   "size": 4,
+   "features": [
+    {
+     "feature_id": 283,
+     "chip": "Pawn kick lets knight repost",
+     "fire_rate_pct": 0.884,
+     "description": "All 9/9 positions feature the exact same pattern: the player advances a pawn (c6, c3, f6, or a3) specifically to attack/chase an enemy knight occupying an aggressive outpost (Nb5 in 3 positions, Nd5 in 3 positions, Nd4 in 2 positions, Nb4 in 2 positions, Ng5 in 1 position). In ev"
+    },
+    {
+     "feature_id": 1025,
+     "chip": "Knight repost lets forcing reply land",
+     "fire_rate_pct": 1.18,
+     "description": "All 9 positions share a common structure: the position demands ONE urgent concrete action (avg only 1.7 good moves available), but the player instead opts for a 'natural-looking' move\u2014piece repositioning, a pawn capture, or passive defense. In 5/9 positions, a piece is moved from"
+    },
+    {
+     "feature_id": 1066,
+     "chip": "Quiet pawn push surrenders winning tempo",
+     "fire_rate_pct": 1.087,
+     "description": "All 9 positions share a critical pattern: the player chose a slow, non-forcing move\u2014either a pawn advance (5/9: b5, c4, b5, g5, e5) or a bishop relocation (4/9: Bg4, Bh6, Ba4, Bf1)\u2014in a position that demanded urgent concrete action. In 6/9 positions, there was a specific tactical"
+    },
+    {
+     "feature_id": 1143,
+     "chip": "Knight retreats from winning outpost",
+     "fire_rate_pct": 1.081,
+     "description": "In 9/9 positions, the player retreated a knight from an aggressively advanced outpost (b5, b4, c5, d4, or e4) backward to a conventional developing square (c3, c6, d3, f3, or f6). In every case, the outpost knight was the tactical linchpin enabling a concrete combination \u2014 sacrif"
+    }
+   ]
+  }
+ ]
+}

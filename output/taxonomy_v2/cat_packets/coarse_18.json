@@ -1,0 +1,234 @@
+{
+ "coarse_id": 18,
+ "n_features": 34,
+ "subclusters": [
+  {
+   "fine_id": 198,
+   "size": 11,
+   "features": [
+    {
+     "feature_id": 26,
+     "chip": "Capture opens queen recapture check",
+     "fire_rate_pct": 1.676,
+     "description": "In 10/10 positions, the player makes a capture on square X, and the devastating refutation is the opponent's queen recapturing on that exact square with check (Qx_+). Specifically: Bxd7 allows Qxd7# (Position 1), exd5 allows Qxd5+ (Position 2), Bxf3 allows Qxf3+ (Position 3), cxd"
+    },
+    {
+     "feature_id": 34,
+     "chip": "Bishop grabs pawn, loses piece",
+     "fire_rate_pct": 4.478,
+     "description": "All 10/10 positions involve a piece (bishop in 6, rook in 3, knight in 1) capturing a pawn and landing on a square where it is immediately captured by the opponent. In 9/10 positions, the refutation is the opponent's queen recapturing the piece on the capture square (Qxd6, Qxb6, "
+    },
+    {
+     "feature_id": 61,
+     "chip": "Check lets king capture rook",
+     "fire_rate_pct": 1.761,
+     "description": "In 10/10 positions, the player delivers a check and the opponent's king escapes by moving to a square that simultaneously captures one of the checking player's undefended pieces. The refutation is always Kx[piece]: Position 1 (Kxe2 takes knight), Position 2 (Kxf2 takes knight), P"
+    },
+    {
+     "feature_id": 114,
+     "chip": "Pawn capture invites queen recapture",
+     "fire_rate_pct": 0.758,
+     "description": "In 10/10 positions, the player captures an enemy piece that appears threatening or free, and in 10/10 cases the refutation is the opponent's queen recapturing on the exact same square (Qxh6 in 4 positions, Qxh3 in 3 positions, Qxa6+, Qxf3+, and Qxd7# in the others). The captured "
+    },
+    {
+     "feature_id": 131,
+     "chip": "Queen move invites forced exchange",
+     "fire_rate_pct": 2.925,
+     "description": "8/10 positions feature queen moves that directly invite or allow a queen exchange, and 6/10 of those are queen checks specifically. In every case, the refutation involves the opponent simply capturing the queen (Qxb6, Qxd5, Qxd4, Qxe3, Qxe4, Qxe6, Qxc3, Qxb4), transforming a dyna"
+    },
+    {
+     "feature_id": 214,
+     "chip": "Queen capture allows recapture with check",
+     "fire_rate_pct": 0.762,
+     "description": "In 9/9 positions, the player captures a piece with their queen (Qx...), and the critical refutation is that the opponent recaptures on that same square with check. In 7/9 cases, the recapture is specifically the opponent's queen taking back with check (Qxf5+, Qxe4+, Qxe3+, Qxe3+,"
+    },
+    {
+     "feature_id": 645,
+     "chip": "Bxknight invites queen recapture",
+     "fire_rate_pct": 1.043,
+     "description": "All 10/10 positions feature a bishop capturing a knight (Bx__), and in 9/10 cases the key refutation is the opponent's queen recapturing on the same square (Qxf6, Qxc6, Qxc3, Qxb5, Qxc4), which simultaneously maintains pawn structure integrity and activates the queen. In 9/10 pos"
+    },
+    {
+     "feature_id": 1313,
+     "chip": "Queen lands on unprotected square",
+     "fire_rate_pct": 1.221,
+     "description": "All 10/10 positions feature queen moves, and in 8/10 the queen is directly captured in the refutation line (Qxg2 in pos 1, Qxf4+ in pos 4, Qxf6 in pos 5, Rd7 winning it in pos 6, Qxa7 forced trade in pos 7, Rd6 winning it in pos 8, Qxc4 in pos 9, Qxd5+ in pos 10). In 6/10 cases, "
+    },
+    {
+     "feature_id": 1353,
+     "chip": "Queen grabs pawn, loses queen",
+     "fire_rate_pct": 1.106,
+     "description": "In 10/10 positions, the player's queen captures a pawn (Qx__), and the refutation is the opponent's queen recapturing on that exact same square (opponent plays Qx__ on the same square). The resulting queen exchange or queen loss is devastating. In 4/10 cases (positions 4, 5, 7, 9"
+    },
+    {
+     "feature_id": 1776,
+     "chip": "Queen lands on opponent's queen's square",
+     "fire_rate_pct": 2.995,
+     "description": "In 9/10 positions, the primary refutation is the opponent simply capturing the queen via exchange (Qxc4, Qxd4, Qxg5, Qxe3, Qxc3, Qxf6, Qxc4, Qxd6, Qxe5), transforming the position from one where the moving player's queen was their most active and important piece into a simplified"
+    },
+    {
+     "feature_id": 1970,
+     "chip": "Bishop capture crowns enemy queen",
+     "fire_rate_pct": 1.414,
+     "description": "In all 10/10 positions, the played move is a piece capture (8/10 bishop captures, 1 knight capture, 1 rook capture) that removes an enemy piece but critically allows the opponent's QUEEN to recapture on the same square, landing on a powerful centralized or active post. The refuta"
+    }
+   ]
+  },
+  {
+   "fine_id": 169,
+   "size": 9,
+   "features": [
+    {
+     "feature_id": 48,
+     "chip": "Unsupported pawn advance gifted away",
+     "fire_rate_pct": 1.627,
+     "description": "All 10/10 positions feature a speculative single-step pawn advance (f4, c5, g5, d5, h4, e4, b5, e5, f4, d5) that is immediately capturable by the opponent. In 10/10 cases, the primary refutation involves directly capturing the advanced pawn, after which the side that pushed eithe"
+    },
+    {
+     "feature_id": 733,
+     "chip": "King steps into immediate check",
+     "fire_rate_pct": 1.502,
+     "description": "All 10/10 positions feature king moves where the king steps onto a square that is immediately tactically vulnerable. In 9/10 cases, the primary refutation begins with a direct check or checkmate on the very next move (Positions 1: Qxc6+, 2: gxh3 enabling Rc1+/Rf2+, 3: Rf8+, 5: c5"
+    },
+    {
+     "feature_id": 789,
+     "chip": "Knight lunges onto bishop-captured square",
+     "fire_rate_pct": 1.583,
+     "description": "All 10/10 positions feature a knight moving to an aggressive-looking square that appears to be a strong outpost or attacking post. In 9/10 cases, the primary refutation is the opponent simply capturing the knight with a bishop (Bxf5, Bxd5, Bxf4, Bxc3, Bxb5, Bxd3). The remaining p"
+    },
+    {
+     "feature_id": 929,
+     "chip": "Knight centralized, concrete tactic missed",
+     "fire_rate_pct": 1.621,
+     "description": "All 10/10 positions feature a move with a clear strategic justification \u2014 centralizing a piece (Nd4, Bd5, Nd6+), capturing material (Nxd5, cxd5), challenging opponent's pieces (d5, f5, Bf2, f4), or simplifying (Rb6) \u2014 yet each one overlooks a straightforward tactical consequence."
+    },
+    {
+     "feature_id": 1209,
+     "chip": "Pawn check exposes own king",
+     "fire_rate_pct": 0.988,
+     "description": "All 10/10 positions feature a pawn advancing one square to deliver check against an already-exposed enemy king. In 7/10 cases, the primary refutation involves the king stepping FORWARD (toward the pawn or into the attacker's position) to a square that was previously denied \u2014 Kxc6"
+    },
+    {
+     "feature_id": 1381,
+     "chip": "King steps onto open diagonal",
+     "fire_rate_pct": 2.519,
+     "description": "In 10/10 positions, the king voluntarily moves to a square that sits on an open diagonal controlled by (or accessible to) an enemy bishop or queen, which then delivers a check along that diagonal as the primary refutation. In 6/10 cases, a bishop delivers the diagonal check (Bf5+"
+    },
+    {
+     "feature_id": 1429,
+     "chip": "King steps into new check line",
+     "fire_rate_pct": 1.397,
+     "description": "All 10/10 positions feature a king move where the king relocates to a square that directly allows the opponent to deliver a check that was not previously available (or not previously dangerous). In 10/10 cases, the primary refutation begins with or centrally features a check agai"
+    },
+    {
+     "feature_id": 1487,
+     "chip": "Knight leaps, vacates key defensive square",
+     "fire_rate_pct": 1.467,
+     "description": "All 10/10 positions feature a knight making an aggressive jump to attack an enemy piece or pawn (queens in 5/10, rooks in 4/10, pawns in 3/10), abandoning a square where it served a crucial defensive or positional function. In 8/10 positions, the refutation involves an immediate "
+    },
+    {
+     "feature_id": 1563,
+     "chip": "King advances onto open file",
+     "fire_rate_pct": 1.179,
+     "description": "All 10/10 positions feature a king move that advances toward the action (supporting a passed pawn, centralizing, or approaching the opponent's position) rather than retreating or staying put. In 8/10 cases, the direct refutation involves a check against the misplaced king (Rc1+, "
+    }
+   ]
+  },
+  {
+   "fine_id": 70,
+   "size": 9,
+   "features": [
+    {
+     "feature_id": 150,
+     "chip": "Queen grabs pawn, opens file",
+     "fire_rate_pct": 1.369,
+     "description": "All 10/10 positions feature captures of apparently undefended material (9/10 are pawn captures) where the capturing piece lands on an open file or line that the opponent immediately exploits. In 7/10 positions, the refutation involves a rook seizing the same open file to create a"
+    },
+    {
+     "feature_id": 336,
+     "chip": "Knight grabs pawn, loses to recapture",
+     "fire_rate_pct": 2.026,
+     "description": "All 9/9 positions feature a knight capturing a pawn (Nx_) that is defended by an adjacent pawn, where the straightforward pawn recapture cleanly wins the knight. In every case, the refutation is a simple pawn take-back: fxe5, dxe5, exd5, fxe4, exd4, dxe5, axb4, axb5, and axb3. Th"
+    },
+    {
+     "feature_id": 414,
+     "chip": "Rook check hangs to king capture",
+     "fire_rate_pct": 0.76,
+     "description": "All 10/10 positions feature a rook delivering check that hangs the rook to immediate capture. In 8/10 positions, the king directly captures the rook as the strongest refutation (Kxg7, Kxh7, Kxa2, Kxf7, Kxc6, Kxe7 etc.). In 1/10, a pawn captures (gxh4), and in 1/10, the king sides"
+    },
+    {
+     "feature_id": 474,
+     "chip": "Minor piece grabs defended pawn",
+     "fire_rate_pct": 1.028,
+     "description": "All 10/10 positions feature a minor piece (knight in 7/10, bishop in 3/10) capturing a pawn that is defended by a neighboring pawn. In every single case, the primary refutation is the straightforward pawn recapture (cxd4, dxe4, cxb5, hxg5, fxg4, exd5, cxb4). In 3/10 positions (3,"
+    },
+    {
+     "feature_id": 617,
+     "chip": "Rook move abandons unprotected piece",
+     "fire_rate_pct": 1.008,
+     "description": "In 9/10 positions, the player either captured material (7 captures) or made a seemingly active queen/rook move (3 cases), while critically ignoring that one of their own pieces was left unprotected. In 7/10 cases (positions 2, 3, 4, 6, 8, 9, 10), the refutation was simply capturi"
+    },
+    {
+     "feature_id": 855,
+     "chip": "Kxf7 lands in knight fork",
+     "fire_rate_pct": 1.223,
+     "description": "8/10 positions involve captures (Kx or Nx), with 5/10 specifically being king captures on tempting material. The refutation in 7/10 positions involves a knight delivering a fork or check (Ne3+, Ne5+, Nc6+, Nxc3+, Nxe5+). In 4/10 positions the exact move is Kxf7 where the king gra"
+    },
+    {
+     "feature_id": 1147,
+     "chip": "Rook grabs pawn, invites counterattack",
+     "fire_rate_pct": 1.131,
+     "description": "All 10/10 positions feature captures where the player grabs material (8/10 capture pawns, 2/10 capture knights) but the capturing piece lands on an undefended or tactically exploitable square. In 7/10 cases, the refutation involves an intermediate or direct check (Bxh7+ discovere"
+    },
+    {
+     "feature_id": 1564,
+     "chip": "King captures pawn, enters open square",
+     "fire_rate_pct": 0.755,
+     "description": "All 8/8 positions feature the king making a capture (Kx__), always taking a tempting pawn (usually a passed pawn or advanced enemy pawn). In 7/8 cases, the refutation begins with an immediate check\u2014rook checks on open files (Rd8+, Rad1+), bishop diagonal checks (Bd4+), pawn advan"
+    },
+    {
+     "feature_id": 1809,
+     "chip": "Pawn capture leaves queen hanging",
+     "fire_rate_pct": 1.001,
+     "description": "In 10/10 positions, the player makes a capture \u2014 9/10 are pawn captures (axb5, fxg6, exd4, cxd4, fxe6, fxg3, fxe6, fxg7, cxd4) and 1/10 is a knight capture (Nxd7+) \u2014 while their own queen is en prise on a file, rank, or diagonal where an opponent's piece has a clear path to captu"
+    }
+   ]
+  },
+  {
+   "fine_id": 62,
+   "size": 5,
+   "features": [
+    {
+     "feature_id": 97,
+     "chip": "Bishop move drops defended square",
+     "fire_rate_pct": 2.456,
+     "description": "In 10/10 positions, the player made a move with a clear purpose (attacking an opponent's piece, developing, centralizing, or advancing the king) but which fatally left a critical piece or square undefended. In 7/10 cases, the blunder specifically attacks or threatens an opponent'"
+    },
+    {
+     "feature_id": 238,
+     "chip": "Knight lands on rook's open line",
+     "fire_rate_pct": 2.244,
+     "description": "In 10/10 positions, the blundering side moved a piece (queen, knight, bishop, or rook) to a square that was undefended and sat directly on the same rank or file as an enemy rook with no intervening pieces. The refutation in every case was the rook simply sliding along that open l"
+    },
+    {
+     "feature_id": 690,
+     "chip": "Queen roams to attacked square",
+     "fire_rate_pct": 1.15,
+     "description": "In 10/10 positions, the player makes a queen move to a square that appears aggressive or active but is fundamentally misguided. In 8/10 cases, the refutation involves an immediate tempo-gaining attack against the misplaced queen (pawn advance, rook attack, or knight fork). In 8/1"
+    },
+    {
+     "feature_id": 937,
+     "chip": "King flees into forcing check sequence",
+     "fire_rate_pct": 1.119,
+     "description": "All 10/10 positions feature a king move as the blunder, and in 9/10 cases the immediate refutation begins with a check or series of checks against the newly-placed king. The king was already in a somewhat precarious position, and the player attempted to 'solve' the king safety pr"
+    },
+    {
+     "feature_id": 1736,
+     "chip": "Knight leaps onto bishop-controlled square",
+     "fire_rate_pct": 1.376,
+     "description": "In 10/10 positions, a knight leaps to a seemingly powerful square (central outpost, attacking post, or check/fork square) but lands completely undefended on a square directly controlled by an enemy bishop. In every single case, the refutation is simply Bx[square], capturing the k"
+    }
+   ]
+  }
+ ]
+}
