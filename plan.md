@@ -16,6 +16,24 @@ Decisions (don't re-litigate):
 - Offensive miss: Misplayed an Attack (had attack/initiative, failed to convert to mate OR winning material) · Missed a Capture · Missed a Tactic
 - Other: Endgame Error · Missed a Defensive Resource
 
+
+### Sub-cluster level = COACHING TOPICS, not fine slivers (decision 2026-05-30, revises earlier)
+
+When asked "would you use these 12 endgame clusters to coach?", answer was NO — semantic
+clustering fragments ONE skill into many (e.g. 5 near-dup "king race" clusters). A coach
+organizes by SKILL TO LEARN, few meaningful topics. So:
+
+- **Structure: category -> coaching TOPIC -> feature** (2-level). The cluster level = ~3-6
+  coaching topics per category (what a coach actually teaches), NOT ~12-15 fine slivers.
+- **SUPERSEDES the earlier "sub-clusters in 2-15 range" goal** — that target pulled the wrong
+  way (kept slivers apart; coaching wants them merged). Topic size can be large (60+ feats) if
+  it's one real skill.
+- Method per category: read fine clusters -> drop misfits (boundary rule) -> CONSOLIDATE into
+  the few coaching topics a teacher would name -> verify coherence.
+- **Endgame Error done (template):** 3 topics — King & Pawn Technique (65), Passed Pawns &
+  Promotion (36), Endgame Piece Activity (32). See output/taxonomy_v2/endgame_final.json.
+
+
 **Model is pinned:** `maia3_sae_diff_v2_2048_k32_l2` (flat k=32, v2 corrected data). Verified labels align + fire rates in `output/taxonomy_v2/firerate_flat_v2_k32.npy`. See below for the earlier provenance hunt.
 
 **Scheme exploration done:** `output/taxonomy_v2/TOP_LEVEL_SCHEMES.md` + `schemes_atlas.html` (the latter's category assignments are keyword-based → stale; structure/UI is the keeper). `chess_taxonomy_atlas.html` is STALE (old top-down 20-cat) — regenerate after assignment.
