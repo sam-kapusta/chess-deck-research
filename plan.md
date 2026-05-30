@@ -2,7 +2,27 @@
 
 ## Current State (2026-05-30)
 
-### ⚠️ Taxonomy needs a clean redo on the FLAT k=32 model (decision 2026-05-30)
+### Taxonomy design — LOCKED via /grill-with-docs (2026-05-30)
+
+Decisions (don't re-litigate):
+1. **Shape:** 2-level, **category → cluster → feature**. Fresh artifact, replaces the old prod taxonomy (`realgames_2048_k64_v1` domain/subcategory schema is stale — not bound to it).
+2. **Top-level axis = mistake-type ("what kind of mistake can a player make"), FLAT.** No "missed-win vs losing-blunder" halves wrapper at the top (considered, rejected — Sam thinks in mistake-types, not in that split).
+3. **Data-driven, not hand-imposed.** The ~11 seed categories below are the *target shape*; the real categories come from reading each feature. Merge/drop/rename by what the data supports. Anything under ~2% folds into a neighbor.
+4. **Offensive-miss mistakes are first-class top-level categories**, not sub-flavors of a "slow play" blob. The big bge-m3 "Slow Play Punished / Autopilot" mass (~61% of features) is NOT one junk-drawer category — it's several real "you had a line and played a nothing-move" categories collapsed under one bad name. This was THE key correction (Sam: "the entire Slow Play Punished category is what I've been talking about where you missed a good move").
+5. **CRITICAL METHOD NOTE:** keyword classification is UNUSABLE for assigning these categories — 77% of features match 3+ category keywords, and commission-vs-offensive-miss are keyword-entangled (same feature counts as "hung a piece" or "missed a capture" depending on which keyword you check first). Counts MUST come from reading each feature's description (LLM/agent judgment of the PRIMARY mistake), not regex. Every keyword-based count this session was an artifact — ignore them.
+
+**Seed category vocabulary (~11, data may revise):**
+- Commission: Hung a Piece · Walked Into a Tactic (got forked/pinned) · Greedy Capture · Exposed Your King · Bad Trade/Simplification · Abandoned a Defender
+- Offensive miss: Misplayed an Attack (had attack/initiative, failed to convert to mate OR winning material) · Missed a Capture · Missed a Tactic
+- Other: Endgame Error · Missed a Defensive Resource
+
+**Model is pinned:** `maia3_sae_diff_v2_2048_k32_l2` (flat k=32, v2 corrected data). Verified labels align + fire rates in `output/taxonomy_v2/firerate_flat_v2_k32.npy`. See below for the earlier provenance hunt.
+
+**Scheme exploration done:** `output/taxonomy_v2/TOP_LEVEL_SCHEMES.md` + `schemes_atlas.html` (the latter's category assignments are keyword-based → stale; structure/UI is the keeper). `chess_taxonomy_atlas.html` is STALE (old top-down 20-cat) — regenerate after assignment.
+
+**Next:** robust reading-based assignment of 1996 features to the seed categories (small agent batches ≤10 to avoid the StructuredOutput stall seen at batch=50), then sub-cluster within each, then atlas. Then 3 QC passes (misfit reconciliation, member verification, coherence bar).
+
+### ⚠️ Taxonomy needs a clean redo on the FLAT k=32 model (earlier 2026-05-30 notes)
 
 Sam wants the taxonomy built on the **flat k=32 SAE** (`maia3_sae_diff_2048_k32_l2_200ep.pt` — 200ep, the "2007 labeled" champion per S3_INVENTORY), with **semantic sub-clusters inside each category** and **fire rates** (per feature, summed per cluster + category). Two problems with the existing `taxonomy_v2.json` must be fixed:
 
