@@ -2,3 +2,5 @@ _inputs/
 batches/
 embeddings*.npy
 schemes_data.json
+cat_packets/
+scheme_batches/
