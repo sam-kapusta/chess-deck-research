@@ -1,0 +1,207 @@
+{
+ "0": {
+  "name": "Premature pawn push ignores mating attack",
+  "size": 7,
+  "feature_ids": [
+   1865,
+   404,
+   1533,
+   1641,
+   1119,
+   1453,
+   529
+  ]
+ },
+ "1": {
+  "name": "King misses tempo in race",
+  "size": 20,
+  "feature_ids": [
+   382,
+   424,
+   874,
+   1649,
+   348,
+   1136,
+   938,
+   387,
+   216,
+   29,
+   1892,
+   145,
+   895,
+   420,
+   1978,
+   1967,
+   1837,
+   1535,
+   808,
+   1557
+  ]
+ },
+ "2": {
+  "name": "Tempo wasted delaying king activation",
+  "size": 13,
+  "feature_ids": [
+   1348,
+   890,
+   1625,
+   619,
+   763,
+   963,
+   372,
+   1990,
+   1751,
+   1310,
+   647,
+   530,
+   965
+  ]
+ },
+ "3": {
+  "name": "Piece activity sacrificed for pawns",
+  "size": 18,
+  "feature_ids": [
+   1338,
+   1110,
+   1341,
+   88,
+   1709,
+   355,
+   345,
+   1276,
+   85,
+   1935,
+   111,
+   1385,
+   558,
+   317,
+   236,
+   626,
+   1718,
+   1770
+  ]
+ },
+ "4": {
+  "name": "King mistimes pawn advance coordination",
+  "size": 15,
+  "feature_ids": [
+   867,
+   1491,
+   1636,
+   839,
+   796,
+   939,
+   709,
+   1414,
+   945,
+   341,
+   1145,
+   416,
+   971,
+   188,
+   1212
+  ]
+ },
+ "5": {
+  "name": "Piece picks wrong active square",
+  "size": 14,
+  "feature_ids": [
+   273,
+   921,
+   1454,
+   1953,
+   752,
+   1090,
+   1266,
+   1899,
+   1330,
+   1877,
+   1196,
+   1881,
+   792,
+   603
+  ]
+ },
+ "6": {
+  "name": "King misplaces in pawn race",
+  "size": 4,
+  "feature_ids": [
+   1220,
+   1192,
+   923,
+   1897
+  ]
+ },
+ "7": {
+  "name": "Premature pawn push ruins promotion",
+  "size": 9,
+  "feature_ids": [
+   1890,
+   1964,
+   144,
+   1146,
+   415,
+   1392,
+   1480,
+   624,
+   981
+  ]
+ },
+ "8": {
+  "name": "Premature flank pawn push blunders",
+  "size": 7,
+  "feature_ids": [
+   673,
+   253,
+   510,
+   1655,
+   32,
+   608,
+   523
+  ]
+ },
+ "9": {
+  "name": "Piece abandons pawn promotion square",
+  "size": 8,
+  "feature_ids": [
+   503,
+   1779,
+   1919,
+   1200,
+   1344,
+   53,
+   594,
+   958
+  ]
+ },
+ "10": {
+  "name": "King misjudges critical endgame geometry",
+  "size": 13,
+  "feature_ids": [
+   365,
+   18,
+   35,
+   903,
+   918,
+   683,
+   517,
+   1483,
+   1615,
+   99,
+   1131,
+   220,
+   1838
+  ]
+ },
+ "11": {
+  "name": "Rook blocks own pawn promotion",
+  "size": 5,
+  "feature_ids": [
+   1853,
+   67,
+   129,
+   422,
+   777
+  ]
+ }
+}
