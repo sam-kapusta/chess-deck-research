@@ -1,14 +1,19 @@
 # Chess Encoder — SAE Feature Pipeline
 
-## Current State (2026-05-28)
+## Current State (2026-05-29)
 
-**Matryoshka SAE (NEW):** Per-level-k Matryoshka, dict=[32, 256, 2048]=2336, k_per_level=[3, 8, 16]. Zero dead features, FVU=0.209. Best architecture found after comprehensive sweep of dict sizes, k values, prefix configs, and per-level enforcement. See `docs/knowledge/matryoshka-sae.md`.
+**Taxonomy v2 rebuilt (DONE 2026-05-29):** The 2048 k=32 v2 feature labels had accurate descriptions but generic chips, and categories built from those lossy chips → junk drawers. Rebuilt TITLE→CATEGORIZE→CHIP: 1,996 features → 20 coaching categories + specific chips, generic chips 398→0, no junk drawer (largest 20%). Ship artifact: `output/taxonomy_v2/taxonomy_v2.json`. See knowledge.md § "Taxonomy rebuild" + `output/taxonomy_v2/REBUILD_REPORT.md`.
+
+**Matryoshka SAE:** Per-level-k Matryoshka, dict=[32, 256, 2048]=2336, k_per_level=[3, 8, 16]. Zero dead features, FVU=0.209. Best architecture found after comprehensive sweep of dict sizes, k values, prefix configs, and per-level enforcement. See `docs/knowledge/matryoshka-sae.md`.
 
 **Next steps:**
-1. Run labeling pipeline on H1 model (match features to existing 19K Opus analyses)
-2. Validate coaching coherence at each level (are prefix-32 features real categories?)
-3. Run Elo discrimination on the per-level model
-4. If validated: ship as next SAE version
+1. ✅ ~~Run labeling pipeline + clean taxonomy~~ — done (taxonomy_v2 rebuilt, QA passed)
+2. Decide deploy: ship taxonomy_v2 (k=32) as next SAE version, OR run the same TITLE→CATEGORIZE→CHIP rebuild on the H1 Matryoshka model and compare
+3. Validate coaching coherence at each Matryoshka level (are prefix-32 features real categories?)
+4. Run Elo discrimination on the per-level model
+5. If validated: ship as next SAE version
+
+⚠️ **Gotcha (2026-05-29):** the 19K Opus Pass-1 analyses live ONLY complete on chess-poc (`/home/ec2-user/SageMaker/all_positions_labeled_opus.json`, 19,342). The S3 `..._final.json` is truncated to 10,648 — pull from notebook.
 
 ---
 

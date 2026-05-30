@@ -410,3 +410,26 @@
 - Build verification (npm start / npm run build)
 - Playwright testing (node not available)
 - Players page: existing page got CSS pass but doesn't yet show patterns+openings combo view for showcase players
+
+---
+
+## 2026-05-29 — Maia 3 taxonomy rebuild (chip-first → title-first)
+
+**Trigger:** the "other claude" session was hitting Bedrock 503s mid-labeling. Diagnosed: 503s were the model backend, not the pipeline. The real work was the Maia3 2048 k=32 v2 coaching taxonomy.
+
+**Diagnosis (long, several wrong turns):**
+- Old 13-category taxonomy had junk drawers (Missed Tactics = 372 features, every piece type).
+- Decoder geometry: v2 features near-orthogonal (mean cosine 0.000) → genuinely distinct, not duplicates.
+- Found the labels' `description` field is accurate (verified against the board) but the 2-4 word `chip` was generic on ~400 features. Categories were built from the lossy chips → junk drawers.
+- **Root cause: chip-first pipeline.** Compression (chip) happened before categorization, so lossiness propagated down.
+- **Detour that cost time:** the canonical 19K Opus Pass-1 English analyses are complete only on chess-poc (`all_positions_labeled_opus.json`, 19,342). The S3 `..._final.json` is TRUNCATED to 10,648. I burned time computing on the wrong cache + the truncated file before reading S3_INVENTORY.md (which Sam rightly pointed at). Lesson logged in knowledge.md + inventory.
+
+**Fix — rebuilt TITLE→CATEGORIZE→CHIP:**
+- Deterministic per-feature structural fingerprint + description verification (`scripts/sae/taxonomy/`, TDD, 7 tests).
+- Reused the validated 20-category vocab from `chess_blunder_taxonomy_v2` (coaching vocab is checkpoint-independent).
+- Assigned 1,996 features + wrote specific category-aware chips via Sonnet 4.6 on the research account (NOT the Claude Code backend — sidesteps the 503s; resumable, throttle-tolerant, 0 errors on full run).
+- Targeted chip regen for generic/vague ones.
+
+**Result:** generic chips 398→0, no junk drawer (largest 20%), 20/20 categories used, 0 unassigned. Every category's structural signature matches its definition (greedy_captures 88% cap, checks_lose_tempo 73% chk, king_walks 98% king, slow_play 88% quiet, pawn cats 99-100% pawn). QA gate PASSED. Ship artifact: `output/taxonomy_v2/taxonomy_v2.json` + `REBUILD_REPORT.md`.
+
+**Known limit:** 4 low-pop categories (hangs/undefended/back_rank/fork, 4-7 each) — features route to sharper abandons_defense/lands_badly; kept as checkpoint-stable vocab, not mis-routing. ~2% of chips name no specific square (genuine quiet "slow play" features).

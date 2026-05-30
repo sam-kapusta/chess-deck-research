@@ -170,6 +170,27 @@ s3://chess-stage-a-140023406996/sae/cache/
   maia3_simplified.onnx            ← Maia 3 model (8-layer transformer, 512-dim)
 ```
 
+## Opus Pass-1 Position Analyses (⚠️ S3 copy is truncated)
+
+```
+CANONICAL: chess-poc:/home/ec2-user/SageMaker/all_positions_labeled_opus.json  ← 19,342 analyses (79.5MB)
+TRUNCATED: s3://chess-stage-a-140023406996/sae/cache/all_positions_labeled_opus_final.json  ← only 10,648 (40MB) — DO NOT USE
+```
+
+The S3 `_final.json` upload was truncated to 10,648 of 19,342 entries. Pull the complete file from the chess-poc notebook (`sais -n chess-poc download all_positions_labeled_opus.json <dest>`). Keyed by `fen|uci`; fields `analysis.{position_description, best_moves_analysis}`. (2026-05-29: cost a long debugging detour.)
+
+## Maia 3 Taxonomy v2 (rebuilt 2026-05-29)
+
+```
+chess-deck-research/output/taxonomy_v2/
+  taxonomy_v2.json        ← 1,996 features → 20 coaching categories + specific chips (SHIP ARTIFACT)
+  REBUILD_REPORT.md       ← distribution, method, example relabels, coherence validation
+  category_vocab.json     ← 20-category controlled vocabulary (reused from chess_blunder_taxonomy_v2)
+  evidence.json           ← per-feature description + structural fingerprint + verification
+```
+
+Built TITLE→CATEGORIZE→CHIP from the accurate Pass-2 `description` field (NOT the lossy chips). Generic chips 398→0, no junk drawer. Pipeline in `scripts/sae/taxonomy/`. See knowledge.md § "Taxonomy rebuild".
+
 ## To use any model
 
 1. Download weights: `aws s3 cp s3://chess-stage-a-140023406996/sae-weights/<file>.pt .`

@@ -180,9 +180,21 @@ From SF-derived stats (piece played, phase, check/capture rates, cp_loss), can a
 
 Two-pass pipeline using Opus 4.6 on Bedrock (capped thinking 4096 tokens, concurrency 20):
 
-1. **Pass 1:** 19,216 per-position analyses (19K unique positions × Stockfish depth-18 enrichment × Opus). 17h wall time on chess-poc. Output: `s3://chess-stage-a-140023406996/sae/cache/all_positions_labeled_opus_final.json` (40MB)
+1. **Pass 1:** 19,216 per-position analyses (19K unique positions × Stockfish depth-18 enrichment × Opus). 17h wall time on chess-poc. **Canonical copy is on chess-poc: `/home/ec2-user/SageMaker/all_positions_labeled_opus.json` (79.5MB, 19,342 entries).** ⚠️ The S3 copy `sae/cache/all_positions_labeled_opus_final.json` (40MB) is **TRUNCATED to 10,648 entries** — do NOT use it; pull from the notebook. (Cost us a long debugging detour 2026-05-29.)
 2. **Pass 2:** 2,000 feature-level labels synthesized from 10 position analyses each. 80min. Output: `s3://chess-stage-a-140023406996/sae/labels/maia3_feature_labels_opus.json`
 3. **Rerun:** 604 low-confidence features relabeled with geometric context (diff vector stats, from-file/rank distribution). Only 36 improved — low confidence = genuinely polysemantic, not missing info.
+
+### Taxonomy rebuild — chip-first was lossy (2026-05-29)
+
+The shipped Pass-2 labels have accurate `description` and `label` (one-sentence) fields, but the 2-4 word `chip` was generic ("Quiet move ignores tactics") on ~400 features, and categories were assigned FROM those lossy chips → junk-drawer categories (old "Missed Tactics" = 372 features spanning every piece type). **The features are fine** (near-orthogonal decoders, accurate descriptions); only the chip + category layer was broken.
+
+**Fix — rebuilt TITLE→CATEGORIZE→CHIP** (compression last, not first):
+- `description` (verified accurate against the board) is the source of truth.
+- Each of 1,996 features assigned to one of **20 checkpoint-stable coaching categories** (reused from `chess_blunder_taxonomy_v2`, since the coaching vocab is about chess not the SAE).
+- Specific chip generated LAST, category-aware, generic frame banned.
+- Result: generic chips 398→0, no junk drawer (largest 20%), every category's structural signature matches its definition (greedy_captures 88% capture, checks_lose_tempo 73% check, king_walks 98% king, slow_play 88% quiet).
+- Output: `output/taxonomy_v2/taxonomy_v2.json` + `REBUILD_REPORT.md`. Pipeline: `scripts/sae/taxonomy/` (deterministic fingerprint/verifier/evidence/assemble/qa + `relabel_sonnet.py`).
+- **Lesson:** compress last. A 2-4 word title seeded before categorization propagates its lossiness downward. [[feedback_verify_batch_formats]]-style: don't trust the chip; verify against the description/board.
 
 Scripts: `scripts/labeling/label_features_pass2.py`, `scripts/labeling/label_features_pass2_rerun.py`
 
@@ -229,7 +241,7 @@ Top weaknesses vs peers: "Pawn Captures That Open King" (2.3×), "Aimless Rook R
 |------|------|-------|
 | `gemini_batch_input.jsonl` | Input for CANCELLED Flash batch (wrong schema) | 19,511 |
 | `gemini_batch_results_raw.jsonl` | Output from SUCCESSFUL Pro batch | 5,851 |
-| `all_positions_labeled_opus.json` | Pass 1 results (19K position analyses) | — |
+| `all_positions_labeled_opus.json` | Pass 1 results — **CANONICAL 19,342 analyses (79.5MB)**; S3 copy is truncated to 10,648 | 19,342 |
 | `maia3_feature_labels_opus.json` | Pass 2 + rerun results (2K feature labels) | — |
 | `position_enrichment_cache.json` | Stockfish depth-18 enrichment (19K positions) | — |
 | `sae_rating_validation.json` | 56K positions × 6 bands fire rates | — |
