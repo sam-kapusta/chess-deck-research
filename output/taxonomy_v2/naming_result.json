@@ -1,6 +1,421 @@
 {
  "categories": [
   {
+   "coarse_id": 0,
+   "category_name": "Slow Play Punished",
+   "category_definition": "Playing a quiet, non-forcing \"natural-looking\" move \u2014 a pawn push, routine piece development, rook re-filing, or king repositioning \u2014 at a moment when the position demanded an immediate forcing response (capture, check, defense, or winning tactic), squandering the critical tempo.",
+   "subclusters": [
+    {
+     "fine_id": 80,
+     "name": "Premature push or development over forced tactic",
+     "feature_ids": [
+      0,
+      91,
+      234,
+      289,
+      358,
+      388,
+      417,
+      495,
+      842,
+      991,
+      1219,
+      1241,
+      1324,
+      1361,
+      1492,
+      1598,
+      1686
+     ]
+    },
+    {
+     "fine_id": 53,
+     "name": "Slow piece improvement surrenders tempo",
+     "feature_ids": [
+      24,
+      177,
+      176,
+      245,
+      320,
+      364,
+      770,
+      802,
+      814,
+      889,
+      976,
+      1166,
+      1327,
+      1546,
+      1613,
+      1783
+     ]
+    },
+    {
+     "fine_id": 96,
+     "name": "Flank pawn push burns forcing tempo",
+     "feature_ids": [
+      25,
+      135,
+      203,
+      359,
+      783,
+      1035,
+      1040,
+      1299,
+      1399,
+      1473,
+      1652,
+      1807,
+      1820,
+      2007
+     ]
+    },
+    {
+     "fine_id": 79,
+     "name": "Aggressive pawn advance overextends",
+     "feature_ids": [
+      8,
+      117,
+      304,
+      309,
+      649,
+      756,
+      1100,
+      1271,
+      1529,
+      1592,
+      1847,
+      1951
+     ]
+    },
+    {
+     "fine_id": 101,
+     "name": "Reflexive rook development over tactic",
+     "feature_ids": [
+      80,
+      225,
+      323,
+      440,
+      670,
+      697,
+      1007,
+      1080,
+      1328,
+      1469,
+      1514
+     ]
+    },
+    {
+     "fine_id": 60,
+     "name": "Piece abandons critical file or duty",
+     "feature_ids": [
+      103,
+      211,
+      421,
+      505,
+      577,
+      596,
+      1228,
+      1243,
+      1459,
+      1569,
+      1681
+     ]
+    },
+    {
+     "fine_id": 122,
+     "name": "Piece drifts to secondary target",
+     "feature_ids": [
+      261,
+      398,
+      567,
+      1021,
+      1486,
+      1552,
+      1628
+     ]
+    },
+    {
+     "fine_id": 172,
+     "name": "Reflexive rook contests open file",
+     "feature_ids": [
+      386,
+      644,
+      1026,
+      1207,
+      1477,
+      1488,
+      1855,
+      1956
+     ]
+    },
+    {
+     "fine_id": 118,
+     "name": "Rim pawn push over decisive shot",
+     "feature_ids": [
+      522,
+      753,
+      973,
+      1031,
+      1218,
+      1296,
+      1841,
+      1991
+     ]
+    },
+    {
+     "fine_id": 75,
+     "name": "Passive opening piece placement",
+     "feature_ids": [
+      180,
+      384,
+      430,
+      666,
+      1750,
+      1941
+     ]
+    },
+    {
+     "fine_id": 155,
+     "name": "Pawn push ignores hanging material",
+     "feature_ids": [
+      390,
+      674,
+      725,
+      782,
+      1384,
+      1887
+     ]
+    },
+    {
+     "fine_id": 137,
+     "name": "Wing pawn push exposes uncastled king",
+     "feature_ids": [
+      438,
+      429,
+      1163,
+      1217,
+      1580
+     ]
+    },
+    {
+     "fine_id": 181,
+     "name": "Rook drifts to passive rim file",
+     "feature_ids": [
+      818,
+      1105,
+      1171,
+      1498,
+      1832
+     ]
+    }
+   ],
+   "misfits": [
+    {
+     "feature_id": 810,
+     "reason": "Describes the king actively capturing an advanced g/h-pawn and inviting a decisive attack \u2014 a greedy material grab that exposes the king, not a slow/non-forcing tempo-waster. Belongs in 'Greedy Captures' or 'King Walks Into Danger'."
+    },
+    {
+     "feature_id": 1278,
+     "reason": "The king (or pawn) advances onto a tactically vulnerable, forkable square \u2014 the move loses because the destination is hit, i.e. walking into a tactic, not because a quiet move squandered tempo. Belongs in 'King Walks Into Danger' / overextension."
+    }
+   ]
+  },
+  {
+   "coarse_id": 1,
+   "category_name": "Playing the Plausible Move",
+   "category_definition": "Choosing an intuitively appealing move \u2014 quiet development, a pawn push, a repositioning, a tempting capture, or an aggressive-looking sortie \u2014 while ignoring the position's concrete forcing demand (an available capture, check, defense, or mate).",
+   "subclusters": [
+    {
+     "fine_id": 11,
+     "name": "Improving Move Ignores Forcing Capture",
+     "feature_ids": [
+      70,
+      86,
+      227,
+      260,
+      500,
+      721,
+      784,
+      851,
+      924,
+      1001,
+      1108,
+      1339,
+      1508,
+      1526,
+      1633,
+      1788,
+      1869
+     ]
+    },
+    {
+     "fine_id": 50,
+     "name": "Repositioning Instead Of Capturing",
+     "feature_ids": [
+      96,
+      163,
+      281,
+      284,
+      333,
+      353,
+      668,
+      701,
+      698,
+      790,
+      980,
+      1291,
+      1297,
+      1482,
+      1965,
+      1962,
+      1994
+     ]
+    },
+    {
+     "fine_id": 65,
+     "name": "Empty Aggression Loses The Initiative",
+     "feature_ids": [
+      240,
+      431,
+      475,
+      582,
+      655,
+      723,
+      871,
+      1086,
+      1149,
+      1193,
+      1370,
+      1854,
+      1904,
+      1921
+     ]
+    },
+    {
+     "fine_id": 12,
+     "name": "Passive Move Over Forced Capture",
+     "feature_ids": [
+      174,
+      196,
+      272,
+      310,
+      411,
+      446,
+      528,
+      1256,
+      1322,
+      1871,
+      1943
+     ]
+    },
+    {
+     "fine_id": 93,
+     "name": "Chasing Side-Goals, Missing The Priority",
+     "feature_ids": [
+      125,
+      148,
+      827,
+      886,
+      935,
+      1117,
+      1566,
+      1647,
+      1801,
+      1882
+     ]
+    },
+    {
+     "fine_id": 103,
+     "name": "Quiet Move Over Decisive Blow",
+     "feature_ids": [
+      9,
+      413,
+      692,
+      1226,
+      1468,
+      1479,
+      1656,
+      1773,
+      2001
+     ]
+    },
+    {
+     "fine_id": 18,
+     "name": "Move Walks Into Self-Danger",
+     "feature_ids": [
+      703,
+      817,
+      825,
+      948,
+      1112,
+      1125,
+      1264,
+      1515
+     ]
+    },
+    {
+     "fine_id": 154,
+     "name": "Missing The Single Critical Move",
+     "feature_ids": [
+      340,
+      354,
+      574,
+      688,
+      766,
+      1400,
+      1671,
+      1725
+     ]
+    },
+    {
+     "fine_id": 150,
+     "name": "Declining A Free Capture",
+     "feature_ids": [
+      237,
+      360,
+      502,
+      591,
+      883,
+      1104,
+      1478
+     ]
+    },
+    {
+     "fine_id": 160,
+     "name": "Wrong Pawn Decision At Tension",
+     "feature_ids": [
+      393,
+      482,
+      951,
+      1198,
+      1254,
+      1315,
+      1691
+     ]
+    },
+    {
+     "fine_id": 196,
+     "name": "Natural Move Leaves Piece Hanging",
+     "feature_ids": [
+      252,
+      425,
+      616,
+      863,
+      1213,
+      1284
+     ]
+    }
+   ],
+   "misfits": [
+    {
+     "feature_id": 1358,
+     "reason": "This is an endgame conversion/technique error \u2014 misplacing a major piece on the wrong rank (missing a cut-off) in already-winning endgames \u2014 not a failure to spot the position's concrete forcing demand. Belongs in an endgame-technique / sloppy-conversion category."
+    }
+   ]
+  },
+  {
+   "coarse_id": 2,
    "category_name": "Ignoring The Position's Demands",
    "category_definition": "The player makes a plausible-looking move \u2014 repositioning a piece to an \"active\" square, giving a check, pushing a pawn, or relocating the king \u2014 that follows general logic but fails to meet the position's urgent, concrete demand (defending a piece, the forcing win, or king safety).",
    "subclusters": [
@@ -247,553 +662,7 @@
    ]
   },
   {
-   "category_name": "Playing the Plausible Move",
-   "category_definition": "Choosing an intuitively appealing move \u2014 quiet development, a pawn push, a repositioning, a tempting capture, or an aggressive-looking sortie \u2014 while ignoring the position's concrete forcing demand (an available capture, check, defense, or mate).",
-   "subclusters": [
-    {
-     "fine_id": 11,
-     "name": "Improving Move Ignores Forcing Capture",
-     "feature_ids": [
-      70,
-      86,
-      227,
-      260,
-      500,
-      721,
-      784,
-      851,
-      924,
-      1001,
-      1108,
-      1339,
-      1508,
-      1526,
-      1633,
-      1788,
-      1869
-     ]
-    },
-    {
-     "fine_id": 50,
-     "name": "Repositioning Instead Of Capturing",
-     "feature_ids": [
-      96,
-      163,
-      281,
-      284,
-      333,
-      353,
-      668,
-      701,
-      698,
-      790,
-      980,
-      1291,
-      1297,
-      1482,
-      1965,
-      1962,
-      1994
-     ]
-    },
-    {
-     "fine_id": 65,
-     "name": "Empty Aggression Loses The Initiative",
-     "feature_ids": [
-      240,
-      431,
-      475,
-      582,
-      655,
-      723,
-      871,
-      1086,
-      1149,
-      1193,
-      1370,
-      1854,
-      1904,
-      1921
-     ]
-    },
-    {
-     "fine_id": 12,
-     "name": "Passive Move Over Forced Capture",
-     "feature_ids": [
-      174,
-      196,
-      272,
-      310,
-      411,
-      446,
-      528,
-      1256,
-      1322,
-      1871,
-      1943
-     ]
-    },
-    {
-     "fine_id": 93,
-     "name": "Chasing Side-Goals, Missing The Priority",
-     "feature_ids": [
-      125,
-      148,
-      827,
-      886,
-      935,
-      1117,
-      1566,
-      1647,
-      1801,
-      1882
-     ]
-    },
-    {
-     "fine_id": 103,
-     "name": "Quiet Move Over Decisive Blow",
-     "feature_ids": [
-      9,
-      413,
-      692,
-      1226,
-      1468,
-      1479,
-      1656,
-      1773,
-      2001
-     ]
-    },
-    {
-     "fine_id": 18,
-     "name": "Move Walks Into Self-Danger",
-     "feature_ids": [
-      703,
-      817,
-      825,
-      948,
-      1112,
-      1125,
-      1264,
-      1515
-     ]
-    },
-    {
-     "fine_id": 154,
-     "name": "Missing The Single Critical Move",
-     "feature_ids": [
-      340,
-      354,
-      574,
-      688,
-      766,
-      1400,
-      1671,
-      1725
-     ]
-    },
-    {
-     "fine_id": 150,
-     "name": "Declining A Free Capture",
-     "feature_ids": [
-      237,
-      360,
-      502,
-      591,
-      883,
-      1104,
-      1478
-     ]
-    },
-    {
-     "fine_id": 160,
-     "name": "Wrong Pawn Decision At Tension",
-     "feature_ids": [
-      393,
-      482,
-      951,
-      1198,
-      1254,
-      1315,
-      1691
-     ]
-    },
-    {
-     "fine_id": 196,
-     "name": "Natural Move Leaves Piece Hanging",
-     "feature_ids": [
-      252,
-      425,
-      616,
-      863,
-      1213,
-      1284
-     ]
-    }
-   ],
-   "misfits": [
-    {
-     "feature_id": 1358,
-     "reason": "This is an endgame conversion/technique error \u2014 misplacing a major piece on the wrong rank (missing a cut-off) in already-winning endgames \u2014 not a failure to spot the position's concrete forcing demand. Belongs in an endgame-technique / sloppy-conversion category."
-    }
-   ]
-  },
-  {
-   "category_name": "Missing The Critical Moment",
-   "category_definition": "Playing a superficially reasonable move \u2014 an active repositioning, a material grab, or a quiet pawn push \u2014 when the position urgently demanded a specific, concrete, forcing response instead.",
-   "subclusters": [
-    {
-     "fine_id": 73,
-     "name": "Active Move Abandons Defensive Duty",
-     "feature_ids": [
-      6,
-      39,
-      108,
-      357,
-      892,
-      966,
-      992,
-      1128,
-      1249,
-      1635,
-      1687,
-      1726,
-      1759,
-      1780,
-      1810,
-      1910
-     ]
-    },
-    {
-     "fine_id": 98,
-     "name": "Distraction Captures Miss The Threat",
-     "feature_ids": [
-      157,
-      199,
-      469,
-      497,
-      778,
-      1185,
-      1273,
-      1263,
-      1317,
-      1472,
-      1923,
-      1920
-     ]
-    },
-    {
-     "fine_id": 36,
-     "name": "Slow Pawn Push, King In Danger",
-     "feature_ids": [
-      292,
-      693,
-      1010,
-      1054,
-      1061,
-      1083,
-      1393,
-      1596,
-      1859,
-      1926
-     ]
-    },
-    {
-     "fine_id": 71,
-     "name": "Greedy Material Grab Backfires",
-     "feature_ids": [
-      166,
-      192,
-      204,
-      546,
-      553,
-      857,
-      1070,
-      1609,
-      1727
-     ]
-    },
-    {
-     "fine_id": 47,
-     "name": "Passive Move When Forcing Play Needed",
-     "feature_ids": [
-      209,
-      329,
-      906,
-      1012,
-      1261,
-      1411,
-      1601
-     ]
-    },
-    {
-     "fine_id": 15,
-     "name": "Routine Improving Move At Critical Moment",
-     "feature_ids": [
-      588,
-      1114,
-      1374,
-      1398,
-      1616
-     ]
-    },
-    {
-     "fine_id": 197,
-     "name": "Quiet Repositioning Surrenders Tempo",
-     "feature_ids": [
-      283,
-      1025,
-      1066,
-      1143
-     ]
-    }
-   ],
-   "misfits": []
-  },
-  {
-   "category_name": "Slow Play When Action Demanded",
-   "category_definition": "The player squanders a critical tempo on a quiet, non-forcing, or merely \"improving\" move (repositioning, pawn push, king walk, routine recapture, or an obvious-but-imprecise check) when the position demanded one specific forcing or concrete action.",
-   "subclusters": [
-    {
-     "fine_id": 25,
-     "name": "Improving Move Ignores The Crisis",
-     "feature_ids": [
-      21,
-      65,
-      77,
-      258,
-      331,
-      376,
-      458,
-      722,
-      1024,
-      1048,
-      1111,
-      1288,
-      1513,
-      1588,
-      1690,
-      1815
-     ]
-    },
-    {
-     "fine_id": 58,
-     "name": "Imprecise Active Move, Sharp Position",
-     "feature_ids": [
-      243,
-      459,
-      561,
-      787,
-      941,
-      1382,
-      1390,
-      1408,
-      1419,
-      1530,
-      1715
-     ]
-    },
-    {
-     "fine_id": 1,
-     "name": "Quiet Move Skips Forcing Strike",
-     "feature_ids": [
-      57,
-      302,
-      525,
-      611,
-      838,
-      875,
-      1562,
-      1677,
-      1902
-     ]
-    }
-   ],
-   "misfits": []
-  },
-  {
-   "category_name": "Imprecise Endgame Play",
-   "category_definition": "In sharp, simplified endgames the player makes an imprecise or wrong-priority move \u2014 a wasted tempo, a bad king route, a premature flank push, a released pawn tension, or a greedy capture \u2014 instead of the single precise move the position demanded to win, draw, or save the game.",
-   "subclusters": [
-    {
-     "fine_id": 22,
-     "name": "Chasing Pawns, Missing The Race",
-     "feature_ids": [
-      85,
-      88,
-      111,
-      236,
-      317,
-      345,
-      355,
-      558,
-      626,
-      1110,
-      1276,
-      1341,
-      1338,
-      1385,
-      1709,
-      1718,
-      1770,
-      1935
-     ]
-    },
-    {
-     "fine_id": 132,
-     "name": "King-And-Pawn Opposition And Race Errors",
-     "feature_ids": [
-      188,
-      341,
-      416,
-      709,
-      796,
-      839,
-      867,
-      939,
-      945,
-      971,
-      1145,
-      1212,
-      1414,
-      1491,
-      1636
-     ]
-    },
-    {
-     "fine_id": 157,
-     "name": "Wrong Priority In Promotion Races",
-     "feature_ids": [
-      18,
-      35,
-      99,
-      220,
-      365,
-      517,
-      683,
-      903,
-      918,
-      1131,
-      1483,
-      1615,
-      1838
-     ]
-    },
-    {
-     "fine_id": 84,
-     "name": "Slow Pushes Over King Activation",
-     "feature_ids": [
-      372,
-      530,
-      619,
-      647,
-      763,
-      890,
-      963,
-      965,
-      1310,
-      1348,
-      1625,
-      1751,
-      1990
-     ]
-    },
-    {
-     "fine_id": 179,
-     "name": "Active King Walks Into Danger",
-     "feature_ids": [
-      29,
-      216,
-      348,
-      420,
-      874,
-      895,
-      1136,
-      1649,
-      1967,
-      1978
-     ]
-    },
-    {
-     "fine_id": 152,
-     "name": "Passive Maneuvering Over Concrete Action",
-     "feature_ids": [
-      145,
-      382,
-      387,
-      424,
-      808,
-      938,
-      1535,
-      1557,
-      1837,
-      1892
-     ]
-    },
-    {
-     "fine_id": 195,
-     "name": "Drifting Off Critical Defensive Squares",
-     "feature_ids": [
-      217,
-      246,
-      636,
-      758,
-      1257,
-      1285,
-      1342,
-      1704
-     ]
-    },
-    {
-     "fine_id": 85,
-     "name": "Rim Pawn Pushes And Edge Retreats",
-     "feature_ids": [
-      32,
-      253,
-      510,
-      523,
-      608,
-      673,
-      1655
-     ]
-    },
-    {
-     "fine_id": 138,
-     "name": "Releasing Pawn Tension Gifts A Passer",
-     "feature_ids": [
-      153,
-      265,
-      1023,
-      1730,
-      1735,
-      1908
-     ]
-    },
-    {
-     "fine_id": 166,
-     "name": "Greedy Captures Miss Forced Mate",
-     "feature_ids": [
-      610,
-      768,
-      1279,
-      1464,
-      1654
-     ]
-    },
-    {
-     "fine_id": 117,
-     "name": "King To Wrong Square Loses Race",
-     "feature_ids": [
-      923,
-      1192,
-      1220,
-      1897
-     ]
-    }
-   ],
-   "misfits": []
-  },
-  {
+   "coarse_id": 3,
    "category_name": "Slow Play in Critical Moments",
    "category_definition": "Playing a slow, non-forcing move \u2014 a pawn push, piece repositioning, development, or king move \u2014 at a sharp moment that demanded an immediate concrete or forcing response, surrendering the win or the game.",
    "subclusters": [
@@ -1043,770 +912,359 @@
    ]
   },
   {
-   "category_name": "Routine Moves at Critical Moments",
-   "category_definition": "The player makes a natural-looking, plan-driven move \u2014 a passive retreat, a rook maneuver, or a reflex pawn push/promotion \u2014 at a moment that concretely demanded a forcing, defensive, or precise response instead.",
+   "coarse_id": 5,
+   "category_name": "Self-Weakening Moves",
+   "category_definition": "Committal pawn pushes, piece sorties, sacrifices, and trades that look purposeful but loosen the player's own king, abandon a defender or shield, or overextend a piece into immediate capture, handing the opponent a punishing reply.",
    "subclusters": [
     {
-     "fine_id": 46,
-     "name": "Passive Retreat to Own Back Rank",
+     "fine_id": 5,
+     "name": "Pushes And Developments That Hang",
      "feature_ids": [
-      168,
-      202,
-      569,
-      632,
-      868,
-      947,
-      983,
-      1042,
-      1091,
-      1180,
-      1377,
-      1395,
-      1436,
-      1493,
-      1501,
-      1582,
-      1612,
-      1670,
-      1721,
-      1733,
-      1797,
-      1933,
-      1973
+      147,
+      149,
+      601,
+      850,
+      1002,
+      1046,
+      1165,
+      1214,
+      1270,
+      1415,
+      1452,
+      1510,
+      1542,
+      1740,
+      1981
      ]
     },
     {
-     "fine_id": 164,
-     "name": "Reflex Passed-Pawn Push and Promotion",
+     "fine_id": 23,
+     "name": "Flank Pawn Pushes Crack Shelter",
      "feature_ids": [
-      144,
-      415,
-      624,
-      981,
-      1146,
-      1392,
-      1480,
-      1890,
-      1964
+      161,
+      375,
+      590,
+      634,
+      728,
+      769,
+      1064,
+      1246,
+      1396,
+      1637,
+      1808,
+      1805,
+      1867,
+      1927
      ]
     },
     {
-     "fine_id": 173,
-     "name": "Mishandled Passed-Pawn Promotion Technique",
+     "fine_id": 40,
+     "name": "Refuted Opening Pins And Sorties",
      "feature_ids": [
-      53,
-      503,
-      594,
-      958,
-      1200,
-      1344,
-      1779,
-      1919
+      1,
+      23,
+      56,
+      337,
+      493,
+      686,
+      806,
+      896,
+      944,
+      1141,
+      1545
      ]
     },
     {
-     "fine_id": 141,
-     "name": "Slow Development Ignores Concrete Tactic",
+     "fine_id": 95,
+     "name": "Pawn Pushes Over Forcing Tactics",
      "feature_ids": [
-      181,
-      441,
-      579,
-      1283,
-      1462,
-      1646,
-      1706
+      54,
+      224,
+      638,
+      717,
+      767,
+      970,
+      1065,
+      1188,
+      1205,
+      1525,
+      1585,
+      1675
      ]
     },
     {
-     "fine_id": 180,
-     "name": "Rook Activity Over Forcing Moves",
+     "fine_id": 130,
+     "name": "Piece Leaps To Undefended Rim",
      "feature_ids": [
-      52,
-      1170,
-      1544,
-      1741,
-      1833,
-      1958
+      330,
+      571,
+      573,
+      779,
+      893,
+      1122,
+      1286,
+      1440,
+      1634,
+      1830,
+      1845,
+      1905
      ]
     },
     {
-     "fine_id": 185,
-     "name": "Doubling Rooks Misses Forcing Strike",
+     "fine_id": 87,
+     "name": "Unsound Kingside Attacking Sacrifices",
      "feature_ids": [
-      198,
-      972,
-      1072,
-      1443,
-      1850,
-      1878
+      887,
+      931,
+      934,
+      1295,
+      1568,
+      1567,
+      1590,
+      1884,
+      1963
      ]
     },
     {
-     "fine_id": 136,
-     "name": "Heavy-Piece Sortie Gets Refuted",
+     "fine_id": 110,
+     "name": "Walking Onto Controlled Lines",
      "feature_ids": [
-      218,
-      351,
-      861,
-      919,
-      1020,
-      1432
+      72,
+      275,
+      455,
+      691,
+      845,
+      1082,
+      1427,
+      1863
      ]
     },
     {
-     "fine_id": 168,
-     "name": "Back-Rank Move Botches Pawn Race",
+     "fine_id": 67,
+     "name": "Chasing Intruders Exposes King",
      "feature_ids": [
-      67,
-      129,
-      422,
-      777,
-      1853
+      128,
+      241,
+      263,
+      736,
+      884,
+      1060,
+      1272,
+      1426
      ]
     },
     {
-     "fine_id": 109,
-     "name": "Wrong Piece Abandons Critical Duty",
+     "fine_id": 163,
+     "name": "Pawn Advances Abandon Guard Duty",
      "feature_ids": [
-      127,
-      391,
-      832,
-      901,
-      1380
+      488,
+      713,
+      762,
+      881,
+      968,
+      1242,
+      1336,
+      1455
      ]
     },
     {
-     "fine_id": 64,
-     "name": "Promotion Push Ignores Mating Attack",
+     "fine_id": 39,
+     "name": "King Safety Mishandled In Opening",
      "feature_ids": [
-      529,
-      1119,
-      1533,
-      1641,
-      1865
+      244,
+      1015,
+      1268,
+      1302,
+      1410,
+      1622,
+      1995
      ]
     },
     {
-     "fine_id": 190,
-     "name": "Pawn Push Backfires Tactically",
+     "fine_id": 170,
+     "name": "Unsound f7/f2 Piece Sacrifices",
      "feature_ids": [
-      793,
-      1712,
-      1874,
-      1879,
-      1893
+      31,
+      641,
+      804,
+      847,
+      1036,
+      1968
      ]
     },
     {
-     "fine_id": 171,
-     "name": "Premature Pawn Push to Seventh",
+     "fine_id": 149,
+     "name": "fxe5 Strips King's Diagonal",
      "feature_ids": [
-      404,
-      1453
+      139,
+      536,
+      744,
+      1159,
+      1184,
+      1309
+     ]
+    },
+    {
+     "fine_id": 77,
+     "name": "f-Pawn Advance Opens King Diagonal",
+     "feature_ids": [
+      997,
+      1274,
+      1332,
+      1799,
+      1866,
+      1872
+     ]
+    },
+    {
+     "fine_id": 167,
+     "name": "Moving The f7 Defender Away",
+     "feature_ids": [
+      457,
+      1301,
+      1430
+     ]
+    },
+    {
+     "fine_id": 194,
+     "name": "Premature Bishop-Takes-Knight Trade",
+     "feature_ids": [
+      872,
+      964,
+      1790
      ]
     }
    ],
    "misfits": [
     {
-     "feature_id": 66,
-     "reason": "This is a quiet developing move (rook to an open file) that simply leaves the rook en prise to the enemy queen, with back-rank mate preventing recapture. The primary error is hanging a piece outright, not playing a routine move at a critical moment. Belongs in a 'Hanging Pieces' category, where the coaching fix (check what the opponent's pieces attack before moving) differs from this category's fix (recognize sharp moments and calculate forcing lines)."
+     "feature_id": 1732,
+     "reason": "A queen wing-check (Qa4/Qh5 etc.) against a centralized king that is trivially blocked by a developing move. The mistake is a pointless, tempo-losing check, not a self-weakening of king safety or material exposure. Belongs in a 'Pointless Checks / Tempo Loss' category, not here."
     }
    ]
   },
   {
-   "category_name": "Abandoning the Defense",
-   "category_definition": "The player moves a piece, pawn, or king to chase activity, material, or safety while deserting a defensive duty or leaving a friendly asset undefended and immediately capturable.",
+   "coarse_id": 6,
+   "category_name": "Passive Drift Under Pressure",
+   "category_definition": "The player answers an urgent position with a slow, non-forcing repositioning move \u2014 usually sending a piece to the rim, edge, corner, or back rank \u2014 instead of the concrete forcing action (capture, defense, or threat) the moment demanded.",
    "subclusters": [
     {
-     "fine_id": 4,
-     "name": "Loose Moves Leave Material Hanging",
+     "fine_id": 9,
+     "name": "Pieces Stranded on the Rim",
      "feature_ids": [
-      165,
-      514,
-      663,
-      774,
-      854,
-      927,
-      955,
-      979,
-      1087,
-      1154,
-      1208,
-      1238,
-      1314,
-      1688,
-      1811,
-      1823,
-      1821,
-      1931,
-      1976
+      151,
+      221,
+      442,
+      490,
+      545,
+      894,
+      1019,
+      1028,
+      1052,
+      1379,
+      1412,
+      1461,
+      1550,
+      1595,
+      1971
      ]
     },
     {
-     "fine_id": 147,
-     "name": "Activating a Piece While Ignoring the Threat",
+     "fine_id": 86,
+     "name": "Aimless Repositioning Ignores Tactics",
      "feature_ids": [
-      170,
-      801,
-      909,
-      953,
-      1173,
-      1340,
-      1378,
-      1405,
-      1775,
-      1796,
-      1886,
-      1999
+      278,
+      648,
+      791,
+      826,
+      831,
+      988,
+      1140,
+      1164,
+      1179,
+      1235,
+      1554,
+      1720,
+      1817
      ]
     },
     {
-     "fine_id": 28,
-     "name": "Deserting a Critical Defensive Post",
+     "fine_id": 76,
+     "name": "Passive Retreat To Back Rank",
      "feature_ids": [
-      229,
-      597,
-      657,
-      809,
-      1029,
-      1099,
-      1329,
-      1407,
-      1431,
-      1717
+      12,
+      193,
+      436,
+      491,
+      560,
+      679,
+      813,
+      837,
+      974,
+      1079,
+      1570
+     ]
+    },
+    {
+     "fine_id": 24,
+     "name": "Repositioning Ignores Mating Net",
+     "feature_ids": [
+      280,
+      305,
+      394,
+      534,
+      998,
+      1223,
+      1292,
+      1439
+     ]
+    },
+    {
+     "fine_id": 26,
+     "name": "Quiet Move Over Concrete Action",
+     "feature_ids": [
+      285,
+      751,
+      915,
+      1158,
+      1485,
+      1922
+     ]
+    },
+    {
+     "fine_id": 161,
+     "name": "King And Queen Drift To Edge",
+     "feature_ids": [
+      961,
+      1260,
+      1456,
+      1786,
+      1888
+     ]
+    },
+    {
+     "fine_id": 159,
+     "name": "Edge Move Over Forcing Reply",
+     "feature_ids": [
+      669,
+      1300,
+      1553,
+      1987
      ]
     }
    ],
    "misfits": [
     {
-     "feature_id": 904,
-     "reason": "Pawn pushed at an enemy knight, punished by the knight jumping forward to fork. This is a premature/careless pawn-poke tactic, not deserting a defender."
+     "feature_id": 940,
+     "reason": "Greedy capture, not passive drift: a rook grabs a rim pawn and the material grab walks into checkmate. This is a 'Greedy Captures / material over mate' mistake \u2014 an active capturing error, not a slow repositioning to the edge."
     },
     {
-     "feature_id": 1343,
-     "reason": "Pawn advance refuted by a knight capture/fork. Same pawn-push-invites-fork pattern, a distinct mistake from defensive neglect."
-    },
-    {
-     "feature_id": 1792,
-     "reason": "Pawn advance vacates the exact square an enemy knight needs to fork. Belongs with the pawn-push-punished-by-knight-fork group, not defensive abandonment."
-    },
-    {
-     "feature_id": 1051,
-     "reason": "Capture that dissolves a cramping, space-gaining formation. A positional/strategic concession (releasing tension), not a tactical material drop or an abandoned defender."
-    },
-    {
-     "feature_id": 1421,
-     "reason": "Rook move that self-blocks the king's only flight square under mating threat. Self-obstruction / king-trapping is the opposite mechanism from abandoning a defensive duty."
+     "feature_id": 1856,
+     "reason": "Greedy capture missing a tactic: a knight grabs a passive rim piece while overlooking a stronger fork. Same 'Greedy Captures' family as 940 \u2014 chasing material instead of the winning tactic, distinct from the passive/rim-drift theme of this category."
     }
    ]
   },
   {
-   "category_name": "Moving Into Immediate Danger",
-   "category_definition": "Making a move \u2014 a capture, an advance, or a piece relocation \u2014 that lands a piece or the king on a square where the opponent has an instant forcing reply (recapture, capture, or check), losing material or king safety on the very next move.",
-   "subclusters": [
-    {
-     "fine_id": 198,
-     "name": "Capture Loses to Immediate Recapture",
-     "feature_ids": [
-      26,
-      34,
-      61,
-      114,
-      131,
-      214,
-      645,
-      1313,
-      1353,
-      1776,
-      1970
-     ]
-    },
-    {
-     "fine_id": 169,
-     "name": "King and Pieces Step Into Check",
-     "feature_ids": [
-      48,
-      733,
-      789,
-      929,
-      1209,
-      1381,
-      1429,
-      1487,
-      1563
-     ]
-    },
-    {
-     "fine_id": 70,
-     "name": "Greedy Material Grabs Backfire",
-     "feature_ids": [
-      150,
-      336,
-      414,
-      474,
-      617,
-      855,
-      1147,
-      1564,
-      1809
-     ]
-    },
-    {
-     "fine_id": 62,
-     "name": "Piece Relocates Onto Attacked Square",
-     "feature_ids": [
-      97,
-      238,
-      690,
-      937,
-      1736
-     ]
-    }
-   ],
-   "misfits": []
-  },
-  {
-   "category_name": "Autopilot At Critical Moments",
-   "category_definition": "At sharp positions where only one or two moves hold, playing a natural-looking, principled, or materially attractive move instead of calculating the single concrete forcing or defensive action the position demands.",
-   "subclusters": [
-    {
-     "fine_id": 16,
-     "name": "Natural Move Over Forcing Action",
-     "feature_ids": [
-      58,
-      109,
-      141,
-      158,
-      201,
-      226,
-      370,
-      389,
-      570,
-      584,
-      630,
-      672,
-      745,
-      1095,
-      1225,
-      1388,
-      1403,
-      1448,
-      1506,
-      1695,
-      1710,
-      1932,
-      1929,
-      1986
-     ]
-    },
-    {
-     "fine_id": 21,
-     "name": "Slow Push or Greedy Grab Over Tactic",
-     "feature_ids": [
-      37,
-      489,
-      542,
-      652,
-      711,
-      1078,
-      1210,
-      1435,
-      1470,
-      1597,
-      1714,
-      1771,
-      1814,
-      1880
-     ]
-    },
-    {
-     "fine_id": 19,
-     "name": "Voluntary King Walk and Slow Reroutes",
-     "feature_ids": [
-      11,
-      213,
-      466,
-      516,
-      765,
-      959,
-      1289,
-      1521,
-      1539,
-      1662,
-      1802
-     ]
-    },
-    {
-     "fine_id": 102,
-     "name": "Aggressive Check or Castle Over Defense",
-     "feature_ids": [
-      228,
-      563,
-      1113,
-      1608,
-      1791,
-      1824
-     ]
-    },
-    {
-     "fine_id": 143,
-     "name": "Slow King or Knight Move Over Urgency",
-     "feature_ids": [
-      5,
-      13,
-      1162,
-      1216,
-      1375
-     ]
-    },
-    {
-     "fine_id": 51,
-     "name": "Abandoning Defense, Allowing Mate",
-     "feature_ids": [
-      175,
-      312,
-      321,
-      950
-     ]
-    },
-    {
-     "fine_id": 176,
-     "name": "Natural Move Ignores Exposed King",
-     "feature_ids": [
-      439,
-      1404,
-      1458
-     ]
-    }
-   ],
-   "misfits": []
-  },
-  {
-   "category_name": "Ignoring What The Position Demands",
-   "category_definition": "Playing a natural-looking move \u2014 an active square, a developing move, a pawn push, or a king shuffle \u2014 while overlooking the precise or urgent move the position actually required.",
-   "subclusters": [
-    {
-     "fine_id": 63,
-     "name": "Right Idea, Wrong Square",
-     "feature_ids": [
-      273,
-      603,
-      752,
-      792,
-      921,
-      1090,
-      1196,
-      1266,
-      1330,
-      1454,
-      1881,
-      1899,
-      1953
-     ]
-    },
-    {
-     "fine_id": 33,
-     "name": "Slow Repositioning Over Forcing Action",
-     "feature_ids": [
-      38,
-      64,
-      113,
-      248,
-      583,
-      1294,
-      1444,
-      1678,
-      1694,
-      1723,
-      1800
-     ]
-    },
-    {
-     "fine_id": 82,
-     "name": "Quiet Development Over Urgent Defense",
-     "feature_ids": [
-      7,
-      78,
-      160,
-      566,
-      750,
-      879,
-      1754,
-      1769,
-      1857,
-      1955
-     ]
-    },
-    {
-     "fine_id": 72,
-     "name": "Pawn Push Over Needed Piece Move",
-     "feature_ids": [
-      50,
-      84,
-      156,
-      189,
-      256,
-      513,
-      615,
-      942,
-      1109
-     ]
-    },
-    {
-     "fine_id": 128,
-     "name": "King Walks Into Mating Net",
-     "feature_ids": [
-      28,
-      786,
-      859,
-      1318,
-      1700,
-      1711,
-      1848
-     ]
-    },
-    {
-     "fine_id": 186,
-     "name": "Failing To Evacuate Exposed King",
-     "feature_ids": [
-      133,
-      403,
-      1000,
-      1127,
-      1305,
-      1367,
-      1573
-     ]
-    }
-   ],
-   "misfits": [
-    {
-     "feature_id": 1877,
-     "reason": "This is a greedy-capture pattern that hangs the player's OWN piece (queen) while grabbing material \u2014 a Hanging Pieces / Greedy Captures mistake. The rest of this category is about overlooking the position's required move by playing a quiet or wrong-square move, not about material greed leaving your own piece en prise."
-    }
-   ]
-  },
-  {
-   "category_name": "Slow Play Punished",
-   "category_definition": "Playing a quiet, non-forcing \"natural-looking\" move \u2014 a pawn push, routine piece development, rook re-filing, or king repositioning \u2014 at a moment when the position demanded an immediate forcing response (capture, check, defense, or winning tactic), squandering the critical tempo.",
-   "subclusters": [
-    {
-     "fine_id": 80,
-     "name": "Premature push or development over forced tactic",
-     "feature_ids": [
-      0,
-      91,
-      234,
-      289,
-      358,
-      388,
-      417,
-      495,
-      842,
-      991,
-      1219,
-      1241,
-      1324,
-      1361,
-      1492,
-      1598,
-      1686
-     ]
-    },
-    {
-     "fine_id": 53,
-     "name": "Slow piece improvement surrenders tempo",
-     "feature_ids": [
-      24,
-      177,
-      176,
-      245,
-      320,
-      364,
-      770,
-      802,
-      814,
-      889,
-      976,
-      1166,
-      1327,
-      1546,
-      1613,
-      1783
-     ]
-    },
-    {
-     "fine_id": 96,
-     "name": "Flank pawn push burns forcing tempo",
-     "feature_ids": [
-      25,
-      135,
-      203,
-      359,
-      783,
-      1035,
-      1040,
-      1299,
-      1399,
-      1473,
-      1652,
-      1807,
-      1820,
-      2007
-     ]
-    },
-    {
-     "fine_id": 79,
-     "name": "Aggressive pawn advance overextends",
-     "feature_ids": [
-      8,
-      117,
-      304,
-      309,
-      649,
-      756,
-      1100,
-      1271,
-      1529,
-      1592,
-      1847,
-      1951
-     ]
-    },
-    {
-     "fine_id": 101,
-     "name": "Reflexive rook development over tactic",
-     "feature_ids": [
-      80,
-      225,
-      323,
-      440,
-      670,
-      697,
-      1007,
-      1080,
-      1328,
-      1469,
-      1514
-     ]
-    },
-    {
-     "fine_id": 60,
-     "name": "Piece abandons critical file or duty",
-     "feature_ids": [
-      103,
-      211,
-      421,
-      505,
-      577,
-      596,
-      1228,
-      1243,
-      1459,
-      1569,
-      1681
-     ]
-    },
-    {
-     "fine_id": 122,
-     "name": "Piece drifts to secondary target",
-     "feature_ids": [
-      261,
-      398,
-      567,
-      1021,
-      1486,
-      1552,
-      1628
-     ]
-    },
-    {
-     "fine_id": 172,
-     "name": "Reflexive rook contests open file",
-     "feature_ids": [
-      386,
-      644,
-      1026,
-      1207,
-      1477,
-      1488,
-      1855,
-      1956
-     ]
-    },
-    {
-     "fine_id": 118,
-     "name": "Rim pawn push over decisive shot",
-     "feature_ids": [
-      522,
-      753,
-      973,
-      1031,
-      1218,
-      1296,
-      1841,
-      1991
-     ]
-    },
-    {
-     "fine_id": 75,
-     "name": "Passive opening piece placement",
-     "feature_ids": [
-      180,
-      384,
-      430,
-      666,
-      1750,
-      1941
-     ]
-    },
-    {
-     "fine_id": 155,
-     "name": "Pawn push ignores hanging material",
-     "feature_ids": [
-      390,
-      674,
-      725,
-      782,
-      1384,
-      1887
-     ]
-    },
-    {
-     "fine_id": 137,
-     "name": "Wing pawn push exposes uncastled king",
-     "feature_ids": [
-      438,
-      429,
-      1163,
-      1217,
-      1580
-     ]
-    },
-    {
-     "fine_id": 181,
-     "name": "Rook drifts to passive rim file",
-     "feature_ids": [
-      818,
-      1105,
-      1171,
-      1498,
-      1832
-     ]
-    }
-   ],
-   "misfits": [
-    {
-     "feature_id": 810,
-     "reason": "Describes the king actively capturing an advanced g/h-pawn and inviting a decisive attack \u2014 a greedy material grab that exposes the king, not a slow/non-forcing tempo-waster. Belongs in 'Greedy Captures' or 'King Walks Into Danger'."
-    },
-    {
-     "feature_id": 1278,
-     "reason": "The king (or pawn) advances onto a tactically vulnerable, forkable square \u2014 the move loses because the destination is hit, i.e. walking into a tactic, not because a quiet move squandered tempo. Belongs in 'King Walks Into Danger' / overextension."
-    }
-   ]
-  },
-  {
+   "coarse_id": 7,
    "category_name": "Deserting A Working Piece",
    "category_definition": "Relocating a piece or pawn to a more natural-, active-, or central-looking square when it was already performing an essential function on its current one \u2014 defending, blocking a line, restraining an enemy piece, holding a dominant outpost, or guarding the king \u2014 or when the position demanded a concrete move instead.",
    "subclusters": [
@@ -1955,6 +1413,7 @@
    "misfits": []
   },
   {
+   "coarse_id": 8,
    "category_name": "Autopilot Over Forcing Action",
    "category_definition": "Playing a natural, principled, or prophylactic move \u2014 a slow pawn push, routine development, castling, fianchetto, or a king tuck/activation \u2014 when the position concretely demanded a specific forcing move (a capture, check, tactic, or precise king maneuver), and getting punished for it.",
    "subclusters": [
@@ -2201,6 +1660,7 @@
    ]
   },
   {
+   "coarse_id": 9,
    "category_name": "Ignoring The Position's Concrete Demands",
    "category_definition": "Playing a generically appealing move \u2014 natural development, active repositioning, a tempting check, a flank attack, or a material grab \u2014 on instinct, while overlooking the specific concrete move the position required (a forcing tactic or a defensive necessity).",
    "subclusters": [
@@ -2399,126 +1859,362 @@
    "misfits": []
   },
   {
-   "category_name": "Passive Drift Under Pressure",
-   "category_definition": "The player answers an urgent position with a slow, non-forcing repositioning move \u2014 usually sending a piece to the rim, edge, corner, or back rank \u2014 instead of the concrete forcing action (capture, defense, or threat) the moment demanded.",
+   "coarse_id": 10,
+   "category_name": "Routine Moves at Critical Moments",
+   "category_definition": "The player makes a natural-looking, plan-driven move \u2014 a passive retreat, a rook maneuver, or a reflex pawn push/promotion \u2014 at a moment that concretely demanded a forcing, defensive, or precise response instead.",
    "subclusters": [
     {
-     "fine_id": 9,
-     "name": "Pieces Stranded on the Rim",
+     "fine_id": 46,
+     "name": "Passive Retreat to Own Back Rank",
      "feature_ids": [
-      151,
-      221,
-      442,
-      490,
-      545,
-      894,
-      1019,
-      1028,
-      1052,
-      1379,
-      1412,
-      1461,
-      1550,
-      1595,
-      1971
+      168,
+      202,
+      569,
+      632,
+      868,
+      947,
+      983,
+      1042,
+      1091,
+      1180,
+      1377,
+      1395,
+      1436,
+      1493,
+      1501,
+      1582,
+      1612,
+      1670,
+      1721,
+      1733,
+      1797,
+      1933,
+      1973
      ]
     },
     {
-     "fine_id": 86,
-     "name": "Aimless Repositioning Ignores Tactics",
+     "fine_id": 164,
+     "name": "Reflex Passed-Pawn Push and Promotion",
      "feature_ids": [
-      278,
-      648,
-      791,
-      826,
-      831,
-      988,
-      1140,
-      1164,
-      1179,
-      1235,
-      1554,
-      1720,
-      1817
+      144,
+      415,
+      624,
+      981,
+      1146,
+      1392,
+      1480,
+      1890,
+      1964
      ]
     },
     {
-     "fine_id": 76,
-     "name": "Passive Retreat To Back Rank",
+     "fine_id": 173,
+     "name": "Mishandled Passed-Pawn Promotion Technique",
      "feature_ids": [
-      12,
-      193,
-      436,
-      491,
-      560,
-      679,
-      813,
-      837,
-      974,
-      1079,
-      1570
+      53,
+      503,
+      594,
+      958,
+      1200,
+      1344,
+      1779,
+      1919
      ]
     },
     {
-     "fine_id": 24,
-     "name": "Repositioning Ignores Mating Net",
+     "fine_id": 141,
+     "name": "Slow Development Ignores Concrete Tactic",
      "feature_ids": [
-      280,
-      305,
-      394,
-      534,
-      998,
-      1223,
-      1292,
-      1439
+      181,
+      441,
+      579,
+      1283,
+      1462,
+      1646,
+      1706
      ]
     },
     {
-     "fine_id": 26,
-     "name": "Quiet Move Over Concrete Action",
+     "fine_id": 180,
+     "name": "Rook Activity Over Forcing Moves",
      "feature_ids": [
-      285,
-      751,
-      915,
-      1158,
-      1485,
-      1922
+      52,
+      1170,
+      1544,
+      1741,
+      1833,
+      1958
      ]
     },
     {
-     "fine_id": 161,
-     "name": "King And Queen Drift To Edge",
+     "fine_id": 185,
+     "name": "Doubling Rooks Misses Forcing Strike",
      "feature_ids": [
-      961,
-      1260,
-      1456,
-      1786,
-      1888
+      198,
+      972,
+      1072,
+      1443,
+      1850,
+      1878
      ]
     },
     {
-     "fine_id": 159,
-     "name": "Edge Move Over Forcing Reply",
+     "fine_id": 136,
+     "name": "Heavy-Piece Sortie Gets Refuted",
      "feature_ids": [
-      669,
-      1300,
-      1553,
-      1987
+      218,
+      351,
+      861,
+      919,
+      1020,
+      1432
+     ]
+    },
+    {
+     "fine_id": 168,
+     "name": "Back-Rank Move Botches Pawn Race",
+     "feature_ids": [
+      67,
+      129,
+      422,
+      777,
+      1853
+     ]
+    },
+    {
+     "fine_id": 109,
+     "name": "Wrong Piece Abandons Critical Duty",
+     "feature_ids": [
+      127,
+      391,
+      832,
+      901,
+      1380
+     ]
+    },
+    {
+     "fine_id": 64,
+     "name": "Promotion Push Ignores Mating Attack",
+     "feature_ids": [
+      529,
+      1119,
+      1533,
+      1641,
+      1865
+     ]
+    },
+    {
+     "fine_id": 190,
+     "name": "Pawn Push Backfires Tactically",
+     "feature_ids": [
+      793,
+      1712,
+      1874,
+      1879,
+      1893
+     ]
+    },
+    {
+     "fine_id": 171,
+     "name": "Premature Pawn Push to Seventh",
+     "feature_ids": [
+      404,
+      1453
      ]
     }
    ],
    "misfits": [
     {
-     "feature_id": 940,
-     "reason": "Greedy capture, not passive drift: a rook grabs a rim pawn and the material grab walks into checkmate. This is a 'Greedy Captures / material over mate' mistake \u2014 an active capturing error, not a slow repositioning to the edge."
-    },
-    {
-     "feature_id": 1856,
-     "reason": "Greedy capture missing a tactic: a knight grabs a passive rim piece while overlooking a stronger fork. Same 'Greedy Captures' family as 940 \u2014 chasing material instead of the winning tactic, distinct from the passive/rim-drift theme of this category."
+     "feature_id": 66,
+     "reason": "This is a quiet developing move (rook to an open file) that simply leaves the rook en prise to the enemy queen, with back-rank mate preventing recapture. The primary error is hanging a piece outright, not playing a routine move at a critical moment. Belongs in a 'Hanging Pieces' category, where the coaching fix (check what the opponent's pieces attack before moving) differs from this category's fix (recognize sharp moments and calculate forcing lines)."
     }
    ]
   },
   {
+   "coarse_id": 11,
+   "category_name": "Imprecise Endgame Play",
+   "category_definition": "In sharp, simplified endgames the player makes an imprecise or wrong-priority move \u2014 a wasted tempo, a bad king route, a premature flank push, a released pawn tension, or a greedy capture \u2014 instead of the single precise move the position demanded to win, draw, or save the game.",
+   "subclusters": [
+    {
+     "fine_id": 22,
+     "name": "Chasing Pawns, Missing The Race",
+     "feature_ids": [
+      85,
+      88,
+      111,
+      236,
+      317,
+      345,
+      355,
+      558,
+      626,
+      1110,
+      1276,
+      1341,
+      1338,
+      1385,
+      1709,
+      1718,
+      1770,
+      1935
+     ]
+    },
+    {
+     "fine_id": 132,
+     "name": "King-And-Pawn Opposition And Race Errors",
+     "feature_ids": [
+      188,
+      341,
+      416,
+      709,
+      796,
+      839,
+      867,
+      939,
+      945,
+      971,
+      1145,
+      1212,
+      1414,
+      1491,
+      1636
+     ]
+    },
+    {
+     "fine_id": 157,
+     "name": "Wrong Priority In Promotion Races",
+     "feature_ids": [
+      18,
+      35,
+      99,
+      220,
+      365,
+      517,
+      683,
+      903,
+      918,
+      1131,
+      1483,
+      1615,
+      1838
+     ]
+    },
+    {
+     "fine_id": 84,
+     "name": "Slow Pushes Over King Activation",
+     "feature_ids": [
+      372,
+      530,
+      619,
+      647,
+      763,
+      890,
+      963,
+      965,
+      1310,
+      1348,
+      1625,
+      1751,
+      1990
+     ]
+    },
+    {
+     "fine_id": 179,
+     "name": "Active King Walks Into Danger",
+     "feature_ids": [
+      29,
+      216,
+      348,
+      420,
+      874,
+      895,
+      1136,
+      1649,
+      1967,
+      1978
+     ]
+    },
+    {
+     "fine_id": 152,
+     "name": "Passive Maneuvering Over Concrete Action",
+     "feature_ids": [
+      145,
+      382,
+      387,
+      424,
+      808,
+      938,
+      1535,
+      1557,
+      1837,
+      1892
+     ]
+    },
+    {
+     "fine_id": 195,
+     "name": "Drifting Off Critical Defensive Squares",
+     "feature_ids": [
+      217,
+      246,
+      636,
+      758,
+      1257,
+      1285,
+      1342,
+      1704
+     ]
+    },
+    {
+     "fine_id": 85,
+     "name": "Rim Pawn Pushes And Edge Retreats",
+     "feature_ids": [
+      32,
+      253,
+      510,
+      523,
+      608,
+      673,
+      1655
+     ]
+    },
+    {
+     "fine_id": 138,
+     "name": "Releasing Pawn Tension Gifts A Passer",
+     "feature_ids": [
+      153,
+      265,
+      1023,
+      1730,
+      1735,
+      1908
+     ]
+    },
+    {
+     "fine_id": 166,
+     "name": "Greedy Captures Miss Forced Mate",
+     "feature_ids": [
+      610,
+      768,
+      1279,
+      1464,
+      1654
+     ]
+    },
+    {
+     "fine_id": 117,
+     "name": "King To Wrong Square Loses Race",
+     "feature_ids": [
+      923,
+      1192,
+      1220,
+      1897
+     ]
+    }
+   ],
+   "misfits": []
+  },
+  {
+   "coarse_id": 12,
    "category_name": "Moving Into Danger",
    "category_definition": "Committing a move \u2014 a piece relocation, capture, pawn push, or king move \u2014 that lands material or the king on a square the opponent immediately punishes, dropping a piece or walking into a decisive tactic because the reply wasn't calculated.",
    "subclusters": [
@@ -2801,6 +2497,157 @@
    ]
   },
   {
+   "coarse_id": 13,
+   "category_name": "Abandoning the Defense",
+   "category_definition": "The player moves a piece, pawn, or king to chase activity, material, or safety while deserting a defensive duty or leaving a friendly asset undefended and immediately capturable.",
+   "subclusters": [
+    {
+     "fine_id": 4,
+     "name": "Loose Moves Leave Material Hanging",
+     "feature_ids": [
+      165,
+      514,
+      663,
+      774,
+      854,
+      927,
+      955,
+      979,
+      1087,
+      1154,
+      1208,
+      1238,
+      1314,
+      1688,
+      1811,
+      1823,
+      1821,
+      1931,
+      1976
+     ]
+    },
+    {
+     "fine_id": 147,
+     "name": "Activating a Piece While Ignoring the Threat",
+     "feature_ids": [
+      170,
+      801,
+      909,
+      953,
+      1173,
+      1340,
+      1378,
+      1405,
+      1775,
+      1796,
+      1886,
+      1999
+     ]
+    },
+    {
+     "fine_id": 28,
+     "name": "Deserting a Critical Defensive Post",
+     "feature_ids": [
+      229,
+      597,
+      657,
+      809,
+      1029,
+      1099,
+      1329,
+      1407,
+      1431,
+      1717
+     ]
+    }
+   ],
+   "misfits": [
+    {
+     "feature_id": 904,
+     "reason": "Pawn pushed at an enemy knight, punished by the knight jumping forward to fork. This is a premature/careless pawn-poke tactic, not deserting a defender."
+    },
+    {
+     "feature_id": 1343,
+     "reason": "Pawn advance refuted by a knight capture/fork. Same pawn-push-invites-fork pattern, a distinct mistake from defensive neglect."
+    },
+    {
+     "feature_id": 1792,
+     "reason": "Pawn advance vacates the exact square an enemy knight needs to fork. Belongs with the pawn-push-punished-by-knight-fork group, not defensive abandonment."
+    },
+    {
+     "feature_id": 1051,
+     "reason": "Capture that dissolves a cramping, space-gaining formation. A positional/strategic concession (releasing tension), not a tactical material drop or an abandoned defender."
+    },
+    {
+     "feature_id": 1421,
+     "reason": "Rook move that self-blocks the king's only flight square under mating threat. Self-obstruction / king-trapping is the opposite mechanism from abandoning a defensive duty."
+    }
+   ]
+  },
+  {
+   "coarse_id": 14,
+   "category_name": "Slow Play When Action Demanded",
+   "category_definition": "The player squanders a critical tempo on a quiet, non-forcing, or merely \"improving\" move (repositioning, pawn push, king walk, routine recapture, or an obvious-but-imprecise check) when the position demanded one specific forcing or concrete action.",
+   "subclusters": [
+    {
+     "fine_id": 25,
+     "name": "Improving Move Ignores The Crisis",
+     "feature_ids": [
+      21,
+      65,
+      77,
+      258,
+      331,
+      376,
+      458,
+      722,
+      1024,
+      1048,
+      1111,
+      1288,
+      1513,
+      1588,
+      1690,
+      1815
+     ]
+    },
+    {
+     "fine_id": 58,
+     "name": "Imprecise Active Move, Sharp Position",
+     "feature_ids": [
+      243,
+      459,
+      561,
+      787,
+      941,
+      1382,
+      1390,
+      1408,
+      1419,
+      1530,
+      1715
+     ]
+    },
+    {
+     "fine_id": 1,
+     "name": "Quiet Move Skips Forcing Strike",
+     "feature_ids": [
+      57,
+      302,
+      525,
+      611,
+      838,
+      875,
+      1562,
+      1677,
+      1902
+     ]
+    }
+   ],
+   "misfits": []
+  },
+  {
+   "coarse_id": 15,
    "category_name": "Slow Play Misses Forcing Wins",
    "category_definition": "Playing a slow, quiet, non-forcing move \u2014 a pawn push, a piece shuffle, or a king step \u2014 when the position demanded an immediate forcing move such as a check, capture, or tactical strike.",
    "subclusters": [
@@ -2920,6 +2767,408 @@
      "reason": "The demanded best move here is a king retreat/sidestep to safety in 7/9 positions \u2014 this is a king-safety/defense mistake (failing to move the king out of danger), not a missed forcing win like the rest of the category."
     }
    ]
+  },
+  {
+   "coarse_id": 16,
+   "category_name": "Ignoring What The Position Demands",
+   "category_definition": "Playing a natural-looking move \u2014 an active square, a developing move, a pawn push, or a king shuffle \u2014 while overlooking the precise or urgent move the position actually required.",
+   "subclusters": [
+    {
+     "fine_id": 63,
+     "name": "Right Idea, Wrong Square",
+     "feature_ids": [
+      273,
+      603,
+      752,
+      792,
+      921,
+      1090,
+      1196,
+      1266,
+      1330,
+      1454,
+      1881,
+      1899,
+      1953
+     ]
+    },
+    {
+     "fine_id": 33,
+     "name": "Slow Repositioning Over Forcing Action",
+     "feature_ids": [
+      38,
+      64,
+      113,
+      248,
+      583,
+      1294,
+      1444,
+      1678,
+      1694,
+      1723,
+      1800
+     ]
+    },
+    {
+     "fine_id": 82,
+     "name": "Quiet Development Over Urgent Defense",
+     "feature_ids": [
+      7,
+      78,
+      160,
+      566,
+      750,
+      879,
+      1754,
+      1769,
+      1857,
+      1955
+     ]
+    },
+    {
+     "fine_id": 72,
+     "name": "Pawn Push Over Needed Piece Move",
+     "feature_ids": [
+      50,
+      84,
+      156,
+      189,
+      256,
+      513,
+      615,
+      942,
+      1109
+     ]
+    },
+    {
+     "fine_id": 128,
+     "name": "King Walks Into Mating Net",
+     "feature_ids": [
+      28,
+      786,
+      859,
+      1318,
+      1700,
+      1711,
+      1848
+     ]
+    },
+    {
+     "fine_id": 186,
+     "name": "Failing To Evacuate Exposed King",
+     "feature_ids": [
+      133,
+      403,
+      1000,
+      1127,
+      1305,
+      1367,
+      1573
+     ]
+    }
+   ],
+   "misfits": [
+    {
+     "feature_id": 1877,
+     "reason": "This is a greedy-capture pattern that hangs the player's OWN piece (queen) while grabbing material \u2014 a Hanging Pieces / Greedy Captures mistake. The rest of this category is about overlooking the position's required move by playing a quiet or wrong-square move, not about material greed leaving your own piece en prise."
+    }
+   ]
+  },
+  {
+   "coarse_id": 17,
+   "category_name": "Autopilot At Critical Moments",
+   "category_definition": "At sharp positions where only one or two moves hold, playing a natural-looking, principled, or materially attractive move instead of calculating the single concrete forcing or defensive action the position demands.",
+   "subclusters": [
+    {
+     "fine_id": 16,
+     "name": "Natural Move Over Forcing Action",
+     "feature_ids": [
+      58,
+      109,
+      141,
+      158,
+      201,
+      226,
+      370,
+      389,
+      570,
+      584,
+      630,
+      672,
+      745,
+      1095,
+      1225,
+      1388,
+      1403,
+      1448,
+      1506,
+      1695,
+      1710,
+      1932,
+      1929,
+      1986
+     ]
+    },
+    {
+     "fine_id": 21,
+     "name": "Slow Push or Greedy Grab Over Tactic",
+     "feature_ids": [
+      37,
+      489,
+      542,
+      652,
+      711,
+      1078,
+      1210,
+      1435,
+      1470,
+      1597,
+      1714,
+      1771,
+      1814,
+      1880
+     ]
+    },
+    {
+     "fine_id": 19,
+     "name": "Voluntary King Walk and Slow Reroutes",
+     "feature_ids": [
+      11,
+      213,
+      466,
+      516,
+      765,
+      959,
+      1289,
+      1521,
+      1539,
+      1662,
+      1802
+     ]
+    },
+    {
+     "fine_id": 102,
+     "name": "Aggressive Check or Castle Over Defense",
+     "feature_ids": [
+      228,
+      563,
+      1113,
+      1608,
+      1791,
+      1824
+     ]
+    },
+    {
+     "fine_id": 143,
+     "name": "Slow King or Knight Move Over Urgency",
+     "feature_ids": [
+      5,
+      13,
+      1162,
+      1216,
+      1375
+     ]
+    },
+    {
+     "fine_id": 51,
+     "name": "Abandoning Defense, Allowing Mate",
+     "feature_ids": [
+      175,
+      312,
+      321,
+      950
+     ]
+    },
+    {
+     "fine_id": 176,
+     "name": "Natural Move Ignores Exposed King",
+     "feature_ids": [
+      439,
+      1404,
+      1458
+     ]
+    }
+   ],
+   "misfits": []
+  },
+  {
+   "coarse_id": 18,
+   "category_name": "Moving Into Immediate Danger",
+   "category_definition": "Making a move \u2014 a capture, an advance, or a piece relocation \u2014 that lands a piece or the king on a square where the opponent has an instant forcing reply (recapture, capture, or check), losing material or king safety on the very next move.",
+   "subclusters": [
+    {
+     "fine_id": 198,
+     "name": "Capture Loses to Immediate Recapture",
+     "feature_ids": [
+      26,
+      34,
+      61,
+      114,
+      131,
+      214,
+      645,
+      1313,
+      1353,
+      1776,
+      1970
+     ]
+    },
+    {
+     "fine_id": 169,
+     "name": "King and Pieces Step Into Check",
+     "feature_ids": [
+      48,
+      733,
+      789,
+      929,
+      1209,
+      1381,
+      1429,
+      1487,
+      1563
+     ]
+    },
+    {
+     "fine_id": 70,
+     "name": "Greedy Material Grabs Backfire",
+     "feature_ids": [
+      150,
+      336,
+      414,
+      474,
+      617,
+      855,
+      1147,
+      1564,
+      1809
+     ]
+    },
+    {
+     "fine_id": 62,
+     "name": "Piece Relocates Onto Attacked Square",
+     "feature_ids": [
+      97,
+      238,
+      690,
+      937,
+      1736
+     ]
+    }
+   ],
+   "misfits": []
+  },
+  {
+   "coarse_id": 19,
+   "category_name": "Missing The Critical Moment",
+   "category_definition": "Playing a superficially reasonable move \u2014 an active repositioning, a material grab, or a quiet pawn push \u2014 when the position urgently demanded a specific, concrete, forcing response instead.",
+   "subclusters": [
+    {
+     "fine_id": 73,
+     "name": "Active Move Abandons Defensive Duty",
+     "feature_ids": [
+      6,
+      39,
+      108,
+      357,
+      892,
+      966,
+      992,
+      1128,
+      1249,
+      1635,
+      1687,
+      1726,
+      1759,
+      1780,
+      1810,
+      1910
+     ]
+    },
+    {
+     "fine_id": 98,
+     "name": "Distraction Captures Miss The Threat",
+     "feature_ids": [
+      157,
+      199,
+      469,
+      497,
+      778,
+      1185,
+      1273,
+      1263,
+      1317,
+      1472,
+      1923,
+      1920
+     ]
+    },
+    {
+     "fine_id": 36,
+     "name": "Slow Pawn Push, King In Danger",
+     "feature_ids": [
+      292,
+      693,
+      1010,
+      1054,
+      1061,
+      1083,
+      1393,
+      1596,
+      1859,
+      1926
+     ]
+    },
+    {
+     "fine_id": 71,
+     "name": "Greedy Material Grab Backfires",
+     "feature_ids": [
+      166,
+      192,
+      204,
+      546,
+      553,
+      857,
+      1070,
+      1609,
+      1727
+     ]
+    },
+    {
+     "fine_id": 47,
+     "name": "Passive Move When Forcing Play Needed",
+     "feature_ids": [
+      209,
+      329,
+      906,
+      1012,
+      1261,
+      1411,
+      1601
+     ]
+    },
+    {
+     "fine_id": 15,
+     "name": "Routine Improving Move At Critical Moment",
+     "feature_ids": [
+      588,
+      1114,
+      1374,
+      1398,
+      1616
+     ]
+    },
+    {
+     "fine_id": 197,
+     "name": "Quiet Repositioning Surrenders Tempo",
+     "feature_ids": [
+      283,
+      1025,
+      1066,
+      1143
+     ]
+    }
+   ],
+   "misfits": []
   }
  ]
 }
