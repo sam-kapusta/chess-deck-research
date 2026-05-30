@@ -1,19 +1,38 @@
 # Chess Encoder — SAE Feature Pipeline
 
-## Current State (2026-05-29)
+## Current State (2026-05-30)
 
-**Taxonomy v2 rebuilt (DONE 2026-05-29):** The 2048 k=32 v2 feature labels had accurate descriptions but generic chips, and categories built from those lossy chips → junk drawers. Rebuilt TITLE→CATEGORIZE→CHIP: 1,996 features → 20 coaching categories + specific chips, generic chips 398→0, no junk drawer (largest 20%). Ship artifact: `output/taxonomy_v2/taxonomy_v2.json`. See knowledge.md § "Taxonomy rebuild" + `output/taxonomy_v2/REBUILD_REPORT.md`.
+### ⚠️ Taxonomy needs a clean redo on the FLAT k=32 model (decision 2026-05-30)
 
-**Matryoshka SAE:** Per-level-k Matryoshka, dict=[32, 256, 2048]=2336, k_per_level=[3, 8, 16]. Zero dead features, FVU=0.209. Best architecture found after comprehensive sweep of dict sizes, k values, prefix configs, and per-level enforcement. See `docs/knowledge/matryoshka-sae.md`.
+Sam wants the taxonomy built on the **flat k=32 SAE** (`maia3_sae_diff_2048_k32_l2_200ep.pt` — 200ep, the "2007 labeled" champion per S3_INVENTORY), with **semantic sub-clusters inside each category** and **fire rates** (per feature, summed per cluster + category). Two problems with the existing `taxonomy_v2.json` must be fixed:
 
-**Next steps:**
-1. ✅ ~~Run labeling pipeline + clean taxonomy~~ — done (taxonomy_v2 rebuilt, QA passed)
-2. Decide deploy: ship taxonomy_v2 (k=32) as next SAE version, OR run the same TITLE→CATEGORIZE→CHIP rebuild on the H1 Matryoshka model and compare
-3. Validate coaching coherence at each Matryoshka level (are prefix-32 features real categories?)
-4. Run Elo discrimination on the per-level model
-5. If validated: ship as next SAE version
+1. **Categorization was done top-down (WRONG ORDER).** Each feature was independently dropped into one of 20 pre-baked categories → magnet effect: Slow Play Punished got 408, Pieces Left Undefended got 4. The persona-atlas method (see `docs/knowledge/taxonomy-method-persona.md` — paste from Sam) is the correct one: **cluster FIRST on label-text semantics (bge-m3), let categories emerge bottom-up, one agent regroups within each.** No imposed buckets.
+2. **No sub-clusters, no fire rates.** Both were asked for from the start; the flat→atlas only had category→feature.
 
-⚠️ **Gotcha (2026-05-29):** the 19K Opus Pass-1 analyses live ONLY complete on chess-poc (`/home/ec2-user/SageMaker/all_positions_labeled_opus.json`, 19,342). The S3 `..._final.json` is truncated to 10,648 — pull from notebook.
+### ⚠️⚠️ PROVENANCE BUG — taxonomy_v2 labels' source model is UNKNOWN (verified 2026-05-30)
+
+`l2_feature_profiles_v2.json` (the profile the 2007 Opus labels were built from) was **NOT reproduced by ANY checkpoint I tested**: not flat k=32 (l2_200ep / v2 / base), not the H1 perlevel matryoshka. Verified via: forward-pass v2 cache (`maia3_blunder_diff_v2.pt`, idx 137471 == profile feat3 ex0 Bxf7+ ✓ so the *cache* is right), check whether feature 3's top firings = the profile's Bxf7+ set. ALL candidates gave 0/10.
+
+**Implication:** the labels in `taxonomy_v2.json` are bound to a profile of unknown model origin → treat `taxonomy_v2.json` as **suspect, not a foundation.** Don't cite its per-feature category as ground truth.
+
+**Clean path (next session):** regenerate from scratch on the flat k=32 model — fresh profile (`extract` top-20 per feature over v2 cache, flat top-k=32, z-score→L2 norm), join the 19K Opus English by `fen|uci`, then bge-m3 cluster → emergent categories → fire rates. One known model end-to-end = reproducible.
+
+**Established facts (verified this session, trustworthy):**
+- v2 corrected cache: `chess-poc:~/SageMaker/chess-stage-a/cache/maia3_blunder_diff_v2.pt` (200K×512, has `metadata` with fen/blunder_uci/cp_loss, NO stored mean/std — compute z-score then L2 per `label_v2_features.py`).
+- Normalization that label scripts use: `x=(raw-mean)/std; x=x/||x||`.
+- bge-m3 + sklearn available locally → semantic clustering runs locally, no Bedrock.
+- 19K Opus English: `chess-poc:~/SageMaker/all_positions_labeled_opus.json` (19,342, keyed fen|uci). S3 `_final.json` truncated to 10,648 — DON'T use.
+
+**Matryoshka SAE:** Per-level-k, dict=[32,256,2048]=2336, k_per_level=[3,8,16]. Zero dead, FVU=0.209. See `docs/knowledge/matryoshka-sae.md`. (Separate track; Sam wants flat k=32 for the taxonomy right now.)
+
+**Next steps (taxonomy redo, in order):**
+1. Generate fresh profile + per-feature fire rate from FLAT k=32 (`l2_200ep`) over v2 cache. Verify feat-N top firings look sane.
+2. Embed each feature's label-text (chip+description, or fresh Opus labels) with bge-m3.
+3. Agglomerative cluster → ~280 sub-clusters; name each from members.
+4. Group sub-clusters → emergent categories (one agent per group, holistic, "name the type of mistake"). NOT independent per-feature assignment.
+5. Fire rate summed per sub-cluster + per category (reach % + sum-rate %).
+6. QC: misfit reconciliation + member verification + coherence bar (≥ the persona method's 0.593-style cutoff).
+7. Rebuild atlas: category → sub-cluster → feature, fire rates at each level.
 
 ---
 

@@ -196,6 +196,8 @@ The shipped Pass-2 labels have accurate `description` and `label` (one-sentence)
 - Output: `output/taxonomy_v2/taxonomy_v2.json` + `REBUILD_REPORT.md`. Pipeline: `scripts/sae/taxonomy/` (deterministic fingerprint/verifier/evidence/assemble/qa + `relabel_sonnet.py`).
 - **Lesson:** compress last. A 2-4 word title seeded before categorization propagates its lossiness downward. [[feedback_verify_batch_formats]]-style: don't trust the chip; verify against the description/board.
 
+> **⚠️ SUPERSEDED (2026-05-30) — `taxonomy_v2.json` is suspect, redo planned.** Two problems found after: (1) **categorization was still top-down** — each feature independently assigned to one of 20 pre-baked categories → magnet effect (Slow Play 408, Undefended 4). The correct method is bottom-up semantic clustering — see `docs/knowledge/taxonomy-method-persona.md`. (2) **Provenance bug:** the profile the labels came from (`l2_feature_profiles_v2.json`) was NOT reproduced by ANY checkpoint tested (flat k=32 l2_200ep/v2/base, nor H1 matryoshka) over the v2 cache — feature 3's top firings ≠ the profile's Bxf7+ set in all cases. So the labels' source model is unknown; treat per-feature categories as unverified. **Redo:** regenerate fresh profile + fire rates from the flat k=32 model, then bge-m3 cluster bottom-up. See plan.md "Current State (2026-05-30)".
+
 Scripts: `scripts/labeling/label_features_pass2.py`, `scripts/labeling/label_features_pass2_rerun.py`
 
 ### Rating validation (2026-05-27)

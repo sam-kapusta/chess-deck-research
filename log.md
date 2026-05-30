@@ -433,3 +433,19 @@
 **Result:** generic chips 398→0, no junk drawer (largest 20%), 20/20 categories used, 0 unassigned. Every category's structural signature matches its definition (greedy_captures 88% cap, checks_lose_tempo 73% chk, king_walks 98% king, slow_play 88% quiet, pawn cats 99-100% pawn). QA gate PASSED. Ship artifact: `output/taxonomy_v2/taxonomy_v2.json` + `REBUILD_REPORT.md`.
 
 **Known limit:** 4 low-pop categories (hangs/undefended/back_rank/fork, 4-7 each) — features route to sharper abandons_defense/lands_badly; kept as checkpoint-stable vocab, not mis-routing. ~2% of chips name no specific square (genuine quiet "slow play" features).
+
+---
+
+## 2026-05-30 — taxonomy provenance bug found; redo planned on flat k=32
+
+**Context:** Sam asked to (a) put the taxonomy in an HTML atlas matching the persona-atlas style, (b) add fire rate per feature summed per category, (c) add semantic sub-clusters inside each category — none of which the 2026-05-29 `taxonomy_v2` had.
+
+**Built:** `scripts/sae/taxonomy/build_atlas.py` → `chess_taxonomy_atlas.html` (persona-atlas style: warm paper palette, Fraunces + IBM Plex, sidebar + expandable card grid, category→feature). Sam confirmed the *look* is right.
+
+**Two problems surfaced (both make the existing taxonomy suspect):**
+1. **Categorization was top-down (wrong).** I'd assigned each feature independently into 20 pre-baked categories → magnet effect (Slow Play Punished 408, Pieces Left Undefended 4). Sam: "that doesn't look like good categories." Correct method is the persona approach: bge-m3 semantic clustering FIRST, categories emerge bottom-up, one agent regroups within each. Saved as `docs/knowledge/taxonomy-method-persona.md`.
+2. **PROVENANCE BUG.** Tried to add fire rates → needed the checkpoint the 2007 labels came from. Verified the v2 cache is correct (`cache_v2[137471]` == profile feat3 ex0 Bxf7+). But NO checkpoint reproduces the profile: flat k=32 (l2_200ep/v2/base) AND H1 perlevel matryoshka all give feature 3 top-firings ≠ Bxf7+ (0/10). The label scripts (`label_v2_features.py`, `extract_v2_labels.py`) use a matryoshka forward pass (prefixes + k_per_level), but even the matryoshka checkpoints I have don't match. **Source model unknown → taxonomy_v2 per-feature categories are unverified.**
+
+**Decision:** Sam wants the FLAT k=32 model (`maia3_sae_diff_2048_k32_l2_200ep.pt`). Don't reverse-engineer the old profile — regenerate from scratch on flat k=32: fresh profile + fire rates over v2 cache, join 19K Opus English, bge-m3 bottom-up cluster → emergent categories → sub-clusters → atlas. One known model end-to-end = reproducible. Full plan in plan.md "Current State (2026-05-30)".
+
+**Process lesson (Sam flagged I was disorganized):** I thrashed across 5 checkpoints × 3 normalizations chasing the provenance without writing down what was verified vs assumed. Should have pinned "what generated this artifact" by reading the generator script FIRST (it names cache + norm + model-type), not by trial-and-error forward passes. Ran /organize-research to capture ground truth before continuing.
