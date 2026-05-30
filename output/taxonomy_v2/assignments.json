@@ -274,7 +274,7 @@
   },
   "46": {
     "category": "slow_play_punished",
-    "chip": "quiet minor piece move over forcing continuation",
+    "chip": "Knight repositioning loses tempo",
     "confidence": 92,
     "chip_generic": false,
     "feature_id": 46
@@ -526,7 +526,7 @@
   },
   "68": {
     "category": "slow_play_punished",
-    "chip": "Quiet piece move over forcing shot",
+    "chip": "Queen repositions, misses forcing move",
     "confidence": 91,
     "chip_generic": false,
     "feature_id": 68
@@ -792,7 +792,7 @@
   },
   "107": {
     "category": "slow_play_punished",
-    "chip": "Royal centralizing step over forced win",
+    "chip": "King centralization blunder",
     "confidence": 88,
     "chip_generic": false,
     "feature_id": 107
@@ -960,7 +960,7 @@
   },
   "130": {
     "category": "ignoring_threats",
-    "chip": "Aggression leaves piece en prise",
+    "chip": "Pawn advance hangs piece",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 130
@@ -2381,7 +2381,7 @@
   },
   "340": {
     "category": "slow_play_punished",
-    "chip": "Quiet move over forcing blow",
+    "chip": "King misses forcing capture",
     "confidence": 91,
     "chip_generic": false,
     "feature_id": 340
@@ -2451,7 +2451,7 @@
   },
   "350": {
     "category": "piece_lands_badly",
-    "chip": "Piece lunges to punished square",
+    "chip": "Queen lunges, falls behind tempo",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 350
@@ -2598,7 +2598,7 @@
   },
   "354": {
     "category": "piece_abandons_defense",
-    "chip": "Active move strips critical defensive post",
+    "chip": "Bishop capture triggers blunder pattern",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 354
@@ -2731,7 +2731,7 @@
   },
   "393": {
     "category": "pawn_moves_ignore_threats",
-    "chip": "Forward push over tension capture",
+    "chip": "Pawn advances instead of capturing",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 393
@@ -3186,7 +3186,7 @@
   },
   "449": {
     "category": "piece_abandons_defense",
-    "chip": "Advance unguards key square",
+    "chip": "Pawn advance abandons key square",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 449
@@ -3284,7 +3284,7 @@
   },
   "462": {
     "category": "slow_play_punished",
-    "chip": "Natural move squanders only forcing reply",
+    "chip": "Rook misses forcing sequence",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 462
@@ -4229,7 +4229,7 @@
   },
   "601": {
     "category": "piece_lands_badly",
-    "chip": "Natural move walks into refutation",
+    "chip": "Pawn thrust ignores immediate refutation",
     "confidence": 62,
     "chip_generic": false,
     "feature_id": 601
@@ -4726,7 +4726,7 @@
   },
   "665": {
     "category": "piece_abandons_defense",
-    "chip": "Piece leaves post, enables blow",
+    "chip": "Knight abandons critical defensive square",
     "confidence": 82,
     "chip_generic": false,
     "feature_id": 665
@@ -5230,7 +5230,7 @@
   },
   "745": {
     "category": "slow_play_punished",
-    "chip": "Passive move misses forcing blow",
+    "chip": "Rook misses critical defense",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 745
@@ -5839,7 +5839,7 @@
   },
   "838": {
     "category": "slow_play_punished",
-    "chip": "Calm move skips forcing reply",
+    "chip": "Rook centralizes to active square",
     "confidence": 82,
     "chip_generic": false,
     "feature_id": 838
@@ -6588,7 +6588,7 @@
   },
   "935": {
     "category": "greedy_captures",
-    "chip": "Material grab ignores urgent defense",
+    "chip": "Rook grabs bait, misses threat",
     "confidence": 62,
     "chip_generic": false,
     "feature_id": 935
@@ -6959,7 +6959,7 @@
   },
   "990": {
     "category": "piece_lands_badly",
-    "chip": "Quiet move lands on attacked square",
+    "chip": "Rook moves into enemy fire",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 990
@@ -7393,7 +7393,7 @@
   },
   "1050": {
     "category": "slow_play_punished",
-    "chip": "Quiet repositioning ignores forced win",
+    "chip": "King steps to central square",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 1050
@@ -7757,7 +7757,7 @@
   },
   "1100": {
     "category": "piece_abandons_defense",
-    "chip": "Advance abandons critical defensive post",
+    "chip": "Pawn advances cause overextension blunders",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 1100
@@ -7855,7 +7855,7 @@
   },
   "1123": {
     "category": "ignoring_threats",
-    "chip": "Quiet move leaves piece hanging",
+    "chip": "Knight left hanging undefended",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 1123
@@ -8415,7 +8415,7 @@
   },
   "1193": {
     "category": "slow_play_punished",
-    "chip": "Passive move surrenders forcing capture",
+    "chip": "Rook bypasses winning capture",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 1193
@@ -8618,7 +8618,7 @@
   },
   "1224": {
     "category": "captures_backfire",
-    "chip": "Premature capture spoils move order",
+    "chip": "Rook captures, wrong move order",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 1224
@@ -8870,7 +8870,7 @@
   },
   "1263": {
     "category": "greedy_captures",
-    "chip": "Wrong capture gifts tempo back",
+    "chip": "Pawn captures wrong piece",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 1263
@@ -8940,7 +8940,7 @@
   },
   "1276": {
     "category": "slow_play_punished",
-    "chip": "Passive move delays forcing sequence",
+    "chip": "Queen checks from afar",
     "confidence": 82,
     "chip_generic": false,
     "feature_id": 1276
@@ -9080,7 +9080,7 @@
   },
   "1291": {
     "category": "slow_play_punished",
-    "chip": "Piece repost ignores forcing reply",
+    "chip": "Queen Repositions, Misses Capture",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 1291
@@ -10284,7 +10284,7 @@
   },
   "1472": {
     "category": "ignoring_threats",
-    "chip": "Active move misses hanging piece or mate",
+    "chip": "Knight Misses Hanging Piece",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 1472
@@ -11299,7 +11299,7 @@
   },
   "1603": {
     "category": "piece_lands_badly",
-    "chip": "piece moves onto controlled square",
+    "chip": "King steps onto captured square",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 1603
@@ -13308,7 +13308,7 @@
   },
   "1898": {
     "category": "piece_lands_badly",
-    "chip": "Piece moves onto attacked square",
+    "chip": "Rook capture bait trap",
     "confidence": 82,
     "chip_generic": false,
     "feature_id": 1898
@@ -13427,7 +13427,7 @@
   },
   "1921": {
     "category": "piece_lands_badly",
-    "chip": "Active square invites immediate capture",
+    "chip": "Pawn advances into enemy territory",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 1921
@@ -13511,7 +13511,7 @@
   },
   "1920": {
     "category": "piece_abandons_defense",
-    "chip": "Piece leaves critical blockade square",
+    "chip": "Knight captures central pawn",
     "confidence": 72,
     "chip_generic": false,
     "feature_id": 1920

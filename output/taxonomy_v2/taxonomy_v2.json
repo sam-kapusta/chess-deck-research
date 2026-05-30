@@ -4,7 +4,7 @@
     "n_features": 1996,
     "n_categories": 20,
     "n_missing_assignment": 0,
-    "source": "rebuild 2026-05-29 (title->categorize->chip, Claude agents)",
+    "source": "rebuild 2026-05-29 (title->categorize->chip, Sonnet 4.6 on research account)",
     "vocab_source": "reused from chess_blunder_taxonomy_v2 (k16) \u2014 coaching vocab is checkpoint-independent"
   },
   "categories": [
@@ -3519,7 +3519,7 @@
     },
     "46": {
       "feature_id": 46,
-      "chip": "quiet minor piece move over forcing continuation",
+      "chip": "Knight repositioning loses tempo",
       "title": "Non-forcing knight or bishop repositioning moves that waste a critical tempo when an immediate forcing continuation (check, capture, or pawn break) was available.",
       "description": "All 10/10 positions feature a quiet minor piece move (5 knights, 5 bishops) that is neither a check nor a capture \u2014 purely a repositioning move. In 9/10 positions, the analysis explicitly identifies 'tempo_loss' as a primary tag, and in all 10/10, a more forcing alternative existed (checks in positions 2, 6, 7, 8, 9; pawn breaks in positions 1, 5; immediate tactical threats in the rest). In at least 7/10 cases, the piece being moved was already on an optimal or critical square (e.g., knight on c7 covering promotion in pos 1, bishop on e5 restricting the king in pos 2, knight on f3 paralyzing the king in pos 4, knight on e6 assisting a mating attack in pos 6, bishop on b5 blocking a critical rank in pos 10). The average cp_loss of ~2906 reflects that these 'improving' moves catastrophically squander positions where decisive action was required immediately, often converting forced mates into merely large advantages.",
       "category": "slow_play_punished",
@@ -4553,7 +4553,7 @@
     },
     "68": {
       "feature_id": 68,
-      "chip": "Quiet piece move over forcing shot",
+      "chip": "Queen repositions, misses forcing move",
       "title": "Playing a non-forcing piece move to a seemingly attractive square when the position demanded immediate concrete action (captures, pawn pushes, or checks).",
       "description": "All 10/10 positions feature a quiet, non-forcing piece move (no checks, no captures) that repositions a piece to a superficially appealing square while missing critical tactical opportunities. The best moves were overwhelmingly concrete and forcing: captures (Nxe3, cxb5), pawn advances to promotion (c2, a7), checkmates (Qb8+), or tempo-gaining moves that attacked specific targets (Nf3 hitting a bishop). In 10/10 cases the played move was tagged as 'tempo_loss' and 'missed_tactic'. The average cp_loss of 2086 is enormous, and the average good moves available was only 1.8, indicating these were critical moments demanding precision. 8/10 positions had the player choosing piece 'improvement' over immediate tactical execution, while 2/10 (Qd2, Bc6) chose an aggressive-looking piece move that addressed the wrong target entirely. The positions span queens (4), knights (4), bishops (2), and rooks (1), confirming this is piece-type-agnostic.",
       "category": "slow_play_punished",
@@ -5971,7 +5971,7 @@
     },
     "107": {
       "feature_id": 107,
-      "chip": "Royal centralizing step over forced win",
+      "chip": "King centralization blunder",
       "title": "King or queen moves to a central/active square as a generic improvement while ignoring a concrete tactical requirement in the position.",
       "description": "10/10 positions feature quiet (non-capturing, non-checking) King or Queen moves toward central or 'active' squares. 7/10 are King moves and 3/10 are Queen moves. 8/10 occur in endgames where 'centralize your king' is a dominant heuristic. In 8/10 positions (excluding the 2 with 0cp loss), the player chose a general positional improvement over a specific concrete action: Position 1 centralizes the king into a fork; Position 4 plays Qd4 instead of Qh2#; Position 7 plays Qg5 instead of Qxe7 winning the exchange; Position 8 plays Ke6 instead of g7+ forcing mate; Position 10 plays Ke3 instead of repositioning the rook on the a-file. Even in positions 2 and 5 (where the move happens to be correct), the move still fits the pattern of a quiet royal piece step toward the center. The feature detects the behavioral pattern of 'improve my most important piece's position' regardless of whether a forcing tactical action exists.",
       "category": "slow_play_punished",
@@ -6762,7 +6762,7 @@
     },
     "130": {
       "feature_id": 130,
-      "chip": "Aggression leaves piece en prise",
+      "chip": "Pawn advance hangs piece",
       "title": "Playing an ambitious or attacking move while overlooking that a piece is undefended and can be captured.",
       "description": "9/10 positions feature the player making an aggressive move (check, pawn advance, tactical shot) while a piece is hanging or becomes hanging as a direct consequence. In 3/10 cases (positions 1, 6, 8), the moved piece lands on a square directly controlled by an opponent's bishop, allowing immediate capture. In 3/10 cases (positions 4, 7, 9), the move ignores that an existing friendly piece is en prise and will be captured with tempo (check or fork). In 2/10 cases (positions 5, 10), a pawn advance removes or fails to address the defense of a hanging piece. In position 3, the move creates a mating threat but ignores an intermediate capture with check. Position 2 is the weakest fit, involving tempo loss in a mating attack rather than a strict hanging piece, though it shares the pattern of choosing an ambitious move over the concrete forcing continuation. The average cp_loss of 1237 reflects catastrophic material loss. Only 1.4 good moves were available on average, indicating these were critical tactical moments requiring precision rather than ambition.",
       "category": "ignoring_threats",
@@ -13435,7 +13435,7 @@
     },
     "340": {
       "feature_id": 340,
-      "chip": "Quiet move over forcing blow",
+      "chip": "King misses forcing capture",
       "title": "Playing a passive, non-forcing move (castling, pawn push, or piece repositioning) in a narrow critical position that demanded immediate concrete action \u2014 typically a check or capture.",
       "description": "All 10/10 positions share a striking commonality: the played move is always non-forcing (no check, no capture, no direct threat), while the correct move was a concrete forcing blow in 8/10 cases (checks or captures: Qa5+, Qxd6, Qxf6, Qe2, Rxh6, Bxc5, Bxh7+, Qd4+). The positions were extremely narrow with an average of only 1.2 good moves available, meaning one specific tactical answer existed and the player instead chose a 'general principles' move. 3/10 played O-O (routine castling), 3/10 played quiet pawn moves (d3, a3, h6), 3/10 played non-capturing queen repositioning (Qd7, Qc7, Qb3), and 1/10 played a king move (Kd1). The average cp_loss of 443 reflects catastrophic cost. The best moves missed include 3 queen forks/checks, 3 simple captures of material, 1 Greek gift sacrifice, and 1 forced queen trade \u2014 all concrete, calculable actions that were passed over in favor of autopilot development or prophylaxis.",
       "category": "slow_play_punished",
@@ -13834,7 +13834,7 @@
     },
     "350": {
       "feature_id": 350,
-      "chip": "Piece lunges to punished square",
+      "chip": "Queen lunges, falls behind tempo",
       "title": "A piece moves to an apparently threatening or active square, but the threat is shallow and easily refuted by a simple pawn kick, exchange, or one-move response, leaving the aggressor worse off.",
       "description": "All 10 positions share a common pattern: the player moves a piece forward to an ostensibly aggressive square \u2014 creating a visible threat (fork, attack on queen, pressure on a diagonal) \u2014 but the threat is too slow or easily parried, and the move is immediately punished. In 3/10 positions (6, 7, 10), a knight jumps to b5 threatening Nc7+ fork, but is simply kicked by ...a6 to a horrible square. In 4/10 positions (2, 8, 9, plus 1), a queen moves to an exposed square where it can be profitably exchanged or its departure abandons critical defensive duties. In 3/10 positions (3, 4, 5), a bishop moves to an active-looking diagonal but is immediately challenged by a pawn (d5, f4) or its removal from a key square enables a devastating tactic. The refutations are consistently embarrassingly simple \u2014 often single-move pawn pushes (a6, d5, f4) or immediate captures \u2014 yet the blunderer's position collapses catastrophically (average cp_loss: 1239). Only 1.9 good moves were available on average, indicating these were demanding positions where the 'obvious' aggressive option was precisely wrong.",
       "category": "piece_lands_badly",
@@ -14505,7 +14505,7 @@
     },
     "354": {
       "feature_id": 354,
-      "chip": "Active move strips critical defensive post",
+      "chip": "Bishop capture triggers blunder pattern",
       "title": "In critically narrow positions with typically only one good move, the player chooses an active-looking or superficially logical alternative that catastrophically self-weakens.",
       "description": "10/10 positions featured extremely limited good options (avg 1.4 good moves available), creating razor-thin defensive situations. In 8/10 positions, the best move was a quiet, defensive, or prophylactic resource (Bf8, g6, Be5, Bd6, Qc2, Kf6, Kf7, Rb1), while the chosen move was something 'active' \u2014 a capture (4/10: gxh5, Nxe4, Bxh5, Bxc7), piece 'activation' (3/10: Rd1, Bc6, Bd6), a check (Re1+), or castling (O-O-O). 8/10 positions centrally involved king safety as the critical concern, with open files or diagonals aimed at a vulnerable king. The catastrophic average cp_loss of 2161 reflects that these moves specifically enabled the opponent to exploit newly-created weaknesses \u2014 often by removing a pawn/piece from a critical defensive post (positions 1, 5, 6, 9) or placing the king/pieces on exposed squares (positions 7, 8, 10). The common thread is that each move addresses an obvious concern (capture the threatening piece, develop naturally, give check, escape the center) while fatally undermining the deeper positional requirement.",
       "category": "piece_abandons_defense",
@@ -15107,7 +15107,7 @@
     },
     "393": {
       "feature_id": 393,
-      "chip": "Forward push over tension capture",
+      "chip": "Pawn advances instead of capturing",
       "title": "Advancing a pawn forward past a point of tension where capturing was clearly superior.",
       "description": "In 8/10 positions, the player's best move was a pawn capture resolving tension (exd4, dxe4, bxa4, dxe5, dxc4, cxb4, bxc5/dxc5), but instead they pushed the same pawn forward one square past the opposing pawn. The remaining 2/10 positions (g4 and d5 in position 4) still feature unnecessary pawn advances when holding or capturing was correct. In every case, the pawn advance either left the player's own pieces undefended (3/10 left a piece hanging), created an unstoppable passed pawn for the opponent (3/10), opened the center against their own exposed king (3/10), or eliminated a critical defensive pawn from its post (2/10). The consistent error is choosing the 'ambitious' forward push over the 'simple' lateral capture, reflecting a preference for space-gaining moves over tension-resolving ones. All 10 moves are single-square pawn advances, with 8/10 being central pawns (d or e file) or adjacent semi-central pawns (b or c file).",
       "category": "pawn_moves_ignore_threats",
@@ -17250,7 +17250,7 @@
     },
     "449": {
       "feature_id": 449,
-      "chip": "Advance unguards key square",
+      "chip": "Pawn advance abandons key square",
       "title": "Active-looking moves (pawn advances, piece centralizations, captures) that remove a critical defensive support, immediately creating an exploitable tactical vulnerability.",
       "description": "In 9/10 positions (excluding the 0cp-loss position 5), the played move appears purposeful and aggressive\u2014gaining space, centralizing a piece, or winning material\u2014but fatally removes protection from something the opponent immediately exploits. Specifically: 4/10 positions feature pawn advances that abandon control of a key square (d5 in positions 4 and 8 both abandon e5, enabling knight forks; f5 in position 9 leaves e5 hanging; h5 in position 2 leaves g5 unguarded). 3/10 feature knight moves to 'active' squares that create tactical vulnerabilities (Ng6 in position 3 unguards the a3-f8 diagonal; both Nf4 moves in positions 6-7 enable double attacks or forks). 1/10 features a pawn capture that removes the king's shield (gxf6 in position 10 enables mate-in-3). 1/10 features a premature exchange that lets a target piece escape (Rxc1+ in position 1). The common thread is that every move LOOKS like it accomplishes something positive while ACTUALLY self-inflicting an immediate concrete tactical refutation\u2014never a slow positional concession but always an exploitable hole within 1-2 moves.",
       "category": "piece_abandons_defense",
@@ -17654,7 +17654,7 @@
     },
     "462": {
       "feature_id": 462,
-      "chip": "Natural move squanders only forcing reply",
+      "chip": "Rook misses forcing sequence",
       "title": "Playing a visually appealing or seemingly aggressive move in a sharp position that demanded a specific concrete forcing continuation.",
       "description": "All 9 positions share a critical characteristic: they are razor-sharp situations (avg 2.0 good moves available) where only one or two precise forcing moves maintain the evaluation, yet the player chose a 'seductive' alternative that looks natural or aggressive but is non-forcing. In 6/9 positions, the played move appears actively attacking or improving (Nxg6 sacrificing on the kingside, Ne3+ delivering check+fork, Rh7 occupying the 7th rank, Rhg4 doubling rooks, hxg6 opening lines, Kg2 centralizing). In 3/9, the move is plausible but passive when urgency was required (Ne2 retreating, a6 pushing prematurely, Rd1 repositioning). The best moves were consistently concrete and forcing: perpetual checks (2/9), pawn advances creating immediate promotion threats (2/9), captures resolving tension favorably (2/9), or castling/king safety moves (3/9). The enormous average cp_loss of 1346 reflects that these positions had no margin for imprecision\u2014the 'attractive' alternative completely squanders a winning advantage, a saving perpetual, or a forced mate.",
       "category": "slow_play_punished",
@@ -22309,7 +22309,7 @@
     },
     "601": {
       "feature_id": 601,
-      "chip": "Natural move walks into refutation",
+      "chip": "Pawn thrust ignores immediate refutation",
       "title": "Aggressive-looking moves motivated by general principles (development, activity, checks, space) that overlook an immediate one-move tactical refutation by the opponent.",
       "description": "All 10 positions share a common structure: the player makes a move that appears to accomplish something positive \u2014 developing a piece (Bg5, Bf5), giving a check (Qh3+, Bh6+), seizing space or files (d4, b5, g5, Rd7), preparing something (a6), or winning material (Bxg4) \u2014 but each has a simple, immediate tactical refutation the player failed to calculate. In 4/10 positions (Bg5, Qh3+, d4, Bxg4), the moved piece or target square is directly capturable by the opponent. In 3/10 positions (Bf5, g5, b5), the move creates or exposes a structural/positional weakness the opponent exploits on the very next move. In 2/10 positions (Bh6+, Rd7), the 'aggressive' move actually blocks or strands the player's own attacking resources while enabling a devastating counter. In 1/10 (a6), a preparatory move fatally wastes tempo in a critical race. The average cp_loss of 1284 and average of only 2.0 good moves available confirms these are positions demanding specific calculation rather than principled play \u2014 the blunder is consistently the 'natural-looking' choice that happens to have a concrete one-move refutation.",
       "category": "piece_lands_badly",
@@ -24558,7 +24558,7 @@
     },
     "665": {
       "feature_id": 665,
-      "chip": "Piece leaves post, enables blow",
+      "chip": "Knight abandons critical defensive square",
       "title": "Piece repositioning that looks logical/active but overlooks a concrete tactical consequence, either by abandoning a critical defensive function or walking into the opponent's combination.",
       "description": "All 10 positions feature a piece move with clear logical intent (development, capture, defense, repositioning) that creates or enables a devastating tactical vulnerability. In 6/10 positions (Nf5, Nxe5, Nb5, Ne2, Bg7, Bg4), the moved piece was performing a critical defensive duty that the player failed to recognize \u2014 its relocation directly enabled the opponent's tactical blow (discovered attacks, forks, captures of undefended pieces). In 3/10 positions (Rf7, Qxd3, Bxf5), the piece moved TO a tactically vulnerable square where it became a target or walked into a combination. In 1/10 (Rg1), the player chose a defensive move when an immediate winning attack existed. The average cp_loss of 1198 confirms these are severe tactical oversights, not subtle positional errors. 8/10 positions had only 1-2 good alternatives, showing these were critical decision points requiring concrete calculation rather than general principles. The common thread across all 10 is prioritizing a 'natural-looking' purpose over checking for concrete tactical consequences.",
       "category": "piece_abandons_defense",
@@ -26946,7 +26946,7 @@
     },
     "745": {
       "feature_id": 745,
-      "chip": "Passive move misses forcing blow",
+      "chip": "Rook misses critical defense",
       "title": "Playing a tempting but non-urgent move (capture, retreat, or check) in a critical position that demanded a single precise forcing continuation.",
       "description": "9/9 positions share a defining characteristic: the position was on a knife's edge with very few good moves (avg 2.1), yet the player chose a 'reasonable-looking' move that ignored the most critical demand of the position. In 3/9 cases (Nxa3, Rxa2, fxe5), the move was a greedy material capture that left something catastrophically undefended or destroyed a critical defensive/attacking structure. In 3/9 cases (Nfd7, Na8, Nd7), the move was a passive knight retreat/repositioning that wasted crucial tempo when the position demanded immediate central or tactical action. In 2/9 cases (Rf7, Rg2), a rook was placed on a seemingly active square instead of executing the winning tactical blow. In 1/9 case (Re6+), a pointless check was given that drove the opponent's king to safety and abandoned the mating construction. The correct moves in ALL cases were forcing: eliminating a critical threat (Rxf8), opening the center against an exposed king (e6), delivering immediate checkmate (g5+, Bf3\u2192Rh5#), or executing a winning tactical combination (Nxb2+, Rc1+). The average cp_loss of 2366 reflects that these positions all had extremely narrow correct paths where any deviation was catastrophic.",
       "category": "slow_play_punished",
@@ -29857,7 +29857,7 @@
     },
     "838": {
       "feature_id": 838,
-      "chip": "Calm move skips forcing reply",
+      "chip": "Rook centralizes to active square",
       "title": "Playing a quiet, non-forcing 'improving' move when the position demands immediate concrete action to address an urgent tactical priority.",
       "description": "All 10/10 positions feature a player making a non-forcing move that looks reasonable on general principles (centralization, activation, or development) while completely ignoring a single concrete, urgent demand. The 'tempo_loss' tag appears in all 10 positions, confirming this as the unifying thread. In 5/10 cases, a forcing tactical sequence (checks, captures, or threats) was available that would have been decisive (Ra1+, Rxc3+, Rxg2+, Bd3, Ra2). In 3/10 cases, an existential defensive need (escaping back-rank mate with Ke7, vacating the c-file with Kb4, blocking promotion with Ra2/Rf8) was ignored. In 2/10 cases, the king moved to the wrong adjacent square, prioritizing activity over a specific defensive function (Ke5 instead of Ke4, Kf7 instead of Rg8). The average centipawn loss of 4813 reflects how catastrophic these tempo wastes are\u20146/10 resulted in losses exceeding 1000cp or allowing forced mate. Only 1.6 good moves were available on average, confirming these were narrow positions where only concrete, precise action was acceptable.",
       "category": "slow_play_punished",
@@ -33341,7 +33341,7 @@
     },
     "935": {
       "feature_id": 935,
-      "chip": "Material grab ignores urgent defense",
+      "chip": "Rook grabs bait, misses threat",
       "title": "The player makes a superficially attractive move (capture, piece attack, or aggressive advance) while ignoring a more critical immediate tactical requirement in the position.",
       "description": "8/10 positions show a clear pattern where the player is drawn to a tempting secondary goal\u2014capturing material (Nxh2, Nxe6, Qxa3), attacking an enemy piece (a3, Qa6), or advancing aggressively (Kc5, Ra7, Rh1)\u2014while a concrete tactical vulnerability demands immediate attention. In 5/10 cases, the move involves a capture or pawn grab that appears to gain material. In 4/10, the player attacks or chases an opponent's piece. The critical thread is that each position had one specific urgent tactical requirement (defending a fork square, maintaining a key defender, covering a mating square, or exploiting an existing hanging piece) that the played move completely ignores. The average cp_loss of 1367 reflects how catastrophic these oversights are, and the average of only 2.0 good moves confirms these are narrow positions where the critical move is non-obvious. Positions 7 and 8 are trivial endgame inaccuracies (1cp and 20cp) that don't meaningfully fit the pattern, likely noise in the feature activation.",
       "category": "greedy_captures",
@@ -35114,7 +35114,7 @@
     },
     "990": {
       "feature_id": 990,
-      "chip": "Quiet move lands on attacked square",
+      "chip": "Rook moves into enemy fire",
       "title": "A natural-looking developing or repositioning move places a piece on a square directly attacked by an enemy long-range piece, ignoring urgent tactical demands.",
       "description": "All 10/10 positions feature a quiet, non-forcing move (no captures or checks) played in a position demanding immediate tactical attention. In 7/10 cases, the moved piece lands directly on a square where it is immediately captured or won by an enemy long-range piece (Bf3 captured by rook on c3, Nf3 captured by bishop on b7, Nf6 captured by bishop on e5, Rf7 captured by rook on e7, Ra7 won via skewer on 7th rank, Nc6 captured by bishop with check, Rg2 won via exchange sacrifice). In the remaining 3/10 cases (Qd7, Bd7, Bb7), the move ignores an immediate mating threat rather than hanging the moved piece itself. The average cp_loss of 2968 and average of only 1.7 good moves available confirm these are critical positions where one specific tactical need must be addressed. The behavioral signature is consistent: the player makes a move that would be logical in a quiet position\u2014developing a piece, connecting rooks, challenging an enemy piece\u2014but catastrophically misjudges the tactical urgency, essentially playing 'positional chess' in a position screaming for concrete calculation.",
       "category": "piece_lands_badly",
@@ -37174,7 +37174,7 @@
     },
     "1050": {
       "feature_id": 1050,
-      "chip": "Quiet repositioning ignores forced win",
+      "chip": "King steps to central square",
       "title": "Voluntary piece-improving moves to plausible squares that ignore the position's specific tactical demands, leaving critical weaknesses unaddressed.",
       "description": "All 10 positions share a consistent pattern: the player makes a quiet, non-forcing piece repositioning move to a square that looks attractive (outpost, central square, active diagonal) while the position demanded a specific tactical solution. In 10/10 cases, the move played is a voluntary 'improvement' \u2014 no check, no capture, no immediate threat \u2014 when the position required either exploiting a concrete tactic (3/10: g4 winning the queen, Rd5 winning a knight, advancing passed pawns), defending a specific weakness (4/10: protecting a2, guarding f2, maintaining g2's defensive function, addressing Bg6+ threats), or avoiding placing a piece on a tactically vulnerable square (2/10: Bf6 into Rxf6, Nc4 enabling f4+Qxh6+). The average cp_loss of 422 reflects that these positions had narrow best-move margins (avg 1.9 good moves), meaning precision was required but the player chose a 'normal-looking' move instead. In 8/10 positions, the attractive move directly created or exposed a tactical vulnerability \u2014 a hanging piece, an undefended pawn, or a removed defensive guard \u2014 that the opponent could immediately exploit.",
       "category": "slow_play_punished",
@@ -38823,7 +38823,7 @@
     },
     "1100": {
       "feature_id": 1100,
-      "chip": "Advance abandons critical defensive post",
+      "chip": "Pawn advances cause overextension blunders",
       "title": "Forward-moving pieces or pawns that overextend into tactical vulnerability, granting the opponent decisive tempo.",
       "description": "All 10/10 moves are forward/advancing in nature \u2014 pawn pushes (e5, g4, g5+, fxg6, c5), piece advances (Ne3, Re5), king advances (Ke4), or forward captures (Nxd5, Kxb5). Not a single retreat appears. In 9/10 cases the best move was more restrained: retreats (Kd2, Nf1), quiet development (Nf3), a different forcing move (Re1+ check), or a defensive capture (Nxh3). The tag 'tempo_loss' appears in 9/10 positions, making it the strongest signal. The common mechanism is that the advancing move either abandons a critical defensive duty (6/10: Ne3 leaves blockade, g4 removes king shield, Ke4 walks into passed pawns, Re5 blocks own pawn, fxg6 ignores forcing check, c5 allows knight relocation with check) or places the moved piece on a tactically vulnerable square (Nxd5 into a pin, e5 creating a hanging pawn). In 8/10 positions White made the error, and the average cp_loss of 244 reflects serious consequences from what appear to be natural-looking aggressive moves.",
       "category": "piece_abandons_defense",
@@ -39390,7 +39390,7 @@
     },
     "1123": {
       "feature_id": 1123,
-      "chip": "Quiet move leaves piece hanging",
+      "chip": "Knight left hanging undefended",
       "title": "Playing a natural-looking positional or developing move while a piece is left completely undefended and immediately capturable.",
       "description": "All 10/10 positions share the same core mistake: the player makes a quiet, non-forcing move with clear positional intent (developing, centralizing, advancing a pawn, or improving the king) while a critical piece is left hanging or a devastating capture/mate exists. In 4/10 positions (Be6, Qa5, Ne5\u00d72), the move itself removed the defender of a hanging piece \u2014 the moved piece was the sole guard of another unit. In 6/10 positions (Nc4, c5, Qd6, Be2, c4, Kb1), a piece was already under threat or undefended and the player simply didn't address it. The consequences were catastrophic (avg cp_loss 2516), with 2/10 resulting in immediate checkmate (Qxg2#), 4/10 losing a queen, and the remainder losing at least a full piece. Only 1.9 good moves existed on average, confirming these were urgent tactical moments demanding immediate attention rather than routine improvement.",
       "category": "ignoring_threats",
@@ -42095,7 +42095,7 @@
     },
     "1193": {
       "feature_id": 1193,
-      "chip": "Passive move surrenders forcing capture",
+      "chip": "Rook bypasses winning capture",
       "title": "Playing a non-forcing move (advance, retreat, or check) when a direct capture or critical piece placement was immediately available.",
       "description": "7/10 positions involved choosing a less forcing continuation when a direct capture or strong tactical shot existed. In 3/10 positions (1, 2, 8), the player specifically bypassed an available capture of material\u2014h5 instead of hxg5 winning a bishop, d4 instead of dxc4 winning a bishop, and Qb5+ instead of Nxd5 winning a pawn with tempo. In 2/10 positions (6, 7), the player made the intended capture but in the wrong move order, missing a critical intermezzo (Rh1+ or e4+) that would have been more forcing first. In 2/10 positions (3, 9), the player retreated a knight to a passive square (Ne3, Nb3) instead of jumping to the dominant active square (Nd6, Rc1). The 3 non-mistake positions (5, 7, 10 with 0-4cp loss) share the same positional structure\u2014tension between captures and repositioning\u2014suggesting the feature detects this decision point regardless of whether the player errs. The consistent consequence across all mistakes is tempo loss: the opponent gains time to consolidate, activate, or execute tactics that the forcing move would have prevented.",
       "category": "slow_play_punished",
@@ -43044,7 +43044,7 @@
     },
     "1224": {
       "feature_id": 1224,
-      "chip": "Premature capture spoils move order",
+      "chip": "Rook captures, wrong move order",
       "title": "Making a natural-looking capture, exchange, or check before the optimal preparatory move, prematurely resolving positional tension.",
       "description": "8/10 positions involve captures or checks that resolve material or structural tension at the wrong moment. In 7/10 cases, the error is specifically a move-order mistake where a preparatory move should have preceded the forcing action (e.g., Kb6 before axb3, e6 before fxg6, Qb3 before Bxg8, b4 before hxg3). 5/10 involve premature exchanges/simplifications that eliminate the player's primary source of compensation or attacking potential (Rxb2+ trades away an active rook, Qxd6+ removes queens when the opponent's king is exposed, Rxh8 captures the wrong piece). The positions uniformly feature open d-files (10/10), exposed kings on at least one side (10/10), and most are endgames (6/10) where precise timing matters enormously. Position 8 (c6+, 0cp loss) represents the CORRECT version of this pattern\u2014a well-timed forcing move with check\u2014serving as contrast to the 9 incorrect examples. Position 9 (O-O) is the inverse error: playing a quiet move when immediate tactical forcing was required, but still reflects the same timing miscalculation.",
       "category": "captures_backfire",
@@ -44197,7 +44197,7 @@
     },
     "1263": {
       "feature_id": 1263,
-      "chip": "Wrong capture gifts tempo back",
+      "chip": "Pawn captures wrong piece",
       "title": "A capture that takes a less-critical piece or uses the wrong capturing piece, while a more urgent tactical priority (a hanging piece, an advanced pawn, or a critical threat) goes unaddressed.",
       "description": "All 9/9 positions feature a capture that ignores the most urgent tactical element. In 7/9 cases, the player captures the wrong enemy piece: a bishop on the rim instead of a central threat (Bxa2), a knight on c6 instead of an infiltrated bishop (dxc6 twice), a knight on e4 instead of a hanging bishop on d8 (dxe4), a fianchettoed bishop instead of an active rook (Bxg7), a bishop on d3 instead of a hanging bishop on d6 (exd3), and a bishop on c5 instead of addressing a dangerous bishop on a2 (bxc5). In 2/9 cases (both Nfxd2), the target is correct but the capturing piece is wrong \u2014 using the f3-knight instead of the e4-knight leaves the remaining piece hanging. The consistent error is that a more appetizing-looking or superficially logical capture is chosen over the truly critical one, giving the opponent exactly one tempo to save/exploit the piece that actually mattered. The average cp_loss of 409 reflects that these are catastrophic priority errors, not subtle inaccuracies.",
       "category": "greedy_captures",
@@ -44494,7 +44494,7 @@
     },
     "1276": {
       "feature_id": 1276,
-      "chip": "Passive move delays forcing sequence",
+      "chip": "Queen checks from afar",
       "title": "Non-forcing moves in time-critical positions where immediate concrete action (pawn advances, forcing checks, or decisive exchanges) was required.",
       "description": "All 10/10 positions feature a move that wastes a critical tempo in a position demanding immediate, forcing action. 7/10 are endgame positions where single tempi are decisive. The wasted tempi take several forms: pointless checks where the opponent's king simply steps to a better square (2/10: Qg2+, Rh3+), passive king retreats when aggressive pawn advances were essential (4/10: Kg2, Kb3, Kc8, Kg3), queen/rook retreats from dominant posts (2/10: Qd4 from d7, Qd2), and non-forcing piece moves when the checking version of the same idea was available (1/10: Rc8 instead of Rh8+). In every case, the best move involved concrete forcing action \u2014 typically a pawn push (h4, e4, h5, g3 in positions 1/5/6/7), a decisive exchange (Rxf4+ in position 2, Qxf8+ in position 3), or the same idea executed with check (Rh8+ in position 10). The average cp_loss of 2988 reflects that 3/10 positions converted directly to forced checkmate. Only 1.6 good moves were available on average, indicating these were narrow positions where the tempo was truly decisive.",
       "category": "slow_play_punished",
@@ -45180,7 +45180,7 @@
     },
     "1291": {
       "feature_id": 1291,
-      "chip": "Piece repost ignores forcing reply",
+      "chip": "Queen Repositions, Misses Capture",
       "title": "Player moves a piece to an attractive-looking square instead of executing available concrete tactical actions or maintaining an already-optimal placement.",
       "description": "In all 10 positions, the player chose to reposition a piece to a seemingly active or improved square while ignoring the concrete demands of the position. In 5/10 cases (positions 1, 2, 7, 10, and 6), an immediate capture or forcing move was available that won material or delivered a decisive blow\u2014the player instead moved the piece to a 'pretty' square (Qb7, Qa1, Qc2, Be4, Qe4). In 3/10 cases (positions 4, 5, 9), the player voluntarily abandoned a piece from a dominant or critical post (Rook leaving f7, Knight leaving e5, Knight leaving d5) to reposition it to a less essential square. In 2/10 cases (positions 3, 8), the player moved a piece to an active-looking square that immediately created tactical vulnerabilities (Bc5 walking into Ne6+ fork, Nxf4 allowing exf4 passed pawn). The average cp_loss of 385 and average of only 1.7 good moves available confirms these were critical moments demanding calculation rather than general principles. 9/10 moves were non-capturing repositions; even the exception (Nxf4) was an exchange that prioritized piece trading over the concrete defensive need (f3).",
       "category": "slow_play_punished",
@@ -51055,7 +51055,7 @@
     },
     "1472": {
       "feature_id": 1472,
-      "chip": "Active move misses hanging piece or mate",
+      "chip": "Knight Misses Hanging Piece",
       "title": "Playing a superficially logical capture, check, or developing move while missing the single most important tactical demand of the position.",
       "description": "9/9 positions share a common structure: the position has ONE critical tactical requirement (a hanging piece to capture, a mate to deliver or defend against, or a key piece to save), but the player instead makes a 'reasonable-looking' active move that addresses a secondary concern. In 5/9 cases the played move is a capture (Nxd7, fxg3, dxe6, Bxc3, axb3\u2192a3), in 1/9 it's a check (Nd6+), and in the rest it's a developing or repositioning move. The missed critical requirement varies: in 3/9 positions a piece was hanging and freely capturable (fxg3 missed Qxh3, dxe6 missed Qxd4, Bg4 left Bc5 hanging), in 3/9 positions a checkmate was available or needed defense (Ra1 missed Ne7#, Nxd7 allowed Qxh2+/Qh1#, Bxc3 allowed Qa7#), and in remaining positions the critical demand was structural/forcing (axb3 vs a3, Qe4 vs Nd6+). The average cp_loss of 5462 and only 1.6 good moves available confirms these are razor-sharp positions where only one move works, yet the player chose a distraction.",
       "category": "ignoring_threats",
@@ -55785,7 +55785,7 @@
     },
     "1603": {
       "feature_id": 1603,
-      "chip": "piece moves onto controlled square",
+      "chip": "King steps onto captured square",
       "title": "Moving a piece (especially a bishop) to a square where it is undefended and immediately captured by an opponent's piece, often disguised as a forcing check or aggressive placement.",
       "description": "4/10 positions clearly feature a piece moving to a square where it is immediately captured for free (positions 2, 4, 6, 10), and these constitute the three highest cp_loss instances (9204, 9176, 9502). In positions 6 and 10, the piece gives check (Qf5+, Bb8+), creating the illusion of a forcing move while landing on a square controlled by an opponent's piece (bishop on b1-f5 diagonal, rook on e8-b8 file). Position 2 (Bf1) puts the bishop where the knight on e3 captures it, and position 4 (Bc7) places the bishop on a diagonal controlled by Black's Ba5. The remaining 6 positions show related but milder errors: passive piece retreats to back-rank squares (Ke1, Kd1 in positions 3 and 5), a bishop blocking its own rook (Bf3 in position 8), and captures that ignore urgent tactical threats (dxe4 in position 9). 7/10 moves are made by White, and 6/10 occur in endgames. The average of 2.5 good moves available confirms alternatives existed in every case.",
       "category": "piece_lands_badly",
@@ -65293,7 +65293,7 @@
     },
     "1898": {
       "feature_id": 1898,
-      "chip": "Piece moves onto attacked square",
+      "chip": "Rook capture bait trap",
       "title": "Moving a piece to a square controlled or defended by an opponent's piece, resulting in immediate capture or permanent entrapment.",
       "description": "8/10 positions show a piece being moved to a square where it is immediately captured or inescapably trapped by an opponent's piece that already controls that square. In positions 1 (Bd8 into Nxd8), 6 (Bc2 into Bxc2), 7 (Qb6 into Qxb6), 8 (Qxc2 recaptured by Bxc2), and 9 (Qxe5+ recaptured by Nxe5), the piece lands on a square directly attacked by an opponent's piece and is captured on the next move. In positions 4 (Ba1 entombed) and 10 (Na8+ trapped by Kb7), the piece reaches a square from which it cannot escape. Position 3 (Rc2) places the rook where it becomes a tactical target via Bxc2. The remaining 2 positions show the softer version: position 2 (Bc4 instead of Bxf1) moves a piece away from its attacking duty to an ineffective square, and position 5 (Bf8) commits the bishop to a passive blockade square where it becomes functionally dead. The average cp_loss of 5815 reflects that these are catastrophic one-move errors, and 8/10 positions had only 1 good move available, indicating extreme tactical narrowness that the players failed to recognize.",
       "category": "piece_lands_badly",
@@ -65837,7 +65837,7 @@
     },
     "1921": {
       "feature_id": 1921,
-      "chip": "Active square invites immediate capture",
+      "chip": "Pawn advances into enemy territory",
       "title": "Choosing a superficially attractive or aggressive-looking move instead of addressing the position's most critical tactical requirement.",
       "description": "8/10 positions were tagged with 'tempo_loss' in the analysis, and in all 10, the played move ignored a concrete urgent tactical priority in favor of something that merely *looked* productive. In 4/10 cases (Nxc7+, Nb4, Qf5, Rc5), a piece was moved to an 'active' square where it was immediately captured or trapped. In 3/10 cases (Ra8, Kg4, f5), the player made a slow improving move while immediate forcing continuations (checks, captures, queen trades) were available. In 2/10 cases (Qd2, e4), the move created a new tactical vulnerability by removing a key defensive function or weakening the structure. In 1/10 (exf5), the player chose the wrong capture direction, selecting the obvious-looking one over the far superior en passant. Only 1.8 good moves were available on average, indicating these were narrow positions demanding precise identification of the single most important priority. The average cp_loss of 296 reflects the severe cost of giving the opponent one free tempo to exploit the unaddressed issue.",
       "category": "piece_lands_badly",
@@ -66204,7 +66204,7 @@
     },
     "1920": {
       "feature_id": 1920,
-      "chip": "Piece leaves critical blockade square",
+      "chip": "Knight captures central pawn",
       "title": "Choosing locally attractive moves (captures, checks, attacks on pawns) while the position demands addressing an immediate tactical vulnerability or maintaining a critical defensive structure.",
       "description": "All 9 positions share a common thread: the player chose a move that appears immediately productive but ignores the position's most urgent requirement. 4/9 moves are material-grabbing captures (Nxd7, exd4, cxb4, Na2+\u2192exchange), 3/9 are piece moves targeting enemy pawns or king (Bh3, Rg1, Rg6), and 2/9 are positional moves ignoring concrete threats (Kb1, c5). In every case, the position demanded something specific and non-obvious\u2014maintaining a blockading piece on a critical square (e5 pawn blocking Nd5 in position 6, bishop on g4 defending f3 in position 2, rook on h6 defending f6 in position 7), addressing immediate king safety (back-rank in position 9, king attack via Rxg2 in position 8), or executing a precise forcing sequence (Ra1+ in position 10). The average good moves available was only 1.7, confirming these are razor-sharp positions requiring precision. 7/9 moves were made by Black. The average cp_loss of 2425 reflects that 3 positions involved missing forced mates entirely.",
       "category": "piece_abandons_defense",

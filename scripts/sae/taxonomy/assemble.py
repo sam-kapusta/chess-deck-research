@@ -64,7 +64,7 @@ def main():
             "n_features": len(features),
             "n_categories": len(vocab["categories"]),
             "n_missing_assignment": len(missing),
-            "source": "rebuild 2026-05-29 (title->categorize->chip, Claude agents)",
+            "source": "rebuild 2026-05-29 (title->categorize->chip, Sonnet 4.6 on research account)",
             "vocab_source": vocab.get("source", ""),
         },
         "categories": vocab["categories"],
