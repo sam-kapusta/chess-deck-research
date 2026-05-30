@@ -1,0 +1,3998 @@
+{
+ "73": {
+  "subcluster_name": "Piece Abandons Critical Defense",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 73,
+  "size": 16,
+  "feature_ids": [
+   1726,
+   1810,
+   1249,
+   1780,
+   992,
+   1687,
+   357,
+   966,
+   108,
+   6,
+   39,
+   1635,
+   1128,
+   892,
+   1759,
+   1910
+  ]
+ },
+ "89": {
+  "subcluster_name": "Piece Moved to Losing Square",
+  "category": "Hung a Piece",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 89,
+  "size": 6,
+  "feature_ids": [
+   856,
+   1603,
+   2,
+   366,
+   1034,
+   1680
+  ]
+ },
+ "143": {
+  "subcluster_name": "King Ignores Concrete Urgency",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 143,
+  "size": 5,
+  "feature_ids": [
+   1375,
+   5,
+   1162,
+   13,
+   1216
+  ]
+ },
+ "80": {
+  "subcluster_name": "Quiet Move Ignores Forcing Continuation",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 80,
+  "size": 18,
+  "feature_ids": [
+   358,
+   991,
+   1324,
+   1219,
+   842,
+   495,
+   388,
+   1361,
+   1241,
+   91,
+   1598,
+   0,
+   1278,
+   289,
+   417,
+   1686,
+   1492,
+   234
+  ]
+ },
+ "82": {
+  "subcluster_name": "King Safety Instinct Backfires",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 52,
+  "fine_id": 82,
+  "size": 10,
+  "feature_ids": [
+   879,
+   160,
+   7,
+   1857,
+   1955,
+   750,
+   1769,
+   566,
+   1754,
+   78
+  ]
+ },
+ "88": {
+  "subcluster_name": "Quiet Move Ignores Winning Tactic",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 88,
+  "size": 6,
+  "feature_ids": [
+   105,
+   1101,
+   1960,
+   1992,
+   1211,
+   3
+  ]
+ },
+ "40": {
+  "subcluster_name": "Ignored Free Capture Available",
+  "category": "Missed a Capture",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 40,
+  "size": 12,
+  "feature_ids": [
+   1141,
+   686,
+   56,
+   944,
+   1732,
+   1545,
+   896,
+   23,
+   337,
+   806,
+   493,
+   1
+  ]
+ },
+ "6": {
+  "subcluster_name": "King Walks Into Mating Net",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 6,
+  "size": 17,
+  "feature_ids": [
+   593,
+   134,
+   17,
+   1852,
+   4,
+   1172,
+   975,
+   308,
+   1665,
+   819,
+   104,
+   737,
+   755,
+   1781,
+   1156,
+   319,
+   1957
+  ]
+ },
+ "79": {
+  "subcluster_name": "Pawn Push Wastes Critical Tempo",
+  "category": "Missed a Defensive Resource",
+  "is_new_category": false,
+  "confidence": 52,
+  "fine_id": 79,
+  "size": 12,
+  "feature_ids": [
+   309,
+   1592,
+   117,
+   1271,
+   304,
+   649,
+   1951,
+   1100,
+   1529,
+   8,
+   756,
+   1847
+  ]
+ },
+ "76": {
+  "subcluster_name": "Passive Retreat to Board Edge",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 76,
+  "size": 11,
+  "feature_ids": [
+   679,
+   560,
+   813,
+   974,
+   12,
+   1570,
+   193,
+   491,
+   436,
+   1079,
+   837
+  ]
+ },
+ "32": {
+  "subcluster_name": "Piece Lands on Attacked Square",
+  "category": "Hung a Piece",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 32,
+  "size": 19,
+  "feature_ids": [
+   533,
+   1940,
+   714,
+   1747,
+   606,
+   602,
+   719,
+   1009,
+   1818,
+   10,
+   943,
+   1774,
+   295,
+   311,
+   1631,
+   1406,
+   1362,
+   664,
+   443
+  ]
+ },
+ "103": {
+  "subcluster_name": "Quiet Move Ignores Free Material",
+  "category": "Missed a Capture",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 103,
+  "size": 9,
+  "feature_ids": [
+   1468,
+   2001,
+   9,
+   1656,
+   1773,
+   1479,
+   413,
+   1226,
+   692
+  ]
+ },
+ "19": {
+  "subcluster_name": "Quiet Move Ignores Forcing Strike",
+  "category": "Missed a Capture",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 19,
+  "size": 11,
+  "feature_ids": [
+   1289,
+   1521,
+   516,
+   765,
+   11,
+   959,
+   1662,
+   466,
+   213,
+   1539,
+   1802
+  ]
+ },
+ "187": {
+  "subcluster_name": "Greedy Capture Loses Advantage",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 90,
+  "fine_id": 187,
+  "size": 11,
+  "feature_ids": [
+   1578,
+   1005,
+   15,
+   800,
+   1630,
+   905,
+   1466,
+   1698,
+   63,
+   251,
+   1287
+  ]
+ },
+ "54": {
+  "subcluster_name": "Quiet Move Ignores Forcing Tactic",
+  "category": "Missed a Capture",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 54,
+  "size": 26,
+  "feature_ids": [
+   1988,
+   14,
+   293,
+   1371,
+   695,
+   291,
+   795,
+   799,
+   1069,
+   314,
+   622,
+   1363,
+   635,
+   564,
+   1764,
+   1918,
+   1126,
+   1812,
+   1663,
+   1250,
+   82,
+   27,
+   164,
+   1229,
+   1537,
+   92
+  ]
+ },
+ "56": {
+  "subcluster_name": "Quiet Move Ignores Forcing Capture",
+  "category": "Missed a Capture",
+  "is_new_category": false,
+  "confidence": 85,
+  "fine_id": 56,
+  "size": 11,
+  "feature_ids": [
+   1075,
+   1142,
+   16,
+   1490,
+   902,
+   614,
+   1394,
+   371,
+   916,
+   1907,
+   1729
+  ]
+ },
+ "17": {
+  "subcluster_name": "Piece Vacates Critical Defense",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 17,
+  "size": 14,
+  "feature_ids": [
+   870,
+   1450,
+   869,
+   1825,
+   739,
+   633,
+   60,
+   102,
+   1153,
+   1858,
+   1304,
+   685,
+   20,
+   675
+  ]
+ },
+ "25": {
+  "subcluster_name": "Passive Move Wastes Critical Tempo",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 25,
+  "size": 16,
+  "feature_ids": [
+   21,
+   65,
+   1513,
+   1024,
+   331,
+   1815,
+   77,
+   722,
+   1288,
+   258,
+   1048,
+   1111,
+   458,
+   376,
+   1690,
+   1588
+  ]
+ },
+ "178": {
+  "subcluster_name": "Quiet Pawn Push Misses Forcing Move",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 178,
+  "size": 8,
+  "feature_ids": [
+   982,
+   815,
+   172,
+   22,
+   171,
+   464,
+   1447,
+   1942
+  ]
+ },
+ "81": {
+  "subcluster_name": "Quiet Pawn Move Missed Forcing Win",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 81,
+  "size": 10,
+  "feature_ids": [
+   1346,
+   908,
+   520,
+   1494,
+   485,
+   346,
+   19,
+   326,
+   629,
+   740
+  ]
+ },
+ "96": {
+  "subcluster_name": "Flank Pawn Push Ignores Crisis",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 96,
+  "size": 14,
+  "feature_ids": [
+   359,
+   1035,
+   135,
+   1399,
+   1473,
+   1807,
+   1652,
+   1299,
+   1820,
+   783,
+   25,
+   203,
+   1040,
+   2007
+  ]
+ },
+ "53": {
+  "subcluster_name": "Quiet Move Squanders Forcing Initiative",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 53,
+  "size": 16,
+  "feature_ids": [
+   1613,
+   1546,
+   814,
+   176,
+   364,
+   1166,
+   245,
+   976,
+   177,
+   770,
+   24,
+   1783,
+   1327,
+   889,
+   320,
+   802
+  ]
+ },
+ "198": {
+  "subcluster_name": "Piece Lands on Hanging Square",
+  "category": "Hung a Piece",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 198,
+  "size": 11,
+  "feature_ids": [
+   34,
+   1776,
+   131,
+   61,
+   26,
+   1970,
+   1313,
+   1353,
+   645,
+   214,
+   114
+  ]
+ },
+ "157": {
+  "subcluster_name": "King and Pawn Endgame Missteps",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 157,
+  "size": 13,
+  "feature_ids": [
+   365,
+   18,
+   35,
+   903,
+   918,
+   683,
+   517,
+   1483,
+   1615,
+   99,
+   1131,
+   220,
+   1838
+  ]
+ },
+ "128": {
+  "subcluster_name": "King Walks Into Mating Net",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 128,
+  "size": 7,
+  "feature_ids": [
+   1848,
+   28,
+   1711,
+   859,
+   786,
+   1700,
+   1318
+  ]
+ },
+ "78": {
+  "subcluster_name": "Prophylactic Pawn Over Forcing Move",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 78,
+  "size": 7,
+  "feature_ids": [
+   1870,
+   452,
+   30,
+   932,
+   1183,
+   1155,
+   239
+  ]
+ },
+ "170": {
+  "subcluster_name": "Unsound Greek Gift Sacrifice",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 170,
+  "size": 6,
+  "feature_ids": [
+   31,
+   1036,
+   804,
+   1968,
+   641,
+   847
+  ]
+ },
+ "134": {
+  "subcluster_name": "Premature Rook Lift Abandons Post",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 134,
+  "size": 10,
+  "feature_ids": [
+   33,
+   718,
+   98,
+   623,
+   710,
+   1619,
+   876,
+   676,
+   1425,
+   911
+  ]
+ },
+ "85": {
+  "subcluster_name": "Passive Edge Moves Waste Tempo",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 85,
+  "size": 7,
+  "feature_ids": [
+   673,
+   253,
+   510,
+   1655,
+   32,
+   608,
+   523
+  ]
+ },
+ "14": {
+  "subcluster_name": "Forcing Move Misses Better Attack",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 14,
+  "size": 8,
+  "feature_ids": [
+   1366,
+   36,
+   1347,
+   279,
+   706,
+   1980,
+   1413,
+   828
+  ]
+ },
+ "179": {
+  "subcluster_name": "King Misplaced in Endgame",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 179,
+  "size": 10,
+  "feature_ids": [
+   874,
+   1649,
+   348,
+   1136,
+   216,
+   29,
+   895,
+   420,
+   1978,
+   1967
+  ]
+ },
+ "21": {
+  "subcluster_name": "Passive Move Ignores Forcing Tactic",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 21,
+  "size": 14,
+  "feature_ids": [
+   37,
+   1435,
+   1814,
+   1880,
+   1714,
+   1078,
+   1470,
+   542,
+   711,
+   489,
+   1210,
+   1771,
+   1597,
+   652
+  ]
+ },
+ "33": {
+  "subcluster_name": "Premature Repositioning Ignores Urgency",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 52,
+  "fine_id": 33,
+  "size": 11,
+  "feature_ids": [
+   1444,
+   1723,
+   1694,
+   64,
+   38,
+   583,
+   1294,
+   1800,
+   1678,
+   248,
+   113
+  ]
+ },
+ "3": {
+  "subcluster_name": "Forcing Move Abandons Critical Post",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 3,
+  "size": 15,
+  "feature_ids": [
+   1724,
+   576,
+   1088,
+   1417,
+   347,
+   467,
+   368,
+   949,
+   930,
+   1576,
+   487,
+   835,
+   363,
+   40,
+   585
+  ]
+ },
+ "74": {
+  "subcluster_name": "King Moved Into Tactical Danger",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 97,
+  "fine_id": 74,
+  "size": 10,
+  "feature_ids": [
+   169,
+   1505,
+   985,
+   42,
+   628,
+   1607,
+   288,
+   1084,
+   159,
+   1386
+  ]
+ },
+ "162": {
+  "subcluster_name": "Quiet Piece Move Ignores Tactics",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 162,
+  "size": 9,
+  "feature_ids": [
+   1068,
+   187,
+   1008,
+   654,
+   1889,
+   1661,
+   1262,
+   41,
+   1938
+  ]
+ },
+ "57": {
+  "subcluster_name": "Capture Abandons Critical Defender",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 57,
+  "size": 11,
+  "feature_ids": [
+   492,
+   840,
+   637,
+   269,
+   575,
+   1763,
+   1232,
+   1925,
+   45,
+   427,
+   1591
+  ]
+ },
+ "107": {
+  "subcluster_name": "Quiet Move Ignores Forcing Tactic",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 107,
+  "size": 7,
+  "feature_ids": [
+   1014,
+   1053,
+   1961,
+   1176,
+   43,
+   1767,
+   1650
+  ]
+ },
+ "83": {
+  "subcluster_name": "Quiet Move Ignores Forcing Reply",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 83,
+  "size": 13,
+  "feature_ids": [
+   1696,
+   735,
+   605,
+   957,
+   773,
+   282,
+   705,
+   1409,
+   925,
+   653,
+   1719,
+   44,
+   349
+  ]
+ },
+ "100": {
+  "subcluster_name": "Quiet Move Missed Forcing Win",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 100,
+  "size": 12,
+  "feature_ids": [
+   465,
+   205,
+   1449,
+   1151,
+   1203,
+   167,
+   1134,
+   1030,
+   677,
+   328,
+   1701,
+   46
+  ]
+ },
+ "7": {
+  "subcluster_name": "Ignored Threat, Improved Piece",
+  "category": "Missed a Defensive Resource",
+  "is_new_category": false,
+  "confidence": 62,
+  "fine_id": 7,
+  "size": 10,
+  "feature_ids": [
+   290,
+   1123,
+   47,
+   1298,
+   1559,
+   1532,
+   1547,
+   643,
+   1640,
+   1115
+  ]
+ },
+ "169": {
+  "subcluster_name": "Move Creates King Vulnerability",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 169,
+  "size": 9,
+  "feature_ids": [
+   1381,
+   48,
+   929,
+   789,
+   733,
+   1487,
+   1429,
+   1563,
+   1209
+  ]
+ },
+ "44": {
+  "subcluster_name": "Piece Vacates Critical Post",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 44,
+  "size": 16,
+  "feature_ids": [
+   90,
+   49,
+   454,
+   922,
+   1664,
+   716,
+   335,
+   1668,
+   1518,
+   687,
+   1753,
+   865,
+   69,
+   233,
+   682,
+   378
+  ]
+ },
+ "180": {
+  "subcluster_name": "Rook Activity Over Forcing Move",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 180,
+  "size": 6,
+  "feature_ids": [
+   1741,
+   1170,
+   1833,
+   1544,
+   1958,
+   52
+  ]
+ },
+ "72": {
+  "subcluster_name": "Passive Move Ignores Urgency",
+  "category": "Missed a Defensive Resource",
+  "is_new_category": false,
+  "confidence": 52,
+  "fine_id": 72,
+  "size": 9,
+  "feature_ids": [
+   942,
+   84,
+   615,
+   513,
+   1109,
+   50,
+   189,
+   256,
+   156
+  ]
+ },
+ "29": {
+  "subcluster_name": "Trades Away Dominant Piece",
+  "category": "Bad Trade or Simplification",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 29,
+  "size": 8,
+  "feature_ids": [
+   1290,
+   1621,
+   1840,
+   1372,
+   1516,
+   631,
+   580,
+   51
+  ]
+ },
+ "173": {
+  "subcluster_name": "Mishandled Passed Pawn Promotion",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 173,
+  "size": 8,
+  "feature_ids": [
+   503,
+   1779,
+   1919,
+   1200,
+   1344,
+   53,
+   594,
+   958
+  ]
+ },
+ "95": {
+  "subcluster_name": "Pawn Push Over Forcing Move",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 95,
+  "size": 12,
+  "feature_ids": [
+   767,
+   1675,
+   717,
+   638,
+   54,
+   970,
+   1065,
+   1585,
+   1525,
+   224,
+   1205,
+   1188
+  ]
+ },
+ "68": {
+  "subcluster_name": "Quiet Pawn Ignores Forcing Attack",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 68,
+  "size": 8,
+  "feature_ids": [
+   94,
+   1252,
+   1067,
+   556,
+   55,
+   1033,
+   1442,
+   731
+  ]
+ },
+ "1": {
+  "subcluster_name": "Quiet Move Wastes Decisive Tempo",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 1,
+  "size": 9,
+  "feature_ids": [
+   875,
+   302,
+   838,
+   1562,
+   1902,
+   525,
+   57,
+   611,
+   1677
+  ]
+ },
+ "16": {
+  "subcluster_name": "Quiet Move Ignores Forcing Reply",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 16,
+  "size": 24,
+  "feature_ids": [
+   1225,
+   226,
+   1095,
+   1506,
+   1403,
+   109,
+   1986,
+   141,
+   570,
+   1388,
+   1710,
+   584,
+   1932,
+   1695,
+   158,
+   58,
+   389,
+   1448,
+   745,
+   1929,
+   672,
+   370,
+   201,
+   630
+  ]
+ },
+ "38": {
+  "subcluster_name": "Capture Trades Into Worse Position",
+  "category": "Bad Trade or Simplification",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 38,
+  "size": 12,
+  "feature_ids": [
+   223,
+   873,
+   212,
+   406,
+   1831,
+   1282,
+   1357,
+   1247,
+   1891,
+   1106,
+   476,
+   62
+  ]
+ },
+ "120": {
+  "subcluster_name": "Greedy Capture Invites Recapture",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 120,
+  "size": 6,
+  "feature_ids": [
+   1323,
+   1433,
+   586,
+   255,
+   59,
+   1039
+  ]
+ },
+ "168": {
+  "subcluster_name": "Rook or King Misplaced Near Promotion",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 168,
+  "size": 5,
+  "feature_ids": [
+   1853,
+   67,
+   129,
+   422,
+   777
+  ]
+ },
+ "141": {
+  "subcluster_name": "Passive Retreat Abandons Key Post",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 52,
+  "fine_id": 141,
+  "size": 8,
+  "feature_ids": [
+   1646,
+   181,
+   579,
+   441,
+   1706,
+   1283,
+   1462,
+   66
+  ]
+ },
+ "97": {
+  "subcluster_name": "Quiet Move Misses Forcing Line",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 97,
+  "size": 12,
+  "feature_ids": [
+   1186,
+   1574,
+   377,
+   1499,
+   1766,
+   741,
+   68,
+   1222,
+   1673,
+   412,
+   1684,
+   1762
+  ]
+ },
+ "11": {
+  "subcluster_name": "Quiet Move Ignores Free Capture",
+  "category": "Missed a Capture",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 11,
+  "size": 17,
+  "feature_ids": [
+   70,
+   1633,
+   1526,
+   1001,
+   924,
+   1788,
+   1339,
+   1508,
+   784,
+   227,
+   260,
+   500,
+   1108,
+   1869,
+   851,
+   721,
+   86
+  ]
+ },
+ "91": {
+  "subcluster_name": "King Move Wastes Vital Tempo",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 52,
+  "fine_id": 91,
+  "size": 8,
+  "feature_ids": [
+   334,
+   71,
+   1689,
+   550,
+   1683,
+   977,
+   1424,
+   76
+  ]
+ },
+ "110": {
+  "subcluster_name": "Blocked Own Diagonal Attacker",
+  "category": "Walked Into a Tactic",
+  "is_new_category": false,
+  "confidence": 62,
+  "fine_id": 110,
+  "size": 8,
+  "feature_ids": [
+   1082,
+   1863,
+   72,
+   275,
+   455,
+   845,
+   691,
+   1427
+  ]
+ },
+ "59": {
+  "subcluster_name": "Greedy Pawn Grabs Backfire",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 59,
+  "size": 10,
+  "feature_ids": [
+   1230,
+   1437,
+   1152,
+   1471,
+   73,
+   100,
+   1356,
+   154,
+   277,
+   1624
+  ]
+ },
+ "2": {
+  "subcluster_name": "Pawn Advance Weakens King Shelter",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 62,
+  "fine_id": 2,
+  "size": 8,
+  "feature_ids": [
+   1674,
+   74,
+   742,
+   1116,
+   1451,
+   1972,
+   344,
+   1945
+  ]
+ },
+ "113": {
+  "subcluster_name": "Quiet Move Ignores Forcing Tactic",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 113,
+  "size": 10,
+  "feature_ids": [
+   361,
+   75,
+   1868,
+   681,
+   1369,
+   1979,
+   1804,
+   521,
+   257,
+   1772
+  ]
+ },
+ "101": {
+  "subcluster_name": "Passive Rook Move Ignores Urgency",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 101,
+  "size": 11,
+  "feature_ids": [
+   225,
+   80,
+   1469,
+   440,
+   1007,
+   1328,
+   323,
+   697,
+   1514,
+   670,
+   1080
+  ]
+ },
+ "31": {
+  "subcluster_name": "Knight Leaps Off Defensive Duty",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 31,
+  "size": 19,
+  "feature_ids": [
+   307,
+   1511,
+   1731,
+   999,
+   1076,
+   1914,
+   1359,
+   407,
+   318,
+   822,
+   435,
+   805,
+   1722,
+   1438,
+   900,
+   1836,
+   81,
+   888,
+   1303
+  ]
+ },
+ "0": {
+  "subcluster_name": "Pawn Push Ignores Urgent Priority",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 52,
+  "fine_id": 0,
+  "size": 13,
+  "feature_ids": [
+   1349,
+   866,
+   1441,
+   270,
+   1096,
+   1071,
+   1667,
+   242,
+   572,
+   101,
+   410,
+   79,
+   1692
+  ]
+ },
+ "114": {
+  "subcluster_name": "Quiet Move Ignores Forcing Continuation",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 85,
+  "fine_id": 114,
+  "size": 8,
+  "feature_ids": [
+   1828,
+   210,
+   83,
+   535,
+   1102,
+   1873,
+   1267,
+   658
+  ]
+ },
+ "22": {
+  "subcluster_name": "Endgame Piece Misplacement Loss",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 22,
+  "size": 18,
+  "feature_ids": [
+   1338,
+   1110,
+   1341,
+   88,
+   1709,
+   355,
+   345,
+   1276,
+   85,
+   1935,
+   111,
+   1385,
+   558,
+   317,
+   236,
+   626,
+   1718,
+   1770
+  ]
+ },
+ "108": {
+  "subcluster_name": "King Advances Into Danger",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 108,
+  "size": 8,
+  "feature_ids": [
+   1280,
+   1504,
+   87,
+   1589,
+   1253,
+   1402,
+   1645,
+   1954
+  ]
+ },
+ "34": {
+  "subcluster_name": "Quiet Move Missed Forcing Blow",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 88,
+  "fine_id": 34,
+  "size": 11,
+  "feature_ids": [
+   1844,
+   1822,
+   1018,
+   89,
+   794,
+   696,
+   1138,
+   1538,
+   1233,
+   219,
+   1528
+  ]
+ },
+ "13": {
+  "subcluster_name": "Capture Opens King File",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 13,
+  "size": 23,
+  "feature_ids": [
+   95,
+   552,
+   1484,
+   1337,
+   1617,
+   734,
+   1509,
+   858,
+   1308,
+   1699,
+   829,
+   1916,
+   197,
+   891,
+   1666,
+   1777,
+   1883,
+   1543,
+   1707,
+   1748,
+   1237,
+   1293,
+   578
+  ]
+ },
+ "50": {
+  "subcluster_name": "Quiet Move Misses Free Capture",
+  "category": "Missed a Capture",
+  "is_new_category": false,
+  "confidence": 97,
+  "fine_id": 50,
+  "size": 17,
+  "feature_ids": [
+   281,
+   1994,
+   698,
+   668,
+   1482,
+   980,
+   96,
+   1965,
+   1291,
+   1297,
+   790,
+   284,
+   1962,
+   701,
+   333,
+   163,
+   353
+  ]
+ },
+ "62": {
+  "subcluster_name": "Moved Piece to Attacked Square",
+  "category": "Hung a Piece",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 62,
+  "size": 5,
+  "feature_ids": [
+   97,
+   238,
+   1736,
+   690,
+   937
+  ]
+ },
+ "60": {
+  "subcluster_name": "Rook Drifts During Forcing Sequence",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 60,
+  "size": 11,
+  "feature_ids": [
+   505,
+   1243,
+   1681,
+   1569,
+   421,
+   1459,
+   577,
+   1228,
+   596,
+   103,
+   211
+  ]
+ },
+ "139": {
+  "subcluster_name": "Fianchetto While Tactics Burn",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 90,
+  "fine_id": 139,
+  "size": 5,
+  "feature_ids": [
+   132,
+   146,
+   1620,
+   1175,
+   106
+  ]
+ },
+ "140": {
+  "subcluster_name": "Quiet Move Misses Forcing Sequence",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 140,
+  "size": 12,
+  "feature_ids": [
+   1903,
+   1861,
+   843,
+   231,
+   107,
+   1306,
+   313,
+   267,
+   834,
+   1103,
+   759,
+   1745
+  ]
+ },
+ "121": {
+  "subcluster_name": "Quiet Pawn Move Misses Forcing Play",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 121,
+  "size": 3,
+  "feature_ids": [
+   1234,
+   729,
+   93
+  ]
+ },
+ "175": {
+  "subcluster_name": "Quiet Move Ignores Urgent Threat",
+  "category": "Missed a Defensive Resource",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 175,
+  "size": 10,
+  "feature_ids": [
+   538,
+   110,
+   1139,
+   1909,
+   785,
+   846,
+   1416,
+   524,
+   1743,
+   1843
+  ]
+ },
+ "125": {
+  "subcluster_name": "King and Rook Misplacement Blunders",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 125,
+  "size": 6,
+  "feature_ids": [
+   544,
+   650,
+   112,
+   1950,
+   1911,
+   207
+  ]
+ },
+ "94": {
+  "subcluster_name": "Knight Move Triggers Fork Vulnerability",
+  "category": "Walked Into a Tactic",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 94,
+  "size": 14,
+  "feature_ids": [
+   1160,
+   115,
+   1121,
+   618,
+   1558,
+   1551,
+   1137,
+   1555,
+   1875,
+   1639,
+   519,
+   1658,
+   484,
+   962
+  ]
+ },
+ "45": {
+  "subcluster_name": "Moved Piece Off Defensive Duty",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 97,
+  "fine_id": 45,
+  "size": 19,
+  "feature_ids": [
+   1549,
+   118,
+   1949,
+   1044,
+   342,
+   849,
+   1928,
+   995,
+   1481,
+   1757,
+   1682,
+   1806,
+   600,
+   917,
+   907,
+   1307,
+   138,
+   1572,
+   152
+  ]
+ },
+ "151": {
+  "subcluster_name": "Greedy Central Capture Backfires",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 85,
+  "fine_id": 151,
+  "size": 12,
+  "feature_ids": [
+   1676,
+   1614,
+   1081,
+   119,
+   1107,
+   662,
+   651,
+   910,
+   1495,
+   1900,
+   986,
+   531
+  ]
+ },
+ "90": {
+  "subcluster_name": "Routine Centralization Misses Forcing Move",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 62,
+  "fine_id": 90,
+  "size": 8,
+  "feature_ids": [
+   1937,
+   993,
+   551,
+   1531,
+   707,
+   1977,
+   120,
+   1519
+  ]
+ },
+ "145": {
+  "subcluster_name": "Castled Over Decisive Tactics",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 145,
+  "size": 7,
+  "feature_ids": [
+   994,
+   1906,
+   395,
+   807,
+   208,
+   1989,
+   121
+  ]
+ },
+ "8": {
+  "subcluster_name": "Aggressive Move Invites Refutation",
+  "category": "Walked Into a Tactic",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 8,
+  "size": 19,
+  "feature_ids": [
+   1401,
+   504,
+   509,
+   702,
+   287,
+   123,
+   1062,
+   332,
+   862,
+   1265,
+   527,
+   362,
+   478,
+   1202,
+   926,
+   1434,
+   1587,
+   1939,
+   499
+  ]
+ },
+ "61": {
+  "subcluster_name": "Piece Abandons Critical Post",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 88,
+  "fine_id": 61,
+  "size": 17,
+  "feature_ids": [
+   322,
+   116,
+   501,
+   1177,
+   496,
+   1326,
+   667,
+   235,
+   1760,
+   1077,
+   1094,
+   1575,
+   1376,
+   1755,
+   684,
+   749,
+   559
+  ]
+ },
+ "116": {
+  "subcluster_name": "Piece Lands on Attacked Square",
+  "category": "Hung a Piece",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 116,
+  "size": 17,
+  "feature_ids": [
+   480,
+   1194,
+   1391,
+   920,
+   946,
+   1912,
+   122,
+   444,
+   250,
+   899,
+   1045,
+   1778,
+   797,
+   222,
+   1187,
+   408,
+   1517
+  ]
+ },
+ "135": {
+  "subcluster_name": "Piece Lands on Capturable Square",
+  "category": "Hung a Piece",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 135,
+  "size": 5,
+  "feature_ids": [
+   1794,
+   124,
+   1548,
+   607,
+   506
+  ]
+ },
+ "93": {
+  "subcluster_name": "Tempting Distraction Misses Priority",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 93,
+  "size": 10,
+  "feature_ids": [
+   827,
+   1117,
+   935,
+   148,
+   886,
+   1801,
+   1882,
+   1647,
+   125,
+   1566
+  ]
+ },
+ "109": {
+  "subcluster_name": "Rook/Knight Abandons Critical File",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 85,
+  "fine_id": 109,
+  "size": 5,
+  "feature_ids": [
+   1380,
+   901,
+   391,
+   832,
+   127
+  ]
+ },
+ "199": {
+  "subcluster_name": "Rook Abandons Back Rank Defense",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 97,
+  "fine_id": 199,
+  "size": 6,
+  "feature_ids": [
+   1924,
+   1934,
+   1765,
+   1460,
+   1352,
+   126
+  ]
+ },
+ "67": {
+  "subcluster_name": "Pawn Push Weakens King Shelter",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 62,
+  "fine_id": 67,
+  "size": 8,
+  "feature_ids": [
+   241,
+   736,
+   1060,
+   884,
+   263,
+   128,
+   1426,
+   1272
+  ]
+ },
+ "186": {
+  "subcluster_name": "Move Delays King Escape",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 186,
+  "size": 7,
+  "feature_ids": [
+   1000,
+   1367,
+   1573,
+   133,
+   403,
+   1305,
+   1127
+  ]
+ },
+ "27": {
+  "subcluster_name": "Move Leaves Piece Hanging",
+  "category": "Hung a Piece",
+  "is_new_category": false,
+  "confidence": 97,
+  "fine_id": 27,
+  "size": 15,
+  "feature_ids": [
+   1702,
+   554,
+   1397,
+   1316,
+   1983,
+   864,
+   526,
+   1648,
+   1174,
+   609,
+   621,
+   568,
+   130,
+   1420,
+   481
+  ]
+ },
+ "148": {
+  "subcluster_name": "Greedy Capture Misses Priority",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 97,
+  "fine_id": 148,
+  "size": 10,
+  "feature_ids": [
+   1333,
+   1605,
+   1227,
+   460,
+   1118,
+   230,
+   461,
+   1199,
+   1255,
+   136
+  ]
+ },
+ "149": {
+  "subcluster_name": "f-pawn exposes king diagonal",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 149,
+  "size": 6,
+  "feature_ids": [
+   744,
+   1309,
+   1159,
+   1184,
+   536,
+   139
+  ]
+ },
+ "192": {
+  "subcluster_name": "King Moves Into Fork Square",
+  "category": "Walked Into a Tactic",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 192,
+  "size": 9,
+  "feature_ids": [
+   409,
+   1659,
+   137,
+   1534,
+   140,
+   1846,
+   350,
+   680,
+   451
+  ]
+ },
+ "184": {
+  "subcluster_name": "King Walk Into Mating Net",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 184,
+  "size": 5,
+  "feature_ids": [
+   1089,
+   821,
+   142,
+   1259,
+   1190
+  ]
+ },
+ "42": {
+  "subcluster_name": "Premature Pawn Push Over Urgency",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 62,
+  "fine_id": 42,
+  "size": 8,
+  "feature_ids": [
+   143,
+   987,
+   1500,
+   195,
+   848,
+   1523,
+   1006,
+   984
+  ]
+ },
+ "152": {
+  "subcluster_name": "Passive King Loses Endgame",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 97,
+  "fine_id": 152,
+  "size": 10,
+  "feature_ids": [
+   382,
+   424,
+   938,
+   387,
+   1892,
+   145,
+   1837,
+   1535,
+   808,
+   1557
+  ]
+ },
+ "164": {
+  "subcluster_name": "Premature or Mistimed Pawn Promotion",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 88,
+  "fine_id": 164,
+  "size": 9,
+  "feature_ids": [
+   1890,
+   1964,
+   144,
+   1146,
+   415,
+   1392,
+   1480,
+   624,
+   981
+  ]
+ },
+ "5": {
+  "subcluster_name": "Move Leaves Piece Undefended",
+  "category": "Hung a Piece",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 5,
+  "size": 15,
+  "feature_ids": [
+   1046,
+   1415,
+   1270,
+   1981,
+   1002,
+   1214,
+   1510,
+   601,
+   149,
+   1740,
+   850,
+   1452,
+   147,
+   1542,
+   1165
+  ]
+ },
+ "70": {
+  "subcluster_name": "Greedy Capture Loses Piece",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 70,
+  "size": 9,
+  "feature_ids": [
+   336,
+   150,
+   855,
+   1147,
+   474,
+   617,
+   1809,
+   414,
+   1564
+  ]
+ },
+ "138": {
+  "subcluster_name": "Pawn Exchange Creates Passed Pawn",
+  "category": "Bad Trade or Simplification",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 138,
+  "size": 6,
+  "feature_ids": [
+   265,
+   1908,
+   1735,
+   153,
+   1023,
+   1730
+  ]
+ },
+ "9": {
+  "subcluster_name": "Piece Banished to Rim",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 9,
+  "size": 15,
+  "feature_ids": [
+   221,
+   1019,
+   1595,
+   1461,
+   894,
+   1028,
+   442,
+   1971,
+   1550,
+   545,
+   151,
+   1412,
+   1052,
+   490,
+   1379
+  ]
+ },
+ "49": {
+  "subcluster_name": "Defender Abandons Critical Post",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 96,
+  "fine_id": 49,
+  "size": 15,
+  "feature_ids": [
+   1507,
+   1016,
+   1627,
+   1784,
+   1944,
+   1017,
+   1522,
+   1984,
+   803,
+   155,
+   1032,
+   620,
+   1003,
+   1320,
+   1383
+  ]
+ },
+ "23": {
+  "subcluster_name": "Pawn Advance Weakens King Shelter",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 23,
+  "size": 14,
+  "feature_ids": [
+   1808,
+   1867,
+   161,
+   1396,
+   1637,
+   375,
+   728,
+   634,
+   769,
+   1805,
+   1064,
+   590,
+   1246,
+   1927
+  ]
+ },
+ "189": {
+  "subcluster_name": "Quiet Pawn Push Missed Forcing Move",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 85,
+  "fine_id": 189,
+  "size": 7,
+  "feature_ids": [
+   324,
+   1520,
+   1422,
+   200,
+   162,
+   1022,
+   1756
+  ]
+ },
+ "4": {
+  "subcluster_name": "Moved Piece Off Defensive Duty",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 4,
+  "size": 24,
+  "feature_ids": [
+   904,
+   1314,
+   165,
+   1154,
+   955,
+   1087,
+   514,
+   1821,
+   1208,
+   1688,
+   979,
+   663,
+   1792,
+   1823,
+   774,
+   1811,
+   1421,
+   1976,
+   1051,
+   1343,
+   927,
+   854,
+   1238,
+   1931
+  ]
+ },
+ "98": {
+  "subcluster_name": "Capture Abandons Critical Defender",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 98,
+  "size": 12,
+  "feature_ids": [
+   1923,
+   1185,
+   157,
+   1317,
+   1273,
+   199,
+   1920,
+   1263,
+   778,
+   469,
+   1472,
+   497
+  ]
+ },
+ "46": {
+  "subcluster_name": "Passive Retreat Abandons Defense",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 46,
+  "size": 23,
+  "feature_ids": [
+   947,
+   1721,
+   1180,
+   569,
+   1933,
+   1042,
+   202,
+   983,
+   632,
+   1797,
+   1582,
+   1733,
+   1612,
+   1395,
+   1670,
+   1501,
+   1973,
+   1493,
+   1436,
+   168,
+   1091,
+   1377,
+   868
+  ]
+ },
+ "55": {
+  "subcluster_name": "Moved Piece to Attacked Square",
+  "category": "Hung a Piece",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 55,
+  "size": 28,
+  "feature_ids": [
+   1997,
+   678,
+   405,
+   1758,
+   757,
+   1360,
+   1244,
+   1586,
+   1643,
+   232,
+   1428,
+   249,
+   1275,
+   463,
+   1351,
+   1093,
+   646,
+   557,
+   1827,
+   173,
+   190,
+   1135,
+   1985,
+   1059,
+   1181,
+   1898,
+   978,
+   1713
+  ]
+ },
+ "147": {
+  "subcluster_name": "Piece Abandons Critical Post",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 147,
+  "size": 12,
+  "feature_ids": [
+   909,
+   1886,
+   801,
+   953,
+   170,
+   1173,
+   1796,
+   1405,
+   1340,
+   1999,
+   1378,
+   1775
+  ]
+ },
+ "51": {
+  "subcluster_name": "Abandoned Critical Defensive Duty",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 51,
+  "size": 4,
+  "feature_ids": [
+   321,
+   312,
+   950,
+   175
+  ]
+ },
+ "71": {
+  "subcluster_name": "Greedy Capture Backfires Badly",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 85,
+  "fine_id": 71,
+  "size": 9,
+  "feature_ids": [
+   1727,
+   1070,
+   166,
+   1609,
+   546,
+   857,
+   553,
+   204,
+   192
+  ]
+ },
+ "12": {
+  "subcluster_name": "Quiet Move Ignores Free Capture",
+  "category": "Missed a Capture",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 12,
+  "size": 11,
+  "feature_ids": [
+   528,
+   310,
+   174,
+   411,
+   1871,
+   272,
+   446,
+   1943,
+   1256,
+   196,
+   1322
+  ]
+ },
+ "144": {
+  "subcluster_name": "Quiet Repositioning Ignores Forcing Move",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 144,
+  "size": 22,
+  "feature_ids": [
+   1536,
+   1354,
+   473,
+   671,
+   1876,
+   1248,
+   661,
+   184,
+   730,
+   1556,
+   956,
+   1524,
+   912,
+   1826,
+   179,
+   1742,
+   449,
+   841,
+   515,
+   613,
+   1446,
+   532
+  ]
+ },
+ "126": {
+  "subcluster_name": "Pawn Capture Abandons Defense",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 126,
+  "size": 6,
+  "feature_ids": [
+   914,
+   194,
+   1365,
+   178,
+   1734,
+   639
+  ]
+ },
+ "75": {
+  "subcluster_name": "Passive Move Ignores Forcing Continuation",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 75,
+  "size": 6,
+  "feature_ids": [
+   1941,
+   430,
+   1750,
+   384,
+   666,
+   180
+  ]
+ },
+ "158": {
+  "subcluster_name": "Moved Piece Off Critical Defense",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 158,
+  "size": 7,
+  "feature_ids": [
+   952,
+   1240,
+   1047,
+   1345,
+   182,
+   1167,
+   381
+  ]
+ },
+ "20": {
+  "subcluster_name": "King Moves Worsen Own Safety",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 20,
+  "size": 7,
+  "feature_ids": [
+   1803,
+   185,
+   1679,
+   604,
+   1638,
+   699,
+   1672
+  ]
+ },
+ "52": {
+  "subcluster_name": "Flank Pawn Push Ignores Forcing Move",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 52,
+  "size": 18,
+  "feature_ids": [
+   788,
+   1055,
+   1204,
+   456,
+   1561,
+   183,
+   434,
+   640,
+   960,
+   1133,
+   1737,
+   1947,
+   511,
+   1206,
+   1215,
+   882,
+   852,
+   539
+  ]
+ },
+ "132": {
+  "subcluster_name": "King and Pawn Endgame Misplays",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 98,
+  "fine_id": 132,
+  "size": 15,
+  "feature_ids": [
+   867,
+   1491,
+   1636,
+   839,
+   796,
+   939,
+   709,
+   1414,
+   945,
+   341,
+   1145,
+   416,
+   971,
+   188,
+   1212
+  ]
+ },
+ "30": {
+  "subcluster_name": "Greedy Rim Pawn Grab",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 97,
+  "fine_id": 30,
+  "size": 9,
+  "feature_ids": [
+   1948,
+   1618,
+   1540,
+   1851,
+   247,
+   186,
+   397,
+   1161,
+   508
+  ]
+ },
+ "185": {
+  "subcluster_name": "Rook Restructure Misses Forcing Move",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 85,
+  "fine_id": 185,
+  "size": 6,
+  "feature_ids": [
+   1878,
+   198,
+   1850,
+   972,
+   1443,
+   1072
+  ]
+ },
+ "131": {
+  "subcluster_name": "Useless Check Improves Opponent",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 131,
+  "size": 8,
+  "feature_ids": [
+   191,
+   555,
+   1277,
+   612,
+   1281,
+   715,
+   700,
+   708
+  ]
+ },
+ "35": {
+  "subcluster_name": "Check Improves Enemy King",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 88,
+  "fine_id": 35,
+  "size": 12,
+  "feature_ids": [
+   401,
+   1168,
+   1829,
+   1835,
+   1132,
+   776,
+   1593,
+   1768,
+   547,
+   1894,
+   266,
+   206
+  ]
+ },
+ "47": {
+  "subcluster_name": "Quiet Move Missed Forcing Blow",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 47,
+  "size": 7,
+  "feature_ids": [
+   1601,
+   1261,
+   209,
+   1411,
+   1012,
+   329,
+   906
+  ]
+ },
+ "129": {
+  "subcluster_name": "Passive Move Ignores Free Material",
+  "category": "Missed a Capture",
+  "is_new_category": false,
+  "confidence": 90,
+  "fine_id": 129,
+  "size": 6,
+  "feature_ids": [
+   1782,
+   1474,
+   215,
+   1738,
+   264,
+   1467
+  ]
+ },
+ "195": {
+  "subcluster_name": "Rook/King Abandons Critical Post",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 195,
+  "size": 8,
+  "feature_ids": [
+   1257,
+   758,
+   217,
+   1704,
+   1285,
+   636,
+   246,
+   1342
+  ]
+ },
+ "102": {
+  "subcluster_name": "Premature Queen Check Fails",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 102,
+  "size": 6,
+  "feature_ids": [
+   563,
+   1113,
+   1824,
+   228,
+   1791,
+   1608
+  ]
+ },
+ "136": {
+  "subcluster_name": "Aggressive Piece Move Misses Forced Win",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 136,
+  "size": 6,
+  "feature_ids": [
+   1432,
+   218,
+   919,
+   1020,
+   861,
+   351
+  ]
+ },
+ "28": {
+  "subcluster_name": "Piece Abandons Critical Defense",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 97,
+  "fine_id": 28,
+  "size": 10,
+  "feature_ids": [
+   229,
+   1329,
+   1431,
+   657,
+   597,
+   809,
+   1029,
+   1407,
+   1099,
+   1717
+  ]
+ },
+ "150": {
+  "subcluster_name": "Ignored Adjacent Hanging Piece",
+  "category": "Missed a Capture",
+  "is_new_category": false,
+  "confidence": 97,
+  "fine_id": 150,
+  "size": 7,
+  "feature_ids": [
+   1478,
+   360,
+   883,
+   502,
+   1104,
+   237,
+   591
+  ]
+ },
+ "65": {
+  "subcluster_name": "Quiet Move Squanders Forcing Attack",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 65,
+  "size": 14,
+  "feature_ids": [
+   1370,
+   1904,
+   1149,
+   475,
+   655,
+   1086,
+   431,
+   723,
+   1193,
+   1921,
+   1854,
+   582,
+   240,
+   871
+  ]
+ },
+ "39": {
+  "subcluster_name": "King Safety Neglect Center",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 39,
+  "size": 7,
+  "feature_ids": [
+   1302,
+   1995,
+   1410,
+   1622,
+   1015,
+   244,
+   1268
+  ]
+ },
+ "58": {
+  "subcluster_name": "Passive Move Squanders Winning Initiative",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 88,
+  "fine_id": 58,
+  "size": 11,
+  "feature_ids": [
+   243,
+   1419,
+   787,
+   561,
+   1408,
+   1530,
+   1390,
+   941,
+   459,
+   1382,
+   1715
+  ]
+ },
+ "196": {
+  "subcluster_name": "Move Leaves Piece Hanging",
+  "category": "Hung a Piece",
+  "is_new_category": false,
+  "confidence": 85,
+  "fine_id": 196,
+  "size": 6,
+  "feature_ids": [
+   1284,
+   863,
+   425,
+   1213,
+   616,
+   252
+  ]
+ },
+ "122": {
+  "subcluster_name": "Passive Relocation Ignores Urgency",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 62,
+  "fine_id": 122,
+  "size": 8,
+  "feature_ids": [
+   1021,
+   261,
+   1628,
+   1552,
+   567,
+   398,
+   810,
+   1486
+  ]
+ },
+ "48": {
+  "subcluster_name": "Quiet Move Over Forcing Capture",
+  "category": "Missed a Capture",
+  "is_new_category": false,
+  "confidence": 90,
+  "fine_id": 48,
+  "size": 8,
+  "feature_ids": [
+   518,
+   1749,
+   996,
+   262,
+   1685,
+   468,
+   1098,
+   738
+  ]
+ },
+ "182": {
+  "subcluster_name": "Pointless Pawn Push Over Forcing Move",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 182,
+  "size": 9,
+  "feature_ids": [
+   1011,
+   268,
+   1952,
+   472,
+   374,
+   507,
+   299,
+   1632,
+   1839
+  ]
+ },
+ "63": {
+  "subcluster_name": "Wrong Square, Right Piece",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 63,
+  "size": 14,
+  "feature_ids": [
+   273,
+   921,
+   1454,
+   1953,
+   752,
+   1090,
+   1266,
+   1899,
+   1330,
+   1877,
+   1196,
+   1881,
+   792,
+   603
+  ]
+ },
+ "153": {
+  "subcluster_name": "Moved Piece to Hanging Square",
+  "category": "Hung a Piece",
+  "is_new_category": false,
+  "confidence": 97,
+  "fine_id": 153,
+  "size": 7,
+  "feature_ids": [
+   1579,
+   836,
+   400,
+   727,
+   1581,
+   1129,
+   254
+  ]
+ },
+ "41": {
+  "subcluster_name": "Quiet Move Abandons Critical Duty",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 41,
+  "size": 16,
+  "feature_ids": [
+   271,
+   1182,
+   1195,
+   537,
+   1785,
+   1258,
+   1312,
+   1063,
+   820,
+   1074,
+   367,
+   1604,
+   316,
+   437,
+   1795,
+   1350
+  ]
+ },
+ "37": {
+  "subcluster_name": "Greedy Capture Ignores Consequences",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 37,
+  "size": 17,
+  "feature_ids": [
+   426,
+   1355,
+   1913,
+   746,
+   433,
+   1497,
+   380,
+   1885,
+   259,
+   1331,
+   399,
+   689,
+   428,
+   1037,
+   470,
+   1746,
+   1197
+  ]
+ },
+ "105": {
+  "subcluster_name": "Piece Retreats to Fatal Corner",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 52,
+  "fine_id": 105,
+  "size": 5,
+  "feature_ids": [
+   898,
+   581,
+   844,
+   897,
+   274
+  ]
+ },
+ "124": {
+  "subcluster_name": "Quiet Move Ignores Forcing Shot",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 124,
+  "size": 12,
+  "feature_ids": [
+   913,
+   833,
+   1789,
+   276,
+   1560,
+   1915,
+   1057,
+   1813,
+   732,
+   432,
+   1946,
+   1445
+  ]
+ },
+ "86": {
+  "subcluster_name": "Passive Drift Ignores Forcing Move",
+  "category": "Missed a Capture",
+  "is_new_category": false,
+  "confidence": 62,
+  "fine_id": 86,
+  "size": 13,
+  "feature_ids": [
+   831,
+   1179,
+   1817,
+   826,
+   278,
+   1554,
+   1140,
+   1235,
+   648,
+   791,
+   1164,
+   1720,
+   988
+  ]
+ },
+ "197": {
+  "subcluster_name": "Passive Move Surrenders Initiative",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 197,
+  "size": 4,
+  "feature_ids": [
+   1025,
+   1066,
+   1143,
+   283
+  ]
+ },
+ "24": {
+  "subcluster_name": "Passive Retreat Abandons Winning Attack",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 24,
+  "size": 8,
+  "feature_ids": [
+   1292,
+   534,
+   1223,
+   280,
+   998,
+   305,
+   394,
+   1439
+  ]
+ },
+ "26": {
+  "subcluster_name": "Greedy Rook Ignores Priorities",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 26,
+  "size": 8,
+  "feature_ids": [
+   940,
+   915,
+   285,
+   1922,
+   1158,
+   1485,
+   751,
+   1856
+  ]
+ },
+ "127": {
+  "subcluster_name": "Quiet Move Ignores Forcing Tactic",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 127,
+  "size": 11,
+  "feature_ids": [
+   1092,
+   445,
+   286,
+   1319,
+   1231,
+   764,
+   656,
+   1599,
+   453,
+   1527,
+   1982
+  ]
+ },
+ "36": {
+  "subcluster_name": "Pawn Push Ignores Urgent Crisis",
+  "category": "Missed a Defensive Resource",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 36,
+  "size": 10,
+  "feature_ids": [
+   1859,
+   1010,
+   292,
+   1926,
+   693,
+   1054,
+   1393,
+   1596,
+   1061,
+   1083
+  ]
+ },
+ "133": {
+  "subcluster_name": "Capture Abandons Critical Defense",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 133,
+  "size": 11,
+  "feature_ids": [
+   294,
+   704,
+   1221,
+   1120,
+   1178,
+   498,
+   1896,
+   1013,
+   1816,
+   1703,
+   369
+  ]
+ },
+ "146": {
+  "subcluster_name": "Quiet Move Ignores Forcing Tactics",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 146,
+  "size": 7,
+  "feature_ids": [
+   1050,
+   823,
+   1201,
+   296,
+   385,
+   419,
+   1787
+  ]
+ },
+ "66": {
+  "subcluster_name": "Piece Leaves Critical Defensive Post",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 66,
+  "size": 9,
+  "feature_ids": [
+   352,
+   1708,
+   1936,
+   297,
+   1642,
+   1496,
+   1860,
+   1269,
+   1583
+  ]
+ },
+ "112": {
+  "subcluster_name": "Move Abandons Critical Defender",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 112,
+  "size": 7,
+  "feature_ids": [
+   885,
+   1644,
+   1716,
+   1693,
+   1629,
+   298,
+   1798
+  ]
+ },
+ "43": {
+  "subcluster_name": "Quiet Move Ignores Forcing Continuation",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 88,
+  "fine_id": 43,
+  "size": 12,
+  "feature_ids": [
+   595,
+   512,
+   315,
+   1085,
+   1917,
+   748,
+   1974,
+   300,
+   462,
+   1058,
+   471,
+   483
+  ]
+ },
+ "191": {
+  "subcluster_name": "Passive Development Ignores Forcing Move",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 191,
+  "size": 7,
+  "feature_ids": [
+   327,
+   1752,
+   325,
+   860,
+   1842,
+   599,
+   877
+  ]
+ },
+ "156": {
+  "subcluster_name": "Queen Abandons Defensive Duty",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 156,
+  "size": 6,
+  "feature_ids": [
+   760,
+   418,
+   338,
+   936,
+   1124,
+   1073
+  ]
+ },
+ "130": {
+  "subcluster_name": "Aggressive Lunge Hangs Piece",
+  "category": "Hung a Piece",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 130,
+  "size": 12,
+  "feature_ids": [
+   571,
+   893,
+   1122,
+   330,
+   1845,
+   779,
+   573,
+   1286,
+   1905,
+   1830,
+   1634,
+   1440
+  ]
+ },
+ "10": {
+  "subcluster_name": "King Move Into Tactical Danger",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 10,
+  "size": 9,
+  "feature_ids": [
+   486,
+   548,
+   933,
+   1502,
+   642,
+   816,
+   339,
+   625,
+   781
+  ]
+ },
+ "142": {
+  "subcluster_name": "Quiet Move Missed Forcing Line",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 142,
+  "size": 9,
+  "feature_ids": [
+   1239,
+   587,
+   665,
+   1245,
+   301,
+   1368,
+   1793,
+   306,
+   1819
+  ]
+ },
+ "154": {
+  "subcluster_name": "Passive Move Misses Forcing Win",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 154,
+  "size": 8,
+  "feature_ids": [
+   766,
+   354,
+   688,
+   1725,
+   340,
+   574,
+   1671,
+   1400
+  ]
+ },
+ "92": {
+  "subcluster_name": "Quiet Move Squanders Forcing Tempo",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 92,
+  "size": 17,
+  "feature_ids": [
+   1465,
+   1565,
+   747,
+   720,
+   712,
+   780,
+   373,
+   694,
+   540,
+   1895,
+   1584,
+   494,
+   392,
+   1236,
+   1189,
+   303,
+   743
+  ]
+ },
+ "111": {
+  "subcluster_name": "Knight Abandons Defensive Post",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 111,
+  "size": 10,
+  "feature_ids": [
+   1191,
+   812,
+   1041,
+   1602,
+   1862,
+   423,
+   356,
+   1489,
+   954,
+   1594
+  ]
+ },
+ "188": {
+  "subcluster_name": "Quiet Retreat Misses Forcing Move",
+  "category": "Missed a Capture",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 188,
+  "size": 6,
+  "feature_ids": [
+   1969,
+   1476,
+   477,
+   343,
+   448,
+   1389
+  ]
+ },
+ "165": {
+  "subcluster_name": "Piece Abandons Critical Defensive Duty",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 165,
+  "size": 12,
+  "feature_ids": [
+   1325,
+   1043,
+   1571,
+   775,
+   1130,
+   379,
+   928,
+   1027,
+   1541,
+   592,
+   1311,
+   1251
+  ]
+ },
+ "99": {
+  "subcluster_name": "Capture Triggers Enemy Fork",
+  "category": "Walked Into a Tactic",
+  "is_new_category": false,
+  "confidence": 85,
+  "fine_id": 99,
+  "size": 8,
+  "feature_ids": [
+   1512,
+   383,
+   1335,
+   1049,
+   1669,
+   1150,
+   772,
+   1739
+  ]
+ },
+ "155": {
+  "subcluster_name": "Pawn Push Ignores Urgent Tactics",
+  "category": "Missed a Defensive Resource",
+  "is_new_category": false,
+  "confidence": 62,
+  "fine_id": 155,
+  "size": 6,
+  "feature_ids": [
+   1384,
+   674,
+   782,
+   390,
+   1887,
+   725
+  ]
+ },
+ "172": {
+  "subcluster_name": "Rook to File Misses Forcing Move",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 85,
+  "fine_id": 172,
+  "size": 8,
+  "feature_ids": [
+   1855,
+   644,
+   1207,
+   1488,
+   1026,
+   386,
+   1956,
+   1477
+  ]
+ },
+ "160": {
+  "subcluster_name": "Pawn Advance Over Winning Capture",
+  "category": "Missed a Capture",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 160,
+  "size": 7,
+  "feature_ids": [
+   1198,
+   1254,
+   1315,
+   393,
+   482,
+   1691,
+   951
+  ]
+ },
+ "171": {
+  "subcluster_name": "Premature Passed Pawn Advance",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 95,
+  "fine_id": 171,
+  "size": 2,
+  "feature_ids": [
+   404,
+   1453
+  ]
+ },
+ "84": {
+  "subcluster_name": "King Misrouted in Pawn Race",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 97,
+  "fine_id": 84,
+  "size": 13,
+  "feature_ids": [
+   1348,
+   890,
+   1625,
+   619,
+   763,
+   963,
+   372,
+   1990,
+   1751,
+   1310,
+   647,
+   530,
+   965
+  ]
+ },
+ "193": {
+  "subcluster_name": "King Move Invites Immediate Check",
+  "category": "Walked Into a Tactic",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 193,
+  "size": 7,
+  "feature_ids": [
+   627,
+   880,
+   1169,
+   598,
+   447,
+   1864,
+   1056
+  ]
+ },
+ "69": {
+  "subcluster_name": "Greedy Capture Loses Material",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 69,
+  "size": 12,
+  "feature_ids": [
+   396,
+   1705,
+   967,
+   724,
+   1975,
+   659,
+   1959,
+   1660,
+   1097,
+   726,
+   1600,
+   1993
+  ]
+ },
+ "177": {
+  "subcluster_name": "Piece Abandons Critical Post",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 177,
+  "size": 8,
+  "feature_ids": [
+   543,
+   1418,
+   450,
+   1463,
+   878,
+   1930,
+   761,
+   1475
+  ]
+ },
+ "176": {
+  "subcluster_name": "Ignored Exposed Enemy King",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 176,
+  "size": 3,
+  "feature_ids": [
+   439,
+   1404,
+   1458
+  ]
+ },
+ "119": {
+  "subcluster_name": "Moved Piece Into Enemy Fire",
+  "category": "Walked Into a Tactic",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 119,
+  "size": 8,
+  "feature_ids": [
+   479,
+   1503,
+   1148,
+   771,
+   1038,
+   541,
+   990,
+   565
+  ]
+ },
+ "137": {
+  "subcluster_name": "Wing Pawn Push Ignores Development",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 52,
+  "fine_id": 137,
+  "size": 5,
+  "feature_ids": [
+   1580,
+   1217,
+   438,
+   1163,
+   429
+  ]
+ },
+ "163": {
+  "subcluster_name": "Pawn Advance Weakens King Shelter",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 163,
+  "size": 8,
+  "feature_ids": [
+   968,
+   881,
+   713,
+   1336,
+   1242,
+   1455,
+   488,
+   762
+  ]
+ },
+ "167": {
+  "subcluster_name": "Vacated Critical Defensive Square",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 88,
+  "fine_id": 167,
+  "size": 3,
+  "feature_ids": [
+   1301,
+   1430,
+   457
+  ]
+ },
+ "64": {
+  "subcluster_name": "Pawn Promotion Handling Errors",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 64,
+  "size": 5,
+  "feature_ids": [
+   1865,
+   1533,
+   1641,
+   1119,
+   529
+  ]
+ },
+ "104": {
+  "subcluster_name": "Greedy Capture Backfires Badly",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 104,
+  "size": 8,
+  "feature_ids": [
+   824,
+   549,
+   1966,
+   1157,
+   1834,
+   1651,
+   798,
+   989
+  ]
+ },
+ "118": {
+  "subcluster_name": "Flank Pawn Push Ignores Forcing Move",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 92,
+  "fine_id": 118,
+  "size": 8,
+  "feature_ids": [
+   753,
+   1296,
+   1991,
+   1218,
+   1841,
+   973,
+   522,
+   1031
+  ]
+ },
+ "166": {
+  "subcluster_name": "Capture Abandons Winning Continuation",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 166,
+  "size": 5,
+  "feature_ids": [
+   768,
+   1464,
+   610,
+   1654,
+   1279
+  ]
+ },
+ "123": {
+  "subcluster_name": "Bishop Played Instead of Knight",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 52,
+  "fine_id": 123,
+  "size": 6,
+  "feature_ids": [
+   853,
+   1321,
+   969,
+   1144,
+   1697,
+   562
+  ]
+ },
+ "115": {
+  "subcluster_name": "Premature Queen Moves Lose Tempo",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 115,
+  "size": 7,
+  "feature_ids": [
+   589,
+   811,
+   1457,
+   1653,
+   754,
+   1761,
+   1849
+  ]
+ },
+ "106": {
+  "subcluster_name": "Moved Piece Off Defensive Duty",
+  "category": "Abandoned a Defender",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 106,
+  "size": 8,
+  "feature_ids": [
+   1626,
+   1423,
+   660,
+   1657,
+   1744,
+   1364,
+   1606,
+   1728
+  ]
+ },
+ "15": {
+  "subcluster_name": "Structural Moves Weaken King",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 15,
+  "size": 5,
+  "feature_ids": [
+   1616,
+   1114,
+   1398,
+   588,
+   1374
+  ]
+ },
+ "159": {
+  "subcluster_name": "Quiet Move Ignored Forcing Continuation",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 159,
+  "size": 4,
+  "feature_ids": [
+   1987,
+   1300,
+   669,
+   1553
+  ]
+ },
+ "190": {
+  "subcluster_name": "Pawn Grab Ignores Promotion Threat",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 190,
+  "size": 5,
+  "feature_ids": [
+   1893,
+   1874,
+   1712,
+   1879,
+   793
+  ]
+ },
+ "18": {
+  "subcluster_name": "Ignored Threats, Chased Material",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 18,
+  "size": 9,
+  "feature_ids": [
+   948,
+   825,
+   1515,
+   1264,
+   1125,
+   703,
+   1358,
+   817,
+   1112
+  ]
+ },
+ "181": {
+  "subcluster_name": "Passive Rook Move Misses Forcing Play",
+  "category": "Missed a Tactic",
+  "is_new_category": false,
+  "confidence": 85,
+  "fine_id": 181,
+  "size": 5,
+  "feature_ids": [
+   1171,
+   1832,
+   818,
+   1105,
+   1498
+  ]
+ },
+ "87": {
+  "subcluster_name": "Unsound Kingside Bishop Sacrifice",
+  "category": "Misplayed an Attack",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 87,
+  "size": 9,
+  "feature_ids": [
+   1568,
+   1295,
+   934,
+   887,
+   931,
+   1567,
+   1884,
+   1590,
+   1963
+  ]
+ },
+ "174": {
+  "subcluster_name": "Routine Development Ignores Tactics",
+  "category": "Missed a Defensive Resource",
+  "is_new_category": false,
+  "confidence": 62,
+  "fine_id": 174,
+  "size": 3,
+  "feature_ids": [
+   830,
+   1623,
+   1373
+  ]
+ },
+ "194": {
+  "subcluster_name": "Bishop Trade Releases Diagonal Pressure",
+  "category": "Bad Trade or Simplification",
+  "is_new_category": false,
+  "confidence": 82,
+  "fine_id": 194,
+  "size": 3,
+  "feature_ids": [
+   1790,
+   872,
+   964
+  ]
+ },
+ "117": {
+  "subcluster_name": "King Misnavigates Pawn Race",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 97,
+  "fine_id": 117,
+  "size": 4,
+  "feature_ids": [
+   1220,
+   1192,
+   923,
+   1897
+  ]
+ },
+ "183": {
+  "subcluster_name": "Premature Capture Wrong Move Order",
+  "category": "Greedy Capture",
+  "is_new_category": false,
+  "confidence": 72,
+  "fine_id": 183,
+  "size": 5,
+  "feature_ids": [
+   1901,
+   1334,
+   1224,
+   1611,
+   1387
+  ]
+ },
+ "77": {
+  "subcluster_name": "F-pawn weakens king diagonal",
+  "category": "Exposed Your King",
+  "is_new_category": false,
+  "confidence": 90,
+  "fine_id": 77,
+  "size": 6,
+  "feature_ids": [
+   1799,
+   1274,
+   1866,
+   1332,
+   1872,
+   997
+  ]
+ },
+ "161": {
+  "subcluster_name": "Piece Drifts to Board Edge",
+  "category": "Endgame Error",
+  "is_new_category": false,
+  "confidence": 52,
+  "fine_id": 161,
+  "size": 5,
+  "feature_ids": [
+   961,
+   1888,
+   1260,
+   1456,
+   1786
+  ]
+ }
+}
