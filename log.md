@@ -464,3 +464,23 @@
 **Decision:** Build Option-A cache using v1 data (has best_uci + player elos), retrain SAE. This gives tactically-organized features.
 
 **Scripts written on notebook:** layer7_probe.py, token_pos_probe.py, value_head_probe.py, pooling_test2.py, tests_clean.py
+
+## 2026-05-31 — SAE architecture experiments + overnight labeling
+
+**Key findings from model probing:**
+- Layer 2 better for positional mistakes (hanging piece, king safety, passed pawn): gap 0.038-0.049
+- Layer 7 better for tactical timing (fork, tempo_loss): gap 0.047-0.055
+- board_diff (mean64(after_best - after_blunder)) better than single-square for forks
+- 79M model NOT better than existing ONNX for SAE purposes — per-sq cosine 0.92-0.998
+- Policy projections (proj_sq_to) don't add fork signal over raw h[sq]
+- Mistake-type separation overall: L2=0.038, L7=0.028 mean gap across 6 taxonomy categories
+
+**Three SAEs trained/building:**
+- option_a (done): h[best_to] - h[blunder_to], layer 7 ONNX, 512-dim
+- board_diff (done): mean64(h_after_best - h_after_blunder), layer 7 ONNX, 512-dim
+- l2l7_concat (building, ~3hr): concat(L2_mean64_diff, L7_mean64_diff), 79M, 2048-dim
+
+**Overnight pipeline running on chess-poc:**
+- Labeling all 3 SAEs with Sonnet overnight
+- Handles unlabeled positions (v1 data doesn't overlap opus) via fresh Sonnet labeling pass
+- Outputs: option_a_profiles.json, board_diff_profiles.json, l2l7_profiles.json + labels
