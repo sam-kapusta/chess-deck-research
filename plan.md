@@ -1,4 +1,29 @@
-# Chess Encoder — SAE Feature Pipeline
+# Chess Encoder
+
+## Current State (2026-05-31 end)
+
+**Active work:** SAE architecture search — finding best construction for coaching-meaningful features.
+
+**Running on chess-poc right now:**
+- `encode_opus_all3.py` — encoding 18k Opus positions through all 3 SAEs (~30min remaining)
+- After: run `label_from_opus.py` → Sonnet labels from Opus descriptions (~30min)
+- After: run `eval_test_positions.py` → final eval on 4 real positions
+
+**Three SAEs on S3:**
+- `maia3_option_a_2048_k32.pt` — h[best_to]-h[blunder_to]
+- `maia3_board_diff_2048_k32.pt` — mean64(after_best-after_blunder) ← LEADING CANDIDATE
+- `maia3_l2l7_2048_k32.pt` — concat(L2+L7) 
+
+**Preliminary eval result (sparse labels):**
+- board_diff fires 'Recapture leaves piece hanging' on BOTH hung-piece test positions (f46)
+- v2 SAE: fires on move geometry, not coaching lesson — confirmed limitation
+- Once full labels arrive: expect board_diff to hit >50% coherent labels
+
+**Decision pending:**
+If board_diff >50% coherent → use board_diff as new SAE
+If not → rebuild on v2 data (same positions as opus_english.json)
+
+ — SAE Feature Pipeline
 
 ## Current State (2026-05-30)
 
