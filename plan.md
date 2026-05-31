@@ -230,3 +230,19 @@ Full plan: `lab/chess/website/plans/2026-04-12-deploy-sae-k64.md`
 8. Auto-flag coaching_useful (BA ≥ 0.6, FR ≤ 3.0, not polysemantic)
 
 All scripts in `chess-deck-research` repo. Run on notebook via git pull.
+
+## After Maia3 space investigation (May 2026)
+
+### Findings (see knowledge.md for full detail)
+- Current v2 SAE: diff is before-after-blunder, NOT blunder-best. Features describe what you played.
+- Option-A (repr_best - repr_blunder): tactical clustering is real. Fork gap=0.04, capture gap=0.12.
+- An SAE trained on Option-A WILL produce missed-fork/missed-capture/missed-quiet-tactic features.
+- cp_loss doesn't cluster in this space — expected, not a bug. Severity = statistic per feature.
+
+### Decision pending from Sam
+Build Option-A cache (~3.5hr on chess-poc) and retrain SAE, OR continue finishing the
+taxonomy categorization on the current v2 SAE first.
+
+### If rebuilding Option-A cache
+Script needed: encode v1 positions (200k, have best_uci + player elos), run Maia3 ONNX
+on both resulting boards at player elo, diff mean64, save. Then retrain BatchTopK SAE.
