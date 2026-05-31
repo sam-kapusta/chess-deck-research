@@ -320,3 +320,35 @@ Value head: `logits_value [batch, 3]` — convention `[black_win, draw, white_wi
 4. Diff: `h_bs.mean64 - h_bl.mean64` → [512] vector per position
 5. Train BatchTopK SAE on these vectors
 6. Features will be tactically meaningful (fork/capture/quiet separate)
+
+## 79M Maia3 model probe results (May 2026)
+
+Tested `maia3-79m` (1024-dim, 8 layers, GAB) against existing ONNX probe (512-dim):
+
+**Key finding: 79M is NOT better for SAE purposes.**
+- h[sq] global context cosines: 0.92–0.998 across wildly different positions
+  (old ONNX was 0.76–0.97 — slightly better)
+- Larger model = more square-identity-dominated per-square activations
+- fork gap with mean64_board_diff: 0.041 (79M) vs 0.039 (old ONNX) — essentially same
+- capture gap with to_sq_diff: 0.148 (79M) vs 0.272 (old ONNX) — old ONNX wins
+
+The square-identity dominance is architectural, not a model-size issue.
+More parameters improved policy accuracy, not per-square positional information.
+
+**Best construction confirmed: mean64(h_after_best - h_after_blunder)**
+- Fork gap: ~0.039–0.041 (hard ceiling with this approach)
+- Capture gap: ~0.058–0.122
+- Better than all single-square approaches for forks
+- Currently building 200k cache with old ONNX
+
+**Fork ceiling (~0.04) is a fundamental limit of per-square representations.**
+Forks require understanding "this piece simultaneously attacks two squares" which
+isn't captured by any single square's activation or their mean.
+
+## maia3 repo notes
+- Install: `git clone https://github.com/CSSLab/maia3.git && pip install -e .`
+- Load: `MAIA3Model(cfg)` with `SimpleNamespace` cfg; load_state_dict with renamed keys
+  (checkpoint uses `smolgen_*`, model expects `gab_*` — rename before loading)
+- Forward: `model(tokens, self_elos, oppo_elos)` where tokens=[B,64,97] from
+  `ds.get_historical_tokens([tok]*8, cfg, 0,0,0,0)` with `tok=ds.tokenize_board(board)`
+- Hook last layer: `model.transformer.layers[-1].register_forward_hook(...)`
