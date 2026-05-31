@@ -1,0 +1,46 @@
+[
+  {
+    "id": "bishop_f5",
+    "fen": "r1b1kb1r/pp2pppp/2n2n2/8/8/2B3N1/PPP2PPP/R3KBNR b KQkq - 2 9",
+    "blunder_uci": "c8f5",
+    "game": "blesstheblind vs cabbagelover5566, 2026-05-31",
+    "move": "9...Bf5",
+    "mistake_type": "hung_piece",
+    "coach_would_say": "Bishop developed to f5 but the knight on e4 takes it immediately. Always check if your piece is safe before placing it.",
+    "best_uci": "f6d5",
+    "cp_loss": 463
+  },
+  {
+    "id": "queen_h4",
+    "fen": "r2q1rk1/1b3pbp/p2pp1p1/1p6/3pnPPQ/P2P3P/BPP1N3/R1B2R1K w - - 0 17",
+    "blunder_uci": "d3e4",
+    "game": "cabbagelover5566 vs Bibeka999, 2026-05-31",
+    "move": "17.dxe4",
+    "mistake_type": "left_piece_undefended",
+    "coach_would_say": "Recaptured the knight but queen on h4 has no defenders. Black takes it for free. Save the queen first.",
+    "best_uci": "h4d8",
+    "cp_loss": 453
+  },
+  {
+    "id": "knight_e4_trap",
+    "fen": "rnbqkb1r/pp2pppp/2p2n2/8/2B1N3/5Q2/PPPP1PPP/R1B1K1NR b KQkq - 2 5",
+    "blunder_uci": "f6e4",
+    "best_uci": "b8d7",
+    "cp_loss": 331,
+    "game": "gregwalcz vs cabbagelover5566, 2026-05-30",
+    "move": "5...Nxe4??",
+    "mistake_type": "walked_into_tactic",
+    "coach_would_say": "Knight takes on e4 looks like winning a pawn but White plays Bxf7+ immediately, forking your king and rook. You walked into a tactic."
+  },
+  {
+    "id": "qd5_king_exposed",
+    "fen": "rnbq1b1r/ppk1pBpp/2p5/8/3PQ3/8/PPP2PPP/R1B1K1NR b KQ - 0 8",
+    "blunder_uci": "d8d5",
+    "best_uci": "e7e6",
+    "cp_loss": 425,
+    "game": "gregwalcz vs cabbagelover5566, 2026-05-30",
+    "move": "8...Qd5",
+    "mistake_type": "misplayed_attack",
+    "coach_would_say": "King is on c7 completely exposed. Playing Qd5 attacks but ignores massive White threats. Shelter the king first."
+  }
+]

@@ -246,3 +246,35 @@ taxonomy categorization on the current v2 SAE first.
 ### If rebuilding Option-A cache
 Script needed: encode v1 positions (200k, have best_uci + player elos), run Maia3 ONNX
 on both resulting boards at player elo, diff mean64, save. Then retrain BatchTopK SAE.
+
+## Current work (2026-05-31)
+
+### SAE architecture search
+
+**Goal:** Find SAE where >50% of features have coherent coaching labels.
+**Done criterion:** Feature descriptions match what a coach would say ("you hung your bishop," not "insufficient data").
+
+**Three new SAEs built and trained:**
+- `maia3_option_a_2048_k32.pt` — h[best_to] - h[blunder_to], layer-7 ONNX, 512-dim
+- `maia3_board_diff_2048_k32.pt` — mean64(after_best - after_blunder), layer-7 ONNX, 512-dim
+- `maia3_l2l7_2048_k32.pt` — concat(L2_mean64_diff, L7_mean64_diff), 79M PyTorch, 2048-dim
+
+**Probe findings:**
+- board_diff best overall for mistake-type separation (mean gap 0.038 across 6 taxonomy categories)
+- L2 better for positional mistakes, L7 better for tactical timing — l2l7 captures both
+- v2 SAE (current): h[to_sq]-h[from_sq] of blunder — encodes what you played, not what you missed
+
+**In progress:**
+- Encoding 18k Opus positions through all 3 SAEs (chess-poc, ~80min remaining)
+- After: Sonnet labeling pass using Opus descriptions as source
+- After: Eval on 4 real positions from cabbagelover games
+
+**Test positions (output/test_positions.json):**
+- bishop_f5: 9...Bf5 → hung piece (463cp)
+- queen_h4: 17.dxe4 → left piece undefended (453cp)
+- knight_e4_trap: 5...Nxe4 → walked into tactic (331cp)
+- qd5_king_exposed: 8...Qd5 → misplayed attack (425cp)
+
+**Decision tree:**
+- If l2l7 hits >50% coherent labels AND fires right features on test positions → use l2l7
+- If none hit 50% → rebuild on v2 data (same constructions, v2 positions that match the 18k Opus labels)
