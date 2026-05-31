@@ -267,3 +267,56 @@ Need to rebuild `build_batch_input_maia3.py` to match the PROVEN format:
 | Doc | Date | What |
 |-----|------|------|
 | [`docs/knowledge/normalization.md`](docs/knowledge/normalization.md) | 2026-05-22 | SAE input normalization — why raw (no norm) beats Z-score and L2 for Maia 3 diff vectors. Sandstone comparison. |
+
+## Maia3 Layer-7 Representation Space (May 2026)
+
+### What the current v2 SAE actually encodes
+The `maia3_blunder_diff_v2.pt` cache uses `before - after-blunder` at the destination square
+(NOT `blunder - best` as originally intended). The best move is NOT in the representation.
+- Confirmed: `to_sq(before-blunder)` corr=0.83 vs stored diff; `blunder-best` corr≈0.02
+- The v2 metadata has `best_uci: None` for all 200k positions
+
+### Option A: repr(after-best) - repr(after-blunder)
+Tested on v1 cache (which has best_uci). Key findings:
+
+**cp_loss signal:**
+- `h_diff.mean64 -> cp_loss: r≈0.07` (5-fold CV) — weak, but expected
+- `value(best)[3D] -> cp_loss: r≈0.51` — value head has real signal but too low-dim for SAE
+- cp_loss weakness is NOT a bug — Maia3 sees "fork available" as coherent regardless of severity
+
+**Win-prob encoding:**
+- `h_after_blunder.mean64 -> wp_white: r=0.94` — layer-7 strongly encodes win-prob
+- `h_before.mean64 -> wp_white: r=0.25` — before-move position is weaker
+- Layer-7 is highly eval-informative but eval concentrates AFTER moves, not in the diff
+
+**Tactical clustering in h_diff (the key result):**
+- capture gap=0.122, fork gap=0.039, quiet gap=0.017
+- All positive — positions where the best move was a fork cluster coherently in h_diff space
+- This is the geometric prerequisite for an SAE to produce "missed fork" features
+
+**Value_diff (3D) clustering:**
+- fork gap=0.149, quiet gap=0.065, capture gap=-0.048
+- Value_diff clusters forks and quiet differently from h_diff — they measure different things
+- h_diff = tactical character; value_diff = eval consequence
+
+### What an SAE trained on Option-A h_diff would learn
+Features organized by **what kind of move was missed** (fork, free capture, quiet tactical strike).
+NOT organized by severity. This is the right taxonomy for coaching — "you missed a fork" is 
+actionable. Severity (cp_loss) can be added as a statistic per feature, not as a feature axis.
+
+### Right pooling
+Mean over all 64 squares is fine for h_diff. For single-position win-prob, mean64 gives r=0.94.
+Per-token scalar norms max at r=0.23 — no dominant single-token eval signal.
+
+### Architecture note
+Maia3 probe ONNX input: `tokens [batch, 64, 12]` (board only, no move token).
+Output probe: `layers.7/Add_2_output_0 [batch, 64, 512]`.
+Value head: `logits_value [batch, 3]` — convention `[black_win, draw, white_win]`.
+
+### To build the correct Option-A SAE
+1. Use v1 source positions (have best_uci + player elos)
+2. For each position: push blunder_uci → board_bl, push best_uci → board_bs
+3. Run Maia3 probe on both at player's elo
+4. Diff: `h_bs.mean64 - h_bl.mean64` → [512] vector per position
+5. Train BatchTopK SAE on these vectors
+6. Features will be tactically meaningful (fork/capture/quiet separate)

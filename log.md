@@ -449,3 +449,18 @@
 **Decision:** Sam wants the FLAT k=32 model (`maia3_sae_diff_2048_k32_l2_200ep.pt`). Don't reverse-engineer the old profile — regenerate from scratch on flat k=32: fresh profile + fire rates over v2 cache, join 19K Opus English, bge-m3 bottom-up cluster → emergent categories → sub-clusters → atlas. One known model end-to-end = reproducible. Full plan in plan.md "Current State (2026-05-30)".
 
 **Process lesson (Sam flagged I was disorganized):** I thrashed across 5 checkpoints × 3 normalizations chasing the provenance without writing down what was verified vs assumed. Should have pinned "what generated this artifact" by reading the generator script FIRST (it names cache + norm + model-type), not by trial-and-error forward passes. Ran /organize-research to capture ground truth before continuing.
+
+## 2026-05-30 — Maia3 space investigation
+
+**Goal:** Understand what the Maia3 layer-7 representation encodes and whether it can produce "missed fork" SAE features.
+
+**What we found:**
+- Current v2 SAE: diff is  (NOT blunder-best). Best move never encoded. Explains why all features are "what you played" not "what you missed."
+- Option A (repr_best - repr_blunder): tested on v1. cp_loss probe r≈0.07 (weak, expected). Tactical clustering real: capture gap=0.12, fork gap=0.04. An SAE on this WILL produce missed-fork features.
+- Value head encodes eval well (r=0.94 for win-prob), but only 3D — too small for SAE.
+- Mean pooling over 64 squares is correct for the diff.
+- No dominant single-token eval position.
+
+**Decision:** Build Option-A cache using v1 data (has best_uci + player elos), retrain SAE. This gives tactically-organized features.
+
+**Scripts written on notebook:** layer7_probe.py, token_pos_probe.py, value_head_probe.py, pooling_test2.py, tests_clean.py
