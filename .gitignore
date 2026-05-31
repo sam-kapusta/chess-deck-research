@@ -14,3 +14,9 @@ __pycache__/
 
 # OS
 .DS_Store
+# Large files — on S3 (see S3_INVENTORY.md)
+output/maia3_stockfish_data.json
+output/labels_2048_k64_canonical.json
+output/batch_input_maia3.jsonl
+output/taxonomy_v2/_inputs/opus_english.json
+output/new_saes/*_profiles.json

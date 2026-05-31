@@ -1,0 +1,8 @@
+{
+  "fen": "r3kb1r/pp2pppp/2n2n2/8/8/2BN4/PPP2PPP/R3KBNR b KQkq - 0 9",
+  "blunder_uci": "c8f5",
+  "game": "cabbagelover5566 vs blesstheblind, 2026-05-31",
+  "move": "9...Bf5",
+  "what_happened": "Bishop developed to f5, immediately taken by Nxf5. Free piece.",
+  "coach_would_say": "You developed your bishop to f5 but the knight on f3 could just take it for free. Check if your piece is safe before developing."
+}

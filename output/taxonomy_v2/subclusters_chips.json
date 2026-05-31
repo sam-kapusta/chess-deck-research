@@ -1,0 +1,5394 @@
+{
+ "80": {
+  "n": 18,
+  "feature_ids": [
+   0,
+   91,
+   234,
+   289,
+   358,
+   388,
+   417,
+   495,
+   842,
+   991,
+   1219,
+   1241,
+   1278,
+   1324,
+   1361,
+   1492,
+   1598,
+   1686
+  ],
+  "chips": [
+   "a/b pawn push gifts tempo",
+   "Pawn advance gifts fork tempo",
+   "Pawn push ignores forced mate",
+   "f4 push abandons urgent defense",
+   "Bishop development over forcing move",
+   "Pawn push ignores exposed king",
+   "Pawn push over king rescue",
+   "Pawn push over forced mating continuation",
+   "Pawn push leaves camp exposed",
+   "Bishop to center one move early",
+   "Queen checks invite defensive interpositions",
+   "Pawn pushes over king defense",
+   "King advances onto forked square",
+   "Queen to b4 invites tempo",
+   "Flank pawn push over forcing capture",
+   "Pawn push over defensive emergency",
+   "Pawn push skips urgent prep move",
+   "Pawn push over king/rook duty"
+  ]
+ },
+ "40": {
+  "n": 12,
+  "feature_ids": [
+   1,
+   23,
+   56,
+   337,
+   493,
+   686,
+   806,
+   896,
+   944,
+   1141,
+   1545,
+   1732
+  ],
+  "chips": [
+   "En passant opens files, frees pieces",
+   "f-pawn chase misses capture",
+   "Indirect move lets bishop escape",
+   "Knight grabs pawn, loses piece",
+   "Bishop to g-file hangs undefended",
+   "f-pawn opens king's diagonal",
+   "Knight leaves diagonal, queen hangs",
+   "Bxf3 activates queen on f3",
+   "Bishop pins trivially broken by castling",
+   "Bishop to g5/g4 hangs immediately",
+   "h3/a3 pawn ignores capture refutation",
+   "Queen wing check, free block"
+  ]
+ },
+ "89": {
+  "n": 6,
+  "feature_ids": [
+   2,
+   366,
+   856,
+   1034,
+   1603,
+   1680
+  ],
+  "chips": [
+   "Bishop lands on attacked square",
+   "Queen moves into knight's reach",
+   "Check played over pawn capture",
+   "Bishop captures miss forcing check",
+   "King steps onto captured square",
+   "Pawn blocks bishop's retreat square"
+  ]
+ },
+ "88": {
+  "n": 6,
+  "feature_ids": [
+   3,
+   105,
+   1101,
+   1211,
+   1960,
+   1992
+  ],
+  "chips": [
+   "Bc4xf7+ without Ng5 support",
+   "Bishop to d-file blocks defense",
+   "Knight develops while position burns",
+   "6th-rank pawn thrust gifts capture",
+   "Pawn consolidates while tactics expire",
+   "Knight to e7/d2 over concrete tactic"
+  ]
+ },
+ "6": {
+  "n": 17,
+  "feature_ids": [
+   4,
+   17,
+   104,
+   134,
+   308,
+   319,
+   593,
+   737,
+   755,
+   819,
+   975,
+   1156,
+   1172,
+   1665,
+   1781,
+   1852,
+   1957
+  ],
+  "chips": [
+   "King advances into mating net",
+   "King flees to fatal back-rank square",
+   "King takes queen, drops endgame",
+   "King steps into mating net",
+   "Knight reposition over forced win",
+   "Bishop steps onto attacked square",
+   "King steps into check or mate",
+   "King retreats to back rank checkmate",
+   "King to edge, own pawns trap",
+   "Pawn push over decisive piece move",
+   "King steps into back-rank mate",
+   "Kingside pawn exposes mating square",
+   "Rook chases pawn, abandons crisis",
+   "Bishop develops, misses forcing shot",
+   "Quiet king move enters mating net",
+   "King steps into mating net",
+   "Queen grabs rook, misses mate"
+  ]
+ },
+ "143": {
+  "n": 5,
+  "feature_ids": [
+   5,
+   13,
+   1162,
+   1216,
+   1375
+  ],
+  "chips": [
+   "King retreats stall pawn race",
+   "King steps into fork or mate",
+   "Knight move misses forcing reply",
+   "King shuffle over concrete urgency",
+   "Knight move skips critical demand"
+  ]
+ },
+ "73": {
+  "n": 16,
+  "feature_ids": [
+   6,
+   39,
+   108,
+   357,
+   892,
+   966,
+   992,
+   1128,
+   1249,
+   1635,
+   1687,
+   1726,
+   1759,
+   1780,
+   1810,
+   1910
+  ],
+  "chips": [
+   "Rook repositions, ignores hanging pieces",
+   "Rook activity leaves queen hanging",
+   "Rook shuffles while tactics burn",
+   "Queen check lets king escape safely",
+   "Rook leaves critical defensive post",
+   "Rook deployment ignores queen fork",
+   "Rook leaves f8, king exposed",
+   "King flees into mating net",
+   "Knight vacates critical control square",
+   "Bishop vacates critical defensive square",
+   "Rook seeks action, king exposed",
+   "Rook to open file, punished tactically",
+   "Bishop leaves file, exposes rook",
+   "Rook activity abandons critical infrastructure",
+   "Rook vacates sole defender role",
+   "Rook quits f-file for pawn"
+  ]
+ },
+ "82": {
+  "n": 10,
+  "feature_ids": [
+   7,
+   78,
+   160,
+   566,
+   750,
+   879,
+   1754,
+   1769,
+   1857,
+   1955
+  ],
+  "chips": [
+   "Knight move over king activation",
+   "Bishop development delays queen urgency",
+   "Rook clusters near king instead of escaping",
+   "Rook move neglects king flight",
+   "Capture vacates critical defensive square",
+   "King flees into mating net",
+   "Rook move delays king evacuation",
+   "Pawn advance over forced defense",
+   "Pawn push over king retreat",
+   "Pawn push over king defense"
+  ]
+ },
+ "79": {
+  "n": 12,
+  "feature_ids": [
+   8,
+   117,
+   304,
+   309,
+   649,
+   756,
+   1100,
+   1271,
+   1529,
+   1592,
+   1847,
+   1951
+  ],
+  "chips": [
+   "Wing pawn push over urgent defense",
+   "Flank pawn push gifts attack tempo",
+   "Flank pawn push amid crisis",
+   "Passed pawn push over urgent duty",
+   "Flank pawn push ignores development",
+   "Central pawn push exposes own king",
+   "Pawn advances cause overextension blunders",
+   "Rook-pawn push over piece defense",
+   "4th-rank push over forcing reply",
+   "Pawn push ignores back-rank mate",
+   "Space-grab pawn over urgent duty",
+   "Central push opens bishop diagonal"
+  ]
+ },
+ "103": {
+  "n": 9,
+  "feature_ids": [
+   9,
+   413,
+   692,
+   1226,
+   1468,
+   1479,
+   1656,
+   1773,
+   2001
+  ],
+  "chips": [
+   "Quiet king move over decisive attack",
+   "Pawn grabs rook, shatters shelter",
+   "Pawn capture releases winning tension",
+   "Pawn push delays critical defense",
+   "King move over free capture",
+   "Trading active rook kills attack",
+   "King tuck lets queen hang",
+   "Queen repost misses piece-winning blow",
+   "Bishop repost leaves free piece"
+  ]
+ },
+ "32": {
+  "n": 19,
+  "feature_ids": [
+   10,
+   295,
+   311,
+   443,
+   533,
+   602,
+   606,
+   664,
+   714,
+   719,
+   943,
+   1009,
+   1362,
+   1406,
+   1631,
+   1747,
+   1774,
+   1818,
+   1940
+  ],
+  "chips": [
+   "Bishop steps onto attacked square",
+   "Bishop capture reactivates opponent's piece",
+   "Bishop vacates critical defensive square",
+   "Capturing pawn abandons piece guard",
+   "Rook lands on bishop's diagonal",
+   "Bishop moves to attacked square",
+   "Rook grabs pawn, abandons defense",
+   "Rook infiltrates undefended rank square",
+   "Queen grabs pawn, abandons kingside",
+   "Minor piece steps onto pawn-guarded square",
+   "Knight jumps to undefended rim square",
+   "Bishop moves to attacked square",
+   "King captures rook, loses shelter",
+   "Queen grabs rim pawn, abandons duty",
+   "Queen grabs pawn, gets punished",
+   "King captures bait, enters checks",
+   "Rook lands on queen's target",
+   "Queen grabs pawn, loses tempo",
+   "Bishop lands undefended on g5"
+  ]
+ },
+ "19": {
+  "n": 11,
+  "feature_ids": [
+   11,
+   213,
+   466,
+   516,
+   765,
+   959,
+   1289,
+   1521,
+   1539,
+   1662,
+   1802
+  ],
+  "chips": [
+   "King steps onto exploitable open line",
+   "King corners itself over concrete action",
+   "Pawn push before piece prep",
+   "Bishop repost ignores pressing danger",
+   "King shuffles onto exposed files",
+   "Pawn push over concrete capture",
+   "Knight reroute over forcing strike",
+   "King steps onto check diagonal",
+   "Kingside pawn push over mating blow",
+   "Knight quits post, king exposed",
+   "Queening overlooks back-rank mate"
+  ]
+ },
+ "76": {
+  "n": 11,
+  "feature_ids": [
+   12,
+   193,
+   436,
+   491,
+   560,
+   679,
+   813,
+   837,
+   974,
+   1079,
+   1570
+  ],
+  "chips": [
+   "Bishop retreats when concrete action needed",
+   "Knight retreats to rim, misses win",
+   "Queen retreats gift free development",
+   "Bishop retreats to edge, hangs",
+   "Bishop retreats while tactics exist",
+   "King retreats to edge, loses mobility",
+   "Queen retreats to rim, king exposed",
+   "Bishop shuffles to rim, squanders tactics",
+   "Queen retreats to back rank passively",
+   "Bishop retreats to rim, loses tempo",
+   "Knight retreats to back rank edge"
+  ]
+ },
+ "54": {
+  "n": 26,
+  "feature_ids": [
+   14,
+   27,
+   82,
+   92,
+   164,
+   291,
+   293,
+   314,
+   564,
+   622,
+   635,
+   695,
+   795,
+   799,
+   1069,
+   1126,
+   1229,
+   1250,
+   1363,
+   1371,
+   1537,
+   1663,
+   1764,
+   1812,
+   1918,
+   1988
+  ],
+  "chips": [
+   "Pawn push lets knight fork",
+   "Pawn push over forcing capture",
+   "Pawn push while mate looms",
+   "h/a pawn push over forced capture",
+   "Autopilot pawn push over forced capture",
+   "h-pawn push over forced tactic",
+   "Flank pawn push over urgent piece",
+   "Pawn push over urgent development",
+   "Pawn push while pieces hang",
+   "Pawn chases bishop, crisis ignored",
+   "b/g pawn push ignores mating net",
+   "Kingside pawn push over urgent defense",
+   "Quiet pawn push over forced defense",
+   "Flank pawn push over concrete action",
+   "King move over forcing capture",
+   "f-pawn creep surrenders critical tempo",
+   "King drift over concrete capture",
+   "King shuffle over decisive action",
+   "Rim pawn push over urgent defense",
+   "Slow pawn push over forced tactic",
+   "Flank pawn push over forcing capture",
+   "Rim pawn push over urgent action",
+   "Quiet pawn push over urgent tactic",
+   "Quiet pawn push skips forced strike",
+   "Flank pawn push over forced capture",
+   "King steps into fork or check"
+  ]
+ },
+ "187": {
+  "n": 11,
+  "feature_ids": [
+   15,
+   63,
+   251,
+   800,
+   905,
+   1005,
+   1287,
+   1466,
+   1578,
+   1630,
+   1698
+  ],
+  "chips": [
+   "Rook grabs knight, misses better",
+   "Knight grabs corner rook, loses dominance",
+   "Pawn grabs piece, abandons post",
+   "Pawn captures over king shelter",
+   "Queen grabs material, loses harmony",
+   "Queen grabs material, invites counterplay",
+   "Rook grabs piece, misses pawn",
+   "Bishop captures lose pawn tempo",
+   "King drifts while pieces hang",
+   "Queen grabs material, misses priority",
+   "Bishop grabs pawn, abandons defense"
+  ]
+ },
+ "56": {
+  "n": 11,
+  "feature_ids": [
+   16,
+   371,
+   614,
+   902,
+   916,
+   1075,
+   1142,
+   1394,
+   1490,
+   1729,
+   1907
+  ],
+  "chips": [
+   "Queen repost yields forcing capture",
+   "Pawn capture misses forced win",
+   "Pawn grab opens king's file",
+   "Rook repositions while capture wins",
+   "Rook shuffle over forcing check",
+   "Quiet rook move over forced resolution",
+   "Queen move ignores exposed king",
+   "King drifts past concrete captures",
+   "Quiet pawn push gifts free tempo",
+   "Quiet rook move dodges concrete threat",
+   "Bishop move lets target escape"
+  ]
+ },
+ "157": {
+  "n": 13,
+  "feature_ids": [
+   18,
+   35,
+   99,
+   220,
+   365,
+   517,
+   683,
+   903,
+   918,
+   1131,
+   1483,
+   1615,
+   1838
+  ],
+  "chips": [
+   "King strays, own pawns fall",
+   "King advances to wrong wing",
+   "King grabs pawn, loses race",
+   "Premature pawn check blocks own king",
+   "Rook drifts while tempo expires",
+   "Flank pawn push over king activation",
+   "Flank pawn push ignores promotion race",
+   "King misses optimal march geometry",
+   "Pawn check improves enemy king",
+   "Rook to pawn file over counterplay",
+   "Passed pawn push ignores king safety",
+   "Queen misses only covering square",
+   "King steps into promotion mating net"
+  ]
+ },
+ "81": {
+  "n": 10,
+  "feature_ids": [
+   19,
+   326,
+   346,
+   485,
+   520,
+   629,
+   740,
+   908,
+   1346,
+   1494
+  ],
+  "chips": [
+   "Rook principle-move skips forcing check",
+   "Pawn trade gifts opponent key tempo",
+   "Rook 'active' move abandons duty",
+   "Rook repositions instead of checking",
+   "f/g-pawn push over forcing piece move",
+   "Pawn push over forcing piece move",
+   "Pawn push squanders critical tempo",
+   "Pawn grab surrenders attacking tempo",
+   "Pawn inch surrenders forcing initiative",
+   "Rook probes while checkmate waits"
+  ]
+ },
+ "17": {
+  "n": 14,
+  "feature_ids": [
+   20,
+   60,
+   102,
+   633,
+   675,
+   685,
+   739,
+   869,
+   870,
+   1153,
+   1304,
+   1450,
+   1825,
+   1858
+  ],
+  "chips": [
+   "Queen drift surrenders key guard",
+   "Queen attacks before pawn shield destroyed",
+   "Queen to f4/f6 invites attack",
+   "Knight leap over forcing concrete response",
+   "Knight grabs piece, misses mate",
+   "Queen redeployed while threats loom",
+   "Queen centralizes over forcing sequence",
+   "Queen flank lunge drops key pawn",
+   "Queen vacates critical defensive square",
+   "Knight shuffles while king idles",
+   "Knight leap abandons critical guard",
+   "Queen vacates sole defensive square",
+   "Queen to f2 invites tempo attacks",
+   "Queen drifts, drops critical guard"
+  ]
+ },
+ "25": {
+  "n": 16,
+  "feature_ids": [
+   21,
+   65,
+   77,
+   258,
+   331,
+   376,
+   458,
+   722,
+   1024,
+   1048,
+   1111,
+   1288,
+   1513,
+   1588,
+   1690,
+   1815
+  ],
+  "chips": [
+   "King move gifts opponent tempo",
+   "Bishop drifts to punishable square",
+   "Bishop retreat surrenders forcing initiative",
+   "Rook repositions while urgency elsewhere",
+   "Pointless check burns decisive tempo",
+   "Knight departs critical defensive post",
+   "King retreats cede decisive tempo",
+   "Quiet pawn push over forcing capture",
+   "Rook drifts while pawn advances",
+   "King retreats lose opposition tempo",
+   "Pawn push over piece crisis",
+   "Flank pawn push over urgent threat",
+   "Bishop repositioned while king exposed",
+   "Pawn move misses critical priority",
+   "Pawn push surrenders forcing initiative",
+   "Bishop repositioned while tactics screamed"
+  ]
+ },
+ "178": {
+  "n": 8,
+  "feature_ids": [
+   22,
+   171,
+   172,
+   464,
+   815,
+   982,
+   1447,
+   1942
+  ],
+  "chips": [
+   "Quiet pawn step misses forced win",
+   "3rd-rank push ignores forcing resource",
+   "Prophylactic pawn nudge surrenders initiative",
+   "Flank pawn push over urgent defense",
+   "Quiet pawn push over forced defense",
+   "Fianchetto prep over urgent defense",
+   "Quiet pawn push ignores forcing reply",
+   "b3 pawn push over tactical shot"
+  ]
+ },
+ "53": {
+  "n": 16,
+  "feature_ids": [
+   24,
+   176,
+   177,
+   245,
+   320,
+   364,
+   770,
+   802,
+   814,
+   889,
+   976,
+   1166,
+   1327,
+   1546,
+   1613,
+   1783
+  ],
+  "chips": [
+   "Queenside pawn push gifts mating tempo",
+   "Pawn push over forcing piece play",
+   "Pawn push over winning piece move",
+   "King improvement loses critical tempo",
+   "Slow pawn push surrenders critical tempo",
+   "Wing pawn push burns forcing tempo",
+   "Rook shuffle loses forcing sequence",
+   "Bishop misses king escape square",
+   "Pawn advance over urgent piece play",
+   "Rook to b-file skips crisis",
+   "Wing pawn push cracks king shelter",
+   "Rook retreats when tactics decide",
+   "Bishop retreats when forcing play wins",
+   "King centralizes before urgent break",
+   "Rook to back rank loses tempo",
+   "Rook to e-file over forcing tactic"
+  ]
+ },
+ "96": {
+  "n": 14,
+  "feature_ids": [
+   25,
+   135,
+   203,
+   359,
+   783,
+   1035,
+   1040,
+   1299,
+   1399,
+   1473,
+   1652,
+   1807,
+   1820,
+   2007
+  ],
+  "chips": [
+   "Flank pawn push over king centralisation",
+   "Flank pawn push ignores mating net",
+   "b-pawn push over urgent defense",
+   "Flank pawn push over crisis response",
+   "Flank pawn push over urgent tactics",
+   "Flank pawn push over winning tactic",
+   "Pawn push over hanging piece",
+   "Flank pawn push over king defense",
+   "Flank pawn push over forcing move",
+   "Flank pawn push over winning tactic",
+   "Flank pawn push gifts forcing tempo",
+   "Flank pawn push over forced reply",
+   "Wing pawn push surrenders mating tempo",
+   "Flank pawn push over forcing sequence"
+  ]
+ },
+ "198": {
+  "n": 11,
+  "feature_ids": [
+   26,
+   34,
+   61,
+   114,
+   131,
+   214,
+   645,
+   1313,
+   1353,
+   1776,
+   1970
+  ],
+  "chips": [
+   "Capture opens queen recapture check",
+   "Bishop grabs pawn, loses piece",
+   "Check lets king capture rook",
+   "Pawn capture invites queen recapture",
+   "Queen move invites forced exchange",
+   "Queen capture allows recapture with check",
+   "Bxknight invites queen recapture",
+   "Queen lands on unprotected square",
+   "Queen grabs pawn, loses queen",
+   "Queen lands on opponent's queen's square",
+   "Bishop capture crowns enemy queen"
+  ]
+ },
+ "128": {
+  "n": 7,
+  "feature_ids": [
+   28,
+   786,
+   859,
+   1318,
+   1700,
+   1711,
+   1848
+  ],
+  "chips": [
+   "King advances into mating net",
+   "King steps off back rank fatally",
+   "King retreats into mating diagonal",
+   "King advances into rook/queen fire",
+   "King retreats into back-rank mate",
+   "King advances into open mating net",
+   "King advances into open-file checkmate"
+  ]
+ },
+ "179": {
+  "n": 10,
+  "feature_ids": [
+   29,
+   216,
+   348,
+   420,
+   874,
+   895,
+   1136,
+   1649,
+   1967,
+   1978
+  ],
+  "chips": [
+   "King advances into opponent's territory",
+   "King to passive square loses opposition",
+   "King takes wrong path in race",
+   "King steps into tactical vulnerability",
+   "King marches while pawn races decide",
+   "Quiet pawn push over king activation",
+   "King square loses opposition or tempo",
+   "King steps into forced mate",
+   "Check drives king to better square",
+   "King steps into knight fork"
+  ]
+ },
+ "78": {
+  "n": 7,
+  "feature_ids": [
+   30,
+   239,
+   452,
+   932,
+   1155,
+   1183,
+   1870
+  ],
+  "chips": [
+   "h-pawn hook invites kingside assault",
+   "h-pawn luft over urgent tactics",
+   "King shuffle over forcing capture",
+   "Quiet pawn push over forced mate",
+   "h-pawn push over urgent tactics",
+   "h-pawn nudge over concrete action",
+   "h-pawn luft over urgent defense"
+  ]
+ },
+ "170": {
+  "n": 6,
+  "feature_ids": [
+   31,
+   641,
+   804,
+   847,
+   1036,
+   1968
+  ],
+  "chips": [
+   "Bxf7+ bishop sac insufficient compensation",
+   "Knight sac on f2/f7 uncompensated",
+   "Knight on f7/f2 refuted",
+   "Bishop sac on f7 without follow-up",
+   "Bxh7+ lacks mating follow-up",
+   "Knight sac on f7/f2 misfires"
+  ]
+ },
+ "85": {
+  "n": 7,
+  "feature_ids": [
+   32,
+   253,
+   510,
+   523,
+   608,
+   673,
+   1655
+  ],
+  "chips": [
+   "Flank pawn push over forcing piece",
+   "Bishop retreats to passive rim square",
+   "Premature pawn push delays promotion",
+   "King chases wing pawn, abandons center",
+   "Flank pawn push ignores checkmate",
+   "King retreats to edge, invites mate",
+   "Rim pawn push loses promotion tempo"
+  ]
+ },
+ "134": {
+  "n": 10,
+  "feature_ids": [
+   33,
+   98,
+   623,
+   676,
+   710,
+   718,
+   876,
+   911,
+   1425,
+   1619
+  ],
+  "chips": [
+   "Rook lift abandons defensive rank",
+   "Rook lift lets defense consolidate",
+   "Rook invades before preparation complete",
+   "King steps into file harassment",
+   "Rook targets pawn, abandons post",
+   "Rook 'attacks' queen, abandons post",
+   "Rook invades wrong rank/file",
+   "Rook penetrates to undefended rank square",
+   "Rook invades 7th rank prematurely",
+   "Rook activity over forcing pawn/check"
+  ]
+ },
+ "14": {
+  "n": 8,
+  "feature_ids": [
+   36,
+   279,
+   706,
+   828,
+   1347,
+   1366,
+   1413,
+   1980
+  ],
+  "chips": [
+   "Bishop check over free capture",
+   "Pawn check loosens own shelter",
+   "Pawn push over king activation",
+   "Knight fork check misses mate",
+   "Check skips capturing check's material",
+   "Queen check lands on captured square",
+   "Passed pawn rushed, surrendered early",
+   "Knight checks land on defended squares"
+  ]
+ },
+ "21": {
+  "n": 14,
+  "feature_ids": [
+   37,
+   489,
+   542,
+   652,
+   711,
+   1078,
+   1210,
+   1435,
+   1470,
+   1597,
+   1714,
+   1771,
+   1814,
+   1880
+  ],
+  "chips": [
+   "King drifts edge, enters mating net",
+   "Rook leaves critical defensive post",
+   "King grabs wing pawn, drops tempo",
+   "Bishop drifts, abandons critical post",
+   "Rook repost while king collapses",
+   "Queen lands on exploitable square",
+   "Quiet pawn push over forcing advance",
+   "Wing pawn push over hanging piece",
+   "Queen grabs material, misses mate",
+   "Wing pawn push over king activation",
+   "Central push over forcing piece move",
+   "King move surrenders pawn-race tempo",
+   "Queen grabs material over survival",
+   "Knight leaps to attacked central square"
+  ]
+ },
+ "33": {
+  "n": 11,
+  "feature_ids": [
+   38,
+   64,
+   113,
+   248,
+   583,
+   1294,
+   1444,
+   1678,
+   1694,
+   1723,
+   1800
+  ],
+  "chips": [
+   "Bishop repositions while threats loom",
+   "Queen repost ignores concrete demand",
+   "Rook repositions while opponent invades",
+   "Bishop develops amid tactical emergency",
+   "Bishop repositions while tactics demand concrete action",
+   "Knight leaps to attacked forward square",
+   "Bishop leaves critical defensive diagonal",
+   "Rook leaps to active square prematurely",
+   "Queen relocates into tactical trap",
+   "Premature rook check skips preparation",
+   "Rook repositions while pawns decide"
+  ]
+ },
+ "3": {
+  "n": 15,
+  "feature_ids": [
+   40,
+   347,
+   363,
+   368,
+   467,
+   487,
+   576,
+   585,
+   835,
+   930,
+   949,
+   1088,
+   1417,
+   1576,
+   1724
+  ],
+  "chips": [
+   "Bishop checks traded off or retreat",
+   "Bishop flung to f2/h2/h7",
+   "Queen check burns decisive tempo",
+   "Check lets king centralize freely",
+   "Bishop move delays forcing sequence",
+   "Rook to 7th abandons key duties",
+   "Active rook move abandons key post",
+   "Bishop sac on f2/f7 refuted",
+   "Speculative king attacks lack follow-through",
+   "Queen checks let opponent consolidate",
+   "Rook leaves critical defensive post",
+   "Queen deserts critical defensive post",
+   "Rook check lets king escape",
+   "Rook invades 7th rank prematurely",
+   "Queen to attacked or passive square"
+  ]
+ },
+ "162": {
+  "n": 9,
+  "feature_ids": [
+   41,
+   187,
+   654,
+   1008,
+   1068,
+   1262,
+   1661,
+   1889,
+   1938
+  ],
+  "chips": [
+   "Bishop develops while tactics burn",
+   "Quiet bishop move surrenders initiative",
+   "Bishop walks into knight capture",
+   "Bishop development misses forcing blow",
+   "Knight drifts while tactics scream",
+   "Bishop development over forcing blow",
+   "Quiet bishop move over forcing attack",
+   "Bishop develops while tactics decide",
+   "Bishop repositions while tactics scream"
+  ]
+ },
+ "74": {
+  "n": 10,
+  "feature_ids": [
+   42,
+   159,
+   169,
+   288,
+   628,
+   985,
+   1084,
+   1386,
+   1505,
+   1607
+  ],
+  "chips": [
+   "King steps onto check-exposed square",
+   "King advances into mating net",
+   "Castling into active enemy pieces",
+   "King captures into mating net",
+   "King advances into mating net",
+   "King steps onto open attack lines",
+   "King steps onto open rank/file",
+   "King steps into instant check",
+   "King steps onto open attacking line",
+   "King centralizes into tactical refutation"
+  ]
+ },
+ "107": {
+  "n": 7,
+  "feature_ids": [
+   43,
+   1014,
+   1053,
+   1176,
+   1650,
+   1767,
+   1961
+  ],
+  "chips": [
+   "King steps into fork or net",
+   "Quiet rook move over forcing strike",
+   "King shuffle invites fork or attack",
+   "Quiet rook move skips forcing continuation",
+   "Pawn push over piece urgency",
+   "Flank pawn push over piece move",
+   "Quiet pawn push over forced tactic"
+  ]
+ },
+ "83": {
+  "n": 13,
+  "feature_ids": [
+   44,
+   282,
+   349,
+   605,
+   653,
+   705,
+   735,
+   773,
+   925,
+   957,
+   1409,
+   1696,
+   1719
+  ],
+  "chips": [
+   "King shuffle over forcing sequence",
+   "Knight tucks to c2/e7, hangs",
+   "h-pawn push over urgent defense",
+   "Knight repost lets threat materialize",
+   "Quiet rook move surrenders initiative",
+   "Bishop development over concrete defense",
+   "Knight retreats cede forcing initiative",
+   "Quiet knight move misses forcing reply",
+   "Quiet pawn push over forcing reply",
+   "Quiet rook move gifts decisive tempo",
+   "Rook repositions while tactics demand concrete response",
+   "Queen retreats to passive square",
+   "Pawn push over forcing capture"
+  ]
+ },
+ "57": {
+  "n": 11,
+  "feature_ids": [
+   45,
+   269,
+   427,
+   492,
+   575,
+   637,
+   840,
+   1232,
+   1591,
+   1763,
+   1925
+  ],
+  "chips": [
+   "Queen capture abandons guarded piece",
+   "Bishop leaves critical defensive post",
+   "Recapture opens fatal diagonal",
+   "Pawn capture abandons vital shield",
+   "Capturing pawn deserts guarded piece",
+   "Knight capture vacates king guard",
+   "Queen vacates critical guard square",
+   "Capture strips sole piece defender",
+   "Bishop relocates, abandons critical guard",
+   "Rook quits critical defensive square",
+   "Knight vacates critical defensive square"
+  ]
+ },
+ "100": {
+  "n": 12,
+  "feature_ids": [
+   46,
+   167,
+   205,
+   328,
+   465,
+   677,
+   1030,
+   1134,
+   1151,
+   1203,
+   1449,
+   1701
+  ],
+  "chips": [
+   "Knight repositioning loses tempo",
+   "Queen grabs bait, misses zwischenzug",
+   "Bishop repost while tactics scream",
+   "Bishop drifts to attacked square",
+   "Knight centralizes, misses forcing win",
+   "Exposed king advances into mating net",
+   "Knight repositions while crisis burns",
+   "Rook grabs material, misses order",
+   "Rook leaves critical defensive post",
+   "Rook check drives king to safety",
+   "Queen check drives king to safety",
+   "Bishop develops, exposed king punished"
+  ]
+ },
+ "7": {
+  "n": 10,
+  "feature_ids": [
+   47,
+   290,
+   643,
+   1115,
+   1123,
+   1298,
+   1532,
+   1547,
+   1559,
+   1640
+  ],
+  "chips": [
+   "Knight develops while piece hangs",
+   "Bishop improves while king exposed",
+   "g/f-pawn strips king shelter",
+   "Queen to e2 invites Re8 pin",
+   "Knight left hanging undefended",
+   "Queen deserts exposed king's cover",
+   "Queen pursues goals, king exposed",
+   "Rook targets passer, misses mate",
+   "Rook captures expose own king",
+   "Bishop to g4/g5 amid crisis"
+  ]
+ },
+ "169": {
+  "n": 9,
+  "feature_ids": [
+   48,
+   733,
+   789,
+   929,
+   1209,
+   1381,
+   1429,
+   1487,
+   1563
+  ],
+  "chips": [
+   "Unsupported pawn advance gifted away",
+   "King steps into immediate check",
+   "Knight lunges onto bishop-captured square",
+   "Knight centralized, concrete tactic missed",
+   "Pawn check exposes own king",
+   "King steps onto open diagonal",
+   "King steps into new check line",
+   "Knight leaps, vacates key defensive square",
+   "King advances onto open file"
+  ]
+ },
+ "44": {
+  "n": 16,
+  "feature_ids": [
+   49,
+   69,
+   90,
+   233,
+   335,
+   378,
+   454,
+   682,
+   687,
+   716,
+   865,
+   922,
+   1518,
+   1664,
+   1668,
+   1753
+  ],
+  "chips": [
+   "Rook vacates dominant controlling square",
+   "Retreat exposes f-pawn or key square",
+   "Rook leaves critical defensive square",
+   "Knight quits f6 kingside guard",
+   "Knight quits post, threats land",
+   "Queen vacates dominant multi-duty square",
+   "Central pawn push abandons key square",
+   "Queen vacates critical defensive square",
+   "Knight retreats over immediate tactical strike",
+   "Rook slides off critical rank",
+   "Knight retreats, leaves pawn undefended",
+   "Knight quits post, defense collapses",
+   "Knight quits c3/c6 defensive post",
+   "Rook deserts critical file/square",
+   "Knight quits critical defensive post",
+   "Rook quits key rank or post"
+  ]
+ },
+ "72": {
+  "n": 9,
+  "feature_ids": [
+   50,
+   84,
+   156,
+   189,
+   256,
+   513,
+   615,
+   942,
+   1109
+  ],
+  "chips": [
+   "Pawn push over piece activation",
+   "Bishop move ignores exposed king",
+   "Knight to c6/c3 invites punishment",
+   "Pawn push ignores piece solutions",
+   "Quiet pawn push over urgent piece",
+   "Pawn push leaves bishop hanging",
+   "King shuffle into mating net",
+   "Pawn push over urgent piece play",
+   "Pawn move abandons king defense"
+  ]
+ },
+ "29": {
+  "n": 8,
+  "feature_ids": [
+   51,
+   580,
+   631,
+   1290,
+   1372,
+   1516,
+   1621,
+   1840
+  ],
+  "chips": [
+   "Knight trades away dominant outpost",
+   "Knight trades away dominant outpost",
+   "Central knight trade kills advantage",
+   "Central knight leaves critical outpost",
+   "Bishop trade surrenders critical diagonal",
+   "Bishop trade releases attacking pressure",
+   "Bishop swap activates opponent's pieces",
+   "Bishop trades away dominant piece"
+  ]
+ },
+ "180": {
+  "n": 6,
+  "feature_ids": [
+   52,
+   1170,
+   1544,
+   1741,
+   1833,
+   1958
+  ],
+  "chips": [
+   "Rook to second rank loses tempo",
+   "Rook activity over forcing continuation",
+   "Rook retreats to second rank passively",
+   "Rook invades 7th, drops defense",
+   "Rook to 7th over forcing move",
+   "Rook invades early, abandons defense"
+  ]
+ },
+ "173": {
+  "n": 8,
+  "feature_ids": [
+   53,
+   503,
+   594,
+   958,
+   1200,
+   1344,
+   1779,
+   1919
+  ],
+  "chips": [
+   "Passed pawn push skips urgent prep",
+   "King steps, pawn promotes with check",
+   "Passed pawn push, bishop guards promotion",
+   "King blocks own pawn's promotion",
+   "Rook leaves promotion square unguarded",
+   "Rook misses pawn promotion path",
+   "Rook quits passed pawn blockade",
+   "Promotes into guarded knight square"
+  ]
+ },
+ "95": {
+  "n": 12,
+  "feature_ids": [
+   54,
+   224,
+   638,
+   717,
+   767,
+   970,
+   1065,
+   1188,
+   1205,
+   1525,
+   1585,
+   1675
+  ],
+  "chips": [
+   "Pawn break ignores hanging pieces",
+   "Pawn push abandons guarded piece",
+   "Pawn break squanders urgent tactic",
+   "Central pawn push left undefended",
+   "Center pawn push over piece shot",
+   "Pawn chases knight, opens king",
+   "Pawn push surrenders forcing initiative",
+   "Pawn advance opens king diagonal",
+   "quiet pawn push over forcing piece move",
+   "f/h pawn push opens king",
+   "Pawn break over king safety",
+   "Pawn push lets target escape"
+  ]
+ },
+ "68": {
+  "n": 8,
+  "feature_ids": [
+   55,
+   94,
+   556,
+   731,
+   1033,
+   1067,
+   1252,
+   1442
+  ],
+  "chips": [
+   "Pawn push over forcing king attack",
+   "pawn push ignores mating attack",
+   "Pawn push over urgent piece action",
+   "Quiet pawn lets bishop fall",
+   "Shelter pawn lets attack break through",
+   "Quiet pawn push surrenders initiative",
+   "Queen move lets knight fork stand",
+   "Shield pawn advance opens king"
+  ]
+ },
+ "1": {
+  "n": 9,
+  "feature_ids": [
+   57,
+   302,
+   525,
+   611,
+   838,
+   875,
+   1562,
+   1677,
+   1902
+  ],
+  "chips": [
+   "Quiet pawn push skips decisive check",
+   "Quiet bishop drift loses decisive tempo",
+   "King repositions while plan executes",
+   "Quiet rook move over forcing strike",
+   "Rook centralizes to active square",
+   "Rook improves while position demands action",
+   "Queen retreats cede forcing initiative",
+   "King retreats when forcing move required",
+   "Bishop retreats cede winning tempo"
+  ]
+ },
+ "16": {
+  "n": 24,
+  "feature_ids": [
+   58,
+   109,
+   141,
+   158,
+   201,
+   226,
+   370,
+   389,
+   570,
+   584,
+   630,
+   672,
+   745,
+   1095,
+   1225,
+   1388,
+   1403,
+   1448,
+   1506,
+   1695,
+   1710,
+   1929,
+   1932,
+   1986
+  ],
+  "chips": [
+   "Rook grab creates tactical liability",
+   "King steps one square into mate",
+   "Pawn leaves critical square unguarded",
+   "Rook drift over urgent king shelter",
+   "Pawn push over forcing capture",
+   "Queen defends instead of attacks",
+   "Pawn push ignores forcing reply",
+   "h-file push over pressing need",
+   "King steps into fatal check pattern",
+   "Knight jumps miss urgent priority",
+   "Pawn picks lesser square over best",
+   "Rook repositions over concrete urgency",
+   "Rook misses critical defense",
+   "Knight to outpost skips forcing reply",
+   "Rook 'activity' abandons critical defense",
+   "Quiet rook move over forcing response",
+   "Bishop grabs lesser piece over queen",
+   "a4/h-pawn push over priority",
+   "Rook to open file misses strike",
+   "Rook routine move misses only resource",
+   "Rook repositioned while tactics demanded",
+   "Rook drifts from critical sector",
+   "Queen vacates key defensive square",
+   "King steps into check or fork"
+  ]
+ },
+ "120": {
+  "n": 6,
+  "feature_ids": [
+   59,
+   255,
+   586,
+   1039,
+   1323,
+   1433
+  ],
+  "chips": [
+   "Queen grabs pawn, loses queen",
+   "Capture enables pawn promotion recapture",
+   "Queen grabs piece, king checked",
+   "Rook capture enables queen recapture check",
+   "Pawn capture gifts knight invasion square",
+   "Recapture invites back-rank check"
+  ]
+ },
+ "38": {
+  "n": 12,
+  "feature_ids": [
+   62,
+   212,
+   223,
+   406,
+   476,
+   873,
+   1106,
+   1247,
+   1282,
+   1357,
+   1831,
+   1891
+  ],
+  "chips": [
+   "Queen captures before zwischenzug",
+   "Bishop grabs pawn, gets recaptured",
+   "Rook trade surrenders active endgame resource",
+   "Queen grabs piece, loses queen",
+   "Queen trade surrenders attacking pressure",
+   "Rook takes knight enters drawn endgame",
+   "Knight grabs defended pawn, loses piece",
+   "BxN trade unleashes opponent's attack",
+   "Rook capture trades itself off",
+   "Rook grabs queen, misses check",
+   "Queen takes defended Rook, loses material",
+   "Rook swap kills defensive resources"
+  ]
+ },
+ "141": {
+  "n": 8,
+  "feature_ids": [
+   66,
+   181,
+   441,
+   579,
+   1283,
+   1462,
+   1646,
+   1706
+  ],
+  "chips": [
+   "Rook to queen's file, instantly lost",
+   "Bishop retreats to 2nd rank mid-crisis",
+   "Doubling rooks over concrete tactics",
+   "Flank pawn push ignores concrete action",
+   "King vacates rook-guarding rank/file",
+   "Knight retreats d2/e2, drops guard",
+   "Knight to e7 blocks own pieces",
+   "Rook leaves 7th rank battery"
+  ]
+ },
+ "168": {
+  "n": 5,
+  "feature_ids": [
+   67,
+   129,
+   422,
+   777,
+   1853
+  ],
+  "chips": [
+   "Rook to rank over instant promotion",
+   "Rook behind pawn delays promotion",
+   "Rook retreats to back rank, exposes king",
+   "Rook blocks own promotion path",
+   "King retreats to back rank"
+  ]
+ },
+ "97": {
+  "n": 12,
+  "feature_ids": [
+   68,
+   377,
+   412,
+   741,
+   1186,
+   1222,
+   1499,
+   1574,
+   1673,
+   1684,
+   1762,
+   1766
+  ],
+  "chips": [
+   "Queen repositions, misses forcing move",
+   "Quiet rook move squanders forcing opportunity",
+   "King shuffle over forcing move",
+   "Queen repositions over forcing execution",
+   "Quiet pawn push over forcing break",
+   "Rook lift ignores hanging piece",
+   "Queen repost lets opponent execute",
+   "Queen repost surrenders forcing window",
+   "Quiet king move ignores forcing reply",
+   "King move stalls decisive tempo",
+   "Rook drifts from critical post",
+   "Quiet queen move surrenders tempo"
+  ]
+ },
+ "11": {
+  "n": 17,
+  "feature_ids": [
+   70,
+   86,
+   227,
+   260,
+   500,
+   721,
+   784,
+   851,
+   924,
+   1001,
+   1108,
+   1339,
+   1508,
+   1526,
+   1633,
+   1788,
+   1869
+  ],
+  "chips": [
+   "Bishop develops, free capture missed",
+   "Pawn push over forcing capture",
+   "Pawn push over urgent defense",
+   "Pawn grab over winning piece move",
+   "Pawn push over forcing capture",
+   "Bishop repost abandons critical duty",
+   "Bishop move lets mate land",
+   "Knight repost ignores hanging piece",
+   "Pawn push over free capture",
+   "King move ignores hanging pieces",
+   "Knight abandons winning capture",
+   "Rook lunges into enemy territory, gets trapped",
+   "Queen moves over free capture",
+   "Pawn push ignores free capture",
+   "Improving move over forcing tactic",
+   "Knight leaves critical defensive square",
+   "Pawn to rim over forced capture"
+  ]
+ },
+ "91": {
+  "n": 8,
+  "feature_ids": [
+   71,
+   76,
+   334,
+   550,
+   977,
+   1424,
+   1683,
+   1689
+  ],
+  "chips": [
+   "King flees into mating net",
+   "Bishop shuffle over central pawn break",
+   "King steps onto back-rank mate square",
+   "King tuck creates knight/diagonal shots",
+   "King shuffle over concrete action",
+   "King move abandons critical defense",
+   "Bishop move ignores mating threat",
+   "King tucks while position demands action"
+  ]
+ },
+ "110": {
+  "n": 8,
+  "feature_ids": [
+   72,
+   275,
+   455,
+   691,
+   845,
+   1082,
+   1427,
+   1863
+  ],
+  "chips": [
+   "King steps onto bishop diagonal",
+   "Pawn unblocks bishop's queen diagonal",
+   "Rook blocks king's escape square",
+   "Queen steps onto open diagonal",
+   "Pawn blocks bishop's retreat square",
+   "Bishop lands on pawn-fork diagonal",
+   "Bishop trapped after corner pawn grab",
+   "Pawn blocks own diagonal attacker"
+  ]
+ },
+ "59": {
+  "n": 10,
+  "feature_ids": [
+   73,
+   100,
+   154,
+   277,
+   1152,
+   1230,
+   1356,
+   1437,
+   1471,
+   1624
+  ],
+  "chips": [
+   "Rook grab exposes king fatally",
+   "Bishop grabs pawn, squanders tempo",
+   "Kingside pawn capture over king attack",
+   "Open-file rook capture triggers retaliation",
+   "Knight capture vacates critical square",
+   "Rook grabs pawn, lands badly",
+   "Knight grabs rook, misses better",
+   "Queen grabs pawn, king exposed",
+   "Rook exchange kills piece activity",
+   "Pawn captures release tension prematurely"
+  ]
+ },
+ "2": {
+  "n": 8,
+  "feature_ids": [
+   74,
+   344,
+   742,
+   1116,
+   1451,
+   1674,
+   1945,
+   1972
+  ],
+  "chips": [
+   "Pawn blocks knight's ideal square",
+   "King-flank pawn push over hanging pieces",
+   "g6/g3 pawn cracks king shelter",
+   "c3 pawn blocks best knight square",
+   "d/e pawn blocks own piece retreat",
+   "Queen to f3 cages knight",
+   "Shelter pawn advance opens king",
+   "Shelter pawn push opens diagonal"
+  ]
+ },
+ "113": {
+  "n": 10,
+  "feature_ids": [
+   75,
+   257,
+   361,
+   521,
+   681,
+   1369,
+   1772,
+   1804,
+   1868,
+   1979
+  ],
+  "chips": [
+   "Queen retreats while tactics demand action",
+   "Rook repost invites knight fork",
+   "Queen repositions onto attacked square",
+   "Pawn push lets tactics evaporate",
+   "Bishop repositioned while tactics burn",
+   "Queen reposition over piece capture",
+   "Knight retreats from dominant outpost",
+   "d/e pawn push over forcing reply",
+   "Knight to f3/f6 over forced tactic",
+   "Queen centralized over forcing continuation"
+  ]
+ },
+ "0": {
+  "n": 13,
+  "feature_ids": [
+   79,
+   101,
+   242,
+   270,
+   410,
+   572,
+   866,
+   1071,
+   1096,
+   1349,
+   1441,
+   1667,
+   1692
+  ],
+  "chips": [
+   "Rim pawn push over king activation",
+   "Rook-pawn push amid crisis",
+   "Wing pawn push surrenders endgame tempo",
+   "King repositions, misses forcing win",
+   "Flank pawn push over forcing strike",
+   "Passed pawn pushed into capture",
+   "a/h-pawn push over urgent action",
+   "Flank pawn push, king uncastled",
+   "Pawn push before king activation",
+   "Flank pawn push exposes uncastled king",
+   "b-pawn push before king support",
+   "King advance into endgame check",
+   "Space thrust opens king diagonal"
+  ]
+ },
+ "101": {
+  "n": 11,
+  "feature_ids": [
+   80,
+   225,
+   323,
+   440,
+   670,
+   697,
+   1007,
+   1080,
+   1328,
+   1469,
+   1514
+  ],
+  "chips": [
+   "h-rook to center abandons urgency",
+   "Rook centralization over urgent defense",
+   "Rb-file development over forced response",
+   "Bishop quits e-file or diagonal shield",
+   "Re1/Re8 surrenders critical tempo",
+   "Rook drifts to b-file quietly",
+   "Rook to e-file over urgency",
+   "Rook to center over urgent tactic",
+   "Rook to e-file over forcing move",
+   "Rook to e-file over forcing tactic",
+   "Pawn capture ignores mating attack"
+  ]
+ },
+ "31": {
+  "n": 19,
+  "feature_ids": [
+   81,
+   307,
+   318,
+   407,
+   435,
+   805,
+   822,
+   888,
+   900,
+   999,
+   1076,
+   1303,
+   1359,
+   1438,
+   1511,
+   1722,
+   1731,
+   1836,
+   1914
+  ],
+  "chips": [
+   "Bishop quits dominant central outpost",
+   "Knight centralizes while mate looms",
+   "Knight leaves vital defensive square",
+   "Knight hops to attacked outpost",
+   "Knight centralizes, drops defensive duty",
+   "Knight leaves dominant outpost square",
+   "Knight leaps to outpost, drops defender",
+   "Knight leaps to capturable central outpost",
+   "Knight lunges forward, drops guard",
+   "Knight retreats from dominant outpost",
+   "Knight abandons outpost, gets trapped",
+   "Knight retreats instead of decisive blow",
+   "Knight lunges, abandons pawn defense",
+   "Knight centralizes while tactics burn",
+   "Knight leaps, leaves king exposed",
+   "Bishop quits dominant square, loses sting",
+   "Knight vacates critical guard square",
+   "Knight leap strands hanging bishop",
+   "Knight to outpost, tactically punished"
+  ]
+ },
+ "114": {
+  "n": 8,
+  "feature_ids": [
+   83,
+   210,
+   535,
+   658,
+   1102,
+   1267,
+   1828,
+   1873
+  ],
+  "chips": [
+   "Bishop retreats when capture wins",
+   "King castles, misses forcing reply",
+   "King castles over urgent tactics",
+   "Bishop move over forcing check",
+   "g-pawn push over forcing continuation",
+   "Kg7 invites diagonal/file attack",
+   "King move over urgent tactic",
+   "King drifts to exposed c6/b6"
+  ]
+ },
+ "22": {
+  "n": 18,
+  "feature_ids": [
+   85,
+   88,
+   111,
+   236,
+   317,
+   345,
+   355,
+   558,
+   626,
+   1110,
+   1276,
+   1338,
+   1341,
+   1385,
+   1709,
+   1718,
+   1770,
+   1935
+  ],
+  "chips": [
+   "Bishop repositioned while king idles",
+   "Rook chases pawn, abandons activity",
+   "King races lost pawn promotion",
+   "Flank pawn push over king march",
+   "Rook trade surrenders last counterplay",
+   "Rook leaves critical defensive post",
+   "King steps off drawing square",
+   "Capture strips last defensive anchor",
+   "Rook grabs pawn, king recaptures",
+   "King abandons pawn blockade duty",
+   "Queen checks from afar",
+   "Rook chases pawn, surrenders tempo",
+   "Knight drifts while pawns advance",
+   "King chases pawn, misses race",
+   "King grabs pawn, passes race",
+   "King capture cedes key opposition",
+   "Bishop grabs pawn, king recaptures",
+   "King drifts to rim, misplaced"
+  ]
+ },
+ "108": {
+  "n": 8,
+  "feature_ids": [
+   87,
+   1253,
+   1280,
+   1402,
+   1504,
+   1589,
+   1645,
+   1954
+  ],
+  "chips": [
+   "King advances into mating net",
+   "King advances into checks and forks",
+   "Pawn check lets king escape safely",
+   "King centralizes into enemy mating net",
+   "King advance exposes mating net",
+   "Knight leaves d4 pawn unguarded",
+   "Diagonal bishop check blocked easily",
+   "Pawn check drives king to safety"
+  ]
+ },
+ "34": {
+  "n": 11,
+  "feature_ids": [
+   89,
+   219,
+   696,
+   794,
+   1018,
+   1138,
+   1233,
+   1528,
+   1538,
+   1822,
+   1844
+  ],
+  "chips": [
+   "Queen sallies out, king exposed",
+   "f4 pawn push ignores mating net",
+   "Bishop activity over forcing continuations",
+   "Rook 'improves' over forcing capture",
+   "Knight repositions while king burns",
+   "Rook move blocks king's escape",
+   "Bishop repositions, abandons critical duty",
+   "Rook deserts king's defensive post",
+   "Rook abandons defensive file for activity",
+   "Rook activation over forcing shot",
+   "Rook stops short of forcing blow"
+  ]
+ },
+ "121": {
+  "n": 3,
+  "feature_ids": [
+   93,
+   729,
+   1234
+  ],
+  "chips": [
+   "g-pawn push over forcing reply",
+   "g-pawn fianchetto over urgent play",
+   "Queen drifts to 3rd rank"
+  ]
+ },
+ "13": {
+  "n": 23,
+  "feature_ids": [
+   95,
+   197,
+   552,
+   578,
+   734,
+   829,
+   858,
+   891,
+   1237,
+   1293,
+   1308,
+   1337,
+   1484,
+   1509,
+   1543,
+   1617,
+   1666,
+   1699,
+   1707,
+   1748,
+   1777,
+   1883,
+   1916
+  ],
+  "chips": [
+   "Capture opens file to king",
+   "Pawn capture dissolves structural restraint",
+   "Bishop capture tears open king's file",
+   "hxg5 opens h-file fatally",
+   "Capture opens file to king",
+   "Pawn capture opens king's file",
+   "Capture opens file to king",
+   "Pawn capture opens king's file",
+   "Rook strips king-cover without compensation",
+   "gxh pawn opens king's file",
+   "hxg6 rips open king's file",
+   "Pawn capture ignores back-rank mate",
+   "Shelter pawn capture opens king file",
+   "Pawn capture opens king's file",
+   "Pawn capture opens king's diagonal",
+   "hxg-file pawn dissolves attack",
+   "g-pawn capture destroys king shelter",
+   "g-file pawn capture over forced win",
+   "Pawn capture opens lethal diagonal",
+   "Pawn capture opens king's file",
+   "Pawn capture strips king shelter",
+   "Flank capture rips open edge file",
+   "Capture opens file to own rook"
+  ]
+ },
+ "50": {
+  "n": 17,
+  "feature_ids": [
+   96,
+   163,
+   281,
+   284,
+   333,
+   353,
+   668,
+   698,
+   701,
+   790,
+   980,
+   1291,
+   1297,
+   1482,
+   1962,
+   1965,
+   1994
+  ],
+  "chips": [
+   "Queen slides, abandons critical post",
+   "Pawn takes open knight fork squares",
+   "Bishop develops over forcing capture",
+   "Queen repositions over decisive capture",
+   "Queen captures, invites tempo attack",
+   "Bishop retreats over winning exchange",
+   "Pawn capture opens king shelter",
+   "Bishop develops into pawn attack",
+   "Knight leap drops guarded pawn",
+   "Queen drifts, abandons critical sector",
+   "Queen repositions instead of capturing",
+   "Queen Repositions, Misses Capture",
+   "Pawn push over forcing queen capture",
+   "Knight retreats miss forcing capture",
+   "Pawn push over forcing capture",
+   "Queen repositions, invites tempo attacks",
+   "Queen repositions over free capture"
+  ]
+ },
+ "62": {
+  "n": 5,
+  "feature_ids": [
+   97,
+   238,
+   690,
+   937,
+   1736
+  ],
+  "chips": [
+   "Bishop move drops defended square",
+   "Knight lands on rook's open line",
+   "Queen roams to attacked square",
+   "King flees into forcing check sequence",
+   "Knight leaps onto bishop-controlled square"
+  ]
+ },
+ "60": {
+  "n": 11,
+  "feature_ids": [
+   103,
+   211,
+   421,
+   505,
+   577,
+   596,
+   1228,
+   1243,
+   1459,
+   1569,
+   1681
+  ],
+  "chips": [
+   "Queen repost surrenders forcing initiative",
+   "Rook drifts while tactics burn",
+   "Rook drifts from critical file",
+   "Quiet rook move in forcing position",
+   "Rook shifts to contested file prematurely",
+   "Queen drifts off critical file",
+   "Rook vacates critical defensive square",
+   "Rook shuffles off critical file",
+   "Rook drifts off critical file",
+   "Rook to open file over concrete action",
+   "Rook shuffle abandons critical file"
+  ]
+ },
+ "139": {
+  "n": 5,
+  "feature_ids": [
+   106,
+   132,
+   146,
+   1175,
+   1620
+  ],
+  "chips": [
+   "Fianchetto bishop ignores concrete emergency",
+   "Bishop to b2/b7 diagonal blocked",
+   "Fianchetto prep pawn over crisis",
+   "Fianchetto while tactics demand action",
+   "Fianchetto while tactics burn"
+  ]
+ },
+ "140": {
+  "n": 12,
+  "feature_ids": [
+   107,
+   231,
+   267,
+   313,
+   759,
+   834,
+   843,
+   1103,
+   1306,
+   1745,
+   1861,
+   1903
+  ],
+  "chips": [
+   "King centralization blunder",
+   "Queen repost delays forcing blow",
+   "Quiet bishop move in crisis",
+   "Quiet queen move cedes forcing tempo",
+   "Quiet queen retreats forfeit tactical edge",
+   "Queen drift abandons critical post",
+   "King retreats surrender forcing continuation",
+   "Bishop retreats forfeit forcing tempo",
+   "Bishop/queen drift misses forcing win",
+   "Bishop reposition over forced response",
+   "Queen drifts, defended piece hangs",
+   "Knight repost over forcing sequence"
+  ]
+ },
+ "175": {
+  "n": 10,
+  "feature_ids": [
+   110,
+   524,
+   538,
+   785,
+   846,
+   1139,
+   1416,
+   1743,
+   1843,
+   1909
+  ],
+  "chips": [
+   "Pawn push over emergency defense",
+   "Central pawn push over urgent defense",
+   "Queen retreats abandon defended pieces",
+   "Bishop drifts while king exposed",
+   "flank pawn push over urgent defense",
+   "Bishop develops while threats ignored",
+   "Knight develops ignoring queen attack",
+   "Knight development exposes critical defender",
+   "Bishop move strips key defender",
+   "Kb1 tuck over concrete action"
+  ]
+ },
+ "125": {
+  "n": 6,
+  "feature_ids": [
+   112,
+   207,
+   544,
+   650,
+   1911,
+   1950
+  ],
+  "chips": [
+   "King steps onto mating rank/diagonal",
+   "King steps onto checked rank/file",
+   "Rook drifts to back rank",
+   "Rook check improves opposing king",
+   "Midline pawn contact locks endgame structure",
+   "Rook drifts to edge file"
+  ]
+ },
+ "94": {
+  "n": 14,
+  "feature_ids": [
+   115,
+   484,
+   519,
+   618,
+   962,
+   1121,
+   1137,
+   1160,
+   1551,
+   1555,
+   1558,
+   1639,
+   1658,
+   1875
+  ],
+  "chips": [
+   "Knight leaps to defended central square",
+   "Pawn push vacates knight fork square",
+   "Knight lands on pawn-capturable square",
+   "Rook moves into knight fork",
+   "Pawn vacates square, knight invades fork",
+   "Knight sortie ignores urgent defense",
+   "Textbook knight blocks winning tactic",
+   "Knight quits load-bearing defensive square",
+   "Knight captured on queen-defended square",
+   "Rook lands on fork target",
+   "Queen move creates knight fork target",
+   "Rook lands on knight-fork square",
+   "Knight sac on f2/f7 refuted",
+   "Knight fork c2/c7 backfires"
+  ]
+ },
+ "61": {
+  "n": 17,
+  "feature_ids": [
+   116,
+   235,
+   322,
+   496,
+   501,
+   559,
+   667,
+   684,
+   749,
+   1077,
+   1094,
+   1177,
+   1326,
+   1376,
+   1575,
+   1755,
+   1760
+  ],
+  "chips": [
+   "Knight to f3/g3 invites capture",
+   "King steps into fork or pawn kick",
+   "Bishop vacates critical defensive diagonal",
+   "Knight quits critical outpost square",
+   "Knight leaps to center, drops guard",
+   "Rook blocks king's escape square",
+   "Queen drifts, abandons critical post",
+   "Block pawn opens tactical target",
+   "Rook leaves critical defensive post",
+   "Pawn self-blocks own piece's escape",
+   "Knight vacates critical blocking square",
+   "Knight blocks own bishop's retreat",
+   "Bishop drifts, defense collapses",
+   "Bishop repositions while position screams",
+   "Rook seeks activity, drops defense",
+   "King advance ignores forcing reply",
+   "Minor piece leaps into refutation"
+  ]
+ },
+ "45": {
+  "n": 19,
+  "feature_ids": [
+   118,
+   138,
+   152,
+   342,
+   600,
+   849,
+   907,
+   917,
+   995,
+   1044,
+   1307,
+   1481,
+   1549,
+   1572,
+   1682,
+   1757,
+   1806,
+   1928,
+   1949
+  ],
+  "chips": [
+   "Knight vacates critical defensive square",
+   "Queen drifts, knight hangs instantly",
+   "Bishop vacates knight's guardian diagonal",
+   "King flees wrong flank, loses opposition",
+   "King relocates into mating net",
+   "Bishop quits sole defensive post",
+   "Rook defends pawn, cedes initiative",
+   "King move drops defended piece",
+   "Rook seeks file, abandons post",
+   "Rook leaves critical defensive square",
+   "Pawn advance drops guarded piece",
+   "Queen deserts d2 piece guardian",
+   "Rook develops while pieces hang",
+   "Castling leaves hanging piece",
+   "Queen drifts, defended piece hangs",
+   "Pawn steps off guarded piece",
+   "Rook leaves piece hanging behind",
+   "Knight development ignores hanging pieces",
+   "Knight leaves post, defense collapses"
+  ]
+ },
+ "151": {
+  "n": 12,
+  "feature_ids": [
+   119,
+   531,
+   651,
+   662,
+   910,
+   986,
+   1081,
+   1107,
+   1495,
+   1614,
+   1676,
+   1900
+  ],
+  "chips": [
+   "Knight grab misses bigger win",
+   "Knight captures onto undefended central square",
+   "Nxe5 pawn recapture forks pieces",
+   "Rook grabs offside minor piece",
+   "King snatches bishop, loses tempo",
+   "Quiet pawn push, bishop hangs free",
+   "Knight grabs pawn, queen punishes",
+   "Knight repositions over forcing continuation",
+   "Corner knight reactivated before crisis",
+   "Knight jumps to capturable outpost",
+   "Central knight grab invites recapture",
+   "Central pawn grab abandons tactical duty"
+  ]
+ },
+ "90": {
+  "n": 8,
+  "feature_ids": [
+   120,
+   551,
+   707,
+   993,
+   1519,
+   1531,
+   1937,
+   1977
+  ],
+  "chips": [
+   "Bishop grabs pawn, wrecks position",
+   "Queen centralizes, misses forcing continuation",
+   "Knight vacates diagonal, exposes g-pawn",
+   "Knight centralizes onto undefended square",
+   "Bishop centralizes onto undefended square",
+   "Rook centralizes, vacates critical post",
+   "Knight quits embedded outpost prematurely",
+   "Knight leaves critical defensive post"
+  ]
+ },
+ "145": {
+  "n": 7,
+  "feature_ids": [
+   121,
+   208,
+   395,
+   807,
+   994,
+   1906,
+   1989
+  ],
+  "chips": [
+   "Castling into exploitable structural weakness",
+   "Castles while tactics demand action",
+   "Castling over decisive tactical strike",
+   "Castling surrenders decisive tempo advantage",
+   "Castling into pre-aimed attack",
+   "O-O over urgent tactical response",
+   "Castling over concrete forcing move"
+  ]
+ },
+ "116": {
+  "n": 17,
+  "feature_ids": [
+   122,
+   222,
+   250,
+   408,
+   444,
+   480,
+   797,
+   899,
+   920,
+   946,
+   1045,
+   1187,
+   1194,
+   1391,
+   1517,
+   1778,
+   1912
+  ],
+  "chips": [
+   "Bishop drifts to attacked central square",
+   "Knight lunges to attacked central square",
+   "Bishop to open file, captured",
+   "Bishop lunges to attacked kingside square",
+   "Knight grabs pawn, lands undefended",
+   "Knight leap leaves piece hanging",
+   "Rook lands on undefended square",
+   "Knight lunges to attacked outpost",
+   "Queen to center invites tempo attacks",
+   "Queen centralizes onto attacked square",
+   "Knight jumps to e4/e5 undefended",
+   "Knight jumps to undefended central square",
+   "Queen lands on tempo-losing square",
+   "Queen lands on attacked central square",
+   "Rook to open square, undefended",
+   "Rook lands on attacked middle square",
+   "Knight outpost falls to immediate capture"
+  ]
+ },
+ "8": {
+  "n": 19,
+  "feature_ids": [
+   123,
+   287,
+   332,
+   362,
+   478,
+   499,
+   504,
+   509,
+   527,
+   702,
+   862,
+   926,
+   1062,
+   1202,
+   1265,
+   1401,
+   1434,
+   1587,
+   1939
+  ],
+  "chips": [
+   "Pawn chases queen, misses winning move",
+   "Bishop-chase pawn over urgent threats",
+   "Pawn chases knight, misses repost",
+   "Knight to e5 invites exchange",
+   "Queen to a5 invites Bd2 refutation",
+   "pawn push enables knight fork",
+   "Knight to center invites counter-tactic",
+   "Queen check allows productive interposition",
+   "Pawn chases knight enabling forward fork",
+   "Pawn kick gifts knight superior square",
+   "Pawn chase abandons defensive post",
+   "Harassing pawn misses forcing reply",
+   "Knight to f6 invites refutation",
+   "Pawn push, knight captures immediately",
+   "Pawn chase weakens key shelter",
+   "Bishop lunge misses enemy counter",
+   "h-pawn kick lets piece strike",
+   "f-pawn opens diagonal to king",
+   "Rook-pawn kick over queen check"
+  ]
+ },
+ "135": {
+  "n": 5,
+  "feature_ids": [
+   124,
+   506,
+   607,
+   1548,
+   1794
+  ],
+  "chips": [
+   "Queen promo gifted to rook",
+   "Pawn capture opens file to rook",
+   "Rook lands on bishop's diagonal",
+   "Rook exchange surrenders open file",
+   "Bishop lands on queen's capture square"
+  ]
+ },
+ "93": {
+  "n": 10,
+  "feature_ids": [
+   125,
+   148,
+   827,
+   886,
+   935,
+   1117,
+   1566,
+   1647,
+   1801,
+   1882
+  ],
+  "chips": [
+   "Pawn push misses forcing sequence",
+   "Knight leaves outpost, lands weak",
+   "Rook chases minor piece, misses priority",
+   "g4/g5 piece abandons outpost",
+   "Rook grabs bait, misses threat",
+   "Queen capture abandons guarded piece",
+   "Rook to f1 blocks king escape",
+   "Pawn advances over urgent king safety",
+   "Knight capture misses urgent priority",
+   "Capture exposes king to recapture-check"
+  ]
+ },
+ "199": {
+  "n": 6,
+  "feature_ids": [
+   126,
+   1352,
+   1460,
+   1765,
+   1924,
+   1934
+  ],
+  "chips": [
+   "Rook vacates back rank fatally",
+   "Rook deserts back-rank coverage",
+   "Rook quits vital defensive post",
+   "Rook vacates critical defensive post",
+   "Rook quits back rank, enables mate",
+   "Rook quits file, invites mate"
+  ]
+ },
+ "109": {
+  "n": 5,
+  "feature_ids": [
+   127,
+   391,
+   832,
+   901,
+   1380
+  ],
+  "chips": [
+   "Wrong rook vacates critical post",
+   "Rook quits critical file laterally",
+   "Wrong rook check abandons file",
+   "Rook leaves critical file duty",
+   "Wrong knight vacates critical square"
+  ]
+ },
+ "67": {
+  "n": 8,
+  "feature_ids": [
+   128,
+   241,
+   263,
+   736,
+   884,
+   1060,
+   1272,
+   1426
+  ],
+  "chips": [
+   "Knight-file pawn cracks king shelter",
+   "b-pawn chase opens king shelter",
+   "Rook chases queen, loses tempo",
+   "Knight raids c2, gets stranded",
+   "b-pawn exposes queenside king",
+   "Rook-pawn nudge ignites knight leap",
+   "b/g pawn exposes rook diagonal",
+   "h-pawn advance gifts bishop sacrifice"
+  ]
+ },
+ "27": {
+  "n": 15,
+  "feature_ids": [
+   130,
+   481,
+   526,
+   554,
+   568,
+   609,
+   621,
+   864,
+   1174,
+   1316,
+   1397,
+   1420,
+   1648,
+   1702,
+   1983
+  ],
+  "chips": [
+   "Pawn advance hangs piece",
+   "Rook activates, other rook hangs",
+   "Bishop placed on attacked square",
+   "Queen placed on attacked square",
+   "Knight lands on punishable square",
+   "Bishop moves to attacked square",
+   "Queen moves to attacked square",
+   "Minor piece to attacked outpost",
+   "Rook repositions onto attacked square",
+   "Active rook leaves own piece hanging",
+   "Queen relocates, abandons defended piece",
+   "Rook leaves critical post fatally",
+   "Queen left hanging after move",
+   "Own piece left en prise",
+   "Queen leaves guard duty, piece hangs"
+  ]
+ },
+ "186": {
+  "n": 7,
+  "feature_ids": [
+   133,
+   403,
+   1000,
+   1127,
+   1305,
+   1367,
+   1573
+  ],
+  "chips": [
+   "Bishop development delays king evacuation",
+   "King steps forward, invites attack",
+   "Queen check lets king sidestep",
+   "Queen moves strand exposed king",
+   "g-pawn push ignores king escape",
+   "King steps onto tactically loaded square",
+   "Rook move strands escaping king"
+  ]
+ },
+ "148": {
+  "n": 10,
+  "feature_ids": [
+   136,
+   230,
+   460,
+   461,
+   1118,
+   1199,
+   1227,
+   1255,
+   1333,
+   1605
+  ],
+  "chips": [
+   "Pawn grab loosens key piece",
+   "Bishop grabs pawn, hangs itself",
+   "Knight capture deserts defensive post",
+   "Knight capture cedes superior outpost",
+   "Rook grabs pawn, misses priority",
+   "Rook trade surrenders dynamic counterplay",
+   "Bishop grabs pawn, loses tempo",
+   "Bishop grabs rook, misses more",
+   "Rook grabs material, misses attack",
+   "Queen grabs pawn, surrenders initiative"
+  ]
+ },
+ "192": {
+  "n": 9,
+  "feature_ids": [
+   137,
+   140,
+   350,
+   409,
+   451,
+   680,
+   1534,
+   1659,
+   1846
+  ],
+  "chips": [
+   "King steps into forcing attack",
+   "Bishop lands on pawn-fork diagonal",
+   "Queen lunges, falls behind tempo",
+   "King centralization invites fork/check",
+   "King move invites knight fork",
+   "Rook grabs pawn, bishop strikes",
+   "King steps onto forked square",
+   "King steps onto knight-fork square",
+   "Rook lands on check-forked square"
+  ]
+ },
+ "149": {
+  "n": 6,
+  "feature_ids": [
+   139,
+   536,
+   744,
+   1159,
+   1184,
+   1309
+  ],
+  "chips": [
+   "f-pawn advance opens h4 diagonal",
+   "fxe5 strips h4-e1 diagonal",
+   "fxe5 opens h4-e1 diagonal",
+   "f4-pawn leaves h4-e1 diagonal",
+   "Knight sacrifice on e5 refuted",
+   "f-pawn opens fatal diagonal"
+  ]
+ },
+ "184": {
+  "n": 5,
+  "feature_ids": [
+   142,
+   821,
+   1089,
+   1190,
+   1259
+  ],
+  "chips": [
+   "Queen grabs back-rank, ignores king",
+   "King corners on h1/h8 fatally",
+   "King flees center into mating net",
+   "Rook grabs piece, back-rank collapses",
+   "Rook to g1/g8 traps king"
+  ]
+ },
+ "42": {
+  "n": 8,
+  "feature_ids": [
+   143,
+   195,
+   848,
+   984,
+   987,
+   1006,
+   1500,
+   1523
+  ],
+  "chips": [
+   "Passed pawn push over king safety",
+   "Pawn push mistimes king-pawn race",
+   "Pawn lunge over decisive piece move",
+   "Pawn push over forced tactical reply",
+   "Passed pawn push ignores king escape",
+   "Pawn push over urgent preparation",
+   "h/a-pawn push over forcing reply",
+   "Pawn push over urgent piece duty"
+  ]
+ },
+ "164": {
+  "n": 9,
+  "feature_ids": [
+   144,
+   415,
+   624,
+   981,
+   1146,
+   1392,
+   1480,
+   1890,
+   1964
+  ],
+  "chips": [
+   "King escorts pawn, strands itself",
+   "Pawn promoted before deflecting defender",
+   "Passed pawn push wins race",
+   "7th-rank pawn promotes too early",
+   "Pawn push over decisive piece move",
+   "Premature pawn push surrenders promotion tempo",
+   "Near-promo pawn push skips forcing check",
+   "Pawn advances to 7th unstoppable",
+   "Premature or wrong pawn promotion"
+  ]
+ },
+ "152": {
+  "n": 10,
+  "feature_ids": [
+   145,
+   382,
+   387,
+   424,
+   808,
+   938,
+   1535,
+   1557,
+   1837,
+   1892
+  ],
+  "chips": [
+   "Bishop reposition over concrete pawn advance",
+   "King maneuver squanders only winning move",
+   "Bishop repositioned over king march",
+   "Passive king shuffle over concrete action",
+   "King mishandles active pawn race",
+   "King misses opposition, loses endgame",
+   "Bishop repositions while mate looms",
+   "King detours lose pawn-race tempo",
+   "Wing pawn push over king centralization",
+   "King retreats when forcing moves win"
+  ]
+ },
+ "5": {
+  "n": 15,
+  "feature_ids": [
+   147,
+   149,
+   601,
+   850,
+   1002,
+   1046,
+   1165,
+   1214,
+   1270,
+   1415,
+   1452,
+   1510,
+   1542,
+   1740,
+   1981
+  ],
+  "chips": [
+   "Flank pawn lunge gifts free capture",
+   "Central push surrenders knight outpost",
+   "Pawn thrust ignores immediate refutation",
+   "Bishop storms king shelter prematurely",
+   "d-pawn push ignores attacked knight",
+   "Pawn push drops diagonal guard",
+   "Bishop develops onto pawn-attacked square",
+   "Flank pawn pushed to undefended square",
+   "Knight on d5 swallowed by rook",
+   "Bishop moves to knight-attacked square",
+   "King captures onto exposed f-file",
+   "Knight developed, attacked piece abandoned",
+   "Pawn promotes into controlled square",
+   "Bishop develops onto pawn's capture square",
+   "Bishop deserts rook-pawn defender"
+  ]
+ },
+ "70": {
+  "n": 9,
+  "feature_ids": [
+   150,
+   336,
+   414,
+   474,
+   617,
+   855,
+   1147,
+   1564,
+   1809
+  ],
+  "chips": [
+   "Queen grabs pawn, opens file",
+   "Knight grabs pawn, loses to recapture",
+   "Rook check hangs to king capture",
+   "Minor piece grabs defended pawn",
+   "Rook move abandons unprotected piece",
+   "Kxf7 lands in knight fork",
+   "Rook grabs pawn, invites counterattack",
+   "King captures pawn, enters open square",
+   "Pawn capture leaves queen hanging"
+  ]
+ },
+ "9": {
+  "n": 15,
+  "feature_ids": [
+   151,
+   221,
+   442,
+   490,
+   545,
+   894,
+   1019,
+   1028,
+   1052,
+   1379,
+   1412,
+   1461,
+   1550,
+   1595,
+   1971
+  ],
+  "chips": [
+   "Bishop drifts to rim, punished",
+   "Knight retreats to rim over tactics",
+   "Knight to rim over urgent defense",
+   "Knight to rim invites immediate capture",
+   "Knight leaves critical defensive post",
+   "Rook retreats to rim, abandons defense",
+   "Queen to rim vacates key squares",
+   "Rim pawn push cedes tempo",
+   "Knight to rim chases bishop",
+   "Knight to rim abandons f7",
+   "Bishop drifts to undefended rim",
+   "Knight to rim abandons key square",
+   "Knight to rim abandons kingside defense",
+   "Knight to rim deserts central duty",
+   "Knight to rim burns tempo"
+  ]
+ },
+ "138": {
+  "n": 6,
+  "feature_ids": [
+   153,
+   265,
+   1023,
+   1730,
+   1735,
+   1908
+  ],
+  "chips": [
+   "Wing pawn swap releases key tension",
+   "Pawn swap crowns enemy passer",
+   "Pawn exchange enables opponent passed pawn",
+   "pxp releases tension, gifts passed pawn",
+   "Pawn trade creates passed pawn",
+   "Pawn trade frees opponent's king"
+  ]
+ },
+ "49": {
+  "n": 15,
+  "feature_ids": [
+   155,
+   620,
+   803,
+   1003,
+   1016,
+   1017,
+   1032,
+   1320,
+   1383,
+   1507,
+   1522,
+   1627,
+   1784,
+   1944,
+   1984
+  ],
+  "chips": [
+   "Knight leaves critical defensive post",
+   "Queen leaves sole defender role",
+   "Knight departs, defended piece falls",
+   "Pawn advance drops adjacent piece",
+   "Bishop retreats, leaves piece hanging",
+   "Bishop developed, queen left hanging",
+   "Knight quits rook-shielding post",
+   "Defender moves, critical square collapses",
+   "Pawn capture drops defensive duty",
+   "Rook leaves sole-protected piece",
+   "Rook leaves partner rook hanging",
+   "Queen drifts to rim, king exposed",
+   "Bishop captures, deserts critical post",
+   "Pawn advance drops guarded square",
+   "Shield pawn capture opens king file"
+  ]
+ },
+ "98": {
+  "n": 12,
+  "feature_ids": [
+   157,
+   199,
+   469,
+   497,
+   778,
+   1185,
+   1263,
+   1273,
+   1317,
+   1472,
+   1920,
+   1923
+  ],
+  "chips": [
+   "Queen hanging, pawn captures elsewhere",
+   "King captures rook into check sequence",
+   "Rook capture releases winning tension",
+   "Rook steps onto queen-controlled file",
+   "Bishop grab ignores mating net",
+   "Bishop grab ignores knight fork",
+   "Pawn captures wrong piece",
+   "Bishop trades itself for pawn",
+   "Bishop grabs material, misses priority",
+   "Knight Misses Hanging Piece",
+   "Knight captures central pawn",
+   "Capture strips king's defensive guard"
+  ]
+ },
+ "23": {
+  "n": 14,
+  "feature_ids": [
+   161,
+   375,
+   590,
+   634,
+   728,
+   769,
+   1064,
+   1246,
+   1396,
+   1637,
+   1805,
+   1808,
+   1867,
+   1927
+  ],
+  "chips": [
+   "Flank pawn push ignores center",
+   "g/c pawn crawl abandons crisis",
+   "g3/h3 pawn cracks king shelter",
+   "Flank pawn push delays king activation",
+   "Flank pawn push loosens king shelter",
+   "g-pawn advance exposes f-pawn shelter",
+   "g6/h3 pawn shelter holes",
+   "g-pawn chases bishop, cracks shelter",
+   "g-pawn advance holes kingside shelter",
+   "Fianchettoed bishop deserts king diagonal",
+   "g-pawn push breaks king shelter",
+   "g-pawn advance opens rank checks",
+   "Kingside pawn advance strips shelter",
+   "Flank pawn push ignores king danger"
+  ]
+ },
+ "189": {
+  "n": 7,
+  "feature_ids": [
+   162,
+   200,
+   324,
+   1022,
+   1422,
+   1520,
+   1756
+  ],
+  "chips": [
+   "Quiet pawn push over decisive strike",
+   "Quiet pawn push over forcing capture",
+   "Pawn push over active piece play",
+   "Quiet pawn push ignores forcing reply",
+   "Pawn push over forcing piece action",
+   "Flank pawn push over piece rescue",
+   "Flank pawn push over central break"
+  ]
+ },
+ "4": {
+  "n": 24,
+  "feature_ids": [
+   165,
+   514,
+   663,
+   774,
+   854,
+   904,
+   927,
+   955,
+   979,
+   1051,
+   1087,
+   1154,
+   1208,
+   1238,
+   1314,
+   1343,
+   1421,
+   1688,
+   1792,
+   1811,
+   1821,
+   1823,
+   1931,
+   1976
+  ],
+  "chips": [
+   "King steps away, asset hangs",
+   "Rook lands on undefended square",
+   "Knight leaves critical defensive post",
+   "Pawn push ignores hanging piece",
+   "Knight leaves key tactical square",
+   "Edge pawn push allows knight fork",
+   "Bishop grab drops critical defense",
+   "Pawn grabs wrong adjacent target",
+   "Pawn advance strips friendly piece cover",
+   "Pawn capture dissolves cramping formation",
+   "Last rook gives away defense",
+   "Bishop steps onto pawn-controlled square",
+   "King steps to edge, invites attack",
+   "Capture lets enemy king escape",
+   "Wing pawn push, own piece hangs",
+   "Pawn push invites knight fork",
+   "Rook blocks king's only escape",
+   "Pawn advance clears blocking diagonal",
+   "Pawn advance vacates knight fork square",
+   "King steps onto covered square",
+   "Queen grabs pawn, gets traded",
+   "Knight leaves d4/d5 outpost",
+   "Knight jumps to covered square",
+   "Queen trades itself for king recapture"
+  ]
+ },
+ "71": {
+  "n": 9,
+  "feature_ids": [
+   166,
+   192,
+   204,
+   546,
+   553,
+   857,
+   1070,
+   1609,
+   1727
+  ],
+  "chips": [
+   "Queen grabs rim, misses win",
+   "Knight sac on f7 misfires",
+   "King captures into pin or mate",
+   "Rook grabs pawn, lands trapped",
+   "Bishop repositions to hanging square",
+   "Knight grabs central pawn, backfires",
+   "Queen grabs wing pawn, abandons king",
+   "Knight grabs center, misses priority",
+   "Bishop sac on f7 misfires"
+  ]
+ },
+ "46": {
+  "n": 23,
+  "feature_ids": [
+   168,
+   202,
+   569,
+   632,
+   868,
+   947,
+   983,
+   1042,
+   1091,
+   1180,
+   1377,
+   1395,
+   1436,
+   1493,
+   1501,
+   1582,
+   1612,
+   1670,
+   1721,
+   1733,
+   1797,
+   1933,
+   1973
+  ],
+  "chips": [
+   "Rook retreats to kingside back rank",
+   "Rook retreats block king escape",
+   "Queen retreats to back rank",
+   "Rook retreats to back rank passively",
+   "Bishop retreats to passive back rank",
+   "Rook half-lift invites tactical strike",
+   "Rook to back rank blocks king",
+   "Rook retreats into losing square",
+   "Rook centralizes while king exposed",
+   "Rook retreats to back rank",
+   "Retreat to home rank over urgency",
+   "Rook activation over forcing piece moves",
+   "Rook retreats behind passer prematurely",
+   "King retreats cede decisive tempo",
+   "King retreats to back rank, confined",
+   "Rook retreats while king burns",
+   "Rook retreats abandon critical defense",
+   "Knight retreats to back rank",
+   "Rook retreats to back rank passively",
+   "Queen retreats to back rank",
+   "Queen to e2/e7 dodges crisis",
+   "King retreats cede winning initiative",
+   "Rook retreats to back rank passively"
+  ]
+ },
+ "147": {
+  "n": 12,
+  "feature_ids": [
+   170,
+   801,
+   909,
+   953,
+   1173,
+   1340,
+   1378,
+   1405,
+   1775,
+   1796,
+   1886,
+   1999
+  ],
+  "chips": [
+   "King steps onto exploitable open line",
+   "Queen drifts passive, loses control",
+   "Rook sorties abandon king defense",
+   "Knight repositions while opponent's threat lands",
+   "Queen activates, leaves piece hanging",
+   "Rook drifts, vacates key file",
+   "Rook vacates critical restraining square",
+   "Knight vacates irreplaceable outpost square",
+   "Rook 'improves' past urgent duty",
+   "Queen vacates sole defender square",
+   "Queen leaves king cover for activity",
+   "Rook leaves g-file mating post"
+  ]
+ },
+ "55": {
+  "n": 28,
+  "feature_ids": [
+   173,
+   190,
+   232,
+   249,
+   405,
+   463,
+   557,
+   646,
+   678,
+   757,
+   978,
+   1059,
+   1093,
+   1135,
+   1181,
+   1244,
+   1275,
+   1351,
+   1360,
+   1428,
+   1586,
+   1643,
+   1713,
+   1758,
+   1827,
+   1898,
+   1985,
+   1997
+  ],
+  "chips": [
+   "Rook grabs pawn, lands attacked",
+   "Rook lands on captured square",
+   "Knight steps onto bishop diagonal",
+   "Bishop walks onto attacked square",
+   "Queen repos into tempo-losing attack",
+   "Queen to e7/e2 invites fork",
+   "Bishop retreats into knight capture",
+   "Rook grabs pawn, hangs immediately",
+   "Knight hops to undefended square",
+   "Bishop repos to attacked square",
+   "Knight lands on attacked square",
+   "Queen moves into one-move capture",
+   "Queen to e-file invites knight fork",
+   "Bishop moves to attacked square",
+   "Rook deserts defensive post fatally",
+   "Knight leaps to attacked outpost",
+   "Bishop moves to attacked square",
+   "Minor piece to undefended central square",
+   "Knight to bishop-capturable square",
+   "Minor piece lands on king's line",
+   "Bishop lands on forked square",
+   "Queen lands on attacked square",
+   "Bishop retreats to rim, gets trapped",
+   "Knight leaps to pawn-chase square",
+   "Rook lands on knight-attacked square",
+   "Rook capture bait trap",
+   "Bishop lands on attacked square",
+   "Bishop lunges to tactical target"
+  ]
+ },
+ "12": {
+  "n": 11,
+  "feature_ids": [
+   174,
+   196,
+   272,
+   310,
+   411,
+   446,
+   528,
+   1256,
+   1322,
+   1871,
+   1943
+  ],
+  "chips": [
+   "Pawn recaptures miss superior piece",
+   "Premature rook capture releases tension",
+   "Rook flees contested open file",
+   "King move skips free capture",
+   "Rook repositions instead of capturing",
+   "Bishop shuffle over forcing sequence",
+   "King moves over forced capture",
+   "Rook captures, queen sits idle",
+   "King flees while queen hangs free",
+   "Queen reposition misses forced capture",
+   "pawn grab triggers structural collapse"
+  ]
+ },
+ "51": {
+  "n": 4,
+  "feature_ids": [
+   175,
+   312,
+   321,
+   950
+  ],
+  "chips": [
+   "Castling over decisive forcing shot",
+   "Knight repost ignores mating net",
+   "Queen leaves mating square unguarded",
+   "Rook quits critical defensive post"
+  ]
+ },
+ "126": {
+  "n": 6,
+  "feature_ids": [
+   178,
+   194,
+   639,
+   914,
+   1365,
+   1734
+  ],
+  "chips": [
+   "pxp capture misses mating net",
+   "Pawn capture opens fatal line",
+   "pxp misses check or fork",
+   "Pawn capture drops guard duty",
+   "pxp grabs pawn, misses winning shot",
+   "pxp releases tension, aids opponent"
+  ]
+ },
+ "144": {
+  "n": 22,
+  "feature_ids": [
+   179,
+   184,
+   449,
+   473,
+   515,
+   532,
+   613,
+   661,
+   671,
+   730,
+   841,
+   912,
+   956,
+   1248,
+   1354,
+   1446,
+   1524,
+   1536,
+   1556,
+   1742,
+   1826,
+   1876
+  ],
+  "chips": [
+   "Rook repositions, surrenders tactical tempo",
+   "Queen jumps to attacked square",
+   "Pawn advance abandons key square",
+   "Bishop centralizes into tactical refutation",
+   "Knight vacates king's guard square",
+   "Rook lands on knight-fork square",
+   "Bishop relocates, key square exposed",
+   "Active rook move, zero concrete gain",
+   "Rook drifts from critical file",
+   "Queen strays, king cover collapses",
+   "Rook repositions while crisis demands action",
+   "Queen repositions while tactic exists",
+   "Knight leaps to refuted outpost",
+   "Rook 'activates' ignoring concrete duty",
+   "Rook redeployment when forcing move wins",
+   "Knight retreats from critical post",
+   "Bishop quits guard, exposes key square",
+   "Knight centralization over forcing action",
+   "Rook quits king-side shield",
+   "Rook centralizes into tactical targets",
+   "Rook drifts, misses capture or defense",
+   "Queen lunge surrenders critical defensive post"
+  ]
+ },
+ "75": {
+  "n": 6,
+  "feature_ids": [
+   180,
+   384,
+   430,
+   666,
+   1750,
+   1941
+  ],
+  "chips": [
+   "Bishop to b-file invites queen fork",
+   "Passive queen blocks central retreat",
+   "f-rook quits file for center",
+   "Rook retreats to back rank passively",
+   "Flank pawn nudge amid crisis",
+   "Rook to e-file over forcing move"
+  ]
+ },
+ "158": {
+  "n": 7,
+  "feature_ids": [
+   182,
+   381,
+   952,
+   1047,
+   1167,
+   1240,
+   1345
+  ],
+  "chips": [
+   "Knight leaves file, king exposed",
+   "Rook quits file, pawn promotes",
+   "Knight departs, queen hangs immediately",
+   "Queen departs, defended piece hangs",
+   "Rook quits file, bishop hangs",
+   "Development severs queen's defensive line",
+   "Rook moves onto attacked square"
+  ]
+ },
+ "52": {
+  "n": 18,
+  "feature_ids": [
+   183,
+   434,
+   456,
+   511,
+   539,
+   640,
+   788,
+   852,
+   882,
+   960,
+   1055,
+   1133,
+   1204,
+   1206,
+   1215,
+   1561,
+   1737,
+   1947
+  ],
+  "chips": [
+   "Premature pawn push over piece duties",
+   "Flank pawn push abandons center",
+   "quiet pawn push over urgent piece",
+   "Pawn push abandons critical guard duty",
+   "Pawn push while king exposed",
+   "Flank pawn push over knight leap",
+   "Flank pawn push over forcing move",
+   "Central break ignores king exposure",
+   "Flank pawn push over piece activation",
+   "h-pawn push over central crisis",
+   "Flank pawn push over forcing capture",
+   "Flank pawn push over forcing reply",
+   "Flank pawn push delays urgent action",
+   "h-pawn push over urgent action",
+   "Pawn push over forcing piece move",
+   "kingside pawn push over piece play",
+   "Premature pawn push over piece play",
+   "Wing pawn push over rook activation"
+  ]
+ },
+ "20": {
+  "n": 7,
+  "feature_ids": [
+   185,
+   604,
+   699,
+   1638,
+   1672,
+   1679,
+   1803
+  ],
+  "chips": [
+   "Queen sorties invite knight fork",
+   "Rook move delays urgent castling",
+   "Bishop sac on h-pawn premature",
+   "Castles into assembled attacking forces",
+   "King tuck invites check or mate",
+   "King steps onto open diagonal",
+   "Bishop sac on h6 busts nothing"
+  ]
+ },
+ "30": {
+  "n": 9,
+  "feature_ids": [
+   186,
+   247,
+   397,
+   508,
+   1161,
+   1540,
+   1618,
+   1851,
+   1948
+  ],
+  "chips": [
+   "Bishop trapped grabbing rim pawn",
+   "Queen grabs wing pawn, abandons center",
+   "Rook grabs edge pawn, abandons dominance",
+   "Bishop lunges to rim, entombed",
+   "Queen grabs b2, gets trapped",
+   "Queen grabs rim pawn, abandoned",
+   "Queen grabs rim pawn, abandons king",
+   "Bishop grabs rim pawn, collapses defense",
+   "Queen grabs rim pawn, abandons attack"
+  ]
+ },
+ "132": {
+  "n": 15,
+  "feature_ids": [
+   188,
+   341,
+   416,
+   709,
+   796,
+   839,
+   867,
+   939,
+   945,
+   971,
+   1145,
+   1212,
+   1414,
+   1491,
+   1636
+  ],
+  "chips": [
+   "Pawn push before king leads",
+   "King move delays pawn advance",
+   "Pawn push over king leadership",
+   "King move delays critical pawn break",
+   "Unstoppable passed pawn advance missed",
+   "King move delays decisive pawn push",
+   "King misses faster march route",
+   "King advance loses critical opposition",
+   "King picks wrong race direction",
+   "King moves delay pawn promotion",
+   "Pawn push delays king activation",
+   "King one square off, loses opposition",
+   "King grabs flank pawn, loses race",
+   "King marches to wrong flank",
+   "Queen check lets king escape"
+  ]
+ },
+ "131": {
+  "n": 8,
+  "feature_ids": [
+   191,
+   555,
+   612,
+   700,
+   708,
+   715,
+   1277,
+   1281
+  ],
+  "chips": [
+   "Bishop check surrendered, mating net collapses",
+   "Queen check strands piece on rim",
+   "Rook grabs pawn, lost for nothing",
+   "Queen check strands piece peripherally",
+   "Bishop check hits wrong square",
+   "Rook check improves enemy king",
+   "Rook check drives king forward",
+   "Queen corner check, king escapes safer"
+  ]
+ },
+ "185": {
+  "n": 6,
+  "feature_ids": [
+   198,
+   972,
+   1072,
+   1443,
+   1850,
+   1878
+  ],
+  "chips": [
+   "Rook to 7th abandons defense",
+   "Doubling rooks misses forcing strike",
+   "Rook doubles, abandons defensive post",
+   "Rook doubling surrenders forcing tempo",
+   "Rook doubles, abandons defensive post",
+   "Rook restructures while forcing move exists"
+  ]
+ },
+ "35": {
+  "n": 12,
+  "feature_ids": [
+   206,
+   266,
+   401,
+   547,
+   776,
+   1132,
+   1168,
+   1593,
+   1768,
+   1829,
+   1835,
+   1894
+  ],
+  "chips": [
+   "Rook grabs pawn, misses mate",
+   "Knight check lands on wrong square",
+   "Queen check lets king escape",
+   "Bishop check lands on wrong square",
+   "Knight check lets king improve",
+   "Queen check drives king to safety",
+   "Knight check drives king to safety",
+   "Queen check lets opponent regroup",
+   "Queen check ruins discovery setup",
+   "Knight check strands piece, aids king",
+   "Queen check drives king to safety",
+   "Rook check improves enemy king"
+  ]
+ },
+ "47": {
+  "n": 7,
+  "feature_ids": [
+   209,
+   329,
+   906,
+   1012,
+   1261,
+   1411,
+   1601
+  ],
+  "chips": [
+   "Bishop nudge over forcing blow",
+   "Quiet pawn push surrenders critical tempo",
+   "Knight quits king guard duty",
+   "Passive rook move in forcing position",
+   "King flees into mating cage",
+   "Bishop develops, queen left hanging",
+   "Pawn lunge opens king shelter"
+  ]
+ },
+ "129": {
+  "n": 6,
+  "feature_ids": [
+   215,
+   264,
+   1467,
+   1474,
+   1738,
+   1782
+  ],
+  "chips": [
+   "Knight to rim over queen capture",
+   "h-pawn push over winning capture",
+   "Bishop retreats to rim, gets trapped",
+   "Knight to rim over queen tactic",
+   "Center push misses hanging piece",
+   "h-pawn push over hanging material"
+  ]
+ },
+ "195": {
+  "n": 8,
+  "feature_ids": [
+   217,
+   246,
+   636,
+   758,
+   1257,
+   1285,
+   1342,
+   1704
+  ],
+  "chips": [
+   "Rook drifts to board edge",
+   "Rook slides past concrete target",
+   "King centralizes onto open file",
+   "Rook slides off critical defensive file",
+   "King retreats when tempo decisive",
+   "Rook quits passed-pawn blockade square",
+   "Rook drifts from pawn-support file",
+   "Pawn push over critical piece move"
+  ]
+ },
+ "136": {
+  "n": 6,
+  "feature_ids": [
+   218,
+   351,
+   861,
+   919,
+   1020,
+   1432
+  ],
+  "chips": [
+   "Queen infiltrates instead of forcing win",
+   "Rook invades back rank prematurely",
+   "Queen sorties to h4/h5 punished",
+   "Queen 'attacks' while mate waits",
+   "Knight lunges to f7, captured instantly",
+   "Rook activation over queen checkmate"
+  ]
+ },
+ "102": {
+  "n": 6,
+  "feature_ids": [
+   228,
+   563,
+   1113,
+   1608,
+   1791,
+   1824
+  ],
+  "chips": [
+   "Rook move misses king safety",
+   "Queen check drives king to safety",
+   "Queen check abandons winning resource",
+   "Central pawn push over urgent defense",
+   "O-O-O into queenside attack",
+   "Queen plays plausible move, misses only save"
+  ]
+ },
+ "28": {
+  "n": 10,
+  "feature_ids": [
+   229,
+   597,
+   657,
+   809,
+   1029,
+   1099,
+   1329,
+   1407,
+   1431,
+   1717
+  ],
+  "chips": [
+   "Rook quits winning square for activity",
+   "Queen vacates file, king exposed",
+   "Knight quits c2 guard duty",
+   "Queen leaves sole defender role",
+   "Queen vacates critical defensive square",
+   "Rook vacates critical defensive square",
+   "Rook quits critical defensive post",
+   "Knight quits dominant infiltration square",
+   "Rook leaves critical defensive post",
+   "Bishop vacates blocking square, exposes queen"
+  ]
+ },
+ "150": {
+  "n": 7,
+  "feature_ids": [
+   237,
+   360,
+   502,
+   591,
+   883,
+   1104,
+   1478
+  ],
+  "chips": [
+   "Pawn push over free capture",
+   "King moves miss free capture",
+   "Bishop glide skips winning capture",
+   "Pawn move over free piece capture",
+   "King flees past free capture",
+   "King retreats, declines free bishop",
+   "King corners instead of capturing bishop"
+  ]
+ },
+ "65": {
+  "n": 14,
+  "feature_ids": [
+   240,
+   431,
+   475,
+   582,
+   655,
+   723,
+   871,
+   1086,
+   1149,
+   1193,
+   1370,
+   1854,
+   1904,
+   1921
+  ],
+  "chips": [
+   "Rook check lets king escape",
+   "Check delays forced mate sequence",
+   "Queen leaps to attacked outpost",
+   "Rook grabs trigger immediate refutation",
+   "Queen move abandons critical post",
+   "Knight improves while forcing win exists",
+   "Knight grabs piece, misses king attack",
+   "Bishop leaps to attacked square",
+   "Queen retreats to own back rank",
+   "Rook bypasses winning capture",
+   "Quiet queen move surrenders forcing initiative",
+   "Quiet rook move skips forcing win",
+   "Queen sorties invite tempo attacks",
+   "Pawn advances into enemy territory"
+  ]
+ },
+ "58": {
+  "n": 11,
+  "feature_ids": [
+   243,
+   459,
+   561,
+   787,
+   941,
+   1382,
+   1390,
+   1408,
+   1419,
+   1530,
+   1715
+  ],
+  "chips": [
+   "Rook shuffle over forced concrete action",
+   "Check/reposition ignores forced reply",
+   "Pawn checks abandon critical plan",
+   "Forcing rook check burns winning edge",
+   "Rook improves while threats land",
+   "Premature check drives king safe",
+   "Pawn push over forcing tactical resource",
+   "Pawn push surrenders decisive tempo",
+   "Knight check squanders decisive moment",
+   "Routine recapture delays urgent action",
+   "a-pawn push over forcing reply"
+  ]
+ },
+ "39": {
+  "n": 7,
+  "feature_ids": [
+   244,
+   1015,
+   1268,
+   1302,
+   1410,
+   1622,
+   1995
+  ],
+  "chips": [
+   "Castling king abandons e7 defender",
+   "Ke8 opens h5-e8 diagonal",
+   "Nxf7 fork traps knight h8",
+   "Knight leaps to undefended square",
+   "King shuffles instead of castling",
+   "Qe7 blocks bishop, prevents castling",
+   "e-pawn vacates e7 shield"
+  ]
+ },
+ "196": {
+  "n": 6,
+  "feature_ids": [
+   252,
+   425,
+   616,
+   863,
+   1213,
+   1284
+  ],
+  "chips": [
+   "Pawn capture leaves piece hanging",
+   "Pawn chases knight, crisis unaddressed",
+   "Rook charges 7th, abandons defense",
+   "Bishop move leaves piece hanging",
+   "Bishop capture gifts counter-tactic",
+   "Knight grabs wrong or losing target"
+  ]
+ },
+ "153": {
+  "n": 7,
+  "feature_ids": [
+   254,
+   400,
+   727,
+   836,
+   1129,
+   1579,
+   1581
+  ],
+  "chips": [
+   "Knight check lands undefended",
+   "Queen move abandons knight or rook",
+   "Rook moves onto attacked square",
+   "Bishop relocates to undefended square",
+   "Bishop lands undefended, queen captures",
+   "Rook invades defended square freely",
+   "Knight hops to attacked square"
+  ]
+ },
+ "37": {
+  "n": 17,
+  "feature_ids": [
+   259,
+   380,
+   399,
+   426,
+   428,
+   433,
+   470,
+   689,
+   746,
+   1037,
+   1197,
+   1331,
+   1355,
+   1497,
+   1746,
+   1885,
+   1913
+  ],
+  "chips": [
+   "Pawn grabs miss superior target",
+   "Capture leaves queen undefended",
+   "Bishop capture releases enemy piece",
+   "Bishop recaptures onto attacked square",
+   "Bishop grabs lesser piece over threat",
+   "Pawn capture removes king shield",
+   "Wrong pawn capture vacates guard",
+   "Wrong piece recaptures the queen",
+   "Pawn capture ignores king attack",
+   "King captures into mating net",
+   "Knight leaps to undefended square",
+   "Queen checks land on attacked squares",
+   "Pawn capture exposes major piece",
+   "Wrong capturer lands passively on e5",
+   "Pawn grab abandons defensive post",
+   "Bishop recapture gifts hanging piece",
+   "Bishop grabs pawn, ignores king danger"
+  ]
+ },
+ "122": {
+  "n": 8,
+  "feature_ids": [
+   261,
+   398,
+   567,
+   810,
+   1021,
+   1486,
+   1552,
+   1628
+  ],
+  "chips": [
+   "Rook slides to b-file passively",
+   "Rook vacates critical file/rank",
+   "Bishop development over forcing sequence",
+   "King grabs g/h-pawn, invites attack",
+   "Rook to open file drops guard",
+   "Rook slides to wrong open file",
+   "Bishop activity over king shelter",
+   "Rook drifts to queenside pawn"
+  ]
+ },
+ "48": {
+  "n": 8,
+  "feature_ids": [
+   262,
+   468,
+   518,
+   738,
+   996,
+   1098,
+   1685,
+   1749
+  ],
+  "chips": [
+   "King retreats into mating nets",
+   "Quiet pawn push over forced capture",
+   "Rook 'improves' over forcing continuation",
+   "Quiet pawn push over forced tactic",
+   "Quiet pawn move over forced capture",
+   "Pawn push ignores forcing reply",
+   "Quiet pawn push leaves piece hanging",
+   "Rook leaves file, misses capture"
+  ]
+ },
+ "182": {
+  "n": 9,
+  "feature_ids": [
+   268,
+   299,
+   374,
+   472,
+   507,
+   1011,
+   1632,
+   1839,
+   1952
+  ],
+  "chips": [
+   "Flank pawn push over decisive strike",
+   "Flank pawn push abandons tactical crisis",
+   "flank pawn push over concrete defense",
+   "Rook-pawn push over concrete action",
+   "Rim pawn push surrenders decisive tempo",
+   "Pawn advance quits guard duty",
+   "Rim pawn push over forcing capture",
+   "Rim pawn push over concrete action",
+   "Rim pawn push over forced win"
+  ]
+ },
+ "41": {
+  "n": 16,
+  "feature_ids": [
+   271,
+   316,
+   367,
+   437,
+   537,
+   820,
+   1063,
+   1074,
+   1182,
+   1195,
+   1258,
+   1312,
+   1350,
+   1604,
+   1785,
+   1795
+  ],
+  "chips": [
+   "Bishop drifts, drops key guard",
+   "Bishop relocation over forced central break",
+   "Bishop retreats cede key restraint",
+   "Quiet bishop retreat misses forced win",
+   "Bishop repositions amid forcing tactics",
+   "Rook deserts back-rank coverage",
+   "King steps into immediate check",
+   "Bishop move abandons king shelter",
+   "Queen centralizes, abandons critical guard",
+   "Knight repositions to wrong square",
+   "Quiet queen drift surrenders initiative",
+   "Queen move abandons undefended piece",
+   "Bishop lands on attacked square",
+   "Quiet rook move abandons tension",
+   "King tucks into mating net",
+   "Rook to open file misses mate"
+  ]
+ },
+ "63": {
+  "n": 14,
+  "feature_ids": [
+   273,
+   603,
+   752,
+   792,
+   921,
+   1090,
+   1196,
+   1266,
+   1330,
+   1454,
+   1877,
+   1881,
+   1899,
+   1953
+  ],
+  "chips": [
+   "Queen picks wrong active square",
+   "Rook penetrates, misses concrete blow",
+   "King retreats to wrong adjacent square",
+   "King steps onto enemy open line",
+   "King misses sole correct square",
+   "King steps wrong way, loses opposition",
+   "Queen move misses forcing concrete solution",
+   "Knight grabs lesser piece over rook",
+   "Bishop to rim or open file",
+   "King avoids corner, enters fire",
+   "Bishop grabs, own queen hangs",
+   "Wrong knight leaves outpost vacant",
+   "Rook moves short of capture",
+   "Bishop grab misses queen opportunity"
+  ]
+ },
+ "105": {
+  "n": 5,
+  "feature_ids": [
+   274,
+   581,
+   844,
+   897,
+   898
+  ],
+  "chips": [
+   "Queen checks rim, misses mate",
+   "Knight into corner, permanently entombed",
+   "King retreats to corner, mating net",
+   "Knight corners itself capturing rook",
+   "Knight to rim abandons king"
+  ]
+ },
+ "124": {
+  "n": 12,
+  "feature_ids": [
+   276,
+   432,
+   732,
+   833,
+   913,
+   1057,
+   1445,
+   1560,
+   1789,
+   1813,
+   1915,
+   1946
+  ],
+  "chips": [
+   "Knight centralized amid king crisis",
+   "Bishop repositions while forcing win waits",
+   "Rook vacates critical defensive square",
+   "Bishop repositions while tactics demand action",
+   "Bishop shuffle over forcing blow",
+   "Active queen vacates critical defensive post",
+   "Bishop repositions while forcing move exists",
+   "Bishop development over critical defense",
+   "Quiet rook/piece move over forced win",
+   "Knight develops instead of forcing shot",
+   "Queen reposition lets king escape",
+   "Bishop repositions while captures hang"
+  ]
+ },
+ "86": {
+  "n": 13,
+  "feature_ids": [
+   278,
+   648,
+   791,
+   826,
+   831,
+   988,
+   1140,
+   1164,
+   1179,
+   1235,
+   1554,
+   1720,
+   1817
+  ],
+  "chips": [
+   "Bishop retreat ignores forcing reply",
+   "Bishop retreats cede critical tempo",
+   "Bishop repositioned while tactics wait",
+   "Queen centralizes while tactics demand precision",
+   "Queen drift abandons critical square",
+   "Bishop retreats from critical diagonal",
+   "Rook retreats from active duty square",
+   "Knight drifts from critical post",
+   "Knight retreats abandon key guard square",
+   "Knight to outpost skips forcing capture",
+   "Bishop retreats abandon critical diagonal",
+   "Bishop shuffle surrenders decisive initiative",
+   "Queen repositions while tactics burn"
+  ]
+ },
+ "24": {
+  "n": 8,
+  "feature_ids": [
+   280,
+   305,
+   394,
+   534,
+   998,
+   1223,
+   1292,
+   1439
+  ],
+  "chips": [
+   "Rook repost ignores mated king",
+   "King to h1 surrenders tempo",
+   "Active rook ignores promotion race",
+   "Rook retreats to passive back rank",
+   "Rook 'active' move ignores mating net",
+   "Bishop retreats block king escape",
+   "Rook lands on knight-forkable square",
+   "Bishop retreats to h1 corner"
+  ]
+ },
+ "197": {
+  "n": 4,
+  "feature_ids": [
+   283,
+   1025,
+   1066,
+   1143
+  ],
+  "chips": [
+   "Pawn kick lets knight repost",
+   "Knight repost lets forcing reply land",
+   "Quiet pawn push surrenders winning tempo",
+   "Knight retreats from winning outpost"
+  ]
+ },
+ "26": {
+  "n": 8,
+  "feature_ids": [
+   285,
+   751,
+   915,
+   940,
+   1158,
+   1485,
+   1856,
+   1922
+  ],
+  "chips": [
+   "Rook to 7th abandons concrete duty",
+   "Quiet d-file move gifts tempo",
+   "Rook captures before coordinating pieces",
+   "Rook grabs rim pawn, misses mate",
+   "Knight retreats to rim square",
+   "King retreats cede critical tempo",
+   "Knight grabs rim piece, misses fork",
+   "Rim pawn push over active piece"
+  ]
+ },
+ "127": {
+  "n": 11,
+  "feature_ids": [
+   286,
+   445,
+   453,
+   656,
+   764,
+   1092,
+   1231,
+   1319,
+   1527,
+   1599,
+   1982
+  ],
+  "chips": [
+   "Queen drifts to g5 abandoning defense",
+   "Queen vacates square, knight invades",
+   "King centralizes while concrete move wins",
+   "King advances into check or fork",
+   "King advances into punishing check",
+   "Bishop developed into pawn attack",
+   "King steps into knight fork range",
+   "King steps onto attacked rank",
+   "Knight centralizes while pawns race",
+   "Rook lift while tactics demand action",
+   "King steps into fork or passer"
+  ]
+ },
+ "36": {
+  "n": 10,
+  "feature_ids": [
+   292,
+   693,
+   1010,
+   1054,
+   1061,
+   1083,
+   1393,
+   1596,
+   1859,
+   1926
+  ],
+  "chips": [
+   "Pawn push over critical defense",
+   "Wing pawn push over king rescue",
+   "Queen to rim deserts kingside",
+   "Quiet pawn push loses decisive tempo",
+   "Pawn push ignores king activity",
+   "h-pawn push over king rescue",
+   "King-shelter pawns pushed forward",
+   "Flank pawn push over urgent defense",
+   "Wing pawn push over hanging piece",
+   "Passive rook move over forcing win"
+  ]
+ },
+ "133": {
+  "n": 11,
+  "feature_ids": [
+   294,
+   369,
+   498,
+   704,
+   1013,
+   1120,
+   1178,
+   1221,
+   1703,
+   1816,
+   1896
+  ],
+  "chips": [
+   "Bishop grabs rook, misses mate",
+   "Pawn capture dissolves vital blockade",
+   "Queen grabs material, abandons defense",
+   "Rook grabs piece over checkmate",
+   "Pawn grabs knight, defense collapses",
+   "Queen capture abandons defensive post",
+   "Knight grab abandons key defender",
+   "Rook grabs pawn, abandons duty",
+   "Rook deserts king's defensive post",
+   "Rook grabs pawn, misses promotion",
+   "Queen capture deserts back rank"
+  ]
+ },
+ "146": {
+  "n": 7,
+  "feature_ids": [
+   296,
+   385,
+   419,
+   823,
+   1050,
+   1201,
+   1787
+  ],
+  "chips": [
+   "Rook repositions amid forcing tactics",
+   "Quiet pawn move over forced capture",
+   "Rook repost while threats explode",
+   "Rook repost drops defended square",
+   "King steps to central square",
+   "Quiet move at tactical breaking point",
+   "Rook repositioned while tactics burn"
+  ]
+ },
+ "66": {
+  "n": 9,
+  "feature_ids": [
+   297,
+   352,
+   1269,
+   1496,
+   1583,
+   1642,
+   1708,
+   1860,
+   1936
+  ],
+  "chips": [
+   "Knight moves desert critical guard duty",
+   "Knight relocates, defensive square collapses",
+   "g/b pawn push over decisive action",
+   "Pawn advance abandons critical defender",
+   "Bishop retreats, surrenders king pressure",
+   "Bishop drifts forward, drops guard",
+   "Rook quits a-file, pawn falls",
+   "Knight leaves mating-net post",
+   "Rook quits key defensive square"
+  ]
+ },
+ "112": {
+  "n": 7,
+  "feature_ids": [
+   298,
+   885,
+   1629,
+   1644,
+   1693,
+   1716,
+   1798
+  ],
+  "chips": [
+   "Bishop grabs pawn, misses mate",
+   "Queen leaves sole defender role",
+   "b-pawn undefends knight, hangs piece",
+   "Bishop capture misses forcing blow",
+   "Knight captures before prep move",
+   "Pawn push leaves piece hanging",
+   "pawn capture ignores mating attack"
+  ]
+ },
+ "43": {
+  "n": 12,
+  "feature_ids": [
+   300,
+   315,
+   462,
+   471,
+   483,
+   512,
+   595,
+   748,
+   1058,
+   1085,
+   1917,
+   1974
+  ],
+  "chips": [
+   "Knight capture invites lethal reply",
+   "Knight move misses urgent priority",
+   "Rook misses forcing sequence",
+   "Rook retreats when forcing move exists",
+   "g4/h4 push cracks shelter",
+   "Bishop develops while knight strikes",
+   "Knight repositions while check waits",
+   "Bishop develops while king burns",
+   "Rook repost misses forcing reply",
+   "Quiet knight move in razor-sharp position",
+   "King drifts while position burns",
+   "Pawn grab misses urgent defense"
+  ]
+ },
+ "142": {
+  "n": 9,
+  "feature_ids": [
+   301,
+   306,
+   587,
+   665,
+   1239,
+   1245,
+   1368,
+   1793,
+   1819
+  ],
+  "chips": [
+   "Knight leaps, critical diagonal collapses",
+   "Knight developed over forcing check",
+   "Bishop vacates critical defensive square",
+   "Knight abandons critical defensive square",
+   "Bishop lands on tempo-losing square",
+   "Pawn thrust ignores hanging pieces",
+   "Pawn push over forcing blow",
+   "Bishop repost skips forcing move",
+   "Natural piece move misses pawn break"
+  ]
+ },
+ "92": {
+  "n": 17,
+  "feature_ids": [
+   303,
+   373,
+   392,
+   494,
+   540,
+   694,
+   712,
+   720,
+   743,
+   747,
+   780,
+   1189,
+   1236,
+   1465,
+   1565,
+   1584,
+   1895
+  ],
+  "chips": [
+   "Quiet pawn push over forcing capture",
+   "King shuffle over forced defense",
+   "Wing pawn push over urgent piece play",
+   "Quiet pawn push misses capture",
+   "Knight repositions while crisis demands action",
+   "Bishop repositions while tactics wait",
+   "Quiet queen shuffle loses initiative",
+   "Bishop shuffle over forcing blow",
+   "Knight drifts to rim, loses tempo",
+   "Edge pawn push over forcing tactic",
+   "Quiet pawn move over forced capture",
+   "Knight development over pawn strike",
+   "Queen shuffle over forcing action",
+   "Queen regroups while tactics demand action",
+   "Pawn push over immediate capture",
+   "Slow pawn push over forcing blow",
+   "Pawn push surrenders forcing tempo"
+  ]
+ },
+ "191": {
+  "n": 7,
+  "feature_ids": [
+   325,
+   327,
+   599,
+   860,
+   877,
+   1752,
+   1842
+  ],
+  "chips": [
+   "Routine knight dev over forcing move",
+   "Queen retreats while tactics burn",
+   "Queen to d2/e2 over concrete action",
+   "Bishop to d7 too passive",
+   "Bishop development ignores urgent demand",
+   "Bishop develops while position screams",
+   "Bishop to e7 over urgent defense"
+  ]
+ },
+ "130": {
+  "n": 12,
+  "feature_ids": [
+   330,
+   571,
+   573,
+   779,
+   893,
+   1122,
+   1286,
+   1440,
+   1634,
+   1830,
+   1845,
+   1905
+  ],
+  "chips": [
+   "Bishop to g5/g4 hangs piece",
+   "Knight leaps to unguarded g5",
+   "Knight to g5/g4 hangs instantly",
+   "g-pawn push cedes dark squares",
+   "Queen to g3/g6 deserts duty",
+   "Knight rim lunge drops h5/h4",
+   "Knight Ng5/g4 queen-bait",
+   "Bishop to h6/h3 hangs immediately",
+   "h-pawn kick drops knight",
+   "g-pawn chase cracks king shelter",
+   "Bishop to h-file, g-pawn attacks",
+   "Bishop retreats to h-file, trapped"
+  ]
+ },
+ "156": {
+  "n": 6,
+  "feature_ids": [
+   338,
+   418,
+   760,
+   936,
+   1073,
+   1124
+  ],
+  "chips": [
+   "Queen repos into tactical vulnerability",
+   "Queen reshuffles while tactics exist",
+   "Queen drifts, king left exposed",
+   "Queen vacates critical defensive post",
+   "Queen drifts, severs invisible guard",
+   "Queen lunge abandons critical square"
+  ]
+ },
+ "10": {
+  "n": 9,
+  "feature_ids": [
+   339,
+   486,
+   548,
+   625,
+   642,
+   781,
+   816,
+   933,
+   1502
+  ],
+  "chips": [
+   "Kg1-h1 invites knight fork",
+   "King retreats into fork or mate",
+   "King flees into diagonal check",
+   "King corners over forced winning move",
+   "King tuck lets opponent execute",
+   "King centralizes into tactical crossfire",
+   "King corners itself over decisive action",
+   "King shuffle invites fork or check",
+   "King shuffle loses critical tempo"
+  ]
+ },
+ "154": {
+  "n": 8,
+  "feature_ids": [
+   340,
+   354,
+   574,
+   688,
+   766,
+   1400,
+   1671,
+   1725
+  ],
+  "chips": [
+   "King misses forcing capture",
+   "Bishop capture triggers blunder pattern",
+   "g6 pawn cracks dark squares",
+   "Bishop drifts while forcing move exists",
+   "Queen checks wrong square, misses mate",
+   "Queen grabs material, ignores mate",
+   "Pawn push over hanging piece capture",
+   "Knight routine move misses forcing check"
+  ]
+ },
+ "188": {
+  "n": 6,
+  "feature_ids": [
+   343,
+   448,
+   477,
+   1389,
+   1476,
+   1969
+  ],
+  "chips": [
+   "Bishop retreats while captures win",
+   "Bishop relocates while forcing moves exist",
+   "Bishop retreats from critical diagonal",
+   "Queen retreats while captures hang",
+   "Rook lands on bishop's diagonal",
+   "Bishop roams while tactics scream"
+  ]
+ },
+ "111": {
+  "n": 10,
+  "feature_ids": [
+   356,
+   423,
+   812,
+   954,
+   1041,
+   1191,
+   1489,
+   1594,
+   1602,
+   1862
+  ],
+  "chips": [
+   "Active knight move misses mate",
+   "Bishop to g6 invites knight fork",
+   "Bishop routine move misses forcing reply",
+   "Knight centralizes, misses forced win",
+   "Knight quits post, hangs king",
+   "Knight leaps instead of capturing",
+   "Knight outpost over forcing sequence",
+   "Knight lunges abandon key square",
+   "Knight grabs pawn, ignores consequences",
+   "Knight lunges into undefended square"
+  ]
+ },
+ "84": {
+  "n": 13,
+  "feature_ids": [
+   372,
+   530,
+   619,
+   647,
+   763,
+   890,
+   963,
+   965,
+   1310,
+   1348,
+   1625,
+   1751,
+   1990
+  ],
+  "chips": [
+   "Rook shuffle loses decisive tempo",
+   "Pawn push while king undefended",
+   "Flank pawn push over king activation",
+   "Flank pawn push over king activation",
+   "Flank pawn push loses king race",
+   "King retreats cede winning tempo",
+   "Prep move stalls pawn race",
+   "King moves before critical pawn advance",
+   "King escorts pawn, loses race",
+   "King drifts from decisive theater",
+   "Bishop repost squanders critical tempo",
+   "Pawn push blocks king's path",
+   "Flank pawn push over king activation"
+  ]
+ },
+ "165": {
+  "n": 12,
+  "feature_ids": [
+   379,
+   592,
+   775,
+   928,
+   1027,
+   1043,
+   1130,
+   1251,
+   1311,
+   1325,
+   1541,
+   1571
+  ],
+  "chips": [
+   "Bishop quits defensive diagonal/file",
+   "Rook leaves critical defensive post",
+   "Knight leaves critical restraint square",
+   "Knight retreats, central pawn falls",
+   "Queen move drops defended piece",
+   "Rook doubles on redundant file",
+   "Bishop vacates load-bearing defensive square",
+   "Knight leaves critical restraint square",
+   "Knight leaps abandon critical guard",
+   "Queen leaves critical guard square",
+   "Knight leaves critical defensive square",
+   "Bishop vacates critical restraint square"
+  ]
+ },
+ "99": {
+  "n": 8,
+  "feature_ids": [
+   383,
+   772,
+   1049,
+   1150,
+   1335,
+   1512,
+   1669,
+   1739
+  ],
+  "chips": [
+   "Nxe5 enables dxe5 fork",
+   "Knight grabs pawn, recapture backfires",
+   "Knight move drops guarded square",
+   "Pawn capture gifts knight fork square",
+   "Pawn capture cracks king shelter",
+   "Pawn push lets knight fall",
+   "Bishop grabs pawn, loses piece",
+   "Knight capture enables pawn fork"
+  ]
+ },
+ "172": {
+  "n": 8,
+  "feature_ids": [
+   386,
+   644,
+   1026,
+   1207,
+   1477,
+   1488,
+   1855,
+   1956
+  ],
+  "chips": [
+   "Rook to e-file misses concrete win",
+   "Lateral rook shift breaks doubled-rook coordination",
+   "Rook check drives king to safety",
+   "Rook contests file over concrete strike",
+   "Rook to open file over forcing tactics",
+   "Rook quits central open file",
+   "Rook occupies contested open file",
+   "Rook seizes file, abandons duty"
+  ]
+ },
+ "155": {
+  "n": 6,
+  "feature_ids": [
+   390,
+   674,
+   725,
+   782,
+   1384,
+   1887
+  ],
+  "chips": [
+   "Pawn push over hanging piece",
+   "f/g pawn push over king safety",
+   "h-pawn push over hanging material",
+   "Rook development ignores exposed king",
+   "Pawn push amid hanging pieces",
+   "Pawn push over forced defense"
+  ]
+ },
+ "160": {
+  "n": 7,
+  "feature_ids": [
+   393,
+   482,
+   951,
+   1198,
+   1254,
+   1315,
+   1691
+  ],
+  "chips": [
+   "Pawn advances instead of capturing",
+   "Pawn grabs miss queen strike",
+   "Pawn grabs over decisive piece captures",
+   "Pawn recapture opens king diagonal",
+   "Pawn advance skips winning capture",
+   "Pawn push over diagonal capture",
+   "Pawn captures release winning advance"
+  ]
+ },
+ "69": {
+  "n": 12,
+  "feature_ids": [
+   396,
+   659,
+   724,
+   726,
+   967,
+   1097,
+   1600,
+   1660,
+   1705,
+   1959,
+   1975,
+   1993
+  ],
+  "chips": [
+   "Bxd4 gifts queen d4 centralization",
+   "Bishop takes knight, activates recapture",
+   "Bishop leaves critical diagonal for knight",
+   "Bishop swap leaves knight dominant",
+   "Rook takes defended minor piece",
+   "Rook grabs over stronger Queen",
+   "Piece grabs poisoned pawn, loses",
+   "Queen grabs piece, loses to recapture",
+   "Queen grabs b2/c2, king exposed",
+   "Knight grabs d4, loses material",
+   "Knight grabs pawn, queen recaptures",
+   "Queen grabs b-pawn, gets trapped"
+  ]
+ },
+ "171": {
+  "n": 2,
+  "feature_ids": [
+   404,
+   1453
+  ],
+  "chips": [
+   "Passed pawn advances prematurely to 7th",
+   "7th-rank push before king escort"
+  ]
+ },
+ "137": {
+  "n": 5,
+  "feature_ids": [
+   429,
+   438,
+   1163,
+   1217,
+   1580
+  ],
+  "chips": [
+   "Wing pawn over urgent piece play",
+   "Wing pawn exposes uncastled king",
+   "Wing pawn push over urgent tactics",
+   "Flank pawn push over urgent defense",
+   "Wing pawn push over rook activation"
+  ]
+ },
+ "176": {
+  "n": 3,
+  "feature_ids": [
+   439,
+   1404,
+   1458
+  ],
+  "chips": [
+   "Captures ignore lethal king exposure",
+   "Rook misses mating rank or file",
+   "Natural move ignores exposed king"
+  ]
+ },
+ "193": {
+  "n": 7,
+  "feature_ids": [
+   447,
+   598,
+   627,
+   880,
+   1056,
+   1169,
+   1864
+  ],
+  "chips": [
+   "Bishop check activates opponent's king",
+   "King steps forward into tactics",
+   "Rook lands one square short",
+   "King steps into check's crosshairs",
+   "King advances off back rank",
+   "King shuffle enables new checks",
+   "Rook lands one square short"
+  ]
+ },
+ "177": {
+  "n": 8,
+  "feature_ids": [
+   450,
+   543,
+   761,
+   878,
+   1418,
+   1463,
+   1475,
+   1930
+  ],
+  "chips": [
+   "King flees passer, collapses position",
+   "Queen quits king's defensive sector",
+   "Knight retreats to rim self-trap",
+   "Rook blocks pawn, surrenders activity",
+   "Queen vacates dominant pressure post",
+   "Queen vacates critical defensive post",
+   "Rook misses critical rank for passer",
+   "Knight leaves critical post"
+  ]
+ },
+ "167": {
+  "n": 3,
+  "feature_ids": [
+   457,
+   1301,
+   1430
+  ],
+  "chips": [
+   "Rook leaves f8, f7 falls",
+   "Nf6 misses Qxf7 mate",
+   "Knight leaves f6, bishop hangs"
+  ]
+ },
+ "119": {
+  "n": 8,
+  "feature_ids": [
+   479,
+   541,
+   565,
+   771,
+   990,
+   1038,
+   1148,
+   1503
+  ],
+  "chips": [
+   "King steps into immediate check",
+   "Queen moves to attacked square",
+   "King steps beside f7 mating square",
+   "Queen drifts to attacked rim square",
+   "Rook moves into enemy fire",
+   "Back-rank check gifts king escape",
+   "Queen checks strand her on rim",
+   "Check deflects king, misses mate"
+  ]
+ },
+ "163": {
+  "n": 8,
+  "feature_ids": [
+   488,
+   713,
+   762,
+   881,
+   968,
+   1242,
+   1336,
+   1455
+  ],
+  "chips": [
+   "Pawn steps off guarding square",
+   "Pawn push over forced piece move",
+   "Pawn advance abandons defensive post",
+   "Pawn push breaks defensive chain",
+   "Shelter pawn advance exposes king",
+   "Pawn advance strips king shelter",
+   "Pawn push abandons guard duty",
+   "Pawn advance vacates guard square"
+  ]
+ },
+ "118": {
+  "n": 8,
+  "feature_ids": [
+   522,
+   753,
+   973,
+   1031,
+   1218,
+   1296,
+   1841,
+   1991
+  ],
+  "chips": [
+   "Rim pawn push over winning capture",
+   "rim pawn push over decisive action",
+   "h-pawn push over forcing center",
+   "Rim pawn push over forced win",
+   "Rim pawn push over urgent defense",
+   "Edge pawn push over decisive shot",
+   "Rim pawn push gifts opponent tempo",
+   "Flank pawn push over winning shot"
+  ]
+ },
+ "64": {
+  "n": 5,
+  "feature_ids": [
+   529,
+   1119,
+   1533,
+   1641,
+   1865
+  ],
+  "chips": [
+   "Rook captures enable pawn promotion",
+   "Rook blocks pawn, misses attack",
+   "Penultimate-rank pawn ignores mating attack",
+   "7th-rank push ignores mating attack",
+   "Promotes without neutralizing defender first"
+  ]
+ },
+ "104": {
+  "n": 8,
+  "feature_ids": [
+   549,
+   798,
+   824,
+   989,
+   1157,
+   1651,
+   1834,
+   1966
+  ],
+  "chips": [
+   "Bishop grabs pawn, misses forcing move",
+   "Pawn capture opens king's file",
+   "Rook capture lands on loose square",
+   "Knight grabs pawn, misses mate",
+   "Rook grabs defended piece, recapture backfires",
+   "Rook grabs pawn, loses piece",
+   "Knight grabs pawn, surrenders initiative",
+   "Knight grab drops winning attack"
+  ]
+ },
+ "123": {
+  "n": 6,
+  "feature_ids": [
+   562,
+   853,
+   969,
+   1144,
+   1321,
+   1697
+  ],
+  "chips": [
+   "Knight check misses mating square",
+   "Knight quits post, allows tactics",
+   "Bishop pin misses knight fork",
+   "Bishop develops into tactical refutation",
+   "Bg4 pin while tactics burn",
+   "Nc3/c6 over concrete urgency"
+  ]
+ },
+ "15": {
+  "n": 5,
+  "feature_ids": [
+   588,
+   1114,
+   1374,
+   1398,
+   1616
+  ],
+  "chips": [
+   "Rook leaves f-file, king exposed",
+   "Bishop sortie to rim hangs",
+   "e-pawn advance invites Ndb5\u2013Nd6",
+   "g-pawn step cracks castled shelter",
+   "Rae1 over forcing central tactic"
+  ]
+ },
+ "115": {
+  "n": 7,
+  "feature_ids": [
+   589,
+   754,
+   811,
+   1457,
+   1653,
+   1761,
+   1849
+  ],
+  "chips": [
+   "Queen roams before army develops",
+   "Queen lunges invite tempo-gaining attacks",
+   "Queen check, king sidesteps to safety",
+   "Queen to h5/h4 loses tempo",
+   "Queen drifts to attacked square",
+   "Rook check lets king centralize",
+   "Bishop to wing, knight leap missed"
+  ]
+ },
+ "166": {
+  "n": 5,
+  "feature_ids": [
+   610,
+   768,
+   1279,
+   1464,
+   1654
+  ],
+  "chips": [
+   "Rook misses dangerous promotion pawn",
+   "Rook grabs pawn, abandons mate",
+   "Pawn capture misses forcing blow",
+   "Rook grabs piece, abandons mate",
+   "King capture gifts pawn endgame"
+  ]
+ },
+ "106": {
+  "n": 8,
+  "feature_ids": [
+   660,
+   1364,
+   1423,
+   1606,
+   1626,
+   1657,
+   1728,
+   1744
+  ],
+  "chips": [
+   "Queen leaves f3/f6 post",
+   "King to g7 invites decisive check",
+   "King leaves piece unguarded",
+   "Pawn push collapses king shelter",
+   "Knight regroups to g3/g6 prematurely",
+   "Knight quits guard, invites tactical shot",
+   "Wrong rook check abandons guard",
+   "Pawn push surrenders king shelter"
+  ]
+ },
+ "159": {
+  "n": 4,
+  "feature_ids": [
+   669,
+   1300,
+   1553,
+   1987
+  ],
+  "chips": [
+   "Queen check lets king escape",
+   "h-file pawn over forced capture",
+   "h3/a3 push over forced response",
+   "Queen repost over concrete piece action"
+  ]
+ },
+ "18": {
+  "n": 9,
+  "feature_ids": [
+   703,
+   817,
+   825,
+   948,
+   1112,
+   1125,
+   1264,
+   1358,
+   1515
+  ],
+  "chips": [
+   "Rook/piece steps onto controlled square",
+   "Queen trade misses free hanging piece",
+   "Capture leaves own piece hanging",
+   "Queen grabs material, misses mate",
+   "Bishop vacates rank, rook exposed",
+   "Bishop lands on attacked square",
+   "Queen attacks while king is mated",
+   "Rook to back rank, misses cut-off",
+   "Free queen capture missed entirely"
+  ]
+ },
+ "190": {
+  "n": 5,
+  "feature_ids": [
+   793,
+   1712,
+   1874,
+   1879,
+   1893
+  ],
+  "chips": [
+   "Pawn capture opens fatal line",
+   "King captures advancing passed pawn",
+   "Rook grabs pawn, promotion costs",
+   "flank pawn leap ignores punishment",
+   "Pawn push enables en passant fork"
+  ]
+ },
+ "181": {
+  "n": 5,
+  "feature_ids": [
+   818,
+   1105,
+   1171,
+   1498,
+   1832
+  ],
+  "chips": [
+   "Rook to open file over tactics",
+   "Rook drifts to edge file",
+   "Rook shuffle misses forcing reply",
+   "Rook drifts to rim passively",
+   "Rook drifts to rim, abandons file"
+  ]
+ },
+ "174": {
+  "n": 3,
+  "feature_ids": [
+   830,
+   1373,
+   1623
+  ],
+  "chips": [
+   "Knight develops while king burns",
+   "Knight developed in tactical emergency",
+   "Knight develops while tactics burn"
+  ]
+ },
+ "194": {
+  "n": 3,
+  "feature_ids": [
+   872,
+   964,
+   1790
+  ],
+  "chips": [
+   "Bishop trade releases f-file pressure",
+   "Bishop takes knight, recapture activates foe",
+   "BxNf3/f6 hangs own queen"
+  ]
+ },
+ "87": {
+  "n": 9,
+  "feature_ids": [
+   887,
+   931,
+   934,
+   1295,
+   1567,
+   1568,
+   1590,
+   1884,
+   1963
+  ],
+  "chips": [
+   "Pawn push invites bishop sacrifice",
+   "hxg capture ignores urgent threats",
+   "Rook to h3/h6 hangs immediately",
+   "Bishop sac on h-pawn backfires",
+   "Bishop to h6 misses forcing check",
+   "Bishop sac cracks open kingside",
+   "Bishop sac on h3/h6 backfires",
+   "Rook pawn nudge over decisive attack",
+   "Bishop to h6 deserts d4"
+  ]
+ },
+ "117": {
+  "n": 4,
+  "feature_ids": [
+   923,
+   1192,
+   1220,
+   1897
+  ],
+  "chips": [
+   "King to wrong square loses race",
+   "King one file off loses race",
+   "King flees from passing pawn",
+   "King vacates passed-pawn blockade square"
+  ]
+ },
+ "161": {
+  "n": 5,
+  "feature_ids": [
+   961,
+   1260,
+   1456,
+   1786,
+   1888
+  ],
+  "chips": [
+   "Queen/King drifts to rim",
+   "rim pawn over forcing central break",
+   "Queen drifts to rim, abandons guard",
+   "King drifts to edge, loses opposition",
+   "g/h pawn push misses forced check"
+  ]
+ },
+ "77": {
+  "n": 6,
+  "feature_ids": [
+   997,
+   1274,
+   1332,
+   1799,
+   1866,
+   1872
+  ],
+  "chips": [
+   "Knight sac on f2/f7 refuted",
+   "f-pawn exposes king's diagonal",
+   "f-pawn opens king diagonal",
+   "fxe5 opens diagonal to king",
+   "f-pawn opens king diagonal",
+   "Knight leaps, abandons key defensive post"
+  ]
+ },
+ "183": {
+  "n": 5,
+  "feature_ids": [
+   1224,
+   1334,
+   1387,
+   1611,
+   1901
+  ],
+  "chips": [
+   "Rook captures, wrong move order",
+   "Pawn grab misses forcing sequence",
+   "Premature rook exchange ruins combination",
+   "Rook recaptures miss zwischenzug first",
+   "Bishop grabs rook, ignores counter-blow"
+  ]
+ }
+}

@@ -201,3 +201,37 @@ Built TITLE→CATEGORIZE→CHIP from the accurate Pass-2 `description` field (NO
 6. Forward: `recon, acts = sae(normalized_input)`
 
 Labels are in the research repo. Profiles are on S3. Everything needed to deploy or experiment with any variant.
+
+## New SAE Architecture — Option A / Board Diff / L2+L7 (2026-05-31)
+
+### Weights
+```
+s3://chess-stage-a-140023406996/sae/weights/
+  maia3_option_a_2048_k32.pt    ← h[best_to]-h[blunder_to] diff, layer-7 ONNX, 512-dim input
+  maia3_board_diff_2048_k32.pt  ← mean64(after_best-after_blunder), layer-7 ONNX, 512-dim input
+  maia3_l2l7_2048_k32.pt        ← concat(L2_mean64_diff,L7_mean64_diff), 79M PyTorch, 2048-dim input
+```
+All: BatchTopK, dict=2048, k=32, 200 epochs on 200k v1 blunder positions.
+
+### Activation Caches (v1 positions, 200k each)
+```
+s3://chess-stage-a-140023406996/sae/cache/
+  maia3_option_a_diff.pt      (~391MB) — h[best_to]-h[blunder_to], layer-7 ONNX
+  maia3_board_diff_both.pt    (~415MB) — mean64(after_best-after_blunder), layer-7 ONNX
+  maia3_l2l7_concat.pt        (~1.5GB) — concat L2+L7 mean64 diffs, 79M PyTorch
+```
+
+### Probe Results (2026-05-31)
+- board_diff best overall: mean gap 0.038 across 6 taxonomy categories
+- L2 (layer 2, 79M) better for positional mistakes; L7 better for tactical timing
+- Eval on 4 real positions: board_diff correctly fired "Recapture leaves piece hanging"
+  for both bishop_f5 and queen_h4 positions (feature f46 = genuine coaching signal)
+
+### Large files moved to S3
+```
+s3://chess-stage-a-140023406996/sae/cache/
+  maia3_stockfish_data.json     ← stockfish eval data for positions
+  labels_2048_k64_canonical.json ← canonical labels for 2048-k64 SAE
+  batch_input_maia3.jsonl       ← batch labeling input file
+  opus_english.json             ← 19k Opus English analyses (canonical copy)
+```
