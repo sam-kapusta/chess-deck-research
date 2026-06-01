@@ -240,6 +240,9 @@ def main():
     parser.add_argument("--no-norm", action="store_true", help="Skip all normalization (raw activations)")
     parser.add_argument("--output", type=str, default=None)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--n-batches-to-dead", type=int, default=5,
+                        help="Batches of inactivity before AuxK revives a feature. "
+                             "With 42 batches/epoch, 126 = ~3 epochs (recommended for small corpora)")
     args = parser.parse_args()
 
     torch.manual_seed(args.seed)
@@ -312,10 +315,11 @@ def main():
         k=args.k,
         k_aux=args.k_aux,
         aux_alpha=args.aux_alpha,
+        n_batches_to_dead=args.n_batches_to_dead,
     ).to(device)
 
     print(f"\nModel: BatchTopKSAE(d_input={d_input}, d_hidden={args.dict_size}, k={args.k})")
-    print(f"  k_aux={args.k_aux}, aux_alpha={args.aux_alpha}")
+    print(f"  k_aux={args.k_aux}, aux_alpha={args.aux_alpha}, n_batches_to_dead={args.n_batches_to_dead}")
     print(f"  Parameters: {sum(p.numel() for p in model.parameters()):,}")
 
     config = {
