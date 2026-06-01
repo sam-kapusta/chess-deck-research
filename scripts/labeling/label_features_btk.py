@@ -179,7 +179,7 @@ def main():
     for fid in sorted(profiles.keys(), key=int):
         if fid in results and "error" not in results[fid]:
             continue
-        examples = profiles[fid].get("examples", [])[:20]
+        examples = profiles[fid].get("examples", [])[:15]
         prompt = build_feature_prompt(fid, examples, enrichment, analyses)
         if prompt is None:
             results[fid] = {"error": "insufficient_analyzed_positions"}
