@@ -46,8 +46,9 @@ class BatchTopKSAE(nn.Module):
     """
 
     def __init__(self, d_input, d_hidden, k, k_aux=256, aux_alpha=1/32,
-                 n_batches_to_dead=5, dtype=torch.float32):
+                 n_batches_to_dead=5, dtype=torch.float32, seed=123):
         super().__init__()
+        torch.manual_seed(seed)
         self.W_enc = nn.Parameter(torch.nn.init.kaiming_uniform_(
             torch.empty(d_input, d_hidden, dtype=dtype)))
         self.W_dec = nn.Parameter(self.W_enc.data.clone().T)
@@ -198,7 +199,7 @@ def train(model, train_loader, val_loader, config, device):
         act_binary = torch.cat(all_acts, dim=0)
         freq = act_binary.mean(dim=0).numpy()
         n_dead = int((freq == 0).sum())
-        n_active = int((freq > 0.005).sum())
+        n_active = int((freq >= 0.001).sum())
         l0_val = act_binary.sum(-1).mean().item()
 
         entry = {
@@ -212,7 +213,7 @@ def train(model, train_loader, val_loader, config, device):
         }
         log.append(entry)
         print(f"  Epoch {epoch+1} | Train: {train_loss:.6f} | Val: {val_loss:.6f} | "
-              f"L0: {l0_val:.1f} | Dead: {n_dead} | Active>0.5%: {n_active}")
+              f"L0: {l0_val:.1f} | Dead: {n_dead} | Active>=0.1%: {n_active}")
 
         if val_loss < best_val_loss:
             best_val_loss = val_loss
@@ -397,21 +398,21 @@ def main():
 
     freq = (acts_np > 0).mean(axis=0)
     n_dead = int((freq == 0).sum())
-    n_useful = int((freq >= 0.005).sum())
+    n_useful = int((freq >= 0.001).sum())
     l0 = float((acts_np > 0).sum(axis=1).mean())
     mse = float(np.mean((x_np - xhat_np) ** 2))
     var_x = float(np.var(x_np))
     fvu = mse / var_x if var_x > 0 else float("inf")
 
     print(f"  Dead features: {n_dead}/{args.dict_size}")
-    print(f"  Useful (>0.5% fire rate): {n_useful}/{args.dict_size}")
+    print(f"  Useful (>=0.1% fire rate): {n_useful}/{args.dict_size}")
     print(f"  L0 (avg active per sample): {l0:.1f}")
     print(f"  MSE: {mse:.6f}")
     print(f"  FVU: {fvu:.4f}")
-    print(f"  Target fire rate range: 0.5-3%")
+    print(f"  Target fire rate range: 0.1-5%")
 
-    fire_in_range = int(((freq >= 0.005) & (freq <= 0.03)).sum())
-    print(f"  Features in 0.5-3% range: {fire_in_range}/{args.dict_size}")
+    fire_in_range = int(((freq >= 0.001) & (freq <= 0.05)).sum())
+    print(f"  Features in 0.1-5% range: {fire_in_range}/{args.dict_size}")
 
 
 if __name__ == "__main__":
