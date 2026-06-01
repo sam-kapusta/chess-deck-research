@@ -1,0 +1,223 @@
+#!/usr/bin/env python3
+"""Per-feature stats from top-100 activating positions.
+
+For each of 2048 features: piece type dist, side, eval trajectory, cp_loss,
+motif histogram (Opus join), phase. Fully objective - no LLM.
+
+Usage (on chess-poc):
+    python scripts/evaluation/feature_stats_btk.py \
+      --weights ~/SageMaker/chess-stage-a/output/maia3_sae/btk_2048_k32_weights.pt \
+      --cache ~/SageMaker/chess-stage-a/cache/maia3_l7only_v2_dedup.pt \
+      --enrichment ~/SageMaker/position_enrichment_cache.json \
+      --opus ~/SageMaker/all_positions_labeled_opus.json \
+      --output ~/SageMaker/chess-stage-a/output/feature_stats_btk_2048_k32.json
+"""
+import argparse, json, os, numpy as np, torch, torch.nn.functional as F
+import torch.nn as nn
+from torch.utils.data import DataLoader, TensorDataset
+from collections import Counter
+import chess
+
+PIECE_NAMES = {chess.PAWN:"pawn",chess.KNIGHT:"knight",chess.BISHOP:"bishop",
+               chess.ROOK:"rook",chess.QUEEN:"queen",chess.KING:"king"}
+TOP_N = 100   # top positions per feature for stats
+TOP_PROFILE = 15  # top positions saved for labeling profiles
+
+
+class BatchTopKSAE(nn.Module):
+    def __init__(self, d_input, d_hidden, k):
+        super().__init__()
+        self.W_enc = nn.Parameter(torch.empty(d_input, d_hidden))
+        self.W_dec = nn.Parameter(torch.empty(d_hidden, d_input))
+        self.b_enc = nn.Parameter(torch.zeros(d_hidden))
+        self.b_dec = nn.Parameter(torch.zeros(d_input))
+        self.d_hidden = d_hidden; self.k = k
+        self.register_buffer("num_batches_not_active", torch.zeros(d_hidden))
+
+    def forward(self, x):
+        z = (x - self.b_dec) @ self.W_enc + self.b_enc
+        z_relu = F.relu(z)
+        flat = z_relu.reshape(-1)
+        total_k = min(int(x.shape[0] * self.k), flat.numel())
+        topk_vals, topk_idx = torch.topk(flat, total_k)
+        acts = torch.zeros_like(flat)
+        acts[topk_idx] = topk_vals
+        return acts.reshape(z.shape)
+
+
+def normalize(raw, mean, std):
+    x = (raw - mean) / std
+    return x / x.norm(dim=-1, keepdim=True).clamp(min=1e-8)
+
+
+def eval_num(s):
+    """Parse white-relative Stockfish eval string to centipawns (mate=+-10000)."""
+    if not s: return 0
+    s = str(s).strip()
+    if s.startswith("#"):
+        m = int(s[1:].replace("−","-"))
+        return (10000 - abs(m)*10) * (1 if m >= 0 else -1)
+    try: return int(float(s) * 100)
+    except: return 0
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--weights",    required=True)
+    parser.add_argument("--cache",      required=True)
+    parser.add_argument("--enrichment", required=True)
+    parser.add_argument("--opus",       required=True)
+    parser.add_argument("--output",     required=True)
+    args = parser.parse_args()
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    ckpt = torch.load(args.weights, map_location="cpu", weights_only=False)
+    cfg  = ckpt["config"]
+    d_input, dict_size, k = cfg["d_input"], cfg["dict_size"], cfg["k"]
+
+    stats_path = args.weights.replace(".pt", "_stats.json")
+    with open(stats_path) as f: ns = json.load(f)
+    mean = torch.tensor(ns["mean"], dtype=torch.float32)
+    std  = torch.tensor(ns["std"],  dtype=torch.float32)
+
+    print("Loading corpus + auxiliary data...")
+    cache = torch.load(args.cache, map_location="cpu", weights_only=False)
+    meta  = cache["metadata"]
+    raw   = cache["activations"].float()
+    keys  = [m["fen"] + "|" + m["blunder_uci"] for m in meta]
+    x_norm = normalize(raw, mean, std); del raw
+
+    print("Loading enrichment + Opus labels...")
+    enr  = json.load(open(args.enrichment))
+    opus = json.load(open(args.opus))
+    motif_map = {}
+    for k_op, v in opus.items():
+        a = v.get("analysis", v)
+        if isinstance(a, dict) and a.get("tactical_motif"):
+            motif_map[k_op] = a["tactical_motif"]
+
+    model = BatchTopKSAE(d_input, dict_size, k)
+    model.load_state_dict(ckpt["state_dict"], strict=False)
+    model.eval().to(device)
+
+    print("Encoding full corpus...")
+    loader = DataLoader(TensorDataset(x_norm), batch_size=8192, shuffle=False)
+    all_acts = []
+    with torch.no_grad():
+        for (batch,) in loader:
+            all_acts.append(model(batch.to(device)).cpu().numpy())
+    acts = np.concatenate(all_acts)
+    print(f"  Acts shape: {acts.shape}")
+
+    print("Computing per-feature stats...")
+    out = {}
+    for fid in range(dict_size):
+        col = acts[:, fid]
+        n_activating = int((col > 0).sum())
+        if n_activating == 0:
+            out[str(fid)] = {"fid": fid, "n_activating": 0, "top100_acts": []}
+            continue
+
+        top_idx = np.argsort(-col)[:TOP_N]
+        top_acts = col[top_idx].tolist()
+
+        piece_counts = Counter()
+        side_white = 0
+        traj_already_losing = 0
+        traj_made_worse = 0
+        traj_threw_winning = 0
+        cp_losses = []
+        motifs = Counter()
+        phases = Counter()
+        motif_covered = 0
+
+        for i, idx in enumerate(top_idx):
+            m = meta[int(idx)]
+            key = keys[int(idx)]
+
+            try:
+                b = chess.Board(m["fen"])
+                mv = chess.Move.from_uci(m["blunder_uci"])
+                pc = b.piece_at(mv.from_square)
+                if pc: piece_counts[PIECE_NAMES.get(pc.piece_type, "other")] += 1
+            except: pass
+
+            if m.get("is_white"): side_white += 1
+
+            en = enr.get(key, {})
+            if en and not en.get("error"):
+                eb = eval_num(en.get("eval_before", 0))
+                ea = eval_num(en.get("eval_after", 0))
+                is_white = m.get("is_white", True)
+                mover_before = eb if is_white else -eb
+                mover_after  = ea if is_white else -ea
+                if mover_before < -150:
+                    traj_already_losing += 1
+                    if mover_after < mover_before:
+                        traj_made_worse += 1
+                elif mover_before > 150 and mover_after < 50:
+                    traj_threw_winning += 1
+                cp = m.get("cp_loss") or en.get("cp_loss")
+                if cp is not None: cp_losses.append(float(cp))
+
+            mt = motif_map.get(key)
+            if mt:
+                motifs[mt] += 1
+                motif_covered += 1
+
+            ph = en.get("phase") if en else None
+            if ph: phases[ph] += 1
+
+        n = len(top_idx)
+        out[str(fid)] = {
+            "fid": fid,
+            "n_activating": n_activating,
+            "top100_acts": [round(a, 4) for a in top_acts],
+            "piece_types": dict(piece_counts),
+            "piece_type_pct": {p: round(c/n, 3) for p,c in piece_counts.items()},
+            "side_white_pct": round(side_white / n, 3),
+            "traj_already_losing_pct": round(traj_already_losing / n, 3),
+            "traj_made_worse_pct": round(traj_made_worse / n, 3),
+            "traj_threw_winning_pct": round(traj_threw_winning / n, 3),
+            "cp_loss_p50": round(float(np.percentile(cp_losses, 50)), 1) if cp_losses else None,
+            "cp_loss_p90": round(float(np.percentile(cp_losses, 90)), 1) if cp_losses else None,
+            "cp_loss_mean": round(float(np.mean(cp_losses)), 1) if cp_losses else None,
+            "motif_hist": dict(motifs.most_common(10)),
+            "motif_coverage_pct": round(motif_covered / n, 3),
+            "phase_hist": dict(phases),
+        }
+
+        if fid % 200 == 0:
+            print(f"  {fid}/2048 features done", flush=True)
+
+    profiles_out = args.output.replace("feature_stats", "btk_profiles")
+    profiles = {}
+    for fid in range(dict_size):
+        col = acts[:, fid]
+        top15 = np.argsort(-col)[:TOP_PROFILE]
+        exs = []
+        seen = set()
+        for idx in top15:
+            a = float(col[idx])
+            if a <= 0: break
+            m = meta[int(idx)]
+            key = keys[int(idx)]
+            if key in seen: continue
+            seen.add(key)
+            exs.append({"fen": m["fen"], "uci": m["blunder_uci"],
+                        "best_uci": m.get("best_uci"), "cp_loss": m.get("cp_loss"),
+                        "act": round(a, 4), "key": key})
+        profiles[str(fid)] = {"examples": exs, "fire_rate": float((col > 0).mean())}
+    with open(profiles_out, "w") as f:
+        json.dump(profiles, f)
+    print(f"Profiles saved to {profiles_out}")
+
+    os.makedirs(os.path.dirname(args.output) or ".", exist_ok=True)
+    with open(args.output, "w") as f:
+        json.dump(out, f)
+    print(f"Stats saved to {args.output} ({len(out)} features)")
+
+
+if __name__ == "__main__":
+    main()
