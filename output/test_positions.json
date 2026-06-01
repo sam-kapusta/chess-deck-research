@@ -42,5 +42,71 @@
     "move": "8...Qd5",
     "mistake_type": "misplayed_attack",
     "coach_would_say": "King is on c7 completely exposed. Playing Qd5 attacks but ignores massive White threats. Shelter the king first."
+  },
+  {
+    "id": "bishop_recapture_h5",
+    "fen": "1brq1rk1/pp3p2/2n1ppb1/1N1p3P/7P/PB1P1P2/1PPQN3/R3K2R b KQ - 0 16",
+    "blunder_uci": "g6h5",
+    "mistake_type": "hung_piece",
+    "best_uci": "g6h7",
+    "cp_loss": 319,
+    "game": "AUlises vs cabbagelover5566, 2026-05-28",
+    "move": "16...Bxh5",
+    "coach_would_say": "Recaptured with Bxh5 but it walks into Qh6 \u2014 the bishop is now exposed and the king is in danger. Should have kept the king safer."
+  },
+  {
+    "id": "rook_d6_blunder",
+    "fen": "1b4r1/1p6/p1r2p1k/3Bpn2/5P2/P2P4/1PP1N3/2KR4 b - - 0 31",
+    "blunder_uci": "c6d6",
+    "mistake_type": "hung_piece",
+    "best_uci": "g8g4",
+    "cp_loss": 576,
+    "game": "AUlises vs cabbagelover5566, 2026-05-28",
+    "move": "31...Rd6",
+    "coach_would_say": "Played Rd6 but it drops material \u2014 the rook on g8 was already loose and this does not address the threats."
+  },
+  {
+    "id": "nxe5_recapture",
+    "fen": "r2q1b1r/pp2pkp1/2n2n1p/3bN3/3P4/3B4/PP3PPP/R1BQ1RK1 b - - 2 12",
+    "blunder_uci": "c6e5",
+    "mistake_type": "walked_into_tactic",
+    "move": "12...Nxe5",
+    "best_uci": "f7g8",
+    "cp_loss": 220,
+    "game": "GMjuandavid vs cabbagelover5566, 2026-05-27",
+    "coach_would_say": "Recaptured Nxe5 but it loses \u2014 after dxe5 the knight is gone and the position collapses. The recapture was forced into a bad line."
+  },
+  {
+    "id": "rf8_allows_attack",
+    "fen": "4r1k1/pp2q1pr/2n3Rp/4p3/4Q2P/5R2/PP3PP1/6K1 b - - 3 28",
+    "blunder_uci": "e8f8",
+    "mistake_type": "missed_defensive_resource",
+    "move": "28...Rf8",
+    "best_uci": "e8d8",
+    "cp_loss": 191,
+    "game": "GMjuandavid vs cabbagelover5566, 2026-05-27",
+    "coach_would_say": "Rf8 ignores Whites buildup on the kingside; needed to defend actively. Missed the defensive resource."
+  },
+  {
+    "id": "qc7_allows_mate",
+    "fen": "5r1k/pp2q1pr/2n1R2p/3Qp3/7P/5R2/PP3PP1/6K1 b - - 7 30",
+    "blunder_uci": "e7c7",
+    "mistake_type": "missed_threat_mate",
+    "move": "30...Qc7",
+    "best_uci": "e7d8",
+    "cp_loss": 2999,
+    "game": "GMjuandavid vs cabbagelover5566, 2026-05-27",
+    "coach_would_say": "Qc7 walks into Rxf8 checkmate. The rook on f8 was the only defender of the back rank \u2014 moving the queen away allowed mate in one."
+  },
+  {
+    "id": "qd4_blunder",
+    "fen": "r2q1rk1/6pp/1p2pn2/2p2p2/p1P1n3/P1B1P2P/1PQ2PP1/R3KB1R b KQ - 0 18",
+    "blunder_uci": "d8d4",
+    "mistake_type": "hung_piece",
+    "move": "18...Qd4",
+    "best_uci": "e4c3",
+    "cp_loss": 629,
+    "game": "mateusbapt vs cabbagelover5566, 2026-05-27",
+    "coach_would_say": "Qd4 walks the queen into danger \u2014 it can be attacked/trapped and loses material. The queen overextended into the opponent position."
   }
 ]

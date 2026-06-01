@@ -1,3 +1,5 @@
+# WARNING: built on v1 cache (label-inversion bug). Must repoint to v2 cache before reuse.
+# (input cache maia3_l2l7_concat.pt was built from the v1 blunder cache.)
 """Train SAE on L2+L7 concat (2048-dim input). k=32, dict=2048."""
 import torch, torch.nn as nn, torch.nn.functional as F
 import numpy as np, time, os

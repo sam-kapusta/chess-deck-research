@@ -1,3 +1,4 @@
+# WARNING: built on v1 cache (label-inversion bug). Must repoint to v2 cache before reuse.
 """
 Build L2+L7 concat cache: concat(mean64(L2_best-L2_blunder), mean64(L7_best-L7_blunder))
 2048-dim output (1024+1024). Uses 79M PyTorch model.

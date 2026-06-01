@@ -1,0 +1,7 @@
+{
+  "global_threshold": 0.0805802270770073,
+  "mean_l0": 15.73779296875,
+  "k": 16,
+  "dict_size": 2048,
+  "method": "mean_kth_largest"
+}

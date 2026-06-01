@@ -1,3 +1,5 @@
+# WARNING: built on v1 cache (label-inversion bug). Must repoint to v2 cache before reuse.
+# (input cache maia3_option_a_diff.pt was built from the v1 blunder cache.)
 """
 Train BatchTopK SAE on Option-A diffs: h[best_to_sq] - h[blunder_to_sq]
 Config: dict_size=2048, k=32 (matches current production SAE)

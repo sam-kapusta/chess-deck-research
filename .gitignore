@@ -20,3 +20,4 @@ output/labels_2048_k64_canonical.json
 output/batch_input_maia3.jsonl
 output/taxonomy_v2/_inputs/opus_english.json
 output/new_saes/*_profiles.json
+output/l7only_explorer_data.json

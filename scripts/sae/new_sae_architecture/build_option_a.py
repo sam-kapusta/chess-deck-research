@@ -1,3 +1,4 @@
+# WARNING: built on v1 cache (label-inversion bug). Must repoint to v2 cache before reuse.
 """
 Build Option-A diff cache: h[best_to_sq] - h[blunder_to_sq] on before-board.
 Uses v1 positions (200k, all have best_uci + elo_self/elo_oppo).

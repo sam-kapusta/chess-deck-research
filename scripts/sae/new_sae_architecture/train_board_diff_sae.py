@@ -1,3 +1,5 @@
+# WARNING: built on v1 cache (label-inversion bug). Must repoint to v2 cache before reuse.
+# (input cache maia3_board_diff_both.pt was built from the v1 blunder cache.)
 """Train BatchTopK SAE on board_diff_BOTH cache. 2048 features, k=32."""
 import torch, torch.nn as nn, torch.nn.functional as F
 import numpy as np, time, sys, os

@@ -8,7 +8,32 @@
 > kept under `scripts/sae/new_sae_architecture/` but must be repointed to the v2 cache before
 > any rerun. Next step if revisiting: rebuild all three constructions on v2 data.
 
-## Current State (2026-05-31 end) — v2 REBUILD running
+## Current State (2026-06-01 end) — BatchTopK k=16 labeling overnight
+
+**Active overnight:** Pass-1 Opus labeling gap positions for k=16 v2 profiles (13,208 positions, ETA ~2.5h from ~22:00). Pass-2 (feature chips) chains after. Outputs: `all_positions_labeled_opus.json` (growing to ~47k), `feature_labels_btk_2048_k16_v2.json`.
+
+**What's done this session:**
+- BatchTopK SAE trained (matches SandstonePersonas exactly): 2048/k16 v2, 200 epochs. Weights in S3.
+- Calibrated inference threshold θ=0.0806 (k-th largest method). All eval scripts updated to use threshold not BatchTopK.
+- Feature stats computed with extended fields: piece type (blunder + best move), is_capture, is_check, piece_left_hanging. Both k=16 and k=32.
+- Atlas (`l7only_atlas.html`) working with clickable boards + chess.com links.
+- corpus builder (`cache_real_game_blunders.py`) identified — streams `Lichess/standard-chess-games`, pulls 200k blunders with elo + eval trajectory. Plan to run 1M position build.
+
+**Key decisions made:**
+- k=16 over k=32 for coaching precision (Noyan/Jonathan recommendation, paper confirms k=16 best for downstream CE on Gemma 2B)
+- BatchTopK at inference is wrong — must use calibrated threshold (per arXiv:2412.06410 §3 + inference_example.py)
+- AuxK not firing is correct behavior for 168k corpus (features don't die, they're just rare)
+- Inference threshold method: mean of k-th largest activation per position (not min-positive, which collapses to 0 on small corpora)
+
+**Next session:**
+1. Check overnight results — download `feature_labels_btk_2048_k16_v2.json`, coherence stats
+2. Run T1 with threshold inference on k=16 v2
+3. Re-run feature stats with threshold inference (already uploaded, pending run)
+4. Update atlas with stats panel + k=16 labels
+5. Launch 1M Lichess corpus build (`cache_real_game_blunders.py --n-positions 1000000`)
+6. Commit `cache_real_game_blunders.py` to git (currently only on notebook via S3_INVENTORY §6)
+
+## Current State (2026-05-31 end) — v2 REBUILD running (superseded by 2026-06-01)
 
 **Active work:** rebuilding the 4 SAE constructions on v2 (corrected) data + Maia-best moves.
 

@@ -1,5 +1,35 @@
 # Chess Lab — Log
 
+## 2026-06-01 (session) — Maia3 v2 SAE bakeoff → l7only winner → overnight labeling
+
+**Big session. Two wrong claims made and corrected mid-session — recorded because the corrections are the lesson.**
+
+### Bakeoff: 4 v2 SAEs (k=16, 2048) on Maia-best@2600 diffs
+- Caches: `board_diff` (ONNX, 512d), `option_a` (ONNX, 512d), `l7only` (79M PyTorch, 1024d), `l2l7` (79M concat, 2048d). All from `maia_best_200k.json` (199,433 → 168,669 after dropping no-op diffs).
+- First eval (motif-match vs Opus join) was **CONTAMINATED** — scored Opus-join *coverage*, not SAE quality. board_diff "won" 4/10 only because its top features landed on the ~9.6% of positions that overlap the 19k Opus labels. DISCARDED. Lesson (again): never score against a join that barely connects.
+- Built honest instrument instead: `output/feature_boards.html` — each test position's top-firing feature expanded to its top-12 activating boards as clickable chess.com diagrams. No proxy, judge by eye.
+
+### Two corrected errors (the real lessons)
+1. **"l2l7 collapsed to 450 live features"** — WRONG. The 450 was liveness measured over only the 10 test positions with a strict top-k threshold. Measured over 40k corpus positions, both l7only and l2l7 use all 2048 features. Artifact of sampling on 10 positions.
+2. **"Diffs cancel signal, raw activations preserve it"** — WRONG. ALL FOUR caches are best−blunder diffs (l7only included). Read the build scripts: the real dissociation is **model**, not diff. board_diff/option_a use the ONNX probe (`maia3_with_probe.onnx`) → mush. l7only/l2l7 use 79M PyTorch (`maia3_79m_fixed.pt`) → coherent. The "fixed" 79M ties to the [maia3-best-move-extraction] memory — ONNX path had wrong move vocab.
+
+### Decision
+- Sam manually inspected `feature_boards.html`: **l7only and l2l7 both good** (features carve *mistakes* — mate-in-one, hung piece — not just position types). board_diff/option_a mush.
+- l7only = literally the L7 half of l2l7 (`activations[:,1024:]`). L2-vs-L7 weight split is 50/50 but only because normalization amplifies L2's 6.5×-smaller variance — possible noise-laundering. Sam preferred **l7only** by eye (simpler, can't be contaminated by amplified L2). DECIDED: label l7only.
+
+### Labeling (proven 2-pass pattern, Opus 4.6 + Stockfish trajectory)
+- Pattern: `enrich_all_positions.py` (Stockfish depth-18 → `eval_before -> eval_after`, punish_type, n_good_moves, top-3 best/refutations) → `label_all_positions_opus.py` (Pass-1, per-position) → `label_features_pass2.py` (Pass-2, synthesize top-10 per feature). Stockfish trajectory IS injected per-example in Pass-2 prompt.
+- Stage A: l7only top-15 profiles, 2048 feats, 14,824 gap positions lacking enrichment.
+- Stage B: Stockfish-enriched 14,793 gap positions (depth 18, 48 workers, ~26min). Cache 19,362 → 34,186.
+- **GATE (Pass-2 pilot on 200 already-covered features): PASSED.** Median confidence 72, 0 junk chips, 195/200 unique, sharp named mistakes (f71 "Premature Bxf7+ in Modern Defense", f466 "Premature fxe5 allows Qh5+"). Low-conf ones self-report as vague → confidence is calibrated/trustworthy. Caveat: pilot subset skews to opening blunders — check corpus phase skew tomorrow.
+- Throughput fix: Pass-1 ETA was 19h @ concurrency 20 / max_tokens 32000. Real output ~700 tokens; 32k over-reserves Bedrock TPM quota. Changed to max_tokens 8000 + concurrency 60 (thinking budget 4096 preserved) → **ETA 5.6h, throttles=0**. Same prompt/model/quality.
+
+### Overnight (running at session end)
+- `overnight` screen on chess-poc: Pass-1 (14,885 positions, ~5.6h) → Pass-2 `--resume` (~1,848 remaining features, ~45min).
+- Outputs: positions → `all_positions_labeled_opus.json` (backed up to `all_positions_labeled_opus.bak_*.json`); features → `maia3_l7only_feature_labels.json`.
+- Morning TODO: coherence stats on full 2048, sample-read, check opening-phase skew, then commit labels + update knowledge/plan. NOT yet committed to git or S3.
+
+
 ## 2026-04-14 (session 3 continued) — Blunder SAE full sweep + categorization
 
 **Big session.** 9 SAE variants trained, 5 labeled, full comparison, winner selected, categorization explored.
@@ -484,3 +514,24 @@
 - Labeling all 3 SAEs with Sonnet overnight
 - Handles unlabeled positions (v1 data doesn't overlap opus) via fresh Sonnet labeling pass
 - Outputs: option_a_profiles.json, board_diff_profiles.json, l2l7_profiles.json + labels
+
+## 2026-05-31 (later) — CORRECTION: option_a / board_diff / l2l7 invalidated (v1 data)
+
+The three new-architecture SAEs above (option_a, board_diff, l2l7) were all trained on the
+**v1 blunder cache** (`maia3_blunder_diff.pt`), which has the documented Black-to-move
+label-inversion bug. Every result from them — the board_diff "leading candidate" call, the f46
+"Recapture leaves piece hanging" eval, the >50%-coherent expectation, the L2/L7 probe gaps —
+is therefore unverified and must be re-derived on the v2 cache (`maia3_blunder_diff_v2.pt`)
+before being trusted.
+
+Cleanup done this session:
+- Deleted from git: `output/new_saes/{option_a,board_diff,l2l7}_labels.json` (tracked).
+- Deleted (gitignored/untracked): `output/new_saes/*_profiles.json`; removed empty `output/new_saes/`.
+- Deleted (untracked v1-based eval artifacts): `output/{eval10_out.log, eval10_parsed.json,
+  eval10_payload.json, full_eval_out.log, ksweep_eval.html, option_a_ksweep_labels.json,
+  sae_eval.html, feature_explorer.html, explorer_v2.html}`.
+- SAE weights + intermediate caches already removed from S3 and the chess-poc notebook.
+- Annotated all 6 build/train scripts in `scripts/sae/new_sae_architecture/` with a v1 warning.
+- Corrected `output/S3_INVENTORY.md`, `plan.md`, `knowledge.md`.
+
+The legit shipped v2 SAE (`maia3_sae_diff_v2_2048_k32_l2.pt`) is untouched — still valid.

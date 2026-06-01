@@ -41,7 +41,22 @@ vectors, one per blunder position.
 
 ## 2. SAE weights — Maia3 (current)
 
-All trained on the 200K diff cache, BatchTopK + aux, L2-normalized input (512-dim).
+### BatchTopK L7-only SAEs — `[S3]` `sae/weights/` — **CURRENT FOCUS (2026-06-01)**
+
+These are the BatchTopK SAEs trained on the **l7only v2 diff cache** (168,132 positions, 1024-dim, Maia3 79M layer-7 best−blunder mean-pool diff). Architecture matches SandstonePersonas exactly: BatchTopK + unit-norm decoder + AuxK.
+
+| File | Size | Notes |
+|------|------|-------|
+| `btk_2048_k16_v2_weights.pt` | 17MB | **Selected for labeling.** 2048/k16, 200 epochs, n_batches_to_dead=126. FVU=0.287, 1036 useful features (≥0.1%), 1012 near-dead. |
+| `btk_2048_k16_v2_weights_stats.json` | 43KB | Train mean/std for normalization. Required for inference. |
+| `btk_2048_k32_v2_weights.pt` | 17MB | 2048/k32, 200 epochs. FVU=0.218, 1466 useful features. Broader but less precise than k=16. |
+| `btk_2048_k32_v2_weights_stats.json` | 43KB | Train mean/std for k=32. |
+
+**Inference:** use `encode_threshold(x, θ)` not BatchTopK at eval time. θ calibrated via `scripts/evaluation/calibrate_threshold.py` (k-th largest activation method). k=16 θ=0.0806 → L0≈15.7. See `output/btk_2048_k16_v2_calibration.json`.
+
+**Cache:** `chess-stage-a/cache/maia3_l7only_v2_dedup.pt` (168,132 × 1024, deduped from 168,669). Only on notebook — not in S3 (expensive to re-extract Maia activations). To rebuild: `build_l2l7_v2.py` + `build_l7_only.py` on chess-poc.
+
+**Status:** k=16 Pass-1 labeling running overnight (2026-06-01). Pass-2 (feature chips) chains after. Labels → `feature_labels_btk_2048_k16_v2.json`.
 
 ### Diff SAEs — `[S3]` `sae/maia3/`
 | File | Size | Notes |
@@ -97,7 +112,7 @@ All trained on the 200K diff cache, BatchTopK + aux, L2-normalized input (512-di
 
 | Asset | Location | Count | Use? |
 |-------|----------|-------|------|
-| `all_positions_labeled_opus.json` | **[notebook]** `~/SageMaker/` | **19,342** | ✅ CANONICAL. Keyed `fen\|uci`; `analysis.{position_description, best_moves_analysis, tactical_motif, blunder_summary}`. |
+| `all_positions_labeled_opus.json` | **[notebook]** `~/SageMaker/` | **~47k** (growing) | ✅ CANONICAL. Originally 19,342; expanded to 34,186 (2026-05-31 overnight) then to ~47k (2026-06-01 overnight Pass-1 for btk k=16 profiles). Keyed `fen\|uci`; `analysis.{position_description, best_moves_analysis, tactical_motif, blunder_summary}`. Backed up as `all_positions_labeled_opus.bak2.json`. |
 | `sae/cache/all_positions_labeled_opus_final.json` | [S3] | 10,648 | ❌ TRUNCATED upload — DO NOT USE. Pull canonical from notebook. |
 | `sae/cache/opus_english.json` | [S3] | — | 76MB English analyses (canonical S3 copy). |
 | `sae/cache/all_gemini_positions.json` | [S3] | 5,829 | Gemini tactical analysis. |

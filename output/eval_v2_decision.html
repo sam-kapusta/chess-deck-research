@@ -1,0 +1,224 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><title>v2 SAE decision</title><style>
+body{font-family:system-ui;background:#0d1117;color:#e6edf3;margin:0;padding:24px;max-width:1100px}
+h1{font-size:21px}h2{color:#58a6ff;border-bottom:1px solid #30363d;padding-bottom:6px;margin-top:28px}
+table.sum{border-collapse:collapse;margin:14px 0}.sum td,.sum th{border:1px solid #30363d;padding:6px 14px;text-align:center}
+.win{background:#16301b;color:#7ee787;font-weight:600}
+.pos{border:1px solid #30363d;border-radius:8px;margin:12px 0;padding:12px 16px}
+.pt{font-weight:600}.pt a{color:#58a6ff;text-decoration:none}.mv{color:#f0883e;margin-left:8px}
+.tag{background:#21262d;color:#8b949e;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:8px}
+.co{color:#7ee787;font-size:12px;font-style:italic;margin:6px 0}.mb{color:#d2a8ff;font-size:11px}
+.row{font-size:12px;padding:3px 0;font-family:monospace}.hit{color:#7ee787}.t3{color:#d2a877}.miss{color:#6e7681}</style></head><body>
+<h1>v2 SAE eval — Maia-best@2600, k=16, 10 real cabbagelover blunders</h1>
+<p>Metric: does a top-3 fired feature’s dominant tactical_motif (from 19k Opus labels) match the position’s mistake type? Coarse + base-rate-sensitive — read per-position below.</p>
+<table class=sum><tr><th>SAE</th><th>live feats</th><th>top-1 match</th><th>top-3 match</th></tr>
+<tr class=win><td>board_diff</td><td>2048</td><td>4/10</td><td>7/10</td></tr>
+<tr><td>l7only</td><td>1644</td><td>1/10</td><td>6/10</td></tr>
+<tr><td>option_a</td><td>2048</td><td>1/10</td><td>5/10</td></tr>
+<tr><td>l2l7</td><td>450</td><td>3/10</td><td>4/10</td></tr>
+</table>
+<p><b>Leader: board_diff</b> — best on both, strong on hanging_piece via reusable features; all 4 weak on walked_into_tactic.</p>
+<h2>board_diff</h2>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r1b1kb1r/pp2pppp/2n2n2/8/8/2B3N1/PPP2PPP/R3KBNR%20b%20KQkq%20-%202%209" target=_blank>bishop_f5</a><span class=mv>9...Bf5</span><span class=tag>hung_piece</span></div><div class=co>Bishop developed to f5 but the knight on e4 takes it immediately. Always check if your piece is safe before placing it.</div><div class=mb>maia_best@2600=c6b4 | curated=f6d5 | expected motif=['hanging_piece']</div>
+<div class="row miss">f1654: tempo_loss (0.5)</div>
+<div class="row hit">f1625: hanging_piece (0.33)</div>
+<div class="row miss">f702: tempo_loss (0.33)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r2q1rk1/1b3pbp/p2pp1p1/1p6/3pnPPQ/P2P3P/BPP1N3/R1B2R1K%20w%20-%20-%200%2017" target=_blank>queen_h4</a><span class=mv>17.dxe4</span><span class=tag>left_piece_undefended</span></div><div class=co>Recaptured the knight but queen on h4 has no defenders. Black takes it for free. Save the queen first.</div><div class=mb>maia_best@2600=h4d8 | curated=h4d8 | expected motif=['hanging_piece']</div>
+<div class="row miss">f1610: king_safety (0.5)</div>
+<div class="row miss">f305: king_safety (1.0)</div>
+<div class="row miss">f1551: (no opus motif) (0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=rnbqkb1r/pp2pppp/2p2n2/8/2B1N3/5Q2/PPPP1PPP/R1B1K1NR%20b%20KQkq%20-%202%205" target=_blank>knight_e4_trap</a><span class=mv>5...Nxe4??</span><span class=tag>walked_into_tactic</span></div><div class=co>Knight takes on e4 looks like winning a pawn but White plays Bxf7+ immediately, forking your king and rook. You walked into a tactic.</div><div class=mb>maia_best@2600=d8b6 | curated=b8d7 | expected motif=['discovered_attack', 'fork', 'pin', 'skewer', 'tactical']</div>
+<div class="row miss">f1776: hanging_piece (1.0)</div>
+<div class="row miss">f316: tempo_loss (1.0)</div>
+<div class="row miss">f1601: tempo_loss (0.5)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=rnbq1b1r/ppk1pBpp/2p5/8/3PQ3/8/PPP2PPP/R1B1K1NR%20b%20KQ%20-%200%208" target=_blank>qd5_king_exposed</a><span class=mv>8...Qd5</span><span class=tag>misplayed_attack</span></div><div class=co>King is on c7 completely exposed. Playing Qd5 attacks but ignores massive White threats. Shelter the king first.</div><div class=mb>maia_best@2600=c8f5 | curated=e7e6 | expected motif=['king_safety', 'tempo_loss']</div>
+<div class="row miss">f740: positional_mistake (0.25)</div>
+<div class="row miss">f246: hanging_piece (0.5)</div>
+<div class="row miss">f1551: (no opus motif) (0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=1brq1rk1/pp3p2/2n1ppb1/1N1p3P/7P/PB1P1P2/1PPQN3/R3K2R%20b%20KQ%20-%200%2016" target=_blank>bishop_recapture_h5</a><span class=mv>16...Bxh5</span><span class=tag>hung_piece</span></div><div class=co>Recaptured with Bxh5 but it walks into Qh6 — the bishop is now exposed and the king is in danger. Should have kept the king safer.</div><div class=mb>maia_best@2600=b8g3 | curated=g6h7 | expected motif=['hanging_piece']</div>
+<div class="row hit">f2031: hanging_piece (0.5)</div>
+<div class="row miss">f227: king_safety (0.33)</div>
+<div class="row miss">f884: trapped_piece (1.0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=1b4r1/1p6/p1r2p1k/3Bpn2/5P2/P2P4/1PP1N3/2KR4%20b%20-%20-%200%2031" target=_blank>rook_d6_blunder</a><span class=mv>31...Rd6</span><span class=tag>hung_piece</span></div><div class=co>Played Rd6 but it drops material — the rook on g8 was already loose and this does not address the threats.</div><div class=mb>maia_best@2600=g8g1 | curated=g8g4 | expected motif=['hanging_piece']</div>
+<div class="row hit">f106: hanging_piece (0.5)</div>
+<div class="row miss">f825: tempo_loss (0.33)</div>
+<div class="row hit">f460: hanging_piece (0.5)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r2q1b1r/pp2pkp1/2n2n1p/3bN3/3P4/3B4/PP3PPP/R1BQ1RK1%20b%20-%20-%202%2012" target=_blank>nxe5_recapture</a><span class=mv>12...Nxe5</span><span class=tag>walked_into_tactic</span></div><div class=co>Recaptured Nxe5 but it loses — after dxe5 the knight is gone and the position collapses. The recapture was forced into a bad line.</div><div class=mb>maia_best@2600=f7g8 | curated=f7g8 | expected motif=['discovered_attack', 'fork', 'pin', 'skewer', 'tactical']</div>
+<div class="row miss">f1776: hanging_piece (1.0)</div>
+<div class="row hit">f1067: fork (0.5)</div>
+<div class="row miss">f1688: king_safety (1.0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=4r1k1/pp2q1pr/2n3Rp/4p3/4Q2P/5R2/PP3PP1/6K1%20b%20-%20-%203%2028" target=_blank>rf8_allows_attack</a><span class=mv>28...Rf8</span><span class=tag>missed_defensive_resource</span></div><div class=co>Rf8 ignores Whites buildup on the kingside; needed to defend actively. Missed the defensive resource.</div><div class=mb>maia_best@2600=c6d4 | curated=e8d8 | expected motif=['defense', 'king_safety']</div>
+<div class="row miss">f1993: back_rank (0.67)</div>
+<div class="row miss">f1934: hanging_piece (1.0)</div>
+<div class="row hit">f1310: king_safety (1.0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=5r1k/pp2q1pr/2n1R2p/3Qp3/7P/5R2/PP3PP1/6K1%20b%20-%20-%207%2030" target=_blank>qc7_allows_mate</a><span class=mv>30...Qc7</span><span class=tag>missed_threat_mate</span></div><div class=co>Qc7 walks into Rxf8 checkmate. The rook on f8 was the only defender of the back rank — moving the queen away allowed mate in one.</div><div class=mb>maia_best@2600=e7f6 | curated=e7d8 | expected motif=['back_rank', 'king_safety', 'mate']</div>
+<div class="row hit">f330: king_safety (1.0)</div>
+<div class="row hit">f1223: king_safety (0.5)</div>
+<div class="row miss">f1601: tempo_loss (0.5)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r2q1rk1/6pp/1p2pn2/2p2p2/p1P1n3/P1B1P2P/1PQ2PP1/R3KB1R%20b%20KQ%20-%200%2018" target=_blank>qd4_blunder</a><span class=mv>18...Qd4</span><span class=tag>hung_piece</span></div><div class=co>Qd4 walks the queen into danger — it can be attacked/trapped and loses material. The queen overextended into the opponent position.</div><div class=mb>maia_best@2600=d8d1 | curated=e4c3 | expected motif=['hanging_piece']</div>
+<div class="row hit">f2031: hanging_piece (0.5)</div>
+<div class="row miss">f740: positional_mistake (0.25)</div>
+<div class="row hit">f625: hanging_piece (0.75)</div>
+</div>
+<h2>l7only</h2>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r1b1kb1r/pp2pppp/2n2n2/8/8/2B3N1/PPP2PPP/R3KBNR%20b%20KQkq%20-%202%209" target=_blank>bishop_f5</a><span class=mv>9...Bf5</span><span class=tag>hung_piece</span></div><div class=co>Bishop developed to f5 but the knight on e4 takes it immediately. Always check if your piece is safe before placing it.</div><div class=mb>maia_best@2600=c6b4 | curated=f6d5 | expected motif=['hanging_piece']</div>
+<div class="row miss">f1549: (no opus motif) (0)</div>
+<div class="row miss">f290: positional_mistake (1.0)</div>
+<div class="row miss">f377: tempo_loss (1.0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r2q1rk1/1b3pbp/p2pp1p1/1p6/3pnPPQ/P2P3P/BPP1N3/R1B2R1K%20w%20-%20-%200%2017" target=_blank>queen_h4</a><span class=mv>17.dxe4</span><span class=tag>left_piece_undefended</span></div><div class=co>Recaptured the knight but queen on h4 has no defenders. Black takes it for free. Save the queen first.</div><div class=mb>maia_best@2600=h4d8 | curated=h4d8 | expected motif=['hanging_piece']</div>
+<div class="row miss">f1549: (no opus motif) (0)</div>
+<div class="row miss">f305: king_safety (1.0)</div>
+<div class="row miss">f384: (no opus motif) (0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=rnbqkb1r/pp2pppp/2p2n2/8/2B1N3/5Q2/PPPP1PPP/R1B1K1NR%20b%20KQkq%20-%202%205" target=_blank>knight_e4_trap</a><span class=mv>5...Nxe4??</span><span class=tag>walked_into_tactic</span></div><div class=co>Knight takes on e4 looks like winning a pawn but White plays Bxf7+ immediately, forking your king and rook. You walked into a tactic.</div><div class=mb>maia_best@2600=d8b6 | curated=b8d7 | expected motif=['discovered_attack', 'fork', 'pin', 'skewer', 'tactical']</div>
+<div class="row miss">f305: king_safety (1.0)</div>
+<div class="row miss">f1822: positional_mistake (1.0)</div>
+<div class="row miss">f1549: (no opus motif) (0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=rnbq1b1r/ppk1pBpp/2p5/8/3PQ3/8/PPP2PPP/R1B1K1NR%20b%20KQ%20-%200%208" target=_blank>qd5_king_exposed</a><span class=mv>8...Qd5</span><span class=tag>misplayed_attack</span></div><div class=co>King is on c7 completely exposed. Playing Qd5 attacks but ignores massive White threats. Shelter the king first.</div><div class=mb>maia_best@2600=c8f5 | curated=e7e6 | expected motif=['king_safety', 'tempo_loss']</div>
+<div class="row hit">f934: king_safety (0.5)</div>
+<div class="row hit">f1846: tempo_loss (1.0)</div>
+<div class="row hit">f502: tempo_loss (1.0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=1brq1rk1/pp3p2/2n1ppb1/1N1p3P/7P/PB1P1P2/1PPQN3/R3K2R%20b%20KQ%20-%200%2016" target=_blank>bishop_recapture_h5</a><span class=mv>16...Bxh5</span><span class=tag>hung_piece</span></div><div class=co>Recaptured with Bxh5 but it walks into Qh6 — the bishop is now exposed and the king is in danger. Should have kept the king safer.</div><div class=mb>maia_best@2600=b8g3 | curated=g6h7 | expected motif=['hanging_piece']</div>
+<div class="row miss">f1846: tempo_loss (1.0)</div>
+<div class="row hit">f1482: hanging_piece (1.0)</div>
+<div class="row miss">f1154: tempo_loss (0.67)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=1b4r1/1p6/p1r2p1k/3Bpn2/5P2/P2P4/1PP1N3/2KR4%20b%20-%20-%200%2031" target=_blank>rook_d6_blunder</a><span class=mv>31...Rd6</span><span class=tag>hung_piece</span></div><div class=co>Played Rd6 but it drops material — the rook on g8 was already loose and this does not address the threats.</div><div class=mb>maia_best@2600=g8g1 | curated=g8g4 | expected motif=['hanging_piece']</div>
+<div class="row miss">f1965: (no opus motif) (0)</div>
+<div class="row miss">f1549: (no opus motif) (0)</div>
+<div class="row hit">f891: hanging_piece (1.0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r2q1b1r/pp2pkp1/2n2n1p/3bN3/3P4/3B4/PP3PPP/R1BQ1RK1%20b%20-%20-%202%2012" target=_blank>nxe5_recapture</a><span class=mv>12...Nxe5</span><span class=tag>walked_into_tactic</span></div><div class=co>Recaptured Nxe5 but it loses — after dxe5 the knight is gone and the position collapses. The recapture was forced into a bad line.</div><div class=mb>maia_best@2600=f7g8 | curated=f7g8 | expected motif=['discovered_attack', 'fork', 'pin', 'skewer', 'tactical']</div>
+<div class="row miss">f1822: positional_mistake (1.0)</div>
+<div class="row miss">f1506: trapped_piece (1.0)</div>
+<div class="row hit">f1855: fork (1.0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=4r1k1/pp2q1pr/2n3Rp/4p3/4Q2P/5R2/PP3PP1/6K1%20b%20-%20-%203%2028" target=_blank>rf8_allows_attack</a><span class=mv>28...Rf8</span><span class=tag>missed_defensive_resource</span></div><div class=co>Rf8 ignores Whites buildup on the kingside; needed to defend actively. Missed the defensive resource.</div><div class=mb>maia_best@2600=c6d4 | curated=e8d8 | expected motif=['defense', 'king_safety']</div>
+<div class="row miss">f1846: tempo_loss (1.0)</div>
+<div class="row miss">f1351: trapped_piece (0.67)</div>
+<div class="row hit">f38: king_safety (1.0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=5r1k/pp2q1pr/2n1R2p/3Qp3/7P/5R2/PP3PP1/6K1%20b%20-%20-%207%2030" target=_blank>qc7_allows_mate</a><span class=mv>30...Qc7</span><span class=tag>missed_threat_mate</span></div><div class=co>Qc7 walks into Rxf8 checkmate. The rook on f8 was the only defender of the back rank — moving the queen away allowed mate in one.</div><div class=mb>maia_best@2600=e7f6 | curated=e7d8 | expected motif=['back_rank', 'king_safety', 'mate']</div>
+<div class="row miss">f783: hanging_piece (1.0)</div>
+<div class="row miss">f1482: hanging_piece (1.0)</div>
+<div class="row hit">f38: king_safety (1.0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r2q1rk1/6pp/1p2pn2/2p2p2/p1P1n3/P1B1P2P/1PQ2PP1/R3KB1R%20b%20KQ%20-%200%2018" target=_blank>qd4_blunder</a><span class=mv>18...Qd4</span><span class=tag>hung_piece</span></div><div class=co>Qd4 walks the queen into danger — it can be attacked/trapped and loses material. The queen overextended into the opponent position.</div><div class=mb>maia_best@2600=d8d1 | curated=e4c3 | expected motif=['hanging_piece']</div>
+<div class="row miss">f1965: (no opus motif) (0)</div>
+<div class="row miss">f1549: (no opus motif) (0)</div>
+<div class="row miss">f1846: tempo_loss (1.0)</div>
+</div>
+<h2>option_a</h2>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r1b1kb1r/pp2pppp/2n2n2/8/8/2B3N1/PPP2PPP/R3KBNR%20b%20KQkq%20-%202%209" target=_blank>bishop_f5</a><span class=mv>9...Bf5</span><span class=tag>hung_piece</span></div><div class=co>Bishop developed to f5 but the knight on e4 takes it immediately. Always check if your piece is safe before placing it.</div><div class=mb>maia_best@2600=c6b4 | curated=f6d5 | expected motif=['hanging_piece']</div>
+<div class="row miss">f1509: (no opus motif) (0)</div>
+<div class="row miss">f1538: (no opus motif) (0)</div>
+<div class="row miss">f1648: pin (0.5)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r2q1rk1/1b3pbp/p2pp1p1/1p6/3pnPPQ/P2P3P/BPP1N3/R1B2R1K%20w%20-%20-%200%2017" target=_blank>queen_h4</a><span class=mv>17.dxe4</span><span class=tag>left_piece_undefended</span></div><div class=co>Recaptured the knight but queen on h4 has no defenders. Black takes it for free. Save the queen first.</div><div class=mb>maia_best@2600=h4d8 | curated=h4d8 | expected motif=['hanging_piece']</div>
+<div class="row miss">f1467: fork (0.4)</div>
+<div class="row hit">f1073: hanging_piece (1.0)</div>
+<div class="row hit">f1933: hanging_piece (1.0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=rnbqkb1r/pp2pppp/2p2n2/8/2B1N3/5Q2/PPPP1PPP/R1B1K1NR%20b%20KQkq%20-%202%205" target=_blank>knight_e4_trap</a><span class=mv>5...Nxe4??</span><span class=tag>walked_into_tactic</span></div><div class=co>Knight takes on e4 looks like winning a pawn but White plays Bxf7+ immediately, forking your king and rook. You walked into a tactic.</div><div class=mb>maia_best@2600=d8b6 | curated=b8d7 | expected motif=['discovered_attack', 'fork', 'pin', 'skewer', 'tactical']</div>
+<div class="row miss">f1904: positional_mistake (1.0)</div>
+<div class="row hit">f1632: fork (0.5)</div>
+<div class="row miss">f1356: king_safety (0.5)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=rnbq1b1r/ppk1pBpp/2p5/8/3PQ3/8/PPP2PPP/R1B1K1NR%20b%20KQ%20-%200%208" target=_blank>qd5_king_exposed</a><span class=mv>8...Qd5</span><span class=tag>misplayed_attack</span></div><div class=co>King is on c7 completely exposed. Playing Qd5 attacks but ignores massive White threats. Shelter the king first.</div><div class=mb>maia_best@2600=c8f5 | curated=e7e6 | expected motif=['king_safety', 'tempo_loss']</div>
+<div class="row miss">f1984: hanging_piece (0.6)</div>
+<div class="row miss">f1301: (no opus motif) (0)</div>
+<div class="row miss">f1482: (no opus motif) (0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=1brq1rk1/pp3p2/2n1ppb1/1N1p3P/7P/PB1P1P2/1PPQN3/R3K2R%20b%20KQ%20-%200%2016" target=_blank>bishop_recapture_h5</a><span class=mv>16...Bxh5</span><span class=tag>hung_piece</span></div><div class=co>Recaptured with Bxh5 but it walks into Qh6 — the bishop is now exposed and the king is in danger. Should have kept the king safer.</div><div class=mb>maia_best@2600=b8g3 | curated=g6h7 | expected motif=['hanging_piece']</div>
+<div class="row miss">f451: king_safety (1.0)</div>
+<div class="row hit">f1284: hanging_piece (0.5)</div>
+<div class="row miss">f1308: (no opus motif) (0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=1b4r1/1p6/p1r2p1k/3Bpn2/5P2/P2P4/1PP1N3/2KR4%20b%20-%20-%200%2031" target=_blank>rook_d6_blunder</a><span class=mv>31...Rd6</span><span class=tag>hung_piece</span></div><div class=co>Played Rd6 but it drops material — the rook on g8 was already loose and this does not address the threats.</div><div class=mb>maia_best@2600=g8g1 | curated=g8g4 | expected motif=['hanging_piece']</div>
+<div class="row miss">f1009: (no opus motif) (0)</div>
+<div class="row miss">f1132: king_safety (1.0)</div>
+<div class="row miss">f1358: positional_mistake (1.0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r2q1b1r/pp2pkp1/2n2n1p/3bN3/3P4/3B4/PP3PPP/R1BQ1RK1%20b%20-%20-%202%2012" target=_blank>nxe5_recapture</a><span class=mv>12...Nxe5</span><span class=tag>walked_into_tactic</span></div><div class=co>Recaptured Nxe5 but it loses — after dxe5 the knight is gone and the position collapses. The recapture was forced into a bad line.</div><div class=mb>maia_best@2600=f7g8 | curated=f7g8 | expected motif=['discovered_attack', 'fork', 'pin', 'skewer', 'tactical']</div>
+<div class="row miss">f1904: positional_mistake (1.0)</div>
+<div class="row hit">f1632: fork (0.5)</div>
+<div class="row hit">f628: discovered_attack (0.5)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=4r1k1/pp2q1pr/2n3Rp/4p3/4Q2P/5R2/PP3PP1/6K1%20b%20-%20-%203%2028" target=_blank>rf8_allows_attack</a><span class=mv>28...Rf8</span><span class=tag>missed_defensive_resource</span></div><div class=co>Rf8 ignores Whites buildup on the kingside; needed to defend actively. Missed the defensive resource.</div><div class=mb>maia_best@2600=c6d4 | curated=e8d8 | expected motif=['defense', 'king_safety']</div>
+<div class="row miss">f143: (no opus motif) (0)</div>
+<div class="row miss">f313: rook_endgame (0.5)</div>
+<div class="row miss">f1617: tempo_loss (0.5)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=5r1k/pp2q1pr/2n1R2p/3Qp3/7P/5R2/PP3PP1/6K1%20b%20-%20-%207%2030" target=_blank>qc7_allows_mate</a><span class=mv>30...Qc7</span><span class=tag>missed_threat_mate</span></div><div class=co>Qc7 walks into Rxf8 checkmate. The rook on f8 was the only defender of the back rank — moving the queen away allowed mate in one.</div><div class=mb>maia_best@2600=e7f6 | curated=e7d8 | expected motif=['back_rank', 'king_safety', 'mate']</div>
+<div class="row hit">f1143: back_rank (0.5)</div>
+<div class="row miss">f829: discovered_attack (0.5)</div>
+<div class="row miss">f936: (no opus motif) (0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r2q1rk1/6pp/1p2pn2/2p2p2/p1P1n3/P1B1P2P/1PQ2PP1/R3KB1R%20b%20KQ%20-%200%2018" target=_blank>qd4_blunder</a><span class=mv>18...Qd4</span><span class=tag>hung_piece</span></div><div class=co>Qd4 walks the queen into danger — it can be attacked/trapped and loses material. The queen overextended into the opponent position.</div><div class=mb>maia_best@2600=d8d1 | curated=e4c3 | expected motif=['hanging_piece']</div>
+<div class="row miss">f1392: (no opus motif) (0)</div>
+<div class="row miss">f1383: back_rank (1.0)</div>
+<div class="row miss">f1092: back_rank (0.5)</div>
+</div>
+<h2>l2l7</h2>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r1b1kb1r/pp2pppp/2n2n2/8/8/2B3N1/PPP2PPP/R3KBNR%20b%20KQkq%20-%202%209" target=_blank>bishop_f5</a><span class=mv>9...Bf5</span><span class=tag>hung_piece</span></div><div class=co>Bishop developed to f5 but the knight on e4 takes it immediately. Always check if your piece is safe before placing it.</div><div class=mb>maia_best@2600=c6b4 | curated=f6d5 | expected motif=['hanging_piece']</div>
+<div class="row hit">f314: hanging_piece (1.0)</div>
+<div class="row hit">f1432: hanging_piece (0.33)</div>
+<div class="row miss">f825: (no opus motif) (0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r2q1rk1/1b3pbp/p2pp1p1/1p6/3pnPPQ/P2P3P/BPP1N3/R1B2R1K%20w%20-%20-%200%2017" target=_blank>queen_h4</a><span class=mv>17.dxe4</span><span class=tag>left_piece_undefended</span></div><div class=co>Recaptured the knight but queen on h4 has no defenders. Black takes it for free. Save the queen first.</div><div class=mb>maia_best@2600=h4d8 | curated=h4d8 | expected motif=['hanging_piece']</div>
+<div class="row miss">f1235: king_safety (1.0)</div>
+<div class="row miss">f1959: positional_mistake (1.0)</div>
+<div class="row miss">f994: (no opus motif) (0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=rnbqkb1r/pp2pppp/2p2n2/8/2B1N3/5Q2/PPPP1PPP/R1B1K1NR%20b%20KQkq%20-%202%205" target=_blank>knight_e4_trap</a><span class=mv>5...Nxe4??</span><span class=tag>walked_into_tactic</span></div><div class=co>Knight takes on e4 looks like winning a pawn but White plays Bxf7+ immediately, forking your king and rook. You walked into a tactic.</div><div class=mb>maia_best@2600=d8b6 | curated=b8d7 | expected motif=['discovered_attack', 'fork', 'pin', 'skewer', 'tactical']</div>
+<div class="row miss">f1959: positional_mistake (1.0)</div>
+<div class="row miss">f1582: back_rank (0.5)</div>
+<div class="row miss">f731: king_safety (1.0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=rnbq1b1r/ppk1pBpp/2p5/8/3PQ3/8/PPP2PPP/R1B1K1NR%20b%20KQ%20-%200%208" target=_blank>qd5_king_exposed</a><span class=mv>8...Qd5</span><span class=tag>misplayed_attack</span></div><div class=co>King is on c7 completely exposed. Playing Qd5 attacks but ignores massive White threats. Shelter the king first.</div><div class=mb>maia_best@2600=c8f5 | curated=e7e6 | expected motif=['king_safety', 'tempo_loss']</div>
+<div class="row hit">f1845: king_safety (0.67)</div>
+<div class="row miss">f968: hanging_piece (1.0)</div>
+<div class="row hit">f1377: tempo_loss (0.5)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=1brq1rk1/pp3p2/2n1ppb1/1N1p3P/7P/PB1P1P2/1PPQN3/R3K2R%20b%20KQ%20-%200%2016" target=_blank>bishop_recapture_h5</a><span class=mv>16...Bxh5</span><span class=tag>hung_piece</span></div><div class=co>Recaptured with Bxh5 but it walks into Qh6 — the bishop is now exposed and the king is in danger. Should have kept the king safer.</div><div class=mb>maia_best@2600=b8g3 | curated=g6h7 | expected motif=['hanging_piece']</div>
+<div class="row miss">f1377: tempo_loss (0.5)</div>
+<div class="row miss">f731: king_safety (1.0)</div>
+<div class="row miss">f418: tempo_loss (0.75)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=1b4r1/1p6/p1r2p1k/3Bpn2/5P2/P2P4/1PP1N3/2KR4%20b%20-%20-%200%2031" target=_blank>rook_d6_blunder</a><span class=mv>31...Rd6</span><span class=tag>hung_piece</span></div><div class=co>Played Rd6 but it drops material — the rook on g8 was already loose and this does not address the threats.</div><div class=mb>maia_best@2600=g8g1 | curated=g8g4 | expected motif=['hanging_piece']</div>
+<div class="row miss">f2017: fork (0.33)</div>
+<div class="row miss">f1377: tempo_loss (0.5)</div>
+<div class="row hit">f314: hanging_piece (1.0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r2q1b1r/pp2pkp1/2n2n1p/3bN3/3P4/3B4/PP3PPP/R1BQ1RK1%20b%20-%20-%202%2012" target=_blank>nxe5_recapture</a><span class=mv>12...Nxe5</span><span class=tag>walked_into_tactic</span></div><div class=co>Recaptured Nxe5 but it loses — after dxe5 the knight is gone and the position collapses. The recapture was forced into a bad line.</div><div class=mb>maia_best@2600=f7g8 | curated=f7g8 | expected motif=['discovered_attack', 'fork', 'pin', 'skewer', 'tactical']</div>
+<div class="row miss">f1959: positional_mistake (1.0)</div>
+<div class="row miss">f1242: king_safety (1.0)</div>
+<div class="row miss">f326: tempo_loss (1.0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=4r1k1/pp2q1pr/2n3Rp/4p3/4Q2P/5R2/PP3PP1/6K1%20b%20-%20-%203%2028" target=_blank>rf8_allows_attack</a><span class=mv>28...Rf8</span><span class=tag>missed_defensive_resource</span></div><div class=co>Rf8 ignores Whites buildup on the kingside; needed to defend actively. Missed the defensive resource.</div><div class=mb>maia_best@2600=c6d4 | curated=e8d8 | expected motif=['defense', 'king_safety']</div>
+<div class="row miss">f1598: tempo_loss (0.5)</div>
+<div class="row miss">f375: trapped_piece (1.0)</div>
+<div class="row miss">f1377: tempo_loss (0.5)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=5r1k/pp2q1pr/2n1R2p/3Qp3/7P/5R2/PP3PP1/6K1%20b%20-%20-%207%2030" target=_blank>qc7_allows_mate</a><span class=mv>30...Qc7</span><span class=tag>missed_threat_mate</span></div><div class=co>Qc7 walks into Rxf8 checkmate. The rook on f8 was the only defender of the back rank — moving the queen away allowed mate in one.</div><div class=mb>maia_best@2600=e7f6 | curated=e7d8 | expected motif=['back_rank', 'king_safety', 'mate']</div>
+<div class="row hit">f731: king_safety (1.0)</div>
+<div class="row hit">f70: back_rank (1.0)</div>
+<div class="row miss">f85: (no opus motif) (0)</div>
+</div>
+<div class=pos><div class=pt><a href="https://www.chess.com/analysis?fen=r2q1rk1/6pp/1p2pn2/2p2p2/p1P1n3/P1B1P2P/1PQ2PP1/R3KB1R%20b%20KQ%20-%200%2018" target=_blank>qd4_blunder</a><span class=mv>18...Qd4</span><span class=tag>hung_piece</span></div><div class=co>Qd4 walks the queen into danger — it can be attacked/trapped and loses material. The queen overextended into the opponent position.</div><div class=mb>maia_best@2600=d8d1 | curated=e4c3 | expected motif=['hanging_piece']</div>
+<div class="row miss">f2017: fork (0.33)</div>
+<div class="row miss">f1377: tempo_loss (0.5)</div>
+<div class="row miss">f1546: (no opus motif) (0)</div>
+</div>
+</body></html>

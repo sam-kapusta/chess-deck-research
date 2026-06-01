@@ -1,3 +1,4 @@
+# WARNING: built on v1 cache (label-inversion bug). Must repoint to v2 cache before reuse.
 """
 Build board_diff_BOTH cache: mean64(h_after_best - h_after_blunder)
 Uses v1 positions (200k, all have best_uci + elo_self/elo_oppo).

@@ -2,12 +2,31 @@
 
 Research-package-specific concepts. Shared cross-package concepts (SAE pipeline, DDB schema, handoff contract, core gotchas) live in [`../../knowledge.md`](../../knowledge.md) — authoritative; if you're reading something here that's also there, this file is out of date.
 
-## Current state
+## Current state (2026-06-01)
 
-**Production SAE:** `realgames_512_k8_v1` — 500 features, deployed. Research's job is keeping the next version in the pipeline.
-**Next SAE:** `2048_k64` — 2042 features labeled (Sonnet 4.6 thinking, 79% high, 0 errors). Baselines still needed on `chess-poc`. Not yet deployed.
+**Production SAE:** `realgames_512_k8_v1` — 500 features, deployed.
+**Active research line:** BatchTopK SAE on Maia3 79M layer-7 best−blunder diffs. k=16 v2 selected. Pass-1 Opus labeling running overnight on chess-poc. Atlas (`l7only_atlas.html`) working with stats panel in progress.
+**Next milestone:** k=16 v2 feature labels complete + atlas updated → decide if this SAE ships or corpus needs expanding (1M Lichess run planned).
 
 ## Architecture — what works (and why)
+
+### BatchTopK (SandstonePersonas pattern) — CURRENT
+
+- **BatchTopKSAE** from SandstonePersonas (`sae/model.py`): batch-level top-k (not per-position), unit-norm decoder enforced every step, AuxK dead-feature revival.
+- **Key hyperparameters (2048/k16):** k_aux=128, aux_alpha=0.03125, lr=3e-4, batch=4096, 200 epochs, warmup=500 steps, seed=123.
+- **Normalization:** z-score per-dim then L2 per-sample. Save mean/std as `_stats.json` alongside weights — required for all inference.
+- **Inference:** use calibrated threshold θ (NOT BatchTopK at eval — batch-dependent). Compute θ = mean of k-th largest activation per position across corpus. See `scripts/evaluation/calibrate_threshold.py`. k=16 θ≈0.0806 → L0≈15.7.
+- **AuxK note:** AuxK never fires on 168k corpus because every feature activates multiple times per batch (4096 × 16 = 65k active slots across 2048 features). This is correct behavior — features aren't dying, they're just rare. The 1012 near-dead features (0<freq<0.1%) are likely real low-frequency concepts, not broken.
+- **k selection:** k=16 chosen over k=32 for precision (coaching use-case). k=16 has 63 very-active vs 147 for k=32; 744 middlegame-dominated features vs 450. Per Noyan/Jonathan: k is the precision/recall lever. k=32 fires on loosely-related concepts; k=16 is more selective.
+
+### Representation: Maia3 79M layer-7 diff
+
+- `maia3_79m_fixed.pt` (79M params, 8-layer transformer, 1024-dim). **Not the ONNX probe** — that produces mush. This specific checkpoint is required.
+- Layer 7 activations hooked via `model.transformer.layers[6]` (0-indexed). Mean-pooled over 64 board squares → 1024-dim per position.
+- Diff = (best-move position activations) − (blunder-move position activations). Captures "what Maia sees differently between right and wrong."
+- Cache: `maia3_l7only_v2_dedup.pt` (168,132 × 1024). Deduped from 168,669 (537 duplicate fen|uci removed).
+
+### Older architecture note
 
 - **BatchTopK** is the only viable SAE architecture. L1/Gated produce noise on blunder move tokens.
 - **Move-token (hidden[77])** from DeepMind 270M encoder. Not mean-pooled, not per-position. See shared knowledge.md § SAE Feature System for the full extraction pipeline.
@@ -277,7 +296,9 @@ The `maia3_blunder_diff_v2.pt` cache uses `before - after-blunder` at the destin
 - The v2 metadata has `best_uci: None` for all 200k positions
 
 ### Option A: repr(after-best) - repr(after-blunder)
-Tested on v1 cache (which has best_uci). Key findings:
+Tested on v1 cache (which has best_uci). **(derived on v1 data — needs re-verification on v2.
+The v1 cache has the Black-to-move label-inversion bug; every gap/correlation below is suspect
+until reproduced on the v2 cache.)** Key findings:
 
 **cp_loss signal:**
 - `h_diff.mean64 -> cp_loss: r≈0.07` (5-fold CV) — weak, but expected
@@ -323,7 +344,10 @@ Value head: `logits_value [batch, 3]` — convention `[black_win, draw, white_wi
 
 ## 79M Maia3 model probe results (May 2026)
 
-Tested `maia3-79m` (1024-dim, 8 layers, GAB) against existing ONNX probe (512-dim):
+Tested `maia3-79m` (1024-dim, 8 layers, GAB) against existing ONNX probe (512-dim).
+**(derived on v1 data — needs re-verification on v2. Probes ran against the v1 blunder cache
+with the label-inversion bug; the board_diff / L2 / L7 gap numbers below are suspect until
+reproduced on the v2 cache.)**
 
 **Key finding: 79M is NOT better for SAE purposes.**
 - h[sq] global context cosines: 0.92–0.998 across wildly different positions
