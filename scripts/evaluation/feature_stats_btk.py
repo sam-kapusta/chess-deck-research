@@ -35,15 +35,11 @@ class BatchTopKSAE(nn.Module):
         self.d_hidden = d_hidden; self.k = k
         self.register_buffer("num_batches_not_active", torch.zeros(d_hidden))
 
-    def forward(self, x):
+    def encode_threshold(self, x, threshold):
+        """Deterministic threshold inference — no batch dependency (inference_example.py pattern)."""
         z = (x - self.b_dec) @ self.W_enc + self.b_enc
         z_relu = F.relu(z)
-        flat = z_relu.reshape(-1)
-        total_k = min(int(x.shape[0] * self.k), flat.numel())
-        topk_vals, topk_idx = torch.topk(flat, total_k)
-        acts = torch.zeros_like(flat)
-        acts[topk_idx] = topk_vals
-        return acts.reshape(z.shape)
+        return z_relu * (z_relu > threshold)
 
 
 def normalize(raw, mean, std):
@@ -102,14 +98,22 @@ def main():
     model.load_state_dict(ckpt["state_dict"], strict=False)
     model.eval().to(device)
 
-    print("Encoding full corpus...")
+    # Load calibrated threshold for deterministic inference (no batch dependency)
+    cal_path = args.weights.replace("_weights.pt", "_calibration.json")
+    if os.path.exists(cal_path):
+        threshold = json.load(open(cal_path))["global_threshold"]
+        print(f"Using calibrated threshold θ={threshold:.6f} (L0≈{json.load(open(cal_path))['mean_l0']:.1f})")
+    else:
+        raise FileNotFoundError(f"Calibration file not found: {cal_path}\nRun calibrate_threshold_v2.py first.")
+
+    print("Encoding full corpus (threshold inference)...")
     loader = DataLoader(TensorDataset(x_norm), batch_size=8192, shuffle=False)
     all_acts = []
     with torch.no_grad():
         for (batch,) in loader:
-            all_acts.append(model(batch.to(device)).cpu().numpy())
+            all_acts.append(model.encode_threshold(batch.to(device), threshold).cpu().numpy())
     acts = np.concatenate(all_acts)
-    print(f"  Acts shape: {acts.shape}")
+    print(f"  Acts shape: {acts.shape}, mean L0: {(acts>0).sum(1).mean():.1f}")
 
     print("Computing per-feature stats...")
     out = {}

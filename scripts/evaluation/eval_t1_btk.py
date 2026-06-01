@@ -31,15 +31,14 @@ class BatchTopKSAE(nn.Module):
         self.k = k
         self.register_buffer("num_batches_not_active", torch.zeros(d_hidden))
 
-    def forward(self, x):
+    def encode_threshold(self, x, threshold):
+        """Deterministic threshold inference — no batch dependency."""
         z = (x - self.b_dec) @ self.W_enc + self.b_enc
         z_relu = F.relu(z)
-        flat = z_relu.reshape(-1)
-        total_k = min(int(x.shape[0] * self.k), flat.numel())
-        topk_vals, topk_idx = torch.topk(flat, total_k)
-        acts = torch.zeros_like(flat)
-        acts[topk_idx] = topk_vals
-        acts = acts.reshape(z.shape)
+        return z_relu * (z_relu > threshold)
+
+    def forward_threshold(self, x, threshold):
+        acts = self.encode_threshold(x, threshold)
         x_hat = acts @ self.W_dec + self.b_dec
         l2_loss = (x_hat.float() - x.float()).pow(2).mean()
         return torch.tensor(0.0), x_hat, acts, l2_loss, torch.tensor(0.0)
@@ -86,13 +85,20 @@ def main():
     model.load_state_dict(sd, strict=False)
     model.eval().to(device)
 
+    # Load calibrated threshold (deterministic inference, no batch dependency)
+    cal_path = args.weights.replace("_weights.pt", "_calibration.json")
+    if not os.path.exists(cal_path):
+        raise FileNotFoundError(f"Calibration file not found: {cal_path}\nRun calibrate_threshold_v2.py first.")
+    threshold = json.load(open(cal_path))["global_threshold"]
+    print(f"Using calibrated threshold θ={threshold:.6f}")
+
     # Forward pass — collect acts, x, xhat
     loader = DataLoader(TensorDataset(x_norm), batch_size=4096, shuffle=False)
     all_acts, all_x, all_xhat = [], [], []
     with torch.no_grad():
         for (batch,) in loader:
             batch = batch.to(device)
-            _, xhat, acts, _, _ = model(batch)
+            _, xhat, acts, _, _ = model.forward_threshold(batch, threshold)
             all_acts.append(acts.cpu().numpy())
             all_x.append(batch.cpu().numpy())
             all_xhat.append(xhat.cpu().numpy())
