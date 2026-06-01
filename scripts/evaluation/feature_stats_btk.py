@@ -135,6 +135,8 @@ def main():
         is_capture = 0
         is_check = 0
         piece_left_hanging = Counter()   # most valuable piece en prise after blunder
+        best_move_piece = Counter()      # piece type of Stockfish best move
+        best_move_is_capture = 0        # best move was a capture
 
         for i, idx in enumerate(top_idx):
             m = meta[int(idx)]
@@ -184,6 +186,15 @@ def main():
                     traj_threw_winning += 1
                 cp = m.get("cp_loss") or en.get("cp_loss")
                 if cp is not None: cp_losses.append(float(cp))
+                # best move piece type — parse from best_uci if available
+                best_uci = m.get("best_uci") or en.get("best_uci")
+                if best_uci and len(best_uci) >= 4:
+                    try:
+                        bp = b.piece_at(chess.parse_square(best_uci[:2]))
+                        if bp: best_move_piece[PIECE_NAMES.get(bp.piece_type, "other")] += 1
+                        best_mv = chess.Move.from_uci(best_uci[:4])
+                        if b.is_capture(best_mv): best_move_is_capture += 1
+                    except: pass
 
             mt = motif_map.get(key)
             if mt:
@@ -202,6 +213,9 @@ def main():
             "piece_type_pct": {p: round(c/n, 3) for p,c in piece_counts.items()},
             "is_capture_pct": round(is_capture / n, 3),
             "is_check_pct": round(is_check / n, 3),
+            "best_move_piece": dict(best_move_piece),
+            "best_move_piece_pct": {p: round(c/n, 3) for p,c in best_move_piece.items()},
+            "best_move_is_capture_pct": round(best_move_is_capture / n, 3),
             "piece_left_hanging": dict(piece_left_hanging),
             "piece_left_hanging_pct": {p: round(c/n, 3) for p,c in piece_left_hanging.items()},
             "side_white_pct": round(side_white / n, 3),
