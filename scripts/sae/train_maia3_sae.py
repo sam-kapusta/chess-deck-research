@@ -234,6 +234,8 @@ def main():
     parser.add_argument("--n-epochs", type=int, default=50)
     parser.add_argument("--warmup-steps", type=int, default=500)
     parser.add_argument("--val-split", type=float, default=0.1)
+    parser.add_argument("--no-val-split", action="store_true",
+                        help="Train on full corpus, no held-out val (use for small corpora)")
     parser.add_argument("--no-l2", action="store_true", help="Skip L2 normalization (z-score only)")
     parser.add_argument("--no-norm", action="store_true", help="Skip all normalization (raw activations)")
     parser.add_argument("--output", type=str, default=None)
@@ -265,6 +267,8 @@ def main():
         print(f"  No normalization (raw). Norm mean={sample_norms.mean():.1f}, range=[{raw_acts.min():.2f}, {raw_acts.max():.2f}]")
     else:
         use_l2 = not args.no_l2
+        norm_mean = raw_acts.mean(dim=0)
+        norm_std = raw_acts.std(dim=0).clamp(min=1e-6)
         acts_norm, sample_norms = normalize_activations(raw_acts, use_l2=use_l2)
         norm_type = "Z-score + L2" if use_l2 else "Z-score only"
         print(f"  Normalized: {norm_type} (norm mean={acts_norm.norm(dim=-1).mean():.1f})")
@@ -273,12 +277,18 @@ def main():
 
     # Train/val split
     n = acts_norm.shape[0]
-    n_val = int(n * args.val_split)
-    n_train = n - n_val
-    perm = torch.randperm(n)
-    train_data = acts_norm[perm[:n_train]]
-    val_data = acts_norm[perm[n_train:]]
-    print(f"  Train: {n_train}, Val: {n_val}")
+    if args.no_val_split:
+        train_data = acts_norm
+        val_data = acts_norm  # T1 eval sees full corpus
+        n_train, n_val = n, n
+        print(f"  Full corpus training: {n} positions (no val split)")
+    else:
+        n_val = int(n * args.val_split)
+        n_train = n - n_val
+        perm = torch.randperm(n)
+        train_data = acts_norm[perm[:n_train]]
+        val_data = acts_norm[perm[n_train:]]
+        print(f"  Train: {n_train}, Val: {n_val}")
 
     train_loader = DataLoader(
         TensorDataset(train_data),
@@ -354,6 +364,13 @@ def main():
 
     torch.save(save_payload, out_path)
     print(f"Saved to {out_path}")
+
+    if not args.no_norm:
+        stats_out = out_path.replace(".pt", "_stats.json")
+        with open(stats_out, "w") as f:
+            json.dump({"mean": norm_mean.tolist(), "std": norm_std.tolist(),
+                       "n_positions": n, "d_input": d_input}, f)
+        print(f"Normalization stats saved to {stats_out}")
 
     # Final T1 structural metrics
     print("\n--- T1 Structural Metrics ---")
