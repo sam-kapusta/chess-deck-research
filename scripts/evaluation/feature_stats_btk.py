@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Per-feature stats from top-100 activating positions.
 
-For each of 2048 features: piece type dist, side, eval trajectory, cp_loss,
+For each of 2048 features: piece type dist, is_capture, is_check,
+piece left hanging after blunder, side, eval trajectory, cp_loss,
 motif histogram (Opus join), phase. Fully objective - no LLM.
 
 Usage (on chess-poc):
@@ -131,6 +132,9 @@ def main():
         motifs = Counter()
         phases = Counter()
         motif_covered = 0
+        is_capture = 0
+        is_check = 0
+        piece_left_hanging = Counter()   # most valuable piece en prise after blunder
 
         for i, idx in enumerate(top_idx):
             m = meta[int(idx)]
@@ -141,6 +145,26 @@ def main():
                 mv = chess.Move.from_uci(m["blunder_uci"])
                 pc = b.piece_at(mv.from_square)
                 if pc: piece_counts[PIECE_NAMES.get(pc.piece_type, "other")] += 1
+                if b.is_capture(mv): is_capture += 1
+                if b.gives_check(mv): is_check += 1
+                # after the blunder: find the most valuable piece left en prise
+                b2 = b.copy(); b2.push(mv)
+                opp = not b.turn
+                best_hanging = None; best_val = 0
+                vals = {chess.QUEEN: 9, chess.ROOK: 5, chess.BISHOP: 3,
+                        chess.KNIGHT: 3, chess.PAWN: 1}
+                for sq in chess.SQUARES:
+                    p2 = b2.piece_at(sq)
+                    if p2 and p2.color == b.turn:  # our piece still on board
+                        if b2.is_attacked_by(opp, sq):
+                            defenders = len(b2.attackers(b.turn, sq))
+                            attackers = len(b2.attackers(opp, sq))
+                            if attackers > defenders:  # genuinely en prise
+                                v = vals.get(p2.piece_type, 0)
+                                if v > best_val:
+                                    best_val = v
+                                    best_hanging = PIECE_NAMES.get(p2.piece_type, "other")
+                if best_hanging: piece_left_hanging[best_hanging] += 1
             except: pass
 
             if m.get("is_white"): side_white += 1
@@ -176,6 +200,10 @@ def main():
             "top100_acts": [round(a, 4) for a in top_acts],
             "piece_types": dict(piece_counts),
             "piece_type_pct": {p: round(c/n, 3) for p,c in piece_counts.items()},
+            "is_capture_pct": round(is_capture / n, 3),
+            "is_check_pct": round(is_check / n, 3),
+            "piece_left_hanging": dict(piece_left_hanging),
+            "piece_left_hanging_pct": {p: round(c/n, 3) for p,c in piece_left_hanging.items()},
             "side_white_pct": round(side_white / n, 3),
             "traj_already_losing_pct": round(traj_already_losing / n, 3),
             "traj_made_worse_pct": round(traj_made_worse / n, 3),
