@@ -1,27 +1,45 @@
 # Chess Encoder
 
-## Current State (2026-05-31 end)
+> **CORRECTION (2026-05-31): the option_a / board_diff / l2l7 architecture search below is INVALID.**
+> All three SAEs were trained on the v1 blunder cache (`maia3_blunder_diff.pt`, Black-to-move
+> label-inversion bug). The weights, caches, labels, profiles, and eval artifacts have been
+> deleted from S3, the notebook, and git. No conclusion below (board_diff "leading candidate",
+> f46 "Recapture leaves piece hanging", >50%-coherent expectations) holds. Build/train scripts
+> kept under `scripts/sae/new_sae_architecture/` but must be repointed to the v2 cache before
+> any rerun. Next step if revisiting: rebuild all three constructions on v2 data.
 
-**Active work:** SAE architecture search — finding best construction for coaching-meaningful features.
+## Current State (2026-05-31 end) — v2 REBUILD running
 
-**Running on chess-poc right now:**
-- `encode_opus_all3.py` — encoding 18k Opus positions through all 3 SAEs (~30min remaining)
-- After: run `label_from_opus.py` → Sonnet labels from Opus descriptions (~30min)
-- After: run `eval_test_positions.py` → final eval on 4 real positions
+**Active work:** rebuilding the 4 SAE constructions on v2 (corrected) data + Maia-best moves.
 
-**Three SAEs on S3:**
-- `maia3_option_a_2048_k32.pt` — h[best_to]-h[blunder_to]
-- `maia3_board_diff_2048_k32.pt` — mean64(after_best-after_blunder) ← LEADING CANDIDATE
-- `maia3_l2l7_2048_k32.pt` — concat(L2+L7) 
+**Key unblock this session:** the 3 constructions need a *best move* per position; v2 cache
+dropped best_uci and the only 200k best_uci (v1 metadata) is bug-affected. **Decision: best =
+Maia3 policy argmax @ elo 2600** (not Stockfish) — the SAE reads Maia's activations, so Maia's
+own human-best is the consistent, coaching-relevant target. Building `maia_best_200k.json`.
 
-**Preliminary eval result (sparse labels):**
-- board_diff fires 'Recapture leaves piece hanging' on BOTH hung-piece test positions (f46)
-- v2 SAE: fires on move geometry, not coaching lesson — confirmed limitation
-- Once full labels arrive: expect board_diff to hit >50% coherent labels
+**Maia-best extraction gotcha (cost a debug cycle):** must use the maia3 package primitives —
+`get_all_possible_moves()` = **4352**-move vocab (NOT the 1968-move `move_to_action.json`, which
+is the DeepMind-270m model), `tokenize_board` (mirrors board for black-to-move),
+`get_legal_moves_mask`, and `mirror_move` on the chosen move for black. Wrong vocab → 3%
+Stockfish agreement (chance). Correct → 50% agreement + passes start/hanging-Q/M1 sanity.
 
-**Decision pending:**
-If board_diff >50% coherent → use board_diff as new SAE
-If not → rebuild on v2 data (same positions as opus_english.json)
+**Unattended pipeline (2 screens on chess-poc):**
+- `maiabest`: `build_maia_best.py` → `maia_best_200k.json` (~110 pos/s, ~30min)
+- `pipeline`: `wait_and_run.sh` → `run_all_v2.sh`: build option_a + board_diff + l2l7 caches →
+  slice l7only → train 4 SAEs @ **k=16** → `eval_v2_html.py` → `eval_v2.html` + results JSON
+
+**4 constructions (all v2 + maia_best@2600, conditioned at player's real elo):**
+- option_a: `h[best_to]-h[blunder_to]` before-board (ONNX, 512d)
+- board_diff: `mean64(h_after_best - h_after_blunder)` (ONNX, 512d)
+- l2l7: `concat(L2_mean64_diff, L7_mean64_diff)` (79M PyTorch, 2048d)
+- l7only: L7 half of l2l7 (1024d)
+
+**Scripts (in /tmp locally + ~/SageMaker on chess-poc; commit to scripts/sae/ before trusting results):**
+`build_maia_best.py`, `build_option_a_v2.py`, `build_board_diff_v2.py`, `build_l2l7_v2.py`,
+`train_sae_v2.py` (generic), `eval_v2_html.py`, `run_all_v2.sh`, `wait_and_run.sh`.
+
+**Decision after eval:** if one SAE clearly fires the right features on the 10 test positions →
+start labeling it. Drop degenerate positions (maia_best==blunder, ~14%).
 
  — SAE Feature Pipeline
 
@@ -272,19 +290,22 @@ taxonomy categorization on the current v2 SAE first.
 Script needed: encode v1 positions (200k, have best_uci + player elos), run Maia3 ONNX
 on both resulting boards at player elo, diff mean64, save. Then retrain BatchTopK SAE.
 
-## Current work (2026-05-31)
+## Current work (2026-05-31) — INVALID (v1-corrupted, see correction at top of file)
 
 ### SAE architecture search
+
+> All three SAEs below were trained on the v1 cache (label-inversion bug) and have been deleted.
+> Findings unverified. To revisit, rebuild on the v2 cache.
 
 **Goal:** Find SAE where >50% of features have coherent coaching labels.
 **Done criterion:** Feature descriptions match what a coach would say ("you hung your bishop," not "insufficient data").
 
-**Three new SAEs built and trained:**
+**Three new SAEs built and trained:** (DELETED — v1-corrupted)
 - `maia3_option_a_2048_k32.pt` — h[best_to] - h[blunder_to], layer-7 ONNX, 512-dim
 - `maia3_board_diff_2048_k32.pt` — mean64(after_best - after_blunder), layer-7 ONNX, 512-dim
 - `maia3_l2l7_2048_k32.pt` — concat(L2_mean64_diff, L7_mean64_diff), 79M PyTorch, 2048-dim
 
-**Probe findings:**
+**Probe findings:** (derived on v1 data — needs re-verification on v2)
 - board_diff best overall for mistake-type separation (mean gap 0.038 across 6 taxonomy categories)
 - L2 better for positional mistakes, L7 better for tactical timing — l2l7 captures both
 - v2 SAE (current): h[to_sq]-h[from_sq] of blunder — encodes what you played, not what you missed
