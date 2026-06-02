@@ -1,0 +1,1304 @@
+{
+ "952": {
+  "fire_rate": 0.5678,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.45,
+    "top": "queen"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.4,
+    "top": "queen"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.67,
+    "top": "major piece"
+   },
+   "best_type": {
+    "value": "quiet",
+    "pct": 0.71
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.65,
+    "top": "queen"
+   },
+   "hang_class": {
+    "value": "major piece",
+    "pct": 0.97
+   },
+   "anyhang": {
+    "value": "hangs",
+    "pct": 1.0
+   },
+   "iscap": {
+    "value": null,
+    "pct": 0.55,
+    "top": "noncapture"
+   },
+   "phase": {
+    "value": null,
+    "pct": 0.54,
+    "top": "middlegame"
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.09,
+    "top": "already_losing_made_worse"
+   }
+  },
+  "chip": "Major piece left hanging",
+  "played": "Played a move that leaves a major piece (rook or queen) undefended",
+  "missed": "A quiet move that would have saved or protected the hanging major piece",
+  "confidence": 90
+ },
+ "305": {
+  "fire_rate": 0.5177,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.23,
+    "top": "rook"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.3,
+    "top": "queen"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.56,
+    "top": "major piece"
+   },
+   "best_type": {
+    "value": null,
+    "pct": 0.49,
+    "top": "quiet"
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.26,
+    "top": "queen"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.47,
+    "top": "major piece"
+   },
+   "anyhang": {
+    "value": "hangs",
+    "pct": 0.78
+   },
+   "iscap": {
+    "value": "noncapture",
+    "pct": 0.84
+   },
+   "phase": {
+    "value": null,
+    "pct": 0.67,
+    "top": "middlegame"
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.09,
+    "top": "already_losing_made_worse"
+   }
+  },
+  "chip": "Missed capture while piece hangs",
+  "played": "Made a non-capture move while a piece was hanging",
+  "missed": "A capture that would have exploited or resolved the hanging piece",
+  "confidence": 72
+ },
+ "1245": {
+  "fire_rate": 0.583,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.21,
+    "top": "rook"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.27,
+    "top": "queen"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.49,
+    "top": "major piece"
+   },
+   "best_type": {
+    "value": null,
+    "pct": 0.61,
+    "top": "capture"
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.22,
+    "top": "pawn"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.34,
+    "top": "major piece"
+   },
+   "anyhang": {
+    "value": "hangs",
+    "pct": 0.8
+   },
+   "iscap": {
+    "value": "noncapture",
+    "pct": 0.79
+   },
+   "phase": {
+    "value": null,
+    "pct": 0.69,
+    "top": "middlegame"
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.1,
+    "top": "threw_winning"
+   }
+  },
+  "error": "Extra data: line 3 column 1 (char 204)"
+ },
+ "1155": {
+  "fire_rate": 0.2418,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.3,
+    "top": "pawn"
+   },
+   "best_piece": {
+    "value": "knight",
+    "pct": 0.97
+   },
+   "best_class": {
+    "value": "minor piece",
+    "pct": 0.97
+   },
+   "best_type": {
+    "value": "quiet",
+    "pct": 0.82
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.51,
+    "top": "none"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.51,
+    "top": "none"
+   },
+   "anyhang": {
+    "value": null,
+    "pct": 0.51,
+    "top": "safe"
+   },
+   "iscap": {
+    "value": "noncapture",
+    "pct": 0.81
+   },
+   "phase": {
+    "value": null,
+    "pct": 0.64,
+    "top": "middlegame"
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.12,
+    "top": "threw_winning"
+   }
+  },
+  "chip": "Missed quiet knight moves",
+  "played": "Played non-capture moves with other pieces",
+  "missed": "A quiet knight move that was best",
+  "confidence": 92
+ },
+ "712": {
+  "fire_rate": 0.2678,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.36,
+    "top": "knight"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.27,
+    "top": "bishop"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.52,
+    "top": "minor piece"
+   },
+   "best_type": {
+    "value": "quiet",
+    "pct": 0.74
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.47,
+    "top": "knight"
+   },
+   "hang_class": {
+    "value": "minor piece",
+    "pct": 0.84
+   },
+   "anyhang": {
+    "value": "hangs",
+    "pct": 0.95
+   },
+   "iscap": {
+    "value": null,
+    "pct": 0.55,
+    "top": "capture"
+   },
+   "phase": {
+    "value": "middlegame",
+    "pct": 0.71
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.09,
+    "top": "threw_winning"
+   }
+  },
+  "chip": "Hanging minor piece in middlegame",
+  "played": "Left a minor piece hanging",
+  "missed": "A quiet move that defended the minor piece",
+  "confidence": 82
+ },
+ "1965": {
+  "fire_rate": 0.4296,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.26,
+    "top": "bishop"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.51,
+    "top": "bishop"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.68,
+    "top": "minor piece"
+   },
+   "best_type": {
+    "value": "capture",
+    "pct": 1.0
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.56,
+    "top": "none"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.56,
+    "top": "none"
+   },
+   "anyhang": {
+    "value": null,
+    "pct": 0.56,
+    "top": "safe"
+   },
+   "iscap": {
+    "value": "noncapture",
+    "pct": 0.92
+   },
+   "phase": {
+    "value": null,
+    "pct": 0.56,
+    "top": "middlegame"
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.08,
+    "top": "already_losing_made_worse"
+   }
+  },
+  "chip": "Missed winning capture, played quiet",
+  "played": "Played a non-capture move",
+  "missed": "A capture that was clearly best",
+  "confidence": 90
+ },
+ "1075": {
+  "fire_rate": 0.2641,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.27,
+    "top": "king"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.22,
+    "top": "queen"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.4,
+    "top": "major piece"
+   },
+   "best_type": {
+    "value": null,
+    "pct": 0.56,
+    "top": "quiet"
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.35,
+    "top": "none"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.35,
+    "top": "none"
+   },
+   "anyhang": {
+    "value": null,
+    "pct": 0.65,
+    "top": "hangs"
+   },
+   "iscap": {
+    "value": null,
+    "pct": 0.67,
+    "top": "noncapture"
+   },
+   "phase": {
+    "value": null,
+    "pct": 0.7,
+    "top": "middlegame"
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.11,
+    "top": "mixed"
+   }
+  },
+  "chip": "Large missed tactical opportunities",
+  "played": "Made a suboptimal move losing significant advantage",
+  "missed": "A much stronger move preserving or gaining decisive advantage",
+  "confidence": 12
+ },
+ "1634": {
+  "fire_rate": 0.5275,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.22,
+    "top": "rook"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.35,
+    "top": "pawn"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.37,
+    "top": "major piece"
+   },
+   "best_type": {
+    "value": "quiet",
+    "pct": 0.81
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.43,
+    "top": "pawn"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.43,
+    "top": "pawn"
+   },
+   "anyhang": {
+    "value": "hangs",
+    "pct": 0.76
+   },
+   "iscap": {
+    "value": null,
+    "pct": 0.56,
+    "top": "noncapture"
+   },
+   "phase": {
+    "value": "middlegame",
+    "pct": 0.84
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.1,
+    "top": "mixed"
+   }
+  },
+  "chip": "Missed quiet middlegame mate-in-one",
+  "played": "Captured a hanging piece instead of delivering checkmate",
+  "missed": "A quiet move delivering mate in 1-2 moves",
+  "confidence": 82
+ },
+ "1165": {
+  "fire_rate": 0.436,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.51,
+    "top": "bishop"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.29,
+    "top": "knight"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.48,
+    "top": "minor piece"
+   },
+   "best_type": {
+    "value": "quiet",
+    "pct": 0.73
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.52,
+    "top": "bishop"
+   },
+   "hang_class": {
+    "value": "minor piece",
+    "pct": 0.76
+   },
+   "anyhang": {
+    "value": "hangs",
+    "pct": 1.0
+   },
+   "iscap": {
+    "value": "capture",
+    "pct": 0.95
+   },
+   "phase": {
+    "value": null,
+    "pct": 0.61,
+    "top": "middlegame"
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.06,
+    "top": "already_losing_made_worse"
+   }
+  },
+  "chip": "Bishop captures leaving minor piece hanging",
+  "played": "Played a bishop capture that left a minor piece hanging",
+  "missed": "A quiet move that preserved material",
+  "confidence": 85
+ },
+ "394": {
+  "fire_rate": 0.2956,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.32,
+    "top": "knight"
+   },
+   "best_piece": {
+    "value": "knight",
+    "pct": 0.85
+   },
+   "best_class": {
+    "value": "minor piece",
+    "pct": 0.91
+   },
+   "best_type": {
+    "value": "quiet",
+    "pct": 0.83
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.55,
+    "top": "none"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.55,
+    "top": "none"
+   },
+   "anyhang": {
+    "value": null,
+    "pct": 0.55,
+    "top": "safe"
+   },
+   "iscap": {
+    "value": "noncapture",
+    "pct": 0.83
+   },
+   "phase": {
+    "value": "middlegame",
+    "pct": 0.76
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.12,
+    "top": "mixed"
+   }
+  },
+  "chip": "Missed quiet knight moves",
+  "played": "Made captures or non-knight moves",
+  "missed": "A quiet knight move in the middlegame",
+  "confidence": 85
+ },
+ "2018": {
+  "fire_rate": 0.4148,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.28,
+    "top": "rook"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.22,
+    "top": "rook"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.38,
+    "top": "major piece"
+   },
+   "best_type": {
+    "value": null,
+    "pct": 0.46,
+    "top": "quiet"
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.36,
+    "top": "none"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.36,
+    "top": "none"
+   },
+   "anyhang": {
+    "value": null,
+    "pct": 0.64,
+    "top": "hangs"
+   },
+   "iscap": {
+    "value": null,
+    "pct": 0.61,
+    "top": "noncapture"
+   },
+   "phase": {
+    "value": null,
+    "pct": 0.56,
+    "top": "middlegame"
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.09,
+    "top": "already_losing_made_worse"
+   }
+  },
+  "chip": "Rook moves missing better alternatives",
+  "played": "Played a rook move (often a capture) that was suboptimal",
+  "missed": "A stronger move, often a rook move to a different square or a non-capture",
+  "confidence": 22
+ },
+ "383": {
+  "fire_rate": 0.3209,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.3,
+    "top": "bishop"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.24,
+    "top": "knight"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.44,
+    "top": "minor piece"
+   },
+   "best_type": {
+    "value": null,
+    "pct": 0.63,
+    "top": "quiet"
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.44,
+    "top": "none"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.44,
+    "top": "none"
+   },
+   "anyhang": {
+    "value": null,
+    "pct": 0.56,
+    "top": "hangs"
+   },
+   "iscap": {
+    "value": "noncapture",
+    "pct": 0.95
+   },
+   "phase": {
+    "value": null,
+    "pct": 0.65,
+    "top": "middlegame"
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.08,
+    "top": "threw_winning"
+   }
+  },
+  "chip": "Blunder was a non-capture move",
+  "played": "Made a non-capture move that worsened the position",
+  "missed": "A better move (often a capture or positional improvement)",
+  "confidence": 30
+ },
+ "1035": {
+  "fire_rate": 0.2334,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.51,
+    "top": "queen"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.35,
+    "top": "queen"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.55,
+    "top": "major piece"
+   },
+   "best_type": {
+    "value": null,
+    "pct": 0.59,
+    "top": "quiet"
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.62,
+    "top": "queen"
+   },
+   "hang_class": {
+    "value": "major piece",
+    "pct": 0.75
+   },
+   "anyhang": {
+    "value": "hangs",
+    "pct": 0.92
+   },
+   "iscap": {
+    "value": null,
+    "pct": 0.5,
+    "top": "capture"
+   },
+   "phase": {
+    "value": "middlegame",
+    "pct": 0.77
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.08,
+    "top": "already_losing_made_worse"
+   }
+  },
+  "chip": "Hanging major piece in middlegame",
+  "played": "Made a queen move that left a major piece hanging",
+  "missed": "A move that would have protected or avoided hanging the major piece",
+  "confidence": 78
+ },
+ "1270": {
+  "fire_rate": 0.5013,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.28,
+    "top": "bishop"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.23,
+    "top": "rook"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.42,
+    "top": "major piece"
+   },
+   "best_type": {
+    "value": null,
+    "pct": 0.64,
+    "top": "quiet"
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.27,
+    "top": "rook"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.46,
+    "top": "major piece"
+   },
+   "anyhang": {
+    "value": "hangs",
+    "pct": 0.91
+   },
+   "iscap": {
+    "value": null,
+    "pct": 0.55,
+    "top": "capture"
+   },
+   "phase": {
+    "value": null,
+    "pct": 0.69,
+    "top": "middlegame"
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.09,
+    "top": "already_losing_made_worse"
+   }
+  },
+  "chip": "Missed capturing a hanging piece",
+  "played": "Made a suboptimal move while a piece was hanging",
+  "missed": "Capturing or addressing the hanging piece",
+  "confidence": 62
+ },
+ "1313": {
+  "fire_rate": 0.5913,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.28,
+    "top": "queen"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.51,
+    "top": "queen"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.62,
+    "top": "major piece"
+   },
+   "best_type": {
+    "value": null,
+    "pct": 0.65,
+    "top": "capture"
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.38,
+    "top": "none"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.38,
+    "top": "none"
+   },
+   "anyhang": {
+    "value": null,
+    "pct": 0.62,
+    "top": "hangs"
+   },
+   "iscap": {
+    "value": "noncapture",
+    "pct": 0.73
+   },
+   "phase": {
+    "value": "middlegame",
+    "pct": 0.81
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.07,
+    "top": "threw_winning"
+   }
+  },
+  "chip": "Missed winning capture with check",
+  "played": "A quiet noncapture move in the middlegame",
+  "missed": "A winning capture that came with check",
+  "confidence": 72
+ },
+ "795": {
+  "fire_rate": 0.3786,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.3,
+    "top": "knight"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.3,
+    "top": "knight"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.51,
+    "top": "minor piece"
+   },
+   "best_type": {
+    "value": "quiet",
+    "pct": 0.82
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.29,
+    "top": "none"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.34,
+    "top": "minor piece"
+   },
+   "anyhang": {
+    "value": "hangs",
+    "pct": 0.71
+   },
+   "iscap": {
+    "value": null,
+    "pct": 0.66,
+    "top": "noncapture"
+   },
+   "phase": {
+    "value": "middlegame",
+    "pct": 0.75
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.14,
+    "top": "already_losing_made_worse"
+   }
+  },
+  "chip": "Missed quiet move saving hanging piece",
+  "played": "Made an inferior move while a piece was hanging",
+  "missed": "A quiet middlegame move that addressed the hanging piece",
+  "confidence": 72
+ },
+ "428": {
+  "fire_rate": 0.4065,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.29,
+    "top": "queen"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.26,
+    "top": "queen"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.52,
+    "top": "major piece"
+   },
+   "best_type": {
+    "value": null,
+    "pct": 0.56,
+    "top": "capture"
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.33,
+    "top": "none"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.33,
+    "top": "none"
+   },
+   "anyhang": {
+    "value": null,
+    "pct": 0.67,
+    "top": "hangs"
+   },
+   "iscap": {
+    "value": null,
+    "pct": 0.63,
+    "top": "noncapture"
+   },
+   "phase": {
+    "value": "middlegame",
+    "pct": 0.77
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.09,
+    "top": "mixed"
+   }
+  },
+  "chip": "Middlegame tactical mistakes",
+  "played": "Chose flashy checks or captures over stronger moves",
+  "missed": "Better tactical continuation in the middlegame",
+  "confidence": 25
+ },
+ "239": {
+  "fire_rate": 0.3118,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.24,
+    "top": "bishop"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.23,
+    "top": "queen"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.44,
+    "top": "major piece"
+   },
+   "best_type": {
+    "value": null,
+    "pct": 0.58,
+    "top": "quiet"
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.22,
+    "top": "bishop"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.41,
+    "top": "minor piece"
+   },
+   "anyhang": {
+    "value": "hangs",
+    "pct": 0.87
+   },
+   "iscap": {
+    "value": null,
+    "pct": 0.65,
+    "top": "capture"
+   },
+   "phase": {
+    "value": null,
+    "pct": 0.69,
+    "top": "middlegame"
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.19,
+    "top": "mixed"
+   }
+  },
+  "chip": "Checking move ignores hanging piece",
+  "played": "Played a check or capture instead of addressing the hanging piece",
+  "missed": "Capturing or protecting the hanging piece for material gain",
+  "confidence": 52
+ },
+ "1822": {
+  "fire_rate": 0.4432,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.37,
+    "top": "queen"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.33,
+    "top": "queen"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.62,
+    "top": "major piece"
+   },
+   "best_type": {
+    "value": null,
+    "pct": 0.51,
+    "top": "quiet"
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.39,
+    "top": "queen"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.67,
+    "top": "major piece"
+   },
+   "anyhang": {
+    "value": "hangs",
+    "pct": 0.94
+   },
+   "iscap": {
+    "value": "capture",
+    "pct": 0.98
+   },
+   "phase": {
+    "value": "middlegame",
+    "pct": 0.73
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.11,
+    "top": "mixed"
+   }
+  },
+  "chip": "Capturing a hanging piece (blunder)",
+  "played": "Captured a hanging piece instead of finding a stronger move",
+  "missed": "A non-capture move that was significantly better (often checkmate or decisive advantage)",
+  "confidence": 82
+ },
+ "2027": {
+  "fire_rate": 0.1959,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.51,
+    "top": "knight"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.3,
+    "top": "knight"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.5,
+    "top": "minor piece"
+   },
+   "best_type": {
+    "value": null,
+    "pct": 0.62,
+    "top": "quiet"
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.58,
+    "top": "knight"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.67,
+    "top": "minor piece"
+   },
+   "anyhang": {
+    "value": "hangs",
+    "pct": 0.88
+   },
+   "iscap": {
+    "value": null,
+    "pct": 0.63,
+    "top": "capture"
+   },
+   "phase": {
+    "value": null,
+    "pct": 0.55,
+    "top": "middlegame"
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.1,
+    "top": "threw_winning"
+   }
+  },
+  "chip": "Knight captures leaving piece hanging",
+  "played": "Played a knight capture (Nx_) that leaves a piece hanging",
+  "missed": "A non-capture move that avoids leaving material en prise",
+  "confidence": 62
+ },
+ "1011": {
+  "fire_rate": 0.2788,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.4,
+    "top": "bishop"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.24,
+    "top": "pawn"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.45,
+    "top": "minor piece"
+   },
+   "best_type": {
+    "value": null,
+    "pct": 0.59,
+    "top": "quiet"
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.55,
+    "top": "none"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.55,
+    "top": "none"
+   },
+   "anyhang": {
+    "value": null,
+    "pct": 0.55,
+    "top": "safe"
+   },
+   "iscap": {
+    "value": "noncapture",
+    "pct": 0.84
+   },
+   "phase": {
+    "value": "middlegame",
+    "pct": 0.92
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.08,
+    "top": "already_losing_made_worse"
+   }
+  },
+  "chip": "Middlegame quiet move blunders",
+  "played": "Made a non-capture move that was a blunder in the middlegame",
+  "missed": "A stronger move (often tactical) that maintained or improved the position",
+  "confidence": 52
+ },
+ "360": {
+  "fire_rate": 0.241,
+  "facts": {
+   "blunder_piece": {
+    "value": null,
+    "pct": 0.45,
+    "top": "rook"
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.38,
+    "top": "rook"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.54,
+    "top": "major piece"
+   },
+   "best_type": {
+    "value": null,
+    "pct": 0.49,
+    "top": "quiet"
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.54,
+    "top": "none"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.54,
+    "top": "none"
+   },
+   "anyhang": {
+    "value": null,
+    "pct": 0.54,
+    "top": "safe"
+   },
+   "iscap": {
+    "value": "noncapture",
+    "pct": 0.81
+   },
+   "phase": {
+    "value": "middlegame",
+    "pct": 0.97
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.09,
+    "top": "threw_winning"
+   }
+  },
+  "chip": "Middlegame quiet move blunders",
+  "played": "Made a non-capture move (or wrong capture) missing a much stronger continuation",
+  "missed": "A non-capture positional or tactical move that maintained or gained significant advantage",
+  "confidence": 42
+ },
+ "724": {
+  "fire_rate": 0.3175,
+  "facts": {
+   "blunder_piece": {
+    "value": "queen",
+    "pct": 0.7
+   },
+   "best_piece": {
+    "value": null,
+    "pct": 0.38,
+    "top": "queen"
+   },
+   "best_class": {
+    "value": null,
+    "pct": 0.5,
+    "top": "major piece"
+   },
+   "best_type": {
+    "value": null,
+    "pct": 0.57,
+    "top": "quiet"
+   },
+   "hang_exact": {
+    "value": null,
+    "pct": 0.49,
+    "top": "none"
+   },
+   "hang_class": {
+    "value": null,
+    "pct": 0.49,
+    "top": "none"
+   },
+   "anyhang": {
+    "value": null,
+    "pct": 0.51,
+    "top": "hangs"
+   },
+   "iscap": {
+    "value": "noncapture",
+    "pct": 0.81
+   },
+   "phase": {
+    "value": "middlegame",
+    "pct": 0.84
+   },
+   "traj": {
+    "value": null,
+    "pct": 0.08,
+    "top": "threw_winning"
+   }
+  },
+  "chip": "Queen non-capture blunders in middlegame",
+  "played": "Moved the queen to a suboptimal square without capturing",
+  "missed": "A stronger non-queen move or queen capture that maintained advantage",
+  "confidence": 72
+ }
+}
