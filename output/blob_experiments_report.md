@@ -70,3 +70,33 @@ rare mistakes) but should NOT be expected to fix blob concentration — that req
 - `blob_sweep_k.jsonl` — Exp 1 raw (k=4,8,12,16,24,32)
 - `blob_sweep_corpus.jsonl` — Exp 2 raw (42k,84k,126k,168k)
 - Weights on notebook: btk_2048_k{4,8,12,24}_v2_weights.pt, btk_2048_k16_{42,84,126}k.pt
+
+## FOLLOW-UP (2026-06-02): Are blobs actually bad? — NO, mostly coarse-but-real
+
+Scored all 32 k=16 blobs for coherence over top-60 positions (hang-piece concentration +
+opus-motif concentration). `blob_coherence.py`.
+
+**Result: blobs split three ways, NOT uniformly bad:**
+- **~9 REAL coarse concepts** (coherence >0.35): f101 (high-value piece hangs, 92% hanging_piece
+  motif — mislabeled "Queen Hanging to Bishop" but the concept is real), f78 (knight fork),
+  f1822 (premature trade, 100% capture), f1563/f1154 (king safety), f655, f1487. These are
+  legitimate broad coaching categories a coach WOULD teach.
+- **~17 borderline** (0.2-0.35), heavily clustered on king_safety motif — king-safety blunders
+  are common and the SAE spreads them across several overlapping broad features. Coherent theme,
+  redundantly encoded.
+- **~5 genuine mush** (f98, f343, f1091, f1112, f2041): low hang concentration, scattered motifs,
+  <20% motif coverage. f98 (39% fire) is the worst — content-free.
+
+**This overturns the overnight "use k=8 to kill blobs" recommendation.** Killing all blobs would
+discard the MOST useful coaching categories (hung piece, fork, premature trade). The real problem
+was never blob existence — it was that Opus **mislabeled** coherent broad features with overly
+specific names (a 33%-corpus feature can't be "Queen Hanging to Bishop"; it's "high-value piece
+left hanging").
+
+**Corrected action items:**
+1. Keep k=16 (its larger useful-feature set is fine — blobs are mostly real concepts)
+2. Relabel coherent blobs by fire rate: feed Opus the fire-rate, instruct ">20% corpus = label
+   the COARSE pattern broadly" (e.g. "high-value piece hangs" not "Queen Hanging to Bishop")
+3. Discard only the ~5 true-mush features (f98, f343, f1091, f1112, f2041)
+4. For display/coaching: the >10% blobs become a "coarse category" layer; specific (<10%) features
+   are the fine lessons. Two-tier, not blob-removal.
