@@ -26,6 +26,20 @@ Research-package-specific concepts. Shared cross-package concepts (SAE pipeline,
 - Diff = (best-move position activations) − (blunder-move position activations). Captures "what Maia sees differently between right and wrong."
 - Cache: `maia3_l7only_v2_dedup.pt` (168,132 × 1024). Deduped from 168,669 (537 duplicate fen|uci removed).
 
+### Frequency-ceiling fix (2026-06-01) — the high-frequency feature problem
+
+When applying k=16 v2 to the 10 test positions, ~6 features dominate raw activation ranking but are **coarse, near-content-free detectors**:
+- f101 (fires 33% of corpus, labeled "Queen Hanging to Bishop" — actually fires on hung bishops too)
+- f1487 (44%! "Quiet move ignoring hanging piece"), f952 (29%), f98 (39%), f959 (38%)
+
+These fire on 6-8 of the 10 test positions and outrank the SPECIFIC, correctly-labeled features that actually match each mistake (f504 "Queen left en prise" 4%, f2027 "Knight capture enables pawn fork" 0.7%, f735 "Queen Abandons Post" 7%).
+
+**Two problems:** (1) Opus mislabels high-frequency features with specific names — a 33%-corpus feature can't be "Queen Hanging to Bishop." (2) Ranking by raw activation surfaces blobs over specific features.
+
+**Fix (validated on all 10 test positions): hide features with corpus fire-rate >10% before ranking.** Every position retains a good specific feature; nothing collapses. This is a display/ranking fix, not a retrain. TF-IDF-style specificity weighting was tried but overshoots into <0.5% noise features — a hard ceiling is cleaner. Connects to Jonathan's "interpretable band" (his paper: 0.1-1%).
+
+**Labeling improvement for next pass:** feed Opus the fire rate; instruct "if >20% of corpus, label as COARSE pattern, not specific." See [[reference-personas-sae-pipeline]].
+
 ### Older architecture note
 
 - **BatchTopK** is the only viable SAE architecture. L1/Gated produce noise on blunder move tokens.
