@@ -47,7 +47,7 @@ def analyze(tag,wp,k,norm):
     for i in range(0,40000,8192):
         z=F.relu((x[i:i+8192]-sd['b_dec'])@sd['W_enc']+sd['b_enc']);kth.append(torch.topk(z,k,1).values[:,-1].numpy())
     th=float(np.concatenate(kth).mean());fire=(allz>th).mean(0)
-    cand=[f for f in range(2048) if 0.002<=fire[f]<=0.15]
+    cand=list(range(2048))
     def coh(top,key):
         cnt=Counter(get_sig(t).get(key,'?') for t in top);t1=cnt.most_common(1)[0];return t1[0],t1[1]/len(top)
     blo=bso=both=nei=0
@@ -66,3 +66,5 @@ def analyze(tag,wp,k,norm):
 analyze("k16 L2",BASE+'/output/maia3_sae/btk_2048_k16_v2_weights.pt',16,'l2')
 analyze("k16 zscore",BASE+'/output/maia3_sae/btk_2048_k16_nol2.pt',16,'zscore')
 analyze("k32 L2",BASE+'/output/maia3_sae/btk_2048_k32_v2_weights.pt',32,'l2')
+analyze('k32 zscore',BASE+'/output/maia3_sae/btk_2048_k32_nol2.pt',32,'zscore')
+analyze('k8 zscore',BASE+'/output/maia3_sae/btk_2048_k8_nol2.pt',8,'zscore')

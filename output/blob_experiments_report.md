@@ -220,3 +220,16 @@ python3 scripts/sae/train_maia3_sae.py \
 ```
 Cache `maia3_l7only_v2_dedup.pt` = 79M-Maia L7 mean64 best−blunder diff, deduped 168,132×1024
 (notebook only; rebuild via build_l2l7_v2.py + build_l7_only.py if lost).
+
+## k-axis complete at z-score (2026-06-02)
+
+| model (z-score only) | coherent/2048 | % |
+|----------------------|---------------|---|
+| **k=8**  | **1042** | **50%** |
+| k=16 | 990 | 48% |
+| k=32 | 786 | 38% |
+
+Monotonic: lower k → more coherent (down to k=8; k=4 collapses with 1800 dead). k=8 marginally best
+(1042 vs 990, ~5% more). But the margin is small — normalization (z-score vs L2: 990 vs 350, 3×) is
+the dominant lever; k=8-vs-k=16 is secondary. k=8 is sparser (8 active/position vs 16) — possibly
+cleaner per-position but may miss secondary patterns. **Open decision: k=8 vs k=16 for the chosen model.**
