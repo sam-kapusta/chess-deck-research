@@ -377,3 +377,22 @@ n_blob = #features firing >10%; pct_top_is_blob; specific-top activation p50.
 
 ### Report
 - [ ] write output/blob_experiments_report.md with both curves + verdict
+
+## OVERNIGHT AUTO-RUN RESULTS (2026-06-02 ~02:00) — DONE
+
+Both experiments complete. Full report: `output/blob_experiments_report.md`.
+- **Exp1 (k-sweep):** blob concentration monotonic in k. k=4 dead(1800), k=8 sweet spot
+  (12 blobs, 0 dead, spec 0.30), k=16 (32 blobs), k=32 (89 blobs). k is THE lever.
+- **Exp2 (corpus-size):** weak. blobs ~32-41 across 42k→168k (4× data). NOT the driver.
+- **Verdict:** blobs are a k problem, not a data problem. For specificity → use k=8 not k=16.
+  1M corpus still worth it for coverage, won't fix blobs.
+
+**OPEN QUESTION for Sam (do not auto-decide):** Are blobs actually BAD? Never verified the
+high-freq features are incoherent — they might be useful coarse signal in a coarse→specific
+hierarchy. If coherent, the k=8 recommendation flips (keep blobs, label them honestly by fire
+rate, filter at display). Needs Sam's call + the f897-style board check on f101/f1487 at correct threshold.
+
+**Weights produced (notebook, NOT in S3):** btk_2048_k{4,8,12,24}_v2_weights.pt,
+btk_2048_k16_{42,84,126}k.pt. Upload survivors to S3 if any get adopted.
+
+**Still running (independent screen):** k=32 Pass-2 + k=16 straggler-fill labeling.
