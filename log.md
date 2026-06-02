@@ -559,3 +559,33 @@ analysis earlier in the session ran at elo=1800 while corpus diffs use real-play
 elo turned out to be a near-scalar (feature identity stable across elo), so conclusions held.
 
 **Left open for Sam:** are blobs actually bad, or useful coarse signal? Not auto-decided.
+
+## 2026-06-02 — Normalization + dual-axis coherence: the "it's noise" reversal
+
+Started from Sam's gut "these features seem more trash than before BatchTopK / activations are 0.1 not 0.8."
+Ran /systematic-debugging. Chain of corrections, each from a Sam catch:
+
+1. **"BatchTopK regression" was FALSE.** Old "good" SAE is also BatchTopK, identical norm + activation
+   dist (max 0.92). The "0.8→0.1" was MY >10% fire-rate display filter hiding the strong (blob) features.
+2. **"33% can't be hung queens"** → top-60 characterization is unrepresentative (a 33%-fire feature hits
+   55k positions). Measured across activation bands: f101 = real graded concept (75% at peak→10% at base),
+   f1487 = flat noise. Don't characterize high-fire features by top-N.
+3. **"f712 is coherent"** → it was; I'd over-generalized from one bad feature. Piece-signature (python-chess,
+   100% coverage) revealed real structure the weak opus-motif join (30% coverage) missed.
+4. **"you're not capturing best move"** → THE big one. Diff = L7[best]−L7[blunder]. My probes only measured
+   the BLUNDER move. Dual-axis (real SEE + maia_best): best-move axis has 2.5× more coherent features (458 vs 184).
+   The model mostly encodes "what you should've played" (missed-good-move mistakes) — invisible to blunder-only probing.
+5. **"it's L2+z-score vs z-score"** → trained z-score-only variants. z-score-only nearly TRIPLES coherent
+   features (990 vs 350). L2 projects to unit sphere, erasing magnitude=severity. Dominant lever, bigger than k.
+6. **Multi-axis brainstorm (Sam):** tried phase/direction/severity/trajectory/refutation-motif as coherence
+   axes. Base-rate correction showed these are LEAKY (features concentrate via corpus base rate, not mistake
+   structure). Only piece/hang(SEE)/best-move are trustworthy. Refutation-motif moot (0 features; Maia never
+   computes refutations — Sam flagged this correctly).
+
+**Outcome:** chosen model `btk_2048_k16_zscore.pt` (990 coherent, 48%). Used real SEE everywhere (replaced
+crude attacker>defender head-count Sam flagged). Meta-lesson: a coherence probe on a feature defined over a
+DIFFERENCE must measure both sides — one-sided probing = guaranteed false negatives, cost most of the session.
+
+Also did k-sweep (k4 dead, k8/12/16/24/32) + corpus-size sweep (42-168k, weak) earlier — both in
+`blob_experiments_report.md`. Model is UNLABELED (old labels are L2-model, indices differ); relabel with
+both-axes prompt is the next task.

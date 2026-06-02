@@ -2,11 +2,18 @@
 
 Research-package-specific concepts. Shared cross-package concepts (SAE pipeline, DDB schema, handoff contract, core gotchas) live in [`../../knowledge.md`](../../knowledge.md) — authoritative; if you're reading something here that's also there, this file is out of date.
 
-## Current state (2026-06-01)
+## Current state (2026-06-02)
 
 **Production SAE:** `realgames_512_k8_v1` — 500 features, deployed.
-**Active research line:** BatchTopK SAE on Maia3 79M layer-7 best−blunder diffs. k=16 v2 selected. Pass-1 Opus labeling running overnight on chess-poc. Atlas (`l7only_atlas.html`) working with stats panel in progress.
-**Next milestone:** k=16 v2 feature labels complete + atlas updated → decide if this SAE ships or corpus needs expanding (1M Lichess run planned).
+**Chosen research model:** `btk_2048_k16_zscore.pt` (S3) — BatchTopK, k=16, **z-score ONLY (no L2)**, on Maia3 79M layer-7 best−blunder diffs. **990 coherent features (48%)** by dual-axis SEE probe. Beats z-score+L2 (350) and k=32-z-score (786).
+**UNLABELED** — the existing Opus labels (`feature_labels_btk_2048_k16_v2.json`) are for the *z-score+L2* model; indices differ, do NOT reuse. Relabel needed with a both-axes prompt (include computed best-move + hang signatures).
+**Next milestone:** relabel chosen model (both axes), rebuild profiles + atlas, then ship-vs-expand decision.
+
+**KEY 2026-06-02 findings (supersede the k=16-v2/L2 entries below):**
+- **Drop L2.** z-score-only nearly triples coherent features. L2 erases magnitude = mistake severity.
+- **Coherence must measure BOTH moves** of the diff (blunder + best). Best-move axis dominant (634/990). One-sided (blunder-only) probing caused a whole session of false "it's noise" conclusions.
+- **k=16 > k=32** (990 vs 786 coherent, z-score). k=8 z-score in progress.
+- **Position-descriptor axes (phase/direction/severity/trajectory) are leaky** — features concentrate on them via corpus base rate, not mistake structure. Only piece-identity, what-hangs (SEE), and best-move-character are trustworthy coherence axes. Refutation-motif is moot (0 features, and Maia never computes refutations anyway).
 
 ## Architecture — what works (and why)
 

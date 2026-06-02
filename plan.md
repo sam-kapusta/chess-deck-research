@@ -8,7 +8,30 @@
 > kept under `scripts/sae/new_sae_architecture/` but must be repointed to the v2 cache before
 > any rerun. Next step if revisiting: rebuild all three constructions on v2 data.
 
-## Current State (2026-06-01 end) — BatchTopK k=16 labeling overnight
+## Current State (2026-06-02 end) — z-score-only k=16 chosen, UNLABELED
+
+**Chosen model:** `btk_2048_k16_zscore.pt` (S3) — k=16, z-score only (no L2). 990 coherent features (48%).
+Beats z-score+L2 (350) and k=32-z-score (786). Full analysis: `output/blob_experiments_report.md`.
+
+**Decided this session (evidence in report):**
+- DROP L2 — z-score-only nearly triples coherent features. Magnitude = severity, L2 erases it.
+- Coherence probe must measure BOTH moves (blunder + best); best-move axis dominant.
+- k=16 > k=32 (z-score). k=8 z-score in progress (started ~end of session).
+- Position-descriptor axes (phase/dir/severity/traj) are leaky base-rate effects, not coherence.
+
+**NEXT (in priority order):**
+1. **Relabel the chosen model** — fresh profiles (its own indices) + both-axes Opus prompt that
+   includes the computed signature ("27/30 best move = knight; 18/30 leaves bishop hanging").
+   This fixes the overspecification failure (old f101 "Queen Hanging to Bishop"). Old labels are
+   for the L2 model — DO NOT reuse, indices differ.
+2. Check k=8 z-score result (training at session end) — if it beats k=16 on the dual-axis probe, reconsider.
+3. Rebuild atlas + test-position diagnostic on the chosen (labeled) model.
+4. Ship-vs-expand decision (1M Lichess corpus still optional, for coverage not blob-fix).
+
+**Experiment scripts added (git):** blob_metric[_norm].py, dual_coherence.py, dual_2x2.py,
+multiaxis[_lift].py, see_coherence.py, blob_activation_decay.py, make_subsamples.py, calibrate_threshold.py.
+
+## Current State (2026-06-01 end) — BatchTopK k=16 labeling overnight (SUPERSEDED)
 
 **Active overnight:** Pass-1 Opus labeling gap positions for k=16 v2 profiles (13,208 positions, ETA ~2.5h from ~22:00). Pass-2 (feature chips) chains after. Outputs: `all_positions_labeled_opus.json` (growing to ~47k), `feature_labels_btk_2048_k16_v2.json`.
 

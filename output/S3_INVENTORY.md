@@ -58,6 +58,21 @@ These are the BatchTopK SAEs trained on the **l7only v2 diff cache** (168,132 po
 
 **Status:** k=16 Pass-1 labeling running overnight (2026-06-01). Pass-2 (feature chips) chains after. Labels → `feature_labels_btk_2048_k16_v2.json`.
 
+### z-score-only SAEs — `[S3]` `sae/weights/` — **CHOSEN LINE (2026-06-02)**
+
+Dropping L2 (z-score only) nearly tripled coherent features (990 vs 350). These are the chosen models.
+
+| File | Size | Notes |
+|------|------|-------|
+| `btk_2048_k16_zscore.pt` | 17MB | **CURRENT BEST.** k=16, z-score only (NO L2). 990 coherent features (48%) by dual-axis SEE probe. UNLABELED — relabel pending (both-axes prompt). Eval: z-score input, NO L2, calibrated threshold. |
+| `btk_2048_k16_zscore_stats.json` | 43KB | mean/std for z-score normalization. |
+| `btk_2048_k32_zscore.pt` | 17MB | k=32 z-score comparison. 786 coherent (38%) — worse than k=16. Kept for the documented k-comparison. |
+
+**Normalization for these: z-score ONLY (do NOT L2-normalize at inference).** This is a deliberate divergence from SandstonePersonas (which uses z-score+L2) — chess diffs are magnitude-meaningful (severity), customer embeddings aren't. See `output/blob_experiments_report.md` § DECISIVE COMPARISON.
+
+**Notebook-only experiment models (reproducible from `scripts/sae/train_maia3_sae.py` + cache, NOT in S3):**
+k-sweep `btk_2048_k{4,8,12,24}_v2_weights.pt` (z-score+L2), corpus-subsamples `btk_2048_k16_{42,84,126}k.pt`, `btk_2048_k16_raw.pt`, `btk_2048_k8_nol2.pt` (in progress). Regenerate via documented args in `blob_experiments_report.md` if needed.
+
 ### Diff SAEs — `[S3]` `sae/maia3/`
 | File | Size | Notes |
 |------|------|-------|
