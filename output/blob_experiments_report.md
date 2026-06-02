@@ -100,3 +100,45 @@ left hanging").
 3. Discard only the ~5 true-mush features (f98, f343, f1091, f1112, f2041)
 4. For display/coaching: the >10% blobs become a "coarse category" layer; specific (<10%) features
    are the fine lessons. Two-tier, not blob-removal.
+
+## CORRECTION (2026-06-02): top-60 was unrepresentative — measure across activation range
+
+Sam flagged: "33% of moves being king/queen hanging doesn't make sense." Correct — and it
+exposed a measurement error. The coherence scores above were computed on each feature's
+**top-60** positions. But a 33%-fire feature activates on ~55,000 positions; the top-60 are
+the extreme tip and wildly unrepresentative.
+
+Measured Q/R-hang rate across activation bands (`blob_activation_decay.py`, `blob_body.py`):
+
+**f101 — REAL concept, but activation-graded:**
+| band | activation | Q/R hang |
+|------|-----------|----------|
+| top 2% | >0.72 | 75% |
+| 2-10% | >0.55 | 53% |
+| 10-30% | >0.35 | 38% |
+| 30-60% | >0.19 | 22% |
+| 60-100% | >0.08 | 10% (~base rate) |
+
+f101 genuinely means "high-value piece hangs" — but ONLY at high activation. At the firing
+threshold it's at base rate (noise). The magnitude IS the confidence.
+
+**f1487 — actually MUSH (flat across all bands):** Q/R-hang ~11% at every activation level,
+including top 2%. Activation carries zero information. Highest-firing feature (44%) and it's
+noise. The chip "Quiet move ignoring hanging piece" is simply wrong. Discard.
+
+**Revised understanding (supersedes the "blobs are coarse-but-real" follow-up above):**
+Blobs are NOT one kind of thing. Two distinct types, distinguishable only by the activation-decay
+SHAPE (not by top-60, not by fire rate):
+1. **Graded-real** (f101): coherent concept at high activation, decays to base rate. Usable with
+   a per-feature HIGH activation cutoff (e.g. f101 above ~0.55 = "piece hangs").
+2. **Flat-noise** (f1487): no concept at any activation level. Discard.
+
+**The right fix is per-feature activation thresholding + flat-noise detection, NOT global
+fire-rate filtering and NOT lower k.** Lower k (overnight rec) would remove graded-real features
+like f101 along with the noise — wrong. The principled move: keep features whose high-activation
+band is coherent; gate each at the activation level where its concept-rate exceeds base rate;
+discard features that are flat (f1487-type).
+
+Method lesson: NEVER characterize a high-fire SAE feature by its top-N examples. Measure the
+property-rate across the full activation distribution. Top-N of a noise feature can look as clean
+as top-N of a real one.
