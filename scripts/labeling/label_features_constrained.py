@@ -42,7 +42,14 @@ RULES:
 - Be concrete but do not over-claim beyond the listed facts.
 
 JSON: {{"chip":"<3-6 words, the dominant pattern>","played":"<what went wrong>","missed":"<what the correct move was>","confidence":<0-100, lower if few facts concentrated>}}"""
+def is_diffuse(d):
+    """No axis concentrated >=70% → feature has no clear pattern, refuse to label specifically."""
+    return not any(fc.get('value') is not None for fc in d['facts'].values())
 def call(fid,d):
+    if is_diffuse(d):
+        # do NOT ask Opus to invent a chip from a weak plurality (the f2018 bug)
+        return fid,{'chip':'diffuse — no clear pattern','played':'no concentrated pattern across positions',
+                    'missed':'','confidence':0,'diffuse':True}
     for att in range(3):
         try:
             r=client.invoke_model(modelId=MODEL,body=json.dumps({'anthropic_version':'bedrock-2023-05-31','max_tokens':1200,'messages':[{'role':'user','content':build(fid,d)}]}))
