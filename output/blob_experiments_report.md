@@ -31,3 +31,42 @@ lower k also means worse reconstruction (FVU) and fewer distinct useful features
 If it needs broad coverage (many distinct mistake types), k=16 trades precision for count.
 
 ## Exp 2 — corpus-size sweep (fixed k=16) [RUNNING]
+
+| corpus (k=16) | blobs(>10%) | %top=blob | spec_act_p50 | FVU | useful(≥0.1%) |
+|---------------|-------------|-----------|--------------|-----|---------------|
+| 42k | 36 | 85% | 0.19 | 0.33 | 1408 |
+| 84k | 41 | 84% | 0.21 | 0.30 | 1175 |
+| 126k | 36 | 76% | 0.24 | 0.29 | 1053 |
+| 168k (full) | 32 | 77% | 0.25 | 0.29 | 983 |
+
+**Finding: corpus size is a weak lever, NOT the blob driver.** Across 4× data (42k→168k),
+blob count barely moves (36→41→36→32) and stays in the 30s-40s. Contrast the k-sweep where
+blobs ranged 12→89. There IS a mild positive trend — specific-feature activation improves
+0.19→0.25 and top-is-blob drops 85%→77% as data grows — so more data helps a little, but
+nowhere near enough to fix blobs alone. (Note: useful-feature count *drops* with more data
+because the threshold calibrates higher; not a quality regression.)
+
+## Verdict
+
+**The blob problem is fundamentally a k problem, not a data problem.**
+
+- **k is the dominant lever** (blobs 12→89 across k=8→32). Lower k → fewer/weaker blobs,
+  stronger specific features, monotonic.
+- **Corpus size is a weak secondary lever** (blobs ~32-41 across 4× data). More data nudges
+  specific features up slightly but won't solve blobs.
+
+**Recommendation:** if blob concentration / feature specificity is the priority for coaching,
+**use k=8, not k=16.** k=8 is the lowest viable k (k=4 collapses to 1800 dead), gives the
+fewest blobs (12) and strongest specific features (0.30) of any alive config. The tradeoff is
+fewer total useful features (452 vs 983) and worse reconstruction (FVU 0.38 vs 0.29) — acceptable
+if coaching needs a clean, precise, modest feature set rather than broad coverage.
+
+The planned 1M-position Lichess corpus is still worth building for *coverage* (more distinct
+rare mistakes) but should NOT be expected to fix blob concentration — that requires lower k.
+
+## Artifacts
+- `blob_metric.py` — reusable metric (calibrate threshold, n_blob, pct_top_blob, spec_act, FVU)
+- `make_subsamples.py` — corpus subsampling for Exp 2
+- `blob_sweep_k.jsonl` — Exp 1 raw (k=4,8,12,16,24,32)
+- `blob_sweep_corpus.jsonl` — Exp 2 raw (42k,84k,126k,168k)
+- Weights on notebook: btk_2048_k{4,8,12,24}_v2_weights.pt, btk_2048_k16_{42,84,126}k.pt
