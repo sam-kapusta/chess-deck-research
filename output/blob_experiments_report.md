@@ -181,3 +181,27 @@ AND what was missed (the best move). The z-score-only k=16 model has these 713 c
 Method lesson (the big one): when a feature is defined on a DIFFERENCE of two things, the
 coherence probe must measure both sides of the difference. Measuring one side and concluding
 "incoherent" is a guaranteed false negative — it cost most of this session.
+
+## DECISIVE COMPARISON (2026-06-02): normalization is the dominant lever
+
+Dual-axis coherence (real SEE, both moves) over ALL 2048 features, identical probe:
+
+| model | coherent/2048 | % | bl-only | best-only | both |
+|-------|---------------|---|---------|-----------|------|
+| **z-score only, k=16** | **990** | **48%** | 255 | 634 | 101 |
+| z-score+L2, k=16 | 350 | 17% | 41 | 278 | 31 |
+| z-score+L2, k=32 | 336 | 16% | 43 | 263 | 30 |
+
+**Two confirmed findings:**
+1. **Drop L2 (Sam's call, proven): z-score-only nearly TRIPLES coherent features (350→990).**
+   L2 projects every diff to the unit sphere, erasing magnitude. Magnitude is part of what makes
+   a mistake-pattern coherent. Adding L2 on top of z-score destroys ~65% of coherent features.
+2. **k=16 > k=32**, but normalization dominates — both L2 models are ~16-17% regardless of k.
+   Normalization is a far bigger lever than k.
+
+**RECOMMENDED MODEL: z-score-only, k=16 (`btk_2048_k16_nol2.pt`), 990 coherent features (48%),
+labeled on both blunder + best-move axes.** Coherence is best-move-dominated (634 best-only) —
+"you missed a good move" mistakes.
+
+Note: earlier numbers used a fire-rate prefilter (0.2-15%) that gave different denominators per
+model (confound). This table is all-2048, identical denominator — the trustworthy comparison.
