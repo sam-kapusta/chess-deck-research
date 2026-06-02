@@ -349,3 +349,31 @@ on both resulting boards at player elo, diff mean64, save. Then retrain BatchTop
 **Decision tree:**
 - If l2l7 hits >50% coherent labels AND fires right features on test positions → use l2l7
 - If none hit 50% → rebuild on v2 data (same constructions, v2 positions that match the 18k Opus labels)
+
+## OVERNIGHT AUTO-RUN (2026-06-02) — blob-concentration experiments
+
+**Mission:** Two questions, gather data + write report. No deploy/ship.
+1. What k minimizes blob concentration while keeping features alive?
+2. Does corpus size reduce blobs at fixed k=16?
+
+**Blob metric** (per SAE): calibrate threshold (mean k-th-largest), then on 20k corpus sample:
+n_blob = #features firing >10%; pct_top_is_blob; specific-top activation p50.
+
+### Exp 1 — k-sweep [QUEUE]
+- [x] k=4 trained — 1794 DEAD (disqualified), FVU 0.46
+- [x] k=8 trained — 0 dead, FVU 0.37
+- [x] k=16 trained — 32 blobs, 77% top-is-blob, spec 0.25, FVU 0.29
+- [x] k=32 trained — 89 blobs, 92% top-is-blob, spec 0.17, FVU 0.22
+- [ ] k=12 train + blob analysis
+- [ ] k=24 train + blob analysis
+- [ ] blob analysis on k=4, k=8 (trained, not yet analyzed)
+- [ ] assemble k-sweep curve: k vs (n_blob, pct_top_blob, spec_act, n_dead, FVU)
+
+### Exp 2 — corpus-size sweep at fixed k=16 [QUEUE]
+- [ ] subsample dedup cache to 42k / 84k / 126k / 168k
+- [ ] train k=16 on each (same hyperparams, 200ep)
+- [ ] blob analysis on each → does n_blob grow as data shrinks?
+- [ ] verdict: if monotonic increase with less data → more data would help; if flat → architecture not data
+
+### Report
+- [ ] write output/blob_experiments_report.md with both curves + verdict
