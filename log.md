@@ -535,3 +535,27 @@ Cleanup done this session:
 - Corrected `output/S3_INVENTORY.md`, `plan.md`, `knowledge.md`.
 
 The legit shipped v2 SAE (`maia3_sae_diff_v2_2048_k32_l2.pt`) is untouched — still valid.
+
+## 2026-06-02 (overnight auto-run) — blob-concentration experiments
+
+Triggered by Sam's f101 catch: the k=16 SAE concentrates activation in ~32 broad "blob"
+features (fire >10% corpus, mislabeled with specific names) that drown out specific
+mistake-features. Two experiments to find the cause.
+
+**Exp1 k-sweep (k=4,8,12,16,24,32, fixed 168k):** blob count monotonic in k —
+12→89 across k=8→32. k=4 collapses (1800 dead). k=8 is blob-minimizing-while-alive
+(12 blobs, spec-feature act 0.30, 0 dead; cost: FVU 0.38, 452 useful features).
+
+**Exp2 corpus-size (k=16, 42k/84k/126k/168k subsamples):** weak effect. blobs 36/41/36/32 —
+basically flat across 4× data. Specific-feature act improves only 0.19→0.25.
+
+**Verdict: blobs are a k problem, not a data problem.** k dominates by ~7×. For coaching
+specificity, k=8 > k=16. The 1M Lichess build is still worth it for *coverage* (rare mistakes)
+but won't fix blob concentration.
+
+**Method note:** added `blob_metric.py` (calibrate threshold, count blobs, spec-feature
+activation, FVU) as a reusable per-SAE diagnostic. Also caught + fixed: my test-position
+analysis earlier in the session ran at elo=1800 while corpus diffs use real-player elos;
+elo turned out to be a near-scalar (feature identity stable across elo), so conclusions held.
+
+**Left open for Sam:** are blobs actually bad, or useful coarse signal? Not auto-decided.
