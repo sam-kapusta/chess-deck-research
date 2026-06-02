@@ -1,0 +1,1185 @@
+{
+ "952": {
+  "fire_rate": 0.2218,
+  "test_hits": [
+   {
+    "id": "bishop_f5",
+    "act": 41.193,
+    "mistake": "hung_piece"
+   },
+   {
+    "id": "queen_h4",
+    "act": 36.529,
+    "mistake": "left_piece_undefended"
+   },
+   {
+    "id": "knight_e4_trap",
+    "act": 10.67,
+    "mistake": "walked_into_tactic"
+   },
+   {
+    "id": "qd5_king_exposed",
+    "act": 29.667,
+    "mistake": "misplayed_attack"
+   },
+   {
+    "id": "rook_d6_blunder",
+    "act": 13.933,
+    "mistake": "hung_piece"
+   },
+   {
+    "id": "qc7_allows_mate",
+    "act": 17.125,
+    "mistake": "missed_threat_mate"
+   },
+   {
+    "id": "qd4_blunder",
+    "act": 44.071,
+    "mistake": "hung_piece"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "Q": "16/30",
+    "R": "7/30",
+    "P": "3/30"
+   },
+   "best_move_piece": {
+    "Q": "16/30",
+    "R": "6/30",
+    "P": "4/30"
+   },
+   "best_move_type": {
+    "quiet": "20/30",
+    "chk": "5/30",
+    "cap": "5/30"
+   },
+   "piece_left_hanging": {
+    "Q": "22/30",
+    "R": "8/30"
+   }
+  },
+  "chip": "Queen left hanging without purpose",
+  "played": "Moved a piece (often the queen itself) to a square where the queen becomes undefended or trapped, or moved another piece leaving the queen hanging",
+  "missed": "A quiet queen move (often retreating or repositioning) that keeps the queen safe or maintains material balance",
+  "confidence": 62
+ },
+ "1928": {
+  "fire_rate": 0.0092,
+  "test_hits": [
+   {
+    "id": "bishop_f5",
+    "act": 10.149,
+    "mistake": "hung_piece"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "P": "11/30",
+    "B": "7/30",
+    "R": "4/30"
+   },
+   "best_move_piece": {
+    "N": "30/30"
+   },
+   "best_move_type": {
+    "quiet": "30/30"
+   },
+   "piece_left_hanging": {
+    "none": "19/30",
+    "N": "6/30",
+    "P": "4/30"
+   }
+  },
+  "chip": "Missed quiet knight improvement move",
+  "played": "Played various non-knight moves (pawns, bishops, rooks) that failed to address positional needs or left pieces uncoordinated",
+  "missed": "A quiet knight repositioning move (always a knight, always quiet) that would have improved piece activity, created threats, or maintained defensive coverage",
+  "confidence": 82
+ },
+ "1487": {
+  "fire_rate": 0.3999,
+  "test_hits": [
+   {
+    "id": "bishop_f5",
+    "act": 8.89,
+    "mistake": "hung_piece"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "R": "11/30",
+    "P": "7/30",
+    "K": "5/30"
+   },
+   "best_move_piece": {
+    "P": "8/30",
+    "R": "7/30",
+    "B": "5/30"
+   },
+   "best_move_type": {
+    "cap": "27/30",
+    "quiet": "2/30",
+    "chk": "1/30"
+   },
+   "piece_left_hanging": {
+    "P": "11/30",
+    "none": "6/30",
+    "B": "6/30"
+   }
+  },
+  "chip": "Missed winning capture, played passive move",
+  "played": "Made a quiet/passive move (pawn push, king move, or rook retreat) ignoring available material",
+  "missed": "A winning capture that was the only good move, typically taking an undefended or hanging piece",
+  "confidence": 82
+ },
+ "1313": {
+  "fire_rate": 0.2987,
+  "test_hits": [
+   {
+    "id": "bishop_f5",
+    "act": 6.292,
+    "mistake": "hung_piece"
+   },
+   {
+    "id": "rook_d6_blunder",
+    "act": 4.802,
+    "mistake": "hung_piece"
+   },
+   {
+    "id": "qc7_allows_mate",
+    "act": 9.608,
+    "mistake": "missed_threat_mate"
+   },
+   {
+    "id": "qd4_blunder",
+    "act": 11.561,
+    "mistake": "hung_piece"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "Q": "9/30",
+    "N": "8/30",
+    "R": "5/30"
+   },
+   "best_move_piece": {
+    "Q": "14/30",
+    "N": "11/30",
+    "R": "4/30"
+   },
+   "best_move_type": {
+    "cap": "25/30",
+    "chk": "5/30"
+   },
+   "piece_left_hanging": {
+    "N": "7/30",
+    "none": "7/30",
+    "R": "6/30"
+   }
+  },
+  "chip": "Missed winning capture with check",
+  "played": "Made a quiet or non-forcing move, ignoring a decisive tactical capture",
+  "missed": "A winning capture (usually with queen or knight) that came with check, gaining massive material or delivering a decisive blow",
+  "confidence": 88
+ },
+ "138": {
+  "fire_rate": 0.0104,
+  "test_hits": [
+   {
+    "id": "bishop_f5",
+    "act": 5.971,
+    "mistake": "hung_piece"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "R": "9/30",
+    "N": "8/30",
+    "B": "6/30"
+   },
+   "best_move_piece": {
+    "R": "7/30",
+    "B": "7/30",
+    "N": "6/30"
+   },
+   "best_move_type": {
+    "quiet": "26/30",
+    "cap": "3/30",
+    "chk": "1/30"
+   },
+   "piece_left_hanging": {
+    "N": "9/30",
+    "B": "9/30",
+    "R": "7/30"
+   }
+  },
+  "chip": "Minor piece or rook left hanging",
+  "played": "Moved a piece (R, N, or B) to a square where it becomes vulnerable or fails to address a tactical threat, leaving material hanging",
+  "missed": "A quiet developing or repositioning move (often R, B, or N) that would have maintained material safety and positional integrity",
+  "confidence": 42
+ },
+ "1965": {
+  "fire_rate": 0.091,
+  "test_hits": [
+   {
+    "id": "queen_h4",
+    "act": 16.407,
+    "mistake": "left_piece_undefended"
+   },
+   {
+    "id": "qd4_blunder",
+    "act": 15.868,
+    "mistake": "hung_piece"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "B": "11/30",
+    "P": "6/30",
+    "N": "5/30"
+   },
+   "best_move_piece": {
+    "B": "23/30",
+    "N": "4/30",
+    "Q": "3/30"
+   },
+   "best_move_type": {
+    "cap": "30/30"
+   },
+   "piece_left_hanging": {
+    "none": "15/30",
+    "B": "7/30",
+    "N": "3/30"
+   }
+  },
+  "chip": "Missed winning bishop capture",
+  "played": "Moved a bishop or other piece to a non-capturing square, often leaving material vulnerable",
+  "missed": "A winning bishop capture (Bx...) that would have won material or improved position significantly",
+  "confidence": 82
+ },
+ "1075": {
+  "fire_rate": 0.0028,
+  "test_hits": [
+   {
+    "id": "queen_h4",
+    "act": 13.795,
+    "mistake": "left_piece_undefended"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "K": "18/30",
+    "Q": "5/30",
+    "P": "2/30"
+   },
+   "best_move_piece": {
+    "K": "11/30",
+    "Q": "7/30",
+    "B": "4/30"
+   },
+   "best_move_type": {
+    "cap": "15/30",
+    "quiet": "12/30",
+    "chk": "3/30"
+   },
+   "piece_left_hanging": {
+    "P": "7/30",
+    "R": "7/30",
+    "none": "6/30"
+   }
+  },
+  "chip": "Passive king move instead of capturing",
+  "played": "Made a passive or aimless king move (or retreated) when active play was required",
+  "missed": "A winning or necessary capture (often with queen, rook, or pawn) that maintained material or positional advantage",
+  "confidence": 52
+ },
+ "1445": {
+  "fire_rate": 0.0011,
+  "test_hits": [
+   {
+    "id": "queen_h4",
+    "act": 7.668,
+    "mistake": "left_piece_undefended"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "Q": "8/30",
+    "N": "7/30",
+    "P": "6/30"
+   },
+   "best_move_piece": {
+    "Q": "29/30",
+    "R": "1/30"
+   },
+   "best_move_type": {
+    "cap": "30/30"
+   },
+   "piece_left_hanging": {
+    "none": "14/30",
+    "Q": "12/30",
+    "P": "3/30"
+   }
+  },
+  "chip": "Missed winning queen capture",
+  "played": "Played a suboptimal move with queen, knight, or pawn instead of capturing with the queen",
+  "missed": "A winning queen capture was available (Maia's best move is always a queen capture)",
+  "confidence": 90
+ },
+ "1573": {
+  "fire_rate": 0.0065,
+  "test_hits": [
+   {
+    "id": "queen_h4",
+    "act": 7.194,
+    "mistake": "left_piece_undefended"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "B": "27/30",
+    "N": "1/30",
+    "Q": "1/30"
+   },
+   "best_move_piece": {
+    "P": "17/30",
+    "N": "7/30",
+    "B": "4/30"
+   },
+   "best_move_type": {
+    "quiet": "28/30",
+    "cap": "2/30"
+   },
+   "piece_left_hanging": {
+    "B": "27/30",
+    "N": "1/30",
+    "Q": "1/30"
+   }
+  },
+  "chip": "Bishop captured and left hanging",
+  "played": "Moved a bishop to a square where it is immediately captured or insufficiently compensated, leaving the bishop en prise for no adequate return",
+  "missed": "A quiet developing or consolidating move (often a pawn push or knight move) that maintained material balance and positional integrity",
+  "confidence": 82
+ },
+ "1329": {
+  "fire_rate": 0.1306,
+  "test_hits": [
+   {
+    "id": "knight_e4_trap",
+    "act": 11.298,
+    "mistake": "walked_into_tactic"
+   },
+   {
+    "id": "qc7_allows_mate",
+    "act": 21.515,
+    "mistake": "missed_threat_mate"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "B": "8/30",
+    "P": "6/30",
+    "N": "6/30"
+   },
+   "best_move_piece": {
+    "P": "11/30",
+    "B": "8/30",
+    "Q": "6/30"
+   },
+   "best_move_type": {
+    "quiet": "25/30",
+    "cap": "4/30",
+    "chk": "1/30"
+   },
+   "piece_left_hanging": {
+    "N": "8/30",
+    "B": "7/30",
+    "P": "7/30"
+   }
+  },
+  "chip": "Missed quiet defensive/improving move",
+  "played": "Moved a minor piece or pawn to a square where it hangs or makes a tactical blunder, often leaving a piece en prise",
+  "missed": "A quiet positional or defensive move (often a pawn or bishop move) that consolidates, defends, or improves the position without capturing",
+  "confidence": 42
+ },
+ "150": {
+  "fire_rate": 0.003,
+  "test_hits": [
+   {
+    "id": "knight_e4_trap",
+    "act": 8.81,
+    "mistake": "walked_into_tactic"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "P": "10/30",
+    "B": "9/30",
+    "R": "6/30"
+   },
+   "best_move_piece": {
+    "N": "10/30",
+    "Q": "8/30",
+    "B": "6/30"
+   },
+   "best_move_type": {
+    "quiet": "25/30",
+    "cap": "3/30",
+    "chk": "2/30"
+   },
+   "piece_left_hanging": {
+    "R": "13/30",
+    "Q": "6/30",
+    "B": "5/30"
+   }
+  },
+  "chip": "Missed quiet knight/queen defensive move",
+  "played": "Made a routine pawn or bishop move while a major piece (often a rook) was left undefended",
+  "missed": "A quiet knight or queen move that defended or repositioned to protect hanging material",
+  "confidence": 62
+ },
+ "1743": {
+  "fire_rate": 0.0011,
+  "test_hits": [
+   {
+    "id": "knight_e4_trap",
+    "act": 7.127,
+    "mistake": "walked_into_tactic"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "N": "11/30",
+    "B": "10/30",
+    "P": "5/30"
+   },
+   "best_move_piece": {
+    "N": "9/30",
+    "P": "9/30",
+    "B": "6/30"
+   },
+   "best_move_type": {
+    "quiet": "23/30",
+    "cap": "7/30"
+   },
+   "piece_left_hanging": {
+    "N": "12/30",
+    "B": "9/30",
+    "P": "5/30"
+   }
+  },
+  "chip": "Greedy minor piece capture loses material",
+  "played": "Made a tempting capture with a knight or bishop that left the piece (or equivalent material) hanging in the resulting position",
+  "missed": "A quiet repositioning or defensive move that maintained material balance and kept minor pieces safe",
+  "confidence": 62
+ },
+ "1174": {
+  "fire_rate": 0.0074,
+  "test_hits": [
+   {
+    "id": "knight_e4_trap",
+    "act": 7.101,
+    "mistake": "walked_into_tactic"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "P": "10/30",
+    "Q": "6/30",
+    "R": "6/30"
+   },
+   "best_move_piece": {
+    "P": "18/30",
+    "N": "7/30",
+    "Q": "2/30"
+   },
+   "best_move_type": {
+    "quiet": "30/30"
+   },
+   "piece_left_hanging": {
+    "P": "27/30",
+    "N": "1/30",
+    "none": "1/30"
+   }
+  },
+  "chip": "Missed quiet defensive pawn move",
+  "played": "Made an active-looking move with a major piece or pawn elsewhere, leaving a pawn undefended",
+  "missed": "A quiet pawn move (or minor piece move) that defended a hanging pawn or covered a critical vulnerability",
+  "confidence": 72
+ },
+ "673": {
+  "fire_rate": 0.0044,
+  "test_hits": [
+   {
+    "id": "qd5_king_exposed",
+    "act": 10.859,
+    "mistake": "misplayed_attack"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "Q": "30/30"
+   },
+   "best_move_piece": {
+    "Q": "9/30",
+    "K": "6/30",
+    "P": "5/30"
+   },
+   "best_move_type": {
+    "quiet": "16/30",
+    "cap": "13/30",
+    "chk": "1/30"
+   },
+   "piece_left_hanging": {
+    "Q": "30/30"
+   }
+  },
+  "chip": "Queen moved to hanging square",
+  "played": "Moved the queen to a square where it is left en prise (hanging), allowing the opponent to capture it",
+  "missed": "Various better moves (king moves, pawn moves, quiet queen moves) that would have kept the queen safe",
+  "confidence": 90
+ },
+ "2018": {
+  "fire_rate": 0.1533,
+  "test_hits": [
+   {
+    "id": "qd5_king_exposed",
+    "act": 7.958,
+    "mistake": "misplayed_attack"
+   },
+   {
+    "id": "bishop_recapture_h5",
+    "act": 6.108,
+    "mistake": "hung_piece"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "R": "13/30",
+    "Q": "8/30",
+    "N": "3/30"
+   },
+   "best_move_piece": {
+    "R": "11/30",
+    "Q": "6/30",
+    "P": "6/30"
+   },
+   "best_move_type": {
+    "quiet": "14/30",
+    "chk": "8/30",
+    "cap": "8/30"
+   },
+   "piece_left_hanging": {
+    "R": "14/30",
+    "Q": "8/30",
+    "none": "5/30"
+   }
+  },
+  "chip": "Heavy piece left hanging after move",
+  "played": "Moved Rook or Queen to an unsafe square or made an imprecise heavy-piece capture, leaving the piece en prise",
+  "missed": "A quieter or more precise move that kept the heavy piece safe or maintained better coordination",
+  "confidence": 38
+ },
+ "1398": {
+  "fire_rate": 0.21,
+  "test_hits": [
+   {
+    "id": "qd5_king_exposed",
+    "act": 6.836,
+    "mistake": "misplayed_attack"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "B": "9/30",
+    "P": "6/30",
+    "Q": "5/30"
+   },
+   "best_move_piece": {
+    "N": "13/30",
+    "P": "6/30",
+    "Q": "4/30"
+   },
+   "best_move_type": {
+    "quiet": "15/30",
+    "cap": "15/30"
+   },
+   "piece_left_hanging": {
+    "none": "29/30",
+    "P": "1/30"
+   }
+  },
+  "chip": "Missed knight tactical opportunity",
+  "played": "Moved a bishop or other piece passively, failing to exploit tactical potential",
+  "missed": "A strong knight move (often Nd4, Ne5, or similar) that created a tactical threat, fork, or dominant centralization",
+  "confidence": 72
+ },
+ "795": {
+  "fire_rate": 0.0671,
+  "test_hits": [
+   {
+    "id": "qd5_king_exposed",
+    "act": 6.203,
+    "mistake": "misplayed_attack"
+   },
+   {
+    "id": "rook_d6_blunder",
+    "act": 5.563,
+    "mistake": "hung_piece"
+   },
+   {
+    "id": "qd4_blunder",
+    "act": 9.259,
+    "mistake": "hung_piece"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "B": "13/30",
+    "N": "7/30",
+    "R": "4/30"
+   },
+   "best_move_piece": {
+    "R": "9/30",
+    "Q": "9/30",
+    "K": "4/30"
+   },
+   "best_move_type": {
+    "quiet": "16/30",
+    "cap": "14/30"
+   },
+   "piece_left_hanging": {
+    "Q": "13/30",
+    "R": "9/30",
+    "B": "4/30"
+   }
+  },
+  "chip": "Minor piece move hangs major piece",
+  "played": "Moved a bishop or knight to an unprotected or tactically vulnerable square, leaving a queen or rook hanging or undefended elsewhere",
+  "missed": "Should have played a queen or rook move (quiet repositioning or capture) that defended or utilized their major pieces",
+  "confidence": 72
+ },
+ "1244": {
+  "fire_rate": 0.0246,
+  "test_hits": [
+   {
+    "id": "rook_d6_blunder",
+    "act": 6.068,
+    "mistake": "hung_piece"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "R": "12/30",
+    "B": "9/30",
+    "Q": "4/30"
+   },
+   "best_move_piece": {
+    "R": "7/30",
+    "Q": "6/30",
+    "N": "6/30"
+   },
+   "best_move_type": {
+    "quiet": "22/30",
+    "cap": "8/30"
+   },
+   "piece_left_hanging": {
+    "none": "10/30",
+    "R": "6/30",
+    "N": "5/30"
+   }
+  },
+  "chip": "Piece moves away abandoning defense",
+  "played": "Moved a bishop or rook away from a square where it was defending another piece/pawn, leaving that piece hanging",
+  "missed": "A quiet consolidating move (often castling, knight repositioning, or queen move) that maintained defensive coordination",
+  "confidence": 52
+ },
+ "1004": {
+  "fire_rate": 0.0037,
+  "test_hits": [
+   {
+    "id": "rook_d6_blunder",
+    "act": 4.065,
+    "mistake": "hung_piece"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "R": "12/30",
+    "N": "6/30",
+    "P": "4/30"
+   },
+   "best_move_piece": {
+    "R": "15/30",
+    "P": "6/30",
+    "N": "3/30"
+   },
+   "best_move_type": {
+    "cap": "19/30",
+    "quiet": "11/30"
+   },
+   "piece_left_hanging": {
+    "none": "13/30",
+    "N": "7/30",
+    "P": "7/30"
+   }
+  },
+  "chip": "Rook move misses winning capture",
+  "played": "Played a passive or misguided rook (or minor piece) move that lost material or positional advantage",
+  "missed": "A winning capture (often with a pawn or rook) that would have won material outright",
+  "confidence": 62
+ },
+ "1165": {
+  "fire_rate": 0.0863,
+  "test_hits": [
+   {
+    "id": "nxe5_recapture",
+    "act": 14.65,
+    "mistake": "walked_into_tactic"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "B": "23/30",
+    "N": "3/30",
+    "Q": "2/30"
+   },
+   "best_move_piece": {
+    "N": "13/30",
+    "B": "7/30",
+    "P": "5/30"
+   },
+   "best_move_type": {
+    "quiet": "24/30",
+    "cap": "6/30"
+   },
+   "piece_left_hanging": {
+    "B": "23/30",
+    "N": "5/30",
+    "Q": "2/30"
+   }
+  },
+  "chip": "Bishop capture leaves piece hanging",
+  "played": "Played a bishop (or minor piece) capture that leaves the capturing piece or another piece hanging, resulting in material loss",
+  "missed": "A quiet developing/advancing move (often with a knight or pawn) that maintained the positional advantage without leaving pieces en prise",
+  "confidence": 72
+ },
+ "1634": {
+  "fire_rate": 0.0879,
+  "test_hits": [
+   {
+    "id": "nxe5_recapture",
+    "act": 10.416,
+    "mistake": "walked_into_tactic"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "N": "14/30",
+    "Q": "7/30",
+    "B": "5/30"
+   },
+   "best_move_piece": {
+    "Q": "9/30",
+    "R": "6/30",
+    "B": "5/30"
+   },
+   "best_move_type": {
+    "cap": "12/30",
+    "quiet": "11/30",
+    "chk": "7/30"
+   },
+   "piece_left_hanging": {
+    "none": "10/30",
+    "N": "5/30",
+    "R": "5/30"
+   }
+  },
+  "chip": "Impulsive check instead of stronger move",
+  "played": "Gave check (often with knight) reflexively, choosing a forcing but inferior move that squanders advantage",
+  "missed": "A stronger move (often queen capture, quiet consolidation, or better check) that maintained or converted a winning position",
+  "confidence": 72
+ },
+ "343": {
+  "fire_rate": 0.0103,
+  "test_hits": [
+   {
+    "id": "nxe5_recapture",
+    "act": 8.147,
+    "mistake": "walked_into_tactic"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "R": "10/30",
+    "Q": "8/30",
+    "N": "7/30"
+   },
+   "best_move_piece": {
+    "Q": "9/30",
+    "P": "7/30",
+    "B": "5/30"
+   },
+   "best_move_type": {
+    "quiet": "19/30",
+    "cap": "8/30",
+    "chk": "3/30"
+   },
+   "piece_left_hanging": {
+    "R": "9/30",
+    "none": "6/30",
+    "B": "5/30"
+   }
+  },
+  "chip": "Piece move instead of quiet Queen/Bishop play",
+  "played": "Moved a Rook, Queen, or Knight (often with check or capture) leaving material hanging, particularly Rooks",
+  "missed": "A quiet move (often with Queen or Bishop) that maintained pressure, delivered mate, or preserved material advantage",
+  "confidence": 38
+ },
+ "2027": {
+  "fire_rate": 0.0026,
+  "test_hits": [
+   {
+    "id": "nxe5_recapture",
+    "act": 7.682,
+    "mistake": "walked_into_tactic"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "N": "30/30"
+   },
+   "best_move_piece": {
+    "N": "8/30",
+    "B": "7/30",
+    "K": "7/30"
+   },
+   "best_move_type": {
+    "quiet": "27/30",
+    "cap": "3/30"
+   },
+   "piece_left_hanging": {
+    "N": "30/30"
+   }
+  },
+  "chip": "Knight captures into losing piece",
+  "played": "Captured with the knight on a central square where it becomes lost or trapped, leaving the knight hanging after recapture",
+  "missed": "Quieter positional moves (bishop retreats, bishop captures, king moves) that maintain material balance without exposing the knight to loss",
+  "confidence": 88
+ },
+ "1721": {
+  "fire_rate": 0.0511,
+  "test_hits": [
+   {
+    "id": "nxe5_recapture",
+    "act": 5.969,
+    "mistake": "walked_into_tactic"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "Q": "16/30",
+    "R": "8/30",
+    "B": "4/30"
+   },
+   "best_move_piece": {
+    "Q": "11/30",
+    "R": "9/30",
+    "B": "3/30"
+   },
+   "best_move_type": {
+    "chk": "15/30",
+    "quiet": "15/30"
+   },
+   "piece_left_hanging": {
+    "Q": "14/30",
+    "R": "10/30",
+    "none": "4/30"
+   }
+  },
+  "chip": "Hanging major piece by missing check",
+  "played": "Moved a major piece (Q/R/B) to capture or reposition, leaving another major piece (usually Q or R) undefended",
+  "missed": "A checking move or defensive resource that would have maintained piece safety and position integrity",
+  "confidence": 62
+ },
+ "35": {
+  "fire_rate": 0.0295,
+  "test_hits": [
+   {
+    "id": "rf8_allows_attack",
+    "act": 5.136,
+    "mistake": "missed_defensive_resource"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "B": "16/30",
+    "N": "11/30",
+    "R": "2/30"
+   },
+   "best_move_piece": {
+    "R": "7/30",
+    "B": "6/30",
+    "N": "6/30"
+   },
+   "best_move_type": {
+    "quiet": "22/30",
+    "cap": "5/30",
+    "chk": "3/30"
+   },
+   "piece_left_hanging": {
+    "none": "21/30",
+    "P": "5/30",
+    "N": "3/30"
+   }
+  },
+  "chip": "Impulsive minor piece move ignores defense",
+  "played": "Moved a bishop or knight actively (often capturing) when the position required patience or consolidation",
+  "missed": "A quiet defensive or consolidating move, often involving rook development or a simple prophylactic move",
+  "confidence": 52
+ },
+ "614": {
+  "fire_rate": 0.009,
+  "test_hits": [
+   {
+    "id": "rf8_allows_attack",
+    "act": 5.056,
+    "mistake": "missed_defensive_resource"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "R": "20/30",
+    "P": "4/30",
+    "N": "3/30"
+   },
+   "best_move_piece": {
+    "R": "8/30",
+    "P": "7/30",
+    "Q": "6/30"
+   },
+   "best_move_type": {
+    "quiet": "18/30",
+    "cap": "11/30",
+    "chk": "1/30"
+   },
+   "piece_left_hanging": {
+    "none": "20/30",
+    "P": "7/30",
+    "N": "3/30"
+   }
+  },
+  "chip": "Aimless rook moves miss better alternatives",
+  "played": "Played passive or misguided rook moves (often to squares where they accomplish little tactically or positionally)",
+  "missed": "Stronger moves with other pieces (queens, pawns, knights) that were quiet but positionally or tactically superior, often consolidating or improving piece coordination",
+  "confidence": 52
+ },
+ "709": {
+  "fire_rate": 0.0063,
+  "test_hits": [
+   {
+    "id": "rf8_allows_attack",
+    "act": 4.077,
+    "mistake": "missed_defensive_resource"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "N": "29/30",
+    "P": "1/30"
+   },
+   "best_move_piece": {
+    "P": "12/30",
+    "Q": "7/30",
+    "N": "6/30"
+   },
+   "best_move_type": {
+    "quiet": "28/30",
+    "cap": "1/30",
+    "chk": "1/30"
+   },
+   "piece_left_hanging": {
+    "none": "22/30",
+    "P": "8/30"
+   }
+  },
+  "chip": "Knight retreats to passive square",
+  "played": "Moved knight to a passive/misplaced square (almost always Nd2 or similar retreat), blocking own pieces and abandoning active defensive or offensive duties",
+  "missed": "Quiet developing or repositioning moves (often pawn pushes or piece improvements) that maintained piece activity and addressed positional threats",
+  "confidence": 72
+ },
+ "1112": {
+  "fire_rate": 0.0388,
+  "test_hits": [
+   {
+    "id": "rf8_allows_attack",
+    "act": 3.987,
+    "mistake": "missed_defensive_resource"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "B": "7/30",
+    "P": "6/30",
+    "Q": "5/30"
+   },
+   "best_move_piece": {
+    "R": "10/30",
+    "B": "7/30",
+    "Q": "6/30"
+   },
+   "best_move_type": {
+    "cap": "18/30",
+    "quiet": "10/30",
+    "chk": "2/30"
+   },
+   "piece_left_hanging": {
+    "none": "24/30",
+    "R": "3/30",
+    "B": "1/30"
+   }
+  },
+  "chip": "Missed winning capture, played quiet move",
+  "played": "Made a passive or repositioning move (often bishop/pawn) ignoring tactical opportunities",
+  "missed": "A winning capture was available, most often with a rook or bishop, that would have won material or maintained advantage",
+  "confidence": 62
+ },
+ "1010": {
+  "fire_rate": 0.0111,
+  "test_hits": [
+   {
+    "id": "rf8_allows_attack",
+    "act": 3.935,
+    "mistake": "missed_defensive_resource"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "Q": "29/30",
+    "R": "1/30"
+   },
+   "best_move_piece": {
+    "P": "7/30",
+    "K": "6/30",
+    "Q": "6/30"
+   },
+   "best_move_type": {
+    "quiet": "23/30",
+    "cap": "5/30",
+    "chk": "2/30"
+   },
+   "piece_left_hanging": {
+    "none": "17/30",
+    "P": "5/30",
+    "Q": "5/30"
+   }
+  },
+  "chip": "Queen move instead of quiet improvement",
+  "played": "Moved the queen unnecessarily (often to a square where it becomes vulnerable or is misplaced), ignoring more pressing positional or tactical needs",
+  "missed": "A quiet non-queen move (pawn advance, king move, or other piece improvement) that was significantly stronger \u2014 often a simple positional move or defensive resource",
+  "confidence": 52
+ },
+ "290": {
+  "fire_rate": 0.0826,
+  "test_hits": [
+   {
+    "id": "qc7_allows_mate",
+    "act": 7.041,
+    "mistake": "missed_threat_mate"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "N": "8/30",
+    "Q": "6/30",
+    "B": "5/30"
+   },
+   "best_move_piece": {
+    "R": "17/30",
+    "B": "10/30",
+    "P": "3/30"
+   },
+   "best_move_type": {
+    "quiet": "30/30"
+   },
+   "piece_left_hanging": {
+    "none": "19/30",
+    "P": "7/30",
+    "R": "2/30"
+   }
+  },
+  "chip": "Missed quiet rook/bishop repositioning move",
+  "played": "Moved a different piece (knight, queen, or bishop) actively, often making a capture or aggressive-looking but inferior move",
+  "missed": "A quiet rook or bishop repositioning move that maintained or consolidated the position's advantage",
+  "confidence": 62
+ },
+ "749": {
+  "fire_rate": 0.0025,
+  "test_hits": [
+   {
+    "id": "qc7_allows_mate",
+    "act": 5.783,
+    "mistake": "missed_threat_mate"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "P": "10/30",
+    "N": "7/30",
+    "B": "5/30"
+   },
+   "best_move_piece": {
+    "R": "8/30",
+    "P": "6/30",
+    "Q": "5/30"
+   },
+   "best_move_type": {
+    "quiet": "27/30",
+    "cap": "3/30"
+   },
+   "piece_left_hanging": {
+    "P": "9/30",
+    "none": "7/30",
+    "N": "6/30"
+   }
+  },
+  "chip": "Missed critical defensive move against mate",
+  "played": "Played minor piece or pawn moves (often captures) that ignored immediate mating threats",
+  "missed": "A quiet defensive move (often with rook or queen) that was the only way to prevent checkmate",
+  "confidence": 72
+ },
+ "1077": {
+  "fire_rate": 0.003,
+  "test_hits": [
+   {
+    "id": "qd4_blunder",
+    "act": 9.365,
+    "mistake": "hung_piece"
+   }
+  ],
+  "signature": {
+   "blunder_piece": {
+    "Q": "17/30",
+    "P": "5/30",
+    "B": "5/30"
+   },
+   "best_move_piece": {
+    "Q": "23/30",
+    "R": "3/30",
+    "B": "2/30"
+   },
+   "best_move_type": {
+    "quiet": "24/30",
+    "cap": "4/30",
+    "chk": "2/30"
+   },
+   "piece_left_hanging": {
+    "Q": "30/30"
+   }
+  },
+  "chip": "Queen left hanging after move",
+  "played": "Moved a piece (often Q, B, or P) to a square where the queen becomes undefended or exposed, leaving the queen hanging",
+  "missed": "Should have moved the queen itself to a safe/active square (quiet queen move) maintaining material",
+  "confidence": 82
+ }
+}

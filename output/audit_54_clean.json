@@ -1,0 +1,444 @@
+{
+ "total": 54,
+ "counts": {
+  "correct": 17,
+  "partially_correct": 15,
+  "overspecified": 12,
+  "too_vague": 5,
+  "wrong": 5
+ },
+ "verdicts": [
+  {
+   "feature": "k8_f952",
+   "verdict": "correct",
+   "claims": "Chip \"Major piece left hanging\": the played move leaves a major piece (queen OR rook) en prise; the missed move was a quiet move that would have protected/saved it.",
+   "show": "All 10 positions leave a major piece hanging by SEE: 7 hang a queen (loses 9) \u2014 a1e1, e4e5, d6d4, bxc5, h6e6, d4c5, g3e5 \u2014 and 3 hang a rook (loses 5) \u2014 d3e3, e5f6, f8f5. anyhang=100%, hang_class=major piece across the board.",
+   "reason": "The chip names \"major piece (queen or rook)\" which matches all 10 exactly (7 queens + 3 rooks); it correctly uses the class instead of overclaiming the 7/10 queen plurality, so there is no over- or under-specification.",
+   "fix": ""
+  },
+  {
+   "feature": "k8_f1928",
+   "verdict": "correct",
+   "claims": "Chip \"Missed quiet knight moves\": the best/missed move is a quiet knight move, while the player instead made a non-capture move with another piece.",
+   "show": "The Maia best move is a quiet knight repositioning move in 6 of the 7 visible cases (Na5, Nb6, Ne7, Nb4, Na4, Na5); the only exception is pos8 (e4), which is still a quiet pawn push. All 10 played moves are non-captures, and 9/10 are with non-knight pieces (pos9 played Ng5).",
+   "reason": "\"Knight\" sits at 94% and \"quiet\" at 82% \u2014 dominant concentrations confirmed by the visible best moves (Na5/Nb6/Ne7/Nb4/Na4/Na5), so the chip names the genuinely shared pattern rather than a plurality, the opposite of overspecification.",
+   "fix": ""
+  },
+  {
+   "feature": "k8_f1487",
+   "verdict": "partially_correct",
+   "claims": "\"Missed capturing a hanging piece\" \u2014 played a non-capture move (often a blunder) instead of capturing a hanging piece in the middlegame.",
+   "show": "All 10 played a non-capture blunder. Best move is known in 6 (pos 2,3,4,5,9,10): pos 3,4,5,9,10 are captures and pos 2 is a check (Be3+) that wins a hanging rook \u2014 so \"a capture/tactic was best\" holds 6/6 of the time it's known. Pos 4 is the only clean textbook case (missed Rxb2 grabbing a hanging queen). But pos 3/7/8 are the opposite pattern: the player HANGS their OWN piece after the move (bishop -3, rook -5, pawn -1). The chip's \"hanging piece\" comes from anyhang=78%, which counts the player's own hung material, not an enemy piece left to capture.",
+   "reason": "The \"non-capture blunder where a capture was best\" skeleton is correct (10/10 non-captures; 6/6 known-best are captures/tactics, pos 4 a clean hanging-queen miss), but the \"capturing a hanging piece\" direction is misstated for pos 3/7/8, where the player hung their own piece (rook -5, bishop -3, pawn -1) rather than missing an enemy capture.",
+   "fix": "Non-capture blunder \u2014 a quiet move when a capture/tactic was winning (often leaving a piece hanging, sometimes your own)."
+  },
+  {
+   "feature": "k8_f1313",
+   "verdict": "overspecified",
+   "claims": "Chip \"Missed winning capture with check\": played = a quiet noncapture middlegame move; missed = a capturing move that also gives check (or mate). Backed by facts iscap noncapture 74%, phase middlegame 83%, best_type capture 63%, anyhang 60%, traj threw_winning 6% (top). No axis fact tracks \"check.\"",
+   "show": "All 10 played moves are quiet noncapture middlegame moves (Re2, Nd5, Ne7, Qb7, c5c4, c1f4, ...) that blunder \u2014 9/10 hang_after is non-none (rook, queen, knight, knight, queen, pawn, rook, pawn, bishop; only b4a5 hangs nothing). Only 4/10 have a cached best move: Rxe1+, Qxc1+, Nxc7+, Qxb8+ \u2014 all four are indeed winning captures with check, and their evals (-573->+497, -633->+518, +625->-249, #+13->-212) confirm a winning/mating position was thrown. The other 6 best moves are \"?\", so \"capture with check\" is unverifiable there.",
+   "reason": "The chip's distinctive \"capture with check\" is confirmed in only the 4 cached positions, has zero supporting axis fact, and best_type=capture is just 63% broad (37% non-captures) \u2014 it elevates the 4 strongest examples' shared property into the rule, while the genuinely robust shared signal across all 10 is a quiet noncapture middlegame move that hangs material / throws a winning position (9/10 hang_after, iscap 74%, phase 83%).",
+   "fix": "Quiet middlegame move throws a winning position (often hangs material)"
+  },
+  {
+   "feature": "k8_f138",
+   "verdict": "partially_correct",
+   "claims": "Chip \"Hanging piece, missed quiet defense\": player captured or moved a piece leaving something hanging, and a quiet middlegame move that addressed the hanging piece was available.",
+   "show": "9/10 leave a piece en prise after the played move (only Rc4 hangs nothing). The hanging piece is genuinely varied: rook x4 (b2b3, d8h4, b6b3, d1d7), knight x3 (f5h4, d4b2, Nh4), queen x1 (e1e5), bishop x1 (d6a6), losing 2-9cp. Several played moves (Nh4, f5h4, d8h4, e1e5, d1d7) move a piece ONTO a hanging square, i.e. the move creates the hang. The engine's preferred reply is quiet 85% of the time.",
+   "reason": "\"Hanging piece\" and \"quiet\" are accurate and correctly generalized (it avoids overspecifying a piece type despite rook/knight plurality), but \"defense\" misstates the mechanism: the played move usually creates the hang (Nh4, e1e5, d1d7), and the quiet best move is an alternative (Nh4->Qc1, Rc4->Nc3 where nothing even hangs), not a defense of a pre-existing hanging piece.",
+   "fix": "Hangs a piece, missed quiet alternative"
+  },
+  {
+   "feature": "k8_f1965",
+   "verdict": "correct",
+   "claims": "Played a non-capture move while missing a correct minor-piece capture (\"Minor piece capture missed\").",
+   "show": "The two defining axes are near-universal: best_type=capture is 100% (every best move is a capture) and iscap=noncapture is 91% (played move is quiet) \u2014 visible in top10 non-captures like d7d6, c2c4, b8c6. best_class=minor piece holds at 72% (solid majority), and the labeler correctly abstracted up from best_piece=bishop (only 52%) rather than overspecifying. hang_after is split 5 none / 5 hangs (bishop x3, knight, queen) and anyhang top is \"safe\" (55%), and traj top is only 10% \u2014 none of these are concentrated, and the label correctly claims nothing about them.",
+   "reason": "Chip names the two universal axes accurately (capture missed 100%, non-capture played 91%) and the \"minor piece\" refinement is a real 72% majority \u2014 it dodged the overspecification trap by not naming bishop (52%) and stayed silent on the unconcentrated hang/traj axes.",
+   "fix": ""
+  },
+  {
+   "feature": "k8_f1075",
+   "verdict": "too_vague",
+   "claims": "Chip \"Large evaluation swing from mistake\": fires on player moves causing significant eval loss; missed = a better move preserving/gaining advantage. Self-reported confidence 12 (very low).",
+   "show": "All 10 are blunders, but that is the ONLY shared trait and it is generic. Direction varies: pos 1/9/10 are already-lost positions accelerating into forced mate (+517\u2192#+4, +782\u2192#+8, +555\u2192#+3); pos 4 throws away a win (-403\u2192+378); pos 7 throws away a decisive advantage (-360\u21920); pos 5 just worsens a bad position (-69\u2192-429) and hangs nothing. Hung pieces span the full range: pawn (1,6,7,9,10), bishop (3), rook (2,8), queen (4), none (5). No motif, no consistent piece. Facts confirm diffuseness: traj \"mixed\" only 11%, blunder_piece \"king\" 26%, no axis concentrates (max iscap noncapture 69%, phase middlegame 65%, anyhang 59%).",
+   "reason": "The chip is accurate (all 10 are large-swing blunders) and correctly avoids naming a specific piece/tactic, but \"large evaluation swing from mistake\" carries no feature-specific signature \u2014 it fits essentially any blunder feature; the positions share nothing more discriminating (hung pieces pawn\u2192queen\u2192none, swings in both directions, traj mixed 11%, zero axis concentration, confidence 12).",
+   "fix": "Hard to improve meaningfully \u2014 with no axis concentration and confidence 12, this feature is likely near-uninterpretable noise. If a chip is required, be honest about the diffuseness: \"Player blunder, eval craters (often into forced mate), no consistent piece or motif.\" Otherwise flag the feature for drop/re-inspection rather than shipping a generic blunder label."
+  },
+  {
+   "feature": "k8_f1445",
+   "verdict": "overspecified",
+   "claims": "\"Missed winning queen move\" \u2014 player played a non-queen/inferior move and a winning queen capture/attack was available.",
+   "show": "Played moves are pawn/minor/king moves (b2b4, h7h5, c8b7, c6e5, f6g4, g8f7 etc.), mostly non-captures. hang_after: 4/10 leave the player's QUEEN en prise (pos 1 b2b4, 5 c6e5, 7 f4e5, 10 g8f7 = \"queen(loses 9)\"), 1/10 a pawn (pos 9 d8e7), 5/10 hang nothing. The common thread is a quiet middlegame move that frequently hangs material \u2014 and where queen appears, it's the player's hung queen, not a missed winning queen move.",
+   "reason": "The chip elevates \"queen\" (best_piece only 40%, blunder 25%) and especially \"winning\" (traj threw_winning only 9%) into the rule, but the positions don't majority-support either; the queen actually surfaces as the HUNG piece in 4/10 played moves (pos 1,5,7,10), not as a missed winning capture.",
+   "fix": "Quiet middlegame move that often hangs material (queen left en prise in 4/10); a capture was usually the best reply \u2014 drop the \"winning queen\" framing."
+  },
+  {
+   "feature": "k8_f1573",
+   "verdict": "partially_correct",
+   "claims": "Chip: \"Piece left hanging after capture\". Played = \"Made a capture that leaves a piece hanging\"; missed = \"A quiet move that maintained material safety\"; confidence 82. Facts lean on anyhang 0.91, iscap 0.67 (top \"capture\"), hang_class 0.59 minor piece, hang_exact 0.43 bishop, phase 0.63 opening.",
+   "show": "All 10 positions are BISHOP moves and every single hang_after is \"bishop(loses 3)\" \u2014 10/10. The piece that hangs is the bishop that was just played, and it loses roughly a full piece (bishop-for-pawn). 8/10 are explicit bishop captures: Bxc7 (#2,#7,#8), Bxd6 (#3), Bxb7 (#4), Bxg2 (#6), Bxc6 (#9), Bxg6 (#10). The remaining 2 are UCI bishop moves of unknown capture status: f5c2 (#1), g5e7 (#5). Mostly opening, several throw away a winning/equal eval (+517->+23, +9->-441, -11->+487). Best moves are largely quiet developing moves (Nf3, c4, e3, e4, h3, e6), consistent with the \"missed\" side.",
+   "reason": "The chip correctly names the hanging + capture aspect, but it under-claims: 10/10 positions are specifically a BISHOP that hangs (every hang_after = bishop loses 3) and it is the capturing bishop itself that is left en prise \u2014 not a separate \"piece\" hanging as a side effect. Genericizing \"bishop\" to \"piece\" drops the single 100%-consistent signal and the wording obscures that the moved bishop is the one that hangs.",
+   "fix": "Bishop capture that leaves the bishop hanging (loses ~a full piece) \u2014 e.g. \"Bishop grabs a pawn and gets taken for free\""
+  },
+  {
+   "feature": "k8_f1329",
+   "verdict": "overspecified",
+   "claims": "Missed a QUIET MATE-IN-ONE while a piece was hanging; played side \"captured or made a non-critical move.\"",
+   "show": "6/10 played moves leave a minor piece en prise (~loses 3): bishop in pos 3,5,9,10; knight in pos 4,7. The other 4/10 (pos 1,2,6,8) hang nothing. Every hang is a ~3pt minor \u2014 never rook/queen. Facts: best move quiet 83%, middlegame 86%, best move 61% non-capture, traj \"mixed\" only 10%.",
+   "reason": "\"Mate-in-one\" has zero support (no mate fact; traj is \"mixed\" at 10%, impossible for missed forced mates which would all be decisive swings), \"hanging piece\" holds only 6/10 and only ever a minor piece, and \"captured\" contradicts the 61% non-capture fact \u2014 the chip overclaims a dramatic forced-mate pattern the positions never show.",
+   "fix": "Middlegame: quiet best move available, played move often drops a minor piece (~loses 3, ~6/10)"
+  },
+  {
+   "feature": "k8_f150",
+   "verdict": "correct",
+   "claims": "Chip: \"Capturing when a piece hangs.\" Played: made a capture while a piece was hanging. Missed: addressing the hanging piece instead. Facts: anyhang 0.92, iscap 0.74, phase middlegame 0.71; no dominant piece (hang_class major 0.43, hang_exact rook only 0.26).",
+   "show": "All 10 positions leave a piece en prise by SEE after the played move (hang_after present in every one: rook x7 in pos 1,2,3,4,6,8,9; queen x2 in pos 7,10; knight x1 in pos 5; losses of 3-9). At least 8/10 are captures \u2014 hxg6/h7g6 diagonal pawn captures (pos 1-4,8,9), d4c5 and d3e4 diagonal pawn captures (pos 7,10); c3e4 and d1d6 (pos 5,6) plausibly captures that leave the moved piece hanging. Pos 1 (the only un-redacted one) confirms exactly: hxg6 grabs a pawn, leaves a rook hanging, eval -278 -> +105.",
+   "reason": "Both named properties hold in the top10 \u2014 a piece hangs after the move (10/10, anyhang 0.92) and the move is a capture (>=8/10, iscap 0.74, a strong majority not a 51% plurality) \u2014 and the chip correctly keeps the hanging piece generic (\"a piece\") rather than overspecifying to \"rook\" (only 23-26%), so it avoids the known overspecification failure mode; pos 1's eval swing confirms the exact pattern.",
+   "fix": ""
+  },
+  {
+   "feature": "k8_f1743",
+   "verdict": "partially_correct",
+   "claims": "Chip \"Missed saving a hanging piece\": the played move left a piece en prise and a better move would have defended/rescued it.",
+   "show": "All 10 played moves leave a piece en prise by SEE: 9/10 a minor piece (7 knight \u2014 pos2,3,5,6,7,8,10; 2 bishop \u2014 pos4,9), 1/10 a pawn (pos1). Losses 1-3. Roughly half are captures (Nxd4, Bxb7, exd6) and half quiet moves (Bb4, Bf4, Nb1, Nf3, Ne4, Bd6, Ne5; best_type 66% quiet).",
+   "reason": "Gets the core right \u2014 every position leaves a piece hanging and it wisely avoids naming a specific piece \u2014 but the \"saving\" framing misstates the mechanism: Bxb7 (best c4) and the 7 quiet moves create/leave the hang rather than fail to rescue a pre-existing one; only Nxd4 (Ng8) and exd6 (Nd4) are true knight rescues.",
+   "fix": "Leaves a piece en prise (usually a minor piece / knight)"
+  },
+  {
+   "feature": "k8_f1174",
+   "verdict": "partially_correct",
+   "claims": "A non-capture/quiet move that leaves a pawn hanging, occurring in the middlegame.",
+   "show": "All 10 positions leave exactly a pawn en prise after the move (hang_after = \"pawn(loses 1)\" on every one, 100%), via quiet non-capture moves. Phase is mixed, not middlegame: the only eval-annotated example (Qb3) is explicitly an \"opening\", and b1c3/Nc3, f1e2, f8e7, d7d6 are opening development moves; only Re8 (move 14) and the f1e1 rook moves look like middlegame.",
+   "reason": "The core pattern \u2014 a quiet non-capture move hanging a single pawn \u2014 is 100% supported across all 10 positions, but the \"in middlegame\" qualifier is contradicted by the top10, since Qb3 is called an opening and b1c3/f1e2/f8e7/d7d6 are opening development moves.",
+   "fix": "Quiet move that hangs a pawn (drop the \"middlegame\" qualifier \u2014 phase is not shared across the activations)"
+  },
+  {
+   "feature": "k8_f673",
+   "verdict": "partially_correct",
+   "claims": "\"Hanging major piece in middlegame\" \u2014 played move ignores/leaves a hanging major piece (rook or queen) in the middlegame.",
+   "show": "10/10 positions hang a queen after the played move (loses 6-9 each) \u2014 not a single rook. The \"hanging\" + \"middlegame\" framing holds (anyhang 93%, phase 79%), but the piece is uniformly the queen, not a generic major piece. The label-maker picked the broader 81% hang_class over the 64% hang_exact, yet the top-10 is unanimously queen.",
+   "reason": "All 10 positions hang specifically a QUEEN (pos1-10 hang_after = \"queen\", losing 6-9 pts; pos3 confirmed \"Bxe7+ wins the queen\"), so \"major piece\" under-claims a 100%-consistent queen pattern.",
+   "fix": "Hanging queen in middlegame"
+  },
+  {
+   "feature": "k8_f2018",
+   "verdict": "wrong",
+   "claims": "Chip: \"Suboptimal capture or exchange chosen\" \u2014 played = a capture that wins less material/advantage; missed = a stronger move maintaining/increasing advantage. Confidence 12.",
+   "show": "The chip's load-bearing claim is \"capture/exchange,\" but the moves are majority NONcaptures: iscap=56% noncapture, and in the top10 only ~3 are captures (Rxg8 #3, Qxb8 #6, the diagonal pawn d5e6 #1). The other 7 (c2f5, e4d2, Kh5, h8h1, e6b6, g8f7, a4d4) are non-capturing moves. The actual shared thread is that the played move leaves a piece EN PRISE: 8/10 hang_after is non-\"none\" (bishop #1; queen #2,#6; rook #3,#4,#7,#8,#10; none only #5,#9), and 5 of those 8 are a rook (matches blunder_piece 32% rook / hang_class 35% major). Worse, the capture cases aren't even mistakes: Rxg8 (#3) is 0cp, one of three best moves in a lost position; Qxb8 (#6) is 2cp, just shortening mate #29\u2192#27 \u2014 so \"suboptimal capture\" is contradicted exactly where captures occur.",
+   "reason": "The headline noun \"capture/exchange\" is false for the majority (56% noncapture; only ~3/10 captures, two of which \u2014 Rxg8, Qxb8 \u2014 are best/near-best, not suboptimal), while the real shared signal (a move leaving a piece en prise, often a rook, in 8/10) goes unmentioned.",
+   "fix": "Closest honest chip: \"Move leaves a piece en prise after the move (often a rook).\" But flag the feature as noisy \u2014 confidence 12, no axis above 66% (anyhang), and several top positions (Rxg8, Qxb8) are not mistakes at all \u2014 so it may have no clean single pattern."
+  },
+  {
+   "feature": "k8_f1398",
+   "verdict": "too_vague",
+   "claims": "Chip \"Safe position middlegame missed opportunity\" \u2014 a passive quiet non-capture move in a safe middlegame where a stronger non-hanging move was missed.",
+   "show": "All 10 played moves leave nothing en prise (hang_after=none on every one); the reliably-shared traits are only non-capture (94%), no hang (90%), middlegame (75%) \u2014 i.e. a generic quiet middlegame move. fire_rate=0.4974 means this fires on ~half of ALL positions, so it is non-selective. Only 3 of 10 are cached and they ARE big blunders (Bd7 -210->+19, Bg6 -353->-139, Rh8 +14->+241), but facts show traj=threw_winning is just 7% of the firing set, so \"missed opportunity\" describes the analyzed minority, not the set.",
+   "reason": "The chip describes the modal chess move (safe quiet middlegame non-capture, matching a feature that fires ~50% of the time) so conveys nothing distinctive, and its one specific tag \"missed opportunity\" is unsupported (threw_winning only 7%, read off the 3 cached blunders).",
+   "fix": "\"Quiet non-capture middlegame move\" \u2014 and flag as non-selective (fire_rate ~0.50, confidence 42): this feature likely does not encode a coherent concept, so no sharper label is warranted; drop the \"missed opportunity\" claim."
+  },
+  {
+   "feature": "k8_f795",
+   "verdict": "correct",
+   "claims": "After the played move, a piece is left hanging (en prise), occurring in the middlegame; missed move exploits/avoids the hang.",
+   "show": "9 of 10 played moves leave a piece en prise per SEE; the piece type varies \u2014 queen (pos2 Bxe6, pos5 e5c4, pos8 e4f3), rook (pos3 d6f4, pos4 f3g2, pos6 Rxh7, pos7 b7e4), bishop (pos9 d3b5), knight (pos10 Ne5). Only pos1 (h5h4) hangs nothing. anyhang=0.97, phase=middlegame 0.77.",
+   "reason": "The chip names generic \"piece\" rather than a specific type, which exactly matches the varied hanging pieces (queen/rook/bishop/knight across pos2\u201310); it deliberately avoids the overspecification trap of claiming the 32% queen plurality or 54% \"major piece\" class, and the 9/10 hang rate plus 77% middlegame back both halves of the claim.",
+   "fix": ""
+  },
+  {
+   "feature": "k8_f1244",
+   "verdict": "overspecified",
+   "claims": "Middlegame position where the player ignored a hanging piece and played an active-looking move instead of a quiet move that addressed it.",
+   "show": "All middlegame; played move is usually a non-capture (70%). After the move, only 6/10 leave material en prise \u2014 bishop x3 (pos5/8/10), knight x2 (pos4/7), pawn x1 (pos2) \u2014 and 4/10 (pos1 a4d7, pos3 c3f6, pos6 f3e3, pos9 c4b5) hang NOTHING. No single hanging-piece type dominates; trajectory is scattered.",
+   "reason": "Chip asserts \"hanging piece\" as the defining pattern, but 4/10 top positions (1,3,6,9) hang nothing and a 5th (pos2) is only a pawn, so the hang holds for at most ~50-60% with no dominant piece \u2014 naming a bare-plurality co-occurrence as the rule.",
+   "fix": "Middlegame non-capture move, often (but not always) leaving material en prise"
+  },
+  {
+   "feature": "k8_f1004",
+   "verdict": "partially_correct",
+   "claims": "These are blunders (bad moves) that are quiet/non-capture moves played in the middlegame; a stronger, often tactical alternative was available.",
+   "show": "All 10 are quiet non-capture piece moves (Rb8, Nf4, Ne4, Re2, Re5, Be2, Ra2, Nd5, Kf1), matching iscap=noncapture 81% and phase=middlegame 83% \u2014 those two axes are genuinely shared. But \"blunder\" only holds for about half: positions 1/5/6/9 leave a minor hanging (bishop, knight, bishop, knight = all loses-3) and position 4 (Re2) is a confirmed +251->-89 missing the winning gxf5. Positions 2, 3, 7, 8, 10 all have hang_after \"none\" AND eval \"?\", so show NO blunder evidence at all. The blundering half also share no common motif (mixed bishop/knight hangs + one missed capture).",
+   "reason": "Middlegame + non-capture are accurate, but the load-bearing claim \"blunders\" is misstated: only 5/10 positions (1,4,5,6,9) show any blunder evidence while 2,3,7,8,10 hang nothing with unknown eval; facts back this (hang_exact plurality \"none\" 39%, traj top just 10%) and the 0.358 fire rate is too high for a real blunder detector.",
+   "fix": "Quiet (non-capture) middlegame piece moves \u2014 roughly half leave a minor piece hanging; not a coherent blunder feature (drop \"blunders\" or flag as diffuse/low-confidence)."
+  },
+  {
+   "feature": "k8_f1165",
+   "verdict": "correct",
+   "claims": "A capture that leaves a minor piece hanging; the missed alternative is a quiet move avoiding the hang.",
+   "show": "All 10 moves leave a minor piece en prise (SEE loses exactly 3): 9/10 hang a bishop (b5c6, f4d6, Bxc6, c5e3, b4c3 x2, g5f6, Bxc6, g3d6) and 1/10 hangs a knight (Nxd7). 3 are explicit captures (Bxc6 x2, Nxd7); the other 7 are UCI bishop moves landing the bishop on a hanging square, consistent with iscap=96%.",
+   "reason": "\"Minor piece hanging\" holds 10/10, and the chip correctly generalizes to minor piece rather than overspecifying to the 51% bishop plurality; the capture element is backed by iscap=96% plus 3 confirmed captures with no contradicting positions.",
+   "fix": ""
+  },
+  {
+   "feature": "k8_f1634",
+   "verdict": "too_vague",
+   "claims": "Chip \"Middlegame tactical mistakes\"; played = \"flashy checks or inferior moves instead of stronger continuations\"; missed = \"stronger tactical shots including checkmates and winning combinations\" (confidence 25).",
+   "show": "All middlegame blunders. 6/10 leave a piece en prise but with no dominant piece (knight x2: pos1,7; rook x2: pos2,6; bishop x2: pos5,8); pos3/4/9/10 hang nothing. Only 4/10 are checks (pos3,4,5,8), so \"flashy checks\" is a minority. 6/10 are knight moves (pos1,2,4,5,7,9) \u2014 an unnamed signal. Eval trajectories mixed: pos3 tossed a mate-in-3, pos4 stayed winning (-709 to -265), pos5/8 went from + to losing. A missed checkmate appears in only 1/10 (pos3, best Qh6+).",
+   "reason": "\"Tactical mistakes\" describes any blunder and adds nothing past the (correct) middlegame phase; the one specific sub-claim \u2014 missed checkmates \u2014 fits only 1/10 (pos3), and no single piece or tactical theme unifies the set, while the strongest real signal (6/10 hang a piece) goes unnamed.",
+   "fix": "\"Middlegame moves that leave a piece hanging\" \u2014 covers the dominant 6/10 signal without overclaiming a specific piece; still honest that ~4/10 hang nothing and the hung piece varies (knight/rook/bishop)."
+  },
+  {
+   "feature": "k8_f343",
+   "verdict": "overspecified",
+   "claims": "\"Middlegame check with hanging piece\" \u2014 the move both gives check AND leaves a piece hanging; the miss is a stronger check/tactic exploiting the hang.",
+   "show": "All 10 are middlegame blunders. 6/10 leave a piece en prise (rook x4: Rxe1+, e1g1, c6c3, d8d1; bishop x2: c4e6, g4f3); 4/10 hang nothing (Qa1+, Rxg7+, b5d6, e6e3). Only 3 are confirmable checks (Qa1+, Rxg7+, Rxe1+); the rest are UCI moves with no check info. The real shared signal is \"middlegame move that hangs a piece\" (anyhang 76%, phase 77%).",
+   "reason": "The conjunction \"check with hanging piece\" holds for only 1/10 (Rxe1+); \"check\" is a 3/10 minority and in 2 of those 3 (Qa1+, Rxg7+) nothing hangs \u2014 they're mate-throwing checks, so check and hang are anti-correlated, not co-occurring.",
+   "fix": "\"Middlegame blunder that leaves a piece hanging\" \u2014 drop \"check\" (only 3/10, and anti-correlated with hanging); the hanging-piece + middlegame combo is the genuine shared signal."
+  },
+  {
+   "feature": "k8_f2027",
+   "verdict": "correct",
+   "claims": "A knight capture that leaves a piece en prise (better move would have avoided leaving material hanging).",
+   "show": "10/10 played moves are knight captures; 10/10 leave a knight hanging losing exactly 3 (the capturing knight itself is recaptured for free). Eval swings ~250-415cp all consistent with dropping a clean minor piece. Unanimous on both axes \u2014 cleaner than the facts table (hang_exact only 51% knight over the full firing set).",
+   "reason": "All 10 positions are knight captures (Nxe5/Nxd5/Nxd4/Nxe4) and all 10 have hang_after=knight(loses 3), so both halves of the chip (\"knight captures\" + \"piece hanging\") hold at 100% with no overclaim.",
+   "fix": ""
+  },
+  {
+   "feature": "k8_f1721",
+   "verdict": "partially_correct",
+   "claims": "Chip: \"Capturing when a piece hangs.\" Played: made a capture while a piece was hanging, missing a stronger continuation. Missed: a non-capture move (often a check or checkmate) that exploited the hanging piece.",
+   "show": "Capturing blunders that leave the mover's OWN major piece en prise. 7/10 hang (rook x3: pos1 Bxc7, pos2 Rxe8, pos9 Rxf8 all lose 5; queen x4: pos4 b3a4, pos5 c6f6, pos6 b2c3 lose 9, pos8 f4f3 loses 6); 3/10 hang nothing (pos3 g8f7, pos7 d2c3, pos10 d1d5). Middlegame, eval craters (+386\u2192-179, +375\u2192#+2, -56\u2192#+2).",
+   "reason": "Core capture+hang is well-supported (iscap 0.98, anyhang 0.94) and correctly generalized to \"a piece\" rather than overspecifying to queen despite hang_exact top=queen \u2014 but the \"missed = often a check or checkmate\" is contradicted (best_type=quiet 0.53; pos2 Qf8 and pos9 Qe8 are quiet, only pos1 Bc5+ is a check), the mechanism is misframed (hang_after is the mover's own piece left en prise, e.g. pos1's own b2 rook \u2014 not an enemy piece to exploit), and 3/10 top positions hang nothing.",
+   "fix": "\"Greedy/blundering capture that hangs a major piece\" \u2014 keep the capture+hang core and the general \"a piece,\" but drop the \"missed a check/checkmate\" framing (best is usually a quiet move) and the implication of exploiting an enemy hanging piece (the hang is the mover's own)."
+  },
+  {
+   "feature": "k8_f35",
+   "verdict": "partially_correct",
+   "claims": "Middlegame non-capture blunders \u2014 a quiet/non-capturing middlegame move that was a blunder, where the better move was a quiet positional or defensive one.",
+   "show": "All 10 are middlegame (phase 93%) and the four with eval data are genuine blunders (pos1 Bc2 +655->mate, pos3 Bxb2 -19->+188, pos4 Nd2 +528->+694, pos6/7 Bxf2 -296->-68). 8/10 are non-captures but 2 are captures (Bxb2 #3, Bxf2 #7). Pieces moved are mixed (~6 bishop, ~3 knight, 1 king). It is NOT a hanging-piece feature: 6/10 have hang_after=none; only #1 (pawn), #2 (knight), #4 (pawn) drop material. No shared tactic, trajectory (top traj only 8%), or piece.",
+   "reason": "Middlegame (93%) and blunder hold across the positions, but \"non-capture\" is contradicted by 2 of the 10 top activators being captures (Bxb2 #3, Bxf2 #7), and the rest of the label is so broad it barely discriminates because the feature is genuinely diffuse.",
+   "fix": "Middlegame blunders (often missing a quiet move) \u2014 drop the hard \"non-capture\" qualifier since 2/10 top examples are captures and the move type adds little discriminating signal."
+  },
+  {
+   "feature": "k8_f614",
+   "verdict": "partially_correct",
+   "claims": "\"Middlegame non-capture blunders\" \u2014 a quiet (non-capturing) move in the middlegame that significantly worsens the position.",
+   "show": "8 of 10 are rook moves along ranks/back rank (f8h8, f8e8, f8d8, f8c8 sliding from f8; f1d1, b1c1, Rd1, Rf8); only 2 are pawn moves (c5d4, c3c4). All middlegame; 9/10 non-captures (only c5d4 captures). Blunder severity is mixed: only pos 5 (Rd1, -2->-326) and pos 7 (Rf8, -220->+267) have confirmed catastrophic eval drops; pos 4 (f8d8) and pos 8 (b1c1) hang a knight (-3); pos 1 (f8h8) and pos 6 (c5d4) lose only a pawn; pos 2, 3, 9, 10 show hang=none with eval \"?\" \u2014 no evidence they are blunders. Facts agree: hang none/safe 52%, traj threw_winning only 9%, confidence 32.",
+   "reason": "Middlegame (97%) and non-capture (81%) are accurate, but the chip misses the dominant shared pattern \u2014 rook moves on the back rank (8/10: f8h8/e8/d8/c8, f1d1, b1c1, Rd1, Rf8) \u2014 and over-claims \"blunders\" since 6/10 hang nothing and only positions 5 and 7 have confirmed eval drops (traj threw_winning just 9%).",
+   "fix": "Middlegame rook moves (back-rank shuffles) \u2014 center the chip on the rook/major-piece repositioning theme that 8/10 positions share, dropping the unsupported severity claim."
+  },
+  {
+   "feature": "k8_f709",
+   "verdict": "correct",
+   "claims": "Chip: \"Knight non-capture moves as blunders.\" Played = moved a knight (non-capture) to an inferior square; missed = a stronger non-knight move.",
+   "show": "10/10 are knight moves, all non-captures, all evaluated as blunders by the summaries. After the move: 5 hang nothing (\"none\") and 5 drop a single pawn; no piece is ever left en prise. Best replies are mostly non-knight (Bc4, Rdf8, Kg1, b4, Bf3) but pos 9's best is Nf6 (a knight), so the \"non-knight better move\" sub-claim is right 5/6 times but not universal.",
+   "reason": "All 10 top positions are knight non-capture moves that are blunders (Nd2, Ne7, Nb8d7, Nd2, Nc3e2, Ne2, Nf3d2, Nd2, Nc6, Nc3e2), so the chip names exactly the shared pattern with no over- or under-claim and correctly omits any hang claim (only pawns/nothing hang, never a piece).",
+   "fix": ""
+  },
+  {
+   "feature": "k8_f1112",
+   "verdict": "too_vague",
+   "claims": "Chip: \"Middlegame non-capture blunders.\" Played = a (often capture or quiet) move that worsened the position; Missed = a non-capture move that held/improved. Facts: noncapture 85%, middlegame 78%, anyhang=safe 69%, blunder_piece top rook 23%, confidence 35.",
+   "show": "Middlegame quiet/pawn moves that drop eval. 7/10 leave nothing en prise (pos 1-5,7,10); the only 3 hangs are a grab-bag \u2014 bishop loses 3 (pos 6), rook loses 2 (pos 8), rook loses 5 (pos 9). Moves range across pawn pushes (e5,f4,a4,b3), piece shuffles (Bd7,a1f1,d1c1,g1f1) and one capture (f5e6). No shared piece, tactic, or hang.",
+   "reason": "Every word of the chip is true (78% middlegame, 85% non-capture, all blunders) but it names the base-rate description of any blunder; with 7/10 hanging nothing and the other 3 hanging different pieces, the positions share no distinctive mechanism for the chip to convey.",
+   "fix": "\"Quiet middlegame blunders that don't hang material\" \u2014 captures middlegame + non-capture + the distinctive 69% no-hang/positional signature (these are eval-dropping quiet moves, not the usual piece-hanging blunders)."
+  },
+  {
+   "feature": "k8_f1010",
+   "verdict": "overspecified",
+   "claims": "Middlegame queen moves that are non-capture blunders.",
+   "show": "Reliably shared: middlegame (85%) and non-capture (83%) blunders. The \"queen\" claim rests on a bare 53% plurality (blunder_piece.pct=0.53). Only Qd7 (pos 4) is a confirmed queen move; d6f4 (pos 6) plausibly is (queen left en prise). But e4e5 (pos 5) and f6f5 (pos 10) are one-square pushes (pawns), f7g6 (pos 1) reads as a king move, and the rest (f3e3, b7d7, a5f5, d7f5, d3e3) are ambiguous slides. 8 of 10 have hang_after=none, so these are eval/positional blunders by mixed pieces, not queen-specific.",
+   "reason": "\"Middlegame\" and \"non-capture\" are well supported (85%/83%), but \"queen moves\" promotes a 53% plurality into the rule when only 1 move (Qd7) is a confirmed queen and several (e4e5, f6f5, f7g6) are clearly non-queen.",
+   "fix": "Middlegame non-capture blunders (mixed pieces)"
+  },
+  {
+   "feature": "k8_f290",
+   "verdict": "correct",
+   "claims": "Chip: \"Missed quiet move, played non-capture blunder\" \u2014 the played move was a non-capture that blundered, and the correct alternative was a quiet (non-capture, non-check) move. Notably claims no specific piece or hang.",
+   "show": "Two axes are genuinely concentrated: best_type=quiet (95%) and iscap=noncapture (81%). The hang axis is a near coin-flip (51% safe): only 4/10 leave material en prise (#1 rook -5; #2,#3,#10 pawn -1) while 6/10 hang nothing (#4 c5d6, #5 d3e4, #6 h8f8, #7 Rf1, #8 c6b4, #9 e8g8). The lone cached eval, #7 Rf1 (+175->-24, 199cp drop), is a positional blunder with no hang. Played moves fit the non-capture flavor: castling (e8g8), rook lifts (Rf1, h8f8), knight retreat (f3g1).",
+   "reason": "The chip names exactly the two high-concentration axes (quiet best 95%, non-capture played 81%) and correctly refrains from naming any hanging piece since hang is split 51/49 (6/10 safe incl. #4-#9, only #1 rook + #2/#3/#10 pawns hang), avoiding the overspecification trap.",
+   "fix": ""
+  },
+  {
+   "feature": "k8_f749",
+   "verdict": "wrong",
+   "claims": "Middlegame positions where the player made suboptimal moves and a winning or mating continuation was available that they missed.",
+   "show": "Middlegame blunders that lose material or the game. 7/10 hang a piece after the played move (knight: e5f3, b4c5, g6e5; bishop: f3d1, g4f3; pawn: c3b2, e5d6); 2/10 walk into forced mate while ALREADY LOSING (Ng4 -538->#-1, Nxg4 -552->#-1); 1/10 (e4f4) hangs nothing, unknown. anyhang=60% confirms the dominant thread is dropping material, not missing wins.",
+   "reason": "The only two positions with eval data (Ng4, Nxg4) show the player at -538/-552 \u2014 already losing \u2014 then blundering into being mated, the opposite of \"missed winning moves\"; the player never had a win or mate to deliver, and 7/10 simply hang material, so the chip names a pattern (player had winning/mating continuations available) the positions do not show.",
+   "fix": "Middlegame blunders that hang a piece or walk into mate (most often dropping a minor piece)."
+  },
+  {
+   "feature": "k8_f1077",
+   "verdict": "correct",
+   "claims": "Chip \"Queen left hanging\": the played move left the queen en prise; the missed move would have protected or repositioned the queen safely.",
+   "show": "10/10 positions leave the queen hanging for the full 9 points after the played move. No common destination square (d3 in 4, e6 in 2), so the only shared invariant is \"queen hangs.\" Pos 9 shows player moved bishop (Bd3) instead of queen (Qd3), losing the queen, eval +205\u2192-561.",
+   "reason": "All 10 positions have hang_after=queen(loses 9) \u2014 unanimous, not a plurality \u2014 and position 9 (played Bd3, best Qd3, +205\u2192-561) confirms the mechanism matches the played/missed description exactly.",
+   "fix": ""
+  },
+  {
+   "feature": "k16_f952",
+   "verdict": "correct",
+   "claims": "Chip \"Major piece left hanging\" \u2014 the played move leaves a major piece (rook or queen) undefended/en prise; the missed alternative is a quiet move that would have saved it.",
+   "show": "All 10 positions leave a major piece en prise by SEE: 7 queens (a1e1, d6d4, d5g2, h6e6, a4b4, bxc5, e4e5 \u2014 loses 9) and 3 rooks (d3e3, e5f6, f8f5 \u2014 loses 5). anyhang=hangs 100%, hang_class=major piece 97%.",
+   "reason": "Every one of the 10 hang_after fields shows a rook or queen en prise, so the \"major piece (rook or queen)\" claim holds for all 10 \u2014 and it correctly resists overspecifying to \"queen\" (only 7/10) by generalizing to the class that also covers the 3 rook cases.",
+   "fix": ""
+  },
+  {
+   "feature": "k16_f305",
+   "verdict": "overspecified",
+   "claims": "Chip \"Missed capture while piece hangs\": player made a non-capture move while a piece was hanging, and the missed best move was a CAPTURE that would have exploited/resolved the hang. Confidence 72.",
+   "show": "9/10 played moves are non-captures (Qg6, a3, g6g5, f1b1, Bb5, Kh6, f6h4, c2d2, f6b2; only c4b3 is a capture) \u2014 matches iscap=noncapture 0.84. 6/10 leave a piece en prise after the move, and the hanging piece varies widely: pawn (pos 3,5,9), bishop (pos 6), queen (pos 8), rook (pos 10); 4/10 hang nothing (pos 1,2,4,7). Of the missed/best moves, only 4 are cached and all happen to be captures (Qxe4+, axb3, axb4, Rxb6), but the other 6 are \"?\" and the feature's own best_type fact says the MODAL best move is quiet (49%), with major-piece best_class only 56%. Pos 1 (Qg6\u2192best Qxe4+) is a back-rank mate, not exploiting a hang.",
+   "reason": "The robust shared pattern is \"played a quiet/non-capture move that leaves material en prise\" (iscap noncapture 0.84, anyhang 0.78), but the headline \"missed CAPTURE\" overclaims: best_type is modally quiet (49%) and only 4/10 top10 best moves are confirmed captures (rest \"?\"), so the missed move is not reliably a capture.",
+   "fix": "Non-capture move leaves a piece en prise (e.g. \"Quiet move while material hangs\") \u2014 drop the \"capture\" claim about the missed move, since the modal best move is quiet."
+  },
+  {
+   "feature": "k16_f1155",
+   "verdict": "correct",
+   "claims": "\"Missed quiet knight moves\" \u2014 player played a non-capture with another piece while the best move was a quiet knight move (facts: best_piece=knight 97%, best_type=quiet 82%, iscap=noncapture 81%).",
+   "show": "All 3 cached Maia-best moves are quiet knight moves: pos3 a6\u2192Na5, pos4 Be7\u2192Nb6, pos6 b3\u2192Na4. Played moves are non-captures with non-knight pieces in 9/10 (pawns a6/b3/f6f5/f7f6/e5e4; bishops f1d3/Be7/f8d6), the lone knight being g8f6. Best_piece=knight at 97% and best_type=quiet at 82% are strong concentrations, not pluralities.",
+   "reason": "Chip's two real claims (best is a knight, and it's quiet) sit at 97%/82% and are confirmed by every visible best move (Na5, Nb6, Na4); the only plurality axes are hanging (51% safe), which the chip correctly never mentions, so there is no overspecification.",
+   "fix": ""
+  },
+  {
+   "feature": "k16_f712",
+   "verdict": "correct",
+   "claims": "Chip: \"Hanging minor piece in middlegame.\" Played: left a minor piece hanging. Missed: a quiet move that defended the minor piece.",
+   "show": "All 10 played moves leave a minor piece en prise (SEE loses 3): 7 bishops (d5c4, d4g7, d6a6, h6g5, Bxg2, b4e7, f4d6) and 3 knights (g4h2, Nxd2, e4d2). No major pieces or pawns hang in any position.",
+   "reason": "The chip correctly abstracts to \"minor piece\" (10/10 hang a bishop or knight, each losing 3) instead of overspecifying to the knight plurality (hang_exact=knight 47%, blunder_piece=knight 36%) \u2014 exactly avoiding the known failure mode; \"middlegame\" is the 71% majority qualifier.",
+   "fix": ""
+  },
+  {
+   "feature": "k16_f1965",
+   "verdict": "overspecified",
+   "claims": "Chip \"Missed winning capture, played quiet\": the clearly-best move was a winning capture, and the player instead played a quiet non-capture. Facts assert best_type=capture 100%, iscap=noncapture 92%.",
+   "show": "Played moves are overwhelmingly quiet non-captures (d7d6 pawn push, c1e3/Be3 develop, Ba4 retreat, Qd2, Kd2, plus bishop moves) \u2014 the \"played quiet\" half holds. But the \"winning capture\" half is barely supported: only 2 of 10 best moves are cached. Pos 7 (Ba4) best=Bxc6 IS a capture but from +74 (near-equal) \u2014 maintaining a sliver, not \"winning.\" Pos 9 (Qd2) best=Be3, a QUIET move, not a capture at all \u2014 direct counterexample to \"capture was best,\" and the summary lists Be3 alongside Bxe7 as the good options. The other 8 best moves are \"?\" so capture-as-the-rule is unverifiable. Separately, 4 of 10 played moves leave material en prise (bishop loses 3 x2, queen loses 3, pawn loses 1), pointing more to \"blundered/inferior quiet move\" than \"missed a winning capture.\"",
+   "reason": "The \"played quiet\" half is supported (92% non-capture), but \"winning capture\" overclaims: of the only two known best moves, pos 7's Bxc6 was a near-equal +74 (not winning) and pos 9's best Be3 is a quiet move, not a capture, contradicting the universal capture claim.",
+   "fix": "Played a quiet move when a stronger move (sometimes a capture) was available \u2014 drop \"winning\" and don't assert capture as the universal best."
+  },
+  {
+   "feature": "k16_f1075",
+   "verdict": "wrong",
+   "claims": "\"Large missed tactical opportunities\" \u2014 a suboptimal move that lost significant advantage where a much stronger (tactical) move was available, preserving/gaining decisive advantage. Confidence 12.",
+   "show": "9 of 10 played moves leave a piece en prise by SEE, but the piece varies wildly \u2014 pawn (pos1, pos6), bishop (pos3), rook (pos4, pos9), queen (pos2, pos5), knight (pos7, pos10); only pos8 hangs nothing. The cached best moves are quiet recaptures/king moves, not tactics. Eval magnitude and direction are heterogeneous (217cp to 9479cp; one already lost, one stayed winning). The only consistent thread is \"played move blunders/hangs material,\" which the chip never names.",
+   "reason": "The defining words don't match: best moves are quiet recaptures/king moves (Kxd6 pos1, Qxc6 pos2, Rxd4 pos7, dxc6 pos8, Kc2 pos9; best_type 56% quiet) so there is no \"tactical\" theme, and the positions are blunders that drop material (9/10 leave a piece en prise) rather than missed tactical wins; swings range 217cp (pos7, stayed winning) to 9479cp (pos1, already lost) so \"Large\" is overstated and trajectory is only 11% concentrated.",
+   "fix": "Blunder: played move leaves a piece en prise (hangs material), losing advantage \u2014 piece type and magnitude vary. Note this is a weak/noisy feature (conf 12) with no tactical theme; do not call the missed moves \"tactical.\""
+  },
+  {
+   "feature": "k16_f1634",
+   "verdict": "wrong",
+   "claims": "Chip \"Missed quiet middlegame mate-in-one\": player captured a hanging piece instead of delivering checkmate; the missed move was a quiet move giving mate in 1-2. Confidence 82.",
+   "show": "8/10 played moves leave the player's OWN piece en prise (pos1 knight-3, pos2 bishop-3, pos3 pawn-1, pos4 rook-5, pos5 bishop-3, pos6 bishop-3, pos7 knight-3, pos8 rook-5; pos9 g2g3 and pos10 d1f3 hang nothing). Hung pieces vary: bishop x3, knight x2, rook x2, pawn x1. Middlegame (phase 84%), Maia's best move is quiet (best_type 81%), trajectory is \"mixed\" at only 10%. iscap is 56% noncapture.",
+   "reason": "The headline \"mate-in-one/delivering checkmate\" has zero support (no mate field, traj is \"mixed\" 10% with no consistent swing), and \"captured a hanging piece\" is inverted \u2014 hang_after shows the player HUNG their own piece in 8/10 positions (pos1-8) and 56% of moves aren't even captures (e.g. g2g3, b8e8).",
+   "fix": "Middlegame move that hangs a piece (varied: bishop/knight/rook/pawn) when a quiet move was better"
+  },
+  {
+   "feature": "k16_f1165",
+   "verdict": "overspecified",
+   "claims": "A bishop capture that leaves a minor piece hanging (en prise by SEE); the missed alternative is a quiet material-preserving move.",
+   "show": "All 10 leave a piece en prise after the move (anyhang=1.0), almost always via a capture (iscap=0.95). The hung piece is a minor in 9/10 (bishop or knight); #6 (f3f6) hangs a QUEEN, loses 9. The moving piece is NOT consistently a bishop: confirmed bishops only at #1 f4d6, #5 c5e3, #8 Bxd6; #4 e8g8 is castling (king move), #6 f3f6 is a vertical rook/queen move, #10 Nxd7 is a knight capture; #2/#3 b4c3, #7 b5c6, #9 g5f6 are 1-square diagonals that could be pawn captures.",
+   "reason": "\"Bishop captures\" elevates the 51% blunder_piece plurality to a rule, but #4 is castling, #6 is a file move hanging a queen (not minor), and #10 is a knight capture \u2014 only ~3 of 10 are confirmed bishop captures; the true shared pattern is just a capture that leaves a (usually minor) piece hanging.",
+   "fix": "Capture that leaves a minor piece hanging"
+  },
+  {
+   "feature": "k16_f394",
+   "verdict": "partially_correct",
+   "claims": "The player missed a quiet knight move in the middlegame and instead made captures or non-knight moves.",
+   "show": "Middlegame positions (phase 76%) where the player made a quiet non-capture move (iscap noncapture 83%) that wasn't best. The PLAYED moves are diverse, not unified: knight moves (pos1 e4d6, pos7 g4h2), rook/queen moves (pos2 f8f3, pos3 b7e7, pos6 d1d2, pos8 d2f2), and pawn moves (pos4 e4e5, pos5 h3, pos9 g6g5, pos10 b2b3). 4/10 leave small material hanging (pos1 knight loses 3; pos2/3/9 pawn loses 1), 6/10 safe. The unifying axis is the best/missed move: facts say minor-piece 91%, knight 85%, quiet 83% \u2014 but 9/10 best moves are \"?\" and the ONLY visible best move (pos5 Bc3) is a bishop, not a knight.",
+   "reason": "The \"quiet missed minor-move in the middlegame\" core is supported (quiet 83%, middlegame 76%), but \"knight\" overspecifies the cleaner 91% minor-piece signal \u2014 and the only checkable best move (pos5 Bc3) is a bishop \u2014 while the played-side \"captures / non-knight\" framing is contradicted by noncapture 83% and the knight moves actually played in pos1 (e4d6) and pos7 (g4h2).",
+   "fix": "Missed a quiet minor-piece move in the middlegame (broaden \"knight\" 85% to \"minor piece\" 91%, and fix the played side to \"made a different quiet move\" rather than \"captures\")."
+  },
+  {
+   "feature": "k16_f2018",
+   "verdict": "wrong",
+   "claims": "Suboptimal rook moves, often captures, that miss a better alternative (\"Rook moves missing better alternatives\").",
+   "show": "A complete mix of moved piece types, not rook moves. Across the 10: pawn (d5e6), bishop/queen (c2f5), knight (e4d2, g6f4), king (Kh5, g8f7), queen (Qxb8), two ambiguous file/rank moves (e6b6, h8h1), and only ONE definite rook move (Rxg8). 8/10 leave some piece en prise by SEE but the hanging piece varies (rook x4, queen x2, bishop x1, pawn x1, none x2). Captures are the minority (3/10; iscap 61% noncapture). Two flagged moves are actually best/near-best: Rxg8 is 0cp (+554, one of three best) and Qxb8 only shortens a forced mate (#+29 to #+27).",
+   "reason": "The chip names \"rook moves (often a capture)\" but only 1/10 played moves is a definite rook move (Rxg8), the rest being pawn/knight x2/king x2/queen/bishop plus 2 ambiguous file moves, and 7/10 are noncaptures \u2014 \"rook\" was lifted from a 28% blunder_piece plurality and misread as the moved piece.",
+   "fix": "Do not name a moved-piece type. The only weak shared thread is \"moves that leave a piece en prise by SEE (most often a rook), in already-decided positions\" \u2014 but flag it as low-coherence/likely polysemantic (conf 22, traj 9%, plus false-positive hangs like Rxg8 and Qxb8 that are actually best moves)."
+  },
+  {
+   "feature": "k16_f383",
+   "verdict": "too_vague",
+   "claims": "Chip: \"Blunder was a non-capture move.\" Played = a non-capture move that worsened the position; missed = a better move (often a capture or positional improvement). The only strong computed fact is iscap = 95% non-capture; everything else is weak (blunder_piece bishop 30%, best_type quiet 63%, anyhang 56%, hang none/pawn 44%, traj threw_winning only 8%). Confidence 30.",
+   "show": "All 10 are non-capture blunders \u2014 no SAN has an \"x\", coordinate moves are quiet developing moves, consistent with the 95% non-capture fact. Beyond that the positions are diffuse: hang_after is inconsistent \u2014 4/10 hang nothing (c8g4, d2e3, c1g5, c2c3), 5/10 lose only a pawn (Bg4, c1b2, Bg4/cxd4, d3e2, c8g4), and just 1/10 (Ne4) actually drops a real piece (knight, loses 3). Pieces and trajectories vary (some throw a win, some are even/losing already). The mild lean is toward quiet bishop/minor-piece developments \u2014 ~4/10 are bishop-to-g4 moves \u2014 but that's only 40%, not dominant.",
+   "reason": "The chip honestly names the single robust axis (95% non-capture) and does NOT overspecify, but \"non-capture move\" is essentially the base-rate description of a blunder and conveys nothing distinctive \u2014 within a blunder set, almost every feature could be labeled this way; positions 3,4,7,10 hang nothing and the hangs that exist range from a pawn (5x) to a knight (Ne4 only), so there is no tighter shared pattern to anchor on.",
+   "fix": "No specific tactical chip is supported (hangs and pieces are too varied to claim a piece, fork, or hang pattern). Best honest options: label it as a diffuse/low-signal feature, or if forced, \"Quiet positional/developing blunder, no consistent material loss\" \u2014 but flag confidence as low and avoid implying a specific captured/hung piece."
+  },
+  {
+   "feature": "k16_f1035",
+   "verdict": "partially_correct",
+   "claims": "\"Hanging major piece in middlegame\" \u2014 a queen move that left a generic major piece (queen or rook) en prise.",
+   "show": "All 10 (a6b6, d1g4, b3d5, f2f5, g3g2, f3g3, c1e3, f7g7, d4e4, d8d5) have hang_after = queen(loses 9) \u2014 100% unanimous on the queen, and \"loses 9\" = full queen value confirms it is the queen, not a rook.",
+   "reason": "The chip's \"hanging + middlegame\" frame is right, but it says \"major piece\" when all 10 positions hang the queen specifically (every hang_after = \"queen(loses 9)\"), under-claiming the specificity the data unanimously supports.",
+   "fix": "Hanging the queen in middlegame"
+  },
+  {
+   "feature": "k16_f1270",
+   "verdict": "partially_correct",
+   "claims": "Chip claims the player \"Missed capturing a hanging piece\" \u2014 i.e. an enemy piece was left en prise and the player failed to grab it (best move = a capture of a free piece). Sub-text: \"Made a suboptimal move while a piece was hanging\" / missed \"Capturing or addressing the hanging piece.\"",
+   "show": "Direction is inverted. hang_after measures the player's OWN piece left en prise after their move, and only 5/10 positions hang at all: pos3 e7e5 queen(loses9), pos5 d6e5 bishop(loses3), pos7 g6e6 rook(loses5), pos9 f4h5 pawn(loses1), pos10 a5b5 rook(loses5). The other 5 (pos1 h5h4, pos2 a3e7, pos4 Nxc5, pos6 Kc5, pos8 d5d3) hang nothing. The two with eval data don't fit a missed-capture: pos4 Nxc5 is a capture of the WRONG piece (best Nxd2, also a capture; -604->#-6), pos6 Kc5 is a king-walk endgame blunder (+532->-527), no capture or enemy hanging piece. Facts agree: best_type 64% quiet (best move usually NOT a capture). Common thread = a material-/eval-losing blunder, usually by hanging one's own (varied: queen/bishop/rook/pawn) piece in the middlegame.",
+   "reason": "\"Hanging piece\" is a real shared element (anyhang fact + 5/10 positions), but the chip misstates the key mechanism: it says the player missed CAPTURING an enemy piece, whereas hang_after shows the player HANGING their own piece, best_type is 64% quiet (not a capture), and the two known positions (Nxc5 wrong-capture, Kc5 king-walk) are not missed captures.",
+   "fix": "Hung a piece / made a material-losing blunder (in the middlegame)"
+  },
+  {
+   "feature": "k16_f1313",
+   "verdict": "correct",
+   "claims": "The player made a quiet noncapture middlegame move and missed a winning capture that came with check.",
+   "show": "Pos1-4 and Pos10 share an identical pattern: the missed best move is a winning capture WITH CHECK (rook/queen/knight) that the player passed up for a quiet noncapture, throwing a won/mating position (evals -573\u2192+497, -633\u2192+518, +625\u2192-249, #+13\u2192-212, -589\u2192+58). Pos5-9 have uncached best moves; their played moves hang material (knight/pawn/pawn/bishop/queen) \u2014 consistent with blunders, not contradicting the chip. Note: the varied hang_after pieces describe the PLAYED blunder, not the missed capture, so they are not evidence against the chip.",
+   "reason": "All 5 positions with a visible best move are winning captures delivering check (Rxe1+, Qxc1+, Nxc7+, Qxb8+, Qxc1+) declined for quiet/losing moves that collapsed a winning or mating eval; the chip names the missed-move pattern accurately and correctly generalized to \"capture\" instead of the 51% \"queen\" trap.",
+   "fix": ""
+  },
+  {
+   "feature": "k16_f795",
+   "verdict": "partially_correct",
+   "claims": "\"Missed quiet move saving hanging piece\": the player made an inferior move while a piece was hanging, and the missed/better move was a quiet middlegame move that saved/addressed the hanging piece.",
+   "show": "9/10 positions leave a piece en prise after the played move (bishop x4: pos3,6,7,9; knight x2: pos1,5; pawn x2: pos2,8; rook x1: pos4); pos10 (c4d2) hangs nothing. All played moves are blunders. The chip correctly keeps the piece generic (pieces vary, no single-piece plurality named). But the \"quiet move saving\" half is unsupported and contradicted where checkable: pos2 (Kg4) is the only position with a known best move (Bxf4) \u2014 it is a CAPTURE (not quiet) defending against Rxg3# mate, not a quiet move saving the hanging pawn; pos10 has no hanging piece at all.",
+   "reason": "The chip nails the robust shared pattern (inferior move leaving a piece en prise in the middlegame, 9/10) but misstates the missed-move side: the \"quiet move saving the hanging piece\" mechanism is unverifiable from facts and contradicted by the only known best move (pos2 Bxf4 is a tactical capture vs a mate net), and pos10 hangs nothing.",
+   "fix": "Inferior move leaves a piece en prise (middlegame)"
+  },
+  {
+   "feature": "k16_f428",
+   "verdict": "overspecified",
+   "claims": "Middlegame tactical blunders where the player chose flashy checks or captures instead of a stronger move; correct play is a better tactical continuation.",
+   "show": "All 10 are middlegame blunders (phase 77%). The real shared trait is hanging material: 7/10 leave a piece en prise after the move (anyhang 67%), with the hanging piece varying widely \u2014 knight (f5e7, b4d3), rook (e4f6, g3g5, e1e8), bishop (Bxc5+), queen (Qxf3+); 3 hang nothing (Rxg7+, Nf2+, b5d6). Only 4/10 are visibly checks/captures, and those are exactly the 4 cached SAN positions.",
+   "reason": "The \"checks or captures\" rule fits only the 4 cached SAN positions (Rxg7+, Nf2+, Bxc5+, Qxf3+); the other 6 are quiet UCI piece moves (f5e7, e4f6, b4d3, b5d6, g3g5, e1e8), and the label's own iscap fact says 63% noncapture \u2014 so it elevates a minority pattern to a rule while missing the actual shared signal that 7/10 hang a piece.",
+   "fix": "Middlegame blunders that often leave a piece hanging (varied piece)"
+  },
+  {
+   "feature": "k16_f239",
+   "verdict": "overspecified",
+   "claims": "Chip: \"Checking move ignores hanging piece\" \u2014 claims the defining pattern is a CHECK that fails to address a hanging piece.",
+   "show": "9/10 leave a piece en prise after the played move (anyhang 87%): queen in 5 (pos1 a2c2, pos2 g3g4, pos3 e6g4, pos9 b6d4, pos10 g3h2), rook in 3 (pos4 d8d1, pos7 Rxe8+, pos8 Rxe1+), bishop in 1 (pos5 c4e6); pos6 (Qa1+) hangs nothing. ~65% are captures (iscap). Only 3 are confirmed checks.",
+   "reason": "Only 3/10 positions are checks (pos6 Qa1+, pos7 Rxe8+, pos8 Rxe1+) and only 2/10 are both a check AND leave a piece hanging (pos7/pos8); pos6 Qa1+ is a check that hangs nothing, so the check+hang conjunction the chip headlines barely appears \u2014 the actual shared trait is simply that the played move leaves a piece en prise.",
+   "fix": "\"Played move leaves a piece hanging\" (or \"Blunders material \u2014 move leaves a piece en prise, often via a capture\"). Drop \"checking\" \u2014 it fits only 3/10 and the unifying signal is the hang, not the check."
+  },
+  {
+   "feature": "k16_f1822",
+   "verdict": "partially_correct",
+   "claims": "\"Capturing a hanging piece (blunder)\" \u2014 the player greedily captured a hanging/free piece instead of a stronger, often-mating non-capture move.",
+   "show": "All 10 are captures (iscap 0.98) in the middlegame (0.73), and 9/10 leave the player's OWN piece en prise after the move (hang_after: queen x4 in pos 3/4/7/10, rook x4 in pos 1/5/8/9, knight x1 in pos 6, none in pos 2). Each is a blunder: pos1 dxe8=R+ misses forced #+4, pos8 Bxc7 abandons the b2 rook (Rxb2+), pos9 Rxe8 allows #+2. No single hanging piece dominates (major-piece class ~80%); trajectory is \"mixed\" (0.11) and best move is \"quiet\" only 51%.",
+   "reason": "Chip correctly captures \"capture + blunder\" (98% captures, evals confirm blunders) but misstates the key element: the data's \"hanging\" is the player's OWN piece left en prise AFTER the move (hang_after in pos 1,3,4,5,7,8,9,10), not a free piece the player grabbed \u2014 the summaries show captures that abandon defense or miss mate, not greedy grabs; and \"missed a stronger non-capture (often mate)\" is only clear in pos 1 and 9 (best_type quiet just 0.51).",
+   "fix": "\"Capture that leaves a piece hanging (blunder)\" \u2014 a capture move that drops the player's own material en prise (queen or rook most often). Keep the piece generic (no single piece dominates) and frame the hang as the move's consequence, not a free piece captured."
+  },
+  {
+   "feature": "k16_f2027",
+   "verdict": "correct",
+   "claims": "Chip: \"Knight captures leaving piece hanging\" \u2014 played a knight capture (Nx_) that leaves a piece en prise; missed move is a non-capture that avoids hanging material.",
+   "show": "All 10 played moves are knight captures (Nxe5 x4, Nxd5 x4, Nxd4, Nxe4) and all 10 leave the capturing knight en prise by SEE \u2014 hang_after = \"knight(loses 3)\" in every single position (pos 1-10).",
+   "reason": "Both chip claims \u2014 knight capture and a piece left hanging \u2014 hold in 10/10 positions with no overclaim (no fork/square/victim named, and the 51% blunder_piece fact is moot since the top10 is 100% knight).",
+   "fix": ""
+  },
+  {
+   "feature": "k16_f1011",
+   "verdict": "correct",
+   "claims": "Blunders in the middlegame where the played move was a quiet (non-capture) move; the missed alternative was a stronger, often tactical move.",
+   "show": "All 10 are middlegame blunders the player made. 8/10 are non-captures; pos6 Bxb2 is an explicit capture (pawn-grab) and pos7 g4e5 is possibly a capture. Piece skew the chip wisely leaves un-named: 6/10 are knight moves (f3h4, c5d7, Nd2, f3e5, g4e5, g5h3), 2 bishop (Bc2, Bxb2), 1 rook (a1e1), 1 pawn (b5b4) \u2014 none above 60%, so no piece should be claimed. Material is mixed: 4/10 leave something en prise (pos1 pawn, pos2 knight(3), pos4 pawn, pos5 knight(3)), 6/10 hang nothing. The 3 cached evals confirm blunders of varying size (+655\u2192#+7; +528\u2192+694 ~166cp in a lost position; -19\u2192+188 ~207cp).",
+   "reason": "Both named axes hold across the 10 positions \u2014 middlegame (9-10/10, fact 92%) and non-capture (8/10, fact 84%, with only Bxb2 a clear capture, within tolerance) \u2014 and \"blunder\" is given by the dataset; critically it does NOT overspecify a piece/tactic despite a 60% knight skew, so there is no over- or under-claim.",
+   "fix": ""
+  },
+  {
+   "feature": "k16_f360",
+   "verdict": "correct",
+   "claims": "Chip: \"Middlegame quiet move blunders\" \u2014 a non-capture (quiet) move in the middlegame that is a mistake, missing a stronger continuation. No specific piece or tactic claimed.",
+   "show": "All 10 are non-capture middlegame moves (mostly rook lifts: Rc8, Re8, Rac1, Rd8, Rc1, Rh8, Rd1, plus Nd2). 8/10 are confirmable blunders: positions 2/6/7 hang a knight (\u22123), 1/4/8 hang a pawn (\u22121), and 3/4/10 have eval drops of 242/220/324cp. Positions 5 and 9 (hang none, eval cached as ?) are unverifiable.",
+   "reason": "Chip's three claims all hold across the set: middlegame (97%), quiet/non-capture (81%, all 10 positions), and blunder (8/10 confirmable via en-prise material or eval drop); it wisely avoids naming a piece despite rook being a 45% plurality, so no overspecification.",
+   "fix": ""
+  },
+  {
+   "feature": "k16_f724",
+   "verdict": "overspecified",
+   "claims": "A middlegame blunder where the queen is moved to a suboptimal square without capturing; missed a stronger non-queen move or a queen capture.",
+   "show": "Only 4/10 are confirmed queen non-captures (Qd7, Qd4, Qf4, Qb6), and those do fit a 'queen to suboptimal square' theme. The other 6 are UCI moves, several clearly non-queen: f6f5 is a pawn push, g8f8 is a king/rook move that leaves a knight en prise (hang_after knight loses 3), f7g6 is a diagonal king/pawn move. 8/10 hang nothing (hang_after none); only Qd7 (pawn) and g8f8 (knight) leave material en prise, so this is not a hanging-piece feature. The genuine shared thread is middlegame, non-capture, eval-dropping moves.",
+   "reason": "The 'queen' claim is named as the rule but blunder_piece is only 0.70, and the top-10 contains clear non-queen counterexamples (f6f5 pawn push, g8f8 king/rook hanging a knight), while the actually-concentrated signals are non-capture (0.81) and middlegame (0.84).",
+   "fix": "Middlegame non-capture blunders, often (not always) misplacing the queen"
+  }
+ ]
+}
