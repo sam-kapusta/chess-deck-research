@@ -205,3 +205,18 @@ labeled on both blunder + best-move axes.** Coherence is best-move-dominated (63
 
 Note: earlier numbers used a fire-rate prefilter (0.2-15%) that gave different denominators per
 model (confound). This table is all-2048, identical denominator — the trustworthy comparison.
+
+## Reproduction (chosen model)
+
+```bash
+# on chess-poc, from ~/SageMaker
+python3 scripts/sae/train_maia3_sae.py \
+  --activations chess-stage-a/cache/maia3_l7only_v2_dedup.pt \
+  --dict-size 2048 --k 16 --k-aux 128 --aux-alpha 0.03125 \
+  --lr 3e-4 --batch-size 4096 --n-epochs 200 --warmup-steps 500 \
+  --n-batches-to-dead 126 --no-val-split --no-l2 \
+  --output chess-stage-a/output/maia3_sae/btk_2048_k16_zscore.pt
+# eval: z-score input ONLY (no L2), calibrate threshold = mean k-th-largest, then dual_2x2.py / see_coherence.py
+```
+Cache `maia3_l7only_v2_dedup.pt` = 79M-Maia L7 mean64 best−blunder diff, deduped 168,132×1024
+(notebook only; rebuild via build_l2l7_v2.py + build_l7_only.py if lost).
