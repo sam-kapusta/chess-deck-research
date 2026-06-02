@@ -23,7 +23,7 @@ print(f"{'':>4s} | " + " (% of total activation mass per bin)" )
 print('-' * 110)
 
 rows = []
-for tag, kk in [('k4', 4), ('k8', 8), ('k12', 12), ('k16', 16), ('k32', 32)]:
+for tag, kk in [('k4',4),('k6',6),('k8',8),('k10',10),('k12',12),('k16',16),('k32',32)]:
     wp = BASE + f'/output/maia3_sae/btk_2048_{tag}_nol2.pt'
     if not os.path.exists(wp):
         print(f"{tag}: not trained"); continue
