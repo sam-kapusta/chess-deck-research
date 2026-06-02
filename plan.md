@@ -419,3 +419,21 @@ rate, filter at display). Needs Sam's call + the f897-style board check on f101/
 btk_2048_k16_{42,84,126}k.pt. Upload survivors to S3 if any get adopted.
 
 **Still running (independent screen):** k=32 Pass-2 + k=16 straggler-fill labeling.
+
+## 2026-06-02 late — audit + two bugs found
+
+**L0 / threshold-elo bug (Sam caught):** test positions fire ~20 features at k=8 (should be 8),
+~36 at k=16 (should be 16). Cause: threshold calibrated on corpus (encoded at real player elo ~1500)
+but test positions encoded at elo 2600 → larger activation magnitude → too many features clear the
+fixed threshold. Implication: ALL test-position diagnostics this session (atlas, k8-vs-k16 HTMLs)
+OVER-COUNTED fired features. Fix for any coaching inference: threshold must match encoding elo
+(encode test positions at corpus-elo, or recalibrate per-elo). The label AUDIT is unaffected — it
+reads each feature's top-10 CORPUS positions, not test firings.
+
+**Correct audit method (Sam's framing):** don't enrich the whole corpus (113k unenriched — too big,
+not needed). Audit each feature against its OWN top-10 corpus positions + deep signature stats.
+Elo-safe (corpus positions at real elo), threshold-free (top-k by activation). Running now on the 54
+labeled features. Next: if constrained labels grade well, scale to top-1k features (label + audit).
+
+**best_uci is in cache metadata** (100% coverage) — use it for best-move, not the enrichment cache
+(only 27% coverage). Fixed audit_data2.py to pull from metadata.
