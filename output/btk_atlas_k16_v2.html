@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>btk 2048/k16 · Feature Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1313; --bg-grain:#0f1615; --panel:#151f1d; --raised:#1c2926; --raised-2:#243430;
+  --line:#2c3c38; --line-soft:#222f2c;
+  --cream:#ece3d0; --cream-dim:#c4bca9; --muted:#8294 8c; --muted:#82948c; --faint:#5d6e67;
+  --brass:#d9a441; --brass-bright:#f0bd5a; --sage:#74b083; --terra:#c8604c; --steel:#6f97b0;
+  --sq-light:#cabf9f; --sq-dark:#46645b;
+  --pc-white:#f4ecdb; --pc-black:#1b2422;
+  --shadow:0 18px 50px -18px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:'Hanken Grotesk',sans-serif;
+  font-size:14px; line-height:1.5;
+  overflow:hidden;
+  background-image:
+    radial-gradient(1200px 600px at 80% -10%, rgba(217,164,65,.06), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(111,151,176,.05), transparent 55%);
+}
+/* film grain */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px;border:2px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--faint)}
+
+/* ---------- header ---------- */
+header{
+  height:74px;display:flex;align-items:center;gap:22px;padding:0 28px;
+  border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--panel),rgba(21,31,29,.7));
+  position:relative;z-index:30;
+}
+.brand{display:flex;flex-direction:column;line-height:1.05}
+.brand .t{font-family:'Fraunces',serif;font-weight:900;font-size:25px;letter-spacing:.3px;color:var(--cream)}
+.brand .t em{font-style:italic;color:var(--brass)}
+.brand .s{font-size:11.5px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:3px}
+.stats{display:flex;gap:26px;margin-left:auto}
+.stat{text-align:right}
+.stat .v{font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:var(--brass-bright);line-height:1}
+.stat .v.alt{color:var(--sage)}
+.stat .l{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
+
+/* ---------- layout ---------- */
+.app{display:grid;grid-template-columns:360px 1fr;height:calc(100vh - 74px)}
+.rail{border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0;background:var(--bg-grain)}
+.filters{padding:18px 18px 14px;border-bottom:1px solid var(--line-soft);display:flex;flex-direction:column;gap:12px}
+.search{position:relative}
+.search input{
+  width:100%;background:var(--raised);border:1px solid var(--line);border-radius:10px;
+  color:var(--cream);font-family:inherit;font-size:13.5px;padding:11px 13px 11px 36px;outline:none;transition:.18s;
+}
+.search input:focus{border-color:var(--brass);box-shadow:0 0 0 3px rgba(217,164,65,.13)}
+.search input::placeholder{color:var(--faint)}
+.search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--faint)}
+.frow{display:flex;gap:9px}
+.sel{
+  flex:1;background:var(--raised);border:1px solid var(--line);border-radius:9px;color:var(--cream-dim);
+  font-family:inherit;font-size:12.5px;padding:8px 10px;outline:none;cursor:pointer;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%2382948c' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 10px center;padding-right:26px;
+}
+.sel:focus{border-color:var(--brass)}
+.conf-filter{display:flex;flex-direction:column;gap:6px}
+.conf-filter .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;display:flex;justify-content:space-between}
+.conf-filter .lbl b{color:var(--brass);font-family:'JetBrains Mono',monospace;font-weight:500}
+input[type=range]{-webkit-appearance:none;height:4px;background:var(--line);border-radius:3px;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--brass);cursor:pointer;border:2px solid var(--bg);box-shadow:0 0 0 1px var(--brass)}
+.count{font-size:11.5px;color:var(--muted);padding:0 2px}
+.count b{color:var(--cream)}
+
+.list{flex:1;overflow-y:auto;padding:8px 10px 40px}
+.fcard{
+  padding:12px 13px;border-radius:11px;border:1px solid transparent;cursor:pointer;margin-bottom:6px;
+  position:relative;transition:transform .14s,background .14s,border-color .14s;background:transparent;
+  animation:fadein .4s both;
+}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.fcard:hover{background:var(--raised);border-color:var(--line)}
+.fcard.active{background:var(--raised-2);border-color:var(--brass);box-shadow:inset 3px 0 0 var(--brass)}
+.fcard .top{display:flex;align-items:baseline;gap:8px;margin-bottom:3px}
+.fcard .fid{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--faint);font-weight:500}
+.fcard .chip{font-family:'Fraunces',serif;font-weight:600;font-size:14.5px;color:var(--cream);line-height:1.2;flex:1}
+.fcard .meta{display:flex;align-items:center;gap:8px;margin-top:6px}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.fcard .cat{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fcard .cnum{font-family:'JetBrains Mono',monospace;font-size:10.5px;margin-left:auto;color:var(--cream-dim);font-weight:500}
+
+/* ---------- detail ---------- */
+.detail{overflow-y:auto;min-height:0;position:relative}
+.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--faint);gap:14px;text-align:center;padding:40px}
+.empty .k{font-family:'Fraunces',serif;font-style:italic;font-size:28px;color:var(--line)}
+.dwrap{padding:30px 38px 70px;max-width:1180px;animation:fadein .35s both}
+.fhead{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:start;padding-bottom:24px;border-bottom:1px solid var(--line-soft);margin-bottom:26px}
+.fhead .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--brass);letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+.fhead h1{font-family:'Fraunces',serif;font-weight:900;font-size:38px;line-height:1.05;letter-spacing:-.4px;color:var(--cream);margin-bottom:14px}
+.fhead .label{font-size:16px;color:var(--cream-dim);font-weight:500;line-height:1.45;max-width:740px}
+.cats{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
+.tag{font-size:11px;padding:4px 11px;border-radius:20px;background:var(--raised);border:1px solid var(--line);color:var(--cream-dim);letter-spacing:.04em}
+.tag.lead{background:rgba(217,164,65,.13);border-color:rgba(217,164,65,.4);color:var(--brass-bright)}
+
+/* confidence ring */
+.ring{position:relative;width:104px;height:104px;flex-shrink:0}
+.ring svg{transform:rotate(-90deg)}
+.ring .ct{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .ct .n{font-family:'Fraunces',serif;font-weight:600;font-size:30px;line-height:1;color:var(--cream)}
+.ring .ct .l{font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-top:3px}
+.firepill{margin-top:12px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
+.firepill b{color:var(--steel)}
+
+.analysis-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:30px}
+.acard{background:var(--panel);border:1px solid var(--line-soft);border-radius:13px;padding:17px 19px}
+.acard.full{grid-column:1/-1}
+.stats-panel{background:#161d24;border:1px solid var(--line-soft);border-radius:13px;padding:16px 19px;margin-bottom:22px}
+.stats-panel h3{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--steel);margin-bottom:13px;display:flex;align-items:center;gap:7px}
+.stats-panel h3::before{content:'';width:5px;height:5px;background:var(--steel);border-radius:50%}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:14px}
+.stat-block .sl{font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:7px}
+.bar-row{display:flex;align-items:center;gap:6px;margin-bottom:4px;font-size:11px}
+.bar-row .bn{color:var(--cream-dim);width:48px;flex-shrink:0;font-family:'JetBrains Mono',monospace;text-transform:capitalize}
+.bar-row .bt{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar-row .bf{height:100%;background:var(--brass);border-radius:3px}
+.bar-row .bv{color:var(--muted);width:30px;text-align:right;font-family:'JetBrains Mono',monospace}
+.stat-block .sv{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--cream);line-height:1.5}
+.acard h3{font-family:'JetBrains Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.14em;color:var(--brass);margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.acard h3::before{content:'';width:5px;height:5px;background:var(--brass);border-radius:50%}
+.acard p{font-size:13.5px;color:var(--cream-dim);line-height:1.55}
+.acard .pat{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--steel);line-height:1.6}
+.subs{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+.subs .si{font-size:12.5px;color:var(--cream-dim);padding-left:14px;position:relative}
+.subs .si::before{content:'▸';position:absolute;left:0;color:var(--faint)}
+
+.section-h{font-family:'Fraunces',serif;font-weight:600;font-size:20px;color:var(--cream);margin-bottom:4px;display:flex;align-items:baseline;gap:10px}
+.section-h .sub{font-family:'Hanken Grotesk';font-size:12.5px;color:var(--muted);font-weight:400}
+.boards{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:16px;margin-top:18px}
+.bcard{background:var(--panel);border:1px solid var(--line-soft);border-radius:12px;padding:11px;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s;animation:fadein .4s both}
+.bcard:hover{transform:translateY(-3px);border-color:var(--brass);box-shadow:var(--shadow)}
+.bcard .brank{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.bcard .brank .ix{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--faint)}
+.bcard .brank .act{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--brass);font-weight:500}
+.board{display:grid;grid-template-columns:repeat(8,1fr);aspect-ratio:1;border-radius:5px;overflow:hidden;border:1px solid rgba(0,0,0,.3)}
+.sq{display:flex;align-items:center;justify-content:center;position:relative;font-size:min(3.4vw,17px);line-height:1}
+.board.lg .sq{font-size:30px}
+.sq.l{background:var(--sq-light)} .sq.d{background:var(--sq-dark)}
+.sq .pc{position:relative;z-index:2}
+.sq .pc.w{color:var(--pc-white);text-shadow:0 1px 1px rgba(0,0,0,.45)}
+.sq .pc.b{color:var(--pc-black);text-shadow:0 1px 0 rgba(255,255,255,.12)}
+.sq.from::after{content:'';position:absolute;inset:0;background:rgba(217,164,65,.42);z-index:1}
+.sq.to::after{content:'';position:absolute;inset:0;background:rgba(217,164,65,.28);box-shadow:inset 0 0 0 2px var(--brass);z-index:1}
+.bmeta{margin-top:9px}
+.bmove{display:flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:12px}
+.bmove .pl{color:var(--terra);font-weight:700}
+.bmove .arrow{color:var(--faint)}
+.bmove .bs{color:var(--sage)}
+.bphase{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:5px}
+.bphase .mtf{color:var(--brass)}
+
+/* eval swing bar */
+.swing{margin-top:8px;display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px}
+.swing .ev{padding:2px 6px;border-radius:5px;font-weight:500}
+.swing .ev.b{background:var(--raised-2);color:var(--cream-dim)}
+.swing .ev.a{font-weight:700}
+.swing .track{flex:1;height:4px;border-radius:3px;background:linear-gradient(90deg,var(--terra),var(--faint),var(--sage));opacity:.5;position:relative}
+
+/* ---------- drawer ---------- */
+.scrim{position:fixed;inset:0;background:rgba(6,10,9,.6);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:.25s;z-index:50}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:560px;max-width:94vw;background:var(--bg-grain);border-left:1px solid var(--brass);
+  transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.1,1);z-index:60;overflow-y:auto;box-shadow:-30px 0 60px -20px rgba(0,0,0,.7)}
+.drawer.on{transform:none}
+.dr-in{padding:26px 30px 60px}
+.dr-close{position:absolute;top:18px;right:20px;width:34px;height:34px;border-radius:9px;background:var(--raised);border:1px solid var(--line);color:var(--cream-dim);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:.15s}
+.dr-close:hover{background:var(--terra);color:#fff;border-color:var(--terra)}
+.dr-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:12px}
+.dr-board{width:340px;max-width:100%;margin:0 auto 8px}
+.dr-trajectory{background:var(--panel);border:1px solid var(--line-soft);border-radius:12px;padding:15px 17px;margin:18px 0}
+.dr-trajectory .row{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:10px}
+.evbox{text-align:center}
+.evbox .v{font-family:'Fraunces',serif;font-weight:600;font-size:28px;line-height:1}
+.evbox .l{font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-top:4px}
+.evarrow{font-size:24px;color:var(--faint)}
+.swing-verdict{text-align:center;font-size:12.5px;font-weight:600;padding:6px;border-radius:8px}
+.kvs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:4px}
+.kv{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--muted);background:var(--raised);padding:3px 9px;border-radius:6px}
+.kv b{color:var(--cream-dim)}
+.dr-moves{display:flex;gap:18px;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:14px;margin:14px 0}
+.dr-moves .played{color:var(--terra)} .dr-moves .best{color:var(--sage)}
+.dr-sec{margin-top:18px}
+.dr-sec h4{font-family:'JetBrains Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.13em;color:var(--brass);margin-bottom:7px;display:flex;align-items:center;gap:7px}
+.dr-sec h4::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--brass)}
+.dr-sec p{font-size:13px;color:var(--cream-dim);line-height:1.58}
+.lines{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--steel);line-height:1.7}
+.lines.refut{color:var(--terra)}
+.cclink{display:inline-flex;align-items:center;gap:7px;margin-top:18px;font-size:12.5px;color:var(--brass);text-decoration:none;border:1px solid var(--line);padding:8px 14px;border-radius:9px;transition:.15s}
+.cclink:hover{background:rgba(217,164,65,.12);border-color:var(--brass)}
+.loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;background:var(--bg);z-index:200}
+.loading .sp{width:42px;height:42px;border:3px solid var(--line);border-top-color:var(--brass);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading .txt{font-family:'Fraunces',serif;font-style:italic;color:var(--muted);font-size:16px}
+</style>
+</head>
+<body>
+<div class="loading" id="loading"><div class="sp"></div><div class="txt">opening the atlas…</div></div>
+
+<header>
+  <div class="brand">
+    <div class="t">l7only · <em>feature atlas</em></div>
+    <div class="s">Maia-3 layer-7 · 2048 k16 · sparse mistake features</div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="v" id="st-n">—</div><div class="l">features</div></div>
+    <div class="stat"><div class="v" id="st-conf">—</div><div class="l">median conf</div></div>
+    <div class="stat"><div class="v alt" id="st-high">—</div><div class="l">conf ≥ 70</div></div>
+  </div>
+</header>
+
+<div class="app">
+  <aside class="rail">
+    <div class="filters">
+      <div class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        <input id="q" placeholder="Search chip, mistake, category…">
+      </div>
+      <div class="frow">
+        <select class="sel" id="sort">
+          <option value="conf">Sort · confidence ↓</option>
+          <option value="confa">Sort · confidence ↑</option>
+          <option value="fire">Sort · fire rate ↓</option>
+          <option value="id">Sort · feature id</option>
+        </select>
+        <select class="sel" id="cat"><option value="">All categories</option></select>
+      </div>
+      <div class="conf-filter">
+        <div class="lbl"><span>Min confidence</span><b id="cval">0</b></div>
+        <input type="range" id="conf" min="0" max="100" value="0">
+      </div>
+      <div class="count">Showing <b id="cnt">0</b> features</div>
+    </div>
+    <div class="list" id="list"></div>
+  </aside>
+
+  <main class="detail" id="detail">
+    <div class="empty">
+      <div class="k">♟</div>
+      <div>Select a feature to inspect its label and the<br>positions where it fires most strongly.</div>
+    </div>
+  </main>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<div class="drawer" id="drawer"><div class="dr-in" id="drin"></div><button class="dr-close" id="drclose">×</button></div>
+
+<script>
+const GLYPH={K:'♚',Q:'♛',R:'♜',B:'♝',N:'♞',P:'♟',k:'♚',q:'♛',r:'♜',b:'♝',n:'♞',p:'♟'};
+let DATA={}, IDS=[], sel=null;
+
+function parseFEN(fen){
+  const rows=fen.split(' ')[0].split('/');const b=[];
+  for(const r of rows){const row=[];for(const c of r){if(/\d/.test(c)){for(let i=0;i<+c;i++)row.push(null)}else row.push(c)}b.push(row)}
+  return b;
+}
+function sqIdx(uci){ // returns {fromR,fromF,toR,toF} in top-origin coords
+  if(!uci||uci.length<4)return null;
+  const ff=uci.charCodeAt(0)-97, fr=+uci[1], tf=uci.charCodeAt(2)-97, tr=+uci[3];
+  return {fromR:8-fr,fromF:ff,toR:8-tr,toF:tf};
+}
+function renderBoard(fen,uci,big){
+  const b=parseFEN(fen),hl=sqIdx(uci);
+  let h=`<div class="board${big?' lg':''}">`;
+  for(let r=0;r<8;r++)for(let f=0;f<8;f++){
+    const light=(r+f)%2===0, pc=b[r][f];
+    let cls='sq '+(light?'l':'d');
+    if(hl){if(hl.fromR===r&&hl.fromF===f)cls+=' from';if(hl.toR===r&&hl.toF===f)cls+=' to'}
+    let g='';
+    if(pc){const w=pc===pc.toUpperCase();g=`<span class="pc ${w?'w':'b'}">${GLYPH[pc]}</span>`}
+    h+=`<div class="${cls}">${g}</div>`;
+  }
+  return h+'</div>';
+}
+// eval parsing: "+256","-40","#-2","#3"  (white-relative)
+function evalNum(s){
+  if(s==null)return 0; s=String(s).trim();
+  if(s[0]==='#'){const m=+s.slice(1);return (m>=0?1:-1)*(10000-Math.abs(m)*10)}
+  return +s||0;
+}
+function evalFmt(s){
+  if(s==null)return '—'; s=String(s).trim();
+  if(s[0]==='#')return 'M'+s.slice(1).replace('-','−');
+  const n=+s; if(isNaN(n))return s;
+  return (n>0?'+':n<0?'−':'')+Math.abs(n/100).toFixed(1);
+}
+function evalColor(s){const n=evalNum(s);return n>150?'var(--sage)':n<-150?'var(--terra)':'var(--cream-dim)'}
+
+function catColor(cat){
+  cat=(cat||'').toLowerCase();
+  if(cat.includes('tactic')||cat.includes('calcul'))return 'var(--terra)';
+  if(cat.includes('tempo')||cat.includes('initiative')||cat.includes('develop'))return 'var(--brass)';
+  if(cat.includes('king')||cat.includes('safety')||cat.includes('mate'))return 'var(--steel)';
+  if(cat.includes('endgame')||cat.includes('pawn')||cat.includes('promotion'))return 'var(--sage)';
+  return 'var(--muted)';
+}
+
+function buildFilters(){
+  const cats={};
+  IDS.forEach(id=>{const c=(DATA[id].categories||[])[0];if(c)cats[c]=(cats[c]||0)+1});
+  const sorted=Object.entries(cats).sort((a,b)=>b[1]-a[1]);
+  const sel=document.getElementById('cat');
+  sorted.forEach(([c,n])=>{const o=document.createElement('option');o.value=c;o.textContent=`${c} (${n})`;sel.appendChild(o)});
+}
+function filtered(){
+  const q=document.getElementById('q').value.toLowerCase().trim();
+  const cat=document.getElementById('cat').value;
+  const minc=+document.getElementById('conf').value;
+  const sort=document.getElementById('sort').value;
+  let arr=IDS.filter(id=>{
+    const f=DATA[id];
+    if(f.confidence<minc)return false;
+    if(cat&&(f.categories||[])[0]!==cat)return false;
+    if(q){
+      const hay=(f.chip+' '+f.label+' '+f.description+' '+(f.categories||[]).join(' ')+' '+f.why_bad).toLowerCase();
+      if(!hay.includes(q))return false;
+    }
+    return true;
+  });
+  arr.sort((a,b)=>{
+    if(sort==='conf')return DATA[b].confidence-DATA[a].confidence||DATA[b].fire_rate-DATA[a].fire_rate;
+    if(sort==='confa')return DATA[a].confidence-DATA[b].confidence;
+    if(sort==='fire')return DATA[b].fire_rate-DATA[a].fire_rate;
+    return (+a)-(+b);
+  });
+  return arr;
+}
+function renderList(){
+  const arr=filtered();
+  document.getElementById('cnt').textContent=arr.length;
+  const L=document.getElementById('list');L.innerHTML='';
+  arr.slice(0,400).forEach((id,i)=>{
+    const f=DATA[id];const cat=(f.categories||[])[0]||'—';
+    const d=document.createElement('div');
+    d.className='fcard'+(id===sel?' active':'');
+    d.style.animationDelay=Math.min(i*8,300)+'ms';
+    d.innerHTML=`<div class="top"><span class="chip">${esc(f.chip)}</span></div>
+      <div class="meta"><span class="fid">f${id}</span>
+      <span class="dot" style="background:${catColor(cat)}"></span>
+      <span class="cat">${esc(cat)}</span>
+      <span class="cnum" style="color:${f.confidence>=70?'var(--brass)':f.confidence<40?'var(--terra)':'var(--cream-dim)'}">${f.confidence}</span></div>`;
+    d.onclick=()=>selectFeature(id);
+    L.appendChild(d);
+  });
+  if(arr.length>400){const m=document.createElement('div');m.className='count';m.style.padding='12px';m.innerHTML=`+${arr.length-400} more — refine filters`;L.appendChild(m)}
+}
+function esc(s){return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+
+function bars(dist,n){
+  const items=Object.entries(dist||{}).sort((a,b)=>b[1]-a[1]).slice(0,n);
+  if(!items.length) return '<span style="color:var(--faint);font-size:11px">—</span>';
+  return items.map(([k,v])=>`<div class="bar-row"><span class="bn">${esc(k)}</span>
+    <div class="bt"><div class="bf" style="width:${Math.round(v*100)}%"></div></div>
+    <span class="bv">${Math.round(v*100)}%</span></div>`).join('');
+}
+function renderStats(f){
+  const s=f.stats||{}; if(!s.n_activating) return '';
+  const traj=[
+    s.traj_threw_winning_pct>0.05?`Threw winning <b style="color:var(--terra)">${Math.round(s.traj_threw_winning_pct*100)}%</b>`:null,
+    s.traj_already_losing_pct>0.05?`Already losing <b>${Math.round(s.traj_already_losing_pct*100)}%</b>`:null,
+    s.traj_made_worse_pct>0.05?`Made worse <b>${Math.round(s.traj_made_worse_pct*100)}%</b>`:null,
+  ].filter(Boolean).join(' · ')||'mixed';
+  const mh=Object.entries(s.motif_hist||{}).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([m,c])=>`${m.replace(/_/g,' ')} (${c})`).join(', ')||'—';
+  return `<div class="stats-panel">
+    <h3>Objective stats · top-100 activations · ${s.motif_coverage_pct?Math.round(s.motif_coverage_pct*100)+'% opus coverage':'no opus coverage'}</h3>
+    <div class="stats-grid">
+      <div class="stat-block"><div class="sl">Blunder piece</div>${bars(s.piece_type_pct,4)}</div>
+      <div class="stat-block"><div class="sl">Best-move piece</div>${bars(s.best_move_piece_pct,4)}</div>
+      <div class="stat-block"><div class="sl">Piece left hanging</div>${bars(s.piece_left_hanging_pct,4)}</div>
+      <div class="stat-block"><div class="sl">Capture / Check</div><div class="sv">cap ${Math.round((s.is_capture_pct||0)*100)}% · chk ${Math.round((s.is_check_pct||0)*100)}%</div>
+        <div class="sl" style="margin-top:9px">Best is capture</div><div class="sv">${Math.round((s.best_move_is_capture_pct||0)*100)}%</div></div>
+      <div class="stat-block"><div class="sl">Side</div><div class="sv">W ${Math.round((s.side_white_pct||0)*100)}% · B ${Math.round((1-(s.side_white_pct||0))*100)}%</div>
+        <div class="sl" style="margin-top:9px">cp loss p50/p90</div><div class="sv">${s.cp_loss_p50??'—'} / ${s.cp_loss_p90??'—'}</div></div>
+      <div class="stat-block"><div class="sl">Eval trajectory</div><div class="sv" style="font-size:11px;line-height:1.6">${traj}</div>
+        <div class="sl" style="margin-top:9px">Phase</div><div class="sv" style="font-size:11px">${Object.entries(s.phase_hist||{}).map(([p,c])=>`${p.slice(0,3)} ${c}`).join(' · ')||'—'}</div></div>
+      <div class="stat-block"><div class="sl">Top motifs (opus join)</div><div class="sv" style="font-size:11px;line-height:1.5">${mh}</div></div>
+    </div>
+  </div>`;
+}
+
+function selectFeature(id){
+  sel=id;renderList();
+  const f=DATA[id];
+  const conf=f.confidence,circ=2*Math.PI*46,off=circ*(1-conf/100);
+  const ringColor=conf>=70?'var(--brass)':conf>=40?'var(--steel)':'var(--terra)';
+  const cats=(f.categories||[]).map((c,i)=>`<span class="tag${i===0?' lead':''}">${esc(c)}</span>`).join('');
+  const subs=(f.sub_patterns||[]).filter(Boolean).map(s=>`<div class="si">${esc(s)}</div>`).join('');
+  let boards='';
+  (f.boards||[]).forEach((b,i)=>{
+    boards+=`<div class="bcard" onclick="openBoard('${id}',${i})" style="animation-delay:${Math.min(i*25,250)}ms">
+      <div class="brank"><span class="ix">#${i+1}</span><span class="act">act ${(b.act||0).toFixed(2)}</span></div>
+      ${renderBoard(b.fen,b.uci,false)}
+      <div class="bmeta">
+        <div class="bmove"><span class="pl">${esc(b.san||b.uci)}</span><span class="arrow">vs</span><span class="bs">${esc(b.best_san||'?')}</span></div>
+        <div class="swing">
+          <span class="ev b">${evalFmt(b.eval_before)}</span>
+          <span class="track"></span>
+          <span class="ev a" style="color:${evalColor(b.eval_after)}">${evalFmt(b.eval_after)}</span>
+        </div>
+        <div class="bphase">${esc(b.phase||'')} · <span class="mtf">${esc(b.motif||'')}</span></div>
+      </div>
+    </div>`;
+  });
+  document.getElementById('detail').innerHTML=`<div class="dwrap">
+    <div class="fhead">
+      <div>
+        <div class="eyebrow">Feature ${id} · fires on ${(f.fire_rate*100).toFixed(2)}% of blunders</div>
+        <h1>${esc(f.chip)}</h1>
+        <div class="label">${esc(f.label)}</div>
+        <div class="cats">${cats}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="ring">
+          <svg width="104" height="104"><circle cx="52" cy="52" r="46" stroke="var(--line)" stroke-width="7" fill="none"/>
+          <circle cx="52" cy="52" r="46" stroke="${ringColor}" stroke-width="7" fill="none" stroke-linecap="round"
+            stroke-dasharray="${circ}" stroke-dashoffset="${off}" style="transition:stroke-dashoffset .6s"/></svg>
+          <div class="ct"><div class="n">${conf}</div><div class="l">confidence</div></div>
+        </div>
+      </div>
+    </div>
+    ${renderStats(f)}
+    <div class="analysis-grid">
+      <div class="acard"><h3>Why it's a mistake</h3><p>${esc(f.why_bad)}</p></div>
+      <div class="acard"><h3>Move pattern</h3><p class="pat">${esc(f.move_pattern)}</p></div>
+      <div class="acard full"><h3>Full description</h3><p>${esc(f.description)}</p></div>
+      ${subs?`<div class="acard full"><h3>Sub-patterns</h3><div class="subs">${subs}</div></div>`:''}
+    </div>
+    <div class="section-h">Top activating positions <span class="sub">click a board for Stockfish trajectory + Opus analysis</span></div>
+    <div class="boards">${boards}</div>
+  </div>`;
+  document.getElementById('detail').scrollTop=0;
+}
+
+function openBoard(id,i){
+  const b=DATA[id].boards[i];
+  const before=evalNum(b.eval_before),after=evalNum(b.eval_after);
+  // mistake severity from the moving side's perspective
+  const side=b.side==='White'?1:-1;
+  const lossForSide=(before-after)*side; // positive = got worse for the player
+  let verdict,vcol,vbg;
+  const wasLosing=before*side<-150, wasWinning=before*side>150;
+  if(wasLosing){verdict='Already worse — and made it worse';vcol='var(--terra)';vbg='rgba(200,96,76,.13)';}
+  else if(wasWinning&&after*side<150){verdict='Threw away a winning position';vcol='var(--terra)';vbg='rgba(200,96,76,.13)';}
+  else if(lossForSide>300){verdict='Decisive blunder from a level game';vcol='var(--terra)';vbg='rgba(200,96,76,.13)';}
+  else{verdict='Costly inaccuracy';vcol='var(--brass)';vbg='rgba(217,164,65,.1)';}
+  const cclink='https://www.chess.com/analysis?fen='+encodeURIComponent(b.fen)+'&tab=analysis';
+  const bl=(b.best_lines||[]).filter(Boolean).map(l=>`${esc(l)}`).join('<br>');
+  const rl=(b.refut_lines||[]).filter(Boolean).map(l=>`${esc(l)}`).join('<br>');
+  document.getElementById('drin').innerHTML=`
+    <div class="dr-eyebrow">f${id} · position #${i+1} · activation ${(b.act||0).toFixed(3)}</div>
+    <div class="dr-board">${renderBoard(b.fen,b.uci,true)}</div>
+    <div class="dr-moves"><span class="played">● ${esc(b.san||b.uci)} <small style="color:var(--faint)">played</small></span>
+      <span class="best">● ${esc(b.best_san||'?')} <small style="color:var(--faint)">best</small></span></div>
+    <div class="dr-trajectory">
+      <div class="row">
+        <div class="evbox"><div class="v" style="color:var(--cream-dim)">${evalFmt(b.eval_before)}</div><div class="l">before</div></div>
+        <div class="evarrow">→</div>
+        <div class="evbox"><div class="v" style="color:${evalColor(b.eval_after)}">${evalFmt(b.eval_after)}</div><div class="l">after ${esc(b.san||'')}</div></div>
+      </div>
+      <div class="swing-verdict" style="color:${vcol};background:${vbg}">${verdict}</div>
+      <div class="kvs"><span class="kv">side <b>${esc(b.side||'?')}</b></span><span class="kv">phase <b>${esc(b.phase||'?')}</b></span>
+        <span class="kv">cp loss <b>${b.cp_loss??'?'}</b></span><span class="kv">good moves <b>${b.n_good??'?'}</b></span>
+        <span class="kv">motif <b>${esc(b.motif||'?')}</b></span></div>
+    </div>
+    ${b.pos_desc?`<div class="dr-sec"><h4>Position</h4><p>${esc(b.pos_desc)}</p></div>`:''}
+    ${b.blunder_summary?`<div class="dr-sec"><h4>The mistake</h4><p>${esc(b.blunder_summary)}</p></div>`:''}
+    ${bl?`<div class="dr-sec"><h4>Best lines</h4><div class="lines">${bl}</div></div>`:''}
+    ${b.best_analysis?`<div class="dr-sec"><h4>Why they're best</h4><p>${esc(b.best_analysis)}</p></div>`:''}
+    ${rl?`<div class="dr-sec"><h4>Refutations of ${esc(b.san||'the move')}</h4><div class="lines refut">${rl}</div></div>`:''}
+    ${b.refut_analysis?`<div class="dr-sec"><h4>How it's punished</h4><p>${esc(b.refut_analysis)}</p></div>`:''}
+    <a class="cclink" href="${cclink}" target="_blank">Open on chess.com ↗</a>`;
+  document.getElementById('drawer').classList.add('on');
+  document.getElementById('scrim').classList.add('on');
+}
+function closeDrawer(){document.getElementById('drawer').classList.remove('on');document.getElementById('scrim').classList.remove('on')}
+
+['q','sort','cat','conf'].forEach(id=>document.getElementById(id).addEventListener('input',()=>{
+  if(id==='conf')document.getElementById('cval').textContent=document.getElementById('conf').value;
+  renderList();
+}));
+document.getElementById('drclose').onclick=closeDrawer;
+document.getElementById('scrim').onclick=closeDrawer;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer()});
+
+fetch('btk_explorer_k16_v2.json').then(r=>r.json()).then(d=>{
+  DATA=d;IDS=Object.keys(d);
+  const confs=IDS.map(i=>d[i].confidence).sort((a,b)=>a-b);
+  const med=confs[Math.floor(confs.length/2)];
+  const high=IDS.filter(i=>d[i].confidence>=70).length;
+  document.getElementById('st-n').textContent=IDS.length;
+  document.getElementById('st-conf').textContent=med;
+  document.getElementById('st-high').textContent=Math.round(100*high/IDS.length)+'%';
+  buildFilters();renderList();
+  document.getElementById('loading').style.display='none';
+}).catch(e=>{
+  document.getElementById('loading').innerHTML='<div class="txt" style="color:var(--terra)">Could not load data.<br><br>Serve this folder over http:<br><code style="color:var(--brass)">python3 -m http.server</code><br>then open <code style="color:var(--brass)">localhost:8000/l7only_atlas.html</code></div>';
+});
+</script>
+</body>
+</html>
