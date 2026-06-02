@@ -12,7 +12,7 @@ Usage (on chess-poc):
 """
 import argparse, json, time, boto3, sys
 from botocore.config import Config
-from botocore.exceptions import ClientError
+from botocore.exceptions import ClientError, ReadTimeoutError
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 MODEL_ID = "us.anthropic.claude-opus-4-6-v1"
@@ -98,6 +98,9 @@ def process_one(item):
             parsed = parse_json_response(raw)
             return (key, {"analysis": parsed, "time_s": round(time.time()-t0, 1)}
                     if parsed else {"error": "parse_failed", "raw": raw[:300]})
+        except ReadTimeoutError:
+            stats["throttles"] += 1
+            time.sleep(2 ** (attempt+1))
         except ClientError as e:
             if e.response["Error"]["Code"] == "ThrottlingException":
                 stats["throttles"] += 1
