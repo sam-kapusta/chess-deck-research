@@ -142,3 +142,42 @@ discard features that are flat (f1487-type).
 Method lesson: NEVER characterize a high-fire SAE feature by its top-N examples. Measure the
 property-rate across the full activation distribution. Top-N of a noise feature can look as clean
 as top-N of a real one.
+
+## MAJOR CORRECTION (2026-06-02): coherence probe was one-sided — measured blunder, not best move
+
+The diff the SAE trains on is `L7[after best move] − L7[after blunder]`. A feature can be
+coherent because its positions share a **best-move** pattern, a **blunder-move** pattern, or both.
+All my coherence probes (motif-join, piece-hang, SEE) only measured the BLUNDER move. Sam: "you're
+not capturing both, it's a bad crude proxy."
+
+Rebuilt the probe to measure BOTH moves' signatures (`dual_coherence.py`), real SEE for hangs,
+maia_best (100% dedup-cache coverage) for the best move. Of 1322 candidate features (fire 0.2-15%),
+at ≥60% concentration:
+
+| coherent on | count |
+|-------------|-------|
+| blunder-axis only (what I measured all night) | 184 |
+| **best-move-axis only (probe was BLIND to these)** | **458** |
+| both axes | 71 |
+| neither | 609 |
+
+**713 of 1322 (54%) are coherent — and the dominant axis is the BEST move, not the blunder.**
+2.5× more features organize around "what Maia would have played" than "what the player did."
+
+Examples of best-move-axis features (previously called "noise"):
+- f7: best move always a queen capture (Qx 100%) → "missed a queen capture"
+- f2/f15/f35: best move a rook move or check (100%) → "missed a checking/rook resource"
+- f0/f16: best move quiet pawn (cap- chk- 100%) → "right move was quiet, you played something flashy"
+
+These are the **offensive-miss / "you missed a good move"** mistakes — first-class coaching
+categories. The blunder move shows "nothing hangs" because the mistake is failure-to-act, not
+losing material. A blunder-move probe structurally cannot see them.
+
+**FINAL VERDICT (supersedes all earlier pessimism):** The SAE is NOT mostly noise. ~54% of
+candidate features cleanly encode a move pattern. The investigation kept concluding "noise"
+because every probe measured only the blunder move. Labeling must describe BOTH what was played
+AND what was missed (the best move). The z-score-only k=16 model has these 713 coherent features.
+
+Method lesson (the big one): when a feature is defined on a DIFFERENCE of two things, the
+coherence probe must measure both sides of the difference. Measuring one side and concluding
+"incoherent" is a guaranteed false negative — it cost most of this session.

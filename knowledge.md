@@ -36,7 +36,15 @@ These fire on 6-8 of the 10 test positions and outrank the SPECIFIC, correctly-l
 
 **Two problems:** (1) Opus mislabels high-frequency features with specific names — a 33%-corpus feature can't be "Queen Hanging to Bishop." (2) Ranking by raw activation surfaces blobs over specific features.
 
-**Fix (validated on all 10 test positions): hide features with corpus fire-rate >10% before ranking.** Every position retains a good specific feature; nothing collapses. This is a display/ranking fix, not a retrain. TF-IDF-style specificity weighting was tried but overshoots into <0.5% noise features — a hard ceiling is cleaner. Connects to Jonathan's "interpretable band" (his paper: 0.1-1%).
+**Fix (first pass): hide features with corpus fire-rate >10% before ranking.** Surfaces specific features for ranking. BUT see correction below — this was too blunt.
+
+**CORRECTION (2026-06-02, after Sam flagged "33% can't be hung queens"):** The blobs are NOT uniform, and characterizing them by top-60 positions is WRONG (a 33%-fire feature hits 55k positions; top-60 is the unrepresentative tip). Measured Q/R-hang rate across activation bands instead:
+- **f101 = graded-real:** "high-value piece hangs" at 75% in top-2% activation, decaying to 10% (base rate) at threshold. Real concept, but ONLY meaningful at high activation. The magnitude IS the confidence.
+- **f1487 = flat-noise:** ~11% hang rate at EVERY activation band including top-2%. Highest-firing feature (44%) and carries zero signal. Discard.
+
+**Right fix: per-feature high-activation gating + flat-noise detection, NOT global fire-rate filter and NOT lower k.** Lower k (the k-sweep "k=8" rec) would kill graded-real features like f101 along with noise. Keep features whose high-activation band is coherent; gate each at the activation where concept-rate exceeds base rate; discard flat features. See `output/blob_experiments_report.md` for full curves. **Method lesson: never characterize a high-fire SAE feature by top-N — measure property-rate across the full activation distribution.**
+
+The k-sweep + corpus-sweep experiments (`blob_experiments_report.md`): blob *count* is monotonic in k (12→89 across k8→k32) and weakly affected by corpus size. But "blob count" conflates graded-real and flat-noise features, so minimizing it isn't the right objective — coherence-at-high-activation is.
 
 **Labeling improvement for next pass:** feed Opus the fire rate; instruct "if >20% of corpus, label as COARSE pattern, not specific." See [[reference-personas-sae-pipeline]].
 
@@ -390,3 +398,22 @@ isn't captured by any single square's activation or their mean.
 - Forward: `model(tokens, self_elos, oppo_elos)` where tokens=[B,64,97] from
   `ds.get_historical_tokens([tok]*8, cfg, 0,0,0,0)` with `tok=ds.tokenize_board(board)`
 - Hook last layer: `model.transformer.layers[-1].register_forward_hook(...)`
+
+### MAJOR CORRECTION (2026-06-02): coherence must measure BOTH moves of the diff
+
+The SAE diff = `L7[after maia-best] − L7[after blunder]`. Features can cohere on the best-move
+side, the blunder side, or both. Every coherence probe I ran (motif-join, piece-hang, SEE) only
+looked at the BLUNDER move → systematically called best-move-coherent features "noise."
+
+Dual-axis probe (`dual_coherence.py`, real SEE + maia_best): of 1322 candidate features,
+184 cohere on blunder-axis only, **458 on best-move-axis only**, 71 both, 609 neither.
+**713/1322 (54%) coherent — best-move axis has 2.5× more than blunder.** The best-move features
+are the "you missed a good move" mistakes (missed capture/check/quiet-correction) — first-class
+coaching categories invisible to a blunder-only probe.
+
+This SUPERSEDES the blob-pessimism above. The SAE is not mostly noise. Labeling must describe
+both what was played and what Maia would have played. Use z-score-only k=16 (btk_2048_k16_nol2.pt)
+— same blob behavior as L2 but ~2× more useful features (magnitude preserved).
+
+**Method law:** a coherence probe on a feature defined over a DIFFERENCE must measure both sides.
+One-sided probing = guaranteed false negatives. This blind spot cost most of the 2026-06-01/02 session.
