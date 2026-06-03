@@ -94,33 +94,37 @@ for i in range(0, N, 8192):
 fire = (ACT > 0).mean(0); live = np.where(fire > 0)[0]
 print(f"{a.model}: {len(live)} live, computing SEE-both over top-{a.statn} each", flush=True)
 
-# gather all (feature, position) work, dedup positions across features for SEE caching
-feat_idx = {}
-allpos = {}
+# PER-FEATURE NORMALIZED COHORTS: characterize each feature on positions where it fires
+# at >= frac of ITS OWN max activation. A feature is monosemantic at its peak and noisy in
+# its tail (the global threshold / top-N over-weights weak activations and dilutes the signature).
+# We compute two cohorts: CORE (>=0.7 max, stable %s) and PEAK (>=0.85 max, pure signature).
+CORE_FRAC = 0.7; PEAK_FRAC = 0.85; CAP = 1500  # cap positions per feature for SEE compute
+feat_idx = {}; feat_maxact = {}; allpos = {}
 for f in live:
-    order = np.argsort(-ACT[:, f])
-    n = min(a.statn, int((ACT[:, f] > 0).sum()))
-    idxs = order[:n]
-    feat_idx[int(f)] = idxs
-    for i in idxs:
-        allpos[int(i)] = None
+    col = ACT[:, f]; mx = col.max()
+    feat_maxact[int(f)] = float(mx)
+    sel = np.where(col >= CORE_FRAC * mx)[0]           # core cohort (superset of peak)
+    if len(sel) > CAP:                                  # if huge, keep the strongest CAP
+        sel = sel[np.argsort(-col[sel])[:CAP]]
+    feat_idx[int(f)] = sel
+    for i in sel: allpos[int(i)] = None
 keys = list(allpos.keys())
-print(f"unique positions to SEE: {len(keys)}", flush=True)
+print(f"unique positions to SEE: {len(keys)} (core cohort >= {CORE_FRAC}*max per feature)", flush=True)
 args = [(meta[i]['fen'], meta[i]['blunder_uci'], meta[i].get('best_uci','')) for i in keys]
 with Pool(16) as p:
     res = p.map(see_one, args, chunksize=256)
 posstat = {keys[j]: res[j] for j in range(len(keys)) if res[j] is not None}
+med = lambda L: float(sorted(L)[len(L)//2]) if L else 0
 
-out = {}
-for f, idxs in feat_idx.items():
-    rs = [posstat[int(i)] for i in idxs if int(i) in posstat]
+def signature(rs):
+    """Compute the full SEE signature dict over a list of per-position records."""
     n = len(rs)
-    if n == 0: continue
+    if n == 0: return None
     bw = [r['best_win'] for r in rs]; ow = [r['own_hang'] for r in rs]
     pc = Counter(r['own_piece'] for r in rs if r['own_hang'] > 0)
-    med = lambda L: float(sorted(L)[len(L)//2]) if L else 0
-    out[f"f{f}"] = {
-        'n': n, 'fire_rate': round(float(fire[f]), 4),
+    dist = lambda key: {k: round(v/n, 3) for k, v in Counter(r[key] for r in rs).most_common()}
+    return {
+        'n': n,
         'best_wins_material_pct': round(sum(v > 0 for v in bw)/n, 3),
         'best_wins_median': med([v for v in bw if v > 0]),
         'played_capture_pct': round(sum(r['played_cap'] for r in rs)/n, 3),
@@ -129,13 +133,28 @@ for f, idxs in feat_idx.items():
         'own_hang_piece_dist': dict(pc.most_common()),
         'best_is_check_pct': round(sum(r['best_check'] for r in rs)/n, 3),
         'best_is_capture_pct': round(sum(r['best_cap'] for r in rs)/n, 3),
-        # DESCRIPTIVE distributions over the top-N (as % of n) — "95% queen move, 50% capture, ..."
-        'moved_piece_pct': {k: round(v/n, 3) for k, v in Counter(r['moved_piece'] for r in rs).most_common()},
-        'captured_piece_pct': {k: round(v/n, 3) for k, v in Counter(r['captured_piece'] for r in rs).most_common()},
-        'best_piece_pct': {k: round(v/n, 3) for k, v in Counter(r['best_piece'] for r in rs).most_common()},
-        'best_captured_piece_pct': {k: round(v/n, 3) for k, v in Counter(r['best_captured_piece'] for r in rs).most_common()},
+        'moved_piece_pct': dist('moved_piece'),
+        'captured_piece_pct': dist('captured_piece'),
+        'best_piece_pct': dist('best_piece'),
+        'best_captured_piece_pct': dist('best_captured_piece'),
         'played_is_check_pct': round(sum(r['played_check'] for r in rs)/n, 3),
-        'phase_pct': {k: round(v/n, 3) for k, v in Counter(r['phase'] for r in rs).most_common()},
+        'phase_pct': dist('phase'),
     }
+
+out = {}
+for f, idxs in feat_idx.items():
+    mx = feat_maxact[f]
+    core_rs = [posstat[int(i)] for i in idxs if int(i) in posstat]
+    peak_rs = [posstat[int(i)] for i in idxs if int(i) in posstat and ACT[int(i), f] >= PEAK_FRAC * mx]
+    core = signature(core_rs)
+    if core is None: continue
+    rec = dict(core)                                    # top-level = CORE (>=0.7) for back-compat
+    rec['fire_rate'] = round(float(fire[f]), 4)
+    rec['max_act'] = round(mx, 3)
+    rec['cohort'] = f'>={CORE_FRAC}max'
+    rec['peak'] = signature(peak_rs)                    # nested PEAK (>=0.85) signature
+    out[f"f{f}"] = rec
 json.dump(out, open(a.out, 'w'), indent=1)
-print(f"wrote {a.out} ({len(out)} features, top-{a.statn} SEE stats)", flush=True)
+ncore = np.mean([v['n'] for v in out.values()])
+npeak = np.mean([v['peak']['n'] for v in out.values() if v.get('peak')])
+print(f"wrote {a.out} ({len(out)} features) | mean core n={ncore:.0f}, peak n={npeak:.0f}", flush=True)
