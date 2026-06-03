@@ -49,16 +49,25 @@ def see_one(args):
         b = chess.Board(fen); mover = b.turn
         bm = chess.Move.from_uci(bl)
         r = {'played_cap': b.is_capture(bm)}
-        best_win = 0; best_check = False; best_cap = False
+        # DESCRIPTIVE distributions (what the player did), not just composite metrics:
+        mpc = b.piece_at(bm.from_square)
+        r['moved_piece'] = PIECE.get(mpc.piece_type) if mpc else 'none'   # which piece the player moved
+        if b.is_capture(bm):
+            tp = b.piece_at(bm.to_square)
+            r['captured_piece'] = PIECE.get(tp.piece_type) if tp else 'pawn'  # en passant -> pawn
+        else:
+            r['captured_piece'] = 'none'
+        best_win = 0; best_check = False; best_cap = False; best_piece = 'none'
         if bu and len(bu) >= 4:
             mv = chess.Move.from_uci(bu); best_check = b.gives_check(mv); best_cap = b.is_capture(mv)
+            bp = b.piece_at(mv.from_square); best_piece = PIECE.get(bp.piece_type) if bp else 'none'
             if best_cap:
                 tgt = mv.to_square; cap = b.piece_at(tgt)
                 cv = VAL.get(cap.piece_type, 1) if cap else 1
                 bb = b.copy(); bb.push(mv); best_win = max(0, cv - see(bb, tgt, not mover))
             else:
                 bb = b.copy(); bb.push(mv); best_win, _ = worst_hang(bb, not mover)  # enemy hangs after our best
-        r['best_win'] = best_win; r['best_check'] = best_check; r['best_cap'] = best_cap
+        r['best_win'] = best_win; r['best_check'] = best_check; r['best_cap'] = best_cap; r['best_piece'] = best_piece
         bb = b.copy(); bb.push(bm); w, wp = worst_hang(bb, mover)
         r['own_hang'] = w; r['own_piece'] = cls(wp) if wp else 'none'
         return r
@@ -116,6 +125,10 @@ for f, idxs in feat_idx.items():
         'own_hang_piece_dist': dict(pc.most_common()),
         'best_is_check_pct': round(sum(r['best_check'] for r in rs)/n, 3),
         'best_is_capture_pct': round(sum(r['best_cap'] for r in rs)/n, 3),
+        # DESCRIPTIVE distributions over the top-N (as % of n) — "95% queen move, 50% capture, ..."
+        'moved_piece_pct': {k: round(v/n, 3) for k, v in Counter(r['moved_piece'] for r in rs).most_common()},
+        'captured_piece_pct': {k: round(v/n, 3) for k, v in Counter(r['captured_piece'] for r in rs).most_common()},
+        'best_piece_pct': {k: round(v/n, 3) for k, v in Counter(r['best_piece'] for r in rs).most_common()},
     }
 json.dump(out, open(a.out, 'w'), indent=1)
 print(f"wrote {a.out} ({len(out)} features, top-{a.statn} SEE stats)", flush=True)
