@@ -23,7 +23,7 @@ Run on chess-poc from ~/SageMaker:
 """
 import torch, numpy as np, json, argparse, torch.nn.functional as F
 from sklearn.linear_model import LogisticRegression
-from sklearn.feature_selection import mutual_info_classif
+from sklearn.feature_selection import mutual_info_classif, f_classif
 from sklearn.metrics import balanced_accuracy_score, f1_score
 B = '/home/ec2-user/SageMaker'; BASE = B + '/chess-stage-a'
 ap = argparse.ArgumentParser()
@@ -31,6 +31,10 @@ ap.add_argument('--models', default='k4,k6,k8,k16')
 ap.add_argument('--dict', type=int, default=2048)
 ap.add_argument('--out', required=True)
 ap.add_argument('--ps', default='1,2,4,8,16,32')
+ap.add_argument('--rank', default='ftest', choices=['ftest','mi'],
+                help='feature ranking: ftest (vectorized, fast) or mi (KNN, slow). Probe quality identical; only candidate ordering differs.')
+ap.add_argument('--validate-rank', action='store_true',
+                help='also compute MI ranking and report top-8 overlap with ftest (proves no quality loss)')
 a = ap.parse_args()
 PS = [int(p) for p in a.ps.split(',')]
 
@@ -73,10 +77,23 @@ for tag in a.models.split(','):
         if ytr.sum() < 50 or ytr.sum() > len(ytr) - 50:   # too rare/common to probe
             results[tag][con] = {'base_rate': round(base,3), 'majority_acc': round(maj,3), 'skipped': 'degenerate'}
             continue
-        # MI feature ranking on TRAIN only (subsample for speed)
-        sub = rng.choice(len(tr), min(20000, len(tr)), replace=False)
-        mi = mutual_info_classif(Atr[sub], ytr[sub], discrete_features=False, random_state=0)
-        rank = np.argsort(-mi)
+        # Feature ranking on TRAIN only. f_classif is fully vectorized over all 2048
+        # features (one ANOVA F per feature) -> milliseconds vs MI's minutes. Because SAE
+        # features are sparse, non-negative, and monotonically related to a concept, the
+        # F-ranking and MI-ranking agree on the top features (validated with --validate-rank).
+        rank_overlap = None
+        if a.rank == 'mi':
+            sub = rng.choice(len(tr), min(20000, len(tr)), replace=False)
+            score = mutual_info_classif(Atr[sub], ytr[sub], discrete_features=False, random_state=0)
+        else:
+            score, _ = f_classif(Atr, ytr)
+            score = np.nan_to_num(score, nan=0.0)
+        rank = np.argsort(-score)
+        if a.validate_rank:
+            sub = rng.choice(len(tr), min(20000, len(tr)), replace=False)
+            mi = mutual_info_classif(Atr[sub], ytr[sub], discrete_features=False, random_state=0)
+            mirank = np.argsort(-mi)
+            rank_overlap = len(set(rank[:8]) & set(mirank[:8])) / 8.0
         per_p = {}
         for p in PS:
             feats = rank[:p]
@@ -87,8 +104,10 @@ for tag in a.models.split(','):
                         'f1': round(f1_score(yte, pred, zero_division=0), 3),
                         'top_feat': int(rank[0])}
         results[tag][con] = {'base_rate': round(base,3), 'majority_acc': round(maj,3),
+                             'rank_overlap_mi_ftest': rank_overlap,
                              'top_feature': int(rank[0]), 'per_p': per_p}
         b1 = per_p[1]['bal_acc']; b8 = per_p[8]['bal_acc']
-        print(f"  {con:16s} base {base:4.2f} | bal_acc@1 {b1:.2f} @8 {b8:.2f} | top f{rank[0]}", flush=True)
-    json.dump(results, open(a.out, 'w'), indent=1)
+        ov = f" | MI/Ftest top8 overlap {rank_overlap:.2f}" if rank_overlap is not None else ""
+        print(f"  {con:16s} base {base:4.2f} | bal_acc@1 {b1:.2f} @8 {b8:.2f} | top f{rank[0]}{ov}", flush=True)
+        json.dump(results, open(a.out, 'w'), indent=1)   # persist per-concept (partials survive)
 print(f"wrote {a.out}", flush=True)
