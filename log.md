@@ -627,3 +627,35 @@ before any Opus calls wasted. Enrichment (22.5k) kept — reusable across all mo
 Artifacts: `output/fused_names_k4_slim.json`, `output/eval/sparse_probe_results.json`;
 full versions S3 `sae/labels/fused_names_k4.json`, `sae/eval/sparse_probe_results.json`.
 Models `btk_2048_k{4,6,8,10,12,16,32}_nol2.pt` + `btk_1024_k{4,6,8}_nol2.pt` on notebook.
+
+---
+
+## 2026-06-03 — feature labeling method corrected (SEE-on-both-moves), d1024_k4 labeled
+
+**The pivot:** my `fuse_feature_names.py` (aggregate per-position SEE stats over top-10 → vote on a
+name) was the WRONG method. It fragments a concept and got DIRECTION backwards: f127 (Sam flagged)
+came out "hangs a piece; missed a capture" but is actually MISSED HANGING PIECE — best move wins a
+free enemy piece in 91% of its top-500, player played a non-capture. My own-hang metric (player's OWN
+piece after the blunder) is the noisy axis; I led with it and buried the real signal. Also: SEE can't
+see 2 moves ahead, so a check-that-then-wins (Be3+) read as "no enemy hang" — but Opus eyeballing the
+board just sees it.
+
+**Correct method (`label_features_see.py`):** Opus reads each feature's top-N boards HOLISTICALLY +
+is handed a SEE-on-both-moves aggregate over **top-500** (not top-10 — stats must be robust) as raw
+data. Aggregate = best_wins_material_pct (missed-winning) vs blunder_hangs_own_pct (hung-own) +
+piece-class dist + best_is_check/capture. Two-step: `compute_feature_see_stats.py` (top-500, 16-proc,
+106k unique positions) → `label_features_see.py` (Opus 4.6, 12 boards + aggregate, conc 20).
+
+**d1024_k4 labeled: 1020/1024**, 629 distinct chips, cleanly disambiguated:
+Missed Winning Check 35 · Missed Hanging Piece 26 · Hung Own Piece 25 · Greedy Capture Hangs Piece 20 ·
+Missed Hanging Queen 13 · Hung Own Queen/Major 20 · Missed Knight Fork 8. Opus names mechanisms SEE
+can't: f198 "Ignored Pawn Attacks Knight", f341 "Greedy Capture Allows Mate". f127 → "Missed Win, Hung
+Piece". Validated against the specific features Sam inspected.
+
+**Categorization direction (next task):** natural taxonomy = mechanism (SEE, objective: missed 218 /
+hung 108 / greedy-both 213 / other 481) × tactical motif (Opus: fork/pin/back-rank...). Piece+severity
+= filters. Bottom-up cluster the chips; do NOT reuse suspect taxonomy_v2 20-buckets.
+
+Artifacts: `output/feature_labels_see_d1024_k4.json`, `output/see_stats_d1024_k4.json` (git + S3
+sae/labels/). Method scripts: compute_feature_see_stats.py, label_features_see.py, render_feature_html.py.
+Superseded (kept): fuse_feature_names.py, heuristic_name_all.py.

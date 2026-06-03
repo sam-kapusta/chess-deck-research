@@ -36,21 +36,41 @@
 
 **Labeling pipeline built this session** (skill: `label-sae-features`):
 - `enrich_gap.py` (Stockfish) → `label_positions_btk.py` (Opus per-position motif/tags) →
-  `fuse_feature_names.py` (Opus motif + SEE facts → name). Enrichment cache 55k→77.8k.
-- k4 fully labeled + named: 1075/1097 named, 22 diffuse. Fork/back-rank/king-safety motifs
-  (Opus-only) + hang-piece specifics (SEE) reinforce well on CONCENTRATED features; blobs
-  (f1487/f1313/f1372) over-claim, correctly flagged.
-- Results: `output/fused_names_k4_slim.json`, `output/eval/sparse_probe_results.json`.
-  Full Opus-bearing `fused_names_k4.json` + probe → S3 `sae/labels/`, `sae/eval/`.
+  feature-level labeler. Enrichment cache 55k→77.8k. Opus position labels 48.6k→54.8k.
+
+**LABELING METHOD — corrected mid-session (this is the one that works):**
+- ❌ `fuse_feature_names.py` (per-position SEE-stat aggregation → name) was WRONG. It fragments the
+  concept across top-10 and got direction backwards: f127 came out "hangs a piece; missed a capture"
+  when it's actually MISSED HANGING PIECE (player ignored a free enemy piece). Per-position voting on
+  my own-hang metric buried the real signal. Kept in repo but superseded.
+- ✅ `label_features_see.py` is correct: **Opus reads each feature's top-N boards HOLISTICALLY**, and
+  is handed a **SEE-on-both-moves aggregate over top-500** as raw data. The aggregate disambiguates
+  direction: `best_wins_material_pct` (missed winning) vs `blunder_hangs_own_pct` (hung own). f127 →
+  91% best-wins-material → "Missed Win, Hung Piece". Two-step: `compute_feature_see_stats.py`
+  (top-500 SEE-both, 16-proc) → `label_features_see.py` (Opus 4.6, eyeballs 12 boards + aggregate).
+- **d1024_k4 fully labeled: 1020/1024**, 629 distinct chips. Clean disambiguation: Missed Hanging
+  Piece (26), Hung Own Piece (25), Missed Winning Check (35), Greedy Capture Hangs Piece (20),
+  Missed Knight Fork (8)... Opus names mechanisms SEE can't (f198 "Ignored Pawn Attacks Knight").
+- Results: `output/feature_labels_see_d1024_k4.json` + `output/see_stats_d1024_k4.json` (git);
+  also S3 `sae/labels/`. Sparse-probe `output/eval/sparse_probe_results.json`.
+
+**CATEGORIZATION (next real task) — natural taxonomy is 2-axis:**
+- PRIMARY = **mistake mechanism** (objective, from SEE stats, no LLM): Missed-winning (218 feats,
+  bestwins≥70 & ownhang<50), Hung-own (108, ownhang≥70 & bestwins<50), Both/greedy (213, both≥60),
+  Other/allowed (481 — need motif axis to organize).
+- SECONDARY = **tactical motif** (Opus): fork / pin / skewer / back-rank / hanging-piece / promotion.
+- Piece (queen/rook/minor/pawn) + severity = FILTERS, not categories.
+- Do BOTTOM-UP clustering of the 1020 SEE-grounded chips, then name clusters — do NOT force into the
+  old `taxonomy_v2.json` 20 buckets (suspect: top-down, unknown source model — see umbrella memory).
 
 **NEXT (in priority order):**
-1. **Label + name k6** (the leading model) via the pipeline — top-10 already mostly Opus-covered
-   from the union enrichment; run `fuse_feature_names.py --model k6`.
-2. **Feature-splitting metric** (lit review's #1 unrun fit) — quantify whether k16's extra
-   features are new concepts or fragments, against SEE concepts. The other non-monotone axis.
-3. Audit k6 names (skeptical reviewer vs top-10) like the k4 audit (was 31% clean-correct).
-4. Detection-score (auto-interp held-out) as the non-circular label-quality metric.
-5. Ship-vs-expand decision (1M Lichess corpus optional, for coverage not blob-fix).
+1. **Categorize the 1020 features** — mechanism×motif taxonomy (above). Bottom-up cluster the chips.
+2. **Label + name k6** (the leading model) via `label_features_see.py` — build k6 profiles +
+   `compute_feature_see_stats.py --model k6`, top-10 already Opus-covered from union enrichment.
+3. **Feature-splitting metric** (lit review's #1 unrun fit) — k16 extra features new vs fragments.
+4. Audit the SEE labels (skeptical reviewer vs top-10) — earlier fused-label audit was 31% clean.
+5. Detection-score (auto-interp held-out) as the non-circular label-quality metric.
+6. Ship-vs-expand decision (1M Lichess corpus optional, for coverage not blob-fix).
 
 **Experiment scripts added (git):** blob_metric[_norm].py, dual_coherence.py, dual_2x2.py,
 multiaxis[_lift].py, see_coherence.py, blob_activation_decay.py, make_subsamples.py, calibrate_threshold.py.

@@ -118,7 +118,9 @@ Regenerate via `--no-l2 --no-val-split --n-batches-to-dead 126 --seed 42` (args 
 | `output/taxonomy_v2/taxonomy_v2.json` | [git] | **Ship artifact:** 1,996 features → 20 coaching categories + chips. See knowledge.md § Taxonomy. |
 | `output/labels_matryoshka_v2_H1_top32.json` | [git] | 32 top-level v2 features labeled (conf 62–91). |
 | `all_positions_labeled_opus.json` | [notebook] | **54,763** Opus-4.6 per-position analyses (position_description, tactical_motif, tags, blunder_summary, refutation). Keyed `FEN\|move`. Shared across all SAE variants. Grows via `label_positions_btk.py`. |
-| `sae/labels/fused_names_k4.json` | [S3] | k4 fused feature names (Opus motif + SEE facts) + top-10 w/ full Opus analysis. 1075/1097 named. Slim (no top10) in git: `output/fused_names_k4_slim.json`. |
+| `sae/labels/fused_names_k4.json` / `fused_names_d1024_k4.json` | [S3] | k4 fused names (Opus motif + SEE facts). **SUPERSEDED method** (fragments concept, got f127 direction backwards). Slim in git: `output/fused_names_*_slim.json`. |
+| `sae/labels/feature_labels_see_d1024_k4.json` | [S3]+[git] | **CURRENT label method.** d1024_k4, 1020/1024 features. Opus reads top-12 boards holistically + top-500 SEE-on-both-moves aggregate as raw data. 629 distinct chips (Missed Hanging Piece, Hung Own Queen, Missed Knight Fork...). Produced by `label_features_see.py`. |
+| `sae/labels/see_stats_d1024_k4.json` | [S3]+[git] | Per-feature SEE-on-both-moves stats over top-500: best_wins_material_pct / blunder_hangs_own_pct / piece dist. Grounds the labeler; from `compute_feature_see_stats.py`. |
 | `sae/eval/sparse_probe_results.json` | [S3] | k-sparse probe (SEE concepts × k4/6/8/16), bal_acc/F1 @p=1..32. Slim in git: `output/eval/sparse_probe_results.json`. `see_labels_168k.npz` (notebook) = the 168k SEE ground-truth concept labels. |
 
 ## 4. Stockfish / enrichment data
