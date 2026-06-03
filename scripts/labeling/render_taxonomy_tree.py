@@ -16,6 +16,10 @@ st = json.load(open('output/see_stats_d1024_k4.json'))
 clean = json.load(open('output/taxonomy_clean_names_d1024_k4.json'))['buckets']
 leaf = json.load(open('output/feature_leaf_assignments_d1024_k4.json'))
 prof = json.load(open('/tmp/d1024_k4_profiles.json'))
+try:
+    best_map = json.load(open('/tmp/best_uci_map.json'))   # 'fen|blunder_uci' -> best_uci
+except Exception:
+    best_map = {}
 
 # tree: bucket_name -> sub -> [feature ids]
 tree = defaultdict(lambda: defaultdict(list))
@@ -68,7 +72,7 @@ parts = [f"<!doctype html><meta charset=utf-8><title>Taxonomy — d1024_k4</titl
 nfeat = sum(len(f) for bk in tree.values() for f in bk.values())
 parts.append(f"<header><h1>d1024_k4 mistake taxonomy — {len(tree)} buckets · {nfeat} features</h1>"
              f"<div class=sub>click to expand · <span class=legend><span class=r>red = played (blunder)</span> "
-             f"<span class=g>green = best move</span></span></div></header>")
+             f"<span class=g>green = Maia top move (elo 2600, not necessarily engine-best)</span></span></div></header>")
 
 for bk in bucket_order:
     if bk not in tree: continue
@@ -85,7 +89,8 @@ for bk in bucket_order:
                          f"<div class=mech>bw {s.get('best_wins_material_pct',0)} · oh {s.get('blunder_hangs_own_pct',0)} · chk {s.get('best_is_check_pct',0)} · fires {s.get('fire_rate',0)*100:.1f}%</div>"
                          f"<div class=boards>")
             for ex in prof.get(f, {}).get('examples', [])[:a.boards]:
-                parts.append(board_svg(ex['fen'], ex['uci'], None))
+                best = best_map.get(ex['fen'] + '|' + ex['uci'], '')
+                parts.append(board_svg(ex['fen'], ex['uci'], best))
             parts.append("</div></div>")
         parts.append("</details>")
     parts.append("</details>")
