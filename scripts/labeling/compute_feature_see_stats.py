@@ -49,6 +49,9 @@ def see_one(args):
         b = chess.Board(fen); mover = b.turn
         bm = chess.Move.from_uci(bl)
         r = {'played_cap': b.is_capture(bm), 'best_captured_piece': 'none'}
+        r['played_check'] = b.gives_check(bm)            # did the PLAYER'S move give check (for Pointless Check)
+        npc = len(b.piece_map())
+        r['phase'] = 'endgame' if npc <= 12 else 'opening' if b.fullmove_number <= 12 else 'middlegame'
         # DESCRIPTIVE distributions (what the player did), not just composite metrics:
         mpc = b.piece_at(bm.from_square)
         r['moved_piece'] = PIECE.get(mpc.piece_type) if mpc else 'none'   # which piece the player moved
@@ -131,6 +134,8 @@ for f, idxs in feat_idx.items():
         'captured_piece_pct': {k: round(v/n, 3) for k, v in Counter(r['captured_piece'] for r in rs).most_common()},
         'best_piece_pct': {k: round(v/n, 3) for k, v in Counter(r['best_piece'] for r in rs).most_common()},
         'best_captured_piece_pct': {k: round(v/n, 3) for k, v in Counter(r['best_captured_piece'] for r in rs).most_common()},
+        'played_is_check_pct': round(sum(r['played_check'] for r in rs)/n, 3),
+        'phase_pct': {k: round(v/n, 3) for k, v in Counter(r['phase'] for r in rs).most_common()},
     }
 json.dump(out, open(a.out, 'w'), indent=1)
 print(f"wrote {a.out} ({len(out)} features, top-{a.statn} SEE stats)", flush=True)
