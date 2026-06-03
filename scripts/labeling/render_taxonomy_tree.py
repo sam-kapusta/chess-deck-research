@@ -101,6 +101,10 @@ for bk in bucket_order:
             def top2(dist):
                 if not dist: return '—'
                 return ', '.join(f"{k} {v*100:.0f}%" for k, v in list(dist.items())[:3])
+            def topn(dist):  # for raw-COUNT dists (own_hang_piece_dist) — show as % of total
+                if not dist: return '—'
+                tot = sum(dist.values()) or 1
+                return ', '.join(f"{k} {v/tot*100:.0f}%" for k, v in list(dist.items())[:3])
             mech = (
                 f"<b>player moved:</b> {top2(s.get('moved_piece_pct',{}))} · "
                 f"<b>captured:</b> {top2(s.get('captured_piece_pct',{}))} · "
@@ -108,7 +112,7 @@ for bk in bucket_order:
                 f"<b>Maia move:</b> {top2(s.get('best_piece_pct',{}))} · "
                 f"<b>Maia captures:</b> {top2(s.get('best_captured_piece_pct',{}))} · "
                 f"<b>Maia check:</b> {s.get('best_is_check_pct',0)*100:.0f}%<br>"
-                f"<b>hung own:</b> {s.get('blunder_hangs_own_pct',0)*100:.0f}% (med {s.get('own_hang_median',0)}; {top2(s.get('own_hang_piece_dist',{}))}) · "
+                f"<b>hung own:</b> {s.get('blunder_hangs_own_pct',0)*100:.0f}% (med {s.get('own_hang_median',0)}; {topn(s.get('own_hang_piece_dist',{}))}) · "
                 f"<b>missed material:</b> {s.get('best_wins_material_pct',0)*100:.0f}% · "
                 f"<b>phase:</b> {top2(s.get('phase_pct',{}))} · "
                 f"<b>fires</b> {s.get('fire_rate',0)*100:.1f}% (n={s.get('n','?')})")
