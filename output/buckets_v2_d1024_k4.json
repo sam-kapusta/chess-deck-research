@@ -42,12 +42,6 @@
   "mech": "played-check high, own-hang"
  },
  {
-  "id": "ignored_tension",
-  "name": "Ignored Tension",
-  "desc": "Declined a necessary exchange or left piece/pawn tension unresolved.",
-  "mech": "best-is-capture, played non-capture, low swing"
- },
- {
   "id": "king_safety",
   "name": "King Safety Error",
   "desc": "Neglected or exposed your king \u2014 abandoned defense, walked into danger, weakened the shelter.",

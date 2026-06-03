@@ -390,8 +390,8 @@
   "sub": "Promotion Stalemate Blunder"
  },
  "116": {
-  "bucket": "ignored_tension",
-  "bucket_name": "Ignored Tension",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Ignored Bishop Capture Threat"
  },
  "119": {
@@ -440,8 +440,8 @@
   "sub": "Opening Bishop Hang"
  },
  "164": {
-  "bucket": "ignored_tension",
-  "bucket_name": "Ignored Tension",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Neglected Central Tension"
  },
  "170": {
@@ -630,8 +630,8 @@
   "sub": "Endgame Tempo Waste"
  },
  "244": {
-  "bucket": "ignored_tension",
-  "bucket_name": "Ignored Tension",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Ignoring Strong Knight"
  },
  "247": {
@@ -775,8 +775,8 @@
   "sub": "Impulsive Check Hangs Piece"
  },
  "277": {
-  "bucket": "ignored_tension",
-  "bucket_name": "Ignored Tension",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Ignoring Bishop on g4"
  },
  "276": {
@@ -885,8 +885,8 @@
   "sub": "Missed Queen Check Tactic"
  },
  "57": {
-  "bucket": "ignored_tension",
-  "bucket_name": "Ignored Tension",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Missed Knight Fork"
  },
  "58": {
@@ -1160,8 +1160,8 @@
   "sub": "Losing Endgame King Drift"
  },
  "314": {
-  "bucket": "ignored_tension",
-  "bucket_name": "Ignored Tension",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Ignoring Knight Threat"
  },
  "313": {
@@ -1360,8 +1360,8 @@
   "sub": "Missed Back-Rank Mate"
  },
  "233": {
-  "bucket": "ignored_tension",
-  "bucket_name": "Ignored Tension",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Ignoring Queen Capture Threat"
  },
  "236": {
@@ -1645,8 +1645,8 @@
   "sub": "Passive Rook Wastes Tempo"
  },
  "129": {
-  "bucket": "ignored_tension",
-  "bucket_name": "Ignored Tension",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Ignored Knight Fork Threat"
  },
  "130": {
@@ -1660,8 +1660,8 @@
   "sub": "Ignoring Passed Pawn"
  },
  "132": {
-  "bucket": "ignored_tension",
-  "bucket_name": "Ignored Tension",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Opening Pin Ignorance"
  },
  "133": {
@@ -2125,8 +2125,8 @@
   "sub": "Ignoring Queen Threats"
  },
  "25": {
-  "bucket": "ignored_tension",
-  "bucket_name": "Ignored Tension",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Central Tension Ignored"
  },
  "28": {
@@ -2820,8 +2820,8 @@
   "sub": "Declining Free Bishop"
  },
  "565": {
-  "bucket": "ignored_tension",
-  "bucket_name": "Ignored Tension",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Ignoring Tactical Threats"
  },
  "568": {
@@ -3290,8 +3290,8 @@
   "sub": "Pawn Endgame Tempo Error"
  },
  "742": {
-  "bucket": "ignored_tension",
-  "bucket_name": "Ignored Tension",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Tempo Loss To Tactics"
  },
  "743": {
@@ -3745,8 +3745,8 @@
   "sub": "Opening Piece Repositioning Blunder"
  },
  "951": {
-  "bucket": "ignored_tension",
-  "bucket_name": "Ignored Tension",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Opening Tempo Blunder"
  },
  "953": {
@@ -4170,8 +4170,8 @@
   "sub": "Endgame Tempo Squandering"
  },
  "713": {
-  "bucket": "ignored_tension",
-  "bucket_name": "Ignored Tension",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Passive Move Ignores Threat"
  },
  "721": {
