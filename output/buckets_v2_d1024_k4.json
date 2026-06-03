@@ -1,0 +1,74 @@
+[
+ {
+  "id": "left_hanging",
+  "name": "Left Piece Hanging",
+  "desc": "Your move leaves your own piece en prise, unforced (net material loss, non-trade).",
+  "mech": "material=hangs/loses, hung-own high"
+ },
+ {
+  "id": "greedy_capture",
+  "name": "Greedy Capture",
+  "desc": "A capture that loses material \u2014 the capturing piece is lost or a stronger move existed (net negative, NOT an even trade).",
+  "mech": "played capture, material=loses"
+ },
+ {
+  "id": "premature_trade",
+  "name": "Premature Trade",
+  "desc": "An even exchange made at the wrong moment \u2014 trading off your best piece and surrendering an advantage.",
+  "mech": "material=trade, eval drops winning->drawn/losing"
+ },
+ {
+  "id": "missed_hanging",
+  "name": "Missed Hanging Piece",
+  "desc": "An enemy piece was free to capture; you didn't take it.",
+  "mech": "missed-material high via capture, own-hang low"
+ },
+ {
+  "id": "missed_tactic",
+  "name": "Missed Tactic",
+  "desc": "Missed a fork, pin, skewer, or winning combination (non-mating, non-simple-capture).",
+  "mech": "missed-material high, tactical motif"
+ },
+ {
+  "id": "missed_check_mate",
+  "name": "Missed Check or Mate",
+  "desc": "A forcing check or forced mate was available; you played something quieter.",
+  "mech": "best-is-check high, missed-material high"
+ },
+ {
+  "id": "pointless_check",
+  "name": "Pointless Check",
+  "desc": "You gave a futile check that achieves nothing and often loses material.",
+  "mech": "played-check high, own-hang"
+ },
+ {
+  "id": "ignored_tension",
+  "name": "Ignored Tension",
+  "desc": "Declined a necessary exchange or left piece/pawn tension unresolved.",
+  "mech": "best-is-capture, played non-capture, low swing"
+ },
+ {
+  "id": "king_safety",
+  "name": "King Safety Error",
+  "desc": "Neglected or exposed your king \u2014 abandoned defense, walked into danger, weakened the shelter.",
+  "mech": "positional, king_safety motif"
+ },
+ {
+  "id": "passive_play",
+  "name": "Passive Play",
+  "desc": "Drifting / aimless moves with no plan when the position demanded action.",
+  "mech": "positional, low material swing, no concrete action"
+ },
+ {
+  "id": "endgame_technique",
+  "name": "Endgame Technique",
+  "desc": "King-and-pawn / promotion / tempo technique error in the endgame.",
+  "mech": "phase=endgame"
+ },
+ {
+  "id": "unsound_aggression",
+  "name": "Unsound Aggression",
+  "desc": "An unsound sacrifice or premature attack that doesn't work.",
+  "mech": "own-hang very high, opening/attack"
+ }
+]

@@ -1,0 +1,5102 @@
+{
+ "440": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Back Rank Neglect"
+ },
+ "442": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Greedy Capture Ignores Checkmate"
+ },
+ "443": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Minor Piece Exchange"
+ },
+ "446": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Hang In Endgame"
+ },
+ "445": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Greedy Queen Check Blunder"
+ },
+ "447": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Capture Blindness"
+ },
+ "444": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Premature Bishop Development"
+ },
+ "448": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Neglect"
+ },
+ "450": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Waste"
+ },
+ "449": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Queen Trapped by Blocking"
+ },
+ "451": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Back-Rank Tactic"
+ },
+ "452": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Premature Simplification Error"
+ },
+ "456": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Left Hanging"
+ },
+ "458": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Missed Rook Trade Simplification"
+ },
+ "455": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Minor Piece Trade"
+ },
+ "454": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "457": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Left Hanging"
+ },
+ "459": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Tempo Loss Endgame"
+ },
+ "460": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignoring King Safety Threats"
+ },
+ "464": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Waste"
+ },
+ "462": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Abandoned Mating Attack"
+ },
+ "461": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Queen Abandons King Defense"
+ },
+ "463": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignored Diagonal Mate Threat"
+ },
+ "465": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Futile Desperate Check"
+ },
+ "467": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Fatal King Exposure"
+ },
+ "466": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Promotion Piece Blunder"
+ },
+ "468": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Overlooked Tactical Vulnerability"
+ },
+ "469": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Defensive Check"
+ },
+ "470": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Hanging Bishop"
+ },
+ "472": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Premature Queen Development"
+ },
+ "473": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Forcing Check/Fork"
+ },
+ "471": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Pawn Tempo Loss"
+ },
+ "476": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Passive Move Misses Tactic"
+ },
+ "474": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Blunder"
+ },
+ "477": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactical Shot"
+ },
+ "479": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Capture"
+ },
+ "475": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Opening Knights-Out"
+ },
+ "480": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Neglected Piece Safety"
+ },
+ "478": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Move Wastes Tempo"
+ },
+ "482": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Passive King Retreat Endgame"
+ },
+ "82": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Ignored Hanging Queen"
+ },
+ "83": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Knight Fork"
+ },
+ "84": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Routine Move Misses Tactic"
+ },
+ "80": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignoring King Danger"
+ },
+ "87": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Ignoring Promotion Threats"
+ },
+ "86": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Piece Retreat"
+ },
+ "85": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Hang"
+ },
+ "81": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Knight Hangs Piece"
+ },
+ "88": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Waste"
+ },
+ "91": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Queen Trade"
+ },
+ "90": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Knight Captures Opening Trap"
+ },
+ "93": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Queen Trade/Simplification"
+ },
+ "89": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Capture"
+ },
+ "92": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Rook Trade Allows Promotion"
+ },
+ "94": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Premature Knight Captures e-Pawn"
+ },
+ "95": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Hangs Via Check"
+ },
+ "96": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Queen Hang"
+ },
+ "98": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Back Rank Catastrophe"
+ },
+ "97": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Delayed Promotion Tempo Loss"
+ },
+ "101": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "103": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Queen Check Tactic"
+ },
+ "105": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Capture"
+ },
+ "100": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Desperate Check Backfires"
+ },
+ "104": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Defensive Rook Trade Blunder"
+ },
+ "102": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Queen Retreat"
+ },
+ "106": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Capture"
+ },
+ "99": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignoring Mating Threats"
+ },
+ "107": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Premature Castling Tempo Loss"
+ },
+ "108": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Rook Invasion"
+ },
+ "109": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Capture"
+ },
+ "110": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Opening Tempo Waste"
+ },
+ "111": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Losing Piece Trade Into Pawn Endgame"
+ },
+ "112": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Endgame Tempo Loss"
+ },
+ "114": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Promotion Misplay"
+ },
+ "117": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Losing Queen Trade Endgame"
+ },
+ "113": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Piece Exchange"
+ },
+ "115": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Premature Promotion Capture"
+ },
+ "120": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Promotion Stalemate Blunder"
+ },
+ "116": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Ignored Bishop Capture Threat"
+ },
+ "119": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Endgame Tempo Loss"
+ },
+ "163": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Fatal Endgame Queen Trade"
+ },
+ "162": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "159": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Rook Self-Traps"
+ },
+ "165": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Left Hanging"
+ },
+ "161": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Check Tempo Waste"
+ },
+ "166": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Rook Check Endgame"
+ },
+ "168": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Knight Hang"
+ },
+ "169": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Bishop Hang"
+ },
+ "164": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Neglected Central Tension"
+ },
+ "170": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Check Blunder"
+ },
+ "167": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignoring Queen Check Threat"
+ },
+ "174": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Hung on Diagonal"
+ },
+ "173": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Routine Move Misses Tactic"
+ },
+ "172": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "171": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Blindness"
+ },
+ "175": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Ignoring Rook Lift Threat"
+ },
+ "176": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Rook Tempo Loss"
+ },
+ "179": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Passed Pawn Tempo Loss"
+ },
+ "177": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Ill-Timed Opening Trade"
+ },
+ "181": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Queen Captures Promotion Pawn"
+ },
+ "178": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Aimless Rook Tempo Loss"
+ },
+ "182": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Hanging"
+ },
+ "185": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Bishop Hangs Pawn Opening"
+ },
+ "180": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Reckless Queen Check"
+ },
+ "184": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Endgame Collapse"
+ },
+ "188": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hung Piece Overlooked"
+ },
+ "183": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Reckless Check Blunders Material"
+ },
+ "186": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Rook Endgame Tempo Loss"
+ },
+ "189": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Waste"
+ },
+ "187": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Bxf7+ Tactic"
+ },
+ "190": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Knight Fork"
+ },
+ "191": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Slow Pawn Ignores Tactic"
+ },
+ "194": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Pawn Endgame Tempo Blunder"
+ },
+ "195": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Check Refuses Trade"
+ },
+ "196": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Mate In One"
+ },
+ "192": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Knight Check"
+ },
+ "199": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Opening Tempo Loss"
+ },
+ "198": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Left Hanging"
+ },
+ "193": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Defensive Collapse Under Attack"
+ },
+ "201": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Greek Gift"
+ },
+ "242": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Exposure Blunder"
+ },
+ "243": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Mate Passivity"
+ },
+ "241": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Opening Tempo Waste"
+ },
+ "246": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Premature Rook Trade"
+ },
+ "245": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Ignoring Pin Capture"
+ },
+ "248": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Waste"
+ },
+ "244": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Ignoring Strong Knight"
+ },
+ "247": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Left Hanging"
+ },
+ "251": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Opening King Safety Neglect"
+ },
+ "252": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Neglect"
+ },
+ "249": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Back-Rank Mate"
+ },
+ "250": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Pawn Grab Check"
+ },
+ "254": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hanging Major Piece"
+ },
+ "253": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Opening Hanging Piece Ignored"
+ },
+ "255": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hung Queen Blunder"
+ },
+ "258": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Fatal Pawn Endgame Trade"
+ },
+ "256": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Tempo Loss Squanders Advantage"
+ },
+ "259": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Losing Rook Trade Into Pawn Endgame"
+ },
+ "261": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Knight Misplacement"
+ },
+ "264": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Premature Pawn Push"
+ },
+ "260": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Walks Into Mate"
+ },
+ "257": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Endgame Piece Left Hanging"
+ },
+ "263": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Tactical Blindness"
+ },
+ "265": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Abandoned Attack Piece"
+ },
+ "262": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignoring Hanging Piece"
+ },
+ "267": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Activity Abandonment"
+ },
+ "266": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Endgame Capture Blindness"
+ },
+ "268": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Push Ruins Win"
+ },
+ "270": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Diagonal Exposure Blunder"
+ },
+ "269": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Forcing Exchange"
+ },
+ "271": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Ignoring Passed Pawn"
+ },
+ "272": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Queen Recapture"
+ },
+ "278": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Left Hanging"
+ },
+ "274": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Hang"
+ },
+ "279": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Impulsive Check Hangs Piece"
+ },
+ "277": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Ignoring Bishop on g4"
+ },
+ "276": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Passed Pawn Tempo Loss"
+ },
+ "281": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Diagonal Exposure Hang"
+ },
+ "282": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Knight Captures Pawn Hanging"
+ },
+ "275": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Bishop Lunges Hang Piece"
+ },
+ "40": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Knight Capture"
+ },
+ "38": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Discovered Attack Blindness"
+ },
+ "41": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Declining Bishop Capture"
+ },
+ "45": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Passive Move Tempo Loss"
+ },
+ "43": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Waste"
+ },
+ "42": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignoring Bishop Diagonal"
+ },
+ "46": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Left Hanging"
+ },
+ "47": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Qh4+/Qh5+ Punish"
+ },
+ "48": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Premature Center Opening"
+ },
+ "49": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Left Hanging"
+ },
+ "50": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Rook Walks Into Skewer"
+ },
+ "51": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Pawn Takes Queen"
+ },
+ "52": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Abandons King Attack"
+ },
+ "53": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Ignored Hanging Piece"
+ },
+ "54": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Bxf7+ Sacrifice"
+ },
+ "55": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Knight Fork Check"
+ },
+ "56": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Queen Check Tactic"
+ },
+ "57": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Missed Knight Fork"
+ },
+ "58": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Piece-Winning Tactic"
+ },
+ "59": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Endgame Piece Hanging Blunder"
+ },
+ "60": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Opening Development Tempo Loss"
+ },
+ "61": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Leaves Piece Hanging"
+ },
+ "62": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Tempo Loss Throws Win"
+ },
+ "63": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Bxf7+ Fork"
+ },
+ "64": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Greedy Check Sacrifice"
+ },
+ "65": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Capture"
+ },
+ "66": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Hanging"
+ },
+ "67": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Left Hanging"
+ },
+ "68": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Ignored Hanging Queen"
+ },
+ "69": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Ignored Hanging Piece"
+ },
+ "70": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Bishop Hangs Pawn"
+ },
+ "71": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Abandoned Winning Attack"
+ },
+ "72": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Premature Knight Fork Blunder"
+ },
+ "73": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Wasteful Pawn Exchange"
+ },
+ "74": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Hanging Piece Ignored"
+ },
+ "75": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Futile Check Blunder"
+ },
+ "76": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Losing Rook Exchange Simplification"
+ },
+ "77": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Neglect Blunder"
+ },
+ "78": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Push Tempo Loss"
+ },
+ "79": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Misplacement Losing Tempo"
+ },
+ "280": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Queen Check Tactic"
+ },
+ "273": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Rook Tempo Loss"
+ },
+ "283": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Queen Fork Check"
+ },
+ "286": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Ignoring Passed Pawn"
+ },
+ "285": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Premature Pawn Advance"
+ },
+ "284": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Walk Into Danger"
+ },
+ "287": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Hanging Queen"
+ },
+ "289": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Ruy Lopez bxc6 Fork"
+ },
+ "288": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Conversion Failure"
+ },
+ "291": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Premature Promotion Check"
+ },
+ "292": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "290": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Waste"
+ },
+ "293": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Walks Into Danger"
+ },
+ "297": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Capture"
+ },
+ "298": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Passive Queen Retreat"
+ },
+ "299": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Left En Prise"
+ },
+ "294": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Exchange Sacrifice"
+ },
+ "296": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Desperate Check Sacrifices Piece"
+ },
+ "301": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Move-Order Hanging Piece"
+ },
+ "295": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Pawn Neglect"
+ },
+ "302": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Attack Abandoned for Material"
+ },
+ "300": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Won Position King Shuffles"
+ },
+ "303": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Walk Into Mate"
+ },
+ "306": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Opening Pawn Fork Blindness"
+ },
+ "304": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Knight Hang"
+ },
+ "312": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Missed Winning Queen Trade"
+ },
+ "305": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Central Pawn Trade"
+ },
+ "309": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Rook Tempo Waste"
+ },
+ "308": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Passive King Retreat"
+ },
+ "310": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hopeless Position Self-Destruction"
+ },
+ "307": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Abandons Promotion Square"
+ },
+ "311": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Losing Endgame King Drift"
+ },
+ "314": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Ignoring Knight Threat"
+ },
+ "313": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Passive Rook Abandons Attack"
+ },
+ "315": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Losing Endgame Trade"
+ },
+ "318": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Queen Abandons King Safety"
+ },
+ "317": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Hanging"
+ },
+ "316": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Tempo Waste"
+ },
+ "319": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy Capture Leaves Queen"
+ },
+ "322": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Left En Prise"
+ },
+ "197": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Abandoning Active Piece"
+ },
+ "203": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Bishop Blunder"
+ },
+ "200": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Pawn Capture Opens Tactics"
+ },
+ "204": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Endgame Capture Blindness"
+ },
+ "202": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Neglect"
+ },
+ "205": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Pawn Hangs Piece"
+ },
+ "206": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Check Hangs Piece"
+ },
+ "207": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "208": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Queen Check"
+ },
+ "215": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Hanging Blunder"
+ },
+ "210": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Rook Trade Simplification Error"
+ },
+ "209": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Bishop Check"
+ },
+ "214": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame King Passivity Blunder"
+ },
+ "213": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Rook Exchange Simplification Error"
+ },
+ "212": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Long-Diagonal Rook Capture"
+ },
+ "216": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Premature Pawn Push"
+ },
+ "217": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Drawn Endgame Collapse"
+ },
+ "211": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Knight Hanging Blunder"
+ },
+ "219": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Queen Abandons King Defense"
+ },
+ "218": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Premature Pawn Check Push"
+ },
+ "220": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Knight Fork Vulnerability"
+ },
+ "222": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Slow Move Hangs Piece"
+ },
+ "221": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Rook Sacrifice Pawn Endgame"
+ },
+ "224": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Left Hanging"
+ },
+ "225": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Defensive Check"
+ },
+ "228": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Mating Check"
+ },
+ "230": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Bishop Tactic"
+ },
+ "226": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Hung Near King"
+ },
+ "234": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Walking Into Discovery"
+ },
+ "232": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Knight Hangs in Center"
+ },
+ "227": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Knight Captures Pawn Positionally"
+ },
+ "231": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Back-Rank Mate"
+ },
+ "233": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Ignoring Queen Capture Threat"
+ },
+ "236": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "229": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Opening Queen Retreat Tempo Loss"
+ },
+ "237": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Endgame Queen Abandonment"
+ },
+ "235": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Passive Move Ignoring Threats"
+ },
+ "238": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Queen Check Ignored"
+ },
+ "239": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Loss"
+ },
+ "240": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Over Forcing Promotion"
+ },
+ "320": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Opening Piece Neglect"
+ },
+ "321": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Exchange Neglect"
+ },
+ "323": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Pawn Hangs Piece"
+ },
+ "324": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Endgame Piece Left Hanging"
+ },
+ "325": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactical Breakthrough"
+ },
+ "326": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Defense Under Duress"
+ },
+ "327": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Opening Capture Blindness"
+ },
+ "328": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Premature Opening Pawn Advance"
+ },
+ "329": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Queen Capture"
+ },
+ "330": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Simplifying Exchange"
+ },
+ "331": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactical Resource"
+ },
+ "332": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Opening Bishop Trap Neglect"
+ },
+ "333": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Endgame Tempo Loss"
+ },
+ "334": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Ruy Lopez Fork Trap"
+ },
+ "335": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Back-Rank Mate"
+ },
+ "336": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Desperate Rook Check Blunder"
+ },
+ "337": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Endgame Pawn Advance Blunder"
+ },
+ "338": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Exposed King Neglect"
+ },
+ "339": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Knight Drops Piece"
+ },
+ "340": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Drawn Endgame Blunder"
+ },
+ "341": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignoring Mate Threat"
+ },
+ "342": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Exchange Capture"
+ },
+ "343": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Center Neglect"
+ },
+ "344": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Tempo Waste"
+ },
+ "345": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Queen Abandons King Safety"
+ },
+ "346": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Ignored Passed Pawn"
+ },
+ "347": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Opening Tempo Waste"
+ },
+ "348": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Mate"
+ },
+ "349": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Critical Tempo Loss"
+ },
+ "350": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Back-Rank Blindness"
+ },
+ "351": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Pawn Hangs Piece"
+ },
+ "352": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Piece Abandonment"
+ },
+ "353": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Patzer Sees A Check"
+ },
+ "354": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Endgame Tempo Loss"
+ },
+ "355": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Walk Into Mate"
+ },
+ "356": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Quiet Minor Piece Drift"
+ },
+ "357": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Hanging"
+ },
+ "358": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Queen Trade Check"
+ },
+ "359": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Promotion Underpromotion Error"
+ },
+ "360": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy Knight Capture"
+ },
+ "121": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Rook Tempo Loss"
+ },
+ "122": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Passive King Retreat"
+ },
+ "123": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Threat Hangs Piece"
+ },
+ "118": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Knight Hangs Piece"
+ },
+ "126": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Passive Move Misses Tactic"
+ },
+ "124": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Bishop Capture Tactic"
+ },
+ "125": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Defender Removal Blunder"
+ },
+ "127": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Missed Winning Tactic"
+ },
+ "128": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Passive Rook Wastes Tempo"
+ },
+ "129": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Ignored Knight Fork Threat"
+ },
+ "130": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Moving Pinned Knight"
+ },
+ "131": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignoring Passed Pawn"
+ },
+ "132": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Opening Pin Ignorance"
+ },
+ "133": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Rook Capture"
+ },
+ "134": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Knight Sacrifice f7"
+ },
+ "135": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Ignoring Passed Pawn"
+ },
+ "136": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Passed Pawn Mishandling"
+ },
+ "137": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Bishop Walks Into Fork"
+ },
+ "138": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Queen Capture"
+ },
+ "139": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Walk Forfeits Castling"
+ },
+ "140": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Neglect"
+ },
+ "141": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "142": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Endgame Tempo Loss"
+ },
+ "143": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Knight Trade Allows Fork"
+ },
+ "144": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactic Tempo Loss"
+ },
+ "145": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Check Tactic"
+ },
+ "146": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Bishop Exchange"
+ },
+ "147": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Bishop Sacrifice"
+ },
+ "148": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Knight Retreat Opening Blunder"
+ },
+ "149": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Rook Retreat"
+ },
+ "150": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignoring King Safety Threats"
+ },
+ "151": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Defensive Check"
+ },
+ "152": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "153": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Opening Tempo Waste"
+ },
+ "154": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Premature Pawn Promotion Push"
+ },
+ "155": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Queen Capture"
+ },
+ "156": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame King Misstep"
+ },
+ "157": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy Queen Pawn Grab"
+ },
+ "158": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Premature Queen Retreat/Deflection"
+ },
+ "160": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Pawn Fork"
+ },
+ "361": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Queen Attack"
+ },
+ "362": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Mate Queen Drift"
+ },
+ "363": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Tempo-Wasting Winning Squander"
+ },
+ "364": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Desperate Check"
+ },
+ "365": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Tempo Loss Endgame"
+ },
+ "366": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame King/Rook Misstep"
+ },
+ "367": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy Queen Check Blunder"
+ },
+ "368": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Piece Retreats to Irrelevance"
+ },
+ "369": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Neglected Queen Repositioning"
+ },
+ "370": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "371": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Development Tempo Loss"
+ },
+ "372": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Passive Piece Retreat"
+ },
+ "373": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Free Capture Overlooked"
+ },
+ "374": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Rook Ignores Back-Rank"
+ },
+ "375": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Waste"
+ },
+ "376": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Aggressive Check Backfires"
+ },
+ "377": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Missed Promotion Win"
+ },
+ "378": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "King Exposes Queen Hang"
+ },
+ "379": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Missed Forcing Queen Trade"
+ },
+ "380": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Stalemate-Risking King Approach"
+ },
+ "381": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Endgame Capture Neglect"
+ },
+ "382": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Impulsive Knight Lunge"
+ },
+ "383": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Nxe5 Tactic Missed"
+ },
+ "384": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Back-Rank Tactic"
+ },
+ "385": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Ignored Free Piece"
+ },
+ "386": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Queen Capture"
+ },
+ "387": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Bishop Hang"
+ },
+ "388": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Queen Hang"
+ },
+ "389": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Opening Tempo Waste"
+ },
+ "390": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Rook Sacrifice Pawn Endgame"
+ },
+ "391": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Piece Self-Traps"
+ },
+ "392": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Attack Abandoned for Material"
+ },
+ "393": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Queen Capture"
+ },
+ "394": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Walks Into Mate"
+ },
+ "395": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Losing Rook Trade Simplification"
+ },
+ "396": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Neglect"
+ },
+ "397": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Rook Back-Rank Blunder"
+ },
+ "398": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Knight Hangs Catastrophically"
+ },
+ "399": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Rook Trade Endgame Error"
+ },
+ "404": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Mating Attack"
+ },
+ "7": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Left Hanging"
+ },
+ "10": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Ignored Promotion Threat"
+ },
+ "13": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Left Hanging"
+ },
+ "5": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Queen Abandons King Safety"
+ },
+ "3": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Bishop Capture"
+ },
+ "6": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Queen Trade"
+ },
+ "1": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Capture Over Passed Pawn"
+ },
+ "11": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Rook Check Tempo Loss"
+ },
+ "12": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Unpin/Unblock Loses Queen"
+ },
+ "14": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "4": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactical Capture"
+ },
+ "2": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Knight Hangs Piece"
+ },
+ "15": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy Check Backfires"
+ },
+ "0": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Ignoring Promotion Threat"
+ },
+ "8": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Passive King in Endgame"
+ },
+ "9": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Opening Pawn Moves"
+ },
+ "17": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Tempo Loss Endgame"
+ },
+ "19": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Premature Pawn Promotion"
+ },
+ "18": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame King Tempo Waste"
+ },
+ "20": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Bishop Left Hanging"
+ },
+ "22": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Desperate Rook Check Endgame"
+ },
+ "26": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Knight Hangs En Prise"
+ },
+ "16": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Ignoring Knight Fork Threat"
+ },
+ "21": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed King Attack"
+ },
+ "24": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignoring Queen Threats"
+ },
+ "25": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Central Tension Ignored"
+ },
+ "28": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Queen Aggression"
+ },
+ "29": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Move Hangs Piece"
+ },
+ "23": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Reflexive Capture Misses Mate"
+ },
+ "27": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Greedy Capture Misses Mate"
+ },
+ "31": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Pointless King Retreat"
+ },
+ "30": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Knight Fork Trap"
+ },
+ "32": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Aggressive Piece Misplacement"
+ },
+ "33": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Piece Sacrifice"
+ },
+ "36": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignoring Rook Threats"
+ },
+ "34": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Rook Self-Traps Fatally"
+ },
+ "39": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Rook Check Liquidation Error"
+ },
+ "44": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Walk Into Mate"
+ },
+ "37": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Wanders in Pawn Endgame"
+ },
+ "35": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Knight Hang"
+ },
+ "401": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Knight Capture"
+ },
+ "400": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Piece Exchange"
+ },
+ "402": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Slow Move Misses Tactic"
+ },
+ "405": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Mate-in-One"
+ },
+ "408": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Unsound Queen Sacrifice Check"
+ },
+ "406": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Capture Passivity"
+ },
+ "407": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Ignored Knight Fork f7"
+ },
+ "403": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Knight Sacrifice f2/f7"
+ },
+ "409": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Waste"
+ },
+ "411": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Premature Simplification Tempo Loss"
+ },
+ "410": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Left Hanging"
+ },
+ "413": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Hanging Blunder"
+ },
+ "412": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Nxf7 Sacrifice"
+ },
+ "415": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Abandoning King Defense"
+ },
+ "414": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Undefended Queen Hanging"
+ },
+ "418": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Minor Piece Misplacement"
+ },
+ "416": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Mate"
+ },
+ "419": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Endgame Capture"
+ },
+ "417": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Rook Misplacement Drops Attack"
+ },
+ "420": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy Pawn Grabs Trap"
+ },
+ "421": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Premature Central Pawn Advance"
+ },
+ "422": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Endgame Tempo Loss"
+ },
+ "424": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Piece Win"
+ },
+ "427": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Queen Trade Avoidance"
+ },
+ "423": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Fork-Blind Piece Drops"
+ },
+ "425": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Sacrifice Blunder"
+ },
+ "426": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Waste"
+ },
+ "430": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Endgame Tempo Loss"
+ },
+ "431": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "King Ignores Hanging Piece"
+ },
+ "428": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Tempo Loss in Pawn Endgame"
+ },
+ "429": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Promotion Queen Trade"
+ },
+ "432": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Win Squandered"
+ },
+ "435": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Opening Queen Hangs"
+ },
+ "433": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Passive Piece Misplacement"
+ },
+ "434": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hanging Major Piece"
+ },
+ "438": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Loss"
+ },
+ "437": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Positional Drift"
+ },
+ "436": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Premature Nxf7 Sacrifice"
+ },
+ "441": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Knight Hung"
+ },
+ "439": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Mate In Endgame"
+ },
+ "481": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Queen Retreats Missing Tactic"
+ },
+ "484": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Waste"
+ },
+ "486": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Passed Pawn Neglect"
+ },
+ "485": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Draw Squandered"
+ },
+ "483": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Development Blunder"
+ },
+ "487": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Queen Trade"
+ },
+ "488": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Back-Rank Mate"
+ },
+ "489": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Passive Endgame Retreat"
+ },
+ "493": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Queen Trade Pawn Endgame Blunder"
+ },
+ "491": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Greedy Opening Queen Raid"
+ },
+ "492": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Loss"
+ },
+ "490": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Tempo Squandering"
+ },
+ "494": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Queen Trade"
+ },
+ "496": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Queen Capture"
+ },
+ "497": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Back-Rank Vulnerability Exploit"
+ },
+ "495": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Development Blunder"
+ },
+ "501": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Losing Queen Trade"
+ },
+ "498": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Won Position Piece Hang"
+ },
+ "500": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Ignored Hanging Queen"
+ },
+ "499": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Knight Lunge"
+ },
+ "503": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "King Abandons Piece Defense"
+ },
+ "504": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Back Rank Neglect"
+ },
+ "505": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Ignoring Hanging Knight"
+ },
+ "506": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Wrong Promotion Choice"
+ },
+ "507": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Opening Tempo Waste"
+ },
+ "502": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Critical King Move Blunder"
+ },
+ "509": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Pawn Capture Trade"
+ },
+ "508": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Waste"
+ },
+ "512": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Bxf2+ Sacrifice"
+ },
+ "513": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Waste"
+ },
+ "511": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Bxf7+ Sacrifice"
+ },
+ "514": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Premature Bishop Development Hangs"
+ },
+ "510": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Fried Liver Tempo Waste"
+ },
+ "516": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Abandoned Perpetual Check"
+ },
+ "517": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Neglect"
+ },
+ "518": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Rook Check Tempo"
+ },
+ "519": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Back-Rank Mate"
+ },
+ "520": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Endgame Rook Capture Missed"
+ },
+ "515": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Impulsive Tempo-Losing Moves"
+ },
+ "521": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Endgame Tempo Waste"
+ },
+ "642": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Passive Move Misses Tactic"
+ },
+ "644": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactical Shot"
+ },
+ "648": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Rook Misplacement Tempo Loss"
+ },
+ "646": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Bishop Retreats Losing Tempo"
+ },
+ "645": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Rook Exchange"
+ },
+ "647": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Tempo-Losing Piece Exposure"
+ },
+ "649": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Hang"
+ },
+ "650": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Saving Check"
+ },
+ "652": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Fatal Endgame Piece Trade"
+ },
+ "651": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Zwischenzug Before Trade"
+ },
+ "653": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Back-Rank Mate"
+ },
+ "655": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Self-Inflicted King Exposure"
+ },
+ "654": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Missed Mate for Check"
+ },
+ "656": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Poisoned Pawn Trap"
+ },
+ "658": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Piece Retreat"
+ },
+ "657": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Mate"
+ },
+ "660": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Queen Capture"
+ },
+ "659": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Rook Simplification Check"
+ },
+ "661": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Retreat Hangs Material"
+ },
+ "662": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Endgame Check"
+ },
+ "664": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Bishop-for-Knight Trade"
+ },
+ "663": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Walk Into Danger"
+ },
+ "666": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Passed Pawn Mishandling"
+ },
+ "665": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Premature Pawn Push"
+ },
+ "667": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Queen Tempo Loss Endgame"
+ },
+ "669": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Rook Captures Losing Pawn"
+ },
+ "668": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Winning Check Squanders Advantage"
+ },
+ "672": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Knight Trade"
+ },
+ "670": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Patzer Checks Hang Pieces"
+ },
+ "673": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Blunder"
+ },
+ "675": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Back Rank Neglect"
+ },
+ "671": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Pawn Fork Tempo"
+ },
+ "674": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Queen Endgame Tempo Error"
+ },
+ "676": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Bishop Capture"
+ },
+ "677": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Promotion Mishandling"
+ },
+ "678": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Abandons Passed Pawn"
+ },
+ "679": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignoring King Safety Threats"
+ },
+ "680": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Knight Captures Pawn Blunder"
+ },
+ "681": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Tempo Loss Endgame"
+ },
+ "682": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Sacrifice Check"
+ },
+ "560": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Discovered Attack Vulnerability"
+ },
+ "563": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Misplacement Hangs Material"
+ },
+ "564": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Flashy Check Squanders Advantage"
+ },
+ "566": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Declining Free Bishop"
+ },
+ "565": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Ignoring Tactical Threats"
+ },
+ "568": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Blunder"
+ },
+ "567": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy Rook Captures Punished"
+ },
+ "569": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Knight Fork Check"
+ },
+ "570": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Rook Walks Into Fork"
+ },
+ "572": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Hang"
+ },
+ "571": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Winning Capture"
+ },
+ "573": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Queen Tactic"
+ },
+ "575": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Petrov Knight Discovery Blunder"
+ },
+ "574": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Walk Hangs Mate"
+ },
+ "576": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Bishop Check"
+ },
+ "577": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Left Hanging"
+ },
+ "578": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Simplifying Trade"
+ },
+ "579": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check Tactic"
+ },
+ "581": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Reckless Rook Check Blunder"
+ },
+ "583": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Won Game Queen Blunder"
+ },
+ "585": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Piece"
+ },
+ "582": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Squander"
+ },
+ "580": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Retreating Active Piece"
+ },
+ "584": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Winning Endgame Squandered"
+ },
+ "586": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Conversion Stall"
+ },
+ "589": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Queen Capture"
+ },
+ "587": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignoring Immediate Threats"
+ },
+ "588": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Passive Piece Placement"
+ },
+ "590": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "King Walk Hangs Material"
+ },
+ "593": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Ignored Hanging Piece"
+ },
+ "595": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Piece Into Capture Blunder"
+ },
+ "594": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Piece Exchange"
+ },
+ "592": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Desperate Piece Sacrifice"
+ },
+ "591": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Pawn Captures Open King"
+ },
+ "596": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Back Rank Blindness"
+ },
+ "599": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Desperate Check"
+ },
+ "600": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Simplification Error"
+ },
+ "597": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Ignored Mating Threats"
+ },
+ "598": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Knight Left Hanging"
+ },
+ "601": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Piece Abandonment"
+ },
+ "522": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Opening Attack"
+ },
+ "523": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Check Tactic"
+ },
+ "524": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "525": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Winning Position Piece Hang"
+ },
+ "526": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Mate For Nothing"
+ },
+ "527": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignoring Piece Trap Threat"
+ },
+ "528": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Premature Queen Check"
+ },
+ "529": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Zwischenzug Before Capture"
+ },
+ "530": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Endgame Capture Blindness"
+ },
+ "531": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Piece Capture"
+ },
+ "532": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Losing Knight Trade"
+ },
+ "533": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Capture"
+ },
+ "534": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Queen Capture"
+ },
+ "535": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Check Tempo Loss"
+ },
+ "536": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Exposed to File"
+ },
+ "537": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Missed Promotion Win"
+ },
+ "538": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Premature Bishop Development Hang"
+ },
+ "539": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Winning Endgame Tempo Loss"
+ },
+ "540": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Pawn Tempo Waste"
+ },
+ "541": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Hung to Rook"
+ },
+ "542": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Promotion Misplay"
+ },
+ "543": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Queen Abandons Defensive Post"
+ },
+ "544": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Walk Into Mate"
+ },
+ "545": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Capture"
+ },
+ "546": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactical Exchange"
+ },
+ "547": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Queen Check"
+ },
+ "548": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Hanging Piece"
+ },
+ "549": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Delayed Castling Blunder"
+ },
+ "550": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame King Drift"
+ },
+ "551": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Endgame Queen Check Blunder"
+ },
+ "552": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hanging Piece Oversight"
+ },
+ "553": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Imprecise Mating Check"
+ },
+ "554": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Premature Pawn Promotion"
+ },
+ "555": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Critical Moment King Drift"
+ },
+ "556": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Premature Queen Promotion"
+ },
+ "557": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Checkmate Pattern"
+ },
+ "558": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Bishop Sacrifice f2/f7"
+ },
+ "559": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy Queen Recapture Check"
+ },
+ "561": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check Wins"
+ },
+ "562": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Premature Pawn Advance Hangs"
+ },
+ "722": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Rook Check Tempo Waste"
+ },
+ "723": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Endgame King Hangs Piece"
+ },
+ "725": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Knight Sortie"
+ },
+ "728": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Rook Hung on Diagonal"
+ },
+ "731": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Check"
+ },
+ "727": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Concrete Capture"
+ },
+ "734": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Back-Rank Tactic"
+ },
+ "726": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Promotion Neglect"
+ },
+ "732": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Opening Piece Trapping Neglect"
+ },
+ "730": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Bishop Trapped After Retreat"
+ },
+ "729": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Castling Into Hanging Piece"
+ },
+ "733": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Neglect"
+ },
+ "735": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Premature Pawn Promotion"
+ },
+ "736": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Queen Capture"
+ },
+ "738": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Discovered Check"
+ },
+ "737": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Attack Abandoned For Trade"
+ },
+ "739": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Win Squandered"
+ },
+ "740": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Endgame Tempo Error"
+ },
+ "742": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Tempo Loss To Tactics"
+ },
+ "743": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Desperate Losing Position Blunder"
+ },
+ "744": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Back Rank Neglect"
+ },
+ "747": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Passive King Safety Neglect"
+ },
+ "741": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Rook Capture Sequence Error"
+ },
+ "746": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Check Backfires"
+ },
+ "748": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Endgame Tempo Loss"
+ },
+ "745": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Left En Prise"
+ },
+ "750": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Fork Check Tempo"
+ },
+ "753": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Promotion Blunder"
+ },
+ "751": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy Capture Loses Queen"
+ },
+ "749": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Losing Endgame Desperate Trade"
+ },
+ "752": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignoring Queen Invasion"
+ },
+ "755": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Queen Capture"
+ },
+ "754": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Loss"
+ },
+ "757": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Pawn Hang"
+ },
+ "756": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Endgame Tempo Waste"
+ },
+ "759": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Premature Check Tempo Loss"
+ },
+ "758": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Premature Pawn Advance"
+ },
+ "763": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Knight Overextension Blunder"
+ },
+ "762": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Endgame Capture Blindness"
+ },
+ "760": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Pawn Push Exposes King"
+ },
+ "603": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Capture"
+ },
+ "604": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Passive Move Hangs Piece"
+ },
+ "605": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Premature Check Temptation"
+ },
+ "608": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Left Undefended"
+ },
+ "607": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Desperate Knight Check"
+ },
+ "606": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Tempo Loss in Pawn Endgame"
+ },
+ "609": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Back-Rank Mate"
+ },
+ "610": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Opening Piece Hanging Blunder"
+ },
+ "602": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "611": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Reflexive Queen Promotion"
+ },
+ "616": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Bishop Fork/Threat"
+ },
+ "612": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Unguarded Diagonal Oversight"
+ },
+ "614": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Opening Tactic Missed"
+ },
+ "615": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Knight Fork"
+ },
+ "613": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Castling Into Tactics"
+ },
+ "618": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Left Hanging"
+ },
+ "617": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Active Piece Move"
+ },
+ "622": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Hanging"
+ },
+ "619": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Central Resolution"
+ },
+ "620": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Bishop Hang Blunder"
+ },
+ "621": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Promotion Delay King Move"
+ },
+ "626": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Premature Pawn Advance"
+ },
+ "625": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Piece Into Passed Pawn Trap"
+ },
+ "623": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Back-Rank Vulnerability Neglect"
+ },
+ "628": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Delayed Promotion Tempo Loss"
+ },
+ "627": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Aggressive Piece Sacrifice Blunder"
+ },
+ "631": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Loss"
+ },
+ "630": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Missed Promotion Tactics"
+ },
+ "629": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Retreat Loses Tempo"
+ },
+ "632": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Stalemate/Tempo Blunder"
+ },
+ "633": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Mating Attack"
+ },
+ "634": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Knight Hangs Piece"
+ },
+ "635": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Opening Autopilot Hangs Pawn"
+ },
+ "636": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Bxf7+ Sacrifice"
+ },
+ "638": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Sacrifice Without Compensation"
+ },
+ "639": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Knight Hangs Piece"
+ },
+ "637": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Neglect"
+ },
+ "640": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Endgame Capture Blindness"
+ },
+ "641": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Knight Check Intermezzo"
+ },
+ "643": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Passed Pawn Neglect"
+ },
+ "920": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Dominant Knight Traded Away"
+ },
+ "924": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Forcing Continuation"
+ },
+ "925": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Unguarded Piece Abandonment"
+ },
+ "926": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "927": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Knight Fork Grab"
+ },
+ "929": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Back Rank Neglect"
+ },
+ "931": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Ignored King Attack"
+ },
+ "928": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Losing Endgame King Misplacement"
+ },
+ "930": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Promotion Neglect"
+ },
+ "934": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Knight Moves Ignore King Safety"
+ },
+ "932": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Rook Check/Penetration"
+ },
+ "933": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check Sequence"
+ },
+ "935": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Walk Into Danger"
+ },
+ "937": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hasty Pawn Advance Hangs"
+ },
+ "936": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Endgame Tempo Loss"
+ },
+ "939": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Rook Walks Into Attack"
+ },
+ "938": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Bishop Exchange"
+ },
+ "940": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Passed Pawn Neglect"
+ },
+ "941": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Knight Check"
+ },
+ "942": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Promotion Opportunity"
+ },
+ "944": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Defensive Bishop Trade"
+ },
+ "946": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Queen Capture Check"
+ },
+ "943": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Bishop Fianchetto Hang"
+ },
+ "945": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Bishop Walks Into Fork"
+ },
+ "949": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Ignored Knight Fork/Capture"
+ },
+ "952": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Slow Move Hangs Piece"
+ },
+ "950": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Queen Endgame Passivity"
+ },
+ "947": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Bishop-Knight Trade"
+ },
+ "948": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Opening Piece Repositioning Blunder"
+ },
+ "951": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Opening Tempo Blunder"
+ },
+ "953": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactic Blunder"
+ },
+ "954": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Endgame Piece Hanging"
+ },
+ "955": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Ignoring King Attack"
+ },
+ "956": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Hang"
+ },
+ "957": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Premature Central Break"
+ },
+ "959": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Reckless Knight Check"
+ },
+ "958": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hung Piece Blunder"
+ },
+ "961": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Ignoring Promotion Threats"
+ },
+ "962": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Queen Capture"
+ },
+ "963": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Mate"
+ },
+ "805": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Resigned Pawn Endgame Capture"
+ },
+ "803": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignored Mating Threat"
+ },
+ "804": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Hang"
+ },
+ "808": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Defensive King Move Blunder"
+ },
+ "806": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Discovered Check Tactic"
+ },
+ "810": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignoring Queen Invasion"
+ },
+ "809": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Promotion Race Misjudgment"
+ },
+ "807": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Weakening King Shelter"
+ },
+ "624": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Fatal Endgame Simplification"
+ },
+ "811": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Endgame King Drift"
+ },
+ "812": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Inefficient Queen Check"
+ },
+ "814": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Losing Rook Trade Simplification"
+ },
+ "813": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Back-Rank Threat Missed"
+ },
+ "815": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Endgame Tempo Checks"
+ },
+ "816": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactic Tempo Loss"
+ },
+ "818": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Slow Move Allows Tempo"
+ },
+ "821": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Capture"
+ },
+ "820": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Ignoring Hanging Piece"
+ },
+ "824": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Reckless Check Hangs Piece"
+ },
+ "819": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Left Hanging"
+ },
+ "825": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Knight Fork Opening"
+ },
+ "817": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Losing Rook Endgame Trade"
+ },
+ "827": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Promotion Neglect"
+ },
+ "823": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Castling Into Tactical Storm"
+ },
+ "822": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Missed Saving Tactic"
+ },
+ "826": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Retreats to Hang"
+ },
+ "828": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Pawn Hangs Piece"
+ },
+ "831": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Pawn Exchange"
+ },
+ "829": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Knight Hangs on Outpost"
+ },
+ "830": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Neglecting King Safety"
+ },
+ "832": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Queen Retreat Abandons Win"
+ },
+ "833": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Bishop Hang"
+ },
+ "835": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Knight Trade Misses Tactic"
+ },
+ "834": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Premature Check Wastes Tactic"
+ },
+ "839": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Premature Check Ignores Capture"
+ },
+ "837": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignoring Queen Threat"
+ },
+ "838": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Ignored Knight Tactic"
+ },
+ "841": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignoring Discovered Attack"
+ },
+ "840": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Missed Tactical Transition"
+ },
+ "836": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Neglect"
+ },
+ "685": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Pawn Exchange"
+ },
+ "683": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Rook Retreat"
+ },
+ "688": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Opening King Walk Blunder"
+ },
+ "684": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Left Hanging"
+ },
+ "687": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Pawn Exchange"
+ },
+ "689": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Qh5+ Refutation"
+ },
+ "686": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Knight Retreat Tempo Loss"
+ },
+ "691": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece Capture"
+ },
+ "690": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Collapse"
+ },
+ "693": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Bad Exchange Sacrifice"
+ },
+ "694": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Patzer Sees A Check"
+ },
+ "692": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive King Exposure Tempo"
+ },
+ "695": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Retreating Instead of Capturing"
+ },
+ "696": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Premature Rook Simplification"
+ },
+ "697": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Opening Tactic Overlooked"
+ },
+ "699": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Opening Knight Raid"
+ },
+ "698": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Bishop Sacrifice h-pawn"
+ },
+ "705": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Failed Promotion Tempo"
+ },
+ "701": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Capture Over Checkmate"
+ },
+ "700": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Back-Rank Mate"
+ },
+ "702": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King's Gambit f-pawn Overextension"
+ },
+ "706": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignored Checkmate Threat"
+ },
+ "703": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Left Hanging"
+ },
+ "704": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Flashy Check Blunders Material"
+ },
+ "709": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Endgame King Misdirection"
+ },
+ "708": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Perpetual/Forcing Check"
+ },
+ "710": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Ignoring Knight Fork Threat"
+ },
+ "707": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Surrendering Active Piece Placement"
+ },
+ "715": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Won Position Squandered"
+ },
+ "717": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Missed Fork Vulnerability"
+ },
+ "714": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Tempo Waste"
+ },
+ "711": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Opening Tempo Waste"
+ },
+ "719": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Wrong Capture Order"
+ },
+ "712": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Squandering"
+ },
+ "713": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Passive Move Ignores Threat"
+ },
+ "721": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Bishop Hang"
+ },
+ "716": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Undefended Bishop Development"
+ },
+ "718": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Premature Check Hangs Piece"
+ },
+ "720": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Hung to Knight"
+ },
+ "724": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Weakening Pawn Advance"
+ },
+ "884": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Rook Left Hanging"
+ },
+ "885": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Endgame Check"
+ },
+ "886": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Rook Endgame Blunder"
+ },
+ "887": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Slow Move Hangs Piece"
+ },
+ "888": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Knight Retreat Allows Fork"
+ },
+ "889": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Back-Rank Recapture Trap"
+ },
+ "883": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignoring King Safety Threats"
+ },
+ "890": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Mate-in-One"
+ },
+ "891": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Endgame Capture Neglect"
+ },
+ "892": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Winning Capture"
+ },
+ "893": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Abandons Key Defense"
+ },
+ "894": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Premature Pawn Advance"
+ },
+ "895": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Piece Abandonment"
+ },
+ "896": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed d5 Breakthrough"
+ },
+ "897": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Piece Hangover"
+ },
+ "898": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Diagonal Pin Blindness"
+ },
+ "899": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Neglected Passed Pawn Promotion"
+ },
+ "900": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Tempo Loss Allowing Tactics"
+ },
+ "901": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Checkmate Greed"
+ },
+ "902": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Delayed Promotion Blunder"
+ },
+ "903": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Queen Capture"
+ },
+ "904": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Bishop Hang"
+ },
+ "905": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Tempting Check Ignores Tactic"
+ },
+ "906": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Misplacement Hanging Piece"
+ },
+ "907": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Rook Capture"
+ },
+ "908": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Bishop Check"
+ },
+ "909": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Knight Fork"
+ },
+ "910": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Opening Bishop Fork Trap"
+ },
+ "911": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Premature King's Pawn Trade"
+ },
+ "912": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Defensive Neglect Hangs Piece"
+ },
+ "913": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Tactic"
+ },
+ "914": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Retreat Squanders Attack"
+ },
+ "915": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Rook Check Skewer"
+ },
+ "916": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Desperate Check Blunder"
+ },
+ "917": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Ignoring Free Capture"
+ },
+ "918": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Endgame Tempo Blunder"
+ },
+ "919": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Opening King Safety Neglect"
+ },
+ "921": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Queen Retreats Ignoring Fork"
+ },
+ "922": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Endgame Rook Trade Blunder"
+ },
+ "923": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Queen Capture"
+ },
+ "761": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Futile Endgame Trade"
+ },
+ "766": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Bishop Exchange"
+ },
+ "767": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Opening King Walk Blunder"
+ },
+ "764": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Retreats Allowing Promotion"
+ },
+ "765": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Knight Leaps Into Danger"
+ },
+ "768": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Back-Rank Capture Blunder"
+ },
+ "770": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Queen Left Hanging"
+ },
+ "769": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Retreat Loses Tempo"
+ },
+ "775": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hanging Piece King Neglect"
+ },
+ "771": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Passive King Move Hangs"
+ },
+ "772": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Bishop Tempo Loss"
+ },
+ "773": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Premature Knight Pawn Grab"
+ },
+ "774": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Queen Abandons King Safety"
+ },
+ "778": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Tempo Blunder"
+ },
+ "776": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Queen Trade"
+ },
+ "779": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Mate-in-One"
+ },
+ "780": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Priority Misjudgment Blunder"
+ },
+ "781": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Premature Pawn Closure"
+ },
+ "777": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignoring King Safety Threats"
+ },
+ "782": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Pawn Check Tempo Loss"
+ },
+ "783": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Greedy Queen Captures"
+ },
+ "784": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Desperate Queen Trade"
+ },
+ "785": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Fatal Simplification Into Pawn Endgame"
+ },
+ "786": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Passive King Retreats"
+ },
+ "787": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Knight Lured From Defense"
+ },
+ "789": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Capture Order Error"
+ },
+ "788": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Futile Rook Check Blunder"
+ },
+ "790": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Missed Forced Mate/Tactic"
+ },
+ "791": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Intermediate Check"
+ },
+ "796": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Back-Rank Trade Blunder"
+ },
+ "794": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Neglect"
+ },
+ "793": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Walk Into Danger"
+ },
+ "792": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Defensive Check/Tactic"
+ },
+ "795": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "797": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Ignored Check Threat"
+ },
+ "798": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Opening King Safety Neglect"
+ },
+ "799": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Opening Fork Blindness"
+ },
+ "800": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Reckless Queen Check Blunder"
+ },
+ "801": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "802": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Opening Knight Pawn-Grab"
+ },
+ "843": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Move Loses Tempo"
+ },
+ "842": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Retreats Abandoning Initiative"
+ },
+ "846": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Passive Move Hangs Piece"
+ },
+ "847": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Undefended Queen Hanging"
+ },
+ "844": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "King Flees Hangs Piece"
+ },
+ "845": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignoring Diagonal Threats"
+ },
+ "851": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Walks Into Danger"
+ },
+ "848": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame King Tempo Loss"
+ },
+ "850": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Promotion Neglect"
+ },
+ "849": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Back-Rank Mate Blunder"
+ },
+ "853": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Pawn Push Hangs Piece"
+ },
+ "855": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Wasting"
+ },
+ "856": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Queen Capture"
+ },
+ "858": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Queen-Pinning Bishop"
+ },
+ "854": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignoring Promotion Threats"
+ },
+ "852": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Rook Endgame Blunder"
+ },
+ "859": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Piece Retreat"
+ },
+ "860": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Passive King Retreat"
+ },
+ "861": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Mate for Material"
+ },
+ "862": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Queen Attack Opening"
+ },
+ "863": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Queen Check Tactic"
+ },
+ "867": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Knight Hung to Pawn"
+ },
+ "864": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Losing Trade In Endgame"
+ },
+ "870": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Check-First Sequence"
+ },
+ "865": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Overlooked Defender Tactics"
+ },
+ "866": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hanging Piece Blunder"
+ },
+ "869": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Pawn Push Ignores Capture"
+ },
+ "871": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Queen Trade"
+ },
+ "868": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Idle Pawn Push Blunder"
+ },
+ "874": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Allows Instant Checkmate"
+ },
+ "872": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Back-Rank Tactic"
+ },
+ "873": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Losing Endgame Simplification"
+ },
+ "876": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Bishop Trap"
+ },
+ "875": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Tempo Blunder"
+ },
+ "877": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Ignored Hanging Piece"
+ },
+ "879": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignoring Checkmate Threats"
+ },
+ "878": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "King Recaptures Missing Tactic"
+ },
+ "881": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Routine Pawn Push Missing Tactic"
+ },
+ "880": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Premature Queen Check"
+ },
+ "882": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Piece Left Hanging"
+ },
+ "1004": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Premature Central Pawn Break"
+ },
+ "984": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Opening Development Neglect"
+ },
+ "1005": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Neglect"
+ },
+ "1007": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Loss"
+ },
+ "1006": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Check Temptation"
+ },
+ "1008": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Bishop Capture Tactic"
+ },
+ "1009": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Tempo-Losing Development"
+ },
+ "1010": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "King Tempo Waste"
+ },
+ "1012": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Queen Captures Defended Piece"
+ },
+ "1014": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Walk Into Danger"
+ },
+ "1015": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Mate For Trade"
+ },
+ "1013": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Abandoned Winning Attack"
+ },
+ "1011": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Abandoned Active Piece"
+ },
+ "1016": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Opening Tempo Waste"
+ },
+ "1018": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Wanders Offside"
+ },
+ "1017": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Back Rank Blindness"
+ },
+ "1021": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Discovered Attack Vulnerability"
+ },
+ "1019": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignoring Tactical Threat"
+ },
+ "1022": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Premature Pawn Check Push"
+ },
+ "1023": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Knight Fork"
+ },
+ "966": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Neglect"
+ },
+ "969": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Opening Diagonal Exposure"
+ },
+ "960": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Premature Italian Knight Lunge"
+ },
+ "965": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Ignored Hanging Bishop"
+ },
+ "968": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Opening Bishop-for-Pawn Blunder"
+ },
+ "967": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Ignored Nxf7 Fork Threat"
+ },
+ "964": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Move-Order Tactic"
+ },
+ "970": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Blunder"
+ },
+ "971": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Waste"
+ },
+ "974": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Long-Diagonal Capture"
+ },
+ "972": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Ignoring Queen Discovery Threat"
+ },
+ "973": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Opening Trade"
+ },
+ "975": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Ignoring Promotion Threat"
+ },
+ "976": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wasteful Queen Check"
+ },
+ "982": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Free Capture"
+ },
+ "977": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Rook Retreat"
+ },
+ "980": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Greedy Capture Misses Mate"
+ },
+ "978": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Tempo Waste"
+ },
+ "979": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "981": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Knight Hanging Blunder"
+ },
+ "986": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Endgame Pawn Push Blunder"
+ },
+ "983": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignoring Hanging Bishop"
+ },
+ "985": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Rook Self-Traps"
+ },
+ "988": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Passive Rook Retreat"
+ },
+ "987": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Passive Development Over Tactic"
+ },
+ "989": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Premature Opening Pawn Push"
+ },
+ "991": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Passive King Retreat"
+ },
+ "990": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Squandered Won Endgame"
+ },
+ "992": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Premature Passed Pawn Push"
+ },
+ "993": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Mating Attack"
+ },
+ "996": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Queen Left Hanging"
+ },
+ "995": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Bishop Exchange"
+ },
+ "999": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Premature Exchange Missed Tactic"
+ },
+ "997": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Knight Jumps Into Trouble"
+ },
+ "998": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Piece Exchange"
+ },
+ "994": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Neglect"
+ },
+ "1001": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King Safety Neglect"
+ },
+ "1000": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Ignoring Bishop Capture"
+ },
+ "1002": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Greedy Piece Abandons King"
+ },
+ "1003": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Premature Check Blunder"
+ }
+}
