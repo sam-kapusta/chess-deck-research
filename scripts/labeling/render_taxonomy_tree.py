@@ -11,10 +11,12 @@ ap.add_argument('--boards', type=int, default=10)
 ap.add_argument('--out', required=True)
 a = ap.parse_args()
 
-d = json.load(open('output/feature_labels_see_d1024_k4.json'))
+d = json.load(open('output/feature_labels_integrated_d1024_k4.json'))   # integrated labels (v2)
+# normalize: integrated file keys are bare ids with chip/label at top level; wrap as {'analysis': ...}
+d = {k: ({'analysis': v} if 'chip' in v else v) for k, v in d.items()}
 st = json.load(open('output/see_stats_d1024_k4.json'))
-clean = json.load(open('output/taxonomy_clean_names_d1024_k4.json'))['buckets']
-leaf = json.load(open('output/feature_leaf_assignments_d1024_k4.json'))
+clean = [{'name': b['name'], 'subgroups': []} for b in json.load(open('output/buckets_v2_d1024_k4.json'))]
+leaf = json.load(open('output/feature_leaf_v2_d1024_k4.json'))
 prof = json.load(open('/tmp/d1024_k4_profiles.json'))
 try:
     best_map = json.load(open('/tmp/best_uci_map.json'))   # 'fen|blunder_uci' -> best_uci
