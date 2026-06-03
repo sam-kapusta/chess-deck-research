@@ -1,0 +1,286 @@
+{
+ "categories": [
+  {
+   "name": "Missed a hanging piece",
+   "coaching_desc": "You played a quiet move while your opponent had an undefended piece sitting there for free \u2014 just take it!",
+   "mechanism_signature": "bw\u22650.7, oh\u22640.5, chk\u22640.25 \u2014 best move wins clear material via simple capture, player didn't leave own piece hanging, best move is not a check",
+   "rough_size": 115,
+   "keywords": [
+    "missed hanging",
+    "ignored undefended",
+    "free capture",
+    "en prise",
+    "missed winning capture",
+    "fails to capture",
+    "king move instead of capturing",
+    "missed queen capture",
+    "missed rook capture",
+    "overlooked simple capture"
+   ]
+  },
+  {
+   "name": "Missed a winning check or fork",
+   "coaching_desc": "You had a devastating check \u2014 a fork, skewer, or forcing blow \u2014 that wins major material, but you played something else.",
+   "mechanism_signature": "bw\u22650.7, oh\u22640.5, chk\u22650.7 \u2014 best move is a check that wins material, player's move didn't hang own piece badly",
+   "rough_size": 85,
+   "keywords": [
+    "missed winning check",
+    "missed knight fork",
+    "missed queen check",
+    "missed rook check",
+    "winning check",
+    "fork with check",
+    "skewer check",
+    "perpetual check",
+    "missed decisive check",
+    "missed Qh5+",
+    "missed Bb5+",
+    "discovered check",
+    "capture with check"
+   ]
+  },
+  {
+   "name": "Missed checkmate",
+   "coaching_desc": "You had forced checkmate available and played something else entirely \u2014 always scan for mate before anything else!",
+   "mechanism_signature": "bw\u22650.9, oh\u22640.5, chk\u22650.9 \u2014 best move delivers immediate or forced short mate, player often played a quiet or greedy move",
+   "rough_size": 45,
+   "keywords": [
+    "missed checkmate",
+    "missed mate in one",
+    "forced mate",
+    "missed mating check",
+    "checkmate available",
+    "back-rank mate",
+    "missed forced checkmate",
+    "queen mate",
+    "rook checkmate",
+    "mating attack"
+   ]
+  },
+  {
+   "name": "Hung own piece (unforced)",
+   "coaching_desc": "You left your own piece completely undefended \u2014 before moving, always ask 'is my piece safe on this square?'",
+   "mechanism_signature": "bw\u22640.4, oh\u22650.7, chk\u22640.2 \u2014 player's move left own piece en prise, no dramatically better capture was available (error is purely the hang)",
+   "rough_size": 130,
+   "keywords": [
+    "hung own",
+    "left en prise",
+    "leaves piece hanging",
+    "undefended",
+    "knight left",
+    "bishop hung",
+    "queen en prise",
+    "piece capturable",
+    "hung minor piece",
+    "hung major piece",
+    "pawn attacks knight ignored",
+    "hung bishop to pawn",
+    "hung central knight",
+    "hung queen in opening",
+    "aggressive move leaves hanging"
+   ]
+  },
+  {
+   "name": "Greedy capture backfires",
+   "coaching_desc": "You grabbed material but your capturing piece (or another piece) ended up hanging \u2014 check what happens AFTER you take!",
+   "mechanism_signature": "bw\u22650.3, oh\u22650.8, chk\u22640.3 \u2014 player's capture left own piece en prise; a calmer move would have been better",
+   "rough_size": 145,
+   "keywords": [
+    "greedy capture hangs",
+    "capture leaves hanging",
+    "tempting capture",
+    "capture en prise",
+    "capture exposes",
+    "queen capture hangs",
+    "knight captures hangs",
+    "rook capture hangs",
+    "bishop capture hangs",
+    "captures defended piece",
+    "checking capture hangs",
+    "premature promotion hangs",
+    "queen trapped after capture"
+   ]
+  },
+  {
+   "name": "Pointless check leaves piece hanging",
+   "coaching_desc": "You gave a tempting check but after the king moved, your piece was left hanging \u2014 checks aren't free if they cost material!",
+   "mechanism_signature": "bw\u22650.3, oh\u22650.6, chk\u22640.15 \u2014 player gave check (per label), but best move was NOT a check; player's checking piece or another piece left hanging",
+   "rough_size": 55,
+   "keywords": [
+    "pointless check hangs",
+    "futile check",
+    "rook check hangs rook",
+    "queen check hangs",
+    "check that hangs",
+    "premature queen check",
+    "impulsive check",
+    "aimless check",
+    "spite check",
+    "suicidal check",
+    "flashy check hangs",
+    "knight check hangs"
+   ]
+  },
+  {
+   "name": "Chose capture over stronger check",
+   "coaching_desc": "You took a piece but missed a much stronger check that would have won even more \u2014 checks before captures!",
+   "mechanism_signature": "bw\u22650.7, oh moderate(0.3\u20130.8), chk\u22650.6 \u2014 best move was a check, player instead captured (sometimes leaving pieces hanging)",
+   "rough_size": 50,
+   "keywords": [
+    "greedy capture misses check",
+    "capture over check",
+    "capture misses mate",
+    "capture instead of checkmate",
+    "greedy capture misses mate",
+    "intermediate check",
+    "zwischenzug check",
+    "capture over winning check"
+   ]
+  },
+  {
+   "name": "Missed quiet winning move (trap or threat)",
+   "coaching_desc": "You missed a subtle non-forcing move \u2014 a pawn advance, piece reposition, or trap \u2014 that would have won material through threats.",
+   "mechanism_signature": "bw\u22650.8, oh\u22640.5, chk\u22640.15 \u2014 best move wins material but is NOT a capture or check; it creates an unavoidable threat or trap",
+   "rough_size": 50,
+   "keywords": [
+    "missed quiet tactical",
+    "pawn advance wins",
+    "piece trap",
+    "queen trap",
+    "bishop trap",
+    "pawn traps",
+    "pawn breakthrough",
+    "pawn attack",
+    "pawn fork",
+    "winning pawn push",
+    "knight invasion",
+    "rook penetration",
+    "rook file activation",
+    "bishop wins queen",
+    "non-capturing winning move",
+    "decisive quiet move"
+   ]
+  },
+  {
+   "name": "Quiet move both misses tactic and hangs piece",
+   "coaching_desc": "You played a passive move that was doubly wrong \u2014 you ignored a winning capture AND left your own piece undefended.",
+   "mechanism_signature": "bw\u22650.5, oh\u22650.5, chk\u22640.35 \u2014 significant material was available (bw) AND player's quiet move hung own material (oh); a compounding blunder",
+   "rough_size": 110,
+   "keywords": [
+    "quiet move ignores tactics",
+    "missed capture hung own",
+    "passive move hangs",
+    "developing move hangs",
+    "double blunder",
+    "quiet move misses tactic",
+    "ignored winning capture leaves hanging",
+    "wrong priority hangs",
+    "active move hangs piece",
+    "blundering king walk"
+   ]
+  },
+  {
+   "name": "Endgame king and pawn technique error",
+   "coaching_desc": "You mishandled a pure endgame \u2014 wrong king direction, premature pawn push, or lost opposition that threw away the result.",
+   "mechanism_signature": "bw\u22640.4, oh\u22640.35, chk\u22640.15 \u2014 no huge material swing or piece hanging; the error is strategic/technical mispositioning in endgames",
+   "rough_size": 50,
+   "keywords": [
+    "wrong king direction",
+    "pawn endgame",
+    "opposition",
+    "king walks wrong",
+    "premature pawn push",
+    "king and pawn technique",
+    "passive king retreat",
+    "king misroute",
+    "pawn race",
+    "wrong king square",
+    "botched endgame",
+    "king retreats",
+    "pawn endgame misstep",
+    "failed technique"
+   ]
+  },
+  {
+   "name": "Ignored critical tension or necessary exchange",
+   "coaching_desc": "You ignored a critical capture or exchange that the position demanded \u2014 resolve tension before it costs you!",
+   "mechanism_signature": "bw\u22640.35, oh 0.3\u20130.7, chk\u22640.2 \u2014 best move is a necessary even exchange (SEE\u22480) or pawn tension resolution, player played elsewhere leaving pieces vulnerable",
+   "rough_size": 80,
+   "keywords": [
+    "ignored tension",
+    "declined exchange",
+    "pawn tension",
+    "refused exchange",
+    "necessary capture",
+    "bishop exchange",
+    "central tension",
+    "forced exchange",
+    "rook exchange",
+    "queen trade",
+    "unresolved tension",
+    "obligatory trade",
+    "critical exchange",
+    "ignored pawn capture"
+   ]
+  },
+  {
+   "name": "Passive play in active position",
+   "coaching_desc": "You played a slow or routine move when the position demanded concrete action \u2014 develop a sense of urgency!",
+   "mechanism_signature": "bw 0.2\u20130.7, oh\u22640.4, chk\u22640.3 \u2014 moderate material available, player didn't hang anything catastrophically, just played too slowly",
+   "rough_size": 75,
+   "keywords": [
+    "passive",
+    "aimless",
+    "routine move",
+    "slow",
+    "autopilot",
+    "quiet move instead",
+    "neglected",
+    "non-urgent",
+    "purposeless",
+    "misguided",
+    "premature development",
+    "irrelevant move",
+    "squandered",
+    "failed to find active",
+    "positional instead of tactical"
+   ]
+  },
+  {
+   "name": "Unsound sacrifice or premature attack",
+   "coaching_desc": "You launched an attack or sacrifice without sufficient calculation \u2014 the combination doesn't work and you just lose material.",
+   "mechanism_signature": "bw 0.2\u20130.7, oh\u22650.9, chk\u22640.2 \u2014 player's 'sacrifice' leaves piece hanging with no compensation; better quiet alternatives existed",
+   "rough_size": 40,
+   "keywords": [
+    "unsound sacrifice",
+    "premature sacrifice",
+    "Bxf7+ sacrifice",
+    "Nxf7 sacrifice",
+    "premature attack",
+    "speculative check",
+    "unsound tactical",
+    "premature knight lunge",
+    "premature bishop sacrifice",
+    "premature exchange sacrifice",
+    "no compensation"
+   ]
+  },
+  {
+   "name": "Missed pawn promotion",
+   "coaching_desc": "You had a pawn ready to queen and didn't promote it \u2014 always check if you can make a new queen!",
+   "mechanism_signature": "bw 0.5\u20130.9, oh 0.15\u20130.5, chk 0.0\u20130.5 \u2014 best move is promotion (massive material gain), player played a temporizing move instead",
+   "rough_size": 25,
+   "keywords": [
+    "missed pawn promotion",
+    "failed to promote",
+    "pawn on 7th",
+    "queening",
+    "promotion ignored",
+    "advanced passed pawn",
+    "underpromotion error",
+    "pawn promotion available",
+    "delays promotion"
+   ]
+  }
+ ]
+}

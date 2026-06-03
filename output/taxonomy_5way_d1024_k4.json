@@ -1,0 +1,327 @@
+{
+ "3": {
+  "organizing_axis": "Mechanism of the blunder (what the player did wrong) crossed with the nature of the missed opportunity (what they should have done), yielding distinct 'lesson archetypes' \u2014 each group is a recognizable bad habit that produces a class of errors",
+  "groups": [
+   {
+    "name": "Missed Winning Checks & Checkmates",
+    "thread": "The best move is a check \u2014 mate-in-one, queen/rook/knight fork-check, capture-with-check, back-rank mate, skewer check, discovered check, perpetual, or zwischenzug check \u2014 and the player chose a quiet move or greedy capture instead. The unifying lesson: always scan for checks first.",
+    "est_size": 175
+   },
+   {
+    "name": "Greedy Captures That Self-Destruct",
+    "thread": "Player makes a tempting capture (often with check) but the capturing piece lands en prise, or the capture ignores something more urgent (like a mating threat or an even bigger win). Includes greedy queen/rook/minor captures that hang themselves, captures that allow mate, and materialistic takes that miss a stronger forcing continuation. The lesson: evaluate what happens AFTER you take.",
+    "est_size": 145
+   },
+   {
+    "name": "Left Own Piece Undefended (Unforced Hanging)",
+    "thread": "Through a developing move, repositioning, aggressive lunge, pawn push, or quiet move, the player leaves their own piece capturable. Not triggered by a capture \u2014 it's a failure of defensive awareness. Includes pieces abandoned by moving their defender, pieces placed on controlled squares, and moves that ignore existing threats to own material.",
+    "est_size": 165
+   },
+   {
+    "name": "Missed Free Captures of Hanging Pieces",
+    "thread": "An enemy piece (queen, rook, minor piece, or pawn) sits completely undefended and directly capturable, but the player plays a quiet or irrelevant move instead. Pure board-vision failure \u2014 the win is one simple capture away. The lesson: scan all enemy pieces for defenders before committing to your move.",
+    "est_size": 115
+   },
+   {
+    "name": "Pointless / Futile Checks",
+    "thread": "Player gives an impulsive or reflexive check that accomplishes nothing constructive \u2014 the king simply steps away and the checking piece is left hanging, trapped, or misplaced. Includes queen checks to open squares, rook checks in endgames that waste tempo, knight checks that hang the knight, and premature queen sorties with check. The lesson: a check must accomplish something concrete.",
+    "est_size": 75
+   },
+   {
+    "name": "Passive / Autopilot Play When Tactics Demand Action",
+    "thread": "Player makes a routine developing move, quiet repositioning, castling, or 'improving' move when the position demands an immediate concrete action (capture, forcing move, defensive resource). Includes opening autopilot ignoring hanging pieces, quiet moves in critical middlegame positions, and passive retreats in endgames when winning moves exist.",
+    "est_size": 95
+   },
+   {
+    "name": "Ignored Exchanges & Unresolved Tension",
+    "thread": "Player fails to make a necessary or clearly beneficial trade \u2014 declining a queen exchange, ignoring a bishop-for-bishop tension, refusing a rook trade on an open file, or leaving pawn tension unresolved. Often the ignored exchange leaves the player's own piece hanging to the very piece they should have traded. The lesson: if pieces stare at each other, resolve the tension.",
+    "est_size": 70
+   },
+   {
+    "name": "Endgame Technique Failures",
+    "thread": "In simplified positions (especially K+P), the player errs in technique: wrong king direction, losing opposition, premature pawn pushes, passive king retreats, missed king captures of adjacent pieces, failing to activate the king, or choosing pawn moves over king moves (and vice versa). Not tactical blindness but positional/technical misjudgment.",
+    "est_size": 80
+   },
+   {
+    "name": "Premature Aggression & Unsound Sacrifices",
+    "thread": "Player launches an attack too early \u2014 unsound Bxf7+/Nxf7 sacrifices without compensation, knight lunges to squares controlled by pawns, premature queen sorties, aggressive captures on defended squares, and piece developments to immediately-capturable squares. Opening impetuosity where the player 'attacks' before the position supports it.",
+    "est_size": 65
+   },
+   {
+    "name": "Missed Quiet Tactical Wins (Traps, Forks, Breakthroughs)",
+    "thread": "The winning move is NOT a check and NOT a direct capture of a hanging piece \u2014 it's a quiet move that wins through indirect means: pawn advances trapping pieces, queen traps via quiet moves, bishop maneuvers winning the queen, knight relocations to forking squares, pawn breakthroughs, piece invasions that create unstoppable threats. Requires deeper calculation than one-move captures.",
+    "est_size": 75
+   }
+  ],
+  "misfits": "A handful of features resist clean grouping: some combine multiple error types equally (e.g., 'missed capture AND hung own piece' straddles groups 3 and 4); very specific opening-knowledge features (Petroff Qe7 pin, Italian Bxf7+ vs Nxf7 choice, King's Gambit f-pawn); and a few 'catastrophic position collapse' features where the error is more about total positional misunderstanding than a single classifiable tactical blind spot."
+ },
+ "1": {
+  "organizing_axis": "Interaction between the MECHANISM of the blunder (what the player's move did wrong) and the NATURE of the missed opportunity (what was available). Features cluster by the behavioral error pattern: how the player self-destructed and what they were blind to.",
+  "groups": [
+   {
+    "name": "Missed Forcing Checks & Checkmates",
+    "thread": "Best move was a check (mate, fork, skewer, back-rank, discovered) that wins decisively. Player chose a quiet move or inferior capture instead. Unified by the blindness to checking resources regardless of piece delivering it.",
+    "est_size": 135
+   },
+   {
+    "name": "Greedy Capture Misses Superior Check/Mate",
+    "thread": "Player makes a tempting material-grabbing capture but a far stronger check or checkmate was available. Greed specifically over a forcing move. Distinct from general missed-check because the player WAS being tactical\u2014just at the wrong target.",
+    "est_size": 55
+   },
+   {
+    "name": "Greedy Capture Hangs Own Piece",
+    "thread": "A tempting capture (often with check) leaves the capturing piece itself undefended on its destination square, or abandons defense of another piece. Self-destructive greed\u2014the piece lands en prise to recapture or the act of capturing exposes something.",
+    "est_size": 130
+   },
+   {
+    "name": "Pointless/Futile Checks That Hang Pieces",
+    "thread": "Player gives an ineffective check (queen, rook, knight, or bishop) that accomplishes nothing after the king escapes\u2014leaving the checking piece en prise or abandoning critical defense. The impulse to check overrides calculation.",
+    "est_size": 75
+   },
+   {
+    "name": "Quiet/Active Move Leaves Own Piece Hanging",
+    "thread": "A non-capture, non-check move (development, repositioning, king move, pawn push) leaves the player's own piece undefended. Not greed or check-impulse\u2014just blindness to what the move unprotects. Includes opening development that ignores threats.",
+    "est_size": 145
+   },
+   {
+    "name": "Missed Free Captures of Hanging Enemy Pieces",
+    "thread": "An undefended or inadequately defended enemy piece (queen, rook, bishop, knight, or pawn) sits en prise and the player fails to take it, playing something else entirely. Pure capture-blindness.",
+    "est_size": 115
+   },
+   {
+    "name": "Missed Quiet Winning Moves (Traps, Breakthroughs, Maneuvers)",
+    "thread": "Best move is a non-forcing, non-capturing move that wins through positional threats: queen/bishop traps, pawn advances attacking trapped pieces, knight invasions, piece repositioning that creates unstoppable threats. Requires seeing indirect wins.",
+    "est_size": 70
+   },
+   {
+    "name": "Endgame Technique & King Navigation Errors",
+    "thread": "Wrong king direction, premature pawn push without king support, loss of opposition, passive king retreat, failure to activate. Strategic/navigational failures in simplified positions where precise maneuvering\u2014not tactics\u2014decides.",
+    "est_size": 68
+   },
+   {
+    "name": "Ignored Tension & Refused Mandatory Exchanges",
+    "thread": "Player fails to resolve critical piece or pawn tension (bishop facing bishop, rook facing rook on open file, central pawn captures). The exchange or capture is mandatory to avoid losing material, but player plays something unrelated.",
+    "est_size": 62
+   },
+   {
+    "name": "Premature/Unsound Opening Sacrifices & Aggression",
+    "thread": "In the opening, player makes tactically unsound sacrifices (Bxf7+, Nxf7, Nxe5 without prep), premature knight lunges to rim squares, or greedy pawn grabs that leave pieces hanging. Aggression without calculation.",
+    "est_size": 52
+   },
+   {
+    "name": "Missed Pawn Promotions",
+    "thread": "An advanced passed pawn on the 7th/2nd rank can promote but player plays a king move, check, or other inferior alternative instead. Specific blindness to the promotion square being available.",
+    "est_size": 28
+   },
+   {
+    "name": "Passive/Aimless Play When Concrete Action Required",
+    "thread": "Player makes routine, purposeless, or misdirected moves (aimless rook repositioning, slow pawn pushes, autopilot development) in positions demanding immediate concrete action. Not hanging a specific piece\u2014just failing to engage with the position's demands.",
+    "est_size": 65
+   }
+  ],
+  "misfits": "Features describing compound errors (simultaneously missing a win AND hanging own piece) often straddle groups 5 and 6. Some opening-specific positional features (neglected castling, premature Bg4/Bg5 development, ignored fianchetto trades) don't fit cleanly into tactical categories. A handful of 'wrong capture order' or 'premature exchange' features bridge the greedy-capture and ignored-tension groups."
+ },
+ "2": {
+  "organizing_axis": "Mechanism of blunder (what the player did wrong) combined with the type of opportunity missed (what they should have done), forming characteristic error patterns",
+  "groups": [
+   {
+    "name": "Missed Winning Checks & Checkmates",
+    "thread": "The best move was a check\u2014delivering mate, winning material via fork/skewer/back-rank, or saving via perpetual\u2014but the player played a quiet or inferior move instead. Defined by the CHECK being the critical missed resource.",
+    "est_size": 140
+   },
+   {
+    "name": "Greedy/Inferior Captures That Hang or Miss Better",
+    "thread": "Player makes a tempting capture that is objectively inferior\u2014either the capturing piece lands en prise, or a far stronger tactic (often a check or mate) goes unseen. The lure of material causes the error.",
+    "est_size": 115
+   },
+   {
+    "name": "Moves That Hang Own Pieces (Self-Inflicted Vulnerability)",
+    "thread": "Player's move leaves their own piece undefended and capturable\u2014through development, repositioning, or quiet moves that ignore existing threats to their own material. The error is blindness to own vulnerability.",
+    "est_size": 155
+   },
+   {
+    "name": "Pointless / Counterproductive Checks",
+    "thread": "Player gives a check that accomplishes nothing\u2014the checking piece is left hanging after the king escapes, or a stronger non-check move is missed. The 'always check, it might be mate' impulse backfires.",
+    "est_size": 60
+   },
+   {
+    "name": "Missed Free Captures of Hanging Enemy Material",
+    "thread": "An undefended enemy piece (queen, rook, minor piece, or pawn) sits freely capturable but the player makes an unrelated quiet or king move instead. Pure tactical blindness to available material.",
+    "est_size": 95
+   },
+   {
+    "name": "Passive / Routine Play Ignoring Tactical Demands",
+    "thread": "Player makes a developing, prophylactic, or repositioning move when the position screams for concrete action. Autopilot overrides calculation\u2014often in positions where multiple tactical shots exist.",
+    "est_size": 90
+   },
+   {
+    "name": "Endgame Technique Errors (King Direction, Pawn Promotion, Pacing)",
+    "thread": "Phase-specific endgame blunders: wrong king direction, missed pawn promotion, premature pawn advance without king support, passive king retreats, failure to maintain opposition or activate pieces in simplified positions.",
+    "est_size": 85
+   },
+   {
+    "name": "Ignored Necessary Exchanges & Unresolved Tension",
+    "thread": "Player fails to make a mandatory capture, trade, or tension-resolving exchange\u2014leaving contested pieces hanging, declining critical queen trades, or ignoring central pawn tension that demands resolution.",
+    "est_size": 70
+   },
+   {
+    "name": "Opening-Phase Premature Aggression & Unsound Sacrifices",
+    "thread": "Aggressive opening moves before the position justifies them: premature Bxf7+/Nxf7 without follow-up, knight/bishop lunges to undefended squares, neglected castling while overextending, greedy pawn grabs that leave pieces hanging.",
+    "est_size": 55
+   },
+   {
+    "name": "Missed Quiet Tactical Wins (Traps, Pawn Strikes, Non-Forcing Threats)",
+    "thread": "The winning move is a non-checking, non-capturing quiet move\u2014a piece trap, pawn advance that forks/traps, rook infiltration, bishop diagonal exploitation, or positional breakthrough. Requires seeing threats rather than forcing moves.",
+    "est_size": 85
+   },
+   {
+    "name": "Missed Pawn Breakthroughs & Critical Pawn Actions",
+    "thread": "A specific pawn advance (d5, e5, central break, promotion push) or pawn capture would win material or transform the position, but the player chose a piece move or wrong pawn action instead.",
+    "est_size": 50
+   },
+   {
+    "name": "Wrong King Move / King Misdirection",
+    "thread": "The king moves to the wrong square\u2014walking into mate, abandoning defense of pieces, fleeing when it should capture, or retreating when it should advance. King-specific decision errors across all phases.",
+    "est_size": 20
+   }
+  ],
+  "misfits": "Features describing very specific opening book deviations (f436 Nxf7 instead of Bxf7+ in Italian, f575 Petroff e-file pin, f686 d5 counter-strike vs e5), niche positional choices (f732 flank pawn push in closed centers, f707 doubled rooks on 7th), and meta-blunders combining multiple error types simultaneously (f193 hung piece allows mate, f159 ignoring tactical emergency) resist clean single-group assignment."
+ },
+ "4": {
+  "organizing_axis": "Mechanism of the blunder \u2014 combining the nature of the player's bad move (what they did) with the nature of the missed opportunity (what they should have done), creating natural clusters around recurring error patterns",
+  "groups": [
+   {
+    "name": "Missed Checkmates & Forced Mates",
+    "thread": "Forced mate (often mate-in-one or short sequence) was available on the board but the player played a capture, quiet move, or inferior check instead. Characterized by near-perfect bw and chk values \u2014 the winning move is always a mating check.",
+    "est_size": 55
+   },
+   {
+    "name": "Missed Material-Winning Checks (Forks, Skewers, Discoveries)",
+    "thread": "A non-mating check wins decisive material through a fork, skewer, discovered attack, or forces queen capture. Player chose a passive move, greedy capture, or inferior check instead. Very high bw and chk; the check is a tactical device for material gain, not immediate mate.",
+    "est_size": 115
+   },
+   {
+    "name": "Futile/Pointless Checks That Hang Pieces",
+    "thread": "Player gives an impulsive, unproductive check \u2014 the king simply escapes and the checking piece (or a piece left behind) is en prise. The check accomplishes nothing strategic. High oh; the player's bad move IS the check, not a missed check.",
+    "est_size": 70
+   },
+   {
+    "name": "Greedy Captures That Self-Destruct",
+    "thread": "Player makes a tempting capture (often with check or of material) but the capturing piece lands undefended, the move exposes another piece, or it ignores a stronger continuation. The greed is punished \u2014 net material loss. Very high oh values; the capture itself is the error.",
+    "est_size": 140
+   },
+   {
+    "name": "Missed Free Captures of Hanging Pieces",
+    "thread": "An undefended or inadequately defended enemy piece (queen, rook, bishop, knight, or critical pawn) sits freely capturable but the player plays a quiet, developing, or king move instead. Very high bw; the opportunity is a trivial one-move capture.",
+    "est_size": 130
+   },
+   {
+    "name": "Own Piece Left En Prise (Careless Placement)",
+    "thread": "Player moves a piece to a square where it's undefended, develops while ignoring an existing attack on their material, or abandons a piece's defense through repositioning. High oh; the error is positional carelessness rather than greedy overreach. Includes knights on rim squares, bishops on hanging diagonals, queens left on attacked files.",
+    "est_size": 145
+   },
+   {
+    "name": "Passive/Routine Play Ignoring Tactical Urgency",
+    "thread": "Player makes a natural-looking developing, prophylactic, or repositioning move while the position screams for concrete action. They're on autopilot \u2014 playing 'chess moves' instead of reading the position's critical demands. Moderate bw, lower oh; the sin is passivity, not a specific hanging piece.",
+    "est_size": 95
+   },
+   {
+    "name": "Endgame Technique Failures (King, Pawn, Promotion)",
+    "thread": "In endgames: king walks wrong direction, opposition lost, pawn pushed prematurely instead of king-first, promotion missed or delayed, pawn race miscounted, rook passively placed. Phase-specific errors of technique rather than tactical blindness. Low oh, low-moderate bw.",
+    "est_size": 80
+   },
+   {
+    "name": "Ignored Tension & Declined Mandatory Exchanges",
+    "thread": "Critical pawn tension (dxe5, exd4, cxd5), obligatory piece exchanges on open files, or necessary queen trades are avoided. Player plays around the tension instead of resolving it, often leaving the unresolved piece hanging. The error is structural avoidance. Low bw, moderate oh.",
+    "est_size": 75
+   },
+   {
+    "name": "Premature/Unsound Sacrifices & Opening Aggression",
+    "thread": "Speculative Bxf7+ without follow-up, Nxf7 left hanging, knight lunges to rim squares, premature queen sorties, and other aggressive-looking opening moves that simply lose material. The impulse is attacking but the calculation is absent. Very high oh; often opening-phase specific.",
+    "est_size": 55
+   },
+   {
+    "name": "Missed Quiet Tactical Wins (Traps, Pawn Breaks, Piece Maneuvers)",
+    "thread": "The winning move is NOT a check and NOT a simple capture of a hanging piece \u2014 it's a positional pawn advance that forks/traps, a piece redeployment that wins a queen, a pawn break creating decisive threats, or a trap closing escape routes. Very high bw, near-zero chk. The hardest-to-see category.",
+    "est_size": 85
+   }
+  ],
+  "misfits": "A handful of features blend categories or represent highly specific one-off patterns: f560 (unblocking file exposing own king), f504/f849 (ignoring back-rank luft), f656 (poisoned b-pawn grab as a known opening trap), f876 (bishop retreats to rim as a strategic concession), f732 (missed flank pawn advance in closed positions). These cross-cut the main axes without fitting cleanly."
+ },
+ "0": {
+  "organizing_axis": "Error mechanism: the type of move played (or not played) and the nature of what was missed \u2014 clustering by whether the blunder is a futile check, a self-destructive capture, a passivity error, an ignored tension, a missed forcing move, or an endgame technique failure",
+  "groups": [
+   {
+    "name": "Missed Checkmate / Forced Mate",
+    "thread": "Player had an available mate-in-1 to mate-in-3 (usually via queen or rook) and played something else entirely \u2014 a capture, a quiet move, or an inferior check. Best move is almost always check with chk\u22481.0 and bw\u22481.0.",
+    "est_size": 45
+   },
+   {
+    "name": "Missed Winning Check (Forks, Skewers, Decisive Material)",
+    "thread": "A non-mating check was available that wins major material through a fork, skewer, discovered attack, back-rank threat, or forcing sequence. Player chose a quiet move, wrong capture, or inferior check instead. Very high chk (>0.7) and bw (>0.8).",
+    "est_size": 120
+   },
+   {
+    "name": "Greedy Capture Instead of Winning Check/Mate",
+    "thread": "Player took material (often with check itself) but missed a far stronger check or checkmate. The temptation of the capture overrode calculation. Both bw and chk are high; the player's move is always a capture.",
+    "est_size": 40
+   },
+   {
+    "name": "Pointless / Futile Checks That Hang Pieces",
+    "thread": "Player gives an impulsive or aimless check (queen, rook, knight, or bishop) that accomplishes nothing \u2014 the king simply steps away and the checking piece is left en prise or the position is worse. oh is typically >0.7; the check is the PLAYER's bad move, not the missed best move.",
+    "est_size": 70
+   },
+   {
+    "name": "Greedy Capture Self-Destructs (Piece Hangs on Destination)",
+    "thread": "Player makes a tempting capture but the capturing piece lands on a square where it is undefended and immediately recapturable, or the act of capturing exposes/abandons another piece. oh\u22480.9+. Includes queen grabs that leave queen hanging, rook captures into recapture, minor piece takes leaving piece en prise.",
+    "est_size": 115
+   },
+   {
+    "name": "Hung Own Piece (Non-Capture / Development / Repositioning)",
+    "thread": "Player's move is not a capture but still leaves their own piece undefended \u2014 via a knight lunge, queen sortie, bishop development, pawn push that uncovers an attack, king move that abandons defense, or piece repositioning that ignores an existing threat. oh\u22480.8-1.0. Many occur in the opening.",
+    "est_size": 145
+   },
+   {
+    "name": "Missed Free Capture of Hanging Enemy Piece",
+    "thread": "An undefended enemy piece (queen, rook, minor piece, or pawn) sits directly capturable and the player makes a quiet or unrelated move instead. bw is high (0.7-1.0), oh is moderate (enemy piece was free). Includes missed hanging queens, rooks, bishops, knights, and critical pawns.",
+    "est_size": 110
+   },
+   {
+    "name": "Passive / Aimless Play When Concrete Action Demanded",
+    "thread": "Player makes a slow developing move, routine king move, purposeless pawn push, or positional repositioning when the position screams for a concrete tactical decision. Includes autopilot development in sharp positions, aimless rook moves, quiet moves in critical moments. bw moderate-high, oh low-moderate.",
+    "est_size": 85
+   },
+   {
+    "name": "Ignored Piece/Pawn Tension and Mandatory Exchanges",
+    "thread": "Player fails to resolve critical tension \u2014 neglects a forced bishop exchange, ignores contested rooks on an open file, bypasses central pawn captures, or declines a queen trade that was the only way to maintain the position. Leaves own pieces hanging to the unresolved tension. bw low (often the exchange is equal), oh moderate.",
+    "est_size": 70
+   },
+   {
+    "name": "Endgame King/Pawn Technique Errors",
+    "thread": "In pure or near-pure endgames: king walks wrong direction, loses opposition, pushes pawn prematurely instead of king infiltration, misplays pawn race tempo, botches won KP vs K positions, retreats passively when activation was critical. Typically low oh, low-moderate bw, endgame-specific.",
+    "est_size": 60
+   },
+   {
+    "name": "Premature / Unsound Sacrifices and Opening Aggression",
+    "thread": "Player launches a tactically unjustified sacrifice (Bxf7+, Nxf7, Nxf2, premature knight lunge to rim) or makes aggressive opening moves that leave pieces hanging without compensation. oh very high (0.9+); the sacrifice is simply refuted.",
+    "est_size": 40
+   },
+   {
+    "name": "Missed Quiet Tactical Wins (Traps, Threats, Breakthroughs)",
+    "thread": "Best move is a NON-forcing move (no check, no capture) that wins material through a threat, piece trap, pawn breakthrough, positional squeeze, or quiet piece maneuver. Includes missed queen traps, bishop traps via pawn kicks, pawn forks, rook file invasions, knight maneuvers. bw very high, chk\u22480.",
+    "est_size": 65
+   },
+   {
+    "name": "Missed Pawn Promotion",
+    "thread": "Player has a pawn on the 7th/2nd rank (or can reach it in one move) and fails to promote \u2014 choosing a king move, rook check, or other temporizing move instead. Also includes promoting into immediate capture when preparation was needed.",
+    "est_size": 30
+   },
+   {
+    "name": "Ignored Critical Threats (Mate/Promotion by Opponent)",
+    "thread": "Player makes a greedy capture or irrelevant move while ignoring the opponent's immediate winning threat \u2014 typically an unstoppable checkmate, a pawn about to promote, or a forced tactical sequence. The error is blindness to the OPPONENT's resource rather than missing one's own.",
+    "est_size": 25
+   }
+  ],
+  "misfits": "A small number of features (~20) resist clean classification, sitting at intersections: e.g., f289 (premature recapture order in a specific opening), f732 (missed flank pawn push in closed positions), f656 (poisoned b-pawn grab is both greedy and positional misjudgment), f876 (bishop retreats to rim \u2014 positional rather than tactical), f575 (missed specific Petroff pin), and various features combining 'missed capture + hung own piece' that could belong to either Group 5, 6, or 7 depending on emphasis."
+ }
+}

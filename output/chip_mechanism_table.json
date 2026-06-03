@@ -1,0 +1,5663 @@
+[
+ {
+  "chip": "Missed Winning Check",
+  "n": 35,
+  "best_wins": 0.84,
+  "own_hang": 0.43,
+  "best_check": 0.81,
+  "fire": 0.01,
+  "example_label": "The player missed a check (usually a knight fork or pawn advance) that wins decisive mater"
+ },
+ {
+  "chip": "Missed Hanging Piece",
+  "n": 26,
+  "best_wins": 0.84,
+  "own_hang": 0.38,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "Player ignores a simple winning capture of an undefended or under-defended enemy piece, pl"
+ },
+ {
+  "chip": "Hung Own Piece",
+  "n": 25,
+  "best_wins": 0.55,
+  "own_hang": 0.82,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "The player makes a move that leaves their own piece (typically a major piece) undefended a"
+ },
+ {
+  "chip": "Greedy Capture Hangs Piece",
+  "n": 20,
+  "best_wins": 0.58,
+  "own_hang": 0.86,
+  "best_check": 0.12,
+  "fire": 0.01,
+  "example_label": "In endgames, the player captures material (often with check) but leaves the capturing piec"
+ },
+ {
+  "chip": "Missed Winning Capture",
+  "n": 14,
+  "best_wins": 0.69,
+  "own_hang": 0.53,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "Player ignores a straightforward material-winning capture (usually of a minor piece or bet"
+ },
+ {
+  "chip": "Missed Hanging Queen",
+  "n": 13,
+  "best_wins": 0.88,
+  "own_hang": 0.55,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "Player misses capturing an undefended enemy queen, instead playing a quiet king move that "
+ },
+ {
+  "chip": "Missed Winning Queen Check",
+  "n": 12,
+  "best_wins": 0.95,
+  "own_hang": 0.46,
+  "best_check": 0.88,
+  "fire": 0.0,
+  "example_label": "The player missed a queen check that would have won decisive material or delivered checkma"
+ },
+ {
+  "chip": "Hung Own Queen",
+  "n": 10,
+  "best_wins": 0.57,
+  "own_hang": 0.94,
+  "best_check": 0.17,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet move that leaves their own queen en prise, when the best move was typ"
+ },
+ {
+  "chip": "Missed Pawn Promotion",
+  "n": 10,
+  "best_wins": 0.68,
+  "own_hang": 0.34,
+  "best_check": 0.29,
+  "fire": 0.0,
+  "example_label": "Player fails to immediately promote an advanced passed pawn, typically playing a slow king"
+ },
+ {
+  "chip": "Hung Own Major Piece",
+  "n": 10,
+  "best_wins": 0.67,
+  "own_hang": 0.88,
+  "best_check": 0.18,
+  "fire": 0.01,
+  "example_label": "Player makes a quiet move that leaves their own major piece (queen or rook) en prise to an"
+ },
+ {
+  "chip": "Hung Own Rook",
+  "n": 9,
+  "best_wins": 0.59,
+  "own_hang": 0.87,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "In endgame positions, the player makes an aggressive or advancing move (typically a pawn p"
+ },
+ {
+  "chip": "Pointless Check Hangs Piece",
+  "n": 9,
+  "best_wins": 0.6,
+  "own_hang": 0.8,
+  "best_check": 0.13,
+  "fire": 0.0,
+  "example_label": "Player gives a tempting but losing check with a major piece that leaves their own piece ha"
+ },
+ {
+  "chip": "Missed Queen Capture",
+  "n": 8,
+  "best_wins": 0.73,
+  "own_hang": 0.6,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "Player fails to capture the opponent's en-prise queen (median value 6.0), often with a min"
+ },
+ {
+  "chip": "Missed Bishop Capture",
+  "n": 8,
+  "best_wins": 0.44,
+  "own_hang": 0.4,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "The player ignores a necessary bishop capture (Bx...), instead playing a different move th"
+ },
+ {
+  "chip": "Hung Own Minor Piece",
+  "n": 8,
+  "best_wins": 0.49,
+  "own_hang": 0.87,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "Player moves a piece (predominantly a knight) to a square where it is left undefended and "
+ },
+ {
+  "chip": "Missed Knight Fork",
+  "n": 8,
+  "best_wins": 0.88,
+  "own_hang": 0.37,
+  "best_check": 0.53,
+  "fire": 0.01,
+  "example_label": "The player missed a winning knight fork with check that would have won major material (typ"
+ },
+ {
+  "chip": "Missed Decisive Check",
+  "n": 7,
+  "best_wins": 0.82,
+  "own_hang": 0.44,
+  "best_check": 0.8,
+  "fire": 0.0,
+  "example_label": "Player misses a winning check (often checkmate or queen-winning) by playing a tempting cap"
+ },
+ {
+  "chip": "Missed Winning Rook Check",
+  "n": 6,
+  "best_wins": 0.86,
+  "own_hang": 0.45,
+  "best_check": 0.95,
+  "fire": 0.0,
+  "example_label": "In rook endgames with exposed kings, the player missed a rook check that wins decisive mat"
+ },
+ {
+  "chip": "Missed Queen Trap",
+  "n": 5,
+  "best_wins": 0.99,
+  "own_hang": 0.55,
+  "best_check": 0.0,
+  "fire": 0.02,
+  "example_label": "Player ignores the opportunity to win the opponent's overextended queen via a queen move, "
+ },
+ {
+  "chip": "Missed Bishop Exchange",
+  "n": 5,
+  "best_wins": 0.11,
+  "own_hang": 0.52,
+  "best_check": 0.07,
+  "fire": 0.02,
+  "example_label": "Player ignores a necessary bishop capture (equal exchange) and plays a quiet move, often l"
+ },
+ {
+  "chip": "Missed King Capture",
+  "n": 5,
+  "best_wins": 0.71,
+  "own_hang": 0.29,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "In endgames, the player moves the king to an adjacent square (or makes a quiet move) inste"
+ },
+ {
+  "chip": "Missed Free Capture",
+  "n": 5,
+  "best_wins": 0.91,
+  "own_hang": 0.36,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "In endgame positions, the player makes a quiet move instead of capturing an undefended ene"
+ },
+ {
+  "chip": "Quiet Move Hangs Piece",
+  "n": 5,
+  "best_wins": 0.7,
+  "own_hang": 0.67,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "Player makes a non-urgent or developing move that leaves their own piece undefended, ignor"
+ },
+ {
+  "chip": "Greedy Capture Misses Check",
+  "n": 4,
+  "best_wins": 0.77,
+  "own_hang": 0.79,
+  "best_check": 0.78,
+  "fire": 0.0,
+  "example_label": "Player grabs material with a tempting capture instead of playing a winning check (often ch"
+ },
+ {
+  "chip": "Ignored Pawn Tension",
+  "n": 4,
+  "best_wins": 0.22,
+  "own_hang": 0.48,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet move (usually a king move) instead of resolving critical pawn tension"
+ },
+ {
+  "chip": "Greedy Capture Misses Mate",
+  "n": 4,
+  "best_wins": 0.89,
+  "own_hang": 0.58,
+  "best_check": 0.61,
+  "fire": 0.0,
+  "example_label": "Player captures an enemy piece (often with check) hanging their own major piece, when a fo"
+ },
+ {
+  "chip": "Missed Pawn Capture",
+  "n": 4,
+  "best_wins": 0.73,
+  "own_hang": 0.49,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player ignores a simple pawn capture of an enemy piece that has infiltrated to an aggressi"
+ },
+ {
+  "chip": "Hung Own Bishop",
+  "n": 4,
+  "best_wins": 0.41,
+  "own_hang": 0.86,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "The player makes a move that leaves their own bishop undefended and capturable by the oppo"
+ },
+ {
+  "chip": "Missed Knight Fork Check",
+  "n": 4,
+  "best_wins": 0.88,
+  "own_hang": 0.53,
+  "best_check": 0.98,
+  "fire": 0.0,
+  "example_label": "Player missed a devastating knight fork with check that wins material by simultaneously at"
+ },
+ {
+  "chip": "Missed Endgame Capture",
+  "n": 4,
+  "best_wins": 0.53,
+  "own_hang": 0.16,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "Player makes a passive quiet move in an endgame instead of an available critical capture o"
+ },
+ {
+  "chip": "Missed Hanging Bishop",
+  "n": 4,
+  "best_wins": 0.83,
+  "own_hang": 0.46,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "Player plays a quiet move (often f3 or a developing move) instead of simply capturing an u"
+ },
+ {
+  "chip": "Wrong King Direction",
+  "n": 4,
+  "best_wins": 0.36,
+  "own_hang": 0.2,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "In pawn endgames, the player moved the king in the wrong direction (or pushed a pawn) inst"
+ },
+ {
+  "chip": "Missed Decisive Tactic",
+  "n": 3,
+  "best_wins": 0.71,
+  "own_hang": 0.42,
+  "best_check": 0.32,
+  "fire": 0.0,
+  "example_label": "Player misses a powerful forcing move (check or capture) that wins decisive material or fo"
+ },
+ {
+  "chip": "Missed Hanging Knight",
+  "n": 3,
+  "best_wins": 0.79,
+  "own_hang": 0.41,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player ignores an undefended enemy knight that can be captured for free, typically by a si"
+ },
+ {
+  "chip": "Missed Knight Tactic",
+  "n": 3,
+  "best_wins": 0.82,
+  "own_hang": 0.55,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "The player misses a winning knight relocation that would win significant material, instead"
+ },
+ {
+  "chip": "Greedy Queen Capture",
+  "n": 3,
+  "best_wins": 0.73,
+  "own_hang": 0.91,
+  "best_check": 0.21,
+  "fire": 0.0,
+  "example_label": "The queen greedily captures a piece but lands on a square where it is en prise and lost."
+ },
+ {
+  "chip": "Premature Queen Check",
+  "n": 3,
+  "best_wins": 0.59,
+  "own_hang": 0.6,
+  "best_check": 0.13,
+  "fire": 0.0,
+  "example_label": "Player gives a tempting but pointless queen check, missing a stronger move that wins mater"
+ },
+ {
+  "chip": "Check Hangs Own Piece",
+  "n": 3,
+  "best_wins": 0.53,
+  "own_hang": 0.92,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "The player gives a pointless check (usually with a rook) that leaves the checking piece un"
+ },
+ {
+  "chip": "Futile Check Hangs Piece",
+  "n": 3,
+  "best_wins": 0.58,
+  "own_hang": 0.78,
+  "best_check": 0.02,
+  "fire": 0.02,
+  "example_label": "Player gives an aggressive check (usually a Queen check) that leaves their own piece\u2014often"
+ },
+ {
+  "chip": "Greedy Capture Hangs Major",
+  "n": 3,
+  "best_wins": 0.64,
+  "own_hang": 0.97,
+  "best_check": 0.25,
+  "fire": 0.0,
+  "example_label": "Player captures an enemy piece with a rook or queen, but the capturing piece lands on a sq"
+ },
+ {
+  "chip": "Futile Queen Check",
+  "n": 3,
+  "best_wins": 0.66,
+  "own_hang": 0.67,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Playing a pointless queen check in a queen endgame instead of making a constructive move ("
+ },
+ {
+  "chip": "Greedy Capture Hangs Rook",
+  "n": 3,
+  "best_wins": 0.55,
+  "own_hang": 0.93,
+  "best_check": 0.22,
+  "fire": 0.0,
+  "example_label": "Player makes a tempting capture (usually with a rook) that leaves their own major piece en"
+ },
+ {
+  "chip": "Greedy Capture Hangs Minor",
+  "n": 3,
+  "best_wins": 0.42,
+  "own_hang": 0.93,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "Player captures a central pawn with a minor piece that is left unprotected and hanging on "
+ },
+ {
+  "chip": "Missed Mating Check",
+  "n": 3,
+  "best_wins": 0.95,
+  "own_hang": 0.57,
+  "best_check": 0.97,
+  "fire": 0.04,
+  "example_label": "The player missed a winning check (almost always a queen check) that delivers immediate ch"
+ },
+ {
+  "chip": "Ignored Central Pawn Capture",
+  "n": 3,
+  "best_wins": 0.5,
+  "own_hang": 0.54,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player ignores an available winning pawn capture in the center (typically resolving tensio"
+ },
+ {
+  "chip": "Quiet Move Ignores Tactics",
+  "n": 3,
+  "best_wins": 0.64,
+  "own_hang": 0.48,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "Player makes a slow, non-forcing 'developing' move while missing a critical tactical oppor"
+ },
+ {
+  "chip": "Missed Pawn Breakthrough",
+  "n": 3,
+  "best_wins": 0.83,
+  "own_hang": 0.4,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "The player missed a critical pawn advance that would have won material through a tactical "
+ },
+ {
+  "chip": "Hung Own Pawn",
+  "n": 3,
+  "best_wins": 0.35,
+  "own_hang": 0.9,
+  "best_check": 0.05,
+  "fire": 0.01,
+  "example_label": "Player makes a move in the endgame that leaves one of their own pawns undefended and captu"
+ },
+ {
+  "chip": "Missed Zwischenzug Check",
+  "n": 3,
+  "best_wins": 0.68,
+  "own_hang": 0.69,
+  "best_check": 0.75,
+  "fire": 0.0,
+  "example_label": "Player makes a routine capture instead of inserting an intermediate check (zwischenzug) th"
+ },
+ {
+  "chip": "Passive King Retreat",
+  "n": 3,
+  "best_wins": 0.38,
+  "own_hang": 0.39,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "King retreats passively toward the edge or corner in an endgame instead of staying active "
+ },
+ {
+  "chip": "Missed Winning Queen Trade",
+  "n": 3,
+  "best_wins": 0.14,
+  "own_hang": 0.48,
+  "best_check": 0.4,
+  "fire": 0.0,
+  "example_label": "Player avoided a decisive queen exchange that would have converted a winning advantage int"
+ },
+ {
+  "chip": "Missed Pawn Break",
+  "n": 3,
+  "best_wins": 0.47,
+  "own_hang": 0.26,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "In king-and-pawn endgames, the player makes a passive king move instead of executing a cri"
+ },
+ {
+  "chip": "Missed Queen Takes Rook",
+  "n": 3,
+  "best_wins": 0.88,
+  "own_hang": 0.43,
+  "best_check": 0.59,
+  "fire": 0.0,
+  "example_label": "The player misses that their queen can capture an undefended enemy rook (typically in a co"
+ },
+ {
+  "chip": "Greedy Capture Misses Tactic",
+  "n": 3,
+  "best_wins": 0.72,
+  "own_hang": 0.65,
+  "best_check": 0.32,
+  "fire": 0.0,
+  "example_label": "Player makes a tempting capture (or flashy check) instead of a stronger forcing move that "
+ },
+ {
+  "chip": "Missed Checkmate",
+  "n": 3,
+  "best_wins": 0.95,
+  "own_hang": 0.26,
+  "best_check": 0.9,
+  "fire": 0.0,
+  "example_label": "Player missed an available checkmate (or forcing check leading to immediate mate) and inst"
+ },
+ {
+  "chip": "Quiet Move Ignoring Tactics",
+  "n": 3,
+  "best_wins": 0.67,
+  "own_hang": 0.59,
+  "best_check": 0.22,
+  "fire": 0.01,
+  "example_label": "Player plays a passive, non-tactical quiet move when a winning capture or forcing move is "
+ },
+ {
+  "chip": "Rook Check Hangs Rook",
+  "n": 2,
+  "best_wins": 0.54,
+  "own_hang": 0.7,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "In endgames, the player gives a rook check that leaves the rook en prise after the king st"
+ },
+ {
+  "chip": "Missed Bishop Trap",
+  "n": 2,
+  "best_wins": 0.99,
+  "own_hang": 0.51,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player misses a g-pawn (or f-pawn) advance that traps an enemy bishop stranded on the h-fi"
+ },
+ {
+  "chip": "Missed Pawn Advance",
+  "n": 2,
+  "best_wins": 0.44,
+  "own_hang": 0.33,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "In endgame positions, the player missed a critical pawn push that wins material, instead p"
+ },
+ {
+  "chip": "King Declines Bishop Capture",
+  "n": 2,
+  "best_wins": 0.89,
+  "own_hang": 0.52,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "The king retreats from an enemy bishop sacrifice instead of simply capturing it with Kx, f"
+ },
+ {
+  "chip": "Unsound Bxf7+ Sacrifice",
+  "n": 2,
+  "best_wins": 0.56,
+  "own_hang": 0.96,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Premature bishop sacrifice on f7 (or f2) with check in the opening that simply loses the b"
+ },
+ {
+  "chip": "Missed Queen Capture-Check",
+  "n": 2,
+  "best_wins": 0.46,
+  "own_hang": 0.5,
+  "best_check": 0.83,
+  "fire": 0.0,
+  "example_label": "The player missed a decisive Queen capture with check (Qx__+), instead playing a move that"
+ },
+ {
+  "chip": "Missed Bxf7+ Sacrifice",
+  "n": 2,
+  "best_wins": 0.18,
+  "own_hang": 0.36,
+  "best_check": 1.0,
+  "fire": 0.0,
+  "example_label": "Player misses a tactical bishop sacrifice on f7 (or f2) with check, instead playing a quie"
+ },
+ {
+  "chip": "Hung Bishop to Pawn",
+  "n": 2,
+  "best_wins": 0.69,
+  "own_hang": 0.96,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player ignores an enemy pawn attacking their own bishop, developing another piece and leav"
+ },
+ {
+  "chip": "Hung Minor Piece Opening",
+  "n": 2,
+  "best_wins": 0.22,
+  "own_hang": 0.84,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "In the opening, the player makes a premature aggressive move (knight sortie, sacrifice, or"
+ },
+ {
+  "chip": "Missed Forced Mate",
+  "n": 2,
+  "best_wins": 0.81,
+  "own_hang": 0.5,
+  "best_check": 0.21,
+  "fire": 0.01,
+  "example_label": "Player misses a forced checkmate or decisive winning continuation by playing a passive, ir"
+ },
+ {
+  "chip": "Missed Queen Trade",
+  "n": 2,
+  "best_wins": 0.11,
+  "own_hang": 0.59,
+  "best_check": 0.32,
+  "fire": 0.01,
+  "example_label": "The player avoids a clearly beneficial queen exchange, instead making a weaker move that o"
+ },
+ {
+  "chip": "Quiet Move Ignores Capture",
+  "n": 2,
+  "best_wins": 0.52,
+  "own_hang": 0.6,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "Player plays a quiet developing move instead of an available winning capture, simultaneous"
+ },
+ {
+  "chip": "Passive Rook Endgame Move",
+  "n": 2,
+  "best_wins": 0.54,
+  "own_hang": 0.18,
+  "best_check": 0.17,
+  "fire": 0.0,
+  "example_label": "In rook endgames, the player makes a passive/aimless rook move instead of the critical con"
+ },
+ {
+  "chip": "Greedy Knight Capture Hangs",
+  "n": 2,
+  "best_wins": 0.54,
+  "own_hang": 0.93,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "A knight makes a tempting capture but leaves itself or a more valuable piece undefended an"
+ },
+ {
+  "chip": "Missed Hanging Rook",
+  "n": 2,
+  "best_wins": 0.86,
+  "own_hang": 0.46,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet move (usually a king move in an endgame) instead of simply capturing "
+ },
+ {
+  "chip": "Premature Pawn Push",
+  "n": 2,
+  "best_wins": 0.54,
+  "own_hang": 0.38,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "In won king-and-pawn endgames, the player advances a pawn instead of using precise king in"
+ },
+ {
+  "chip": "Check Hangs Major Piece",
+  "n": 2,
+  "best_wins": 0.47,
+  "own_hang": 0.84,
+  "best_check": 0.2,
+  "fire": 0.0,
+  "example_label": "Player gives check (often capturing an advanced pawn) with a rook or queen that is left en"
+ },
+ {
+  "chip": "Check That Hangs Piece",
+  "n": 2,
+  "best_wins": 0.62,
+  "own_hang": 0.73,
+  "best_check": 0.23,
+  "fire": 0.0,
+  "example_label": "The player gives a tempting check (or aggressive move) that leaves their own piece en pris"
+ },
+ {
+  "chip": "Missed Greek Gift",
+  "n": 2,
+  "best_wins": 0.53,
+  "own_hang": 0.39,
+  "best_check": 0.93,
+  "fire": 0.0,
+  "example_label": "Player misses a classic Greek Gift bishop sacrifice (Bxh7+/Bxh2+/Bxf7+) with check that wi"
+ },
+ {
+  "chip": "Quiet Move Ignoring Capture",
+  "n": 2,
+  "best_wins": 0.52,
+  "own_hang": 0.4,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "Player plays a passive repositioning move instead of the critical capture or forcing move "
+ },
+ {
+  "chip": "Capture Hangs Own Piece",
+  "n": 2,
+  "best_wins": 0.58,
+  "own_hang": 0.92,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "Player makes a capture (predominantly with a bishop) that leaves their own piece undefende"
+ },
+ {
+  "chip": "Missed Winning Tactic",
+  "n": 2,
+  "best_wins": 0.6,
+  "own_hang": 0.37,
+  "best_check": 0.17,
+  "fire": 0.0,
+  "example_label": "Player plays a quiet or suboptimal move instead of a forcing tactical blow (capture or che"
+ },
+ {
+  "chip": "Aimless Quiet Move",
+  "n": 2,
+  "best_wins": 0.56,
+  "own_hang": 0.26,
+  "best_check": 0.06,
+  "fire": 0.01,
+  "example_label": "Player makes a slow, natural-looking quiet move while missing a concrete winning opportuni"
+ },
+ {
+  "chip": "Missed Perpetual Check",
+  "n": 2,
+  "best_wins": 0.8,
+  "own_hang": 0.35,
+  "best_check": 0.65,
+  "fire": 0.0,
+  "example_label": "Player fails to initiate a perpetual check sequence with their queen against an exposed en"
+ },
+ {
+  "chip": "Passive Move Missing Tactic",
+  "n": 2,
+  "best_wins": 0.7,
+  "own_hang": 0.44,
+  "best_check": 0.03,
+  "fire": 0.01,
+  "example_label": "Player makes a passive or routine move (often a king retreat or wrong-piece capture) while"
+ },
+ {
+  "chip": "Reckless Check Hangs Piece",
+  "n": 2,
+  "best_wins": 0.58,
+  "own_hang": 0.82,
+  "best_check": 0.13,
+  "fire": 0.0,
+  "example_label": "Player delivers a check with a major piece that is left en prise after the king moves away"
+ },
+ {
+  "chip": "Missed Forcing Tactic",
+  "n": 2,
+  "best_wins": 0.84,
+  "own_hang": 0.43,
+  "best_check": 0.3,
+  "fire": 0.0,
+  "example_label": "Player missed a decisive forcing move (often a major-piece check or infiltration) that win"
+ },
+ {
+  "chip": "Pointless Knight Check",
+  "n": 2,
+  "best_wins": 0.69,
+  "own_hang": 0.69,
+  "best_check": 0.28,
+  "fire": 0.0,
+  "example_label": "Player gives a tempting but inferior knight check, missing a much stronger move and often "
+ },
+ {
+  "chip": "Pointless Queen Check",
+  "n": 2,
+  "best_wins": 0.7,
+  "own_hang": 0.5,
+  "best_check": 0.36,
+  "fire": 0.0,
+  "example_label": "Player gives a wasteful queen check instead of capturing winning material (usually the ene"
+ },
+ {
+  "chip": "Ignored Pawn Attacks Knight",
+  "n": 2,
+  "best_wins": 0.34,
+  "own_hang": 0.97,
+  "best_check": 0.02,
+  "fire": 0.01,
+  "example_label": "Player ignores an enemy pawn directly attacking their knight, leaving it hanging."
+ },
+ {
+  "chip": "Pointless Pawn Check",
+  "n": 2,
+  "best_wins": 0.34,
+  "own_hang": 0.39,
+  "best_check": 0.15,
+  "fire": 0.0,
+  "example_label": "Player advances a pawn to deliver check when a quiet positional move (typically king centr"
+ },
+ {
+  "chip": "Hung Own Piece Opening",
+  "n": 2,
+  "best_wins": 0.35,
+  "own_hang": 0.91,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player makes a premature developing move or pawn advance in the opening that leaves their "
+ },
+ {
+  "chip": "Missed Forced Checkmate",
+  "n": 2,
+  "best_wins": 0.99,
+  "own_hang": 0.2,
+  "best_check": 1.0,
+  "fire": 0.0,
+  "example_label": "Player misses an available checkmate or forced mating check, playing a quiet non-forcing m"
+ },
+ {
+  "chip": "Missed Bishop Wins Queen",
+  "n": 2,
+  "best_wins": 0.9,
+  "own_hang": 0.33,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "The player missed a bishop move that wins the opponent's queen (or equivalent major materi"
+ },
+ {
+  "chip": "Quiet Move Misses Tactic",
+  "n": 2,
+  "best_wins": 0.8,
+  "own_hang": 0.39,
+  "best_check": 0.31,
+  "fire": 0.0,
+  "example_label": "Player plays a quiet piece repositioning move (usually Queen or Bishop) instead of a decis"
+ },
+ {
+  "chip": "Missed Back-Rank Mate",
+  "n": 2,
+  "best_wins": 0.99,
+  "own_hang": 0.37,
+  "best_check": 0.93,
+  "fire": 0.0,
+  "example_label": "Player misses a back-rank checkmate or winning back-rank capture with check, playing an in"
+ },
+ {
+  "chip": "Premature Endgame Pawn Push",
+  "n": 2,
+  "best_wins": 0.37,
+  "own_hang": 0.65,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "In endgames, the player pushes a pawn forward (often toward promotion) when they should in"
+ },
+ {
+  "chip": "Aimless Major Piece Move",
+  "n": 2,
+  "best_wins": 0.46,
+  "own_hang": 0.48,
+  "best_check": 0.16,
+  "fire": 0.02,
+  "example_label": "Playing a quiet rook or queen repositioning move that ignores concrete tactical demands, e"
+ },
+ {
+  "chip": "Hung Rook on Diagonal",
+  "n": 2,
+  "best_wins": 0.35,
+  "own_hang": 0.83,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player ignores or unblocks an enemy bishop's attack on their f1/f8 rook along the a6-f1 or"
+ },
+ {
+  "chip": "Missed Capturing Check",
+  "n": 2,
+  "best_wins": 0.53,
+  "own_hang": 0.45,
+  "best_check": 0.93,
+  "fire": 0.0,
+  "example_label": "Player missed a capture (usually with the Queen) that simultaneously delivers check, winni"
+ },
+ {
+  "chip": "Ignored Central Pawn Tension",
+  "n": 2,
+  "best_wins": 0.36,
+  "own_hang": 0.39,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player plays a quiet developing move instead of making the mandatory central pawn capture "
+ },
+ {
+  "chip": "Pawn Capture Hangs Piece",
+  "n": 2,
+  "best_wins": 0.41,
+  "own_hang": 0.93,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "A central pawn capture (d- or e-pawn exchange) that leaves the player's own piece or pawn "
+ },
+ {
+  "chip": "Missed Decisive Blow",
+  "n": 2,
+  "best_wins": 0.8,
+  "own_hang": 0.58,
+  "best_check": 0.45,
+  "fire": 0.01,
+  "example_label": "Player plays a slow quiet move when an immediate game-winning tactic (often a check or che"
+ },
+ {
+  "chip": "Missed Knight Capture",
+  "n": 2,
+  "best_wins": 0.38,
+  "own_hang": 0.4,
+  "best_check": 0.17,
+  "fire": 0.0,
+  "example_label": "Player ignores a critical knight capture (Nx...) that eliminates a dangerous or exposed en"
+ },
+ {
+  "chip": "Greedy Queen Pawn Grab",
+  "n": 2,
+  "best_wins": 0.69,
+  "own_hang": 0.39,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "The player grabs a peripheral pawn (typically with the queen on the a/b-file) instead of p"
+ },
+ {
+  "chip": "Greedy Capture Allows Mate",
+  "n": 2,
+  "best_wins": 0.62,
+  "own_hang": 0.89,
+  "best_check": 0.06,
+  "fire": 0.04,
+  "example_label": "Player captures or makes a materialistic move while ignoring the opponent's forced checkma"
+ },
+ {
+  "chip": "Tempting Check Hangs Piece",
+  "n": 2,
+  "best_wins": 0.69,
+  "own_hang": 0.85,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "Player gives a flashy check (almost always a knight check) that leaves the checking piece "
+ },
+ {
+  "chip": "Hung Piece in Endgame",
+  "n": 2,
+  "best_wins": 0.43,
+  "own_hang": 0.75,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "In sparse endgame positions, the player makes a quiet move (often a king move or piece rep"
+ },
+ {
+  "chip": "Pointless Rook Check",
+  "n": 2,
+  "best_wins": 0.5,
+  "own_hang": 0.7,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player gives an aimless rook check in a winning endgame instead of making the decisive qui"
+ },
+ {
+  "chip": "Premature Knight Jump",
+  "n": 2,
+  "best_wins": 0.39,
+  "own_hang": 0.47,
+  "best_check": 0.03,
+  "fire": 0.01,
+  "example_label": "Player jumps a knight aggressively to a central/forward outpost (e5, f5, d4) when the move"
+ },
+ {
+  "chip": "Missed Central Knight Capture",
+  "n": 2,
+  "best_wins": 0.45,
+  "own_hang": 0.47,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "Player misses a winning knight capture on a central square (e4/e5/d4/d5) in the opening, i"
+ },
+ {
+  "chip": "Missed Hanging Minor Piece",
+  "n": 2,
+  "best_wins": 0.9,
+  "own_hang": 0.43,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player ignores an undefended enemy minor piece (bishop or knight) that can be simply captu"
+ },
+ {
+  "chip": "Greedy Capture Hangs Queen",
+  "n": 2,
+  "best_wins": 0.54,
+  "own_hang": 1.0,
+  "best_check": 0.31,
+  "fire": 0.0,
+  "example_label": "The player makes a tempting capture but leaves their own Queen en prise, losing it."
+ },
+ {
+  "chip": "Pointless Check Hangs Queen",
+  "n": 2,
+  "best_wins": 0.73,
+  "own_hang": 0.93,
+  "best_check": 0.29,
+  "fire": 0.0,
+  "example_label": "Player gives a check (usually with the Queen) that leaves the checking piece en prise afte"
+ },
+ {
+  "chip": "Suboptimal Pawn Promotion",
+  "n": 2,
+  "best_wins": 0.49,
+  "own_hang": 0.14,
+  "best_check": 0.36,
+  "fire": 0.0,
+  "example_label": "Player makes a suboptimal promotion choice (underpromotion or wrong promotion square) or s"
+ },
+ {
+  "chip": "Greedy King Capture",
+  "n": 2,
+  "best_wins": 0.47,
+  "own_hang": 0.43,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "In king-and-pawn endgames, the king greedily captures a pawn/piece instead of attending to"
+ },
+ {
+  "chip": "Missed Critical Exchange",
+  "n": 2,
+  "best_wins": 0.18,
+  "own_hang": 0.46,
+  "best_check": 0.13,
+  "fire": 0.0,
+  "example_label": "Player ignores a beneficial minor-piece exchange (SEE=0 capture), playing a quiet move tha"
+ },
+ {
+  "chip": "King Move Ignores Capture",
+  "n": 2,
+  "best_wins": 0.87,
+  "own_hang": 0.3,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "In endgame positions, the player makes a quiet king move instead of capturing an undefende"
+ },
+ {
+  "chip": "Premature Pawn Promotion",
+  "n": 2,
+  "best_wins": 0.59,
+  "own_hang": 0.74,
+  "best_check": 0.18,
+  "fire": 0.0,
+  "example_label": "The player promotes a pawn to a queen that is immediately capturable, instead of playing a"
+ },
+ {
+  "chip": "Check Instead Of Capture",
+  "n": 2,
+  "best_wins": 0.9,
+  "own_hang": 0.75,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "Player gives a check instead of simply capturing an undefended enemy piece, often leaving "
+ },
+ {
+  "chip": "Hung Piece Missing Tactic",
+  "n": 2,
+  "best_wins": 0.5,
+  "own_hang": 0.68,
+  "best_check": 0.32,
+  "fire": 0.0,
+  "example_label": "Player makes a tempting move (often a capture) that leaves their own piece hanging, while "
+ },
+ {
+  "chip": "Missed Bishop Recapture",
+  "n": 2,
+  "best_wins": 0.91,
+  "own_hang": 0.61,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player develops a piece (usually their own bishop) instead of recapturing or capturing a h"
+ },
+ {
+  "chip": "Wrong King Move Endgame",
+  "n": 2,
+  "best_wins": 0.3,
+  "own_hang": 0.31,
+  "best_check": 0.16,
+  "fire": 0.0,
+  "example_label": "In pure king-and-pawn endgames, the player makes an aimless or misdirected king move inste"
+ },
+ {
+  "chip": "Premature Bishop Exchange",
+  "n": 2,
+  "best_wins": 0.49,
+  "own_hang": 0.99,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "The player prematurely exchanges their bishop for a knight (typically Bxf3/Bxf6/Bxc3), sur"
+ },
+ {
+  "chip": "Missed Central Pawn Fork",
+  "n": 2,
+  "best_wins": 0.94,
+  "own_hang": 0.27,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player misses a winning central pawn advance (d4/e4/e5/d5) that forks or attacks enemy pie"
+ },
+ {
+  "chip": "Missed Rook Exchange",
+  "n": 2,
+  "best_wins": 0.15,
+  "own_hang": 0.55,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "Player fails to execute a critical rook trade (Rx__ with SEE=0) and instead plays a quiet "
+ },
+ {
+  "chip": "Greedy Move Hangs Piece",
+  "n": 2,
+  "best_wins": 0.68,
+  "own_hang": 0.7,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "The player makes a tempting-looking aggressive move (often a queen capture or check) that "
+ },
+ {
+  "chip": "Missed Central Pawn Break",
+  "n": 2,
+  "best_wins": 0.95,
+  "own_hang": 0.42,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player develops a piece instead of playing a winning d-pawn advance (d4 or d5) that exploi"
+ },
+ {
+  "chip": "Ignored Forced Exchange",
+  "n": 2,
+  "best_wins": 0.07,
+  "own_hang": 0.56,
+  "best_check": 0.15,
+  "fire": 0.0,
+  "example_label": "Player plays a quiet move instead of taking a mandatory equal exchange, leaving their own "
+ },
+ {
+  "chip": "Passive Move Hangs Piece",
+  "n": 2,
+  "best_wins": 0.55,
+  "own_hang": 0.71,
+  "best_check": 0.17,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet, aimless move (often a king move) that leaves their own piece undefen"
+ },
+ {
+  "chip": "Missed Bishop Check",
+  "n": 2,
+  "best_wins": 0.98,
+  "own_hang": 0.54,
+  "best_check": 0.94,
+  "fire": 0.0,
+  "example_label": "Player missed a winning bishop check that would have won significant material."
+ },
+ {
+  "chip": "Missed Pawn Traps Queen",
+  "n": 2,
+  "best_wins": 0.97,
+  "own_hang": 0.58,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player missed a quiet pawn advance that traps or wins the enemy queen."
+ },
+ {
+  "chip": "Ignored Promotion Threat",
+  "n": 2,
+  "best_wins": 0.5,
+  "own_hang": 0.31,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player plays a flashy check, capture, or pawn push instead of using a rook to blockade or "
+ },
+ {
+  "chip": "Greedy Bishop Capture Hangs",
+  "n": 2,
+  "best_wins": 0.61,
+  "own_hang": 0.99,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "A bishop makes a tempting capture but leaves itself (or another piece) undefended and en p"
+ },
+ {
+  "chip": "Missed Queen Exchange",
+  "n": 2,
+  "best_wins": 0.05,
+  "own_hang": 0.54,
+  "best_check": 0.5,
+  "fire": 0.0,
+  "example_label": "Player ignores the forced queen trade with check on the open d-file, playing a developing "
+ },
+ {
+  "chip": "Bishop Capture Hangs Itself",
+  "n": 2,
+  "best_wins": 0.57,
+  "own_hang": 0.97,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "A bishop makes a capture (Bx__) and is left en prise on the capture square, resulting in m"
+ },
+ {
+  "chip": "Missed Queen Takes g4/g5 Bishop",
+  "n": 1,
+  "best_wins": 0.95,
+  "own_hang": 0.41,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player fails to capture an opponent's completely undefended bishop on g4 or g5 with their "
+ },
+ {
+  "chip": "Greedy Capture-Check Hangs Queen",
+  "n": 1,
+  "best_wins": 0.9,
+  "own_hang": 0.91,
+  "best_check": 0.59,
+  "fire": 0.0,
+  "example_label": "The player makes a tempting Queen (or Rook) capture with check that leaves the capturing p"
+ },
+ {
+  "chip": "Premature Promotion Hangs Queen",
+  "n": 1,
+  "best_wins": 0.53,
+  "own_hang": 0.72,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "The player promotes a pawn to a queen that is immediately capturable, when a non-promotion"
+ },
+ {
+  "chip": "Greedy Capture Hangs Pawn",
+  "n": 1,
+  "best_wins": 0.56,
+  "own_hang": 0.75,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "Player makes a materialistic capture (usually taking a pawn) instead of advancing or suppo"
+ },
+ {
+  "chip": "Capture Exposes Own Queen",
+  "n": 1,
+  "best_wins": 0.63,
+  "own_hang": 1.0,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "A greedy capture (pawn or piece take) that leaves the player's own queen undefended and en"
+ },
+ {
+  "chip": "Missed Bb5/Bb4 Tactic",
+  "n": 1,
+  "best_wins": 0.56,
+  "own_hang": 0.35,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player misses a bishop move to b4 or b5 (or capture on those squares) that wins material, "
+ },
+ {
+  "chip": "Abandoned Promotion Blockade",
+  "n": 1,
+  "best_wins": 0.54,
+  "own_hang": 0.62,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "The player moves a rook away from its critical duty of preventing an advanced passed pawn "
+ },
+ {
+  "chip": "Declined Queen Trade",
+  "n": 1,
+  "best_wins": 0.13,
+  "own_hang": 0.61,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player avoids a necessary queen exchange (or major-piece trade), leaving own pieces vulner"
+ },
+ {
+  "chip": "Ignored Attack on Own Piece",
+  "n": 1,
+  "best_wins": 0.12,
+  "own_hang": 0.77,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "Player makes a developing or active-looking move while leaving their own piece (usually qu"
+ },
+ {
+  "chip": "Passive Endgame King Move",
+  "n": 1,
+  "best_wins": 0.58,
+  "own_hang": 0.26,
+  "best_check": 0.28,
+  "fire": 0.0,
+  "example_label": "In endgame positions, the player makes a passive or wrong-direction king move instead of a"
+ },
+ {
+  "chip": "Unresolved Bishop Tension",
+  "n": 1,
+  "best_wins": 0.1,
+  "own_hang": 0.72,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Player ignores a mutual bishop-vs-bishop tension (Bxe7 or Bxe2 needed), leaving their own "
+ },
+ {
+  "chip": "Knight Lunges Undefended",
+  "n": 1,
+  "best_wins": 0.08,
+  "own_hang": 0.83,
+  "best_check": 0.0,
+  "fire": 0.01,
+  "example_label": "In the opening, a knight (or minor piece) jumps aggressively to an advanced or rim square "
+ },
+ {
+  "chip": "Aggressive Queen Hangs Piece",
+  "n": 1,
+  "best_wins": 0.57,
+  "own_hang": 0.67,
+  "best_check": 0.23,
+  "fire": 0.02,
+  "example_label": "Player makes an attacking queen move that leaves their own piece undefended elsewhere on t"
+ },
+ {
+  "chip": "Missed Rook Pawn Capture",
+  "n": 1,
+  "best_wins": 0.33,
+  "own_hang": 0.49,
+  "best_check": 0.16,
+  "fire": 0.0,
+  "example_label": "Player ignores a critical rook capture of an enemy pawn (often a dangerous passed pawn), i"
+ },
+ {
+  "chip": "Ignored Central Tension",
+  "n": 1,
+  "best_wins": 0.03,
+  "own_hang": 0.38,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player plays a quiet developing move instead of the critical central pawn capture needed t"
+ },
+ {
+  "chip": "Missed Quiet Piece Win",
+  "n": 1,
+  "best_wins": 1.0,
+  "own_hang": 0.42,
+  "best_check": 0.0,
+  "fire": 0.04,
+  "example_label": "Player misses a non-capturing tactical move that wins a minor piece (median value 3.0) thr"
+ },
+ {
+  "chip": "Knight Left En Prise",
+  "n": 1,
+  "best_wins": 0.41,
+  "own_hang": 0.98,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player ignores an enemy pawn (typically e5) attacking their knight and plays an unrelated "
+ },
+ {
+  "chip": "Hung Contested Rook",
+  "n": 1,
+  "best_wins": 0.14,
+  "own_hang": 0.53,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Player ignores an attacked rook on an open file that should be exchanged, leaving it hangi"
+ },
+ {
+  "chip": "Rook Move Hangs Piece",
+  "n": 1,
+  "best_wins": 0.63,
+  "own_hang": 0.7,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "The player makes an apparently purposeful rook move (or repositioning) that leaves their o"
+ },
+ {
+  "chip": "King Walks Wrong Way",
+  "n": 1,
+  "best_wins": 0.15,
+  "own_hang": 0.32,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "In king-and-pawn endgames, the player moves their king in the wrong direction, away from t"
+ },
+ {
+  "chip": "Rook Check Hangs Itself",
+  "n": 1,
+  "best_wins": 0.61,
+  "own_hang": 0.86,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "The player plays a flashy rook capture/move with check that leaves the rook itself undefen"
+ },
+ {
+  "chip": "Missed Knight Captures Center",
+  "n": 1,
+  "best_wins": 0.61,
+  "own_hang": 0.47,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player misses a knight capture winning an insufficiently defended central pawn (Nxe4, Nxd4"
+ },
+ {
+  "chip": "Ignoring Nc7+ Fork Threat",
+  "n": 1,
+  "best_wins": 0.34,
+  "own_hang": 0.78,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player makes a normal-looking developing move in the opening while ignoring an immediate k"
+ },
+ {
+  "chip": "Missed Pawn Captures Queen",
+  "n": 1,
+  "best_wins": 0.93,
+  "own_hang": 0.63,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "White fails to capture the opponent's queen with an advanced pawn (typically exf6), missin"
+ },
+ {
+  "chip": "Missed Qh4+/Qh5+ Diagonal",
+  "n": 1,
+  "best_wins": 0.97,
+  "own_hang": 0.14,
+  "best_check": 0.97,
+  "fire": 0.0,
+  "example_label": "Player misses a crushing queen check (Qh4+ or Qh5+) exploiting an open f-pawn diagonal aga"
+ },
+ {
+  "chip": "Missed Opening Capture",
+  "n": 1,
+  "best_wins": 0.37,
+  "own_hang": 0.03,
+  "best_check": 0.13,
+  "fire": 0.0,
+  "example_label": "Player makes a routine developing move in the opening while a strong capture (often winnin"
+ },
+ {
+  "chip": "Missed Saving Capture",
+  "n": 1,
+  "best_wins": 0.57,
+  "own_hang": 0.43,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player makes a passive king move instead of capturing a high-value hanging enemy piece tha"
+ },
+ {
+  "chip": "Missed Queen Check Tactic",
+  "n": 1,
+  "best_wins": 0.97,
+  "own_hang": 0.31,
+  "best_check": 0.92,
+  "fire": 0.0,
+  "example_label": "Player missed a forcing queen check (Qa4+ or Qh5+) that wins an undefended minor piece in "
+ },
+ {
+  "chip": "Missed Critical Knight Exchange",
+  "n": 1,
+  "best_wins": 0.04,
+  "own_hang": 0.28,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "The player fails to capture a dominant enemy centralized piece with a knight (Nxd5/Nxe5/Nx"
+ },
+ {
+  "chip": "Greedy Capture Over Tactic",
+  "n": 1,
+  "best_wins": 0.84,
+  "own_hang": 0.51,
+  "best_check": 0.22,
+  "fire": 0.0,
+  "example_label": "Player makes a tempting material capture (usually with a rook) instead of a stronger non-c"
+ },
+ {
+  "chip": "Neglected Open File",
+  "n": 1,
+  "best_wins": 0.29,
+  "own_hang": 0.43,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "The player makes an irrelevant or weakening move instead of urgently contesting a critical"
+ },
+ {
+  "chip": "Pawn Capture Hangs Pawn",
+  "n": 1,
+  "best_wins": 0.37,
+  "own_hang": 0.95,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "In endgames, the player makes a pawn capture (or advance) that leaves one of their own paw"
+ },
+ {
+  "chip": "Unsound Sacrifice Hangs Piece",
+  "n": 1,
+  "best_wins": 0.46,
+  "own_hang": 1.0,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "Player plays an aggressive-looking move (usually a check or capture with a minor piece) th"
+ },
+ {
+  "chip": "Missed Hanging Major Piece",
+  "n": 1,
+  "best_wins": 0.98,
+  "own_hang": 0.73,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player ignores a freely capturable enemy Queen or Rook (typically on an open file) and pla"
+ },
+ {
+  "chip": "Bishop Development Hangs Material",
+  "n": 1,
+  "best_wins": 0.53,
+  "own_hang": 0.73,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "A natural-looking bishop development move in the opening that carelessly leaves the player"
+ },
+ {
+  "chip": "Development Ignores Free Capture",
+  "n": 1,
+  "best_wins": 0.73,
+  "own_hang": 0.78,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player develops a piece instead of making a free central pawn capture, often leaving the d"
+ },
+ {
+  "chip": "Ignored Central Outpost",
+  "n": 1,
+  "best_wins": 0.07,
+  "own_hang": 0.49,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player fails to capture/exchange a dominant enemy piece on a central square (d4/d5/e4/e5),"
+ },
+ {
+  "chip": "Missed Undefended Rook",
+  "n": 1,
+  "best_wins": 0.95,
+  "own_hang": 0.34,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "Player makes a routine developing move instead of a tactical shot (often a queen check on "
+ },
+ {
+  "chip": "Missed Quiet Tactical Win",
+  "n": 1,
+  "best_wins": 0.97,
+  "own_hang": 0.36,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player makes a passive or routine move, missing a quiet (non-capture, non-check) tactical "
+ },
+ {
+  "chip": "Rook Capture Ignores Promotion",
+  "n": 1,
+  "best_wins": 0.61,
+  "own_hang": 0.97,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "Player greedily captures with a rook while an enemy pawn one square from promotion is igno"
+ },
+ {
+  "chip": "Premature Nxe5/Nxe4 Grab",
+  "n": 1,
+  "best_wins": 0.44,
+  "own_hang": 0.99,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Player's knight prematurely captures the e-pawn in the opening, leaving it hanging to imme"
+ },
+ {
+  "chip": "Hung Queen in Opening",
+  "n": 1,
+  "best_wins": 0.26,
+  "own_hang": 0.95,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player makes an opening move that leaves their own queen en prise to an enemy minor piece "
+ },
+ {
+  "chip": "Missed Diagonal Check",
+  "n": 1,
+  "best_wins": 0.92,
+  "own_hang": 0.1,
+  "best_check": 0.85,
+  "fire": 0.0,
+  "example_label": "Player missed a winning check (often checkmate) exploiting an open diagonal to the opponen"
+ },
+ {
+  "chip": "Ignored Necessary Capture",
+  "n": 1,
+  "best_wins": 0.18,
+  "own_hang": 0.59,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Player ignores a critical capture (usually an even exchange or recapture) and plays a quie"
+ },
+ {
+  "chip": "Queen Move Ignores Tactics",
+  "n": 1,
+  "best_wins": 0.53,
+  "own_hang": 0.6,
+  "best_check": 0.26,
+  "fire": 0.01,
+  "example_label": "Player repositions their queen with a quiet move instead of executing an available tactica"
+ },
+ {
+  "chip": "Missed Capture, Hung Own",
+  "n": 1,
+  "best_wins": 0.79,
+  "own_hang": 0.64,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "Player ignores a free capture worth ~5 points and instead plays a quiet move (often a king"
+ },
+ {
+  "chip": "Missed Nxf7 Tactic",
+  "n": 1,
+  "best_wins": 0.31,
+  "own_hang": 0.38,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player misses a devastating knight capture on f7 (or f2) exploiting the opponent's uncastl"
+ },
+ {
+  "chip": "Missed Fianchetto Bishop Trade",
+  "n": 1,
+  "best_wins": 0.17,
+  "own_hang": 0.39,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player ignores capturing an opponent's bishop aggressively posted against their fianchetto"
+ },
+ {
+  "chip": "Missed Tactical Knight Capture",
+  "n": 1,
+  "best_wins": 0.25,
+  "own_hang": 0.32,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "Player missed a knight capture (Nxe5/Nxe4/Nxd5/etc.) that wins material through tactics, p"
+ },
+ {
+  "chip": "Missed Rook Invasion",
+  "n": 1,
+  "best_wins": 0.81,
+  "own_hang": 0.47,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "Player missed a decisive rook penetration or capture that wins significant material, inste"
+ },
+ {
+  "chip": "Hung Knight Central Capture",
+  "n": 1,
+  "best_wins": 0.46,
+  "own_hang": 0.97,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player captures on d4/d5 with a knight (or abandons its protection), leaving it hanging un"
+ },
+ {
+  "chip": "Missed Passed Pawn Push",
+  "n": 1,
+  "best_wins": 0.43,
+  "own_hang": 0.4,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Player fails to advance a critical passed pawn toward promotion, instead making an irrelev"
+ },
+ {
+  "chip": "Rook Trade Hangs Major",
+  "n": 1,
+  "best_wins": 0.71,
+  "own_hang": 0.99,
+  "best_check": 0.21,
+  "fire": 0.0,
+  "example_label": "Player captures with a rook on a contested open file, but this move leaves their own major"
+ },
+ {
+  "chip": "Premature Queen Trade",
+  "n": 1,
+  "best_wins": 0.8,
+  "own_hang": 0.88,
+  "best_check": 0.61,
+  "fire": 0.0,
+  "example_label": "In queen endgames, the player captures an enemy piece with their Queen (with check), allow"
+ },
+ {
+  "chip": "Missed Bxb7/Bxb2 Capture",
+  "n": 1,
+  "best_wins": 0.95,
+  "own_hang": 0.39,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player misses a bishop capture winning an undefended pawn (or piece) on b7, b2, or g2 alon"
+ },
+ {
+  "chip": "Pawn Endgame Technique Error",
+  "n": 1,
+  "best_wins": 0.06,
+  "own_hang": 0.11,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player miscoordinates king and pawn in a won king-and-pawn endgame, either pushing the paw"
+ },
+ {
+  "chip": "Missed Fianchetto Capture",
+  "n": 1,
+  "best_wins": 0.06,
+  "own_hang": 0.6,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "Player fails to capture the opponent's fianchettoed bishop (Bxg7 or Bxg2), a strategically"
+ },
+ {
+  "chip": "Moving Pinned Knight",
+  "n": 1,
+  "best_wins": 0.57,
+  "own_hang": 0.99,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "Player moves a knight that is pinned to their queen by a bishop, hanging the queen."
+ },
+ {
+  "chip": "Premature Nxf7 Sacrifice",
+  "n": 1,
+  "best_wins": 0.49,
+  "own_hang": 0.93,
+  "best_check": 0.16,
+  "fire": 0.0,
+  "example_label": "A knight captures on f7 (or f2) in the opening without support, leaving itself hanging wit"
+ },
+ {
+  "chip": "King Move Misses Rook",
+  "n": 1,
+  "best_wins": 0.92,
+  "own_hang": 0.37,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player moves king instead of capturing a hanging enemy rook in the endgame."
+ },
+ {
+  "chip": "Missed Win, Hung Piece",
+  "n": 1,
+  "best_wins": 0.78,
+  "own_hang": 0.82,
+  "best_check": 0.23,
+  "fire": 0.26,
+  "example_label": "Player ignores a winning capture/tactic and instead plays a quiet move that simultaneously"
+ },
+ {
+  "chip": "Missed Pawn-Winning Rook Move",
+  "n": 1,
+  "best_wins": 0.99,
+  "own_hang": 0.32,
+  "best_check": 0.03,
+  "fire": 0.01,
+  "example_label": "In rook endgames, the player misses an active rook move (penetration, attack, or redeploym"
+ },
+ {
+  "chip": "Routine Rook Deployment Over Tactics",
+  "n": 1,
+  "best_wins": 0.72,
+  "own_hang": 0.53,
+  "best_check": 0.18,
+  "fire": 0.0,
+  "example_label": "Player makes a routine rook-to-open-file (usually d-file) move instead of executing a conc"
+ },
+ {
+  "chip": "Missed King Pawn Capture",
+  "n": 1,
+  "best_wins": 0.9,
+  "own_hang": 0.39,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "In endgames, the player fails to capture a nearby enemy pawn with their king, instead maki"
+ },
+ {
+  "chip": "King Misroute Endgame",
+  "n": 1,
+  "best_wins": 0.97,
+  "own_hang": 0.32,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "Player moves their king to the wrong square in an endgame, missing a move that would win s"
+ },
+ {
+  "chip": "Premature Bishop Development",
+  "n": 1,
+  "best_wins": 0.44,
+  "own_hang": 0.42,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Developing a bishop to a seemingly natural square (Be3/Be6/Be2/Bd3) in the opening while i"
+ },
+ {
+  "chip": "Missed Mating Queen Sacrifice",
+  "n": 1,
+  "best_wins": 0.46,
+  "own_hang": 0.51,
+  "best_check": 0.92,
+  "fire": 0.0,
+  "example_label": "Player misses a forced checkmate beginning with a queen capture-check onto a defended pawn"
+ },
+ {
+  "chip": "Missed Pawn Kick Trap",
+  "n": 1,
+  "best_wins": 0.99,
+  "own_hang": 0.4,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player missed that h3/h6 would challenge and win an opponent's pinning bishop that has no "
+ },
+ {
+  "chip": "Missed d5/d4 Pawn Strike",
+  "n": 1,
+  "best_wins": 0.85,
+  "own_hang": 0.57,
+  "best_check": 0.15,
+  "fire": 0.0,
+  "example_label": "Player fails to play the critical central pawn advance (d5 or d4) that supports a centrali"
+ },
+ {
+  "chip": "Missed Central Recapture",
+  "n": 1,
+  "best_wins": 0.9,
+  "own_hang": 0.68,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player ignores a free/hanging central pawn capture in favor of a quiet developing move, of"
+ },
+ {
+  "chip": "Premature Promotion Push",
+  "n": 1,
+  "best_wins": 0.57,
+  "own_hang": 0.5,
+  "best_check": 0.31,
+  "fire": 0.0,
+  "example_label": "In endgames, the player reflexively advances a passed pawn to the penultimate rank (2nd/7t"
+ },
+ {
+  "chip": "Missed Fork With Check",
+  "n": 1,
+  "best_wins": 0.95,
+  "own_hang": 0.29,
+  "best_check": 0.67,
+  "fire": 0.0,
+  "example_label": "The player missed a knight or pawn fork that delivers check while simultaneously attacking"
+ },
+ {
+  "chip": "Greedy Capture Misses Checkmate",
+  "n": 1,
+  "best_wins": 0.95,
+  "own_hang": 0.57,
+  "best_check": 0.93,
+  "fire": 0.0,
+  "example_label": "Player captures an enemy piece instead of delivering an available check or checkmate."
+ },
+ {
+  "chip": "Missed Decisive Endgame Tactic",
+  "n": 1,
+  "best_wins": 0.7,
+  "own_hang": 0.24,
+  "best_check": 0.36,
+  "fire": 0.0,
+  "example_label": "In critical endgame positions, the player misses a game-deciding check or urgent tactical "
+ },
+ {
+  "chip": "Ignored Capture Hangs Piece",
+  "n": 1,
+  "best_wins": 0.43,
+  "own_hang": 0.66,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "Player makes an ambitious piece move instead of a necessary pawn capture, leaving their ow"
+ },
+ {
+  "chip": "Hung Bishop on Rim",
+  "n": 1,
+  "best_wins": 0.1,
+  "own_hang": 0.98,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Moving a bishop to an undefended edge square (h3, h6, a6, a3) in the opening where it imme"
+ },
+ {
+  "chip": "Missed Capture With Check",
+  "n": 1,
+  "best_wins": 0.92,
+  "own_hang": 0.21,
+  "best_check": 0.66,
+  "fire": 0.0,
+  "example_label": "Player missed a winning capture that simultaneously gives check, allowing free material ga"
+ },
+ {
+  "chip": "Quiet Move Double Blunder",
+  "n": 1,
+  "best_wins": 0.8,
+  "own_hang": 0.68,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player ignores a capturable enemy piece and instead makes a quiet move that simultaneously"
+ },
+ {
+  "chip": "Premature Knight Lunge",
+  "n": 1,
+  "best_wins": 0.14,
+  "own_hang": 0.69,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "An aggressive knight jump to an advanced square in the opening that leaves own material (t"
+ },
+ {
+  "chip": "Knight Captures Defended Outpost",
+  "n": 1,
+  "best_wins": 0.4,
+  "own_hang": 0.99,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player's knight captures a well-defended enemy piece on a central outpost square, leaving "
+ },
+ {
+  "chip": "Ignoring Tactical Emergency",
+  "n": 1,
+  "best_wins": 0.6,
+  "own_hang": 0.49,
+  "best_check": 0.16,
+  "fire": 0.0,
+  "example_label": "The player makes a superficially active or greedy move that catastrophically ignores the p"
+ },
+ {
+  "chip": "Capture Hangs Major Piece",
+  "n": 1,
+  "best_wins": 0.38,
+  "own_hang": 0.96,
+  "best_check": 0.19,
+  "fire": 0.0,
+  "example_label": "Player captures material (often with check) but leaves their own major piece (rook or quee"
+ },
+ {
+  "chip": "Missed Rook File Activation",
+  "n": 1,
+  "best_wins": 0.8,
+  "own_hang": 0.49,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player ignores a winning rook move to an open file that captures or traps material worth ~"
+ },
+ {
+  "chip": "Missed Knight Capture Tactic",
+  "n": 1,
+  "best_wins": 0.23,
+  "own_hang": 0.31,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "The player chose a quiet move instead of a tactically winning knight capture that appears "
+ },
+ {
+  "chip": "Futile Check Hangs Major",
+  "n": 1,
+  "best_wins": 0.71,
+  "own_hang": 0.89,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "Player gives a pointless queen check that leaves their own major piece (usually the queen "
+ },
+ {
+  "chip": "Missed Rook Win",
+  "n": 1,
+  "best_wins": 0.9,
+  "own_hang": 0.46,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player missed a rook move that would win the opponent's rook in a rook endgame."
+ },
+ {
+  "chip": "Hung Pawn Advance",
+  "n": 1,
+  "best_wins": 0.23,
+  "own_hang": 0.8,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "In pawn endgames, the player advances a pawn to a square where it is left undefended and c"
+ },
+ {
+  "chip": "Aimless Pawn Push",
+  "n": 1,
+  "best_wins": 0.28,
+  "own_hang": 0.31,
+  "best_check": 0.06,
+  "fire": 0.04,
+  "example_label": "Player makes a slow, quiet pawn advance ignoring a concrete tactical opportunity (capture,"
+ },
+ {
+  "chip": "Refused Forced Exchange",
+  "n": 1,
+  "best_wins": 0.05,
+  "own_hang": 0.49,
+  "best_check": 0.15,
+  "fire": 0.0,
+  "example_label": "Player avoids an obligatory equal exchange, leaving their own piece hanging or positionall"
+ },
+ {
+  "chip": "Captures Passed Pawn Hangs Piece",
+  "n": 1,
+  "best_wins": 0.36,
+  "own_hang": 0.71,
+  "best_check": 0.29,
+  "fire": 0.0,
+  "example_label": "Player captures an advanced passed pawn (usually 7th rank) with a major piece, leaving tha"
+ },
+ {
+  "chip": "Hung Exposed Major Piece",
+  "n": 1,
+  "best_wins": 0.16,
+  "own_hang": 0.67,
+  "best_check": 0.54,
+  "fire": 0.0,
+  "example_label": "Player ignores a forced capture (often with check) that was the only justification for the"
+ },
+ {
+  "chip": "Greedy Capture Ignores Promotion",
+  "n": 1,
+  "best_wins": 0.76,
+  "own_hang": 0.27,
+  "best_check": 0.22,
+  "fire": 0.0,
+  "example_label": "The player captures an available piece or pawn instead of addressing a critical passed paw"
+ },
+ {
+  "chip": "Missed Qxf7/Qxf2 Mate",
+  "n": 1,
+  "best_wins": 0.93,
+  "own_hang": 0.33,
+  "best_check": 0.99,
+  "fire": 0.0,
+  "example_label": "Player missed a queen capture on f7 or f2 that delivers check or checkmate."
+ },
+ {
+  "chip": "Endgame Pawn Hung",
+  "n": 1,
+  "best_wins": 0.21,
+  "own_hang": 0.59,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Quiet pawn advances or king moves in endgames that leave the player's own pawn undefended "
+ },
+ {
+  "chip": "Missed Qxd-Pawn",
+  "n": 1,
+  "best_wins": 0.96,
+  "own_hang": 0.2,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "The player missed a queen capture of the opponent's undefended central d-pawn in the openi"
+ },
+ {
+  "chip": "Hung Piece Allows Mate",
+  "n": 1,
+  "best_wins": 0.66,
+  "own_hang": 0.61,
+  "best_check": 0.24,
+  "fire": 0.0,
+  "example_label": "The player makes a catastrophic blunder that leaves their own piece hanging while simultan"
+ },
+ {
+  "chip": "Greedy Capture Hangs Bishop",
+  "n": 1,
+  "best_wins": 0.53,
+  "own_hang": 0.99,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "The player makes a capture (usually with a bishop) that leaves the capturing piece undefen"
+ },
+ {
+  "chip": "Missed Diagonal Rook Capture",
+  "n": 1,
+  "best_wins": 0.96,
+  "own_hang": 0.34,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player ignores a fianchettoed bishop's ability to capture a completely undefended rook sit"
+ },
+ {
+  "chip": "Pawn Move Hangs Pawn",
+  "n": 1,
+  "best_wins": 0.58,
+  "own_hang": 0.89,
+  "best_check": 0.08,
+  "fire": 0.01,
+  "example_label": "Player makes a routine pawn advance or exchange that leaves their own pawn undefended, whi"
+ },
+ {
+  "chip": "Hung Critical Pawn",
+  "n": 1,
+  "best_wins": 0.54,
+  "own_hang": 0.97,
+  "best_check": 0.04,
+  "fire": 0.01,
+  "example_label": "Player makes a move that leaves their own pawn (often a key defensive pawn like f2/f7/c7) "
+ },
+ {
+  "chip": "Futile Queen Check Blunder",
+  "n": 1,
+  "best_wins": 0.71,
+  "own_hang": 0.69,
+  "best_check": 0.35,
+  "fire": 0.0,
+  "example_label": "Playing a pointless queen check that leaves the queen en prise on the checking square."
+ },
+ {
+  "chip": "Missed Bxc3+/Bxc6+ Tactic",
+  "n": 1,
+  "best_wins": 0.26,
+  "own_hang": 0.49,
+  "best_check": 0.98,
+  "fire": 0.0,
+  "example_label": "Player misses a bishop capture on c3 or c6 delivering check, which initiates a winning tac"
+ },
+ {
+  "chip": "Neglected Open File Rook",
+  "n": 1,
+  "best_wins": 0.61,
+  "own_hang": 0.51,
+  "best_check": 0.01,
+  "fire": 0.01,
+  "example_label": "Player makes an active-looking but misguided move instead of the critical rook deployment "
+ },
+ {
+  "chip": "Greedy Passed Pawn Push",
+  "n": 1,
+  "best_wins": 0.69,
+  "own_hang": 0.77,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "Player advances a passed pawn (often to the 2nd/7th rank) while hanging their own piece, m"
+ },
+ {
+  "chip": "Passive King Move Misses Tactic",
+  "n": 1,
+  "best_wins": 0.5,
+  "own_hang": 0.31,
+  "best_check": 0.25,
+  "fire": 0.0,
+  "example_label": "In endgames, the player makes a quiet king or piece retreat instead of executing a critica"
+ },
+ {
+  "chip": "Greedy Rook Self-Hangs",
+  "n": 1,
+  "best_wins": 0.33,
+  "own_hang": 0.53,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "In rook endgames, the player makes a tempting rook capture that leaves the rook (or anothe"
+ },
+ {
+  "chip": "Passive Move Hangs Pawn",
+  "n": 1,
+  "best_wins": 0.47,
+  "own_hang": 0.65,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet/passive move (usually a king move in the endgame) that leaves their o"
+ },
+ {
+  "chip": "Hung Knight on e4",
+  "n": 1,
+  "best_wins": 0.4,
+  "own_hang": 0.96,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "A knight (or minor piece) is aggressively placed on a central square like e4 or d5 where i"
+ },
+ {
+  "chip": "Left Own Rook Hanging",
+  "n": 1,
+  "best_wins": 0.44,
+  "own_hang": 0.79,
+  "best_check": 0.47,
+  "fire": 0.0,
+  "example_label": "Player ignores that their own undefended major piece (usually a rook) is en prise, failing"
+ },
+ {
+  "chip": "Ignored D-File Queen Trade",
+  "n": 1,
+  "best_wins": 0.1,
+  "own_hang": 0.57,
+  "best_check": 0.13,
+  "fire": 0.0,
+  "example_label": "Player fails to exchange queens on the open d-file (Qxd1/Qxd8), leaving their own queen ha"
+ },
+ {
+  "chip": "Piece Sacrificed for Pawn",
+  "n": 1,
+  "best_wins": 0.32,
+  "own_hang": 0.84,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player captures or ignores a passed pawn threat, leaving their own rook/bishop en prise to"
+ },
+ {
+  "chip": "Missed Forcing Capture",
+  "n": 1,
+  "best_wins": 0.23,
+  "own_hang": 0.2,
+  "best_check": 0.13,
+  "fire": 0.0,
+  "example_label": "Player makes a passive quiet move (usually a queen retreat/reposition) instead of executin"
+ },
+ {
+  "chip": "King Move Ignores Hanging Queen",
+  "n": 1,
+  "best_wins": 0.87,
+  "own_hang": 0.69,
+  "best_check": 0.18,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet king move instead of capturing an undefended enemy queen (or major pi"
+ },
+ {
+  "chip": "Wrong King Escape Square",
+  "n": 1,
+  "best_wins": 0.34,
+  "own_hang": 0.53,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "The player needed to move their king to a specific safe square but either chose the wrong "
+ },
+ {
+  "chip": "Ignored Central Knight",
+  "n": 1,
+  "best_wins": 0.36,
+  "own_hang": 0.48,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player plays a quiet move instead of immediately capturing a dominant enemy centralized kn"
+ },
+ {
+  "chip": "Missed Winning Rook Exchange",
+  "n": 1,
+  "best_wins": 0.18,
+  "own_hang": 0.39,
+  "best_check": 0.19,
+  "fire": 0.0,
+  "example_label": "Player fails to initiate a critical rook exchange on an open file that would simplify into"
+ },
+ {
+  "chip": "Wrong Priority Hangs Piece",
+  "n": 1,
+  "best_wins": 0.95,
+  "own_hang": 0.73,
+  "best_check": 0.22,
+  "fire": 0.0,
+  "example_label": "Player makes an active-looking move (capture or check elsewhere) while missing a simple wi"
+ },
+ {
+  "chip": "Ignored Diagonal Queen Threat",
+  "n": 1,
+  "best_wins": 0.82,
+  "own_hang": 0.88,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "Player ignores an undefended enemy piece (typically a bishop) attacking their queen along "
+ },
+ {
+  "chip": "King Move Over Pawn Push",
+  "n": 1,
+  "best_wins": 0.25,
+  "own_hang": 0.12,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "In endgames with advanced passed pawns, the player makes a king move instead of the critic"
+ },
+ {
+  "chip": "Premature f7/f2 Sacrifice",
+  "n": 1,
+  "best_wins": 0.26,
+  "own_hang": 0.98,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "A minor piece captures on f7 or f2 in the opening without support, leaving it hanging for "
+ },
+ {
+  "chip": "Passive Endgame Blunder",
+  "n": 1,
+  "best_wins": 0.66,
+  "own_hang": 0.17,
+  "best_check": 0.44,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet/passive move in a critical endgame position, missing a forcing move ("
+ },
+ {
+  "chip": "Catastrophic Queen Decision",
+  "n": 1,
+  "best_wins": 0.41,
+  "own_hang": 0.36,
+  "best_check": 0.03,
+  "fire": 0.01,
+  "example_label": "Player makes a plausible-looking move (predominantly a queen move) that catastrophically i"
+ },
+ {
+  "chip": "Missed Knight Move",
+  "n": 1,
+  "best_wins": 0.66,
+  "own_hang": 0.54,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player plays a weakening move (often an f-pawn push) instead of the correct knight develop"
+ },
+ {
+  "chip": "Missed Pin Exploitation",
+  "n": 1,
+  "best_wins": 0.07,
+  "own_hang": 0.45,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "Player fails to capture an overloaded/pinned knight on f3 or f6 (via Bxf3 or Bxf6), missin"
+ },
+ {
+  "chip": "Hung Major Piece",
+  "n": 1,
+  "best_wins": 0.81,
+  "own_hang": 0.98,
+  "best_check": 0.55,
+  "fire": 0.0,
+  "example_label": "Player plays a non-forcing move that leaves their own major piece (rook or queen) en prise"
+ },
+ {
+  "chip": "Self-Destructive Endgame Capture",
+  "n": 1,
+  "best_wins": 0.56,
+  "own_hang": 0.89,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player captures an enemy piece in an endgame but leaves their own capturing piece hanging,"
+ },
+ {
+  "chip": "Passive Move In Desperation",
+  "n": 1,
+  "best_wins": 0.47,
+  "own_hang": 0.58,
+  "best_check": 0.26,
+  "fire": 0.0,
+  "example_label": "Playing a quiet, non-forcing move in a hopelessly lost position instead of finding an avai"
+ },
+ {
+  "chip": "Rook Captures Defended Piece",
+  "n": 1,
+  "best_wins": 0.65,
+  "own_hang": 0.98,
+  "best_check": 0.28,
+  "fire": 0.0,
+  "example_label": "In rook endgames, the player captures a defended pawn or piece with their rook (often with"
+ },
+ {
+  "chip": "Hung Piece While Developing",
+  "n": 1,
+  "best_wins": 0.5,
+  "own_hang": 0.84,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player makes a natural-looking developing or capturing move in the opening that leaves one"
+ },
+ {
+  "chip": "Missed Free Pawn Capture",
+  "n": 1,
+  "best_wins": 1.0,
+  "own_hang": 0.2,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player plays a quiet move instead of capturing an undefended enemy pawn (usually with the "
+ },
+ {
+  "chip": "Opening Knight Overextension",
+  "n": 1,
+  "best_wins": 0.52,
+  "own_hang": 0.4,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player makes an aggressive knight advance (or ignores an attacked knight) in the opening, "
+ },
+ {
+  "chip": "Missed Bishop Tactic",
+  "n": 1,
+  "best_wins": 0.93,
+  "own_hang": 0.45,
+  "best_check": 0.11,
+  "fire": 0.01,
+  "example_label": "Player missed a quiet bishop move that wins the opponent's queen (or equivalent major mate"
+ },
+ {
+  "chip": "Wrong Pawn Endgame Plan",
+  "n": 1,
+  "best_wins": 0.22,
+  "own_hang": 0.14,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "In critical king-and-pawn endgames, the player pushes a pawn (or moves the king incorrectl"
+ },
+ {
+  "chip": "Check Capture Hangs Piece",
+  "n": 1,
+  "best_wins": 0.61,
+  "own_hang": 0.83,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player makes a tempting capture with check (usually a bishop) that leaves their own piece "
+ },
+ {
+  "chip": "Development Exposes Own Pawn",
+  "n": 1,
+  "best_wins": 0.23,
+  "own_hang": 0.99,
+  "best_check": 0.01,
+  "fire": 0.01,
+  "example_label": "A developing or repositioning move inadvertently leaves one's own pawn (usually g2/g7 on t"
+ },
+ {
+  "chip": "Hung Bishop Kingside Lunge",
+  "n": 1,
+  "best_wins": 0.62,
+  "own_hang": 0.65,
+  "best_check": 0.16,
+  "fire": 0.0,
+  "example_label": "Player aggressively moves a bishop to h3 or h6 (or a queen to a kingside attacking square)"
+ },
+ {
+  "chip": "Missed Queen Check Diagonal",
+  "n": 1,
+  "best_wins": 1.0,
+  "own_hang": 0.35,
+  "best_check": 1.0,
+  "fire": 0.0,
+  "example_label": "Player missed a queen check along the weakened f-pawn diagonal (h4/h5/g3) that wins the op"
+ },
+ {
+  "chip": "Missed Pawn Takes Bishop",
+  "n": 1,
+  "best_wins": 0.9,
+  "own_hang": 0.35,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player ignores a simple pawn capture (hxg4, hxg5, or gxh3) winning an enemy bishop that ha"
+ },
+ {
+  "chip": "Hung Rook on File",
+  "n": 1,
+  "best_wins": 0.14,
+  "own_hang": 0.75,
+  "best_check": 0.25,
+  "fire": 0.0,
+  "example_label": "Player ignores a forced rook exchange on an open file, leaving their own rook hanging."
+ },
+ {
+  "chip": "Missed Queen Check Fork",
+  "n": 1,
+  "best_wins": 1.0,
+  "own_hang": 0.31,
+  "best_check": 0.99,
+  "fire": 0.0,
+  "example_label": "Player misses Qa4+ or Qa5+ that delivers check while simultaneously attacking an undefende"
+ },
+ {
+  "chip": "Pawn Push Over Capture",
+  "n": 1,
+  "best_wins": 0.23,
+  "own_hang": 0.1,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "In endgames, the player advances a pawn straight forward instead of capturing diagonally w"
+ },
+ {
+  "chip": "Missed Simple Capture",
+  "n": 1,
+  "best_wins": 0.78,
+  "own_hang": 0.55,
+  "best_check": 0.17,
+  "fire": 0.0,
+  "example_label": "Player ignores a straightforward material-winning capture in favor of a slow quiet move, o"
+ },
+ {
+  "chip": "Greedy Central Pawn Capture",
+  "n": 1,
+  "best_wins": 0.71,
+  "own_hang": 0.39,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Knight (or bishop) grabs a seemingly free central pawn (d4/d5/e5) when a quieter move was "
+ },
+ {
+  "chip": "Aggressive Minor Piece Hung",
+  "n": 1,
+  "best_wins": 0.5,
+  "own_hang": 0.85,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "In the opening, a minor piece is moved aggressively (often with check or as a capture) to "
+ },
+ {
+  "chip": "Check Abandons Defense",
+  "n": 1,
+  "best_wins": 0.58,
+  "own_hang": 0.97,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Player gives a tempting check with a minor piece (knight or bishop) but the move leaves th"
+ },
+ {
+  "chip": "Ignored Hanging Queen",
+  "n": 1,
+  "best_wins": 0.65,
+  "own_hang": 0.99,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "Player makes a move while their own queen on g4/g5 is left en prise on an open bishop diag"
+ },
+ {
+  "chip": "Botched Won Endgame",
+  "n": 1,
+  "best_wins": 0.15,
+  "own_hang": 0.3,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player makes a catastrophic king move (or quiet move) in a clearly won endgame, throwing a"
+ },
+ {
+  "chip": "Missed King Wins Rook",
+  "n": 1,
+  "best_wins": 0.98,
+  "own_hang": 0.47,
+  "best_check": 0.0,
+  "fire": 0.01,
+  "example_label": "Player missed a king move that attacks or traps the opponent's rook, winning decisive mate"
+ },
+ {
+  "chip": "Hung Central Knight",
+  "n": 1,
+  "best_wins": 0.07,
+  "own_hang": 0.68,
+  "best_check": 0.13,
+  "fire": 0.0,
+  "example_label": "Player develops a piece instead of resolving tension on their attacked central knight (d4/"
+ },
+ {
+  "chip": "Wrong King Navigation",
+  "n": 1,
+  "best_wins": 0.56,
+  "own_hang": 0.48,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "The player moves an exposed king to the wrong square (or ignores the king's need to move) "
+ },
+ {
+  "chip": "King Flees Misses Queen",
+  "n": 1,
+  "best_wins": 0.87,
+  "own_hang": 0.79,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "Player moves their exposed king to flee instead of capturing the opponent's queen (or high"
+ },
+ {
+  "chip": "Failed Pawn Endgame Technique",
+  "n": 1,
+  "best_wins": 0.14,
+  "own_hang": 0.1,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "In won King+Pawn vs King endgames, the player moves the king (or underpromotes) instead of"
+ },
+ {
+  "chip": "Captured Defended Piece Prematurely",
+  "n": 1,
+  "best_wins": 0.89,
+  "own_hang": 0.73,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Black captures a knight on c6 with bxc6 (defended by the Bb5) instead of counterattacking "
+ },
+ {
+  "chip": "Greedy Bishop Capture Hangs Piece",
+  "n": 1,
+  "best_wins": 0.82,
+  "own_hang": 0.99,
+  "best_check": 0.17,
+  "fire": 0.0,
+  "example_label": "A bishop (or minor piece) makes a tempting capture on a back-rank or first-rank square but"
+ },
+ {
+  "chip": "Missed Queen Threat",
+  "n": 1,
+  "best_wins": 0.74,
+  "own_hang": 0.51,
+  "best_check": 0.0,
+  "fire": 0.02,
+  "example_label": "Player missed a strong non-capturing queen move that would win material through tactical t"
+ },
+ {
+  "chip": "Missed Pawn Attack",
+  "n": 1,
+  "best_wins": 1.0,
+  "own_hang": 0.35,
+  "best_check": 0.0,
+  "fire": 0.05,
+  "example_label": "The player missed a pawn advance that wins material by attacking or trapping an enemy piec"
+ },
+ {
+  "chip": "Autopilot Development Ignoring Urgency",
+  "n": 1,
+  "best_wins": 0.35,
+  "own_hang": 0.13,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Playing routine quiet development or castling moves when the position demands immediate co"
+ },
+ {
+  "chip": "Rook Captures Into Recapture",
+  "n": 1,
+  "best_wins": 0.3,
+  "own_hang": 0.6,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "In Rook vs minor piece endgames, the player captures the enemy minor piece with their Rook"
+ },
+ {
+  "chip": "Missed Forcing Check",
+  "n": 1,
+  "best_wins": 0.72,
+  "own_hang": 0.32,
+  "best_check": 0.56,
+  "fire": 0.0,
+  "example_label": "Player misses a decisive check (often a rook penetration on an open file) and instead play"
+ },
+ {
+  "chip": "Opening Autopilot Hangs Piece",
+  "n": 1,
+  "best_wins": 0.24,
+  "own_hang": 0.71,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player makes a routine-looking opening move (fianchetto prep, pawn push, quiet development"
+ },
+ {
+  "chip": "Missed Pawn Takes Knight",
+  "n": 1,
+  "best_wins": 0.97,
+  "own_hang": 0.47,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player ignores an advanced pawn's ability to simply capture an undefended enemy knight, pl"
+ },
+ {
+  "chip": "Missed Critical Check",
+  "n": 1,
+  "best_wins": 0.42,
+  "own_hang": 0.51,
+  "best_check": 0.95,
+  "fire": 0.0,
+  "example_label": "Player missed a forcing check (usually queen or rook to a king-adjacent square) that would"
+ },
+ {
+  "chip": "Flashy Move Over Capture",
+  "n": 1,
+  "best_wins": 0.58,
+  "own_hang": 0.64,
+  "best_check": 0.2,
+  "fire": 0.0,
+  "example_label": "Player ignores an available winning capture to play an active-looking quiet move that ofte"
+ },
+ {
+  "chip": "Hung Piece Ignoring Queen Capture",
+  "n": 1,
+  "best_wins": 0.2,
+  "own_hang": 0.81,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet developing move that hangs their own piece, ignoring a necessary quee"
+ },
+ {
+  "chip": "Missed Rook Penetration",
+  "n": 1,
+  "best_wins": 0.96,
+  "own_hang": 0.31,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player misses a winning rook (or major piece) infiltration along an open file, instead pla"
+ },
+ {
+  "chip": "Missed Winning Pawn Push",
+  "n": 1,
+  "best_wins": 0.99,
+  "own_hang": 0.63,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player ignores a central pawn advance that attacks an enemy piece and wins material, inste"
+ },
+ {
+  "chip": "Missed Forced Capture",
+  "n": 1,
+  "best_wins": 0.19,
+  "own_hang": 0.49,
+  "best_check": 0.26,
+  "fire": 0.03,
+  "example_label": "Player plays a passive quiet move when the position demands an urgent capture (trade, reca"
+ },
+ {
+  "chip": "Passive Endgame Collapse",
+  "n": 1,
+  "best_wins": 0.49,
+  "own_hang": 0.47,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "In a critical endgame position (usually already losing), the player makes a quiet, passive"
+ },
+ {
+  "chip": "Hung Rook Check",
+  "n": 1,
+  "best_wins": 0.3,
+  "own_hang": 0.97,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "A rook check (or rook move/capture) in an endgame that leaves the rook itself en prise and"
+ },
+ {
+  "chip": "Knight Hung Aggressively",
+  "n": 1,
+  "best_wins": 0.5,
+  "own_hang": 0.72,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "Player moves a knight to an aggressive or central square, leaving it or another piece unpr"
+ },
+ {
+  "chip": "Ignoring Central Tension",
+  "n": 1,
+  "best_wins": 0.26,
+  "own_hang": 0.69,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Black (or occasionally White) ignores critical central pawn tension and plays a non-essent"
+ },
+ {
+  "chip": "Missed Rook Wins Queen",
+  "n": 1,
+  "best_wins": 0.74,
+  "own_hang": 0.66,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player misses a rook move along a file that would win the opponent's queen, instead playin"
+ },
+ {
+  "chip": "Endgame Pawn Left Hanging",
+  "n": 1,
+  "best_wins": 0.35,
+  "own_hang": 0.67,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "In endgames, the player makes a natural-looking advancing move that leaves their own piece"
+ },
+ {
+  "chip": "Ignored Deadly Passed Pawn",
+  "n": 1,
+  "best_wins": 0.3,
+  "own_hang": 0.24,
+  "best_check": 0.36,
+  "fire": 0.0,
+  "example_label": "Player fails to capture a critically advanced passed pawn (often one square from promotion"
+ },
+ {
+  "chip": "Missed Opening Prophylaxis",
+  "n": 1,
+  "best_wins": 0.38,
+  "own_hang": 0.15,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "Player makes a routine developing move instead of an urgent prophylactic pawn advance or b"
+ },
+ {
+  "chip": "Missed Bishop Wins Exchange",
+  "n": 1,
+  "best_wins": 0.92,
+  "own_hang": 0.49,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "The player missed a bishop capture that wins the exchange (bishop takes an enemy rook) wit"
+ },
+ {
+  "chip": "Routine Opening Ignores Tactic",
+  "n": 1,
+  "best_wins": 0.6,
+  "own_hang": 0.66,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "In the opening, the player makes a passive developing move or greedy capture while missing"
+ },
+ {
+  "chip": "Greedy Queen Check Blunder",
+  "n": 1,
+  "best_wins": 0.82,
+  "own_hang": 0.99,
+  "best_check": 0.43,
+  "fire": 0.0,
+  "example_label": "Player captures a piece with Queen (giving check) but leaves the Queen hanging afterward, "
+ },
+ {
+  "chip": "Capture Leaves Piece Hanging",
+  "n": 1,
+  "best_wins": 0.87,
+  "own_hang": 0.92,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player makes a tempting capture that leaves their own piece (often the captured square's o"
+ },
+ {
+  "chip": "Missed Winning Pawn Break",
+  "n": 1,
+  "best_wins": 0.94,
+  "own_hang": 0.25,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player missed a pawn advance that wins material (typically attacking a trapped or insuffic"
+ },
+ {
+  "chip": "Quiet Bishop Move Misses Capture",
+  "n": 1,
+  "best_wins": 0.58,
+  "own_hang": 0.25,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet bishop (or minor piece) repositioning move instead of capturing hangi"
+ },
+ {
+  "chip": "H-file Attack Tunnel Vision",
+  "n": 1,
+  "best_wins": 0.76,
+  "own_hang": 0.68,
+  "best_check": 0.35,
+  "fire": 0.0,
+  "example_label": "Player makes an aggressive-looking queen or piece move to the h-file (Qh3/Qh4/Qh5/Qh6/xh3)"
+ },
+ {
+  "chip": "Missed Check Wins Queen",
+  "n": 1,
+  "best_wins": 0.98,
+  "own_hang": 0.49,
+  "best_check": 0.98,
+  "fire": 0.0,
+  "example_label": "The player missed a checking move that wins the opponent's queen (or equivalent major mate"
+ },
+ {
+  "chip": "Greedy Capture With Check",
+  "n": 1,
+  "best_wins": 0.49,
+  "own_hang": 0.98,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Player captures material with check (usually with the queen), but the checking piece is tr"
+ },
+ {
+  "chip": "Passive Rook Endgame",
+  "n": 1,
+  "best_wins": 0.33,
+  "own_hang": 0.21,
+  "best_check": 0.13,
+  "fire": 0.0,
+  "example_label": "In critical rook endgames, the player chooses a passive or retreating move instead of main"
+ },
+ {
+  "chip": "King Move Over Queen",
+  "n": 1,
+  "best_wins": 0.32,
+  "own_hang": 0.1,
+  "best_check": 0.32,
+  "fire": 0.0,
+  "example_label": "Player makes a passive King move when an active Queen move (often a check or winning threa"
+ },
+ {
+  "chip": "Ignored Pawn Challenge",
+  "n": 1,
+  "best_wins": 0.08,
+  "own_hang": 0.41,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player fails to make a critical pawn capture (exf6, dxc6, exd6, etc.) when the opponent ch"
+ },
+ {
+  "chip": "Ignored Rook Exchange",
+  "n": 1,
+  "best_wins": 0.1,
+  "own_hang": 0.54,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "Player fails to take a mandatory rook capture on a contested open file, leaving their own "
+ },
+ {
+  "chip": "Missed Rook Activation",
+  "n": 1,
+  "best_wins": 0.84,
+  "own_hang": 0.27,
+  "best_check": 0.27,
+  "fire": 0.0,
+  "example_label": "In rook endgames with passed pawns, the player makes a passive king move or pawn push inst"
+ },
+ {
+  "chip": "Flashy Move Hangs Piece",
+  "n": 1,
+  "best_wins": 0.59,
+  "own_hang": 0.86,
+  "best_check": 0.19,
+  "fire": 0.0,
+  "example_label": "Player plays a tempting check or active-looking move that leaves their own piece (usually "
+ },
+ {
+  "chip": "Missed Forced Exchange",
+  "n": 1,
+  "best_wins": 0.09,
+  "own_hang": 0.66,
+  "best_check": 0.21,
+  "fire": 0.0,
+  "example_label": "Player ignores a necessary equal trade (usually between major pieces facing each other on "
+ },
+ {
+  "chip": "Squandered Forced Win",
+  "n": 1,
+  "best_wins": 0.43,
+  "own_hang": 0.48,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "The player had a decisively won position (often forced mate) and played a passive or aimle"
+ },
+ {
+  "chip": "Missed Skewer Check",
+  "n": 1,
+  "best_wins": 0.95,
+  "own_hang": 0.47,
+  "best_check": 0.91,
+  "fire": 0.0,
+  "example_label": "Player missed a check (queen or rook) that skewers the opponent's king and queen, winning "
+ },
+ {
+  "chip": "Missed Critical Queen Move",
+  "n": 1,
+  "best_wins": 0.52,
+  "own_hang": 0.4,
+  "best_check": 0.01,
+  "fire": 0.01,
+  "example_label": "The player makes a quiet non-queen move (or misplaces the queen) when the queen had a powe"
+ },
+ {
+  "chip": "Missed Forcing Rook Exchange",
+  "n": 1,
+  "best_wins": 0.02,
+  "own_hang": 0.54,
+  "best_check": 0.66,
+  "fire": 0.0,
+  "example_label": "Player ignores a forcing rook exchange (often with back-rank check) and instead makes a no"
+ },
+ {
+  "chip": "Missed Central Pawn Capture",
+  "n": 1,
+  "best_wins": 0.65,
+  "own_hang": 0.49,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet developing move instead of capturing a free central pawn via favorabl"
+ },
+ {
+  "chip": "Greedy Check Hangs Major",
+  "n": 1,
+  "best_wins": 0.41,
+  "own_hang": 0.85,
+  "best_check": 0.19,
+  "fire": 0.0,
+  "example_label": "Player captures a pawn/piece with check using a rook or queen, but the capturing piece is "
+ },
+ {
+  "chip": "Queen Exposed on Diagonal",
+  "n": 1,
+  "best_wins": 0.85,
+  "own_hang": 0.97,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player ignores or actively opens a diagonal where an enemy bishop attacks their queen, lea"
+ },
+ {
+  "chip": "Misguided Piece Activity",
+  "n": 1,
+  "best_wins": 0.61,
+  "own_hang": 0.45,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "Player moves a minor piece to an attractive-looking square (or captures a peripheral targe"
+ },
+ {
+  "chip": "Greedy Rook Capture Hangs",
+  "n": 1,
+  "best_wins": 0.52,
+  "own_hang": 0.82,
+  "best_check": 0.15,
+  "fire": 0.0,
+  "example_label": "The player captures a pawn or piece with a rook (or occasionally bishop), but the capturin"
+ },
+ {
+  "chip": "Rook Enters Dominated File",
+  "n": 1,
+  "best_wins": 0.51,
+  "own_hang": 0.86,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "Player moves a rook onto a file (or square) already controlled by the opponent's heavy pie"
+ },
+ {
+  "chip": "Greedy Knight Takes f2/f7",
+  "n": 1,
+  "best_wins": 0.55,
+  "own_hang": 0.84,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "A minor piece (usually a knight) greedily captures the f2 or f7 pawn but is left hanging w"
+ },
+ {
+  "chip": "Ignored Winning Capture",
+  "n": 1,
+  "best_wins": 0.82,
+  "own_hang": 0.72,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player ignores an available material-winning capture and instead plays a quiet move that f"
+ },
+ {
+  "chip": "Missed Mate In One",
+  "n": 1,
+  "best_wins": 1.0,
+  "own_hang": 0.39,
+  "best_check": 1.0,
+  "fire": 0.01,
+  "example_label": "The player misses an immediate checkmate (almost always delivered by a rook) and plays an "
+ },
+ {
+  "chip": "Knight Over Queen Error",
+  "n": 1,
+  "best_wins": 0.79,
+  "own_hang": 0.4,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player moves a knight (often capturing) instead of using the queen to win material on the "
+ },
+ {
+  "chip": "Ignored Fork on f7",
+  "n": 1,
+  "best_wins": 0.9,
+  "own_hang": 0.86,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player ignores an enemy knight/bishop forking on f7 (or f2) that should simply be captured"
+ },
+ {
+  "chip": "Suicidal Queen Check",
+  "n": 1,
+  "best_wins": 0.73,
+  "own_hang": 0.82,
+  "best_check": 0.29,
+  "fire": 0.0,
+  "example_label": "The player gives a Queen check (often capturing a pawn) that leaves the Queen en prise or "
+ },
+ {
+  "chip": "Missed Winning King Move",
+  "n": 1,
+  "best_wins": 0.95,
+  "own_hang": 0.47,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "The player fails to find a king move that wins enemy material, instead playing a different"
+ },
+ {
+  "chip": "Queen Hung After Capture",
+  "n": 1,
+  "best_wins": 0.62,
+  "own_hang": 0.99,
+  "best_check": 0.13,
+  "fire": 0.0,
+  "example_label": "The player moves their Queen (usually capturing a piece) to a square where the Queen itsel"
+ },
+ {
+  "chip": "Unsound Nxf7/Nxf2 Sacrifice",
+  "n": 1,
+  "best_wins": 0.68,
+  "own_hang": 0.96,
+  "best_check": 0.18,
+  "fire": 0.0,
+  "example_label": "A knight prematurely captures the f-pawn (f7 or f2) in the opening, leaving itself hanging"
+ },
+ {
+  "chip": "Missed Forced Queen Trade",
+  "n": 1,
+  "best_wins": 0.0,
+  "own_hang": 0.5,
+  "best_check": 0.93,
+  "fire": 0.0,
+  "example_label": "Player ignores a queen (or major piece) exchange with check when pieces face each other on"
+ },
+ {
+  "chip": "Missed Rook File Invasion",
+  "n": 1,
+  "best_wins": 0.96,
+  "own_hang": 0.49,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "Player missed placing a rook on an open file to win an undefended or trapped enemy piece."
+ },
+ {
+  "chip": "Missed Queen Mate",
+  "n": 1,
+  "best_wins": 0.99,
+  "own_hang": 0.31,
+  "best_check": 0.99,
+  "fire": 0.0,
+  "example_label": "Player misses a queen check that delivers immediate or near-immediate checkmate in an endg"
+ },
+ {
+  "chip": "Ignored Pawn Threat to Minor Piece",
+  "n": 1,
+  "best_wins": 0.19,
+  "own_hang": 1.0,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet/developing move while their own minor piece is directly attacked by a"
+ },
+ {
+  "chip": "Overextending Center Pawn",
+  "n": 1,
+  "best_wins": 0.22,
+  "own_hang": 0.51,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player pushes a central pawn (e5/d5/e6) forward prematurely, leaving a pawn en prise or ta"
+ },
+ {
+  "chip": "Unsound Tactical Capture",
+  "n": 1,
+  "best_wins": 0.84,
+  "own_hang": 0.81,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "Player makes an aggressive capture or check that leaves their own piece hanging and undefe"
+ },
+ {
+  "chip": "Aimless Piece Repositioning",
+  "n": 1,
+  "best_wins": 0.47,
+  "own_hang": 0.46,
+  "best_check": 0.08,
+  "fire": 0.02,
+  "example_label": "Player makes a quiet, non-forcing minor piece move that ignores the position's urgent tact"
+ },
+ {
+  "chip": "Greedy Rim Pawn Grab",
+  "n": 1,
+  "best_wins": 0.64,
+  "own_hang": 0.35,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "A minor piece (usually a knight) captures or moves to a rim/corner square to grab a pawn, "
+ },
+ {
+  "chip": "Nxf7 Instead of Bxf7+",
+  "n": 1,
+  "best_wins": 0.95,
+  "own_hang": 0.36,
+  "best_check": 0.95,
+  "fire": 0.0,
+  "example_label": "In Italian Game / Two Knights Defense positions with Bc4 and Ng5/Ne5 both targeting f7, th"
+ },
+ {
+  "chip": "Missed Mating Rook Check",
+  "n": 1,
+  "best_wins": 0.91,
+  "own_hang": 0.12,
+  "best_check": 0.84,
+  "fire": 0.0,
+  "example_label": "Player misses a winning rook check (usually delivering immediate checkmate or forced mate)"
+ },
+ {
+  "chip": "Opening Aggression Hangs Piece",
+  "n": 1,
+  "best_wins": 0.12,
+  "own_hang": 1.0,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player makes a premature aggressive move in the opening (capture, check, or greedy develop"
+ },
+ {
+  "chip": "Hung Major After Greed",
+  "n": 1,
+  "best_wins": 0.5,
+  "own_hang": 0.67,
+  "best_check": 0.5,
+  "fire": 0.0,
+  "example_label": "Player makes a tempting direct move (promotion or capture) that leaves their own major pie"
+ },
+ {
+  "chip": "Ignored Infiltrating Piece",
+  "n": 1,
+  "best_wins": 0.36,
+  "own_hang": 0.68,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player ignores an enemy piece (usually a rook) that has deeply infiltrated their position,"
+ },
+ {
+  "chip": "Premature Bg4/Bg5 Pin",
+  "n": 1,
+  "best_wins": 0.41,
+  "own_hang": 0.49,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Player develops their bishop to g4 or g5 (typically a pin move) when it hangs the bishop i"
+ },
+ {
+  "chip": "Missed Decisive Pawn Move",
+  "n": 1,
+  "best_wins": 0.38,
+  "own_hang": 0.37,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "Player ignores a critical pawn action (capture winning material or passed pawn advance) in"
+ },
+ {
+  "chip": "Unprotected Bishop Capture",
+  "n": 1,
+  "best_wins": 0.45,
+  "own_hang": 1.0,
+  "best_check": 0.05,
+  "fire": 0.07,
+  "example_label": "A bishop captures a piece but lands on a square where it is undefended and immediately han"
+ },
+ {
+  "chip": "Missed Queen Move",
+  "n": 1,
+  "best_wins": 0.47,
+  "own_hang": 0.53,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "The player ignores a critical queen move (for defense, exchange, or material gain) and ins"
+ },
+ {
+  "chip": "Missed Back-Rank Queen Mate",
+  "n": 1,
+  "best_wins": 0.98,
+  "own_hang": 0.42,
+  "best_check": 0.98,
+  "fire": 0.0,
+  "example_label": "Player missed a queen delivery to the back rank (typically Qc8# or Qc1#) giving check or i"
+ },
+ {
+  "chip": "Endgame King Activity Error",
+  "n": 1,
+  "best_wins": 0.55,
+  "own_hang": 0.25,
+  "best_check": 0.19,
+  "fire": 0.0,
+  "example_label": "The player makes a passive or misdirected move in an endgame when a decisive king activati"
+ },
+ {
+  "chip": "Hung Piece To Pawn",
+  "n": 1,
+  "best_wins": 0.37,
+  "own_hang": 0.92,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet developing move in the opening that places or leaves their own piece "
+ },
+ {
+  "chip": "Failed Queen Repositioning",
+  "n": 1,
+  "best_wins": 0.45,
+  "own_hang": 0.22,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "The player fails to reposition an exposed or misplaced queen, either moving it to a worse "
+ },
+ {
+  "chip": "Capture Over Winning Check",
+  "n": 1,
+  "best_wins": 0.82,
+  "own_hang": 0.43,
+  "best_check": 0.68,
+  "fire": 0.0,
+  "example_label": "Player grabs material with a capture instead of playing a stronger check (often checkmate)"
+ },
+ {
+  "chip": "Ignored h7/h2 Mate Threat",
+  "n": 1,
+  "best_wins": 0.46,
+  "own_hang": 0.53,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player ignores a forced checkmate threat along the diagonal to h7 or h2, failing to play t"
+ },
+ {
+  "chip": "Missed Winning Endgame Capture",
+  "n": 1,
+  "best_wins": 0.29,
+  "own_hang": 0.11,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "In endgame positions, the player ignores a simple winning capture (often an exchange leadi"
+ },
+ {
+  "chip": "Ignored Enemy Intruder",
+  "n": 1,
+  "best_wins": 0.59,
+  "own_hang": 0.75,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player fails to capture an enemy piece that has invaded deep into their position, often ha"
+ },
+ {
+  "chip": "Premature Queen Sortie",
+  "n": 1,
+  "best_wins": 0.28,
+  "own_hang": 0.53,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Early aggressive Queen move in the opening that neglects development and hangs own pieces."
+ },
+ {
+  "chip": "Ignored Bishop Tension",
+  "n": 1,
+  "best_wins": 0.1,
+  "own_hang": 0.59,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player ignores a mutual bishop confrontation (bishops attacking each other) and plays a qu"
+ },
+ {
+  "chip": "Pawn Endgame Misstep",
+  "n": 1,
+  "best_wins": 0.09,
+  "own_hang": 0.04,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "In critical king-and-pawn endgames, the player pushes a pawn or moves the king in the wron"
+ },
+ {
+  "chip": "Misguided Queen Moves",
+  "n": 1,
+  "best_wins": 0.59,
+  "own_hang": 0.4,
+  "best_check": 0.12,
+  "fire": 0.03,
+  "example_label": "Player makes a queen move (often a greedy capture or repositioning) while missing a strong"
+ },
+ {
+  "chip": "Missed f7 Attack Setup",
+  "n": 1,
+  "best_wins": 0.8,
+  "own_hang": 0.38,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player misses a quiet developing move (Bc4/Ng5/Ng4) that builds a winning attack on f7/f2,"
+ },
+ {
+  "chip": "Missed Rook D-File",
+  "n": 1,
+  "best_wins": 0.94,
+  "own_hang": 0.45,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player misses a winning rook placement on the open d-file that would exploit a pin or tact"
+ },
+ {
+  "chip": "Greedy Queen Pawn-Grab",
+  "n": 1,
+  "best_wins": 0.68,
+  "own_hang": 0.61,
+  "best_check": 0.17,
+  "fire": 0.0,
+  "example_label": "The queen grabs a wing pawn in the opening and gets trapped or misses winning a more valua"
+ },
+ {
+  "chip": "King Walks From Prize",
+  "n": 1,
+  "best_wins": 0.76,
+  "own_hang": 0.17,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "In endgames, the player moves their King away from an undefended enemy piece that their Ki"
+ },
+ {
+  "chip": "Promotion Race Tunnel Vision",
+  "n": 1,
+  "best_wins": 0.64,
+  "own_hang": 0.52,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "In endgame positions with advanced passed pawns, the player makes a quiet/strategic move i"
+ },
+ {
+  "chip": "Passive Endgame Retreat",
+  "n": 1,
+  "best_wins": 0.5,
+  "own_hang": 0.4,
+  "best_check": 0.33,
+  "fire": 0.0,
+  "example_label": "In critical endgame positions, the player makes a quiet retreating or aimless move instead"
+ },
+ {
+  "chip": "Premature D-file Queen Trade",
+  "n": 1,
+  "best_wins": 0.77,
+  "own_hang": 1.0,
+  "best_check": 0.25,
+  "fire": 0.0,
+  "example_label": "Player captures the opponent's queen on d1/d8, trading queens unnecessarily, when a superi"
+ },
+ {
+  "chip": "Pushed Pawn Past Capture",
+  "n": 1,
+  "best_wins": 0.1,
+  "own_hang": 0.34,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "The player advances a pawn (or plays a quiet move) instead of making a critical pawn excha"
+ },
+ {
+  "chip": "Ignored Bishop Exchange",
+  "n": 1,
+  "best_wins": 0.01,
+  "own_hang": 0.71,
+  "best_check": 0.29,
+  "fire": 0.0,
+  "example_label": "Player neglects a forced bishop trade, leaving their own bishop hanging and lost on the ne"
+ },
+ {
+  "chip": "Knight Left Hanging",
+  "n": 1,
+  "best_wins": 0.6,
+  "own_hang": 0.87,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "Player moves a knight to an aggressive or capturing square where it is left undefended and"
+ },
+ {
+  "chip": "Missed Winning Exchange",
+  "n": 1,
+  "best_wins": 0.09,
+  "own_hang": 0.26,
+  "best_check": 0.03,
+  "fire": 0.01,
+  "example_label": "Player plays a quiet move instead of making a capture (SEE=0) that leads to a strategicall"
+ },
+ {
+  "chip": "Missed Capture Hung Piece",
+  "n": 1,
+  "best_wins": 0.52,
+  "own_hang": 0.67,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "Player ignores a straightforward winning capture and instead plays an ambitious move that "
+ },
+ {
+  "chip": "Greedy Queen Trade Blunder",
+  "n": 1,
+  "best_wins": 0.67,
+  "own_hang": 0.95,
+  "best_check": 0.4,
+  "fire": 0.0,
+  "example_label": "Queen captures a pawn/piece but walks into a losing queen exchange in a queen endgame."
+ },
+ {
+  "chip": "Endgame King Capture Blindness",
+  "n": 1,
+  "best_wins": 0.63,
+  "own_hang": 0.5,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "In endgame positions, the player overlooks a simple king capture of an adjacent undefended"
+ },
+ {
+  "chip": "Hung Queen Missing Mate",
+  "n": 1,
+  "best_wins": 0.79,
+  "own_hang": 0.8,
+  "best_check": 0.52,
+  "fire": 0.0,
+  "example_label": "Player blunders their queen en prise in a completely won position (often with forced mate "
+ },
+ {
+  "chip": "Missed Qx Hanging Knight",
+  "n": 1,
+  "best_wins": 0.97,
+  "own_hang": 0.28,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player ignores an undefended enemy knight on a kingside square (g4/g5/h5) that can be free"
+ },
+ {
+  "chip": "King Retreats in Endgame",
+  "n": 1,
+  "best_wins": 0.29,
+  "own_hang": 0.12,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "The player retreats their king (or makes a passive move) in a critical pawn endgame instea"
+ },
+ {
+  "chip": "Routine Move Misses Tactic",
+  "n": 1,
+  "best_wins": 0.75,
+  "own_hang": 0.1,
+  "best_check": 0.22,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet developing or routine move, missing a concrete tactical opportunity t"
+ },
+ {
+  "chip": "Ignored Back-Rank Mate",
+  "n": 1,
+  "best_wins": 0.49,
+  "own_hang": 0.34,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "The player makes a greedy capture or routine move instead of creating a king escape square"
+ },
+ {
+  "chip": "Missed f7 Tactical Strike",
+  "n": 1,
+  "best_wins": 0.81,
+  "own_hang": 0.14,
+  "best_check": 0.19,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet developing move instead of exploiting the opponent's vulnerable f7 sq"
+ },
+ {
+  "chip": "Passive Move Ignoring Promotion",
+  "n": 1,
+  "best_wins": 0.6,
+  "own_hang": 0.58,
+  "best_check": 0.08,
+  "fire": 0.01,
+  "example_label": "Player makes a quiet/passive move (usually a king move) in a critical position with an adv"
+ },
+ {
+  "chip": "Hung Piece After Aggression",
+  "n": 1,
+  "best_wins": 0.29,
+  "own_hang": 0.86,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "Player makes an aggressive move (capture or check) that leaves their own piece undefended "
+ },
+ {
+  "chip": "Premature Queen Promotion",
+  "n": 1,
+  "best_wins": 0.61,
+  "own_hang": 0.89,
+  "best_check": 0.33,
+  "fire": 0.0,
+  "example_label": "The player promotes a pawn to a Queen on a square controlled by an enemy piece, immediatel"
+ },
+ {
+  "chip": "Neglected Castling Hangs Piece",
+  "n": 1,
+  "best_wins": 0.64,
+  "own_hang": 0.84,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player continues aggressive/greedy play in a sharp opening instead of castling, leaving th"
+ },
+ {
+  "chip": "Missed Decisive Simplification",
+  "n": 1,
+  "best_wins": 0.26,
+  "own_hang": 0.37,
+  "best_check": 0.6,
+  "fire": 0.0,
+  "example_label": "In a winning endgame, the player fails to make a simplifying capture (usually with check) "
+ },
+ {
+  "chip": "Premature Sacrifice Over Pawn Break",
+  "n": 1,
+  "best_wins": 0.68,
+  "own_hang": 0.46,
+  "best_check": 0.0,
+  "fire": 0.01,
+  "example_label": "Player makes a flashy aggressive piece move (typically Bxf7+ or a knight lunge) instead of"
+ },
+ {
+  "chip": "Missed Mating Check-Capture",
+  "n": 1,
+  "best_wins": 0.65,
+  "own_hang": 0.52,
+  "best_check": 0.93,
+  "fire": 0.0,
+  "example_label": "The player missed a winning check that simultaneously captures a pawn near the enemy king,"
+ },
+ {
+  "chip": "Queen Move Misses Check",
+  "n": 1,
+  "best_wins": 0.95,
+  "own_hang": 0.23,
+  "best_check": 0.95,
+  "fire": 0.0,
+  "example_label": "Player makes a queen move (often a greedy capture) instead of delivering a devastating che"
+ },
+ {
+  "chip": "Ignored Attacked Bishop",
+  "n": 1,
+  "best_wins": 0.42,
+  "own_hang": 0.93,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "The player makes an unrelated move while their own bishop (or minor piece) is under attack"
+ },
+ {
+  "chip": "Endgame King Misdirection",
+  "n": 1,
+  "best_wins": 0.76,
+  "own_hang": 0.32,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "In pawn endgames, the player moves the king in the wrong direction (or makes an irrelevant"
+ },
+ {
+  "chip": "Greedy Queen Capture Hangs Queen",
+  "n": 1,
+  "best_wins": 0.7,
+  "own_hang": 0.8,
+  "best_check": 0.2,
+  "fire": 0.0,
+  "example_label": "The player makes a tempting queen capture (often with check) that leaves the queen itself "
+ },
+ {
+  "chip": "Slow Rook-Pawn Push",
+  "n": 1,
+  "best_wins": 0.48,
+  "own_hang": 0.52,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "Playing a purposeless a- or h-pawn push (a3/a6/h3/h6) in the opening while ignoring urgent"
+ },
+ {
+  "chip": "Neglected Urgent Castling",
+  "n": 1,
+  "best_wins": 0.47,
+  "own_hang": 0.49,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "The player develops or pushes pawns instead of castling when the king is critically expose"
+ },
+ {
+  "chip": "Hung Bishop on g4/g5",
+  "n": 1,
+  "best_wins": 0.28,
+  "own_hang": 0.93,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Developing a bishop to g4 or g5 in the opening where it is immediately capturable by the o"
+ },
+ {
+  "chip": "Hung Queen on File",
+  "n": 1,
+  "best_wins": 0.68,
+  "own_hang": 1.0,
+  "best_check": 0.13,
+  "fire": 0.0,
+  "example_label": "The player's move exposes their own queen on an open or semi-open file to an enemy rook, l"
+ },
+ {
+  "chip": "Missed Defensive Queen Trade",
+  "n": 1,
+  "best_wins": 0.08,
+  "own_hang": 0.68,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "Player fails to capture the opponent's queen (an even trade) as the only defensive resourc"
+ },
+ {
+  "chip": "Greedy Queen Capture Hangs",
+  "n": 1,
+  "best_wins": 0.69,
+  "own_hang": 0.96,
+  "best_check": 0.58,
+  "fire": 0.0,
+  "example_label": "Player captures a piece with check (usually with the Queen) but leaves the capturing piece"
+ },
+ {
+  "chip": "Unsound Pawn Promotion",
+  "n": 1,
+  "best_wins": 0.58,
+  "own_hang": 0.95,
+  "best_check": 0.29,
+  "fire": 0.0,
+  "example_label": "Player promotes a pawn to a queen on a square controlled by the opponent, immediately hang"
+ },
+ {
+  "chip": "Pointless Check Impulse",
+  "n": 1,
+  "best_wins": 0.62,
+  "own_hang": 0.36,
+  "best_check": 0.04,
+  "fire": 0.01,
+  "example_label": "Player gives an impulsive or premature check instead of a stronger quiet move or capture t"
+ },
+ {
+  "chip": "Premature Bxf7/Bxf2 Sacrifice",
+  "n": 1,
+  "best_wins": 0.47,
+  "own_hang": 0.93,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "Unsound bishop sacrifice on f7 or f2 with check in Italian Game openings, leaving the bish"
+ },
+ {
+  "chip": "Missed Endgame Killer",
+  "n": 1,
+  "best_wins": 0.39,
+  "own_hang": 0.34,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "In a decisively won endgame, the player makes a slow or aimless move instead of executing "
+ },
+ {
+  "chip": "Missed Essential Capture",
+  "n": 1,
+  "best_wins": 0.24,
+  "own_hang": 0.4,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player plays a quiet move (king move, pawn push, or piece reposition) while ignoring a cri"
+ },
+ {
+  "chip": "Aimless Queen Repositioning",
+  "n": 1,
+  "best_wins": 0.55,
+  "own_hang": 0.48,
+  "best_check": 0.08,
+  "fire": 0.01,
+  "example_label": "The player makes a seemingly active but purposeless queen move that neglects concrete tact"
+ },
+ {
+  "chip": "Greedy Rook Pawn Grab",
+  "n": 1,
+  "best_wins": 0.48,
+  "own_hang": 0.46,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "A rook (or queen) greedily captures a peripheral pawn when a superior move exists, often l"
+ },
+ {
+  "chip": "Passive Rook Hangs Piece",
+  "n": 1,
+  "best_wins": 0.52,
+  "own_hang": 0.58,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "The player makes a passive or aimless rook move that leaves their own piece or pawn undefe"
+ },
+ {
+  "chip": "Missed E-File Pin",
+  "n": 1,
+  "best_wins": 0.88,
+  "own_hang": 0.29,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player misses Qe7 pinning and winning an enemy knight on the open e-file in Petroff Defens"
+ },
+ {
+  "chip": "Unblocking Open-File Queen",
+  "n": 1,
+  "best_wins": 0.49,
+  "own_hang": 0.46,
+  "best_check": 0.03,
+  "fire": 0.01,
+  "example_label": "Player moves a piece that was blocking the enemy queen's attack along an open file (usuall"
+ },
+ {
+  "chip": "Pointless Bishop Check",
+  "n": 1,
+  "best_wins": 0.65,
+  "own_hang": 0.52,
+  "best_check": 0.21,
+  "fire": 0.0,
+  "example_label": "Playing a premature bishop check (Bb5+/Bb4+/Bg5+) in the opening that wastes tempo and lea"
+ },
+ {
+  "chip": "Missed Endgame Tempo",
+  "n": 1,
+  "best_wins": 0.53,
+  "own_hang": 0.38,
+  "best_check": 0.22,
+  "fire": 0.0,
+  "example_label": "In critical endgame races, the player makes a slow or misdirected move instead of the deci"
+ },
+ {
+  "chip": "King Move Hangs Major",
+  "n": 1,
+  "best_wins": 0.54,
+  "own_hang": 0.87,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "Player moves their King instead of using their major piece (Rook/Queen) to capture, leavin"
+ },
+ {
+  "chip": "Ignored Tactical Capture",
+  "n": 1,
+  "best_wins": 0.29,
+  "own_hang": 0.6,
+  "best_check": 0.16,
+  "fire": 0.0,
+  "example_label": "Player plays a quiet, often piece-hanging move while a strong tactical capture was availab"
+ },
+ {
+  "chip": "Missed Tactic, Hung Piece",
+  "n": 1,
+  "best_wins": 0.81,
+  "own_hang": 0.58,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "The player makes a tempting but flawed move (often a capture) that hangs their own piece, "
+ },
+ {
+  "chip": "Hung Queen Missing Win",
+  "n": 1,
+  "best_wins": 0.77,
+  "own_hang": 0.61,
+  "best_check": 0.39,
+  "fire": 0.0,
+  "example_label": "Player blunders their own Queen by playing an impulsive move (often a check or capture) in"
+ },
+ {
+  "chip": "Suicidal Spite Check",
+  "n": 1,
+  "best_wins": 0.63,
+  "own_hang": 1.0,
+  "best_check": 0.22,
+  "fire": 0.0,
+  "example_label": "Player gives a check with a major piece (rook or queen) that is left hanging and lost afte"
+ },
+ {
+  "chip": "Reflexive hxg Opens H-file",
+  "n": 1,
+  "best_wins": 0.72,
+  "own_hang": 0.76,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "Player reflexively captures on g4/g5 with the h-pawn, fatally opening the h-file against t"
+ },
+ {
+  "chip": "Missed Critical Pawn Capture",
+  "n": 1,
+  "best_wins": 0.12,
+  "own_hang": 0.21,
+  "best_check": 0.4,
+  "fire": 0.0,
+  "example_label": "Player ignores a decisive pawn capture (often with check) in favor of a passive quiet move"
+ },
+ {
+  "chip": "Inferior Capture Over Tactic",
+  "n": 1,
+  "best_wins": 0.89,
+  "own_hang": 0.54,
+  "best_check": 0.27,
+  "fire": 0.0,
+  "example_label": "Player makes a tempting but inferior capture (or plausible move) while missing a much stro"
+ },
+ {
+  "chip": "Greedy Move Hangs Queen",
+  "n": 1,
+  "best_wins": 0.47,
+  "own_hang": 0.91,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "The player makes an aggressive capture or check that leaves their own queen (or major piec"
+ },
+ {
+  "chip": "Neglected Knight Exchange",
+  "n": 1,
+  "best_wins": 0.14,
+  "own_hang": 0.62,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "Player plays a quiet move instead of trading an undefended, aggressively-posted knight, le"
+ },
+ {
+  "chip": "Bishop Capture Hangs Piece",
+  "n": 1,
+  "best_wins": 0.4,
+  "own_hang": 0.83,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player makes a bishop capture/exchange that leaves their own piece (typically a minor piec"
+ },
+ {
+  "chip": "Ignored Queen Attacker",
+  "n": 1,
+  "best_wins": 0.93,
+  "own_hang": 0.89,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player ignores an undefended enemy piece attacking their queen, failing to simply capture "
+ },
+ {
+  "chip": "Promotion Ignores Forcing Move",
+  "n": 1,
+  "best_wins": 0.61,
+  "own_hang": 0.5,
+  "best_check": 0.5,
+  "fire": 0.0,
+  "example_label": "Player promotes a pawn to queen instead of playing an urgent check or capture that wins th"
+ },
+ {
+  "chip": "Missed Minor Piece Tactic",
+  "n": 1,
+  "best_wins": 1.0,
+  "own_hang": 0.45,
+  "best_check": 0.0,
+  "fire": 0.02,
+  "example_label": "The player missed a knight or bishop move to an aggressive square that wins material (typi"
+ },
+ {
+  "chip": "King Abandons Critical Pawn",
+  "n": 1,
+  "best_wins": 0.3,
+  "own_hang": 0.64,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "In endgame positions, the player moves their king (or plays another irrelevant move) inste"
+ },
+ {
+  "chip": "Pawn Move Hangs Piece",
+  "n": 1,
+  "best_wins": 0.58,
+  "own_hang": 0.8,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "Player makes an inconsequential pawn move (push or low-priority pawn capture) that leaves "
+ },
+ {
+  "chip": "Missed Bishop Interposition",
+  "n": 1,
+  "best_wins": 0.45,
+  "own_hang": 0.55,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player fails to play a critical bishop move (usually blocking a diagonal threat) and inste"
+ },
+ {
+  "chip": "Premature Check Hangs Piece",
+  "n": 1,
+  "best_wins": 0.41,
+  "own_hang": 0.71,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "The player gives a tempting check (or aggressive lunge) that leaves their own piece undefe"
+ },
+ {
+  "chip": "Missed Nxe4/Nxe5 Pawn",
+  "n": 1,
+  "best_wins": 0.92,
+  "own_hang": 0.24,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player misses capturing an undefended central e-pawn with a knight (Nxe4 or Nxe5) in the o"
+ },
+ {
+  "chip": "Premature Bxf7+ Sacrifice",
+  "n": 1,
+  "best_wins": 0.23,
+  "own_hang": 0.98,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "A bishop captures on f7 (or f2) with check in the opening without sufficient tactical foll"
+ },
+ {
+  "chip": "Aimless King Move Blunder",
+  "n": 1,
+  "best_wins": 0.25,
+  "own_hang": 0.12,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "The player makes a passive, unnecessary king move instead of executing a decisive winning "
+ },
+ {
+  "chip": "Left Bishop Hanging",
+  "n": 1,
+  "best_wins": 0.5,
+  "own_hang": 0.56,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player ignores a central pawn's attack on their own bishop (c4 or c5), leaving it en prise"
+ },
+ {
+  "chip": "Missed Queen Takes g-Pawn",
+  "n": 1,
+  "best_wins": 0.97,
+  "own_hang": 0.41,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "The player missed capturing an undefended g-pawn (or b-pawn) with the queen in the opening"
+ },
+ {
+  "chip": "Missed Capture Hangs Piece",
+  "n": 1,
+  "best_wins": 0.88,
+  "own_hang": 0.75,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "Player ignores an available winning capture and instead makes a move that leaves their own"
+ },
+ {
+  "chip": "Missed Winning Pawn Thrust",
+  "n": 1,
+  "best_wins": 0.99,
+  "own_hang": 0.39,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player misses a quiet pawn advance (or occasional piece reposition) that would win materia"
+ },
+ {
+  "chip": "Check-Capture Hangs Piece",
+  "n": 1,
+  "best_wins": 0.79,
+  "own_hang": 0.96,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "The player captures an enemy piece with check using a rook or queen, but the capturing pie"
+ },
+ {
+  "chip": "Missed Queen-Winning Tactic",
+  "n": 1,
+  "best_wins": 0.81,
+  "own_hang": 0.37,
+  "best_check": 0.36,
+  "fire": 0.0,
+  "example_label": "Player missed a decisive tactical shot (often a check) that would win the opponent's queen"
+ },
+ {
+  "chip": "Hung Bishop on g5",
+  "n": 1,
+  "best_wins": 0.67,
+  "own_hang": 0.72,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet developing move while leaving their undefended bishop on g5 en prise "
+ },
+ {
+  "chip": "Missed Piece Trap",
+  "n": 1,
+  "best_wins": 0.24,
+  "own_hang": 0.35,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player ignores the critical move that would trap an enemy piece that has ventured deep int"
+ },
+ {
+  "chip": "Capture Hangs Own Minor",
+  "n": 1,
+  "best_wins": 0.54,
+  "own_hang": 0.99,
+  "best_check": 0.17,
+  "fire": 0.0,
+  "example_label": "Player captures with a bishop or knight that is left en prise on the destination square in"
+ },
+ {
+  "chip": "Pointless Check Given",
+  "n": 1,
+  "best_wins": 0.74,
+  "own_hang": 0.46,
+  "best_check": 0.33,
+  "fire": 0.0,
+  "example_label": "Player gives an aimless check (usually with the queen) instead of finding the decisive win"
+ },
+ {
+  "chip": "Greedy Move Allows Mate",
+  "n": 1,
+  "best_wins": 0.56,
+  "own_hang": 0.61,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "The player makes a greedy capture or careless move that ignores an immediate mating threat"
+ },
+ {
+  "chip": "Missed Queen Mating Check",
+  "n": 1,
+  "best_wins": 0.97,
+  "own_hang": 0.4,
+  "best_check": 0.92,
+  "fire": 0.0,
+  "example_label": "Player misses an immediate or near-immediate queen check (often checkmate) in favor of a g"
+ },
+ {
+  "chip": "Poisoned B-Pawn Capture",
+  "n": 1,
+  "best_wins": 0.75,
+  "own_hang": 0.4,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "The queen greedily captures the b2 or b7 pawn ('poisoned pawn') instead of developing or p"
+ },
+ {
+  "chip": "Hung Piece After Check",
+  "n": 1,
+  "best_wins": 0.7,
+  "own_hang": 0.96,
+  "best_check": 0.15,
+  "fire": 0.0,
+  "example_label": "Player captures with check using a major piece but leaves it en prise after the opponent r"
+ },
+ {
+  "chip": "Pointless Queen Checks",
+  "n": 1,
+  "best_wins": 0.33,
+  "own_hang": 0.38,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player gives an aimless check (usually with the queen) in a winning endgame instead of pla"
+ },
+ {
+  "chip": "Premature Passed Pawn Push",
+  "n": 1,
+  "best_wins": 0.39,
+  "own_hang": 0.45,
+  "best_check": 0.17,
+  "fire": 0.0,
+  "example_label": "Player prematurely advances an already-advanced passed pawn (typically to the 7th/2nd rank"
+ },
+ {
+  "chip": "Ignoring Critical Passed Pawn",
+  "n": 1,
+  "best_wins": 0.93,
+  "own_hang": 0.49,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "In endgames, the player makes a tempting but inferior move (capture, check, or misplacemen"
+ },
+ {
+  "chip": "Missed Piece Exchange",
+  "n": 1,
+  "best_wins": 0.36,
+  "own_hang": 0.68,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Player overlooks a necessary minor piece exchange (Bishop or Knight capture) and instead p"
+ },
+ {
+  "chip": "Ignoring Passed Pawn",
+  "n": 1,
+  "best_wins": 0.28,
+  "own_hang": 0.29,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player makes an irrelevant move in a rook endgame instead of using the rook to address a d"
+ },
+ {
+  "chip": "King Move Ignores Queen",
+  "n": 1,
+  "best_wins": 0.88,
+  "own_hang": 0.55,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player reflexively moves the king when the correct move is a critical queen relocation tha"
+ },
+ {
+  "chip": "Missed Bishop Captures Pawn",
+  "n": 1,
+  "best_wins": 0.97,
+  "own_hang": 0.39,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Player misses a bishop capture of an undefended pawn on a long diagonal (typically g7, g2,"
+ },
+ {
+  "chip": "Missed Queen Trade Check",
+  "n": 1,
+  "best_wins": 0.0,
+  "own_hang": 0.5,
+  "best_check": 1.0,
+  "fire": 0.0,
+  "example_label": "Player misses a winning queen-for-queen capture with check, instead making a move that oft"
+ },
+ {
+  "chip": "Premature Knight Exchange",
+  "n": 1,
+  "best_wins": 0.63,
+  "own_hang": 0.98,
+  "best_check": 0.2,
+  "fire": 0.0,
+  "example_label": "A knight captures an enemy piece on a square where it is immediately recapturable, trading"
+ },
+ {
+  "chip": "King Race Misdirection",
+  "n": 1,
+  "best_wins": 0.31,
+  "own_hang": 0.28,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "In king-and-pawn endgames, the player moves the king in the wrong direction (or pushes a p"
+ },
+ {
+  "chip": "Pawn Race King Wander",
+  "n": 1,
+  "best_wins": 0.29,
+  "own_hang": 0.18,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "In king-and-pawn endgames involving pawn races, the player moves their king instead of pus"
+ },
+ {
+  "chip": "Rook Takes King-Defended Piece",
+  "n": 1,
+  "best_wins": 0.38,
+  "own_hang": 0.93,
+  "best_check": 0.17,
+  "fire": 0.0,
+  "example_label": "In endgames, the player captures a pawn or piece with their rook that is defended by the a"
+ },
+ {
+  "chip": "Speculative Check Ignores Capture",
+  "n": 1,
+  "best_wins": 0.98,
+  "own_hang": 0.9,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player plays a flashy check or attack (often Bxf7+/Ng5+) instead of simply recapturing an "
+ },
+ {
+  "chip": "Greedy Endgame King Capture",
+  "n": 1,
+  "best_wins": 0.64,
+  "own_hang": 0.51,
+  "best_check": 0.23,
+  "fire": 0.0,
+  "example_label": "In endgames, the player makes a tempting king capture of nearby material instead of the st"
+ },
+ {
+  "chip": "Knight Retreat Misses d5",
+  "n": 1,
+  "best_wins": 0.66,
+  "own_hang": 0.52,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player passively moves/retreats a knight attacked by e5 instead of playing the d5 pawn cou"
+ },
+ {
+  "chip": "Missed Necessary Queen Trade",
+  "n": 1,
+  "best_wins": 0.23,
+  "own_hang": 0.7,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "Player ignores a critical queen exchange (Qx_), instead playing a quiet move that leaves m"
+ },
+ {
+  "chip": "Rook Capture Hangs Rook",
+  "n": 1,
+  "best_wins": 0.57,
+  "own_hang": 1.0,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "The player captures a piece with their rook, but the rook lands on an undefended square wh"
+ },
+ {
+  "chip": "Missed Qh5+/Qh4+ Check",
+  "n": 1,
+  "best_wins": 1.0,
+  "own_hang": 0.39,
+  "best_check": 0.98,
+  "fire": 0.0,
+  "example_label": "Player misses a devastating queen check (Qh5+ or Qh4+) exploiting a king exposed along the"
+ },
+ {
+  "chip": "Missed Qxd4/d5 Capture",
+  "n": 1,
+  "best_wins": 0.86,
+  "own_hang": 0.37,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player misses a queen capture on d4, d5, or d6 that wins an undefended central pawn or pie"
+ },
+ {
+  "chip": "Missed Decisive Exchange",
+  "n": 1,
+  "best_wins": 0.08,
+  "own_hang": 0.35,
+  "best_check": 0.27,
+  "fire": 0.0,
+  "example_label": "Player missed a materially-equal but positionally crushing exchange (capture), playing a q"
+ },
+ {
+  "chip": "Missed Winning Rook Trade",
+  "n": 1,
+  "best_wins": 0.18,
+  "own_hang": 0.35,
+  "best_check": 0.43,
+  "fire": 0.0,
+  "example_label": "Player avoids a rook exchange (often with check) that would liquidate into a winning pawn "
+ },
+ {
+  "chip": "Unsound Bxh3/Bxh6 Sacrifice",
+  "n": 1,
+  "best_wins": 0.31,
+  "own_hang": 0.96,
+  "best_check": 0.03,
+  "fire": 0.01,
+  "example_label": "A bishop captures the h-pawn in front of the castled king but is left hanging with no suff"
+ },
+ {
+  "chip": "Premature Pawn Exchange",
+  "n": 1,
+  "best_wins": 0.59,
+  "own_hang": 0.98,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "Player makes a reflexive pawn capture that leaves the capturing pawn recapturable, releasi"
+ },
+ {
+  "chip": "Knight Captures b-Pawn Hangs",
+  "n": 1,
+  "best_wins": 0.19,
+  "own_hang": 0.93,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player captures attacking b-pawn with a knight (Nxb5/Nxb4) instead of retreating the threa"
+ },
+ {
+  "chip": "Ignored Mate-in-One Threat",
+  "n": 1,
+  "best_wins": 0.57,
+  "own_hang": 0.75,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet, irrelevant piece move (typically a bishop repositioning) while facin"
+ },
+ {
+  "chip": "Ignored Tactic, Hung Piece",
+  "n": 1,
+  "best_wins": 0.61,
+  "own_hang": 0.66,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player makes an aimless or non-addressing move that both misses a winning capture and leav"
+ },
+ {
+  "chip": "Premature F-Pawn Advance",
+  "n": 1,
+  "best_wins": 0.71,
+  "own_hang": 0.48,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player advances or captures with the f-pawn in a King's Gambit-type opening instead of dev"
+ },
+ {
+  "chip": "Missed Doubling Rooks on 7th",
+  "n": 1,
+  "best_wins": 0.69,
+  "own_hang": 0.5,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player misses the opportunity to double rooks on the 7th (or 2nd) rank, typically winning "
+ },
+ {
+  "chip": "Missed King Captures Rook",
+  "n": 1,
+  "best_wins": 1.0,
+  "own_hang": 0.0,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "The player overlooks that their King can simply capture an undefended enemy Rook sitting a"
+ },
+ {
+  "chip": "Wrong Capture Order",
+  "n": 1,
+  "best_wins": 0.68,
+  "own_hang": 0.6,
+  "best_check": 0.31,
+  "fire": 0.01,
+  "example_label": "Player captures an enemy piece but in the wrong order, leaving their own piece hanging whe"
+ },
+ {
+  "chip": "King Abandons Pawn",
+  "n": 1,
+  "best_wins": 0.23,
+  "own_hang": 0.92,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "In endgames, the player moves their king (or makes the wrong pawn move) instead of a criti"
+ },
+ {
+  "chip": "Missed Rook Capture",
+  "n": 1,
+  "best_wins": 0.67,
+  "own_hang": 0.59,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "Player fails to capture an available enemy rook (or major piece) on an open file, typicall"
+ },
+ {
+  "chip": "Develops Instead of Capturing",
+  "n": 1,
+  "best_wins": 0.72,
+  "own_hang": 0.69,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player makes a developing or quiet move (typically a bishop move) instead of capturing an "
+ },
+ {
+  "chip": "Premature Bg4/Bg5 Development",
+  "n": 1,
+  "best_wins": 0.41,
+  "own_hang": 0.58,
+  "best_check": 0.06,
+  "fire": 0.06,
+  "example_label": "Developing a bishop to g4 or g5 as a routine move while ignoring urgent tactical obligatio"
+ },
+ {
+  "chip": "Premature Knight Sortie",
+  "n": 1,
+  "best_wins": 0.46,
+  "own_hang": 0.52,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "Player jumps a knight aggressively to the rim (Nb5, Nb4, Ng5) in the opening instead of ma"
+ },
+ {
+  "chip": "Opening Move Hangs Piece",
+  "n": 1,
+  "best_wins": 0.48,
+  "own_hang": 0.95,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player makes a developing or active-looking opening move that leaves one of their own piec"
+ },
+ {
+  "chip": "Endgame Tactical Oversight",
+  "n": 1,
+  "best_wins": 0.71,
+  "own_hang": 0.71,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "In simplified endgames, the player makes a 'strategic' or impulsive move that simultaneous"
+ },
+ {
+  "chip": "Missed Flank Pawn Push",
+  "n": 1,
+  "best_wins": 0.21,
+  "own_hang": 0.05,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "In closed-center openings, the player makes a slow/routine move instead of the critical fl"
+ },
+ {
+  "chip": "Ignored Promotion Obstacle",
+  "n": 1,
+  "best_wins": 0.48,
+  "own_hang": 0.39,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "In endgames with far-advanced passed pawns, the player makes an ineffective move instead o"
+ },
+ {
+  "chip": "Missed Back-Rank Rook Invasion",
+  "n": 1,
+  "best_wins": 0.7,
+  "own_hang": 0.47,
+  "best_check": 0.24,
+  "fire": 0.0,
+  "example_label": "The player makes a quiet move instead of penetrating with a rook along an open file to exp"
+ },
+ {
+  "chip": "Missed Discovered Check",
+  "n": 1,
+  "best_wins": 0.59,
+  "own_hang": 0.57,
+  "best_check": 0.81,
+  "fire": 0.0,
+  "example_label": "The player missed a pawn advance or capture that delivers a devastating discovered check, "
+ },
+ {
+  "chip": "Aimless Move Ignoring Tactics",
+  "n": 1,
+  "best_wins": 0.81,
+  "own_hang": 0.67,
+  "best_check": 0.04,
+  "fire": 0.01,
+  "example_label": "Player makes a passive, purposeless move (often a king move) that both misses winning avai"
+ },
+ {
+  "chip": "Missed Decisive Capture",
+  "n": 1,
+  "best_wins": 0.39,
+  "own_hang": 0.29,
+  "best_check": 0.31,
+  "fire": 0.0,
+  "example_label": "In a dominant/winning position, the player overlooks a simple forcing capture (often with "
+ },
+ {
+  "chip": "Botched KP Endgame Technique",
+  "n": 1,
+  "best_wins": 0.23,
+  "own_hang": 0.1,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "Player throws away a winning King+Pawn endgame by pushing the pawn prematurely or misplaci"
+ },
+ {
+  "chip": "Walked Into Checkmate",
+  "n": 1,
+  "best_wins": 0.55,
+  "own_hang": 0.37,
+  "best_check": 0.09,
+  "fire": 0.01,
+  "example_label": "Player ignores an immediate mating threat and plays a quiet move that allows forced checkm"
+ },
+ {
+  "chip": "King Walk Hangs Major",
+  "n": 1,
+  "best_wins": 0.67,
+  "own_hang": 0.6,
+  "best_check": 0.37,
+  "fire": 0.0,
+  "example_label": "In endgames with exposed kings, the player makes a passive king move or greedy capture tha"
+ },
+ {
+  "chip": "Missed Capture Hung Rook",
+  "n": 1,
+  "best_wins": 0.81,
+  "own_hang": 0.81,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player plays an active-looking move (often a rook check) instead of simply capturing a han"
+ },
+ {
+  "chip": "Missed Endgame Pawn Win",
+  "n": 1,
+  "best_wins": 0.89,
+  "own_hang": 0.2,
+  "best_check": 0.29,
+  "fire": 0.0,
+  "example_label": "In endgame positions, the player makes a slow positional move instead of the concrete move"
+ },
+ {
+  "chip": "Pawn Push Over King Activity",
+  "n": 1,
+  "best_wins": 0.29,
+  "own_hang": 0.39,
+  "best_check": 0.07,
+  "fire": 0.01,
+  "example_label": "In endgames, the player pushes a pawn when king activation or piece repositioning is the c"
+ },
+ {
+  "chip": "Knight Abandons Defense",
+  "n": 1,
+  "best_wins": 0.51,
+  "own_hang": 0.9,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "A knight move that leaves the player's own piece undefended and hanging to capture."
+ },
+ {
+  "chip": "Capture Before Check",
+  "n": 1,
+  "best_wins": 0.6,
+  "own_hang": 0.87,
+  "best_check": 0.67,
+  "fire": 0.0,
+  "example_label": "Player makes a greedy capture that leaves their own piece (usually a rook) hanging, missin"
+ },
+ {
+  "chip": "Reflexive g-pawn Queen Chase",
+  "n": 1,
+  "best_wins": 0.55,
+  "own_hang": 0.74,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Playing g6/g3 to shoo away an enemy queen on h5/h4 instead of addressing the real threat v"
+ },
+ {
+  "chip": "Passive King Retreat Endgame",
+  "n": 1,
+  "best_wins": 0.4,
+  "own_hang": 0.12,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "King retreats passively in pawn endgame instead of advancing toward critical squares or pa"
+ },
+ {
+  "chip": "Missed Anti-Promotion Capture",
+  "n": 1,
+  "best_wins": 0.1,
+  "own_hang": 0.2,
+  "best_check": 0.8,
+  "fire": 0.0,
+  "example_label": "Player ignores a critical rook capture (usually with check) of a dangerous passed pawn abo"
+ },
+ {
+  "chip": "Missed Knight Capture-Check",
+  "n": 1,
+  "best_wins": 0.06,
+  "own_hang": 0.54,
+  "best_check": 0.97,
+  "fire": 0.0,
+  "example_label": "Player missed a forcing knight capture with check (Nx__+) that, while materially equal in "
+ },
+ {
+  "chip": "Greedy Capture Hangs Major Piece",
+  "n": 1,
+  "best_wins": 0.73,
+  "own_hang": 0.85,
+  "best_check": 0.15,
+  "fire": 0.0,
+  "example_label": "The player grabs an enemy piece with a tempting capture but leaves their own major piece ("
+ },
+ {
+  "chip": "Hung Piece via Activity",
+  "n": 1,
+  "best_wins": 0.49,
+  "own_hang": 0.79,
+  "best_check": 0.24,
+  "fire": 0.0,
+  "example_label": "Player makes an aggressive-looking move (often a knight jump to a central square) that lea"
+ },
+ {
+  "chip": "Queen Move Instead of King",
+  "n": 1,
+  "best_wins": 0.51,
+  "own_hang": 0.52,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "Player moves the queen when the king urgently needs to move for safety or activity, leavin"
+ },
+ {
+  "chip": "Ignoring Pawn Tension",
+  "n": 1,
+  "best_wins": 0.56,
+  "own_hang": 0.6,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player plays a quiet developing/regrouping move while ignoring critical pawn tension, leav"
+ },
+ {
+  "chip": "Wrong King Direction Endgame",
+  "n": 1,
+  "best_wins": 0.25,
+  "own_hang": 0.17,
+  "best_check": 0.13,
+  "fire": 0.0,
+  "example_label": "The player moves their king to the wrong square in a critical endgame position, often walk"
+ },
+ {
+  "chip": "Missed Queen Checkmate",
+  "n": 1,
+  "best_wins": 0.99,
+  "own_hang": 0.48,
+  "best_check": 1.0,
+  "fire": 0.01,
+  "example_label": "The player missed an immediate queen checkmate (or queen check winning decisive material),"
+ },
+ {
+  "chip": "Checking Pawn Capture Hangs",
+  "n": 1,
+  "best_wins": 0.48,
+  "own_hang": 1.0,
+  "best_check": 0.16,
+  "fire": 0.0,
+  "example_label": "A pawn capture that gives check but leaves the capturing pawn en prise, sacrificing positi"
+ },
+ {
+  "chip": "Wrong Capture Hangs Piece",
+  "n": 1,
+  "best_wins": 0.87,
+  "own_hang": 0.93,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player makes a tempting capture or check instead of taking a free enemy piece, simultaneou"
+ },
+ {
+  "chip": "Premature Knight Pawn Grab",
+  "n": 1,
+  "best_wins": 0.81,
+  "own_hang": 0.43,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Knight captures a seemingly free central pawn (usually e4) in the opening, but this greedy"
+ },
+ {
+  "chip": "Capture Ignores Queen Threat",
+  "n": 1,
+  "best_wins": 0.94,
+  "own_hang": 0.98,
+  "best_check": 0.18,
+  "fire": 0.0,
+  "example_label": "Player makes a greedy capture with a non-queen piece while their own queen is under attack"
+ },
+ {
+  "chip": "Blundering King Walk",
+  "n": 1,
+  "best_wins": 0.66,
+  "own_hang": 0.57,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "The player makes a bad king move, missing winning tactics and/or leaving their own pieces "
+ },
+ {
+  "chip": "Queen Check Hangs Queen",
+  "n": 1,
+  "best_wins": 0.82,
+  "own_hang": 0.92,
+  "best_check": 0.41,
+  "fire": 0.0,
+  "example_label": "The player delivers a tempting Queen check that leaves the Queen itself hanging and captur"
+ },
+ {
+  "chip": "Premature Attack Hangs Bishop",
+  "n": 1,
+  "best_wins": 0.38,
+  "own_hang": 0.78,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Aggressive knight lunges (Nh5/Nh4) or queen sorties (Qa5/Qa4) in the opening that leave th"
+ },
+ {
+  "chip": "Knight Captures Poisoned Pawn",
+  "n": 1,
+  "best_wins": 0.71,
+  "own_hang": 0.87,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "A knight greedily captures a central or advanced pawn but lands on a square where it is le"
+ },
+ {
+  "chip": "Missed Queen-Winning Check",
+  "n": 1,
+  "best_wins": 0.98,
+  "own_hang": 0.46,
+  "best_check": 1.0,
+  "fire": 0.0,
+  "example_label": "Player missed a checking move (usually a queen fork) that would have won the opponent's qu"
+ },
+ {
+  "chip": "Knight Jump Ignores BxN",
+  "n": 1,
+  "best_wins": 0.04,
+  "own_hang": 0.48,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player makes an aggressive knight centralization instead of executing a critical bishop-ta"
+ },
+ {
+  "chip": "Ignoring Infiltrated Queen",
+  "n": 1,
+  "best_wins": 0.82,
+  "own_hang": 1.0,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "Player ignores an enemy queen attacking their undefended rook, leaving the rook hanging."
+ },
+ {
+  "chip": "Missed h-Pawn Kick",
+  "n": 1,
+  "best_wins": 0.98,
+  "own_hang": 0.53,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player ignores h3 or h6 pawn push that would win an enemy piece aggressively placed on g4/"
+ },
+ {
+  "chip": "Missed Check, Hung Piece",
+  "n": 1,
+  "best_wins": 0.36,
+  "own_hang": 0.72,
+  "best_check": 0.47,
+  "fire": 0.0,
+  "example_label": "Player overlooks a strong checking move (often winning material) and instead plays a move "
+ },
+ {
+  "chip": "Premature Piece Exchange",
+  "n": 1,
+  "best_wins": 0.78,
+  "own_hang": 1.0,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "Player captures (usually with check) forcing an equal trade of major pieces when a non-tra"
+ },
+ {
+  "chip": "Rook Captured Into Recapture",
+  "n": 1,
+  "best_wins": 0.56,
+  "own_hang": 1.0,
+  "best_check": 0.33,
+  "fire": 0.0,
+  "example_label": "Player captures with a rook (often with check) on a square where the rook is immediately r"
+ },
+ {
+  "chip": "Declined Queen Capture",
+  "n": 1,
+  "best_wins": 0.18,
+  "own_hang": 0.6,
+  "best_check": 0.21,
+  "fire": 0.0,
+  "example_label": "The player moves their queen to an aggressive-looking square instead of making the correct"
+ },
+ {
+  "chip": "Knight Jump Hangs Piece",
+  "n": 1,
+  "best_wins": 0.7,
+  "own_hang": 0.66,
+  "best_check": 0.18,
+  "fire": 0.0,
+  "example_label": "A tempting knight move (to an aggressive square, often with capture or check) that leaves "
+ },
+ {
+  "chip": "Neglected Castling",
+  "n": 1,
+  "best_wins": 0.24,
+  "own_hang": 0.37,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "The player makes a non-urgent move instead of castling, leaving their king dangerously exp"
+ },
+ {
+  "chip": "Bishop Pawn-Grab Hangs",
+  "n": 1,
+  "best_wins": 0.24,
+  "own_hang": 0.93,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "In the opening, the bishop greedily captures a defended pawn and is left hanging with no r"
+ },
+ {
+  "chip": "Pointless Check Misses Capture",
+  "n": 1,
+  "best_wins": 0.78,
+  "own_hang": 0.64,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "Player gives an aimless check instead of simply capturing a hanging enemy piece (usually a"
+ },
+ {
+  "chip": "King Safety Neglect",
+  "n": 1,
+  "best_wins": 0.55,
+  "own_hang": 0.36,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "Player captures a pawn with the queen (or makes a routine move like O-O) while ignoring cr"
+ },
+ {
+  "chip": "Missed Endgame Resource",
+  "n": 1,
+  "best_wins": 0.68,
+  "own_hang": 0.29,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "In critical endgame positions, the player makes a passive quiet move instead of the one ac"
+ },
+ {
+  "chip": "Wrong Tactical Target",
+  "n": 1,
+  "best_wins": 0.56,
+  "own_hang": 0.53,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "Player captures or attacks the wrong target, missing a superior material-winning capture a"
+ },
+ {
+  "chip": "Ignored Forced Queen Trade",
+  "n": 1,
+  "best_wins": 0.03,
+  "own_hang": 0.66,
+  "best_check": 0.44,
+  "fire": 0.0,
+  "example_label": "Player ignores an obligatory queen exchange (often with check) and instead plays a develop"
+ },
+ {
+  "chip": "Missed Winning Enemy Queen",
+  "n": 1,
+  "best_wins": 0.94,
+  "own_hang": 0.54,
+  "best_check": 0.0,
+  "fire": 0.01,
+  "example_label": "The player missed a Queen relocation (or similar tactical move) that would have won the op"
+ },
+ {
+  "chip": "King Flees Hangs Piece",
+  "n": 1,
+  "best_wins": 0.17,
+  "own_hang": 0.83,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player retreats king from an attacking knight (g5/g4) instead of capturing it with the que"
+ },
+ {
+  "chip": "Passive Queen Misplacement",
+  "n": 1,
+  "best_wins": 0.8,
+  "own_hang": 0.55,
+  "best_check": 0.2,
+  "fire": 0.0,
+  "example_label": "Player moves their Queen to a passive or irrelevant square, missing a critical forcing mov"
+ },
+ {
+  "chip": "Wrong King Square",
+  "n": 1,
+  "best_wins": 0.19,
+  "own_hang": 0.14,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "In endgames with advanced passed pawns near promotion, the king retreats to the wrong squa"
+ },
+ {
+  "chip": "Missed Bishop Pins Queen",
+  "n": 1,
+  "best_wins": 0.99,
+  "own_hang": 0.19,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player misses a bishop move to b4 or b5 that pins or wins the opponent's queen against the"
+ },
+ {
+  "chip": "Ignored Necessary Exchange",
+  "n": 1,
+  "best_wins": 0.14,
+  "own_hang": 0.56,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "Player failed to make a critical even exchange, playing a quiet move instead that typicall"
+ },
+ {
+  "chip": "Missed Rook Checkmate",
+  "n": 1,
+  "best_wins": 0.96,
+  "own_hang": 0.25,
+  "best_check": 0.94,
+  "fire": 0.0,
+  "example_label": "Player missed an immediate or near-immediate checkmate (or decisive mating check) delivere"
+ },
+ {
+  "chip": "Ignored Forced Checkmate",
+  "n": 1,
+  "best_wins": 0.55,
+  "own_hang": 0.44,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet or irrelevant move while ignoring an imminent forced checkmate threat"
+ },
+ {
+  "chip": "Oblivious Blunder Into Mate",
+  "n": 1,
+  "best_wins": 0.74,
+  "own_hang": 0.65,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player makes a tactically irrelevant move (quiet development, pawn push, or greedy capture"
+ },
+ {
+  "chip": "Missed Queen Fork Check",
+  "n": 1,
+  "best_wins": 0.85,
+  "own_hang": 0.49,
+  "best_check": 0.84,
+  "fire": 0.0,
+  "example_label": "The player missed a queen check that simultaneously forks the opponent's king and queen, w"
+ },
+ {
+  "chip": "Missed Winning Piece Maneuver",
+  "n": 1,
+  "best_wins": 0.94,
+  "own_hang": 0.53,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "Player ignores a quiet knight or bishop move that would win significant material, instead "
+ },
+ {
+  "chip": "Ignored Pawn Recapture",
+  "n": 1,
+  "best_wins": 0.4,
+  "own_hang": 0.56,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "The player neglects a simple pawn recapture and instead plays a piece move that leaves the"
+ },
+ {
+  "chip": "Greedy Queen Capture Trapped",
+  "n": 1,
+  "best_wins": 0.6,
+  "own_hang": 0.9,
+  "best_check": 0.13,
+  "fire": 0.0,
+  "example_label": "The player captures material (often with check) using their Queen or Rook, but the capturi"
+ },
+ {
+  "chip": "Pointless Kingside Pawn Push",
+  "n": 1,
+  "best_wins": 0.72,
+  "own_hang": 0.6,
+  "best_check": 0.19,
+  "fire": 0.0,
+  "example_label": "Player makes a quiet kingside pawn advance (h3/g3/h4) while missing a decisive tactical op"
+ },
+ {
+  "chip": "Develops Piece En Prise",
+  "n": 1,
+  "best_wins": 0.52,
+  "own_hang": 0.78,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "In the opening, the player develops or places a piece on a square where it is immediately "
+ },
+ {
+  "chip": "Bishop Retreats to Rim",
+  "n": 1,
+  "best_wins": 0.03,
+  "own_hang": 0.29,
+  "best_check": 0.32,
+  "fire": 0.0,
+  "example_label": "A challenged bishop retreats to a rim square (a5/a4/h4/h5) instead of making the principle"
+ },
+ {
+  "chip": "Bishop Development Ignores Capture",
+  "n": 1,
+  "best_wins": 0.96,
+  "own_hang": 0.71,
+  "best_check": 0.05,
+  "fire": 0.01,
+  "example_label": "Player develops or repositions a bishop instead of capturing a freely available enemy piec"
+ },
+ {
+  "chip": "Hung Queen Ignoring King",
+  "n": 1,
+  "best_wins": 0.65,
+  "own_hang": 0.94,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "Player moves their Queen (or Rook) instead of addressing an urgent king-safety crisis, lea"
+ },
+ {
+  "chip": "Missed d5 Pawn Strike",
+  "n": 1,
+  "best_wins": 0.92,
+  "own_hang": 0.45,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player misses a central pawn thrust (typically ...d5) that wins an undefended bishop on c4"
+ },
+ {
+  "chip": "Exposed King Neglect",
+  "n": 1,
+  "best_wins": 0.45,
+  "own_hang": 0.52,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player makes a greedy capture or poor king move instead of consolidating when their own ki"
+ },
+ {
+  "chip": "Reflexive Bishop-Chasing Pawn Push",
+  "n": 1,
+  "best_wins": 0.51,
+  "own_hang": 0.25,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "Player makes a prophylactic pawn move (h3/a3/a6/h6) to kick an enemy bishop instead of exe"
+ },
+ {
+  "chip": "Active Move Hangs Piece",
+  "n": 1,
+  "best_wins": 0.63,
+  "own_hang": 0.72,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player makes a seemingly active or aggressive move (often a check) that leaves their own p"
+ },
+ {
+  "chip": "Pointless Endgame Check",
+  "n": 1,
+  "best_wins": 0.51,
+  "own_hang": 0.16,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player gives a reflexive, non-productive check in an endgame instead of the correct quiet "
+ },
+ {
+  "chip": "Missed Queen Mate-in-One",
+  "n": 1,
+  "best_wins": 0.79,
+  "own_hang": 0.27,
+  "best_check": 0.7,
+  "fire": 0.0,
+  "example_label": "Player missed an immediate checkmate-in-one delivered by the Queen capturing a pawn (typic"
+ },
+ {
+  "chip": "Wrong Capture Choice",
+  "n": 1,
+  "best_wins": 0.62,
+  "own_hang": 0.57,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "Player makes a tempting but inferior capture while missing a much larger tactical win else"
+ },
+ {
+  "chip": "Passive Knight Retreat",
+  "n": 1,
+  "best_wins": 0.42,
+  "own_hang": 0.42,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player retreats a knight to a passive square (d2/e2/d7/e7), missing active tactical altern"
+ },
+ {
+  "chip": "Back-Rank Capture Blunder",
+  "n": 1,
+  "best_wins": 0.82,
+  "own_hang": 0.88,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "Player captures an enemy piece (usually a queen that infiltrated) but ignores a lethal bac"
+ },
+ {
+  "chip": "Missed Queen Win",
+  "n": 1,
+  "best_wins": 0.96,
+  "own_hang": 0.57,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player missed a quiet minor-piece move (knight or bishop) that would have won the opponent"
+ },
+ {
+  "chip": "Missed Rook Recapture",
+  "n": 1,
+  "best_wins": 0.18,
+  "own_hang": 0.47,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "Player ignores an available rook recapture (even exchange) and plays a quiet move, often l"
+ },
+ {
+  "chip": "Pointless Check Over Capture",
+  "n": 1,
+  "best_wins": 0.79,
+  "own_hang": 0.52,
+  "best_check": 0.15,
+  "fire": 0.0,
+  "example_label": "Player gives a tempting but unproductive check instead of simply capturing a hanging enemy"
+ },
+ {
+  "chip": "Aimless Endgame King Move",
+  "n": 1,
+  "best_wins": 0.37,
+  "own_hang": 0.2,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "In endgame positions, the player makes a purposeless or wrong-direction king move when a c"
+ },
+ {
+  "chip": "Aimless Queen Move",
+  "n": 1,
+  "best_wins": 0.63,
+  "own_hang": 0.6,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "Player makes a purposeless quiet queen move that leaves own pieces undefended or misses wi"
+ },
+ {
+  "chip": "Premature Bg4/Bg5 Hangs Bishop",
+  "n": 1,
+  "best_wins": 0.48,
+  "own_hang": 0.61,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Developing a bishop to g4 or g5 in the opening when it is left undefended and can be captu"
+ },
+ {
+  "chip": "Premature Bishop Sortie",
+  "n": 1,
+  "best_wins": 0.26,
+  "own_hang": 0.26,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Playing an aggressive-looking bishop move to b4/b5/g4/g5 in the opening that appears activ"
+ },
+ {
+  "chip": "King Abandons Own Pawn",
+  "n": 1,
+  "best_wins": 0.29,
+  "own_hang": 0.62,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "In king-and-pawn endgames, the player moves their king away from (or prematurely promotes)"
+ },
+ {
+  "chip": "Missed E-File Check",
+  "n": 1,
+  "best_wins": 0.94,
+  "own_hang": 0.6,
+  "best_check": 1.0,
+  "fire": 0.0,
+  "example_label": "The player misses a winning check on the e-file (Qe7+, Qe2+, or Re1+) that exploits the op"
+ },
+ {
+  "chip": "Premature f-Pawn Capture",
+  "n": 1,
+  "best_wins": 0.84,
+  "own_hang": 0.37,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player captures with the f-pawn (fxe5/fxe4) in the opening instead of developing a knight "
+ },
+ {
+  "chip": "Missed Kingside Pawn Sacrifice",
+  "n": 1,
+  "best_wins": 0.3,
+  "own_hang": 0.42,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "Player misses a minor-piece sacrifice capturing a weakened kingside pawn (h6/g6/h3/g4/g3) "
+ },
+ {
+  "chip": "Greedy Knight Capture",
+  "n": 1,
+  "best_wins": 0.74,
+  "own_hang": 0.62,
+  "best_check": 0.52,
+  "fire": 0.0,
+  "example_label": "Player captures material with a knight (or piece) but leaves it hanging, missing a far str"
+ },
+ {
+  "chip": "Premature Nxf2/Nxf7 Grab",
+  "n": 1,
+  "best_wins": 0.29,
+  "own_hang": 0.99,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "A knight captures the f2 or f7 pawn in the opening but is left hanging and immediately los"
+ },
+ {
+  "chip": "Quiet Move Misses Capture",
+  "n": 1,
+  "best_wins": 0.15,
+  "own_hang": 0.46,
+  "best_check": 0.42,
+  "fire": 0.0,
+  "example_label": "Player makes a slow quiet move (often Qg3) instead of an available forcing capture, freque"
+ },
+ {
+  "chip": "Ignoring Diagonal King Exposure",
+  "n": 1,
+  "best_wins": 0.49,
+  "own_hang": 0.33,
+  "best_check": 0.07,
+  "fire": 0.01,
+  "example_label": "The player makes a tempting move (often a capture) while their king sits on a vulnerable l"
+ },
+ {
+  "chip": "Missed Rook Skewer Check",
+  "n": 1,
+  "best_wins": 0.91,
+  "own_hang": 0.34,
+  "best_check": 0.88,
+  "fire": 0.0,
+  "example_label": "Player missed a rook check that skewers the opponent's king and rook, winning the enemy ro"
+ },
+ {
+  "chip": "Ignored Dominant Knight",
+  "n": 1,
+  "best_wins": 0.21,
+  "own_hang": 0.51,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player plays a quiet move instead of exchanging off the opponent's powerful centralized kn"
+ },
+ {
+  "chip": "Missed Rook Exchange Check",
+  "n": 1,
+  "best_wins": 0.11,
+  "own_hang": 0.56,
+  "best_check": 0.78,
+  "fire": 0.0,
+  "example_label": "Player missed a forcing rook capture with check on an open file, instead making a passive "
+ },
+ {
+  "chip": "Greedy Unsound Capture",
+  "n": 1,
+  "best_wins": 0.44,
+  "own_hang": 0.57,
+  "best_check": 0.2,
+  "fire": 0.0,
+  "example_label": "The player makes a tempting capture (often a peripheral pawn) that hangs their own piece o"
+ },
+ {
+  "chip": "Pawn Push Hangs Piece",
+  "n": 1,
+  "best_wins": 0.47,
+  "own_hang": 0.62,
+  "best_check": 0.07,
+  "fire": 0.0,
+  "example_label": "An aggressive pawn advance that leaves the player's own minor piece (usually a bishop) und"
+ },
+ {
+  "chip": "Missed Loose Back-Rank Piece",
+  "n": 1,
+  "best_wins": 0.54,
+  "own_hang": 0.47,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "Player ignores a free capture of an undefended major piece (usually a rook) on the back ra"
+ },
+ {
+  "chip": "Bishop Check Hangs Itself",
+  "n": 1,
+  "best_wins": 0.71,
+  "own_hang": 0.99,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "A bishop makes a capture (usually with check) that leaves itself en prise, missing a stron"
+ },
+ {
+  "chip": "Missed Anti-Promotion Check",
+  "n": 1,
+  "best_wins": 0.88,
+  "own_hang": 0.34,
+  "best_check": 0.69,
+  "fire": 0.0,
+  "example_label": "Player missed a critical rook/queen check that gains tempo against an advanced passed pawn"
+ },
+ {
+  "chip": "Missed Pawn Endgame Capture",
+  "n": 1,
+  "best_wins": 0.37,
+  "own_hang": 0.03,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "In pure king-and-pawn endgames, the player makes a passive quiet move (king walk or pawn p"
+ },
+ {
+  "chip": "Be6 Ignoring King Danger",
+  "n": 1,
+  "best_wins": 0.51,
+  "own_hang": 0.75,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "Developing a bishop (usually to e6) while the king is critically exposed, leaving own piec"
+ },
+ {
+  "chip": "Impractical Active Move",
+  "n": 1,
+  "best_wins": 0.55,
+  "own_hang": 0.56,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player makes a flashy or aggressive move (often a check) instead of addressing practical c"
+ },
+ {
+  "chip": "Greedy Central Blunder",
+  "n": 1,
+  "best_wins": 0.63,
+  "own_hang": 0.56,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "Player makes a tempting-looking central move (often a knight jump or capture on d4/d5) tha"
+ },
+ {
+  "chip": "Endgame Passed Pawn Neglect",
+  "n": 1,
+  "best_wins": 0.53,
+  "own_hang": 0.29,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "The player ignores the urgency of dealing with passed pawns in endgames, choosing captures"
+ },
+ {
+  "chip": "Ignored Critical Capture",
+  "n": 1,
+  "best_wins": 0.19,
+  "own_hang": 0.54,
+  "best_check": 0.21,
+  "fire": 0.0,
+  "example_label": "Player ignores a near-mandatory capture and instead makes a quiet move that frequently han"
+ },
+ {
+  "chip": "Premature Central Pawn Break",
+  "n": 1,
+  "best_wins": 0.25,
+  "own_hang": 0.57,
+  "best_check": 0.02,
+  "fire": 0.01,
+  "example_label": "Player pushes a central pawn (d5/e4/e5/f4) prematurely, leaving their own pawn en prise or"
+ },
+ {
+  "chip": "Queen Move, King Needs Moving",
+  "n": 1,
+  "best_wins": 0.48,
+  "own_hang": 0.43,
+  "best_check": 0.14,
+  "fire": 0.0,
+  "example_label": "Player makes a queen move (or piece move) in a queen endgame when the exposed king urgentl"
+ },
+ {
+  "chip": "Hung Piece on Diagonal",
+  "n": 1,
+  "best_wins": 0.33,
+  "own_hang": 0.88,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "The player develops or moves a piece onto a long diagonal already controlled by an enemy b"
+ },
+ {
+  "chip": "Bishop Hangs After Capture",
+  "n": 1,
+  "best_wins": 0.31,
+  "own_hang": 0.96,
+  "best_check": 0.06,
+  "fire": 0.0,
+  "example_label": "A bishop (or piece) greedily captures a pawn or piece in the opening but is left completel"
+ },
+ {
+  "chip": "Ignoring Critical Threats",
+  "n": 1,
+  "best_wins": 0.64,
+  "own_hang": 0.49,
+  "best_check": 0.11,
+  "fire": 0.0,
+  "example_label": "Player makes a passive, developing, or greedy move while ignoring an urgent tactical crisi"
+ },
+ {
+  "chip": "Missed Central Counter-Strike",
+  "n": 1,
+  "best_wins": 0.92,
+  "own_hang": 0.72,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player fails to play the critical central pawn advance (d5 or e5) that refutes an overexte"
+ },
+ {
+  "chip": "Premature Italian Knight Lunge",
+  "n": 1,
+  "best_wins": 0.16,
+  "own_hang": 1.0,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "In the Italian Game opening, the player moves their knight aggressively (Ng5 or Nxe5/Nxe4)"
+ },
+ {
+  "chip": "Missed Long Diagonal Capture",
+  "n": 1,
+  "best_wins": 0.97,
+  "own_hang": 0.15,
+  "best_check": 0.1,
+  "fire": 0.0,
+  "example_label": "Player misses a bishop capturing an undefended g-pawn (or b-pawn) along an open long diago"
+ },
+ {
+  "chip": "Missed Qh5+ Diagonal Check",
+  "n": 1,
+  "best_wins": 0.89,
+  "own_hang": 0.16,
+  "best_check": 0.7,
+  "fire": 0.0,
+  "example_label": "Player misses a devastating Qh5+ (or Qh4+) check exploiting the open h5-e8/h4-e1 diagonal "
+ },
+ {
+  "chip": "Missed Queen Winning Piece",
+  "n": 1,
+  "best_wins": 0.95,
+  "own_hang": 0.45,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player misses a queen move that wins an undefended centralized enemy piece (usually a knig"
+ },
+ {
+  "chip": "Aimless Rook Move",
+  "n": 1,
+  "best_wins": 0.55,
+  "own_hang": 0.3,
+  "best_check": 0.17,
+  "fire": 0.01,
+  "example_label": "Player makes a passive or purposeless rook move instead of executing the concrete best act"
+ },
+ {
+  "chip": "Hung Knight Move",
+  "n": 1,
+  "best_wins": 0.5,
+  "own_hang": 0.96,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "A knight (or minor piece) is moved to a square where it is left undefended and can be capt"
+ },
+ {
+  "chip": "Pawn Push Hangs Pawn",
+  "n": 1,
+  "best_wins": 0.27,
+  "own_hang": 0.88,
+  "best_check": 0.02,
+  "fire": 0.0,
+  "example_label": "Player advances a pawn to an undefended square where it becomes en prise, predominantly in"
+ },
+ {
+  "chip": "King Misdirection Endgame",
+  "n": 1,
+  "best_wins": 0.1,
+  "own_hang": 0.38,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "In endgames with exposed kings, the player moves their king (or makes a move) in the wrong"
+ },
+ {
+  "chip": "Missed Knight Invasion",
+  "n": 1,
+  "best_wins": 0.69,
+  "own_hang": 0.44,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "The player misses a strong knight jump to b4/b5/d5 that wins material or dominates the pos"
+ },
+ {
+  "chip": "Pawn Push Over King Activation",
+  "n": 1,
+  "best_wins": 0.32,
+  "own_hang": 0.38,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "In endgame positions, the player makes a premature or passive pawn push instead of activat"
+ },
+ {
+  "chip": "Missed h-file Checkmate",
+  "n": 1,
+  "best_wins": 0.73,
+  "own_hang": 0.46,
+  "best_check": 0.4,
+  "fire": 0.0,
+  "example_label": "Player missed a forced checkmate or crushing queen invasion targeting h2/h3/h6 squares aga"
+ },
+ {
+  "chip": "Premature Tactic Hangs Minor",
+  "n": 1,
+  "best_wins": 0.08,
+  "own_hang": 0.75,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player makes a premature aggressive move (capture or pawn push) in the opening that leaves"
+ },
+ {
+  "chip": "Impulsive Check Hangs Piece",
+  "n": 1,
+  "best_wins": 0.62,
+  "own_hang": 0.65,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "Player gives an ineffective check instead of the correct move, often leaving their own pie"
+ },
+ {
+  "chip": "Passive King Move Blunder",
+  "n": 1,
+  "best_wins": 0.66,
+  "own_hang": 0.48,
+  "best_check": 0.17,
+  "fire": 0.01,
+  "example_label": "Player retreats or sidesteps the king passively in an endgame, missing a winning tactical "
+ },
+ {
+  "chip": "Squandered Won Endgame",
+  "n": 1,
+  "best_wins": 0.66,
+  "own_hang": 0.29,
+  "best_check": 0.12,
+  "fire": 0.0,
+  "example_label": "Player misses the precise winning move in a won endgame, often choosing a greedy capture o"
+ },
+ {
+  "chip": "Rook Not To 8th Rank",
+  "n": 1,
+  "best_wins": 0.38,
+  "own_hang": 0.41,
+  "best_check": 0.09,
+  "fire": 0.0,
+  "example_label": "In rook endgames with dangerous passed pawns, the player fails to activate the rook by pla"
+ },
+ {
+  "chip": "Premature Check Misses Material",
+  "n": 1,
+  "best_wins": 0.77,
+  "own_hang": 0.66,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player gives an impulsive check instead of capturing or winning a hanging enemy piece, oft"
+ },
+ {
+  "chip": "Greedy Queen Trap",
+  "n": 1,
+  "best_wins": 0.52,
+  "own_hang": 0.97,
+  "best_check": 0.05,
+  "fire": 0.0,
+  "example_label": "The player captures a piece with their Queen (often a central pawn) in the opening, only t"
+ },
+ {
+  "chip": "Missed Pawn Traps Knight",
+  "n": 1,
+  "best_wins": 0.99,
+  "own_hang": 0.39,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "The player missed a pawn advance that attacks and wins a misplaced enemy knight with no sa"
+ },
+ {
+  "chip": "King Move Over Pawn",
+  "n": 1,
+  "best_wins": 0.32,
+  "own_hang": 0.35,
+  "best_check": 0.03,
+  "fire": 0.0,
+  "example_label": "In pawn endgames, the player makes a king move when the critical move was a pawn advance o"
+ },
+ {
+  "chip": "Missed BxN Exchange",
+  "n": 1,
+  "best_wins": 0.12,
+  "own_hang": 0.41,
+  "best_check": 0.01,
+  "fire": 0.0,
+  "example_label": "Player fails to execute a critical bishop-takes-knight capture at the decisive moment, squ"
+ },
+ {
+  "chip": "Quiet Move Over Tactic",
+  "n": 1,
+  "best_wins": 0.47,
+  "own_hang": 0.05,
+  "best_check": 0.1,
+  "fire": 0.03,
+  "example_label": "Player chooses a quiet developing or repositioning move instead of executing a concrete wi"
+ },
+ {
+  "chip": "King Walks Into Mate",
+  "n": 1,
+  "best_wins": 0.58,
+  "own_hang": 0.43,
+  "best_check": 0.04,
+  "fire": 0.0,
+  "example_label": "The player advances their already-exposed king forward into a mating net instead of retrea"
+ },
+ {
+  "chip": "Missed Back-Rank Check",
+  "n": 1,
+  "best_wins": 0.85,
+  "own_hang": 0.76,
+  "best_check": 0.99,
+  "fire": 0.0,
+  "example_label": "Player missed a winning queen/rook check (often checkmate) on the opponent's back rank, in"
+ },
+ {
+  "chip": "Declined Queen Trade Hangs Own",
+  "n": 1,
+  "best_wins": 0.17,
+  "own_hang": 0.74,
+  "best_check": 0.08,
+  "fire": 0.0,
+  "example_label": "Player ignores a safe queen capture (usually a queen trade on a central square) and instea"
+ },
+ {
+  "chip": "Missed Mating Attack",
+  "n": 1,
+  "best_wins": 0.74,
+  "own_hang": 0.38,
+  "best_check": 0.33,
+  "fire": 0.0,
+  "example_label": "Player misses a forced checkmate or decisive winning check in a position with an exposed e"
+ },
+ {
+  "chip": "Missed Quiet Winning Threat",
+  "n": 1,
+  "best_wins": 0.9,
+  "own_hang": 0.48,
+  "best_check": 0.0,
+  "fire": 0.0,
+  "example_label": "Player missed a non-capturing quiet move (typically a queen centralization or knight attac"
+ }
+]
