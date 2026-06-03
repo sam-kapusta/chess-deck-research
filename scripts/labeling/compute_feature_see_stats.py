@@ -43,12 +43,35 @@ def worst_hang(board, owner):
             if l > worst: worst = l; wp = p.piece_type
     return worst, (PIECE.get(wp) if wp else None)
 
+def evn(s):
+    """Eval already in CENTIPAWNS ('-504', '33', '#3'); mate -> +/-10000. From WHITE POV."""
+    if s is None: return None
+    s = str(s).strip()
+    if '#' in s:
+        return -10000 if s.startswith('-') else 10000
+    try: return int(round(float(s)))   # already cp, NO *100
+    except: return None
+
+def traj_band(eb, ea):
+    """Player-oriented 3-way trajectory. Draw zone = +/-150cp (~+/-1.5 pawns)."""
+    def b(cp):
+        if cp is None: return '?'
+        if cp >= 150: return 'winning'
+        if cp <= -150: return 'losing'
+        return 'drawn'
+    return f"{b(eb)}->{b(ea)}"
+
 def see_one(args):
-    fen, bl, bu = args
+    fen, bl, bu, eb_w, ea_w, is_white = args
     try:
         b = chess.Board(fen); mover = b.turn
         bm = chess.Move.from_uci(bl)
         r = {'played_cap': b.is_capture(bm), 'best_captured_piece': 'none'}
+        # eval trajectory, oriented to the PLAYER (eval stored from White POV)
+        sign = 1 if is_white else -1
+        cb = evn(eb_w); ca = evn(ea_w)
+        r['traj'] = traj_band(cb*sign if cb is not None else None, ca*sign if ca is not None else None)
+        r['eval_drop'] = (cb - ca) * sign if (cb is not None and ca is not None) else None  # +ve = player lost ground
         r['played_check'] = b.gives_check(bm)            # did the PLAYER'S move give check (for Pointless Check)
         npc = len(b.piece_map())
         r['phase'] = 'endgame' if npc <= 12 else 'opening' if b.fullmove_number <= 12 else 'middlegame'
@@ -74,6 +97,21 @@ def see_one(args):
         r['best_win'] = best_win; r['best_check'] = best_check; r['best_cap'] = best_cap; r['best_piece'] = best_piece
         bb = b.copy(); bb.push(bm); w, wp = worst_hang(bb, mover)
         r['own_hang'] = w; r['own_piece'] = cls(wp) if wp else 'none'
+        # NET MATERIAL of the played move: what you captured minus what hangs back.
+        # Fixes SEE misreading a TRADE as a loss: QxQ (+9) then Q recaptured (-9) = net 0 = TRADE,
+        # not "hung own piece -9". A greedy Qxpawn that hangs the queen = +1 -9 = net -8 = real loss.
+        gain = 0
+        if b.is_capture(bm):
+            tp = b.piece_at(bm.to_square)
+            gain = VAL.get(tp.piece_type, 1) if tp else 1   # en passant -> pawn
+        net = gain - w
+        r['net_material'] = net
+        # classify the move's material character
+        if w == 0:                      r['material_kind'] = 'safe'        # nothing hangs after
+        elif gain == 0:                 r['material_kind'] = 'hangs'       # non-capture that hangs a piece
+        elif net >= -1:                 r['material_kind'] = 'trade'       # captured ~= what hangs back (even swap)
+        elif net <= -3:                 r['material_kind'] = 'loses'       # captured less than it gives up
+        else:                           r['material_kind'] = 'slightly_down'
         return r
     except Exception:
         return None
@@ -110,7 +148,15 @@ for f in live:
     for i in sel: allpos[int(i)] = None
 keys = list(allpos.keys())
 print(f"unique positions to SEE: {len(keys)} (core cohort >= {CORE_FRAC}*max per feature)", flush=True)
-args = [(meta[i]['fen'], meta[i]['blunder_uci'], meta[i].get('best_uci','')) for i in keys]
+try:
+    enr = json.load(open(B + '/position_enrichment_cache.json'))
+except Exception:
+    enr = {}
+def mkargs(i):
+    m = meta[i]; k = m['fen'] + '|' + m['blunder_uci']; e = enr.get(k, {})
+    iw = m.get('is_white', e.get('side', 'white') in ('white', 'w', True))
+    return (m['fen'], m['blunder_uci'], m.get('best_uci', ''), e.get('eval_before'), e.get('eval_after'), bool(iw))
+args = [mkargs(i) for i in keys]
 with Pool(16) as p:
     res = p.map(see_one, args, chunksize=256)
 posstat = {keys[j]: res[j] for j in range(len(keys)) if res[j] is not None}
@@ -139,6 +185,11 @@ def signature(rs):
         'best_captured_piece_pct': dist('best_captured_piece'),
         'played_is_check_pct': round(sum(r['played_check'] for r in rs)/n, 3),
         'phase_pct': dist('phase'),
+        # NET-MATERIAL character (fixes trade-vs-loss confusion) + eval trajectory
+        'material_kind_pct': dist('material_kind'),
+        'net_material_median': med([r['net_material'] for r in rs if r.get('net_material') is not None]),
+        'trajectory_pct': {k: round(v/n, 3) for k, v in Counter(r['traj'] for r in rs).most_common()},
+        'eval_drop_median': med([r['eval_drop'] for r in rs if r.get('eval_drop') is not None]),
     }
 
 out = {}
