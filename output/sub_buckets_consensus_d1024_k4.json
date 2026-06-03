@@ -1,0 +1,402 @@
+{
+ "missed_quiet_win": {
+  "sub_axis": "Type of quiet winning resource missed",
+  "consensus_subgroups": [
+   {
+    "name": "Forgot to Queen",
+    "desc": "A pawn promotion to queen was available but overlooked.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Missed Pawn Breakthrough",
+    "desc": "A quiet pawn advance or breakthrough winning material or creating a passer was missed.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Endgame Sleepwalking",
+    "desc": "A winning endgame technique or king maneuver was available but the player drifted passively.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Missed Piece Invasion",
+    "desc": "A quiet piece maneuver or invasion into a dominant square was overlooked.",
+    "appears_in_runs": 4
+   },
+   {
+    "name": "Missed Tactical Shot",
+    "desc": "A concrete but non-forcing tactic (trap, winning capture, or combination) was available but unseen.",
+    "appears_in_runs": 4
+   }
+  ]
+ },
+ "passive_play": {
+  "sub_axis": "What concrete action was ignored while playing passively",
+  "consensus_subgroups": [
+   {
+    "name": "Missed the Winning Capture",
+    "desc": "A clear tactical capture was available but the player made an aimless move instead.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Shuffled Pieces Going Nowhere",
+    "desc": "Moved pieces back and forth without purpose when the position demanded a concrete plan.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Blind to Checkmate",
+    "desc": "Failed to see a mating attack (delivering or preventing) while making routine moves.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Autopilot Development",
+    "desc": "Played textbook developing or routine moves when the position required a specific concrete action.",
+    "appears_in_runs": 4
+   },
+   {
+    "name": "Drifted in a Won Position",
+    "desc": "Had a decisive advantage but made passive moves instead of converting decisively.",
+    "appears_in_runs": 3
+   }
+  ]
+ },
+ "missed_hanging_piece": {
+  "sub_axis": "target piece \u00d7 capturing mechanism/motif \u00d7 move played instead",
+  "consensus_subgroups": [
+   {
+    "name": "Queen Blindness",
+    "desc": "An enemy queen was hanging but the player failed to capture it.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Sleepwalking King",
+    "desc": "In the endgame, the king could have captured an adjacent hanging piece but walked past it.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Pawn-Take Blindness",
+    "desc": "A pawn could have captured a free piece but the capture was ignored.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Autopilot Developer",
+    "desc": "Player made a developing or routine move instead of capturing a hanging piece.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Diagonal Blindspot",
+    "desc": "Missed a capture along a diagonal line (bishop or queen geometry).",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Generic Piece Blindness",
+    "desc": "Missed a free piece that doesn't fit the other specific patterns.",
+    "appears_in_runs": 4
+   }
+  ]
+ },
+ "hung_own_piece": {
+  "sub_axis": "piece_hung \u00d7 causal_motif",
+  "consensus_subgroups": [
+   {
+    "name": "The Queen Dropper",
+    "desc": "Left the queen undefended or walked it into a capture, unforced.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "The Rook Gifter",
+    "desc": "Rook left or moved to an undefended square where it could be taken.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "The Minor Piece Abandoner",
+    "desc": "Knight or bishop left en prise with no compensation or recapture.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "The Pawn Forgetter",
+    "desc": "Pawn left undefended and lost for nothing, often in a quiet position.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "The Exchange Dodger",
+    "desc": "Ignored a forced exchange or recapture, leaving own piece hanging instead.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "The Opening Overreacher",
+    "desc": "Played an ambitious or autopilot opening move that left a piece undefended too early.",
+    "appears_in_runs": 3
+   },
+   {
+    "name": "The Sleepwalker",
+    "desc": "Made a quiet or passive move elsewhere while an own piece was already hanging.",
+    "appears_in_runs": 5
+   }
+  ]
+ },
+ "pointless_check": {
+  "sub_axis": "Checking piece type and consequence (piece suicides, defense abandoned, or winning check missed)",
+  "consensus_subgroups": [
+   {
+    "name": "Suicidal Queen Check",
+    "desc": "Queen gives a pointless check and is immediately captured for nothing.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Rook Check Hangs Itself",
+    "desc": "Rook delivers a futile check and is left en prise with no compensation.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Knight/Bishop Check Into Capture",
+    "desc": "A minor piece checks but lands on a square where it is simply taken.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Check Abandons the Fort",
+    "desc": "The checking move removes a defender from a critical task, leaving another piece or square unprotected.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Missed the Winning Check",
+    "desc": "A strong forcing check was available but the player either checked with the wrong piece or played a weaker move instead.",
+    "appears_in_runs": 5
+   }
+  ]
+ },
+ "endgame_technique": {
+  "sub_axis": "Endgame technique error type: which piece was misplayed and what decisive action was missed",
+  "consensus_subgroups": [
+   {
+    "name": "King Wandered Off",
+    "desc": "King moved to the wrong square or took a poor path, failing to support or oppose passed pawns",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Lazy Rook",
+    "desc": "Rook remained passive or poorly placed when an active rook move was needed",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Pushed Pawn Too Soon",
+    "desc": "Advanced a pawn prematurely, weakening it or losing a tempo in a critical race",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Forgot to Push",
+    "desc": "Failed to advance a passed or candidate pawn when the position demanded it",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Missed the Kill Shot",
+    "desc": "Overlooked a winning capture, promotion, or decisive simplification that would have ended the game",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Promotion Fumbler",
+    "desc": "Mishandled the promotion sequence\u2014wrong square, wrong piece, or missed queening tactic",
+    "appears_in_runs": 2
+   }
+  ]
+ },
+ "ignored_tension": {
+  "sub_axis": "Piece/exchange type left unresolved",
+  "consensus_subgroups": [
+   {
+    "name": "Ducked the Queen Trade",
+    "desc": "Declined a necessary queen exchange, leaving the queen tension unresolved.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Bishop Staring Contest",
+    "desc": "Left bishop-vs-bishop (or bishop-vs-piece) tension frozen without resolving the exchange.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Pawn Tension Left to Rot",
+    "desc": "Ignored pawn tension (captures, breaks, or trades) that needed immediate resolution.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Rook Trade Ducked",
+    "desc": "Refused or overlooked a rook exchange on an open file or contested line.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Quiet Move While Piece Hangs",
+    "desc": "Played a passive/quiet move while a piece or pawn was left en prise or under unresolved attack.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Knight Swap Blindness",
+    "desc": "Left a knight capture or knight exchange unresolved when it demanded attention.",
+    "appears_in_runs": 4
+   }
+  ]
+ },
+ "missed_winning_tactic": {
+  "sub_axis": "Tactical Motif / Piece Involved in Missed Tactic",
+  "consensus_subgroups": [
+   {
+    "name": "Knight Fork Blind",
+    "desc": "Missed a winning knight fork that would have won material",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Pawn Breakthrough Missed",
+    "desc": "Missed a decisive pawn break or pawn advance winning material or creating unstoppable threats",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Rook Invasion Missed",
+    "desc": "Missed a winning rook penetration into the opponent's position",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Queen Trap Missed",
+    "desc": "Missed a tactic that wins the opponent's queen or traps a major piece",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Bishop Diagonal Missed",
+    "desc": "Missed a winning bishop tactic along a diagonal (pin, skewer, or discovery)",
+    "appears_in_runs": 3
+   },
+   {
+    "name": "Blind to Captures",
+    "desc": "Missed a simple winning capture that was available, overlooking hanging or underdefended pieces",
+    "appears_in_runs": 3
+   },
+   {
+    "name": "Missed Forcing Blow",
+    "desc": "Missed a decisive forcing move (check, threat, or intermediate move) that wins material",
+    "appears_in_runs": 3
+   },
+   {
+    "name": "Sleepwalked Past a Win",
+    "desc": "Played a quiet or passive move while a clear winning tactic was available, general tactical blindness",
+    "appears_in_runs": 3
+   }
+  ]
+ },
+ "missed_check_mate": {
+  "sub_axis": "piece_and_motif",
+  "consensus_subgroups": [
+   {
+    "name": "Fork Knight",
+    "desc": "Missed a knight fork or knight check that wins material or delivers mate.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Mate Blind",
+    "desc": "A forced checkmate was available but a quieter or non-mating move was played.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Greed Goggles",
+    "desc": "Captured material (greedy move) instead of playing a stronger forcing check or mate.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Queen Thunderbolt",
+    "desc": "Overlooked a powerful queen check or queen-delivered mating attack.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Diagonal Dagger",
+    "desc": "Missed a bishop sacrifice, discovery, or diagonal check/mate motif.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Rook Hammer",
+    "desc": "Failed to use a rook check, back-rank mate, or rook-lift attack.",
+    "appears_in_runs": 4
+   },
+   {
+    "name": "Check Reflex Failure",
+    "desc": "General failure to consider any forcing check (no specific piece/motif); quiet-move drift.",
+    "appears_in_runs": 3
+   }
+  ]
+ },
+ "premature_aggression": {
+  "sub_axis": "piece/target pattern of the unsound aggression",
+  "consensus_subgroups": [
+   {
+    "name": "Yolo Nxf7 Sacrifice",
+    "desc": "Unsound piece sacrifice on f7 (or f2) that doesn't yield sufficient compensation",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Knight Jumped Into Thin Air",
+    "desc": "Knight lunges aggressively into enemy territory only to be captured with no real threat",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Flashy Check Hangs Everything",
+    "desc": "Showy check that ignores defensive resources and leaves own material hanging",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Promoted Into Enemy Fire",
+    "desc": "Premature or greedy promotion that walks the new piece straight into capture",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Bishop Overreach",
+    "desc": "Bishop lunges to an aggressive square where it's trapped or captured by a pawn",
+    "appears_in_runs": 3
+   },
+   {
+    "name": "Greedy Grab Gets Punished",
+    "desc": "Impulsive material grab that loses tempo or hangs a piece to a tactical reply",
+    "appears_in_runs": 3
+   },
+   {
+    "name": "Premature Pawn Shove",
+    "desc": "Aggressive early pawn push that weakens own position without creating real threats",
+    "appears_in_runs": 2
+   }
+  ]
+ },
+ "greedy_capture": {
+  "sub_axis": "Greedy piece type self-destructing + missed-threat/abandonment motif",
+  "consensus_subgroups": [
+   {
+    "name": "Queen Kamikaze",
+    "desc": "Queen captures material but lands on a square where it is lost to recapture or trap.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Rook Into Recapture",
+    "desc": "Rook grabs material but steps into an immediately losing recapture or dead-end square.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Minor Piece Self-Destructs",
+    "desc": "Bishop or knight captures greedily and is immediately lost or trapped.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Wrong Target",
+    "desc": "Captures an inferior piece/pawn when a stronger tactical shot (fork, skewer, deflection) was available.",
+    "appears_in_runs": 5
+   },
+   {
+    "name": "Capture Abandons Guard",
+    "desc": "The capturing piece leaves its post, abandoning defense of a more valuable ally or critical square.",
+    "appears_in_runs": 4
+   },
+   {
+    "name": "Passive Neglect Drops Piece",
+    "desc": "Greedy capture is a slow/quiet move that ignores the opponent's active threat, hanging material elsewhere.",
+    "appears_in_runs": 4
+   },
+   {
+    "name": "Greed Ignores Mate",
+    "desc": "Grabs material while a mating attack (for either side) was the real priority.",
+    "appears_in_runs": 3
+   }
+  ]
+ }
+}

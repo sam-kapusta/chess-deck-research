@@ -1,0 +1,7287 @@
+{
+ "ignored_tension": [
+  {
+   "sub_axis": "Piece/Exchange Type Ignored",
+   "subgroups": [
+    {
+     "name": "Dodged the Queen Trade",
+     "desc": "Player avoids or misses a critical queen exchange (often with check or on an open file), leaving their own material vulnerable to the opponent's dominant queen.",
+     "fids": [
+      "f5",
+      "f79",
+      "f102",
+      "f158",
+      "f233",
+      "f414",
+      "f415",
+      "f427",
+      "f544",
+      "f674",
+      "f690",
+      "f832",
+      "f951"
+     ]
+    },
+    {
+     "name": "Bishop Standoff Ignored",
+     "desc": "Player leaves bishop-vs-bishop or bishop-vs-knight tension unresolved, missing a critical Bx capture or exchange that neutralizes a dangerous enemy piece.",
+     "fids": [
+      "f20",
+      "f80",
+      "f116",
+      "f125",
+      "f129",
+      "f245",
+      "f320",
+      "f391",
+      "f470",
+      "f612",
+      "f614",
+      "f634",
+      "f639",
+      "f713",
+      "f730",
+      "f804",
+      "f1008"
+     ]
+    },
+    {
+     "name": "Rook Trade Ducked",
+     "desc": "Player fails to execute a necessary rook exchange or recapture on an open/contested file, leaving their own rook or other material hanging.",
+     "fids": [
+      "f197",
+      "f222",
+      "f240",
+      "f374",
+      "f440",
+      "f683",
+      "f696",
+      "f850",
+      "f859",
+      "f892"
+     ]
+    },
+    {
+     "name": "Knight Capture Missed",
+     "desc": "Player ignores a critical knight capture or exchange (Nx central piece, trading an exposed knight) and instead makes a passive or misdirected move.",
+     "fids": [
+      "f57",
+      "f244",
+      "f251",
+      "f261",
+      "f314",
+      "f598"
+     ]
+    },
+    {
+     "name": "Pawn Tension Left to Rot",
+     "desc": "Player refuses to resolve central or structural pawn tension (exd5, dxc4, pawn breaks, recaptures), leaving their own pawns or pieces en prise.",
+     "fids": [
+      "f17",
+      "f25",
+      "f185",
+      "f295",
+      "f333",
+      "f343",
+      "f371",
+      "f372",
+      "f421",
+      "f426",
+      "f463",
+      "f483",
+      "f492",
+      "f572",
+      "f711",
+      "f760",
+      "f769",
+      "f781",
+      "f818",
+      "f866",
+      "f898"
+     ]
+    },
+    {
+     "name": "Quiet Move, Piece Drops",
+     "desc": "Player makes a generic quiet/developing move instead of an obvious forced capture, recapture, or simplifying exchange, leaving their own piece hanging in unresolved tactical tension.",
+     "fids": [
+      "f74",
+      "f81",
+      "f98",
+      "f182",
+      "f326",
+      "f477",
+      "f565",
+      "f840",
+      "f921",
+      "f942",
+      "f961",
+      "f1005",
+      "f1019"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Which piece/tension type was left unresolved",
+   "subgroups": [
+    {
+     "name": "Ducked the Queen Trade",
+     "desc": "Player missed or declined a critical queen exchange (often with check or on an open file), leaving their own major pieces vulnerable to the opponent's dominant queen.",
+     "fids": [
+      "f5",
+      "f79",
+      "f102",
+      "f233",
+      "f414",
+      "f415",
+      "f427",
+      "f544",
+      "f674",
+      "f690",
+      "f832",
+      "f951"
+     ]
+    },
+    {
+     "name": "Pawn Tension Left Ticking",
+     "desc": "Player ignored a mandatory pawn capture or break (central tension, recapture, or passed pawn action), instead making a quiet move that leaves pawns or pieces en prise.",
+     "fids": [
+      "f17",
+      "f25",
+      "f185",
+      "f295",
+      "f333",
+      "f343",
+      "f371",
+      "f372",
+      "f421",
+      "f426",
+      "f483",
+      "f492",
+      "f572",
+      "f711",
+      "f769",
+      "f781",
+      "f818",
+      "f866"
+     ]
+    },
+    {
+     "name": "Bishop Staring Contest",
+     "desc": "Player left bishop-vs-bishop (or bishop-vs-knight) tension unresolved, failing to execute a critical Bx capture or BxN exchange, often leaving their own minor piece hanging.",
+     "fids": [
+      "f20",
+      "f80",
+      "f116",
+      "f125",
+      "f129",
+      "f245",
+      "f320",
+      "f391",
+      "f470",
+      "f612",
+      "f614",
+      "f634",
+      "f639",
+      "f713",
+      "f730",
+      "f804",
+      "f1008"
+     ]
+    },
+    {
+     "name": "Rook Trade Refused",
+     "desc": "Player failed to execute a necessary rook exchange on a contested open file (or recapture), often leaving their own rook or other material hanging.",
+     "fids": [
+      "f197",
+      "f222",
+      "f240",
+      "f374",
+      "f683",
+      "f696",
+      "f859",
+      "f892"
+     ]
+    },
+    {
+     "name": "Knight Left Unchallenged",
+     "desc": "Player ignored a critical knight capture or exchange (Nxd5, Nxe4, or trading a dominant enemy knight), instead making a passive or overextending move.",
+     "fids": [
+      "f57",
+      "f244",
+      "f251",
+      "f261",
+      "f314",
+      "f598"
+     ]
+    },
+    {
+     "name": "Quiet Move While Piece Hangs",
+     "desc": "Player made a passive or misdirected move ignoring an urgent general capture (recapture, simplification, defensive trade, or tactical shot) that the position demanded, leaving their own material en prise.",
+     "fids": [
+      "f74",
+      "f81",
+      "f98",
+      "f158",
+      "f182",
+      "f326",
+      "f440",
+      "f463",
+      "f477",
+      "f565",
+      "f760",
+      "f840",
+      "f850",
+      "f898",
+      "f921",
+      "f942",
+      "f961",
+      "f1005",
+      "f1019"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Piece/structure type of the ignored tension (which exchange or capture was declined)",
+   "subgroups": [
+    {
+     "name": "Declined the Queen Trade",
+     "desc": "Player ignores a necessary or winning queen exchange (often with check), leaving their own material vulnerable to the opponent's active queen. High check-correlation features; hung piece skews major.",
+     "fids": [
+      "f414",
+      "f415",
+      "f427",
+      "f674",
+      "f951",
+      "f832",
+      "f544",
+      "f690",
+      "f5",
+      "f79",
+      "f233",
+      "f102",
+      "f158"
+     ]
+    },
+    {
+     "name": "Rook on Open File? Nah",
+     "desc": "Player fails to execute a critical rook exchange on a contested open file, or ignores an infiltrating rook, leaving their own major piece hanging. Hung piece heavily skews major/rook.",
+     "fids": [
+      "f374",
+      "f859",
+      "f683",
+      "f696",
+      "f240",
+      "f222",
+      "f892",
+      "f440",
+      "f197",
+      "f850"
+     ]
+    },
+    {
+     "name": "Bishop Staring Contest Lost",
+     "desc": "Player leaves mutual bishop tension unresolved (Bx__ declined) or misses a critical bishop capture/interposition, hanging their own minor piece. Hung piece dominated by minor.",
+     "fids": [
+      "f20",
+      "f470",
+      "f391",
+      "f730",
+      "f80",
+      "f129",
+      "f713",
+      "f614",
+      "f639",
+      "f320",
+      "f125",
+      "f116",
+      "f634",
+      "f612",
+      "f245",
+      "f804",
+      "f1008"
+     ]
+    },
+    {
+     "name": "Knight Left in the Wind",
+     "desc": "Player misses a critical knight capture/exchange (Nx central piece) or leaves own knight undefended via overextension or neglected trade. Hung piece skews minor.",
+     "fids": [
+      "f314",
+      "f57",
+      "f244",
+      "f251",
+      "f261",
+      "f598"
+     ]
+    },
+    {
+     "name": "Pawn Tension Sleepwalker",
+     "desc": "Player ignores critical pawn captures (central tension, pawn breaks, recaptures) or overextends a pawn, leaving pawns en prise. Hung piece dominated by pawn; often opening/middlegame structural decisions.",
+     "fids": [
+      "f185",
+      "f333",
+      "f769",
+      "f818",
+      "f372",
+      "f295",
+      "f343",
+      "f25",
+      "f711",
+      "f483",
+      "f572",
+      "f492",
+      "f866",
+      "f17",
+      "f421",
+      "f371",
+      "f426",
+      "f781",
+      "f760",
+      "f898",
+      "f463"
+     ]
+    },
+    {
+     "name": "Quiet Move While Burning",
+     "desc": "Player makes a generic quiet/developing move instead of an urgent forced capture or mandatory exchange (no specific piece type dominates). Hung piece distribution is mixed across pawn/minor/major.",
+     "fids": [
+      "f74",
+      "f81",
+      "f98",
+      "f326",
+      "f840",
+      "f942",
+      "f1019",
+      "f477",
+      "f565",
+      "f182",
+      "f1005",
+      "f961",
+      "f921"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Which piece-exchange or tension type was left unresolved",
+   "subgroups": [
+    {
+     "name": "Ducked the Queen Trade",
+     "desc": "Player avoids a necessary or winning queen exchange (often with check on an open file), leaving their own major pieces hanging to the opponent's dominant queen.",
+     "fids": [
+      "f5",
+      "f79",
+      "f102",
+      "f158",
+      "f233",
+      "f414",
+      "f415",
+      "f427",
+      "f544",
+      "f674",
+      "f690",
+      "f832",
+      "f951"
+     ]
+    },
+    {
+     "name": "Rook Left Staring",
+     "desc": "Player ignores a mandatory rook exchange on a contested open file or fails to use their rook to address an infiltrating piece or promotion threat, leaving major material en prise.",
+     "fids": [
+      "f197",
+      "f222",
+      "f240",
+      "f374",
+      "f440",
+      "f683",
+      "f696",
+      "f850",
+      "f859",
+      "f892"
+     ]
+    },
+    {
+     "name": "Bishop Tension Frozen",
+     "desc": "Player leaves mutual bishop-vs-bishop or bishop-vs-knight tension completely unresolved, ignoring a critical Bx capture or BxN exchange and leaving their own minor piece hanging.",
+     "fids": [
+      "f20",
+      "f80",
+      "f116",
+      "f125",
+      "f129",
+      "f245",
+      "f320",
+      "f391",
+      "f470",
+      "f612",
+      "f614",
+      "f634",
+      "f639",
+      "f713",
+      "f730",
+      "f804",
+      "f1008"
+     ]
+    },
+    {
+     "name": "Pawn Tension Left to Rot",
+     "desc": "Player refuses to resolve critical pawn tension (central captures, pawn breaks, recaptures) and instead develops or pushes elsewhere, leaving their own pawn\u2014or a piece behind it\u2014en prise.",
+     "fids": [
+      "f17",
+      "f25",
+      "f185",
+      "f295",
+      "f333",
+      "f343",
+      "f371",
+      "f372",
+      "f421",
+      "f426",
+      "f483",
+      "f492",
+      "f572",
+      "f711",
+      "f769",
+      "f781",
+      "f818",
+      "f866"
+     ]
+    },
+    {
+     "name": "Knight Swap Blindness",
+     "desc": "Player ignores a critical knight capture or exchange (Nx central piece, trading an exposed knight) and instead plays a passive or misdirected move, leaving a minor piece undefended.",
+     "fids": [
+      "f57",
+      "f244",
+      "f251",
+      "f261",
+      "f314",
+      "f598"
+     ]
+    },
+    {
+     "name": "Quiet Move, Piece Drops",
+     "desc": "Player makes a generic quiet/developing move instead of an obvious forced capture, recapture, or defensive obligation, leaving their own piece hanging in unresolved tactical tension or ignoring a lethal positional threat.",
+     "fids": [
+      "f74",
+      "f81",
+      "f98",
+      "f182",
+      "f326",
+      "f463",
+      "f477",
+      "f565",
+      "f760",
+      "f840",
+      "f898",
+      "f921",
+      "f942",
+      "f961",
+      "f1005",
+      "f1019"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Piece/exchange type left unresolved",
+   "subgroups": [
+    {
+     "name": "Declined the Queen Trade",
+     "desc": "Player ignores a necessary or winning queen exchange (often with check) and instead plays a passive or irrelevant move, leaving their own material hanging to the opponent's dominant queen.",
+     "fids": [
+      "f5",
+      "f79",
+      "f102",
+      "f233",
+      "f414",
+      "f415",
+      "f427",
+      "f544",
+      "f674",
+      "f690",
+      "f832",
+      "f951"
+     ]
+    },
+    {
+     "name": "Left Pawn Tension On",
+     "desc": "Player refuses a critical pawn capture (central tension, recapture, or pawn break) and plays a quiet move, leaving their own pawn or piece en prise or positionally lost.",
+     "fids": [
+      "f17",
+      "f25",
+      "f185",
+      "f295",
+      "f333",
+      "f343",
+      "f371",
+      "f372",
+      "f421",
+      "f426",
+      "f483",
+      "f492",
+      "f572",
+      "f711",
+      "f769",
+      "f781",
+      "f818",
+      "f866"
+     ]
+    },
+    {
+     "name": "Bishop Staring Contest",
+     "desc": "Player ignores a necessary bishop exchange or bishop capture (mutual bishop tension, fianchetto trade, BxN), leaving their own minor piece hanging in unresolved diagonal tension.",
+     "fids": [
+      "f20",
+      "f80",
+      "f116",
+      "f125",
+      "f129",
+      "f245",
+      "f320",
+      "f391",
+      "f470",
+      "f612",
+      "f614",
+      "f634",
+      "f639",
+      "f713",
+      "f730",
+      "f804",
+      "f1008"
+     ]
+    },
+    {
+     "name": "Rook Stood There Doing Nothing",
+     "desc": "Player fails to execute a mandatory rook exchange, rook recapture, or rook deployment to an open file, leaving their own major piece hanging or an infiltrator/passed pawn unchallenged.",
+     "fids": [
+      "f197",
+      "f222",
+      "f240",
+      "f374",
+      "f440",
+      "f683",
+      "f696",
+      "f850",
+      "f859",
+      "f892"
+     ]
+    },
+    {
+     "name": "Quiet Move While Piece Hangs",
+     "desc": "Player makes a passive developing/repositioning move instead of an urgent capture, recapture, or forced exchange \u2014 leaving their own piece undefended against a clear tactical or positional threat.",
+     "fids": [
+      "f74",
+      "f81",
+      "f98",
+      "f158",
+      "f182",
+      "f244",
+      "f251",
+      "f261",
+      "f314",
+      "f326",
+      "f477",
+      "f565",
+      "f598",
+      "f840",
+      "f898",
+      "f921",
+      "f942",
+      "f961",
+      "f1005",
+      "f1019",
+      "f57",
+      "f463",
+      "f760"
+     ]
+    }
+   ]
+  }
+ ],
+ "missed_hanging_piece": [
+  {
+   "sub_axis": "Combination of target piece value, game phase (endgame king dynamics), and capturing mechanism (pawn takes, diagonal geometry)",
+   "subgroups": [
+    {
+     "name": "Missed Hanging Queen",
+     "desc": "The opponent's queen was en prise or directly capturable (by pawn, minor piece, rook, or king) and the player failed to take it, often playing a quiet or irrelevant move. The highest-value single-piece oversight.",
+     "fids": [
+      "f386",
+      "f329",
+      "f362",
+      "f138",
+      "f155",
+      "f82",
+      "f297",
+      "f534",
+      "f660",
+      "f821",
+      "f923",
+      "f856",
+      "f736",
+      "f743",
+      "f777",
+      "f393",
+      "f496",
+      "f7",
+      "f51",
+      "f237"
+     ]
+    },
+    {
+     "name": "King Walked Past the Prize",
+     "desc": "In endgame positions, the player makes a quiet king move (or other passive non-capturing move) instead of simply capturing an undefended enemy piece that is adjacent or trivially reachable by the king. Classic endgame capture blindness.",
+     "fids": [
+      "f106",
+      "f105",
+      "f109",
+      "f133",
+      "f142",
+      "f214",
+      "f381",
+      "f447",
+      "f530",
+      "f485",
+      "f482",
+      "f474",
+      "f809",
+      "f907",
+      "f869",
+      "f949",
+      "f44",
+      "f722",
+      "f601",
+      "f266",
+      "f271",
+      "f520",
+      "f324",
+      "f762",
+      "f691",
+      "f431",
+      "f550",
+      "f855"
+     ]
+    },
+    {
+     "name": "Pawn Could Have Eaten",
+     "desc": "A simple pawn capture (hxg4/g5 kick, central tension resolution, pxN, pxB recapture) would have won material for free, but the player chose a quiet developing or positional move instead. The pawn is the capturing agent.",
+     "fids": [
+      "f389",
+      "f401",
+      "f327",
+      "f277",
+      "f241",
+      "f798",
+      "f841",
+      "f965",
+      "f69",
+      "f917"
+     ]
+    },
+    {
+     "name": "Diagonal Blindness",
+     "desc": "Missed captures along diagonals: either a bishop could capture an undefended piece on the long diagonal, or an enemy bishop sitting undefended on a diagonal square (g4/g5, f7/f2, d3/d6) was free to take. Geometric pattern recognition failure.",
+     "fids": [
+      "f212",
+      "f676",
+      "f974",
+      "f58",
+      "f533",
+      "f3",
+      "f566",
+      "f41",
+      "f424",
+      "f253",
+      "f585",
+      "f1000",
+      "f983",
+      "f356"
+     ]
+    },
+    {
+     "name": "Developed While Pieces Hung",
+     "desc": "In opening or middlegame positions, the player plays a routine developing, repositioning, or quiet positional move while an enemy piece (rook, minor piece, or significant material) sits completely undefended and trivially capturable. Autopilot over alertness.",
+     "fids": [
+      "f89",
+      "f373",
+      "f406",
+      "f14",
+      "f65",
+      "f545",
+      "f603",
+      "f604",
+      "f610",
+      "f620",
+      "f675",
+      "f903",
+      "f877",
+      "f710",
+      "f500",
+      "f571",
+      "f982",
+      "f287",
+      "f288",
+      "f152",
+      "f204",
+      "f68",
+      "f640",
+      "f963",
+      "f99",
+      "f385",
+      "f531",
+      "f505",
+      "f479",
+      "f697",
+      "f503",
+      "f924",
+      "f121",
+      "f199",
+      "f512",
+      "f635"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "target_piece \u00d7 move_played_instead \u00d7 phase",
+   "subgroups": [
+    {
+     "name": "Queen Blindness",
+     "desc": "Fails to capture an undefended enemy queen that is directly capturable, playing a quiet or irrelevant move instead.",
+     "fids": [
+      "f386",
+      "f329",
+      "f362",
+      "f297",
+      "f821",
+      "f237",
+      "f82",
+      "f155",
+      "f534",
+      "f496",
+      "f923",
+      "f856",
+      "f736",
+      "f743",
+      "f660",
+      "f777",
+      "f138",
+      "f393",
+      "f68"
+     ]
+    },
+    {
+     "name": "King Ignores Adjacent Prize",
+     "desc": "In endgames, plays a passive king move instead of simply capturing an undefended enemy piece sitting adjacent or directly capturable by the king.",
+     "fids": [
+      "f133",
+      "f142",
+      "f109",
+      "f105",
+      "f447",
+      "f530",
+      "f474",
+      "f809",
+      "f869",
+      "f907",
+      "f949",
+      "f482",
+      "f485",
+      "f722",
+      "f520",
+      "f381",
+      "f214",
+      "f266",
+      "f271",
+      "f601",
+      "f762",
+      "f44",
+      "f106"
+     ]
+    },
+    {
+     "name": "Pawn-Take Blindness",
+     "desc": "Misses a simple pawn capture (hxg, exd, pxN) that wins a piece or resolves central tension, playing a quiet move instead.",
+     "fids": [
+      "f389",
+      "f241",
+      "f327",
+      "f277",
+      "f401",
+      "f635",
+      "f798",
+      "f841",
+      "f965",
+      "f51",
+      "f199",
+      "f697"
+     ]
+    },
+    {
+     "name": "Develops Instead of Capturing",
+     "desc": "Plays a quiet developing or repositioning move (bishop fianchetto, piece development) while an enemy piece hangs freely, often in the opening or middlegame.",
+     "fids": [
+      "f89",
+      "f373",
+      "f710",
+      "f877",
+      "f610",
+      "f620",
+      "f983",
+      "f1000",
+      "f253",
+      "f356",
+      "f512",
+      "f500",
+      "f3",
+      "f99",
+      "f288",
+      "f571",
+      "f604"
+     ]
+    },
+    {
+     "name": "Missed Diagonal/Geometric Capture",
+     "desc": "Overlooks a bishop or queen capture along an open diagonal or specific geometric line (long diagonal, corner, f2/f7 square).",
+     "fids": [
+      "f212",
+      "f676",
+      "f974",
+      "f424",
+      "f58",
+      "f533",
+      "f566",
+      "f41",
+      "f505",
+      "f479",
+      "f121"
+     ]
+    },
+    {
+     "name": "Generic Missed Free Piece",
+     "desc": "Ignores a straightforward one-move capture of an undefended enemy piece (rook, minor piece, or general material) with no specific phase or pattern distinguishing it.",
+     "fids": [
+      "f406",
+      "f545",
+      "f603",
+      "f385",
+      "f531",
+      "f585",
+      "f65",
+      "f14",
+      "f152",
+      "f287",
+      "f324",
+      "f675",
+      "f903",
+      "f550",
+      "f640",
+      "f691",
+      "f431",
+      "f204",
+      "f982",
+      "f924",
+      "f963",
+      "f69",
+      "f917",
+      "f855",
+      "f7"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "piece-target \u00d7 move-played-instead \u00d7 game-phase",
+   "subgroups": [
+    {
+     "name": "Queen Blindness",
+     "desc": "Player fails to capture an undefended enemy queen that is freely available, playing a quiet or irrelevant move instead.",
+     "fids": [
+      "f386",
+      "f821",
+      "f329",
+      "f297",
+      "f534",
+      "f736",
+      "f743",
+      "f496",
+      "f923",
+      "f856",
+      "f155",
+      "f362",
+      "f82",
+      "f237",
+      "f660",
+      "f777",
+      "f393",
+      "f138",
+      "f7",
+      "f51"
+     ]
+    },
+    {
+     "name": "Endgame King Sleepwalker",
+     "desc": "In endgames, the player passively moves their king (or other piece) instead of simply capturing an adjacent or nearby undefended enemy piece.",
+     "fids": [
+      "f109",
+      "f133",
+      "f142",
+      "f949",
+      "f447",
+      "f474",
+      "f482",
+      "f530",
+      "f601",
+      "f809",
+      "f869",
+      "f907",
+      "f722",
+      "f105",
+      "f106",
+      "f214",
+      "f381",
+      "f431",
+      "f266",
+      "f271",
+      "f485",
+      "f520",
+      "f855",
+      "f762",
+      "f44"
+     ]
+    },
+    {
+     "name": "Autopilot Developer",
+     "desc": "Player plays a routine developing or repositioning move (bishop fianchetto, castling, piece shuffling) while an enemy piece hangs freely, often also leaving own material en prise.",
+     "fids": [
+      "f89",
+      "f877",
+      "f710",
+      "f610",
+      "f620",
+      "f356",
+      "f983",
+      "f500",
+      "f512",
+      "f571",
+      "f604",
+      "f253",
+      "f14",
+      "f41",
+      "f566",
+      "f982"
+     ]
+    },
+    {
+     "name": "Pawn-Take Blindness",
+     "desc": "Player misses a simple pawn capture (hxg, exd, cxb, central tension resolution, h-pawn kick) that wins a piece outright.",
+     "fids": [
+      "f389",
+      "f241",
+      "f277",
+      "f327",
+      "f798",
+      "f401",
+      "f635",
+      "f841",
+      "f965",
+      "f917",
+      "f69",
+      "f199"
+     ]
+    },
+    {
+     "name": "Diagonal Sniper Miss",
+     "desc": "Player overlooks a bishop or queen capture along an open diagonal (long diagonal pawn/rook, g4/g5 piece, central d-file), often a geometric blindspot.",
+     "fids": [
+      "f212",
+      "f676",
+      "f974",
+      "f3",
+      "f505",
+      "f697",
+      "f479",
+      "f424",
+      "f533",
+      "f58",
+      "f585",
+      "f531",
+      "f1000"
+     ]
+    },
+    {
+     "name": "Generic Piece Blindness",
+     "desc": "Player ignores a straightforwardly hanging piece (rook, minor, or mixed) with no specific phase or geometric pattern\u2014pure oversight of a free capture.",
+     "fids": [
+      "f406",
+      "f545",
+      "f373",
+      "f603",
+      "f385",
+      "f65",
+      "f287",
+      "f288",
+      "f324",
+      "f675",
+      "f903",
+      "f152",
+      "f204",
+      "f691",
+      "f640",
+      "f550",
+      "f963",
+      "f99",
+      "f68",
+      "f121",
+      "f924",
+      "f503"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Missed Free Piece \u2014 by target piece, capturer, and motif",
+   "subgroups": [
+    {
+     "name": "Queen Blindness",
+     "desc": "Fails to capture the opponent's undefended queen, playing a quiet or irrelevant move instead",
+     "fids": [
+      "f386",
+      "f329",
+      "f362",
+      "f297",
+      "f821",
+      "f736",
+      "f743",
+      "f534",
+      "f923",
+      "f856",
+      "f155",
+      "f82",
+      "f237",
+      "f7",
+      "f496",
+      "f138",
+      "f393",
+      "f660",
+      "f777",
+      "f51",
+      "f68"
+     ]
+    },
+    {
+     "name": "Sleepy King",
+     "desc": "King moves passively in the endgame instead of simply capturing an adjacent or available undefended enemy piece",
+     "fids": [
+      "f133",
+      "f142",
+      "f109",
+      "f105",
+      "f106",
+      "f447",
+      "f530",
+      "f474",
+      "f482",
+      "f485",
+      "f809",
+      "f869",
+      "f907",
+      "f949",
+      "f722",
+      "f214",
+      "f44",
+      "f381",
+      "f520",
+      "f601",
+      "f762",
+      "f266",
+      "f271",
+      "f855"
+     ]
+    },
+    {
+     "name": "Pawn Capture Ignored",
+     "desc": "A simple pawn capture (tension resolution, hxg kick, recapture) wins material but the pawn is never pushed",
+     "fids": [
+      "f389",
+      "f241",
+      "f277",
+      "f327",
+      "f798",
+      "f635",
+      "f401",
+      "f841",
+      "f965",
+      "f69",
+      "f917"
+     ]
+    },
+    {
+     "name": "Autopilot Developer",
+     "desc": "Plays a routine developing or repositioning move (bishop fianchetto, castling, quiet Nc3) while a free capture sits on the board",
+     "fids": [
+      "f89",
+      "f877",
+      "f710",
+      "f610",
+      "f620",
+      "f531",
+      "f500",
+      "f512",
+      "f253",
+      "f356",
+      "f983",
+      "f571",
+      "f3",
+      "f199",
+      "f604",
+      "f505",
+      "f385",
+      "f99"
+     ]
+    },
+    {
+     "name": "Diagonal Blindspot",
+     "desc": "Misses a bishop capture along an open diagonal (or king declines taking a sacrificed bishop on f2/f7/g4/g5)",
+     "fids": [
+      "f212",
+      "f676",
+      "f974",
+      "f58",
+      "f533",
+      "f585",
+      "f1000",
+      "f424",
+      "f41",
+      "f566"
+     ]
+    },
+    {
+     "name": "Generic Piece Blindness",
+     "desc": "Overlooks a straightforward one-move capture of a hanging piece (rook, minor piece, or mixed) in middlegame or unclear phase",
+     "fids": [
+      "f406",
+      "f545",
+      "f603",
+      "f373",
+      "f65",
+      "f287",
+      "f152",
+      "f204",
+      "f903",
+      "f675",
+      "f963",
+      "f982",
+      "f324",
+      "f288",
+      "f14",
+      "f479",
+      "f503",
+      "f697",
+      "f924",
+      "f550",
+      "f640",
+      "f691"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Missed capture pattern: what piece was ignored, what was played instead, and game phase",
+   "subgroups": [
+    {
+     "name": "Queen Blind",
+     "desc": "Failed to capture an enemy queen that was freely hanging or en prise, playing a quiet or irrelevant move instead.",
+     "fids": [
+      "f386",
+      "f329",
+      "f362",
+      "f821",
+      "f297",
+      "f534",
+      "f736",
+      "f743",
+      "f82",
+      "f237",
+      "f155",
+      "f923",
+      "f856",
+      "f660",
+      "f496",
+      "f393",
+      "f777",
+      "f138",
+      "f7",
+      "f51"
+     ]
+    },
+    {
+     "name": "Sleepwalking King",
+     "desc": "In endgames, the king moves passively instead of simply capturing an adjacent or nearby undefended enemy piece.",
+     "fids": [
+      "f133",
+      "f142",
+      "f109",
+      "f447",
+      "f530",
+      "f474",
+      "f809",
+      "f869",
+      "f907",
+      "f949",
+      "f722",
+      "f482",
+      "f485",
+      "f105",
+      "f106",
+      "f214",
+      "f381",
+      "f44",
+      "f520",
+      "f566",
+      "f601",
+      "f762",
+      "f266",
+      "f271"
+     ]
+    },
+    {
+     "name": "Pawn Capture Refusal",
+     "desc": "Missed a simple pawn capture (pxN, pxB, pxQ, central tension) that wins material, playing a quiet move instead.",
+     "fids": [
+      "f389",
+      "f241",
+      "f327",
+      "f277",
+      "f798",
+      "f841",
+      "f965",
+      "f635",
+      "f401",
+      "f69",
+      "f199"
+     ]
+    },
+    {
+     "name": "Autopilot Developer",
+     "desc": "Plays a quiet developing or repositioning move (bishop fianchetto, castling, piece shuffle) while an enemy piece hangs freely.",
+     "fids": [
+      "f877",
+      "f710",
+      "f610",
+      "f620",
+      "f356",
+      "f500",
+      "f571",
+      "f253",
+      "f512",
+      "f983",
+      "f1000",
+      "f531",
+      "f585",
+      "f89",
+      "f3",
+      "f505",
+      "f604",
+      "f924"
+     ]
+    },
+    {
+     "name": "Diagonal Blindness",
+     "desc": "Missed a bishop capture along an open diagonal (or failed to use/capture a bishop on a key diagonal square).",
+     "fids": [
+      "f212",
+      "f676",
+      "f974",
+      "f58",
+      "f533",
+      "f424",
+      "f41"
+     ]
+    },
+    {
+     "name": "Generic Piece Blindness",
+     "desc": "Broadly ignores a hanging rook, minor piece, or mixed material that is trivially capturable \u2014 no specific phase or piece pattern dominates.",
+     "fids": [
+      "f406",
+      "f545",
+      "f603",
+      "f903",
+      "f373",
+      "f65",
+      "f68",
+      "f287",
+      "f288",
+      "f152",
+      "f204",
+      "f324",
+      "f675",
+      "f963",
+      "f982",
+      "f14",
+      "f99",
+      "f479",
+      "f697",
+      "f550",
+      "f640",
+      "f691",
+      "f431",
+      "f503",
+      "f855"
+     ]
+    }
+   ]
+  }
+ ],
+ "greedy_capture": [
+  {
+   "sub_axis": "Greedy piece / consequence pattern",
+   "subgroups": [
+    {
+     "name": "Queen Walks Into Doom",
+     "desc": "Queen greedily captures (often a pawn grab or defended piece) and is immediately trapped, hung, or lost on the destination square.",
+     "fids": [
+      "f91",
+      "f413",
+      "f15",
+      "f551",
+      "f559",
+      "f751",
+      "f776",
+      "f535",
+      "f445",
+      "f871",
+      "f1012",
+      "f388",
+      "f501",
+      "f494",
+      "f117",
+      "f345",
+      "f491",
+      "f656",
+      "f219",
+      "f12",
+      "f130",
+      "f789",
+      "f616",
+      "f810",
+      "f247",
+      "f19",
+      "f429"
+     ]
+    },
+    {
+     "name": "Rook Lands En Prise",
+     "desc": "Rook captures a piece or pawn but lands on (or exposes itself to) an undefended square where it is immediately recaptured or won.",
+     "fids": [
+      "f852",
+      "f693",
+      "f259",
+      "f210",
+      "f104",
+      "f577",
+      "f395",
+      "f399",
+      "f624",
+      "f741",
+      "f59",
+      "f213",
+      "f669",
+      "f817",
+      "f815",
+      "f92",
+      "f785",
+      "f111",
+      "f163",
+      "f390",
+      "f567",
+      "f399"
+     ]
+    },
+    {
+     "name": "Minor Piece Self-Destructs",
+     "desc": "Knight or bishop makes a tempting capture but is left undefended on its new square, resulting in immediate recapture or net material loss.",
+     "fids": [
+      "f455",
+      "f443",
+      "f400",
+      "f227",
+      "f113",
+      "f766",
+      "f143",
+      "f177",
+      "f672",
+      "f499",
+      "f938",
+      "f944",
+      "f995",
+      "f973",
+      "f652",
+      "f680",
+      "f90",
+      "f403",
+      "f802",
+      "f272",
+      "f294",
+      "f594",
+      "f600",
+      "f282",
+      "f773"
+     ]
+    },
+    {
+     "name": "Wrong Bite (Missed Tactic)",
+     "desc": "Player captures the wrong target or in the wrong order, missing a much stronger forcing move (check, fork, intermediate) that wins decisively.",
+     "fids": [
+      "f246",
+      "f964",
+      "f1001",
+      "f584",
+      "f50",
+      "f920",
+      "f761",
+      "f759",
+      "f605",
+      "f719",
+      "f780",
+      "f878",
+      "f242",
+      "f935",
+      "f814",
+      "f289",
+      "f303",
+      "f509",
+      "f622",
+      "f322",
+      "f376"
+     ]
+    },
+    {
+     "name": "Greed Ignores Mate",
+     "desc": "Player grabs material while ignoring an immediate checkmate threat (often back-rank), allowing the opponent to deliver mate.",
+     "fids": [
+      "f341",
+      "f442",
+      "f637",
+      "f889",
+      "f591"
+     ]
+    },
+    {
+     "name": "Idle Hand Drops Piece",
+     "desc": "Player makes a passive, quiet, or purposeless move instead of an available capture, simultaneously leaving their own piece hanging and undefended.",
+     "fids": [
+      "f140",
+      "f165",
+      "f127",
+      "f952",
+      "f887",
+      "f906",
+      "f548",
+      "f724",
+      "f775",
+      "f829",
+      "f937",
+      "f928",
+      "f934",
+      "f461",
+      "f153",
+      "f85",
+      "f347",
+      "f38",
+      "f66",
+      "f77",
+      "f131",
+      "f484",
+      "f490",
+      "f407",
+      "f687"
+     ]
+    },
+    {
+     "name": "Capture Abandons Ally",
+     "desc": "Player captures with one piece but a different own piece (elsewhere on the board) is left undefended and en prise \u2014 the capture disrupted coordination.",
+     "fids": [
+      "f357",
+      "f423",
+      "f334",
+      "f330",
+      "f768",
+      "f796",
+      "f864",
+      "f685",
+      "f546",
+      "f211",
+      "f215",
+      "f770",
+      "f794",
+      "f28",
+      "f425",
+      "f497",
+      "f525",
+      "f592",
+      "f595",
+      "f608",
+      "f703",
+      "f749",
+      "f757",
+      "f820",
+      "f739",
+      "f755",
+      "f216",
+      "f146",
+      "f120",
+      "f399",
+      "f452",
+      "f999"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Greedy-capture self-destruction by piece-type and missed-threat motif",
+   "subgroups": [
+    {
+     "name": "Queen Kamikaze",
+     "desc": "Queen makes a greedy capture or pawn-grab and is itself lost, trapped, or left en prise on the destination square.",
+     "fids": [
+      "f91",
+      "f413",
+      "f559",
+      "f551",
+      "f535",
+      "f445",
+      "f871",
+      "f751",
+      "f776",
+      "f15",
+      "f117",
+      "f501",
+      "f494",
+      "f1012",
+      "f219",
+      "f345",
+      "f491",
+      "f656",
+      "f388",
+      "f595",
+      "f810",
+      "f616",
+      "f247",
+      "f12",
+      "f789",
+      "f19",
+      "f429"
+     ]
+    },
+    {
+     "name": "Rook Into Recapture",
+     "desc": "Rook (or major piece) captures onto an undefended square and is immediately recaptured or left en prise, often in endgames or on open files.",
+     "fids": [
+      "f852",
+      "f693",
+      "f259",
+      "f210",
+      "f104",
+      "f395",
+      "f399",
+      "f577",
+      "f624",
+      "f669",
+      "f213",
+      "f92",
+      "f817",
+      "f741",
+      "f59",
+      "f567",
+      "f815",
+      "f390",
+      "f181",
+      "f111"
+     ]
+    },
+    {
+     "name": "Minor Piece Suicides",
+     "desc": "Knight or bishop captures onto an undefended square where it is immediately hangable, or makes a premature exchange when maintaining pressure was superior.",
+     "fids": [
+      "f455",
+      "f443",
+      "f400",
+      "f227",
+      "f143",
+      "f177",
+      "f499",
+      "f652",
+      "f672",
+      "f680",
+      "f90",
+      "f403",
+      "f802",
+      "f938",
+      "f944",
+      "f973",
+      "f995",
+      "f766",
+      "f294",
+      "f272",
+      "f594",
+      "f773",
+      "f282",
+      "f920",
+      "f66"
+     ]
+    },
+    {
+     "name": "Capture Abandons Post",
+     "desc": "A capture (any piece) that leaves a DIFFERENT own piece undefended elsewhere \u2014 the greed disconnects coordination rather than self-destructing the capturer.",
+     "fids": [
+      "f357",
+      "f423",
+      "f334",
+      "f113",
+      "f146",
+      "f685",
+      "f768",
+      "f796",
+      "f785",
+      "f770",
+      "f546",
+      "f864",
+      "f525",
+      "f211",
+      "f215",
+      "f28",
+      "f130",
+      "f376",
+      "f425",
+      "f330",
+      "f319",
+      "f367",
+      "f163",
+      "f592",
+      "f452",
+      "f509",
+      "f497",
+      "f684",
+      "f703",
+      "f749",
+      "f757",
+      "f820",
+      "f873",
+      "f784",
+      "f600",
+      "f22",
+      "f120",
+      "f131",
+      "f829",
+      "f937",
+      "f216",
+      "f775",
+      "f794",
+      "f739",
+      "f755",
+      "f908"
+     ]
+    },
+    {
+     "name": "Greedy Ignores Doom",
+     "desc": "Player grabs material while a lethal mating threat, back-rank weakness, or overwhelming counter-tactic is ignored \u2014 the greed allows immediate catastrophe.",
+     "fids": [
+      "f341",
+      "f442",
+      "f637",
+      "f889",
+      "f591",
+      "f407",
+      "f289",
+      "f805",
+      "f687"
+     ]
+    },
+    {
+     "name": "Wrong Target / Missed Forcing Move",
+     "desc": "A capture is made but a far stronger check, fork, intermediate move, or simpler win was available \u2014 wrong priority rather than piece self-destruction.",
+     "fids": [
+      "f246",
+      "f50",
+      "f584",
+      "f964",
+      "f1001",
+      "f935",
+      "f878",
+      "f719",
+      "f242",
+      "f780",
+      "f761",
+      "f814",
+      "f605",
+      "f759",
+      "f322",
+      "f303",
+      "f922",
+      "f999",
+      "f608",
+      "f548",
+      "f490",
+      "f484",
+      "f509"
+     ]
+    },
+    {
+     "name": "Quiet Neglect Hangs Piece",
+     "desc": "Player makes a passive, routine, or aimless non-capture move that simultaneously leaves own material en prise \u2014 missed wins compounded by self-inflicted hanging.",
+     "fids": [
+      "f140",
+      "f165",
+      "f127",
+      "f887",
+      "f906",
+      "f952",
+      "f724",
+      "f77",
+      "f928",
+      "f153",
+      "f347",
+      "f85",
+      "f461",
+      "f38",
+      "f134",
+      "f723",
+      "f865",
+      "f934",
+      "f66"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Piece self-destructing + error motif",
+   "subgroups": [
+    {
+     "name": "Queen Glutton",
+     "desc": "Queen captures greedily and lands en prise, gets trapped, or forces a losing trade. The heaviest piece dies for crumbs.",
+     "fids": [
+      "f91",
+      "f413",
+      "f559",
+      "f551",
+      "f535",
+      "f445",
+      "f501",
+      "f776",
+      "f751",
+      "f1012",
+      "f871",
+      "f15",
+      "f219",
+      "f595",
+      "f117",
+      "f494",
+      "f345",
+      "f491",
+      "f656",
+      "f388",
+      "f906",
+      "f28",
+      "f120",
+      "f12",
+      "f429",
+      "f739"
+     ]
+    },
+    {
+     "name": "Rook Overreach",
+     "desc": "Rook captures a piece/pawn but lands on an undefended square where it is immediately recaptured or left hanging on an open file.",
+     "fids": [
+      "f104",
+      "f852",
+      "f693",
+      "f259",
+      "f210",
+      "f395",
+      "f399",
+      "f577",
+      "f741",
+      "f624",
+      "f669",
+      "f213",
+      "f817",
+      "f567",
+      "f59",
+      "f92",
+      "f111",
+      "f815",
+      "f785",
+      "f50",
+      "f810"
+     ]
+    },
+    {
+     "name": "Minor-Piece Lunger",
+     "desc": "Knight or bishop makes a tempting capture onto a defended or exposed square, left unprotected and immediately hangable. Classic 'piece into the void.'",
+     "fids": [
+      "f143",
+      "f443",
+      "f400",
+      "f455",
+      "f227",
+      "f499",
+      "f177",
+      "f90",
+      "f403",
+      "f802",
+      "f938",
+      "f944",
+      "f973",
+      "f995",
+      "f652",
+      "f680",
+      "f672",
+      "f766",
+      "f773",
+      "f282",
+      "f294",
+      "f113",
+      "f66",
+      "f600",
+      "f272",
+      "f146",
+      "f594",
+      "f829"
+     ]
+    },
+    {
+     "name": "Check Addict",
+     "desc": "Player gives a flashy check (or capture-with-check) that leaves own piece hanging, OR passes up a winning check to grab material greedily.",
+     "fids": [
+      "f367",
+      "f390",
+      "f360",
+      "f376",
+      "f246",
+      "f964",
+      "f761",
+      "f605",
+      "f759",
+      "f163",
+      "f920",
+      "f584",
+      "f1001",
+      "f551",
+      "f535",
+      "f15",
+      "f425"
+     ]
+    },
+    {
+     "name": "Threat-Blind Grabber",
+     "desc": "Captures material while ignoring a lethal counter-threat\u2014mate on the back rank, a fork, an undefended queen, or a promotion\u2014and loses far more.",
+     "fids": [
+      "f341",
+      "f442",
+      "f637",
+      "f889",
+      "f407",
+      "f789",
+      "f616",
+      "f247",
+      "f461",
+      "f130",
+      "f591",
+      "f289",
+      "f303",
+      "f38",
+      "f153",
+      "f85",
+      "f347",
+      "f19",
+      "f181",
+      "f92"
+     ]
+    },
+    {
+     "name": "Wrong-Priority Taker",
+     "desc": "Takes the wrong target, captures in the wrong order, or plays a passive/quiet move while a stronger tactical continuation existed\u2014often hanging own piece as a side-effect.",
+     "fids": [
+      "f140",
+      "f165",
+      "f127",
+      "f242",
+      "f719",
+      "f780",
+      "f509",
+      "f548",
+      "f490",
+      "f622",
+      "f322",
+      "f878",
+      "f935",
+      "f952",
+      "f887",
+      "f334",
+      "f357",
+      "f423",
+      "f546",
+      "f685",
+      "f768",
+      "f770",
+      "f775",
+      "f724",
+      "f211",
+      "f215",
+      "f216",
+      "f484",
+      "f794",
+      "f805",
+      "f77",
+      "f131",
+      "f928",
+      "f934",
+      "f937",
+      "f864",
+      "f796",
+      "f525",
+      "f497",
+      "f452",
+      "f820",
+      "f608",
+      "f703",
+      "f684",
+      "f687",
+      "f749",
+      "f755",
+      "f757",
+      "f319",
+      "f330",
+      "f592",
+      "f999",
+      "f22",
+      "f258",
+      "f723"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Mechanism of Self-Destruction",
+   "subgroups": [
+    {
+     "name": "Queen's Last Supper",
+     "desc": "Queen itself captures greedily and is immediately lost, trapped, or forced into a ruinous trade",
+     "fids": [
+      "f91",
+      "f413",
+      "f559",
+      "f551",
+      "f535",
+      "f445",
+      "f776",
+      "f751",
+      "f871",
+      "f1012",
+      "f501",
+      "f494",
+      "f117",
+      "f15",
+      "f595",
+      "f219",
+      "f388",
+      "f810",
+      "f616",
+      "f247",
+      "f120",
+      "f130",
+      "f12",
+      "f789",
+      "f345",
+      "f491",
+      "f656"
+     ]
+    },
+    {
+     "name": "Rook Dead End",
+     "desc": "Rook captures onto an undefended or defended square and is immediately recaptured or left hanging",
+     "fids": [
+      "f104",
+      "f210",
+      "f259",
+      "f395",
+      "f399",
+      "f624",
+      "f693",
+      "f852",
+      "f817",
+      "f577",
+      "f92",
+      "f669",
+      "f213",
+      "f567",
+      "f111",
+      "f785",
+      "f741",
+      "f59",
+      "f390",
+      "f815",
+      "f163",
+      "f181"
+     ]
+    },
+    {
+     "name": "Minor Piece Mirage",
+     "desc": "Knight or bishop captures onto an unprotected square where it immediately hangs, often into a defended outpost or poisoned pawn",
+     "fids": [
+      "f143",
+      "f227",
+      "f400",
+      "f443",
+      "f455",
+      "f499",
+      "f652",
+      "f672",
+      "f680",
+      "f802",
+      "f938",
+      "f944",
+      "f973",
+      "f995",
+      "f403",
+      "f766",
+      "f294",
+      "f113",
+      "f177",
+      "f90",
+      "f600",
+      "f594",
+      "f258",
+      "f272",
+      "f282",
+      "f773"
+     ]
+    },
+    {
+     "name": "Moved the Guard",
+     "desc": "Capture or active move abandons defense of a DIFFERENT own piece, leaving it en prise elsewhere on the board",
+     "fids": [
+      "f357",
+      "f423",
+      "f334",
+      "f768",
+      "f719",
+      "f146",
+      "f211",
+      "f215",
+      "f131",
+      "f330",
+      "f319",
+      "f525",
+      "f546",
+      "f829",
+      "f376",
+      "f28",
+      "f775",
+      "f864",
+      "f770",
+      "f796",
+      "f684",
+      "f685",
+      "f509",
+      "f592",
+      "f757",
+      "f749",
+      "f703",
+      "f77",
+      "f425"
+     ]
+    },
+    {
+     "name": "Missed the Kill Shot",
+     "desc": "Takes inferior material when a stronger forcing move (check, fork, intermediate tactic, or mate) would have won decisively more",
+     "fids": [
+      "f246",
+      "f964",
+      "f761",
+      "f920",
+      "f584",
+      "f1001",
+      "f50",
+      "f242",
+      "f605",
+      "f759",
+      "f608",
+      "f780",
+      "f878",
+      "f322",
+      "f289",
+      "f303",
+      "f814",
+      "f429",
+      "f535",
+      "f739",
+      "f360",
+      "f22"
+     ]
+    },
+    {
+     "name": "Fiddling While Burning",
+     "desc": "Grabs material or plays passively while ignoring a lethal threat (mate, promotion, major counter-attack) or makes a routine move that simultaneously hangs own material",
+     "fids": [
+      "f341",
+      "f442",
+      "f637",
+      "f889",
+      "f591",
+      "f19",
+      "f407",
+      "f140",
+      "f165",
+      "f127",
+      "f887",
+      "f952",
+      "f906",
+      "f937",
+      "f934",
+      "f928",
+      "f548",
+      "f490",
+      "f461",
+      "f484",
+      "f216",
+      "f805",
+      "f794",
+      "f724",
+      "f38",
+      "f66",
+      "f85",
+      "f347",
+      "f153"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Piece hung \u00d7 Mechanism (self-destruct on destination vs. abandoned comrade vs. missed forcing move)",
+   "subgroups": [
+    {
+     "name": "Doomed Queen",
+     "desc": "Queen makes a greedy capture (often a poisoned pawn or defended piece) and gets itself trapped, hung, or forced into a losing trade on its destination square.",
+     "fids": [
+      "f91",
+      "f413",
+      "f559",
+      "f551",
+      "f1012",
+      "f871",
+      "f15",
+      "f501",
+      "f751",
+      "f595",
+      "f776",
+      "f445",
+      "f535",
+      "f494",
+      "f117",
+      "f345",
+      "f491",
+      "f656",
+      "f219",
+      "f388",
+      "f810",
+      "f616",
+      "f247",
+      "f789",
+      "f12"
+     ]
+    },
+    {
+     "name": "Rook Into Recapture",
+     "desc": "Rook captures a piece/pawn and lands on an undefended square where it is immediately recapturable, often into a defended piece or adjacent king.",
+     "fids": [
+      "f852",
+      "f693",
+      "f259",
+      "f210",
+      "f577",
+      "f104",
+      "f395",
+      "f399",
+      "f624",
+      "f213",
+      "f669",
+      "f92",
+      "f817",
+      "f59",
+      "f741",
+      "f567",
+      "f390",
+      "f815",
+      "f181"
+     ]
+    },
+    {
+     "name": "Minor Piece Kamikaze",
+     "desc": "Knight or bishop captures a defended/poisoned target and is left hanging on the destination square, often losing a tempo or the whole piece.",
+     "fids": [
+      "f455",
+      "f443",
+      "f400",
+      "f227",
+      "f143",
+      "f995",
+      "f766",
+      "f177",
+      "f672",
+      "f938",
+      "f944",
+      "f499",
+      "f652",
+      "f680",
+      "f802",
+      "f403",
+      "f973",
+      "f294",
+      "f90",
+      "f594",
+      "f272",
+      "f282",
+      "f773",
+      "f600"
+     ]
+    },
+    {
+     "name": "Mate Blindness",
+     "desc": "Player greedily captures material while a lethal mating attack (often back-rank or h-file) is ignored, allowing immediate or near-immediate checkmate.",
+     "fids": [
+      "f341",
+      "f442",
+      "f637",
+      "f889",
+      "f591"
+     ]
+    },
+    {
+     "name": "Wrong Target",
+     "desc": "Captures the wrong piece or in the wrong order, missing a stronger zwischenzug (check, fork, intermediate) that would have won far more material.",
+     "fids": [
+      "f246",
+      "f964",
+      "f1001",
+      "f761",
+      "f584",
+      "f50",
+      "f920",
+      "f878",
+      "f719",
+      "f780",
+      "f242",
+      "f814",
+      "f289",
+      "f935",
+      "f509",
+      "f605",
+      "f759",
+      "f755",
+      "f322"
+     ]
+    },
+    {
+     "name": "Abandoned Comrade",
+     "desc": "Makes a capture or active move elsewhere that leaves a DIFFERENT own piece (often major) undefended and en prise, failing to notice the piece left behind.",
+     "fids": [
+      "f768",
+      "f796",
+      "f357",
+      "f423",
+      "f113",
+      "f111",
+      "f334",
+      "f330",
+      "f319",
+      "f525",
+      "f546",
+      "f685",
+      "f684",
+      "f770",
+      "f785",
+      "f864",
+      "f829",
+      "f376",
+      "f28",
+      "f130",
+      "f407",
+      "f131",
+      "f120",
+      "f215",
+      "f211",
+      "f163",
+      "f367",
+      "f399",
+      "f425",
+      "f592",
+      "f608",
+      "f999",
+      "f749",
+      "f757"
+     ]
+    },
+    {
+     "name": "Passive Neglect",
+     "desc": "Plays a quiet, passive, or routine move instead of an available capture/tactic, simultaneously leaving own material hanging \u2014 the worst of both worlds.",
+     "fids": [
+      "f140",
+      "f165",
+      "f127",
+      "f548",
+      "f461",
+      "f906",
+      "f952",
+      "f887",
+      "f724",
+      "f937",
+      "f934",
+      "f153",
+      "f85",
+      "f347",
+      "f77",
+      "f66",
+      "f38",
+      "f216",
+      "f303",
+      "f484",
+      "f490",
+      "f928",
+      "f794",
+      "f775",
+      "f19",
+      "f22",
+      "f258",
+      "f739"
+     ]
+    }
+   ]
+  }
+ ],
+ "missed_check_mate": [
+  {
+   "sub_axis": "Tactical check motif / forcing-move discipline",
+   "subgroups": [
+    {
+     "name": "Knight Fork Blindness",
+     "desc": "Missed a knight (or pawn) fork delivering check that simultaneously attacks and wins an undefended piece \u2014 the classic 'family fork' pattern was available but unseen.",
+     "fids": [
+      "f83",
+      "f190",
+      "f55",
+      "f160",
+      "f260",
+      "f641",
+      "f941",
+      "f1023",
+      "f742",
+      "f557",
+      "f43"
+     ]
+    },
+    {
+     "name": "Back-Rank Blind Spot",
+     "desc": "Missed a back-rank checkmate or decisive rook/queen penetration to the 1st/8th rank \u2014 the opponent's king was entombed behind its own pawns and a simple major-piece check ended the game.",
+     "fids": [
+      "f335",
+      "f451",
+      "f249",
+      "f1017",
+      "f405",
+      "f861",
+      "f813",
+      "f609",
+      "f228",
+      "f653",
+      "f602",
+      "f439",
+      "f166",
+      "f518",
+      "f915",
+      "f932",
+      "f985",
+      "f276",
+      "f930"
+     ]
+    },
+    {
+     "name": "Greedy Capture Misses Mate",
+     "desc": "Player grabbed tempting material (capture or quiet win) instead of delivering an available check or forced checkmate \u2014 prioritised gain over forcing moves.",
+     "fids": [
+      "f6",
+      "f23",
+      "f27",
+      "f392",
+      "f162",
+      "f464",
+      "f701",
+      "f980",
+      "f498",
+      "f446",
+      "f953",
+      "f958",
+      "f931",
+      "f348",
+      "f791",
+      "f870",
+      "f834",
+      "f1015"
+     ]
+    },
+    {
+     "name": "Queen Check Overlooked",
+     "desc": "A winning queen check (diagonal, file, fork, or skewer) was available \u2014 often Qh5+/Qh4+ on the open diagonal, a queen fork hitting king + piece, or a queen penetration to mate \u2014 but a lesser move was played.",
+     "fids": [
+      "f167",
+      "f208",
+      "f236",
+      "f238",
+      "f404",
+      "f416",
+      "f547",
+      "f631",
+      "f650",
+      "f667",
+      "f657",
+      "f737",
+      "f863",
+      "f979",
+      "f47",
+      "f56",
+      "f280",
+      "f283",
+      "f689",
+      "f969",
+      "f779",
+      "f890",
+      "f901",
+      "f919",
+      "f946",
+      "f481",
+      "f298",
+      "f379",
+      "f364",
+      "f797",
+      "f196",
+      "f993",
+      "f231",
+      "f151",
+      "f318",
+      "f812"
+     ]
+    },
+    {
+     "name": "Bishop Sacrifice / Discovery Missed",
+     "desc": "Missed a bishop check (Greek Gift Bxh7+, Bxf7+, Bb5+/Bb4+), a discovered check, or a diagonal-based forcing move that exploits the uncastled or exposed king.",
+     "fids": [
+      "f145",
+      "f201",
+      "f103",
+      "f209",
+      "f436",
+      "f792",
+      "f984",
+      "f460",
+      "f528",
+      "f187",
+      "f738",
+      "f171"
+     ]
+    },
+    {
+     "name": "Zwischenzug / Intermediate Check Missed",
+     "desc": "Instead of automatically recapturing or making the 'obvious' reply, a devastating in-between check (zwischenzug) was available that saves or wins extra material \u2014 the forcing interruption was overlooked.",
+     "fids": [
+      "f301",
+      "f529",
+      "f651",
+      "f1007",
+      "f803",
+      "f292",
+      "f526"
+     ]
+    },
+    {
+     "name": "General Forcing Check Missed",
+     "desc": "A simple winning check (any piece) was available \u2014 winning material via fork, skewer, or tempo, or delivering mate \u2014 but the player chose a quiet or inferior move. Catch-all for non-specific check blindness.",
+     "fids": [
+      "f123",
+      "f225",
+      "f448",
+      "f454",
+      "f462",
+      "f469",
+      "f473",
+      "f488",
+      "f519",
+      "f523",
+      "f524",
+      "f579",
+      "f586",
+      "f597",
+      "f630",
+      "f642",
+      "f700",
+      "f708",
+      "f731",
+      "f310",
+      "f309",
+      "f561",
+      "f580",
+      "f879",
+      "f886",
+      "f872",
+      "f926",
+      "f933",
+      "f971",
+      "f990",
+      "f144",
+      "f1007",
+      "f570",
+      "f834"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "piece_and_motif",
+   "subgroups": [
+    {
+     "name": "Fork Knight",
+     "desc": "Missed knight fork delivering check that simultaneously attacks king and undefended high-value piece (queen/rook)",
+     "fids": [
+      "f83",
+      "f55",
+      "f190",
+      "f160",
+      "f260",
+      "f641",
+      "f941",
+      "f1023",
+      "f742",
+      "f557",
+      "f43"
+     ]
+    },
+    {
+     "name": "Mate Blind",
+     "desc": "Missed immediate checkmate or forced short mating sequence (mate-in-1/2), playing irrelevant move instead",
+     "fids": [
+      "f405",
+      "f335",
+      "f231",
+      "f228",
+      "f653",
+      "f602",
+      "f779",
+      "f890",
+      "f861",
+      "f926",
+      "f901",
+      "f416",
+      "f451",
+      "f141",
+      "f196",
+      "f993",
+      "f609",
+      "f524",
+      "f657",
+      "f439",
+      "f1015"
+     ]
+    },
+    {
+     "name": "Greed Grab",
+     "desc": "Captured tempting material or played greedy move instead of delivering winning check/mate; includes missed zwischenzug intermediate checks",
+     "fids": [
+      "f6",
+      "f23",
+      "f27",
+      "f392",
+      "f162",
+      "f464",
+      "f701",
+      "f980",
+      "f498",
+      "f446",
+      "f953",
+      "f931",
+      "f958",
+      "f1017",
+      "f870",
+      "f301",
+      "f529",
+      "f651",
+      "f834"
+     ]
+    },
+    {
+     "name": "Queen Laser",
+     "desc": "Missed devastating queen check that wins opponent's queen via fork/skewer, or wins decisive material through queen mobility on ranks/files/diagonals",
+     "fids": [
+      "f167",
+      "f208",
+      "f236",
+      "f238",
+      "f404",
+      "f547",
+      "f631",
+      "f650",
+      "f667",
+      "f737",
+      "f863",
+      "f979",
+      "f990",
+      "f364",
+      "f379",
+      "f56",
+      "f280",
+      "f283",
+      "f298",
+      "f797",
+      "f919",
+      "f946",
+      "f481",
+      "f348"
+     ]
+    },
+    {
+     "name": "Rook Hammer",
+     "desc": "Missed rook check exploiting back-rank weakness, open files, or skewering king and piece in endgames",
+     "fids": [
+      "f166",
+      "f276",
+      "f518",
+      "f813",
+      "f915",
+      "f932",
+      "f985",
+      "f249",
+      "f930",
+      "f580",
+      "f886",
+      "f309",
+      "f756"
+     ]
+    },
+    {
+     "name": "Diagonal Strike",
+     "desc": "Missed bishop sacrifice (Greek Gift Bxh7+/Bxf7+), diagonal check, discovered check, or opening diagonal exploitation (Qh5+/Qh4+)",
+     "fids": [
+      "f145",
+      "f201",
+      "f209",
+      "f436",
+      "f792",
+      "f984",
+      "f738",
+      "f103",
+      "f47",
+      "f689",
+      "f969",
+      "f460",
+      "f528",
+      "f292"
+     ]
+    },
+    {
+     "name": "Check Blind",
+     "desc": "Generic missed winning check (various pieces/phases) \u2014 forcing move available but player chose quiet or inferior alternative",
+     "fids": [
+      "f123",
+      "f448",
+      "f225",
+      "f454",
+      "f488",
+      "f519",
+      "f597",
+      "f708",
+      "f731",
+      "f700",
+      "f523",
+      "f526",
+      "f469",
+      "f473",
+      "f462",
+      "f579",
+      "f561",
+      "f630",
+      "f642",
+      "f791",
+      "f812",
+      "f872",
+      "f879",
+      "f933",
+      "f971",
+      "f1007",
+      "f144",
+      "f151",
+      "f318",
+      "f803",
+      "f171",
+      "f187",
+      "f586",
+      "f310"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "piece_and_motif",
+   "subgroups": [
+    {
+     "name": "Mate Blindness",
+     "desc": "Forced checkmate (mate-in-1 or short forced mate) was on the board but player played something irrelevant \u2014 pure pattern-recognition failure at the finish line.",
+     "fids": [
+      "f405",
+      "f335",
+      "f451",
+      "f653",
+      "f602",
+      "f228",
+      "f416",
+      "f439",
+      "f861",
+      "f779",
+      "f890",
+      "f901",
+      "f926",
+      "f231",
+      "f609",
+      "f141",
+      "f993",
+      "f1015"
+     ]
+    },
+    {
+     "name": "Fork Deafness",
+     "desc": "A knight (or pawn) fork with check was available winning major material \u2014 player lacks geometric vision for the knight's two-target jump.",
+     "fids": [
+      "f83",
+      "f55",
+      "f190",
+      "f160",
+      "f260",
+      "f641",
+      "f941",
+      "f1023",
+      "f742",
+      "f557",
+      "f43"
+     ]
+    },
+    {
+     "name": "Greedy Hands",
+     "desc": "Player grabbed tempting material (capture or quiet win) instead of delivering the stronger check/mate \u2014 greed over forcing moves, including missed zwischenzug in-between checks.",
+     "fids": [
+      "f6",
+      "f23",
+      "f27",
+      "f392",
+      "f162",
+      "f464",
+      "f701",
+      "f980",
+      "f498",
+      "f446",
+      "f953",
+      "f958",
+      "f870",
+      "f301",
+      "f529",
+      "f651",
+      "f931",
+      "f834",
+      "f469"
+     ]
+    },
+    {
+     "name": "Royal Silence",
+     "desc": "A decisive queen check (fork, skewer, invasion, or mate-delivery) was available but the queen stayed quiet or went elsewhere \u2014 failure to unleash the strongest piece.",
+     "fids": [
+      "f167",
+      "f208",
+      "f238",
+      "f236",
+      "f404",
+      "f547",
+      "f631",
+      "f650",
+      "f667",
+      "f657",
+      "f737",
+      "f979",
+      "f863",
+      "f919",
+      "f280",
+      "f283",
+      "f56",
+      "f797",
+      "f946",
+      "f481",
+      "f196",
+      "f123",
+      "f364",
+      "f379",
+      "f151"
+     ]
+    },
+    {
+     "name": "Back-Rank & Rook Sleep",
+     "desc": "A rook check (often back-rank mate, skewer, or endgame tempo) was missed \u2014 player underestimates open-file and rank penetration power of the rook.",
+     "fids": [
+      "f166",
+      "f518",
+      "f813",
+      "f932",
+      "f985",
+      "f915",
+      "f276",
+      "f249",
+      "f1017",
+      "f930",
+      "f580",
+      "f309",
+      "f886",
+      "f756",
+      "f379"
+     ]
+    },
+    {
+     "name": "Diagonal Denial",
+     "desc": "A bishop check, Greek Gift sacrifice (Bxh7+/Bxf7+), or Qh5+/Qh4+ diagonal attack against an uncastled king was missed \u2014 blindness to diagonal geometry and king exposure.",
+     "fids": [
+      "f145",
+      "f201",
+      "f209",
+      "f792",
+      "f984",
+      "f436",
+      "f103",
+      "f738",
+      "f47",
+      "f689",
+      "f969",
+      "f528",
+      "f526",
+      "f187",
+      "f71"
+     ]
+    },
+    {
+     "name": "Quiet-Move Drift",
+     "desc": "A generic winning check (various pieces) was available but player chose a passive, non-forcing continuation \u2014 failure of the 'checks-captures-threats' thinking discipline.",
+     "fids": [
+      "f448",
+      "f225",
+      "f488",
+      "f519",
+      "f597",
+      "f708",
+      "f700",
+      "f731",
+      "f524",
+      "f523",
+      "f462",
+      "f454",
+      "f348",
+      "f144",
+      "f579",
+      "f586",
+      "f630",
+      "f561",
+      "f812",
+      "f933",
+      "f971",
+      "f1007",
+      "f171",
+      "f473",
+      "f642",
+      "f791",
+      "f879",
+      "f872",
+      "f990",
+      "f803",
+      "f292",
+      "f298",
+      "f310",
+      "f318",
+      "f460",
+      "f602"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Piece delivering check / tactical motif / error type",
+   "subgroups": [
+    {
+     "name": "Fork Knight",
+     "desc": "Missed knight forks delivering check that simultaneously attack king and undefended piece (typically queen), winning decisive material.",
+     "fids": [
+      "f83",
+      "f55",
+      "f190",
+      "f160",
+      "f260",
+      "f641",
+      "f941",
+      "f1023",
+      "f742",
+      "f557"
+     ]
+    },
+    {
+     "name": "Mate Blindness",
+     "desc": "Missed immediate checkmate (mate-in-one or forced short mate), playing an irrelevant or inferior move instead of delivering the killing blow.",
+     "fids": [
+      "f405",
+      "f335",
+      "f451",
+      "f228",
+      "f602",
+      "f653",
+      "f779",
+      "f861",
+      "f416",
+      "f890",
+      "f901",
+      "f926",
+      "f141",
+      "f231",
+      "f609",
+      "f524",
+      "f993",
+      "f439",
+      "f1015"
+     ]
+    },
+    {
+     "name": "Greedy Capturer",
+     "desc": "Player grabs tempting material (capture) instead of delivering a winning check/checkmate; includes missed zwischenzug checks before recapturing.",
+     "fids": [
+      "f6",
+      "f23",
+      "f27",
+      "f162",
+      "f392",
+      "f464",
+      "f701",
+      "f980",
+      "f498",
+      "f446",
+      "f953",
+      "f958",
+      "f931",
+      "f870",
+      "f834",
+      "f481",
+      "f301",
+      "f529",
+      "f651",
+      "f803",
+      "f526"
+     ]
+    },
+    {
+     "name": "Diagonal Punisher",
+     "desc": "Missed opening/middlegame checks exploiting weak diagonals or uncastled kings \u2014 Greek Gifts (Bxh7+), Qh5+/Qh4+, Bxf7+, Bb4+, Qa4+ patterns.",
+     "fids": [
+      "f145",
+      "f201",
+      "f196",
+      "f47",
+      "f103",
+      "f436",
+      "f187",
+      "f689",
+      "f969",
+      "f984",
+      "f209",
+      "f56",
+      "f280",
+      "f283",
+      "f919",
+      "f792"
+     ]
+    },
+    {
+     "name": "Rook Enforcer",
+     "desc": "Missed rook checks \u2014 back-rank mates, rook skewers, endgame rook tempo checks, anti-promotion checks \u2014 often in simplified positions with exposed kings.",
+     "fids": [
+      "f166",
+      "f518",
+      "f813",
+      "f915",
+      "f932",
+      "f985",
+      "f276",
+      "f249",
+      "f1017",
+      "f171",
+      "f561",
+      "f580",
+      "f630",
+      "f812",
+      "f886",
+      "f930",
+      "f756",
+      "f1007"
+     ]
+    },
+    {
+     "name": "Queen Striker",
+     "desc": "Missed decisive queen (or general piece) checks that win the opponent's queen, skewer king+queen, or force massive material gain \u2014 the large generic 'missed winning check' cluster.",
+     "fids": [
+      "f123",
+      "f167",
+      "f208",
+      "f238",
+      "f236",
+      "f404",
+      "f547",
+      "f631",
+      "f650",
+      "f667",
+      "f737",
+      "f863",
+      "f979",
+      "f364",
+      "f379",
+      "f797",
+      "f946",
+      "f448",
+      "f225",
+      "f488",
+      "f597",
+      "f708",
+      "f519",
+      "f523",
+      "f462",
+      "f460",
+      "f469",
+      "f473",
+      "f579",
+      "f731",
+      "f700",
+      "f43",
+      "f71",
+      "f144",
+      "f454",
+      "f528",
+      "f879",
+      "f933",
+      "f971",
+      "f990",
+      "f292",
+      "f298",
+      "f151",
+      "f657",
+      "f348",
+      "f309",
+      "f318",
+      "f642",
+      "f586",
+      "f872",
+      "f738"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "tactic_type_and_piece",
+   "subgroups": [
+    {
+     "name": "Fork Knights",
+     "desc": "Missed a knight (or pawn) fork delivering check that simultaneously attacks king and an undefended piece, winning major material.",
+     "fids": [
+      "f83",
+      "f55",
+      "f190",
+      "f160",
+      "f260",
+      "f641",
+      "f941",
+      "f1023",
+      "f742",
+      "f557"
+     ]
+    },
+    {
+     "name": "Mate Blind",
+     "desc": "Missed a forced checkmate (mate-in-one or short forced mate sequence) that was immediately available on the board.",
+     "fids": [
+      "f405",
+      "f335",
+      "f451",
+      "f653",
+      "f602",
+      "f228",
+      "f416",
+      "f439",
+      "f861",
+      "f779",
+      "f890",
+      "f926",
+      "f901",
+      "f993",
+      "f231",
+      "f141",
+      "f609",
+      "f524",
+      "f526",
+      "f1015",
+      "f196",
+      "f151"
+     ]
+    },
+    {
+     "name": "Greed Goggles",
+     "desc": "Grabbed tempting material with a capture instead of finding the winning check/mate; includes missed zwischenzug (intermediate check) before recapturing.",
+     "fids": [
+      "f6",
+      "f23",
+      "f27",
+      "f162",
+      "f464",
+      "f701",
+      "f980",
+      "f392",
+      "f498",
+      "f931",
+      "f953",
+      "f958",
+      "f446",
+      "f870",
+      "f529",
+      "f651",
+      "f301",
+      "f803",
+      "f756"
+     ]
+    },
+    {
+     "name": "Queen Thunderbolt",
+     "desc": "Missed a decisive queen check that wins the opponent's queen, delivers mate, or exploits an exposed king via fork/skewer/diagonal.",
+     "fids": [
+      "f167",
+      "f208",
+      "f236",
+      "f238",
+      "f404",
+      "f547",
+      "f631",
+      "f650",
+      "f657",
+      "f667",
+      "f737",
+      "f863",
+      "f919",
+      "f979",
+      "f990",
+      "f123",
+      "f364",
+      "f56",
+      "f280",
+      "f283",
+      "f47",
+      "f689",
+      "f969",
+      "f797",
+      "f946",
+      "f481",
+      "f379",
+      "f348",
+      "f298",
+      "f292"
+     ]
+    },
+    {
+     "name": "Rook Slams",
+     "desc": "Missed a winning rook check \u2014 back-rank mate, rook skewer, anti-promotion check, or decisive rook penetration in endgames.",
+     "fids": [
+      "f166",
+      "f518",
+      "f813",
+      "f932",
+      "f985",
+      "f276",
+      "f249",
+      "f915",
+      "f1017",
+      "f930",
+      "f886",
+      "f580",
+      "f171",
+      "f812",
+      "f439"
+     ]
+    },
+    {
+     "name": "Diagonal Daggers",
+     "desc": "Missed a bishop check (Greek Gift Bxh7+/Bxf7+, Bb5+/Bb4+), discovered check, or diagonal-exploiting piece check in the opening/middlegame.",
+     "fids": [
+      "f145",
+      "f201",
+      "f209",
+      "f792",
+      "f984",
+      "f738",
+      "f436",
+      "f103",
+      "f528",
+      "f460",
+      "f187"
+     ]
+    },
+    {
+     "name": "Check Reflex Failure",
+     "desc": "Played a quiet or passive non-forcing move while a generic winning check (various pieces) was available \u2014 no single dominant motif, just missed the forcing move.",
+     "fids": [
+      "f448",
+      "f225",
+      "f488",
+      "f597",
+      "f708",
+      "f519",
+      "f523",
+      "f579",
+      "f586",
+      "f561",
+      "f630",
+      "f731",
+      "f700",
+      "f933",
+      "f971",
+      "f791",
+      "f872",
+      "f879",
+      "f834",
+      "f454",
+      "f310",
+      "f462",
+      "f473",
+      "f469",
+      "f642",
+      "f309",
+      "f318",
+      "f144",
+      "f1007",
+      "f43",
+      "f71",
+      "f318"
+     ]
+    }
+   ]
+  }
+ ],
+ "missed_winning_tactic": [
+  {
+   "sub_axis": "Tactical motif of the missed winning move",
+   "subgroups": [
+    {
+     "name": "Knight Fork Missed",
+     "desc": "Player misses a winning knight move \u2014 fork, outpost capture, or tactical jump \u2014 that wins significant material. Hung-piece distributions skew heavily toward minors and pawns, reflecting the central-piece-tension positions where knight tactics arise.",
+     "fids": [
+      "f40",
+      "f67",
+      "f476",
+      "f615",
+      "f629",
+      "f799",
+      "f816",
+      "f825",
+      "f838",
+      "f402",
+      "f686"
+     ]
+    },
+    {
+     "name": "Missed Pawn Breakthrough",
+     "desc": "Player overlooks a pawn advance (central break, trap-push, or kick) that attacks, forks, or traps an enemy piece. Includes d4/d5/e5 strikes, g/h-pawn bishop traps, and pawn-kicks winning pinned/stuck pieces. Hung-piece distributions center on pawns and minors.",
+     "fids": [
+      "f16",
+      "f132",
+      "f148",
+      "f179",
+      "f256",
+      "f316",
+      "f317",
+      "f349",
+      "f671",
+      "f702",
+      "f772",
+      "f875",
+      "f896",
+      "f911",
+      "f967",
+      "f1009",
+      "f1016"
+     ]
+    },
+    {
+     "name": "Missed Rook Invasion",
+     "desc": "Player fails to activate a rook on an open file or rank \u2014 capturing, penetrating, or exploiting back-rank/pin motifs. Hung-piece distributions show elevated 'major' counts reflecting the rook-vs-rook or rook-vs-queen battleground.",
+     "fids": [
+      "f84",
+      "f108",
+      "f128",
+      "f175",
+      "f186",
+      "f338",
+      "f375",
+      "f411",
+      "f480",
+      "f715",
+      "f734"
+     ]
+    },
+    {
+     "name": "Missed Queen Trap/Win",
+     "desc": "Player misses winning the opponent's queen \u2014 via trap (pawn/rook cutting retreat), bishop pin/skewer to queen, or direct piece attack on an overextended queen. Very high 'pawn' and 'minor' hung counts since the player's own position degrades while ignoring the queen-winning shot.",
+     "fids": [
+      "f24",
+      "f230",
+      "f265",
+      "f331",
+      "f575",
+      "f589",
+      "f633",
+      "f644",
+      "f752",
+      "f767",
+      "f837",
+      "f858",
+      "f893",
+      "f900",
+      "f948",
+      "f972"
+     ]
+    },
+    {
+     "name": "Missed Decisive Forcing Move",
+     "desc": "Player misses a forcing check, capture, or tactical blow that wins overwhelming material or forces near-mate. High 'chk' (check) rates distinguish this group. Includes missed back-rank shots, endgame decisive tactics, and game-ending combinations.",
+     "fids": [
+      "f21",
+      "f135",
+      "f176",
+      "f243",
+      "f300",
+      "f313",
+      "f350",
+      "f450",
+      "f507",
+      "f511",
+      "f553",
+      "f596",
+      "f883",
+      "f909",
+      "f913"
+     ]
+    },
+    {
+     "name": "Quiet Move Ignores Tactic",
+     "desc": "Catch-all for positions where the player makes a passive, greedy, or misdirected move (wrong capture, tunnel-vision attack, aimless development) while a clear material-winning opportunity exists. Characterized by high 'oh' (own-piece-hanging) rates \u2014 the quiet move often simultaneously leaves the player's own material undefended.",
+     "fids": [
+      "f4",
+      "f45",
+      "f53",
+      "f60",
+      "f122",
+      "f126",
+      "f161",
+      "f235",
+      "f262",
+      "f342",
+      "f361",
+      "f368",
+      "f396",
+      "f420",
+      "f468",
+      "f471",
+      "f539",
+      "f578",
+      "f617",
+      "f673",
+      "f733",
+      "f747",
+      "f783",
+      "f807",
+      "f819",
+      "f835",
+      "f842",
+      "f853",
+      "f868",
+      "f955"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Tactical Motif / Piece Involved",
+   "subgroups": [
+    {
+     "name": "Knight Fork Missed",
+     "desc": "Missed a winning knight move \u2014 fork, tactical jump, or central capture that wins major material.",
+     "fids": [
+      "f799",
+      "f615",
+      "f825",
+      "f816",
+      "f629",
+      "f67",
+      "f476",
+      "f40",
+      "f838",
+      "f402",
+      "f686",
+      "f420",
+      "f617"
+     ]
+    },
+    {
+     "name": "Pawn Break Missed",
+     "desc": "Missed a pawn advance that forks, traps, or attacks an enemy piece (often trapping a knight or queen).",
+     "fids": [
+      "f317",
+      "f349",
+      "f256",
+      "f671",
+      "f896",
+      "f316",
+      "f132",
+      "f148",
+      "f772",
+      "f875",
+      "f1009",
+      "f1016",
+      "f967",
+      "f179",
+      "f702",
+      "f911"
+     ]
+    },
+    {
+     "name": "Rook Invasion Missed",
+     "desc": "Missed a decisive rook move \u2014 file penetration, back-rank invasion, or open-file capture winning major material.",
+     "fids": [
+      "f84",
+      "f108",
+      "f175",
+      "f186",
+      "f375",
+      "f411",
+      "f480",
+      "f128",
+      "f734",
+      "f715",
+      "f338"
+     ]
+    },
+    {
+     "name": "Bishop Diagonal Missed",
+     "desc": "Missed a bishop move along a diagonal that wins material via capture, pin, skewer, or trapping an enemy piece.",
+     "fids": [
+      "f126",
+      "f331",
+      "f230",
+      "f265",
+      "f342",
+      "f858",
+      "f16",
+      "f262",
+      "f511",
+      "f575"
+     ]
+    },
+    {
+     "name": "Queen Trap Missed",
+     "desc": "Missed winning the opponent's queen outright \u2014 via trap, pin, fork, or tactical capture of an overextended queen.",
+     "fids": [
+      "f24",
+      "f752",
+      "f767",
+      "f900",
+      "f837",
+      "f893",
+      "f633",
+      "f972",
+      "f644",
+      "f589",
+      "f783",
+      "f948"
+     ]
+    },
+    {
+     "name": "Sleepwalked Past a Win",
+     "desc": "Played a passive, routine, or greedy move while a straightforward winning capture or decisive forcing blow was available.",
+     "fids": [
+      "f176",
+      "f350",
+      "f368",
+      "f396",
+      "f361",
+      "f122",
+      "f135",
+      "f161",
+      "f235",
+      "f243",
+      "f450",
+      "f468",
+      "f471",
+      "f507",
+      "f539",
+      "f553",
+      "f578",
+      "f596",
+      "f807",
+      "f819",
+      "f835",
+      "f842",
+      "f853",
+      "f868",
+      "f883",
+      "f909",
+      "f913",
+      "f955",
+      "f733",
+      "f747",
+      "f673",
+      "f4",
+      "f21",
+      "f45",
+      "f53",
+      "f60",
+      "f300",
+      "f313"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Missed Tactical Motif by Piece/Pattern",
+   "subgroups": [
+    {
+     "name": "Knight Fork Blindness",
+     "desc": "Missed knight forks, tactical jumps, and central knight captures that win major material. Hung pieces skew heavily toward minors.",
+     "fids": [
+      "f799",
+      "f615",
+      "f825",
+      "f816",
+      "f629",
+      "f67",
+      "f476",
+      "f40",
+      "f838",
+      "f402"
+     ]
+    },
+    {
+     "name": "Pawn Strike Blindness",
+     "desc": "Missed pawn advances (central breaks, traps, kicks) that fork or trap enemy pieces. High bw scores, very low check rates.",
+     "fids": [
+      "f317",
+      "f349",
+      "f316",
+      "f256",
+      "f671",
+      "f896",
+      "f875",
+      "f772",
+      "f148",
+      "f132",
+      "f1009",
+      "f1016",
+      "f967",
+      "f686",
+      "f16"
+     ]
+    },
+    {
+     "name": "Rook Invasion Blindness",
+     "desc": "Missed rook activations on open files, back-rank penetrations, and rook captures winning major material. Hung pieces skew toward pawns/majors.",
+     "fids": [
+      "f108",
+      "f175",
+      "f186",
+      "f375",
+      "f411",
+      "f480",
+      "f734",
+      "f128",
+      "f338",
+      "f715"
+     ]
+    },
+    {
+     "name": "Bishop Diagonal Blindness",
+     "desc": "Missed bishop captures along diagonals\u2014winning queens via pins, winning the exchange, or capturing undefended pieces on long diagonals.",
+     "fids": [
+      "f126",
+      "f331",
+      "f230",
+      "f265",
+      "f342",
+      "f858",
+      "f262",
+      "f617"
+     ]
+    },
+    {
+     "name": "Queen Trap Blindness",
+     "desc": "Missed opportunities to trap or win the opponent's overextended queen via pawn pushes, rook-to-file moves, or minor piece deployments.",
+     "fids": [
+      "f24",
+      "f752",
+      "f900",
+      "f837",
+      "f893",
+      "f948",
+      "f767",
+      "f633",
+      "f972",
+      "f589",
+      "f575"
+     ]
+    },
+    {
+     "name": "Capture Blindness",
+     "desc": "Ignored straightforward winning captures\u2014played passive/quiet/greedy moves instead, often simultaneously leaving own pieces hanging. Generic missed material.",
+     "fids": [
+      "f4",
+      "f45",
+      "f53",
+      "f396",
+      "f539",
+      "f819",
+      "f733",
+      "f747",
+      "f300",
+      "f161",
+      "f673",
+      "f84",
+      "f468",
+      "f842",
+      "f368",
+      "f420",
+      "f835",
+      "f578",
+      "f596",
+      "f553",
+      "f868",
+      "f955",
+      "f807",
+      "f853"
+     ]
+    },
+    {
+     "name": "Forcing Move Blindness",
+     "desc": "Missed decisive forcing moves\u2014checks, combinations, and tactical blows that win overwhelming material or force resignation. High check rates distinguish this group.",
+     "fids": [
+      "f350",
+      "f313",
+      "f21",
+      "f176",
+      "f243",
+      "f135",
+      "f450",
+      "f909",
+      "f883",
+      "f913",
+      "f179",
+      "f122",
+      "f511",
+      "f60",
+      "f361",
+      "f507",
+      "f471",
+      "f235"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Missed tactical piece/motif",
+   "subgroups": [
+    {
+     "name": "Knight Forkers",
+     "desc": "Missed knight forks, tactical jumps, or knight captures winning significant material \u2014 often central (Nd4/Nd5/Ne5) or royal forks.",
+     "fids": [
+      "f799",
+      "f615",
+      "f825",
+      "f816",
+      "f629",
+      "f67",
+      "f476",
+      "f40",
+      "f838",
+      "f402",
+      "f686",
+      "f617"
+     ]
+    },
+    {
+     "name": "Pawn Daggers",
+     "desc": "Missed pawn advances (central breaks, flank kicks) that fork, trap, or attack enemy pieces with no safe retreat.",
+     "fids": [
+      "f317",
+      "f349",
+      "f316",
+      "f256",
+      "f671",
+      "f896",
+      "f875",
+      "f772",
+      "f148",
+      "f132",
+      "f16",
+      "f1009",
+      "f1016",
+      "f967",
+      "f702",
+      "f911"
+     ]
+    },
+    {
+     "name": "Queen Hunters",
+     "desc": "Missed trapping or winning the opponent's overextended queen \u2014 via pawn kicks, bishop pins, rook file closures, or minor piece attacks.",
+     "fids": [
+      "f24",
+      "f752",
+      "f767",
+      "f900",
+      "f948",
+      "f837",
+      "f893",
+      "f633",
+      "f644",
+      "f972",
+      "f331",
+      "f230",
+      "f265",
+      "f858",
+      "f338"
+     ]
+    },
+    {
+     "name": "Rook Riders",
+     "desc": "Missed rook activations along open files \u2014 invasions, back-rank penetrations, or rook captures winning major material.",
+     "fids": [
+      "f108",
+      "f175",
+      "f186",
+      "f411",
+      "f480",
+      "f734",
+      "f84",
+      "f128",
+      "f715",
+      "f375",
+      "f575"
+     ]
+    },
+    {
+     "name": "Capture Dodgers",
+     "desc": "Ignored straightforward winning captures (pieces en prise, hanging material) and played quiet or irrelevant moves instead, often leaving own pieces hanging.",
+     "fids": [
+      "f4",
+      "f396",
+      "f45",
+      "f539",
+      "f819",
+      "f300",
+      "f161",
+      "f673",
+      "f589",
+      "f733",
+      "f747",
+      "f53",
+      "f126",
+      "f342",
+      "f262",
+      "f578"
+     ]
+    },
+    {
+     "name": "Tempo Dreamers",
+     "desc": "Played routine developing, prophylactic, or greedy moves while missing a decisive forcing shot (check, threat, or combination) that wins immediately.",
+     "fids": [
+      "f176",
+      "f350",
+      "f313",
+      "f21",
+      "f243",
+      "f909",
+      "f913",
+      "f883",
+      "f507",
+      "f511",
+      "f235",
+      "f471",
+      "f868",
+      "f955",
+      "f553",
+      "f361",
+      "f596",
+      "f807",
+      "f853",
+      "f842",
+      "f368",
+      "f420",
+      "f783",
+      "f468",
+      "f835",
+      "f60"
+     ]
+    },
+    {
+     "name": "Endgame Sleepers",
+     "desc": "Missed decisive endgame tactics \u2014 king misroutes, rook activations vs. passed pawns, winning checks in open positions, or ignoring promotion threats.",
+     "fids": [
+      "f122",
+      "f135",
+      "f375",
+      "f179",
+      "f450",
+      "f186"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Piece/Motif of Missed Tactic",
+   "subgroups": [
+    {
+     "name": "Knight Strikes",
+     "desc": "Missed knight forks, jumps, or central captures winning major material",
+     "fids": [
+      "f799",
+      "f615",
+      "f825",
+      "f816",
+      "f629",
+      "f67",
+      "f476",
+      "f40",
+      "f838",
+      "f402"
+     ]
+    },
+    {
+     "name": "Pawn Breakthroughs",
+     "desc": "Missed pawn advances that trap, fork, or attack enemy pieces (including queen traps via g/h pawns)",
+     "fids": [
+      "f316",
+      "f349",
+      "f671",
+      "f896",
+      "f1009",
+      "f948",
+      "f767",
+      "f132",
+      "f16",
+      "f256",
+      "f875",
+      "f148",
+      "f772",
+      "f1016",
+      "f967",
+      "f317",
+      "f686",
+      "f911",
+      "f702"
+     ]
+    },
+    {
+     "name": "Bishop Diagonals",
+     "desc": "Missed bishop moves winning queen, exchange, or material along diagonals (pins, captures, traps)",
+     "fids": [
+      "f331",
+      "f230",
+      "f265",
+      "f858",
+      "f342",
+      "f126",
+      "f262",
+      "f617",
+      "f853"
+     ]
+    },
+    {
+     "name": "Rook Invasions",
+     "desc": "Missed rook moves along open files/ranks winning material via penetration, capture, or back-rank threats",
+     "fids": [
+      "f108",
+      "f175",
+      "f186",
+      "f411",
+      "f480",
+      "f338",
+      "f734",
+      "f128",
+      "f375",
+      "f715",
+      "f84"
+     ]
+    },
+    {
+     "name": "Queen Wins",
+     "desc": "Missed opportunities to trap or capture the opponent's queen (via piece moves, rook-to-b-file, or queen relocation)",
+     "fids": [
+      "f24",
+      "f752",
+      "f900",
+      "f837",
+      "f893",
+      "f633",
+      "f589",
+      "f644",
+      "f972",
+      "f575"
+     ]
+    },
+    {
+     "name": "Missed Forcing Blows",
+     "desc": "Missed decisive checks, forcing sequences, or tactical shots that win immediately\u2014often high check-rate missed moves",
+     "fids": [
+      "f176",
+      "f350",
+      "f313",
+      "f21",
+      "f243",
+      "f450",
+      "f909",
+      "f883",
+      "f913",
+      "f135",
+      "f511",
+      "f596",
+      "f60",
+      "f122",
+      "f179",
+      "f300"
+     ]
+    },
+    {
+     "name": "Blind to Captures",
+     "desc": "Plays passive, greedy, or aimless moves ignoring straightforward winning captures already on the board\u2014often also hangs own piece",
+     "fids": [
+      "f4",
+      "f396",
+      "f733",
+      "f747",
+      "f819",
+      "f955",
+      "f868",
+      "f553",
+      "f468",
+      "f842",
+      "f578",
+      "f368",
+      "f420",
+      "f783",
+      "f45",
+      "f53",
+      "f539",
+      "f161",
+      "f673",
+      "f235",
+      "f471",
+      "f507",
+      "f807",
+      "f835",
+      "f361"
+     ]
+    }
+   ]
+  }
+ ],
+ "hung_own_piece": [
+  {
+   "sub_axis": "hung_piece_type_and_trigger",
+   "subgroups": [
+    {
+     "name": "Hung the Queen",
+     "desc": "Queen left en prise \u2014 moved to unsafe square, ignored attack on queen, or exposed queen on file/diagonal. Drill: Before every move, ask 'Is my Queen still safe?'",
+     "fids": [
+      "f174",
+      "f224",
+      "f487",
+      "f536",
+      "f720",
+      "f541",
+      "f255",
+      "f299",
+      "f96",
+      "f912",
+      "f874",
+      "f31",
+      "f574",
+      "f745",
+      "f157",
+      "f226"
+     ]
+    },
+    {
+     "name": "Rook Walked Into Danger",
+     "desc": "Rook (or major piece) placed on dominated file, undefended diagonal, or square controlled by opponent's heavy pieces. Drill: Before placing a rook, check what controls that file/diagonal.",
+     "fids": [
+      "f281",
+      "f397",
+      "f417",
+      "f895",
+      "f728",
+      "f625",
+      "f939",
+      "f884",
+      "f434",
+      "f828",
+      "f315",
+      "f590",
+      "f355",
+      "f467",
+      "f254",
+      "f257",
+      "f790",
+      "f34",
+      "f13",
+      "f32"
+     ]
+    },
+    {
+     "name": "Minor Piece Ignored Under Attack",
+     "desc": "Knight or bishop left hanging to enemy pawn or piece \u2014 player makes an unrelated move instead of saving it. Drill: Every move, scan for enemy pawns attacking your knights/bishops.",
+     "fids": [
+      "f198",
+      "f456",
+      "f410",
+      "f49",
+      "f48",
+      "f232",
+      "f981",
+      "f998",
+      "f968",
+      "f947",
+      "f729",
+      "f618",
+      "f527",
+      "f638",
+      "f699",
+      "f495",
+      "f35",
+      "f304",
+      "f538",
+      "f904",
+      "f649",
+      "f274",
+      "f279",
+      "f897",
+      "f457",
+      "f72",
+      "f763",
+      "f169",
+      "f956",
+      "f613",
+      "f658",
+      "f441",
+      "f943",
+      "f532",
+      "f844",
+      "f867"
+     ]
+    },
+    {
+     "name": "Pawn Left Undefended",
+     "desc": "Pawn advanced or abandoned without protection \u2014 especially endgame pushes, opening captures exposing pawns, or development ignoring pawn safety. Drill: After pawn moves/captures, verify the pawn chain is still defended.",
+     "fids": [
+      "f202",
+      "f267",
+      "f200",
+      "f278",
+      "f270",
+      "f831",
+      "f626",
+      "f351",
+      "f305",
+      "f73",
+      "f194",
+      "f184",
+      "f30",
+      "f323",
+      "f714",
+      "f621",
+      "f264",
+      "f894",
+      "f986",
+      "f337",
+      "f263",
+      "f560",
+      "f70",
+      "f205",
+      "f851"
+     ]
+    },
+    {
+     "name": "Ignored Forced Exchange",
+     "desc": "Player makes a quiet move instead of an obligatory trade (rook exchange on file, queen trade, piece recapture), leaving own piece hanging. Drill: When pieces face each other on a line, calculate the forced exchange before playing elsewhere.",
+     "fids": [
+      "f384",
+      "f378",
+      "f771",
+      "f847",
+      "f996",
+      "f1018",
+      "f42",
+      "f655",
+      "f36",
+      "f286",
+      "f321",
+      "f164",
+      "f826",
+      "f433",
+      "f925",
+      "f854",
+      "f717",
+      "f588",
+      "f188",
+      "f1006",
+      "f790"
+     ]
+    },
+    {
+     "name": "Quiet Move While Piece Hangs",
+     "desc": "Player makes a passive, developing, or aimless move while their own piece is already attacked or becomes undefended \u2014 general 'board blindness' to threats on own material. Drill: Before pressing the clock, run a one-ply 'Can they capture anything of mine?' check.",
+     "fids": [
+      "f87",
+      "f437",
+      "f587",
+      "f552",
+      "f661",
+      "f846",
+      "f786",
+      "f808",
+      "f570",
+      "f515",
+      "f954",
+      "f562",
+      "f679",
+      "f692",
+      "f706",
+      "f623",
+      "f647",
+      "f688",
+      "f765",
+      "f774",
+      "f793",
+      "f339",
+      "f352",
+      "f193",
+      "f234",
+      "f432",
+      "f510",
+      "f2",
+      "f33",
+      "f203",
+      "f882",
+      "f593",
+      "f962",
+      "f1021",
+      "f945",
+      "f721",
+      "f537",
+      "f610"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "piece_hung \u00d7 causal_motif",
+   "subgroups": [
+    {
+     "name": "The Queen Dropper",
+     "desc": "Queen specifically left en prise \u2014 on open files, diagonals, or after flashy checks. Hung piece distribution overwhelmingly 'major' at ~500.",
+     "fids": [
+      "f174",
+      "f224",
+      "f487",
+      "f536",
+      "f720",
+      "f541",
+      "f255",
+      "f299",
+      "f912",
+      "f96",
+      "f31",
+      "f574",
+      "f157",
+      "f874"
+     ]
+    },
+    {
+     "name": "The Rook Gifter",
+     "desc": "Rook (or major piece) placed on controlled file/diagonal or left undefended after a move. Includes rook-on-file clashes, diagonal exposures, and rook endgame blunders.",
+     "fids": [
+      "f397",
+      "f281",
+      "f828",
+      "f417",
+      "f625",
+      "f728",
+      "f895",
+      "f939",
+      "f884",
+      "f434",
+      "f286",
+      "f745",
+      "f254",
+      "f257",
+      "f355",
+      "f315",
+      "f590",
+      "f467",
+      "f36"
+     ]
+    },
+    {
+     "name": "The Minor Piece Abandoner",
+     "desc": "Knight or bishop left hanging \u2014 often to an enemy pawn advance ignored, or placed on a controlled square. Includes bishop captures that hang themselves and knights on outpost squares left en prise.",
+     "fids": [
+      "f198",
+      "f456",
+      "f410",
+      "f49",
+      "f232",
+      "f981",
+      "f998",
+      "f947",
+      "f968",
+      "f699",
+      "f538",
+      "f729",
+      "f618",
+      "f48",
+      "f35",
+      "f304",
+      "f527",
+      "f495",
+      "f638",
+      "f649",
+      "f904",
+      "f169",
+      "f274",
+      "f956",
+      "f943",
+      "f457",
+      "f763",
+      "f441"
+     ]
+    },
+    {
+     "name": "The Pawn Forgetter",
+     "desc": "Pawns left undefended \u2014 premature advances in endgames, critical pawns (f2/f7) ignored, pawn captures that expose other pawns, or development that abandons pawn defense.",
+     "fids": [
+      "f200",
+      "f202",
+      "f267",
+      "f278",
+      "f270",
+      "f351",
+      "f831",
+      "f626",
+      "f73",
+      "f194",
+      "f184",
+      "f986",
+      "f714",
+      "f621",
+      "f264",
+      "f894",
+      "f337",
+      "f305",
+      "f30",
+      "f560"
+     ]
+    },
+    {
+     "name": "The Exchange Dodger",
+     "desc": "Player ignores a forced or obligatory exchange (queen trade, rook swap on open file, bishop capture) and plays a quiet move, leaving own piece hanging where the trade would have resolved tension.",
+     "fids": [
+      "f378",
+      "f384",
+      "f771",
+      "f847",
+      "f996",
+      "f1018",
+      "f42",
+      "f655",
+      "f321",
+      "f925",
+      "f826",
+      "f433",
+      "f188",
+      "f844",
+      "f717"
+     ]
+    },
+    {
+     "name": "The Opening Overreacher",
+     "desc": "Opening-specific premature aggression or autopilot development that hangs material \u2014 knight sorties into pawn attacks, Bg4/Bg5 left undefended, ignoring Nc7+ forks, neglecting castling.",
+     "fids": [
+      "f72",
+      "f897",
+      "f510",
+      "f279",
+      "f205",
+      "f323",
+      "f263",
+      "f867",
+      "f70",
+      "f721",
+      "f538",
+      "f339",
+      "f699"
+     ]
+    },
+    {
+     "name": "The Sleepwalker",
+     "desc": "Quiet, passive, or aimless moves (king walks, piece repositioning, pawn pushes) while own material is under direct attack. No specific piece dominates \u2014 the defining feature is the non-forcing, unfocused nature of the blunder.",
+     "fids": [
+      "f437",
+      "f587",
+      "f661",
+      "f846",
+      "f786",
+      "f808",
+      "f570",
+      "f552",
+      "f688",
+      "f515",
+      "f882",
+      "f692",
+      "f774",
+      "f793",
+      "f234",
+      "f851",
+      "f854",
+      "f588",
+      "f164",
+      "f226",
+      "f679",
+      "f623",
+      "f87",
+      "f34",
+      "f765",
+      "f790",
+      "f1021",
+      "f1006",
+      "f193",
+      "f706",
+      "f945",
+      "f954",
+      "f432",
+      "f352",
+      "f13",
+      "f32",
+      "f33",
+      "f562",
+      "f532",
+      "f962"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "piece_hung_and_cause",
+   "subgroups": [
+    {
+     "name": "Hung Queen",
+     "desc": "Queen specifically left en prise \u2014 on diagonals, files, or via ignored attacks. Overwhelmingly major-piece loss.",
+     "fids": [
+      "f174",
+      "f224",
+      "f487",
+      "f536",
+      "f299",
+      "f255",
+      "f541",
+      "f720",
+      "f912",
+      "f96",
+      "f31",
+      "f574",
+      "f874"
+     ]
+    },
+    {
+     "name": "Hung Rook",
+     "desc": "Rook (or generic major piece) left hanging on open files, diagonals, or dominated squares. Includes rook-into-recapture patterns.",
+     "fids": [
+      "f281",
+      "f397",
+      "f417",
+      "f728",
+      "f884",
+      "f895",
+      "f625",
+      "f939",
+      "f434",
+      "f745",
+      "f254",
+      "f257",
+      "f828",
+      "f286",
+      "f590",
+      "f315",
+      "f467",
+      "f355",
+      "f226"
+     ]
+    },
+    {
+     "name": "Hung Minor to Pawn",
+     "desc": "Knight or bishop left en prise \u2014 often ignoring an enemy pawn attacking it, or landing on a controlled square. Includes Bg4/g5 and central knight patterns.",
+     "fids": [
+      "f198",
+      "f456",
+      "f410",
+      "f35",
+      "f49",
+      "f48",
+      "f232",
+      "f304",
+      "f538",
+      "f649",
+      "f904",
+      "f729",
+      "f618",
+      "f699",
+      "f947",
+      "f968",
+      "f981",
+      "f998",
+      "f527",
+      "f495",
+      "f638",
+      "f279",
+      "f457",
+      "f956",
+      "f274",
+      "f169",
+      "f844"
+     ]
+    },
+    {
+     "name": "Hung Pawn",
+     "desc": "Pawn left undefended \u2014 premature advances, endgame pushes, or development exposing g2/g7. Includes critical defensive pawns (f2/f7).",
+     "fids": [
+      "f200",
+      "f202",
+      "f267",
+      "f278",
+      "f270",
+      "f351",
+      "f831",
+      "f986",
+      "f194",
+      "f184",
+      "f73",
+      "f264",
+      "f894",
+      "f621",
+      "f714",
+      "f337",
+      "f626"
+     ]
+    },
+    {
+     "name": "Ignored Forced Exchange",
+     "desc": "Player declines a mandatory trade (rook on file, queen exchange, bishop swap) and instead plays a quiet move, leaving own piece hanging.",
+     "fids": [
+      "f378",
+      "f384",
+      "f36",
+      "f771",
+      "f847",
+      "f996",
+      "f1018",
+      "f42",
+      "f495",
+      "f655",
+      "f925",
+      "f321",
+      "f826",
+      "f433"
+     ]
+    },
+    {
+     "name": "Opening Autopilot Hangs",
+     "desc": "Developing or routine opening moves that ignore immediate tactical threats \u2014 fork threats, en prise pieces, neglected castling.",
+     "fids": [
+      "f323",
+      "f263",
+      "f30",
+      "f72",
+      "f70",
+      "f205",
+      "f510",
+      "f867",
+      "f897",
+      "f721",
+      "f441",
+      "f2",
+      "f157"
+     ]
+    },
+    {
+     "name": "Quiet/Passive Move Hangs",
+     "desc": "Generic quiet, passive, or aimless moves (king retreats, irrelevant repositioning) that leave mixed material hanging while missing tactical opportunities.",
+     "fids": [
+      "f437",
+      "f587",
+      "f661",
+      "f846",
+      "f786",
+      "f808",
+      "f552",
+      "f570",
+      "f688",
+      "f515",
+      "f954",
+      "f679",
+      "f692",
+      "f882",
+      "f793",
+      "f774",
+      "f234",
+      "f851",
+      "f706",
+      "f560",
+      "f623",
+      "f352",
+      "f87",
+      "f765",
+      "f790",
+      "f1021",
+      "f339",
+      "f164",
+      "f188",
+      "f193",
+      "f1006",
+      "f647",
+      "f854",
+      "f588",
+      "f717",
+      "f13",
+      "f32",
+      "f33",
+      "f34",
+      "f532",
+      "f562",
+      "f613",
+      "f658",
+      "f432",
+      "f962",
+      "f943",
+      "f945"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Piece type hung \u00d7 causal motif (what was left en prise and why)",
+   "subgroups": [
+    {
+     "name": "Hung Queen",
+     "desc": "Queen specifically left en prise \u2014 via ignored diagonal/file attacks, futile checks, or failing to take a queen trade. Hung piece distribution overwhelmingly 'major' with queen named in description.",
+     "fids": [
+      "f174",
+      "f224",
+      "f487",
+      "f541",
+      "f720",
+      "f536",
+      "f255",
+      "f299",
+      "f912",
+      "f574",
+      "f96",
+      "f31",
+      "f874"
+     ]
+    },
+    {
+     "name": "Rook on the Chopping Block",
+     "desc": "Rook (or generic major piece) left hanging on an open file, diagonal, or undefended square. Includes rook entering dominated files, exposed corner rooks, and major pieces placed where opponent controls the line.",
+     "fids": [
+      "f397",
+      "f417",
+      "f281",
+      "f286",
+      "f625",
+      "f728",
+      "f895",
+      "f939",
+      "f884",
+      "f828",
+      "f434",
+      "f745",
+      "f36",
+      "f315",
+      "f590"
+     ]
+    },
+    {
+     "name": "Minor Piece Abandoned",
+     "desc": "Knight or bishop left en prise \u2014 often to an enemy pawn advance (e5 hits knight), or placed on a controlled square. Includes bishops hanging after capture, premature Bg4/Bg5, and knights on central outposts without support.",
+     "fids": [
+      "f198",
+      "f456",
+      "f410",
+      "f35",
+      "f49",
+      "f48",
+      "f232",
+      "f981",
+      "f998",
+      "f968",
+      "f947",
+      "f904",
+      "f538",
+      "f649",
+      "f729",
+      "f638",
+      "f618",
+      "f699",
+      "f527",
+      "f495",
+      "f304",
+      "f274",
+      "f279",
+      "f763",
+      "f943",
+      "f956"
+     ]
+    },
+    {
+     "name": "Pawn Left Behind",
+     "desc": "Own pawn left undefended \u2014 premature endgame pawn pushes, pawn captures that leave other pawns hanging, critical f2/f7/g2 pawns exposed to fianchetto bishops, or king abandoning passed pawns.",
+     "fids": [
+      "f200",
+      "f202",
+      "f267",
+      "f278",
+      "f270",
+      "f351",
+      "f73",
+      "f831",
+      "f194",
+      "f184",
+      "f264",
+      "f894",
+      "f714",
+      "f621",
+      "f986",
+      "f626",
+      "f305",
+      "f337"
+     ]
+    },
+    {
+     "name": "Ignored Exchange",
+     "desc": "Player misses a forced or mandatory capture/trade (queen exchange, rook exchange on open file, bishop trade) and plays a quiet move instead, leaving own piece hanging where the exchange was obligatory.",
+     "fids": [
+      "f378",
+      "f384",
+      "f771",
+      "f847",
+      "f996",
+      "f1018",
+      "f42",
+      "f655",
+      "f826",
+      "f164",
+      "f321",
+      "f854",
+      "f588",
+      "f717",
+      "f1006",
+      "f433"
+     ]
+    },
+    {
+     "name": "Opening Autopilot",
+     "desc": "In the opening, player makes routine development moves (fianchetto prep, castling, knight sortie) while ignoring an existing tactical threat or placing a piece on a controlled square \u2014 autopilot thinking hangs material.",
+     "fids": [
+      "f323",
+      "f263",
+      "f205",
+      "f510",
+      "f867",
+      "f721",
+      "f70",
+      "f441",
+      "f72",
+      "f897",
+      "f169",
+      "f30",
+      "f2",
+      "f157"
+     ]
+    },
+    {
+     "name": "Quiet Move Catastrophe",
+     "desc": "Generic non-forcing blunder \u2014 player makes a passive king retreat, aimless repositioning, or tempting-but-irrelevant active move while their own piece is already attacked or becomes undefended. Mixed piece types; motif is the mismatch between urgency and chosen move.",
+     "fids": [
+      "f437",
+      "f587",
+      "f661",
+      "f846",
+      "f786",
+      "f808",
+      "f570",
+      "f552",
+      "f515",
+      "f87",
+      "f13",
+      "f34",
+      "f355",
+      "f226",
+      "f765",
+      "f793",
+      "f774",
+      "f688",
+      "f679",
+      "f692",
+      "f193",
+      "f234",
+      "f339",
+      "f352",
+      "f432",
+      "f560",
+      "f851",
+      "f945",
+      "f925"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "piece_hung_and_mechanism",
+   "subgroups": [
+    {
+     "name": "Hung Queen",
+     "desc": "Queen specifically left en prise \u2014 via ignored attacks, open files/diagonals, or flashy moves that abandon the queen.",
+     "fids": [
+      "f174",
+      "f224",
+      "f487",
+      "f720",
+      "f536",
+      "f255",
+      "f541",
+      "f299",
+      "f912",
+      "f96",
+      "f31",
+      "f874",
+      "f574",
+      "f157"
+     ]
+    },
+    {
+     "name": "Hung Rook",
+     "desc": "Rook left undefended on files or diagonals, entering dominated squares, or ignoring rook-vs-rook confrontations.",
+     "fids": [
+      "f281",
+      "f397",
+      "f417",
+      "f895",
+      "f728",
+      "f939",
+      "f625",
+      "f286",
+      "f828",
+      "f315",
+      "f590",
+      "f884",
+      "f434",
+      "f745",
+      "f254",
+      "f467"
+     ]
+    },
+    {
+     "name": "Hung Minor Piece",
+     "desc": "Knight or bishop left en prise \u2014 often ignoring pawn attacks, premature development (Bg4/Bg5), captures that leave piece undefended, or moving to controlled squares.",
+     "fids": [
+      "f198",
+      "f49",
+      "f232",
+      "f48",
+      "f410",
+      "f456",
+      "f527",
+      "f618",
+      "f638",
+      "f729",
+      "f981",
+      "f998",
+      "f947",
+      "f968",
+      "f699",
+      "f538",
+      "f904",
+      "f35",
+      "f304",
+      "f763",
+      "f279",
+      "f649",
+      "f897",
+      "f72",
+      "f457",
+      "f956",
+      "f169",
+      "f274",
+      "f441",
+      "f943"
+     ]
+    },
+    {
+     "name": "Hung Pawn",
+     "desc": "Pawn left undefended \u2014 via premature advances, captures removing defenders, development exposing g2/g7, or endgame king abandonment.",
+     "fids": [
+      "f202",
+      "f267",
+      "f200",
+      "f270",
+      "f278",
+      "f351",
+      "f831",
+      "f626",
+      "f73",
+      "f194",
+      "f184",
+      "f264",
+      "f621",
+      "f714",
+      "f986",
+      "f894",
+      "f305",
+      "f30",
+      "f337"
+     ]
+    },
+    {
+     "name": "Missed Exchange",
+     "desc": "Player ignores a forced or obligatory capture/trade (queen exchange, rook exchange, bishop trade) leaving own piece hanging instead.",
+     "fids": [
+      "f378",
+      "f384",
+      "f771",
+      "f847",
+      "f996",
+      "f1018",
+      "f36",
+      "f495",
+      "f826",
+      "f655",
+      "f42",
+      "f321",
+      "f433",
+      "f164",
+      "f854"
+     ]
+    },
+    {
+     "name": "Passive Drift",
+     "desc": "Quiet king moves, aimless retreats, or passive repositioning that neglect hanging material \u2014 often in endgames or under tactical pressure.",
+     "fids": [
+      "f786",
+      "f808",
+      "f793",
+      "f688",
+      "f570",
+      "f774",
+      "f234",
+      "f844",
+      "f203",
+      "f352",
+      "f851",
+      "f560",
+      "f925",
+      "f706",
+      "f188",
+      "f193"
+     ]
+    },
+    {
+     "name": "Active Overreach",
+     "desc": "Aggressive, developing, or active-looking moves (checks, captures, knight jumps) that inadvertently leave own mixed material en prise.",
+     "fids": [
+      "f87",
+      "f437",
+      "f587",
+      "f515",
+      "f679",
+      "f263",
+      "f34",
+      "f552",
+      "f339",
+      "f765",
+      "f790",
+      "f1021",
+      "f623",
+      "f692",
+      "f510",
+      "f867",
+      "f323",
+      "f13",
+      "f32",
+      "f33",
+      "f355",
+      "f532",
+      "f647",
+      "f661",
+      "f846",
+      "f882",
+      "f954",
+      "f962",
+      "f1006",
+      "f588",
+      "f593",
+      "f717",
+      "f432"
+     ]
+    }
+   ]
+  }
+ ],
+ "endgame_technique": [
+  {
+   "sub_axis": "Endgame technique error type: which piece misplayed and what decisive action was missed",
+   "subgroups": [
+    {
+     "name": "King Wandered Off",
+     "desc": "King moves to the wrong square, retreats passively, or drifts away from the critical sector in pawn endgames\u2014losing opposition, key squares, or abandoning duties.",
+     "fids": [
+      "f37",
+      "f354",
+      "f365",
+      "f428",
+      "f521",
+      "f606",
+      "f678",
+      "f709",
+      "f778",
+      "f811",
+      "f860",
+      "f848",
+      "f308",
+      "f764",
+      "f502",
+      "f978",
+      "f18",
+      "f438",
+      "f891",
+      "f918",
+      "f459"
+     ]
+    },
+    {
+     "name": "Rook Sat Idle",
+     "desc": "In rook endgames, the rook makes a passive relocation or abandons its critical post (blockade, active file, behind passed pawn) instead of maintaining maximum activity or giving decisive checks.",
+     "fids": [
+      "f76",
+      "f178",
+      "f366",
+      "f370",
+      "f10",
+      "f666",
+      "f988"
+     ]
+    },
+    {
+     "name": "Pushed Pawn Too Early",
+     "desc": "Premature pawn advance (especially to the 7th rank) when king activation, support, or repositioning was the priority\u2014often leaving the pawn stuck or capturable.",
+     "fids": [
+      "f112",
+      "f154",
+      "f665",
+      "f758",
+      "f992",
+      "f268",
+      "f119",
+      "f748",
+      "f285",
+      "f1010"
+     ]
+    },
+    {
+     "name": "Forgot to Push",
+     "desc": "Failed to advance a critical passed pawn toward promotion at the decisive moment, playing an irrelevant king move, ignoring promotion threats, or neglecting pawn breakthroughs.",
+     "fids": [
+      "f114",
+      "f409",
+      "f344",
+      "f422",
+      "f78",
+      "f248",
+      "f681",
+      "f307",
+      "f753",
+      "f466",
+      "f726",
+      "f568",
+      "f940",
+      "f975"
+     ]
+    },
+    {
+     "name": "Missed the Kill Shot",
+     "desc": "In a won or critical endgame, the player overlooks a concrete winning capture, decisive simplification, or tactical shot\u2014choosing a passive or greedy alternative that squanders the advantage.",
+     "fids": [
+      "f156",
+      "f189",
+      "f458",
+      "f542",
+      "f936",
+      "f217",
+      "f311",
+      "f970",
+      "f486",
+      "f677",
+      "f290"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Endgame Technique Error Type",
+   "subgroups": [
+    {
+     "name": "King Walks Wrong Way",
+     "desc": "King moves to the wrong square or direction in pawn endgames\u2014loses opposition, retreats passively, drifts from the critical zone, or misdirects in a king race.",
+     "fids": [
+      "f37",
+      "f354",
+      "f365",
+      "f428",
+      "f521",
+      "f778",
+      "f811",
+      "f860",
+      "f709",
+      "f678",
+      "f606",
+      "f848",
+      "f502",
+      "f764",
+      "f308",
+      "f119",
+      "f459",
+      "f290",
+      "f978",
+      "f18",
+      "f438",
+      "f891"
+     ]
+    },
+    {
+     "name": "Lazy Rook",
+     "desc": "In rook endgames, the rook sits passively, retreats aimlessly, gives pointless checks, or abandons its critical duty (blockading, checking from distance, controlling files behind passed pawns).",
+     "fids": [
+      "f76",
+      "f178",
+      "f366",
+      "f370",
+      "f988",
+      "f10",
+      "f666"
+     ]
+    },
+    {
+     "name": "Forgot to Push",
+     "desc": "Fails to advance a critical passed pawn toward promotion, misses a queening move, ignores a promotion threat/obstacle, or makes an irrelevant move when a decisive pawn push wins.",
+     "fids": [
+      "f114",
+      "f78",
+      "f409",
+      "f248",
+      "f568",
+      "f681",
+      "f753",
+      "f466",
+      "f726",
+      "f975",
+      "f542",
+      "f1010",
+      "f940"
+     ]
+    },
+    {
+     "name": "Pushed Too Soon",
+     "desc": "Advances a pawn prematurely without king support, pushes to the 7th rank before the king is ready, or plays a pawn move when king activation/infiltration was the critical priority.",
+     "fids": [
+      "f112",
+      "f344",
+      "f268",
+      "f758",
+      "f992",
+      "f748",
+      "f307",
+      "f285",
+      "f918",
+      "f665",
+      "f154"
+     ]
+    },
+    {
+     "name": "Missed Endgame Capture",
+     "desc": "Overlooks an available concrete capture (king takes undefended pawn, winning exchange, pawn capture over push), or greedily takes wrong material instead of addressing the critical positional need.",
+     "fids": [
+      "f189",
+      "f156",
+      "f458",
+      "f936",
+      "f486",
+      "f677",
+      "f217",
+      "f970",
+      "f311",
+      "f422"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Endgame decision-type error (which action was neglected or misapplied)",
+   "subgroups": [
+    {
+     "name": "King Wandered Off",
+     "desc": "King moves to the wrong square, retreats passively, loses opposition, or drifts away from the critical zone in pawn endgames.",
+     "fids": [
+      "f37",
+      "f354",
+      "f365",
+      "f428",
+      "f521",
+      "f606",
+      "f678",
+      "f709",
+      "f778",
+      "f811",
+      "f860",
+      "f848",
+      "f308",
+      "f502",
+      "f764",
+      "f290",
+      "f459",
+      "f307",
+      "f748",
+      "f119",
+      "f18",
+      "f438",
+      "f891",
+      "f978",
+      "f918"
+     ]
+    },
+    {
+     "name": "Rook Sat There Doing Nothing",
+     "desc": "In rook endgames, the rook makes a passive/retreating/aimless move instead of staying maximally active (checks, behind passed pawns, capturing loose pawns, or blockading promotion).",
+     "fids": [
+      "f76",
+      "f178",
+      "f366",
+      "f370",
+      "f666",
+      "f988",
+      "f10"
+     ]
+    },
+    {
+     "name": "Pushed Pawn Too Soon",
+     "desc": "Player advances a pawn prematurely (often to the 7th rank) when king activation, king support, or preparation was the critical priority first.",
+     "fids": [
+      "f112",
+      "f154",
+      "f665",
+      "f268",
+      "f285",
+      "f758",
+      "f992",
+      "f1010"
+     ]
+    },
+    {
+     "name": "Forgot to Push",
+     "desc": "Player makes a passive/irrelevant move instead of advancing a critical passed pawn, executing a pawn break, promoting, or winning the pawn race tempo.",
+     "fids": [
+      "f114",
+      "f78",
+      "f248",
+      "f409",
+      "f681",
+      "f568",
+      "f726",
+      "f753",
+      "f466",
+      "f344",
+      "f422",
+      "f975",
+      "f940"
+     ]
+    },
+    {
+     "name": "Missed the Kill Shot",
+     "desc": "In a won or critical endgame, the player makes a passive/greedy/aimless move instead of the immediately decisive concrete action (winning capture, key recapture, or simplifying blow).",
+     "fids": [
+      "f156",
+      "f189",
+      "f217",
+      "f458",
+      "f542",
+      "f311",
+      "f936",
+      "f970",
+      "f486",
+      "f677"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Endgame Technique Error Type (piece/motif)",
+   "subgroups": [
+    {
+     "name": "The Lost King",
+     "desc": "King navigates to the wrong square or wrong direction in pawn endgames\u2014loses opposition, key squares, or races.",
+     "fids": [
+      "f37",
+      "f354",
+      "f365",
+      "f428",
+      "f521",
+      "f606",
+      "f678",
+      "f709",
+      "f778",
+      "f811",
+      "f848",
+      "f860"
+     ]
+    },
+    {
+     "name": "The Timid King",
+     "desc": "King retreats passively or fails to activate when aggressive centralization/infiltration is critical.",
+     "fids": [
+      "f18",
+      "f308",
+      "f438",
+      "f502",
+      "f764",
+      "f891",
+      "f290",
+      "f978"
+     ]
+    },
+    {
+     "name": "The Lazy Rook",
+     "desc": "In rook endgames, rook stays passive or gives pointless checks instead of maximizing activity (behind passers, distant checks, 8th rank).",
+     "fids": [
+      "f76",
+      "f178",
+      "f366",
+      "f370",
+      "f988",
+      "f10",
+      "f666"
+     ]
+    },
+    {
+     "name": "The Hasty Pusher",
+     "desc": "Pushes pawns prematurely (especially to 7th rank) when king coordination or piece activity should come first.",
+     "fids": [
+      "f112",
+      "f154",
+      "f665",
+      "f758",
+      "f992",
+      "f268",
+      "f748",
+      "f119",
+      "f285"
+     ]
+    },
+    {
+     "name": "The Frozen Pawn",
+     "desc": "Fails to advance a critical passed pawn at the decisive moment, wasting tempo with king wanders or irrelevant moves.",
+     "fids": [
+      "f114",
+      "f344",
+      "f409",
+      "f422",
+      "f681",
+      "f248",
+      "f78",
+      "f307",
+      "f568",
+      "f1010"
+     ]
+    },
+    {
+     "name": "The Blind Closer",
+     "desc": "Misses simple decisive captures, concrete winning actions, or plays aimless moves in already-won positions.",
+     "fids": [
+      "f156",
+      "f189",
+      "f458",
+      "f542",
+      "f936",
+      "f217",
+      "f311",
+      "f970",
+      "f459"
+     ]
+    },
+    {
+     "name": "The Promotion Fumbler",
+     "desc": "Mishandles promotion-zone duties: ignores enemy promotion threats, underpromototes, greedy king captures, or neglects passed-pawn urgency.",
+     "fids": [
+      "f466",
+      "f753",
+      "f726",
+      "f975",
+      "f918",
+      "f940",
+      "f677",
+      "f486"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Endgame technique error type (piece/motif)",
+   "subgroups": [
+    {
+     "name": "The Lost King",
+     "desc": "King walks to wrong square/direction in pawn endgames, losing opposition or missing critical zone",
+     "fids": [
+      "f37",
+      "f354",
+      "f428",
+      "f521",
+      "f606",
+      "f678",
+      "f709",
+      "f778",
+      "f811",
+      "f860",
+      "f459"
+     ]
+    },
+    {
+     "name": "The Timid King",
+     "desc": "King retreats passively or fails to activate when centralization/infiltration is critical",
+     "fids": [
+      "f18",
+      "f290",
+      "f308",
+      "f365",
+      "f438",
+      "f502",
+      "f764",
+      "f848",
+      "f891",
+      "f978"
+     ]
+    },
+    {
+     "name": "The Sleepy Rook",
+     "desc": "Rook stays passive/aimless in rook endgames instead of checking, cutting off king, or controlling passed pawns",
+     "fids": [
+      "f76",
+      "f178",
+      "f366",
+      "f370",
+      "f10",
+      "f666",
+      "f988"
+     ]
+    },
+    {
+     "name": "The Eager Pawn",
+     "desc": "Pushes pawn prematurely when king technique (opposition, infiltration, support) is needed first",
+     "fids": [
+      "f112",
+      "f119",
+      "f154",
+      "f268",
+      "f285",
+      "f307",
+      "f665",
+      "f748",
+      "f758",
+      "f992"
+     ]
+    },
+    {
+     "name": "The Reluctant Pawn",
+     "desc": "Fails to push a critical passed pawn at the decisive moment, playing king/piece moves instead",
+     "fids": [
+      "f78",
+      "f114",
+      "f248",
+      "f344",
+      "f409",
+      "f422",
+      "f568",
+      "f681",
+      "f1010"
+     ]
+    },
+    {
+     "name": "The Unfocused Player",
+     "desc": "Misses available concrete winning captures or decisive actions, choosing passive/irrelevant moves",
+     "fids": [
+      "f156",
+      "f189",
+      "f217",
+      "f311",
+      "f458",
+      "f486",
+      "f542",
+      "f677",
+      "f936",
+      "f970"
+     ]
+    },
+    {
+     "name": "The Promotion Fumbler",
+     "desc": "Mishandles advanced passed pawns: ignores promotion threats, neglects blockades, or bungles promotion choice",
+     "fids": [
+      "f466",
+      "f726",
+      "f753",
+      "f918",
+      "f940",
+      "f975"
+     ]
+    }
+   ]
+  }
+ ],
+ "missed_quiet_win": [
+  {
+   "sub_axis": "pattern_type",
+   "subgroups": [
+    {
+     "name": "Forgot to Queen",
+     "desc": "A pawn on the 7th/2nd rank is ready to promote but the player temporizes, underpromototes, or plays a flashy check instead of simply queening.",
+     "fids": [
+      "f88",
+      "f97",
+      "f359",
+      "f377",
+      "f537",
+      "f628",
+      "f899",
+      "f902",
+      "f705",
+      "f611"
+     ]
+    },
+    {
+     "name": "Missed Pawn Breakthrough",
+     "desc": "A quiet pawn advance (push, breakthrough, or trapping thrust) wins decisive material but the player makes a passive piece move or reflexive pawn kick instead.",
+     "fids": [
+      "f8",
+      "f517",
+      "f619",
+      "f836",
+      "f740",
+      "f881"
+     ]
+    },
+    {
+     "name": "Missed Winning Maneuver",
+     "desc": "A quiet piece reposition (knight invasion, queen centralization, rook penetration, bishop pin, or piece trap) creates an unstoppable threat, but the player drifts with a passive move.",
+     "fids": [
+      "f29",
+      "f302",
+      "f1011",
+      "f475",
+      "f987",
+      "f9",
+      "f663",
+      "f648",
+      "f1002",
+      "f325",
+      "f707"
+     ]
+    },
+    {
+     "name": "Missed Concrete Tactic",
+     "desc": "A specific capture, tactical blow, or forced mate is available right now but the player makes a routine developing or quiet move, overlooking the combination.",
+     "fids": [
+      "f86",
+      "f173",
+      "f124",
+      "f149",
+      "f229",
+      "f62"
+     ]
+    },
+    {
+     "name": "Missed Endgame Technique",
+     "desc": "In an endgame, a critical king capture, active king move, simple recapture, perpetual check, or passed-pawn decision wins outright but the player drifts with a passive or misdirected move.",
+     "fids": [
+      "f340",
+      "f394",
+      "f419",
+      "f430",
+      "f284",
+      "f239",
+      "f827",
+      "f754",
+      "f712",
+      "f643",
+      "f516"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "tactical motif / game phase",
+   "subgroups": [
+    {
+     "name": "Forgot to Queen",
+     "desc": "Player has a pawn on the 7th/2nd rank (or one step away) and fails to promote, choosing an inferior check, king move, or quiet alternative instead.",
+     "fids": [
+      "f88",
+      "f97",
+      "f359",
+      "f377",
+      "f537",
+      "f628",
+      "f899",
+      "f902",
+      "f705",
+      "f611"
+     ]
+    },
+    {
+     "name": "Missed Pawn Breakthrough",
+     "desc": "A non-promotion pawn advance (breakthrough, thrust, or trap-setting push) wins decisive material, but the player makes a passive piece move or irrelevant capture instead.",
+     "fids": [
+      "f8",
+      "f517",
+      "f619",
+      "f836",
+      "f740",
+      "f881"
+     ]
+    },
+    {
+     "name": "Sleepy King in Endgame",
+     "desc": "In endgame positions the player misses a critical king capture, king approach, simple recapture, or concrete winning resource, drifting with a passive or misdirected move.",
+     "fids": [
+      "f340",
+      "f419",
+      "f430",
+      "f394",
+      "f284",
+      "f239",
+      "f827",
+      "f754",
+      "f712",
+      "f643"
+     ]
+    },
+    {
+     "name": "Missed Piece Invasion",
+     "desc": "A quiet piece reposition (knight jump, bishop sortie, queen centralization, rook penetration) would win material via threats or traps, but the player plays passively or on the wrong plan.",
+     "fids": [
+      "f29",
+      "f302",
+      "f1011",
+      "f1002",
+      "f663",
+      "f475",
+      "f987",
+      "f9",
+      "f648",
+      "f325",
+      "f707",
+      "f516"
+     ]
+    },
+    {
+     "name": "Missed Tactical Shot",
+     "desc": "A concrete capture or forcing sequence (often a specific piece take exploiting a structural weakness) wins immediately, but the player plays a routine developing or quiet move.",
+     "fids": [
+      "f86",
+      "f173",
+      "f124",
+      "f149",
+      "f229",
+      "f62"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Missed Quiet Win Pattern",
+   "subgroups": [
+    {
+     "name": "Forgot to Queen",
+     "desc": "Pawn on 7th/2nd rank ready to promote but player temporizes, underpromotes, or plays an irrelevant check/capture instead of queening.",
+     "fids": [
+      "f88",
+      "f97",
+      "f359",
+      "f377",
+      "f537",
+      "f628",
+      "f899",
+      "f902",
+      "f705",
+      "f611"
+     ]
+    },
+    {
+     "name": "Missed Pawn Breakthrough",
+     "desc": "A quiet pawn advance (push, breakthrough, or trap-setting thrust) wins material or traps a major piece, but player plays a passive king/piece move or reflexive bishop-chasing push instead.",
+     "fids": [
+      "f8",
+      "f517",
+      "f619",
+      "f836",
+      "f740",
+      "f881"
+     ]
+    },
+    {
+     "name": "Piece Invasion Missed",
+     "desc": "A quiet piece reposition (knight jump to d5/b5, Bb4/Bb5, queen centralization, rook to 7th rank, doubling rooks) creates a decisive threat or trap, but player makes a passive or routine developing move.",
+     "fids": [
+      "f475",
+      "f987",
+      "f9",
+      "f302",
+      "f1011",
+      "f325",
+      "f707",
+      "f173",
+      "f124",
+      "f29",
+      "f1002",
+      "f648",
+      "f663",
+      "f229"
+     ]
+    },
+    {
+     "name": "Endgame Sleepwalk",
+     "desc": "In endgames, player makes a passive king walk or wrong-direction move instead of the concrete winning action \u2014 a king capture, simple take, critical resource, or active move that decides the game.",
+     "fids": [
+      "f340",
+      "f394",
+      "f419",
+      "f284",
+      "f430",
+      "f712",
+      "f827",
+      "f754",
+      "f239",
+      "f643"
+     ]
+    },
+    {
+     "name": "Blind to the Tactic",
+     "desc": "A clear tactical win (forced mate, winning combination, or perpetual-check save) exists but player drifts with an aimless quiet move, missing the concrete refutation entirely.",
+     "fids": [
+      "f86",
+      "f149",
+      "f62",
+      "f516"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Nature of the missed quiet winning resource",
+   "subgroups": [
+    {
+     "name": "Forgot to Queen",
+     "desc": "A pawn on the 7th/2nd rank is ready to promote but the player temporizes, underpromotes, or plays an irrelevant check/capture instead of queening.",
+     "fids": [
+      "f88",
+      "f97",
+      "f359",
+      "f377",
+      "f537",
+      "f611",
+      "f628",
+      "f899",
+      "f902",
+      "f705"
+     ]
+    },
+    {
+     "name": "Pawn Push Wins",
+     "desc": "A non-promotion pawn advance (breakthrough, passed pawn push, or structural thrust) wins decisive material or traps a piece, but the player makes a passive or diversionary move.",
+     "fids": [
+      "f8",
+      "f517",
+      "f619",
+      "f836",
+      "f740",
+      "f643"
+     ]
+    },
+    {
+     "name": "Trap Was Right There",
+     "desc": "A quiet piece relocation (knight invasion, bishop sortie, queen reposition) traps or wins an enemy piece through positional threats, but the player misses it entirely.",
+     "fids": [
+      "f29",
+      "f302",
+      "f1011",
+      "f1002",
+      "f648",
+      "f475",
+      "f987",
+      "f9"
+     ]
+    },
+    {
+     "name": "Sleepy King",
+     "desc": "In the endgame, a king move captures, attacks, or traps enemy material but the player walks the wrong way or plays a different piece.",
+     "fids": [
+      "f394",
+      "f284",
+      "f419",
+      "f340",
+      "f430"
+     ]
+    },
+    {
+     "name": "Autopilot Blunder",
+     "desc": "The player makes a routine, reflexive, or passive move (bishop-chasing pawn push, queen retreat, developing move) while a concrete tactical shot or forcing sequence wins immediately.",
+     "fids": [
+      "f86",
+      "f149",
+      "f229",
+      "f881",
+      "f62",
+      "f173",
+      "f124",
+      "f663",
+      "f239",
+      "f516"
+     ]
+    },
+    {
+     "name": "Won Endgame Fumbled",
+     "desc": "In a technically winning endgame, the player misses a simple capture, rook penetration, or doubling that converts decisively, opting for an imprecise or flashy alternative.",
+     "fids": [
+      "f325",
+      "f707",
+      "f712",
+      "f754",
+      "f827"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Type of quiet winning resource missed",
+   "subgroups": [
+    {
+     "name": "Forgot to Queen",
+     "desc": "Player has a pawn on the 7th/2nd rank (or makes a wrong promotion choice) but fails to promote, playing a temporizing move, check, or underpromotion instead.",
+     "fids": [
+      "f88",
+      "f97",
+      "f359",
+      "f377",
+      "f537",
+      "f628",
+      "f899",
+      "f902",
+      "f705",
+      "f611"
+     ]
+    },
+    {
+     "name": "Missed Pawn Breakthrough",
+     "desc": "A non-promotion pawn advance (push, breakthrough, or thrust) wins material\u2014often trapping a piece or creating an unstoppable passed pawn\u2014but the player plays a passive or distracted move instead.",
+     "fids": [
+      "f8",
+      "f517",
+      "f619",
+      "f836",
+      "f740",
+      "f881"
+     ]
+    },
+    {
+     "name": "Endgame Sleepwalking",
+     "desc": "In endgame positions the player makes a slow or wrong king/piece move, missing a concrete king capture, critical passed-pawn action, simple winning capture, or perpetual-check resource.",
+     "fids": [
+      "f340",
+      "f419",
+      "f430",
+      "f284",
+      "f394",
+      "f239",
+      "f827",
+      "f754",
+      "f712",
+      "f643",
+      "f516"
+     ]
+    },
+    {
+     "name": "Missed Quiet Piece Threat",
+     "desc": "A non-capturing piece relocation (queen centralization, knight invasion, bishop deployment, piece trap) would create a decisive tactical threat, but the player makes a routine or passive move.",
+     "fids": [
+      "f86",
+      "f29",
+      "f302",
+      "f1011",
+      "f987",
+      "f475",
+      "f9",
+      "f663",
+      "f648",
+      "f1002",
+      "f149"
+     ]
+    },
+    {
+     "name": "Missed Winning Capture",
+     "desc": "A concrete capture or piece infiltration (knight recapture tactic, bishop strike, rook penetration/doubling, or forced mate sequence) was available but the player chose a quiet alternative.",
+     "fids": [
+      "f173",
+      "f124",
+      "f229",
+      "f325",
+      "f707",
+      "f62"
+     ]
+    }
+   ]
+  }
+ ],
+ "passive_play": [
+  {
+   "sub_axis": "What piece/pattern was misplayed or what critical demand was ignored",
+   "subgroups": [
+    {
+     "name": "Sleepwalked Into Checkmate",
+     "desc": "Ignored immediate mating threats, neglected castling, or made passive king moves while the position demanded urgent king safety action.",
+     "fids": [
+      "f744",
+      "f845",
+      "f849",
+      "f504",
+      "f549",
+      "f830",
+      "f823",
+      "f293",
+      "f632",
+      "f991",
+      "f380",
+      "f950"
+     ]
+    },
+    {
+     "name": "Pointless Queen Shuffling",
+     "desc": "Gave aimless queen checks, missed critical queen captures/trades, or repositioned the queen purposelessly when it had decisive action available.",
+     "fids": [
+      "f93",
+      "f369",
+      "f449",
+      "f563",
+      "f573",
+      "f662",
+      "f220",
+      "f312"
+     ]
+    },
+    {
+     "name": "Knight & Bishop on Autopilot",
+     "desc": "Developed or retreated minor pieces to natural-looking but tactically flawed squares, missing strong knight/bishop captures or sacrifices.",
+     "fids": [
+      "f110",
+      "f107",
+      "f382",
+      "f383",
+      "f888",
+      "f137",
+      "f444",
+      "f63",
+      "f876",
+      "f910",
+      "f716"
+     ]
+    },
+    {
+     "name": "Missed the Winning Capture",
+     "desc": "Played a quiet non-forcing move when a concrete capture, exchange, or tactical blow was available that wins material or decides the game.",
+     "fids": [
+      "f139",
+      "f150",
+      "f398",
+      "f543",
+      "f555",
+      "f727",
+      "f695",
+      "f478",
+      "f513",
+      "f1013",
+      "f966",
+      "f843",
+      "f159",
+      "f252",
+      "f363",
+      "f994",
+      "f489",
+      "f582",
+      "f46"
+     ]
+    },
+    {
+     "name": "Aimless Pawn & Rook Drift",
+     "desc": "Made slow pawn pushes, ignored passed pawns/promotion threats, shuffled rooks aimlessly, or played routine development ignoring urgent positional/tactical demands.",
+     "fids": [
+      "f191",
+      "f218",
+      "f346",
+      "f508",
+      "f540",
+      "f732",
+      "f61",
+      "f0",
+      "f273",
+      "f493",
+      "f977",
+      "f306",
+      "f332",
+      "f418",
+      "f646"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Passive Play Failure Mode",
+   "subgroups": [
+    {
+     "name": "Capture Was Right There",
+     "desc": "Player plays a quiet move when a specific winning capture (knight fork, bishop sac, queen take, exchange) was available. The missed tactic is concrete and calculable.",
+     "fids": [
+      "f110",
+      "f107",
+      "f383",
+      "f63",
+      "f150",
+      "f543",
+      "f555",
+      "f573",
+      "f478",
+      "f582",
+      "f727",
+      "f695",
+      "f513",
+      "f312",
+      "f0",
+      "f46",
+      "f139"
+     ]
+    },
+    {
+     "name": "Sleepwalking Through the Opening",
+     "desc": "Routine developing moves (Be2, Bg5, a3, Nc3, O-O) on autopilot when the position demands concrete central action, a critical pawn break, or urgent castling. Phase-specific opening inertia.",
+     "fids": [
+      "f137",
+      "f444",
+      "f716",
+      "f910",
+      "f382",
+      "f540",
+      "f306",
+      "f332",
+      "f830",
+      "f549",
+      "f732",
+      "f191"
+     ]
+    },
+    {
+     "name": "Shuffling Pieces Going Nowhere",
+     "desc": "Aimless repositioning of queens, rooks, knights, or bishops while ignoring tactical obligations. The moved piece isn't improving; it's just moving. Often leaves own material hanging.",
+     "fids": [
+      "f418",
+      "f273",
+      "f493",
+      "f563",
+      "f449",
+      "f369",
+      "f977",
+      "f888",
+      "f876",
+      "f646",
+      "f632",
+      "f220",
+      "f159",
+      "f398",
+      "f843",
+      "f966",
+      "f994",
+      "f1013",
+      "f61"
+     ]
+    },
+    {
+     "name": "Blind to Checkmate",
+     "desc": "Player ignores an imminent mating threat (back-rank, open-file, or pattern mate) or misses delivering forced mate, playing a quiet/greedy move and getting mated or losing the win.",
+     "fids": [
+      "f504",
+      "f849",
+      "f845",
+      "f744",
+      "f823",
+      "f950"
+     ]
+    },
+    {
+     "name": "Drifting in a Won Position",
+     "desc": "Player has a decisive advantage (passed pawn, material up, forced mate available) but plays a passive king move or aimless retreat instead of converting. The win evaporates through inertia.",
+     "fids": [
+      "f363",
+      "f489",
+      "f508",
+      "f346",
+      "f991",
+      "f293",
+      "f252"
+     ]
+    },
+    {
+     "name": "Pointless Check Addiction",
+     "desc": "Player gives a tempting but purposeless check (queen check, pawn check) when a non-checking move wins material or delivers mate. The check feels active but accomplishes nothing.",
+     "fids": [
+      "f93",
+      "f218",
+      "f662",
+      "f380"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "What concrete action was ignored while playing passively",
+   "subgroups": [
+    {
+     "name": "Capture Was Right There",
+     "desc": "A specific winning capture (knight fork, bishop sac, queen take, pawn grab, exchange) was available and the player chose a quiet move instead.",
+     "fids": [
+      "f110",
+      "f107",
+      "f383",
+      "f63",
+      "f543",
+      "f573",
+      "f582",
+      "f478",
+      "f695",
+      "f312",
+      "f513",
+      "f0",
+      "f150",
+      "f46",
+      "f139",
+      "f555",
+      "f727"
+     ]
+    },
+    {
+     "name": "Sleepwalked Into Mate",
+     "desc": "Player ignored an imminent checkmate threat (back-rank, forced mate in 2-3), missed delivering mate, or let a passed pawn promote unchallenged.",
+     "fids": [
+      "f744",
+      "f845",
+      "f849",
+      "f504",
+      "f346",
+      "f508"
+     ]
+    },
+    {
+     "name": "Flashy Move, Wrong Move",
+     "desc": "Player made a premature check, aggressive-looking knight jump, or showy bishop sortie that looked active but missed the actually strongest continuation.",
+     "fids": [
+      "f93",
+      "f218",
+      "f662",
+      "f382",
+      "f910",
+      "f137",
+      "f444",
+      "f716",
+      "f380"
+     ]
+    },
+    {
+     "name": "Aimless Piece Shuffle",
+     "desc": "Repositioning queens, rooks, knights, or kings to purposeless squares while the position screamed for concrete action \u2014 pieces drift, material hangs.",
+     "fids": [
+      "f418",
+      "f273",
+      "f493",
+      "f563",
+      "f449",
+      "f977",
+      "f888",
+      "f876",
+      "f646",
+      "f369",
+      "f61",
+      "f632",
+      "f991",
+      "f293",
+      "f950",
+      "f220"
+     ]
+    },
+    {
+     "name": "Autopilot Development",
+     "desc": "Routine opening moves (castling, pawn pushes, natural development) played on schedule while ignoring urgent tactical demands or critical king safety needs.",
+     "fids": [
+      "f306",
+      "f191",
+      "f540",
+      "f332",
+      "f732",
+      "f830",
+      "f549",
+      "f823"
+     ]
+    },
+    {
+     "name": "Drifted In A Won Position",
+     "desc": "Position was winning or critical, but player made a generic quiet/passive move \u2014 tactical blindness that squanders advantages or ignores emergencies.",
+     "fids": [
+      "f159",
+      "f398",
+      "f843",
+      "f966",
+      "f252",
+      "f994",
+      "f1013",
+      "f363",
+      "f489"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Nature of the autopilot failure: what the player did wrong and what they missed",
+   "subgroups": [
+    {
+     "name": "Missed the Killing Capture",
+     "desc": "A specific winning capture (knight fork on f7, bishop sacrifice, queen take, pawn grab, decisive exchange) was available and the player played a quiet move instead.",
+     "fids": [
+      "f110",
+      "f107",
+      "f383",
+      "f63",
+      "f573",
+      "f582",
+      "f727",
+      "f513",
+      "f555",
+      "f478",
+      "f695",
+      "f0",
+      "f46",
+      "f139",
+      "f150",
+      "f543",
+      "f312",
+      "f1013"
+     ]
+    },
+    {
+     "name": "Pieces Drifted Nowhere",
+     "desc": "Player shuffles, retreats, or repositions pieces (queen, rook, knight, king) to purposeless squares while the position demands concrete engagement \u2014 pure aimless piece movement.",
+     "fids": [
+      "f273",
+      "f493",
+      "f563",
+      "f369",
+      "f449",
+      "f888",
+      "f876",
+      "f977",
+      "f380",
+      "f632",
+      "f991",
+      "f489",
+      "f293",
+      "f950",
+      "f382",
+      "f418",
+      "f61"
+     ]
+    },
+    {
+     "name": "Blind to the Checkmate",
+     "desc": "Player ignores an imminent mating threat (back-rank, promotion-based, or forced sequence), squanders a forced win, or fails to stop a deadly passed pawn \u2014 the ultimate stakes missed.",
+     "fids": [
+      "f744",
+      "f845",
+      "f849",
+      "f504",
+      "f508",
+      "f346",
+      "f363"
+     ]
+    },
+    {
+     "name": "Textbook Move, Wrong Moment",
+     "desc": "Player makes a routine developing move (bishop to a natural square, castling, rook-pawn push, Bg4/Bg5 pin) appropriate in general but catastrophically ignoring the position's concrete tactical demands \u2014 opening autopilot.",
+     "fids": [
+      "f137",
+      "f306",
+      "f332",
+      "f540",
+      "f910",
+      "f444",
+      "f716",
+      "f191",
+      "f732",
+      "f549",
+      "f830",
+      "f823",
+      "f220"
+     ]
+    },
+    {
+     "name": "Fiddled While Rome Burned",
+     "desc": "Player makes a flashy-but-pointless check, a superficially active move, or a generic passive move during a tactical emergency \u2014 awareness of urgency itself is absent, often with own material left hanging.",
+     "fids": [
+      "f93",
+      "f218",
+      "f662",
+      "f159",
+      "f398",
+      "f843",
+      "f966",
+      "f252",
+      "f646",
+      "f994"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "What concrete action was ignored while playing passively",
+   "subgroups": [
+    {
+     "name": "Missed the Winning Capture",
+     "desc": "A specific winning capture (knight fork on f7, bishop sacrifice, queen take, simplifying exchange, pawn grab) was available but the player chose a quiet move instead. Drill: 'Scan ALL captures before committing to a quiet move.'",
+     "fids": [
+      "f110",
+      "f107",
+      "f383",
+      "f63",
+      "f573",
+      "f543",
+      "f555",
+      "f478",
+      "f695",
+      "f727",
+      "f513",
+      "f582",
+      "f0",
+      "f312",
+      "f150",
+      "f46",
+      "f1013",
+      "f139",
+      "f489",
+      "f346"
+     ]
+    },
+    {
+     "name": "Blind to Checkmate",
+     "desc": "Player had a forced mate available and missed it, or ignored the opponent's unstoppable mating threat (back-rank, rook-dominated) and walked into it. Drill: 'Mate-in-N puzzles + defensive mate-threat scanning every move.'",
+     "fids": [
+      "f849",
+      "f845",
+      "f744",
+      "f504",
+      "f363"
+     ]
+    },
+    {
+     "name": "King Left in Danger",
+     "desc": "Player neglected castling with the king on an open file, made the wrong king move in a critical moment, or ignored king safety to grab material. Drill: 'Before ANY non-king move, ask: is my king safe on this square for 3 more moves?'",
+     "fids": [
+      "f830",
+      "f549",
+      "f823",
+      "f293",
+      "f950",
+      "f991",
+      "f632",
+      "f380"
+     ]
+    },
+    {
+     "name": "Autopilot Development",
+     "desc": "Player put a piece on a 'natural' square (Bg4/Bg5, Be2, a3/h3, routine development) out of habit while the position screamed for a concrete tactical response or prophylactic action. Drill: 'Before developing, check: does any tactic or pawn break PUNISH this tempo loss?'",
+     "fids": [
+      "f137",
+      "f444",
+      "f716",
+      "f910",
+      "f306",
+      "f332",
+      "f540",
+      "f191",
+      "f732",
+      "f61",
+      "f876"
+     ]
+    },
+    {
+     "name": "Shuffled Instead of Struck",
+     "desc": "Player repositioned a piece aimlessly (queen wander, rook slide, knight retreat, pointless check) when a concrete forcing move\u2014capture, threat, or correct quiet move\u2014was demanded. Drill: 'Checks-Captures-Threats before ANY repositioning; if you see a check, verify it's STRONGER than alternatives.'",
+     "fids": [
+      "f273",
+      "f493",
+      "f563",
+      "f449",
+      "f977",
+      "f369",
+      "f220",
+      "f646",
+      "f398",
+      "f418",
+      "f159",
+      "f252",
+      "f508",
+      "f843",
+      "f966",
+      "f994",
+      "f888",
+      "f93",
+      "f662",
+      "f218",
+      "f382"
+     ]
+    }
+   ]
+  }
+ ],
+ "premature_aggression": [
+  {
+   "sub_axis": "piece/target-square pattern of the unsound aggression",
+   "subgroups": [
+    {
+     "name": "Yolo Nxf7/Bxf7 Sacrifice",
+     "desc": "Classic unsound sacrifice on f7/f2 (knight or bishop) with no real follow-up; piece is left hanging for the king to recapture. Overwhelmingly hangs a minor piece.",
+     "fids": [
+      "f134",
+      "f147",
+      "f412",
+      "f54",
+      "f250",
+      "f558",
+      "f636",
+      "f927"
+     ]
+    },
+    {
+     "name": "Knight Jumped Into Thin Air",
+     "desc": "Knight lunges to an advanced, rim, or central square (Ng5, Nxe5, Nb5, Nh5) where it has no support and is immediately capturable. Hung piece is almost always the knight itself.",
+     "fids": [
+      "f94",
+      "f118",
+      "f168",
+      "f26",
+      "f725",
+      "f960",
+      "f997",
+      "f787"
+     ]
+    },
+    {
+     "name": "Bishop Overreach",
+     "desc": "Bishop moves to or captures on an aggressive square (h3/h6, pawn-grab, or premature exchange) where it is en prise to a pawn or has no safe retreat. Hung piece is predominantly the bishop.",
+     "fids": [
+      "f387",
+      "f275",
+      "f833",
+      "f698",
+      "f664"
+     ]
+    },
+    {
+     "name": "Promoted Into Capture",
+     "desc": "Pawn promotes to a queen on a square already controlled by the opponent; the brand-new queen is immediately lost. Hung piece is always a major (the fresh queen).",
+     "fids": [
+      "f554",
+      "f556",
+      "f506",
+      "f735"
+     ]
+    },
+    {
+     "name": "Premature Pawn Shove",
+     "desc": "Central or flank pawn advance (d5/e5/f4/g5) that is tactically unjustified, leaving the pawn itself or a piece behind it undefended. Hung piece is predominantly a pawn.",
+     "fids": [
+      "f957",
+      "f1004",
+      "f914"
+     ]
+    },
+    {
+     "name": "Flashy Check Hangs Everything",
+     "desc": "Speculative check, capture, or queen sortie that looks aggressive but leaves own material (varied: queen, rook, minor piece, or pawn) en prise with no compensation. Mixed hung-piece distribution; includes king-safety blunders.",
+     "fids": [
+      "f328",
+      "f435",
+      "f64",
+      "f514",
+      "f522",
+      "f682",
+      "f989",
+      "f472",
+      "f583",
+      "f336",
+      "f221",
+      "f1014"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "sacrifice target / aggressive motif",
+   "subgroups": [
+    {
+     "name": "Unsound f7 Piece Sac",
+     "desc": "Classic minor-piece sacrifice on f7/f2 (or h3/h6) without tactical follow-up \u2014 the piece is simply lost for a pawn. Overwhelmingly hangs a minor piece.",
+     "fids": [
+      "f134",
+      "f147",
+      "f412",
+      "f54",
+      "f250",
+      "f558",
+      "f636",
+      "f927",
+      "f698"
+     ]
+    },
+    {
+     "name": "Knight Jumped Into Thin Air",
+     "desc": "Aggressive knight lunge (rim, center, or Italian Ng5-style) that lands on an undefended square and is immediately captured or tactically won. Hangs the knight itself.",
+     "fids": [
+      "f94",
+      "f118",
+      "f168",
+      "f26",
+      "f725",
+      "f960",
+      "f997"
+     ]
+    },
+    {
+     "name": "Promotion Into Enemy Fire",
+     "desc": "Premature pawn advance or promotion onto a controlled square \u2014 the new queen is instantly captured, or the pushed pawn is simply lost. Hung piece is typically 'major' (new queen) or 'pawn'.",
+     "fids": [
+      "f554",
+      "f556",
+      "f506",
+      "f735",
+      "f957",
+      "f1004"
+     ]
+    },
+    {
+     "name": "Opening Greed Drops Piece",
+     "desc": "Greedy capture, early queen sortie, bishop pawn-grab, or premature exchange that leaves the player's own piece en prise \u2014 development neglected for material. Mixed hung-piece types.",
+     "fids": [
+      "f328",
+      "f435",
+      "f472",
+      "f387",
+      "f833",
+      "f664",
+      "f275",
+      "f787",
+      "f989",
+      "f522"
+     ]
+    },
+    {
+     "name": "Flashy Check Ignores Reality",
+     "desc": "Speculative check or showy capture (often in a won/endgame position) that overlooks a simple recapture or walks into mate \u2014 style over substance. Hangs major pieces or the king.",
+     "fids": [
+      "f336",
+      "f64",
+      "f221",
+      "f514",
+      "f682",
+      "f583",
+      "f1014",
+      "f914"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "piece/target pattern",
+   "subgroups": [
+    {
+     "name": "Botched f7/f2 Sacrifice",
+     "desc": "Piece (bishop or knight) captures on f7/f2 without sufficient tactical follow-up, leaving it hanging for immediate recapture.",
+     "fids": [
+      "f134",
+      "f54",
+      "f147",
+      "f412",
+      "f250",
+      "f558",
+      "f636",
+      "f927"
+     ]
+    },
+    {
+     "name": "Knight Lunge Hangs",
+     "desc": "Knight jumps aggressively to an advanced/rim/central square and is left en prise or leaves other pieces undefended.",
+     "fids": [
+      "f94",
+      "f118",
+      "f168",
+      "f26",
+      "f725",
+      "f960",
+      "f997",
+      "f787"
+     ]
+    },
+    {
+     "name": "Bishop Overreach",
+     "desc": "Bishop moves to an aggressive square (kingside, h-file, or greedy pawn grab) where it is trapped or left hanging with no retreat.",
+     "fids": [
+      "f387",
+      "f275",
+      "f698",
+      "f833",
+      "f664"
+     ]
+    },
+    {
+     "name": "Promotion Into Capture",
+     "desc": "Pawn promotes to a queen on a square controlled by the opponent, immediately hanging the new queen.",
+     "fids": [
+      "f554",
+      "f556",
+      "f506",
+      "f735"
+     ]
+    },
+    {
+     "name": "Flashy Check Drops Material",
+     "desc": "A speculative check, queen sortie, or rook lunge that ignores a simpler continuation and leaves own major piece hanging.",
+     "fids": [
+      "f472",
+      "f583",
+      "f682",
+      "f336",
+      "f514",
+      "f522"
+     ]
+    },
+    {
+     "name": "Impulsive Move Hangs Piece",
+     "desc": "Generic aggressive capture, pawn push, or king advance in the opening/endgame that leaves own material undefended \u2014 no single piece motif dominates.",
+     "fids": [
+      "f328",
+      "f435",
+      "f64",
+      "f221",
+      "f989",
+      "f914",
+      "f1014",
+      "f957",
+      "f1004"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "piece/target pattern of the unsound aggression",
+   "subgroups": [
+    {
+     "name": "Nxf7 Fever",
+     "desc": "Unsound knight or bishop sacrifice on f7/f2 without tactical follow-up; the piece is simply recaptured. Drill: before capturing on f7/f2, verify a concrete second blow exists.",
+     "fids": [
+      "f134",
+      "f147",
+      "f412",
+      "f54",
+      "f250",
+      "f558",
+      "f636",
+      "f927"
+     ]
+    },
+    {
+     "name": "Knight Jumped, Knight Died",
+     "desc": "Knight lunges to an aggressive/rim/advanced square where it (or the piece it was guarding) is immediately captured. Drill: before every knight jump, ask 'is this square defended? can a pawn kick it?'",
+     "fids": [
+      "f94",
+      "f118",
+      "f168",
+      "f26",
+      "f725",
+      "f960",
+      "f997",
+      "f787"
+     ]
+    },
+    {
+     "name": "Bishop Walked Into a Pawn",
+     "desc": "Bishop placed on, or captures onto, a square attacked by a pawn (h-pawn grabs, greedy captures, premature exchanges). Drill: check every enemy pawn that hits your bishop's target square.",
+     "fids": [
+      "f387",
+      "f275",
+      "f833",
+      "f698",
+      "f664"
+     ]
+    },
+    {
+     "name": "Promoted Into Thin Air",
+     "desc": "Pawn promotes to a queen on a square controlled by an enemy piece \u2014 the new queen is immediately captured. Drill: before promoting, verify the promotion square is safe or the check forces a gain.",
+     "fids": [
+      "f554",
+      "f556",
+      "f506",
+      "f735"
+     ]
+    },
+    {
+     "name": "Flashy Check, Missed the Win",
+     "desc": "Playing a spectacular check, capture, or queen sortie instead of a simple recapture or calm developing move \u2014 leaving own material hanging. Drill: before every check/capture, first ask 'is there a simple non-forcing move that just wins?'",
+     "fids": [
+      "f328",
+      "f336",
+      "f435",
+      "f64",
+      "f221",
+      "f472",
+      "f514",
+      "f522",
+      "f583",
+      "f682",
+      "f914",
+      "f989",
+      "f1014"
+     ]
+    },
+    {
+     "name": "Loose Pawn, Loose Position",
+     "desc": "Premature central or flank pawn push (d5/e5/g5/f4) that leaves the pushed pawn or newly-unguarded pieces en prise. Drill: before every aggressive pawn break, count defenders vs attackers on the pawn AND the squares it vacates.",
+     "fids": [
+      "f957",
+      "f1004"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Attack pattern and target square",
+   "subgroups": [
+    {
+     "name": "Sacrificed on f7 for Nothing",
+     "desc": "Bishop or knight captures on f7/f2 (or h3/h6) without tactical justification, leaving the piece hanging for immediate recapture. Overwhelmingly hangs a minor piece.",
+     "fids": [
+      "f134",
+      "f147",
+      "f412",
+      "f54",
+      "f250",
+      "f558",
+      "f636",
+      "f927",
+      "f698"
+     ]
+    },
+    {
+     "name": "Knight Jumped Off a Cliff",
+     "desc": "Knight lunges aggressively to a central, advanced, or rim square (Ng5, Nb5, Nxe5, Nh5) where it hangs immediately or exposes other pieces. High opening-heaviness, hung piece almost always the knight itself.",
+     "fids": [
+      "f26",
+      "f168",
+      "f725",
+      "f997",
+      "f960",
+      "f94",
+      "f118",
+      "f787"
+     ]
+    },
+    {
+     "name": "Promoted Into a Trap",
+     "desc": "Pawn promotes to a queen on a square controlled by the opponent; the new queen is immediately captured. Hung piece is always 'major'.",
+     "fids": [
+      "f554",
+      "f556",
+      "f506",
+      "f735"
+     ]
+    },
+    {
+     "name": "Pushed Pawns Off a Cliff",
+     "desc": "Premature central or flank pawn advances (d5, e5, g5) or reckless king marches that leave the pushed pawn or the king fatally exposed. Hung piece is predominantly 'pawn'.",
+     "fids": [
+      "f957",
+      "f1004",
+      "f1014"
+     ]
+    },
+    {
+     "name": "Flashy Check, Own Piece Hung",
+     "desc": "A speculative check, capture, or forcing move (often with rook or queen) that looks active but leaves the attacker's own piece en prise with no follow-up. Hung piece often major.",
+     "fids": [
+      "f64",
+      "f682",
+      "f583",
+      "f336",
+      "f514",
+      "f328",
+      "f435"
+     ]
+    },
+    {
+     "name": "Greedy Grab Got Punished",
+     "desc": "Queen sorties, bishop pawn-grabs, premature exchanges, or positional sacrifices-gone-wrong where a piece greedily takes material or lunges at the kingside and is left hanging. Mixed hung piece types.",
+     "fids": [
+      "f387",
+      "f833",
+      "f664",
+      "f472",
+      "f275",
+      "f221",
+      "f522",
+      "f989",
+      "f914"
+     ]
+    }
+   ]
+  }
+ ],
+ "pointless_check": [
+  {
+   "sub_axis": "piece_giving_check_and_consequence",
+   "subgroups": [
+    {
+     "name": "Queen Suicide Check",
+     "desc": "Queen gives a futile check and is left hanging or trapped, losing the queen for nothing.",
+     "fids": [
+      "f358",
+      "f408",
+      "f800",
+      "f180",
+      "f207",
+      "f465",
+      "f801",
+      "f862",
+      "f880",
+      "f976",
+      "f172",
+      "f195",
+      "f654",
+      "f101"
+     ]
+    },
+    {
+     "name": "Rook Check Hangs Itself",
+     "desc": "Rook (or major piece) delivers a check that leaves it en prise on the checking square, immediately lost after the king steps away.",
+     "fids": [
+      "f183",
+      "f599",
+      "f668",
+      "f659",
+      "f704",
+      "f788",
+      "f581",
+      "f39",
+      "f11",
+      "f645",
+      "f291",
+      "f115",
+      "f75",
+      "f795"
+     ]
+    },
+    {
+     "name": "Knight/Bishop Check Into Capture",
+     "desc": "Minor piece (knight or bishop) gives a flashy check but is left undefended and captured once the king escapes.",
+     "fids": [
+      "f192",
+      "f569",
+      "f353",
+      "f607",
+      "f959",
+      "f694",
+      "f576",
+      "f269",
+      "f627",
+      "f782",
+      "f1022",
+      "f746"
+     ]
+    },
+    {
+     "name": "Check Abandons Defense",
+     "desc": "Giving check moves a defender or ignores a threat, leaving a DIFFERENT piece (often the queen) hanging elsewhere on the board.",
+     "fids": [
+      "f296",
+      "f718",
+      "f206",
+      "f916",
+      "f564",
+      "f670",
+      "f100",
+      "f95",
+      "f170",
+      "f136",
+      "f908",
+      "f1003",
+      "f824",
+      "f839",
+      "f905",
+      "f885"
+     ]
+    },
+    {
+     "name": "Missed Winning Check",
+     "desc": "Player overlooked a strong capture-with-check or sacrifice-with-check that would have won material or initiated a decisive combination.",
+     "fids": [
+      "f52",
+      "f750",
+      "f806",
+      "f929",
+      "f822"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Checking piece type + whether the error was giving a bad check vs. missing a good one vs. abandoning defense",
+   "subgroups": [
+    {
+     "name": "Missed the Winning Check",
+     "desc": "Player overlooked a strong capture-check or tactical check that wins material, instead playing an inferior move that often left their own piece hanging. The best move WAS a check\u2014they just didn't find it.",
+     "fids": [
+      "f52",
+      "f750",
+      "f806",
+      "f929",
+      "f822"
+     ]
+    },
+    {
+     "name": "Suicidal Queen Check",
+     "desc": "Queen delivers a pointless or impulsive check and is left en prise on its landing square, or the queen check misses a much stronger continuation. The queen herself is the primary casualty.",
+     "fids": [
+      "f95",
+      "f101",
+      "f172",
+      "f180",
+      "f195",
+      "f207",
+      "f358",
+      "f408",
+      "f465",
+      "f800",
+      "f801",
+      "f654",
+      "f862",
+      "f880",
+      "f976",
+      "f839",
+      "f905"
+     ]
+    },
+    {
+     "name": "Rook Check Left En Prise",
+     "desc": "A rook (or major piece acting as rook) gives check\u2014often sliding to an open file or rank\u2014and is left undefended after the king sidesteps. The checking major piece is simply captured for free.",
+     "fids": [
+      "f11",
+      "f39",
+      "f75",
+      "f100",
+      "f115",
+      "f183",
+      "f291",
+      "f581",
+      "f599",
+      "f645",
+      "f659",
+      "f668",
+      "f704",
+      "f788",
+      "f795"
+     ]
+    },
+    {
+     "name": "Knight/Bishop Check Hangs Itself",
+     "desc": "A minor piece (usually a knight fork-style jump or bishop diagonal lunge) or pawn delivers a flashy check but lands on an unprotected square where it is simply captured once the king moves.",
+     "fids": [
+      "f192",
+      "f269",
+      "f353",
+      "f569",
+      "f576",
+      "f607",
+      "f627",
+      "f694",
+      "f746",
+      "f782",
+      "f908",
+      "f959",
+      "f1022"
+     ]
+    },
+    {
+     "name": "Check Abandons the Fort",
+     "desc": "The checking piece itself may survive, but moving it to give check abandons defense of another (often more valuable) piece. The opponent escapes check and captures the newly undefended piece elsewhere.",
+     "fids": [
+      "f136",
+      "f170",
+      "f206",
+      "f296",
+      "f564",
+      "f670",
+      "f718",
+      "f824",
+      "f885",
+      "f916",
+      "f1003"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "Checking piece identity + whether the checker itself hangs vs. another piece is abandoned vs. a stronger check was missed",
+   "subgroups": [
+    {
+     "name": "Queen Walks Into Death",
+     "desc": "Queen gives a futile check (often a capture-check or premature opening/endgame check) and is left en prise on the checking square, losing itself.",
+     "fids": [
+      "f95",
+      "f101",
+      "f172",
+      "f180",
+      "f195",
+      "f207",
+      "f358",
+      "f408",
+      "f465",
+      "f654",
+      "f800",
+      "f801",
+      "f862",
+      "f880",
+      "f976"
+     ]
+    },
+    {
+     "name": "Rook Sacrifices Itself for Nothing",
+     "desc": "A rook (or occasionally queen acting as heavy piece) gives check\u2014often a capture-check on an open file\u2014but is left undefended and immediately captured. Hung piece is overwhelmingly 'major'.",
+     "fids": [
+      "f11",
+      "f39",
+      "f75",
+      "f100",
+      "f115",
+      "f183",
+      "f291",
+      "f581",
+      "f599",
+      "f645",
+      "f659",
+      "f668",
+      "f704",
+      "f788",
+      "f795"
+     ]
+    },
+    {
+     "name": "Knight/Bishop Check Hangs Itself",
+     "desc": "A minor piece (knight or bishop) or pawn gives a flashy check but lands on or passes through an undefended square where it is simply captured. Hung piece is predominantly 'minor' or 'pawn'.",
+     "fids": [
+      "f192",
+      "f269",
+      "f353",
+      "f564",
+      "f569",
+      "f576",
+      "f607",
+      "f670",
+      "f694",
+      "f782",
+      "f908",
+      "f959",
+      "f1022"
+     ]
+    },
+    {
+     "name": "Missed the Winning Check",
+     "desc": "Player FAILS to play a strong capture-check or sacrifice-check (Qx+, Nx+, Bxf7+, Rx+) that would win material or initiate a combination. The mistake is omission, not commission.",
+     "fids": [
+      "f52",
+      "f750",
+      "f806",
+      "f822",
+      "f929"
+     ]
+    },
+    {
+     "name": "Check Abandons the Fort",
+     "desc": "Player gives check with one piece but the checking move leaves a DIFFERENT (often bigger) piece undefended, or ignores free enemy material. Hung-piece distribution is spread across types or skewed toward major pieces left behind.",
+     "fids": [
+      "f136",
+      "f170",
+      "f206",
+      "f296",
+      "f627",
+      "f718",
+      "f746",
+      "f824",
+      "f839",
+      "f885",
+      "f905",
+      "f916",
+      "f1003"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "What mechanically goes wrong when giving the pointless check",
+   "subgroups": [
+    {
+     "name": "Missed the Killer Check",
+     "desc": "Best move WAS a forcing capture-check (Qx+, Nx+, Bxf7+, Rx+) the player failed to find, often playing a passive move that hung material instead. Drill: before every move, scan for captures that also give check.",
+     "fids": [
+      "f52",
+      "f750",
+      "f806",
+      "f929",
+      "f822"
+     ]
+    },
+    {
+     "name": "Suicidal Queen Check",
+     "desc": "Queen gives check (often a greedy capture-check or premature Qa5+/Qh5+) and is left en prise after the king steps away. The queen's power blinds the player to the landing square's safety. Drill: after every Q-check candidate, ask 'where does the king go, and does that square's neighbor attack my queen?'",
+     "fids": [
+      "f358",
+      "f408",
+      "f800",
+      "f180",
+      "f207",
+      "f465",
+      "f172",
+      "f801",
+      "f862",
+      "f101",
+      "f654",
+      "f880",
+      "f976",
+      "f195"
+     ]
+    },
+    {
+     "name": "Suicidal Rook Check",
+     "desc": "Rook (or generic major piece) lunges to give check on an open file/rank but lands on an undefended square where it is simply captured. Drill: before any R-check, verify the destination square is defended or the king has no escape that attacks the rook.",
+     "fids": [
+      "f183",
+      "f599",
+      "f668",
+      "f659",
+      "f704",
+      "f788",
+      "f581",
+      "f11",
+      "f39",
+      "f645",
+      "f115",
+      "f291",
+      "f795",
+      "f75",
+      "f100"
+     ]
+    },
+    {
+     "name": "Knight/Bishop Leaps to Doom",
+     "desc": "Minor piece (or pawn) hops to give a flashy check but lands on an unprotected square, or the checking move abandons defense of a bigger piece (queen/rook left hanging). Drill: for every N/B check, verify (a) the piece is defended on the landing square AND (b) nothing it was guarding is now loose.",
+     "fids": [
+      "f192",
+      "f569",
+      "f353",
+      "f607",
+      "f959",
+      "f694",
+      "f576",
+      "f782",
+      "f1022",
+      "f269",
+      "f296",
+      "f718"
+     ]
+    },
+    {
+     "name": "Check Reflex Over Winning Move",
+     "desc": "Player reflexively gives any check instead of the clearly superior move \u2014 capturing free material, advancing a passer, or playing a quiet winner. The check achieves nothing and often leaves own material loose. Drill: when you see a check, FIRST list all non-check candidate moves; only play the check if it concretely beats them.",
+     "fids": [
+      "f170",
+      "f670",
+      "f564",
+      "f916",
+      "f1003",
+      "f908",
+      "f95",
+      "f136",
+      "f627",
+      "f746",
+      "f839",
+      "f905",
+      "f824",
+      "f885",
+      "f206"
+     ]
+    }
+   ]
+  },
+  {
+   "sub_axis": "piece-role and error-direction (which piece kamikazes, what gets abandoned, or what forcing move was missed)",
+   "subgroups": [
+    {
+     "name": "Kamikaze Rook",
+     "desc": "Rook (or major piece) lunges in with check and is left en prise on the checking square, immediately lost.",
+     "fids": [
+      "f183",
+      "f599",
+      "f668",
+      "f659",
+      "f788",
+      "f581",
+      "f11",
+      "f39",
+      "f704",
+      "f645",
+      "f291",
+      "f115"
+     ]
+    },
+    {
+     "name": "Suicidal Queen",
+     "desc": "Queen gives check (often a greedy capture-check) and is herself left hanging and captured.",
+     "fids": [
+      "f358",
+      "f408",
+      "f800",
+      "f180",
+      "f207",
+      "f465"
+     ]
+    },
+    {
+     "name": "Minor Piece Kamikaze",
+     "desc": "Knight, bishop, or pawn gives a flashy check but the checking piece itself is immediately captured.",
+     "fids": [
+      "f192",
+      "f569",
+      "f353",
+      "f607",
+      "f694",
+      "f959",
+      "f576",
+      "f908",
+      "f269",
+      "f782",
+      "f1022"
+     ]
+    },
+    {
+     "name": "Abandoned Garrison",
+     "desc": "Player gives check with one piece but the move abandons defense of ANOTHER piece elsewhere, which is then captured.",
+     "fids": [
+      "f296",
+      "f718",
+      "f206",
+      "f564",
+      "f916",
+      "f795",
+      "f100",
+      "f170",
+      "f1003",
+      "f75",
+      "f136",
+      "f627",
+      "f746",
+      "f824",
+      "f822",
+      "f670",
+      "f95"
+     ]
+    },
+    {
+     "name": "Queen Tourist",
+     "desc": "Aimless or premature queen check that accomplishes nothing\u2014wastes tempo, misses captures, or drifts in endgames.",
+     "fids": [
+      "f101",
+      "f172",
+      "f801",
+      "f654",
+      "f880",
+      "f976",
+      "f862",
+      "f195",
+      "f839",
+      "f905",
+      "f885"
+     ]
+    },
+    {
+     "name": "Check Blindness",
+     "desc": "Player MISSED the winning check (Bxf7+, Nxe6+, Rxd8+) and instead played an inferior move that often hung material.",
+     "fids": [
+      "f52",
+      "f750",
+      "f806",
+      "f929"
+     ]
+    }
+   ]
+  }
+ ]
+}
