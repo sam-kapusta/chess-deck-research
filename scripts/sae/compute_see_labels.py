@@ -51,7 +51,7 @@ def one(m):
             out['any_hang'] = 1
             if wp in ('queen','rook'): out['hang_major'] = 1
             if wp in ('bishop','knight'): out['hang_minor'] = 1
-            out[f'hang_{wp}'] = out.get(f'hang_{wp}', 0) or 1 if wp in ('queen','rook','knight','bishop') else 0
+            if wp in ('queen','rook','knight','bishop'): out[f'hang_{wp}'] = 1
         cp = float(m.get('cp_loss') or 0); out['cp'] = cp; out['severe'] = int(cp >= 300)
         npc = len(b.piece_map())
         out['phase'] = 0 if npc <= 14 else 2 if b.fullmove_number <= 12 else 1   # 0=end,1=mid,2=open
