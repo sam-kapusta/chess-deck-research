@@ -2,35 +2,35 @@
  "buckets": [
   {
    "id": "greedy_capture",
-   "name": "Greedy Capture Backfires",
+   "name": "Greedy Capture",
    "subgroups": [
     {
      "old": "Queen Kamikaze",
-     "name": "Queen Captured After Greedy Take"
+     "name": "Greedy Queen Grab"
     },
     {
      "old": "Rook Into Recapture",
-     "name": "Rook Captured After Greedy Take"
+     "name": "Greedy Rook Grab"
     },
     {
      "old": "Minor Piece Self-Destructs",
-     "name": "Minor Piece Captured After Greedy Take"
+     "name": "Greedy Minor Piece Grab"
     },
     {
      "old": "Wrong Target",
-     "name": "Missed Stronger Tactic for Inferior Capture"
+     "name": "Inferior Capture Over Tactic"
     },
     {
      "old": "Capture Abandons Guard",
-     "name": "Capture Abandoned Key Defense"
+     "name": "Capture Abandons Defense"
     },
     {
      "old": "Passive Neglect Drops Piece",
-     "name": "Greedy Capture Ignored Active Threat"
+     "name": "Greedy Capture Ignores Threat"
     },
     {
      "old": "Greed Ignores Mate",
-     "name": "Greedy Capture Ignored Mate"
+     "name": "Greedy Capture Ignores Mate"
     }
    ]
   },
@@ -60,11 +60,11 @@
     },
     {
      "old": "The Opening Overreacher",
-     "name": "Opening Move Left Piece Hanging"
+     "name": "Opening Piece Hung"
     },
     {
      "old": "The Sleepwalker",
-     "name": "Quiet Move Left Piece Hanging"
+     "name": "Quiet Move Hangs Piece"
     }
    ]
   },
@@ -82,7 +82,7 @@
     },
     {
      "old": "Greed Goggles",
-     "name": "Missed Forcing Check for Greedy Capture"
+     "name": "Captured Instead of Checking"
     },
     {
      "old": "Queen Thunderbolt",
@@ -90,7 +90,7 @@
     },
     {
      "old": "Diagonal Dagger",
-     "name": "Missed Bishop Diagonal Mate"
+     "name": "Missed Diagonal Mate"
     },
     {
      "old": "Rook Hammer",
@@ -112,19 +112,19 @@
     },
     {
      "old": "Sleepwalking King",
-     "name": "Missed King Capture in Endgame"
+     "name": "Missed Endgame Capture"
     },
     {
      "old": "Pawn-Take Blindness",
-     "name": "Missed Pawn Capture of Hanging Piece"
+     "name": "Missed Pawn Capture"
     },
     {
      "old": "Autopilot Developer",
-     "name": "Missed Hanging Piece for Routine Move"
+     "name": "Routine Move Over Capture"
     },
     {
      "old": "Diagonal Blindspot",
-     "name": "Missed Hanging Piece on Diagonal"
+     "name": "Missed Diagonal Capture"
     },
     {
      "old": "Generic Piece Blindness",
@@ -162,11 +162,11 @@
     },
     {
      "old": "Missed Forcing Blow",
-     "name": "Missed Forcing Blow"
+     "name": "Missed Forcing Move"
     },
     {
      "old": "Sleepwalked Past a Win",
-     "name": "Missed Tactic for Quiet Move"
+     "name": "Quiet Move Over Tactic"
     }
    ]
   },
@@ -192,7 +192,7 @@
     },
     {
      "old": "Quiet Move While Piece Hangs",
-     "name": "Quiet Move Ignored Hanging Piece"
+     "name": "Quiet Move Over Capture"
     },
     {
      "old": "Knight Swap Blindness",
@@ -206,7 +206,7 @@
    "subgroups": [
     {
      "old": "Missed the Winning Capture",
-     "name": "Missed Winning Capture for Passive Move"
+     "name": "Passive Move Over Capture"
     },
     {
      "old": "Shuffled Pieces Going Nowhere",
@@ -214,7 +214,7 @@
     },
     {
      "old": "Blind to Checkmate",
-     "name": "Missed Mate During Routine Play"
+     "name": "Missed Mate While Passive"
     },
     {
      "old": "Autopilot Development",
@@ -222,25 +222,25 @@
     },
     {
      "old": "Drifted in a Won Position",
-     "name": "Passive Move in Won Position"
+     "name": "Passive in Won Position"
     }
    ]
   },
   {
    "id": "endgame_technique",
-   "name": "Endgame Technique Error",
+   "name": "Endgame Technique",
    "subgroups": [
     {
      "old": "King Wandered Off",
-     "name": "King Misplaced in Endgame"
+     "name": "King Misplaced"
     },
     {
      "old": "Lazy Rook",
-     "name": "Passive Rook in Endgame"
+     "name": "Passive Rook"
     },
     {
      "old": "Pushed Pawn Too Soon",
-     "name": "Premature Pawn Push in Endgame"
+     "name": "Premature Pawn Push"
     },
     {
      "old": "Forgot to Push",
@@ -248,11 +248,11 @@
     },
     {
      "old": "Missed the Kill Shot",
-     "name": "Missed Decisive Simplification"
+     "name": "Missed Simplification"
     },
     {
      "old": "Promotion Fumbler",
-     "name": "Mishandled Promotion Sequence"
+     "name": "Mishandled Promotion"
     }
    ]
   },
@@ -274,11 +274,11 @@
     },
     {
      "old": "Check Abandons the Fort",
-     "name": "Check Abandoned Key Defense"
+     "name": "Check Abandons Defense"
     },
     {
      "old": "Missed the Winning Check",
-     "name": "Wrong Piece Check"
+     "name": "Wrong Check"
     }
    ]
   },
@@ -322,11 +322,11 @@
     },
     {
      "old": "Flashy Check Hangs Everything",
-     "name": "Unsound Check Left Pieces Hanging"
+     "name": "Unsound Check"
     },
     {
      "old": "Promoted Into Enemy Fire",
-     "name": "Premature Promotion Into Capture"
+     "name": "Premature Promotion"
     },
     {
      "old": "Bishop Overreach",
@@ -334,7 +334,7 @@
     },
     {
      "old": "Greedy Grab Gets Punished",
-     "name": "Unsound Material Grab"
+     "name": "Unsound Grab"
     },
     {
      "old": "Premature Pawn Shove",
