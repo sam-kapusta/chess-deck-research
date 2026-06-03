@@ -48,7 +48,7 @@ def see_one(args):
     try:
         b = chess.Board(fen); mover = b.turn
         bm = chess.Move.from_uci(bl)
-        r = {'played_cap': b.is_capture(bm)}
+        r = {'played_cap': b.is_capture(bm), 'best_captured_piece': 'none'}
         # DESCRIPTIVE distributions (what the player did), not just composite metrics:
         mpc = b.piece_at(bm.from_square)
         r['moved_piece'] = PIECE.get(mpc.piece_type) if mpc else 'none'   # which piece the player moved
@@ -63,6 +63,7 @@ def see_one(args):
             bp = b.piece_at(mv.from_square); best_piece = PIECE.get(bp.piece_type) if bp else 'none'
             if best_cap:
                 tgt = mv.to_square; cap = b.piece_at(tgt)
+                r['best_captured_piece'] = PIECE.get(cap.piece_type) if cap else 'pawn'  # what Maia's move captures
                 cv = VAL.get(cap.piece_type, 1) if cap else 1
                 bb = b.copy(); bb.push(mv); best_win = max(0, cv - see(bb, tgt, not mover))
             else:
@@ -129,6 +130,7 @@ for f, idxs in feat_idx.items():
         'moved_piece_pct': {k: round(v/n, 3) for k, v in Counter(r['moved_piece'] for r in rs).most_common()},
         'captured_piece_pct': {k: round(v/n, 3) for k, v in Counter(r['captured_piece'] for r in rs).most_common()},
         'best_piece_pct': {k: round(v/n, 3) for k, v in Counter(r['best_piece'] for r in rs).most_common()},
+        'best_captured_piece_pct': {k: round(v/n, 3) for k, v in Counter(r['best_captured_piece'] for r in rs).most_common()},
     }
 json.dump(out, open(a.out, 'w'), indent=1)
 print(f"wrote {a.out} ({len(out)} features, top-{a.statn} SEE stats)", flush=True)
