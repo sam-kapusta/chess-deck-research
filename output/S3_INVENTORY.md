@@ -64,14 +64,22 @@ Dropping L2 (z-score only) nearly tripled coherent features (990 vs 350). These 
 
 | File | Size | Notes |
 |------|------|-------|
-| `btk_2048_k16_zscore.pt` | 17MB | **CURRENT BEST.** k=16, z-score only (NO L2). 990 coherent features (48%) by dual-axis SEE probe. UNLABELED — relabel pending (both-axes prompt). Eval: z-score input, NO L2, calibrated threshold. |
+| `btk_2048_k16_zscore.pt` | 17MB | k=16, z-score only (NO L2). 990 coherent (48%) by dual-axis SEE probe. SUPERSEDED as the pick (see k-sweep below) but kept. |
 | `btk_2048_k16_zscore_stats.json` | 43KB | mean/std for z-score normalization. |
-| `btk_2048_k32_zscore.pt` | 17MB | k=32 z-score comparison. 786 coherent (38%) — worse than k=16. Kept for the documented k-comparison. |
+| `btk_2048_k32_zscore.pt` | 17MB | k=32 z-score comparison. 786 coherent (38%). |
 
 **Normalization for these: z-score ONLY (do NOT L2-normalize at inference).** This is a deliberate divergence from SandstonePersonas (which uses z-score+L2) — chess diffs are magnitude-meaningful (severity), customer embeddings aren't. See `output/blob_experiments_report.md` § DECISIVE COMPARISON.
 
+**k-sweep (2026-06-02): k=6 is the sweet spot, not k=16.** Full z-score-only sweep + sparse probing
+(3 independent methods) chose `btk_2048_k6_nol2.pt`. Mass-band 0.1–10% = 61.5% (most among 0-dead
+models); raw-Gini U-shaped min at k6; sparse-probe concept-isolation flat/decreasing above k6 (k16
+splits hang_queen 0.81→0.70@1). See `plan.md` Current State + `log.md` 2026-06-02 (cont.).
+
 **Notebook-only experiment models (reproducible from `scripts/sae/train_maia3_sae.py` + cache, NOT in S3):**
-k-sweep `btk_2048_k{4,8,12,24}_v2_weights.pt` (z-score+L2), corpus-subsamples `btk_2048_k16_{42,84,126}k.pt`, `btk_2048_k16_raw.pt`, `btk_2048_k8_nol2.pt` (in progress). Regenerate via documented args in `blob_experiments_report.md` if needed.
+- z-score-only sweep: `btk_2048_k{4,6,8,10,12,16,32}_nol2.pt` — **k6 is the chosen model.**
+- dict-size: `btk_1024_k{4,6,8}_nol2.pt` (d1024_k4 = 0 dead, 452 feats, recovers k4 concentration).
+- older: k-sweep `btk_2048_k{4,8,12,24}_v2_weights.pt` (z-score+L2), corpus-subsamples `btk_2048_k16_{42,84,126}k.pt`, `btk_2048_k16_raw.pt`.
+Regenerate via `--no-l2 --no-val-split --n-batches-to-dead 126 --seed 42` (args in `blob_experiments_report.md`).
 
 ### Diff SAEs — `[S3]` `sae/maia3/`
 | File | Size | Notes |
@@ -109,6 +117,9 @@ k-sweep `btk_2048_k{4,8,12,24}_v2_weights.pt` (z-score+L2), corpus-subsamples `b
 | `sae/maia_labels/maia_2048_k32_final_labels.json` (+ haiku/sonnet/concept variants) | [S3] | Older Maia label passes. |
 | `output/taxonomy_v2/taxonomy_v2.json` | [git] | **Ship artifact:** 1,996 features → 20 coaching categories + chips. See knowledge.md § Taxonomy. |
 | `output/labels_matryoshka_v2_H1_top32.json` | [git] | 32 top-level v2 features labeled (conf 62–91). |
+| `all_positions_labeled_opus.json` | [notebook] | **54,763** Opus-4.6 per-position analyses (position_description, tactical_motif, tags, blunder_summary, refutation). Keyed `FEN\|move`. Shared across all SAE variants. Grows via `label_positions_btk.py`. |
+| `sae/labels/fused_names_k4.json` | [S3] | k4 fused feature names (Opus motif + SEE facts) + top-10 w/ full Opus analysis. 1075/1097 named. Slim (no top10) in git: `output/fused_names_k4_slim.json`. |
+| `sae/eval/sparse_probe_results.json` | [S3] | k-sparse probe (SEE concepts × k4/6/8/16), bal_acc/F1 @p=1..32. Slim in git: `output/eval/sparse_probe_results.json`. `see_labels_168k.npz` (notebook) = the 168k SEE ground-truth concept labels. |
 
 ## 4. Stockfish / enrichment data
 
