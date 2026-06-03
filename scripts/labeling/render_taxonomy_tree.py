@@ -90,15 +90,22 @@ parts.append(f"<header><h1>d1024_k4 mistake taxonomy — {len(tree)} buckets · 
              f"<div class=sub>click to expand · <span class=legend><span class=r>red = played (blunder)</span> "
              f"<span class=g>green = Maia top move (elo 2600, not necessarily engine-best)</span></span></div></header>")
 
+PIECE_ORDER = {'queen': 0, 'rook': 1, 'bishop': 2, 'knight': 3, 'minor': 3, 'pawn': 4, 'king': 5, 'none': 9, '?': 9}
+def dom_piece(f):
+    s = st.get('f'+f) or st.get(f) or {}
+    mp = s.get('moved_piece_pct', {})
+    return max(mp, key=mp.get) if mp else '?'
 for bk in bucket_order:
     if bk not in tree: continue
-    subs = tree[bk]; total = sum(len(v) for v in subs.values())
+    subs = tree[bk]
+    # flatten: all features in this bucket, sorted by (dominant moved-piece, then fire-rate desc)
+    fids_all = [f for sub in subs for f in subs[sub]]
+    fids_all.sort(key=lambda f: (PIECE_ORDER.get(dom_piece(f), 9),
+                                 -(st.get('f'+f, st.get(f, {})).get('fire_rate', 0))))
+    total = len(fids_all)
     parts.append(f"<details class=bucket><summary>{esc(bk)} <span class=cnt>{total} features</span></summary>")
-    ordered_subs = [s for s in sub_order.get(bk, []) if s in subs] + [s for s in subs if s not in sub_order.get(bk, [])]
-    for sub in ordered_subs:
-        fids = sorted(subs[sub], key=lambda f: -(st.get('f'+f, st.get(f, {})).get('fire_rate', 0)))
-        parts.append(f"<details class=sub><summary>{esc(sub)} <span class=cnt>{len(fids)}</span></summary>")
-        for f in fids:
+    if True:
+        for f in fids_all:
             a_ = d[f]['analysis']; s = st.get('f'+f) or st.get(f) or {}
             def top2(dist):
                 if not dist: return '—'
@@ -126,7 +133,6 @@ for bk in bucket_order:
                 best = best_map.get(ex['fen'] + '|' + ex['uci'], '')
                 parts.append(board_cell(ex['fen'], ex['uci'], best))
             parts.append("</div></div>")
-        parts.append("</details>")
     parts.append("</details>")
 open(a.out, 'w').write('\n'.join(parts))
 print(f"wrote {a.out} — {len(tree)} buckets, {nfeat} features")
