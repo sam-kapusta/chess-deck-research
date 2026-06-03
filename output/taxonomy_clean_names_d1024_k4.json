@@ -2,7 +2,7 @@
  "buckets": [
   {
    "id": "greedy_capture",
-   "name": "Losing Capture",
+   "name": "Greedy Capture Backfires",
    "subgroups": [
     {
      "old": "Queen Kamikaze",
@@ -10,15 +10,15 @@
     },
     {
      "old": "Rook Into Recapture",
-     "name": "Rook Lost to Recapture"
+     "name": "Rook Captured After Greedy Take"
     },
     {
      "old": "Minor Piece Self-Destructs",
-     "name": "Minor Piece Lost After Greedy Capture"
+     "name": "Minor Piece Captured After Greedy Take"
     },
     {
      "old": "Wrong Target",
-     "name": "Captured Wrong Piece"
+     "name": "Missed Stronger Tactic for Inferior Capture"
     },
     {
      "old": "Capture Abandons Guard",
@@ -26,33 +26,33 @@
     },
     {
      "old": "Passive Neglect Drops Piece",
-     "name": "Quiet Move Ignores Active Threat"
+     "name": "Greedy Capture Ignored Active Threat"
     },
     {
      "old": "Greed Ignores Mate",
-     "name": "Captured Material Instead of Mating"
+     "name": "Greedy Capture Ignored Mate"
     }
    ]
   },
   {
    "id": "hung_own_piece",
-   "name": "Hung a Piece",
+   "name": "Left Piece Hanging",
    "subgroups": [
     {
      "old": "The Queen Dropper",
-     "name": "Hung the Queen"
+     "name": "Left Queen Hanging"
     },
     {
      "old": "The Rook Gifter",
-     "name": "Hung a Rook"
+     "name": "Left Rook Hanging"
     },
     {
      "old": "The Minor Piece Abandoner",
-     "name": "Hung a Minor Piece"
+     "name": "Left Minor Piece Hanging"
     },
     {
      "old": "The Pawn Forgetter",
-     "name": "Hung a Pawn"
+     "name": "Left Pawn Hanging"
     },
     {
      "old": "The Exchange Dodger",
@@ -60,21 +60,21 @@
     },
     {
      "old": "The Opening Overreacher",
-     "name": "Overextended in the Opening"
+     "name": "Opening Move Left Piece Hanging"
     },
     {
      "old": "The Sleepwalker",
-     "name": "Ignored Already Hanging Piece"
+     "name": "Quiet Move Left Piece Hanging"
     }
    ]
   },
   {
    "id": "missed_check_mate",
-   "name": "Missed Check or Checkmate",
+   "name": "Missed Check or Mate",
    "subgroups": [
     {
      "old": "Fork Knight",
-     "name": "Missed Knight Fork or Check"
+     "name": "Missed Knight Fork Check"
     },
     {
      "old": "Mate Blind",
@@ -82,7 +82,7 @@
     },
     {
      "old": "Greed Goggles",
-     "name": "Captured Instead of Forcing Check"
+     "name": "Missed Forcing Check for Greedy Capture"
     },
     {
      "old": "Queen Thunderbolt",
@@ -90,21 +90,21 @@
     },
     {
      "old": "Diagonal Dagger",
-     "name": "Missed Diagonal Check or Discovery"
+     "name": "Missed Bishop Diagonal Mate"
     },
     {
      "old": "Rook Hammer",
-     "name": "Missed Rook Check or Back-Rank Mate"
+     "name": "Missed Back-Rank Mate"
     },
     {
      "old": "Check Reflex Failure",
-     "name": "Failed to Consider Forcing Checks"
+     "name": "Missed Forcing Check"
     }
    ]
   },
   {
    "id": "missed_hanging_piece",
-   "name": "Missed Free Piece",
+   "name": "Missed Hanging Piece",
    "subgroups": [
     {
      "old": "Queen Blindness",
@@ -112,23 +112,23 @@
     },
     {
      "old": "Sleepwalking King",
-     "name": "King Failed to Capture Adjacent Piece"
+     "name": "Missed King Capture in Endgame"
     },
     {
      "old": "Pawn-Take Blindness",
-     "name": "Missed Pawn Capture of Free Piece"
+     "name": "Missed Pawn Capture of Hanging Piece"
     },
     {
      "old": "Autopilot Developer",
-     "name": "Developed Instead of Capturing"
+     "name": "Missed Hanging Piece for Routine Move"
     },
     {
      "old": "Diagonal Blindspot",
-     "name": "Missed Diagonal Capture"
+     "name": "Missed Hanging Piece on Diagonal"
     },
     {
      "old": "Generic Piece Blindness",
-     "name": "Missed Undefended Piece"
+     "name": "Missed Hanging Piece"
     }
    ]
   },
@@ -138,7 +138,7 @@
    "subgroups": [
     {
      "old": "Knight Fork Blind",
-     "name": "Missed Winning Knight Fork"
+     "name": "Missed Knight Fork"
     },
     {
      "old": "Pawn Breakthrough Missed",
@@ -146,7 +146,7 @@
     },
     {
      "old": "Rook Invasion Missed",
-     "name": "Missed Winning Rook Penetration"
+     "name": "Missed Rook Invasion"
     },
     {
      "old": "Queen Trap Missed",
@@ -154,19 +154,19 @@
     },
     {
      "old": "Bishop Diagonal Missed",
-     "name": "Missed Bishop Diagonal Tactic"
+     "name": "Missed Bishop Tactic"
     },
     {
      "old": "Blind to Captures",
-     "name": "Missed Simple Winning Capture"
+     "name": "Missed Winning Capture"
     },
     {
      "old": "Missed Forcing Blow",
-     "name": "Missed Decisive Forcing Move"
+     "name": "Missed Forcing Blow"
     },
     {
      "old": "Sleepwalked Past a Win",
-     "name": "Quiet Move Instead of Winning Tactic"
+     "name": "Missed Tactic for Quiet Move"
     }
    ]
   },
@@ -176,27 +176,27 @@
    "subgroups": [
     {
      "old": "Ducked the Queen Trade",
-     "name": "Declined Necessary Queen Trade"
+     "name": "Declined Queen Trade"
     },
     {
      "old": "Bishop Staring Contest",
-     "name": "Left Bishop Tension Unresolved"
+     "name": "Unresolved Bishop Tension"
     },
     {
      "old": "Pawn Tension Left to Rot",
-     "name": "Ignored Critical Pawn Tension"
+     "name": "Unresolved Pawn Tension"
     },
     {
      "old": "Rook Trade Ducked",
-     "name": "Declined Necessary Rook Exchange"
+     "name": "Declined Rook Trade"
     },
     {
      "old": "Quiet Move While Piece Hangs",
-     "name": "Quiet Move While Piece En Prise"
+     "name": "Quiet Move Ignored Hanging Piece"
     },
     {
      "old": "Knight Swap Blindness",
-     "name": "Left Knight Exchange Unresolved"
+     "name": "Unresolved Knight Tension"
     }
    ]
   },
@@ -206,7 +206,7 @@
    "subgroups": [
     {
      "old": "Missed the Winning Capture",
-     "name": "Missed Winning Capture for Quiet Move"
+     "name": "Missed Winning Capture for Passive Move"
     },
     {
      "old": "Shuffled Pieces Going Nowhere",
@@ -214,15 +214,15 @@
     },
     {
      "old": "Blind to Checkmate",
-     "name": "Missed Mating Attack While Drifting"
+     "name": "Missed Mate During Routine Play"
     },
     {
      "old": "Autopilot Development",
-     "name": "Routine Development Instead of Action"
+     "name": "Autopilot Development"
     },
     {
      "old": "Drifted in a Won Position",
-     "name": "Failed to Convert Winning Position"
+     "name": "Passive Move in Won Position"
     }
    ]
   },
@@ -240,7 +240,7 @@
     },
     {
      "old": "Pushed Pawn Too Soon",
-     "name": "Premature Pawn Advance"
+     "name": "Premature Pawn Push in Endgame"
     },
     {
      "old": "Forgot to Push",
@@ -262,23 +262,23 @@
    "subgroups": [
     {
      "old": "Suicidal Queen Check",
-     "name": "Queen Check Lost to Recapture"
+     "name": "Pointless Queen Check"
     },
     {
      "old": "Rook Check Hangs Itself",
-     "name": "Rook Check Left En Prise"
+     "name": "Pointless Rook Check"
     },
     {
      "old": "Knight/Bishop Check Into Capture",
-     "name": "Minor Piece Check Into Capture"
+     "name": "Pointless Minor Piece Check"
     },
     {
      "old": "Check Abandons the Fort",
-     "name": "Check Removed Key Defender"
+     "name": "Check Abandoned Key Defense"
     },
     {
      "old": "Missed the Winning Check",
-     "name": "Wrong Check Instead of Winning Check"
+     "name": "Wrong Piece Check"
     }
    ]
   },
@@ -300,17 +300,17 @@
     },
     {
      "old": "Missed Piece Invasion",
-     "name": "Missed Piece Invasion to Dominant Square"
+     "name": "Missed Piece Invasion"
     },
     {
      "old": "Missed Tactical Shot",
-     "name": "Missed Non-Forcing Tactical Win"
+     "name": "Missed Quiet Tactical Shot"
     }
    ]
   },
   {
    "id": "premature_aggression",
-   "name": "Premature Aggression",
+   "name": "Unsound Aggression",
    "subgroups": [
     {
      "old": "Yolo Nxf7 Sacrifice",
@@ -318,11 +318,11 @@
     },
     {
      "old": "Knight Jumped Into Thin Air",
-     "name": "Knight Jumped Into Capture"
+     "name": "Unsound Knight Lunge"
     },
     {
      "old": "Flashy Check Hangs Everything",
-     "name": "Showy Check Hung Material"
+     "name": "Unsound Check Left Pieces Hanging"
     },
     {
      "old": "Promoted Into Enemy Fire",
@@ -330,11 +330,11 @@
     },
     {
      "old": "Bishop Overreach",
-     "name": "Bishop Overextended and Trapped"
+     "name": "Unsound Bishop Lunge"
     },
     {
      "old": "Greedy Grab Gets Punished",
-     "name": "Impulsive Grab Punished Tactically"
+     "name": "Unsound Material Grab"
     },
     {
      "old": "Premature Pawn Shove",
