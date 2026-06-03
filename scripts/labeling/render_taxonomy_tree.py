@@ -7,7 +7,7 @@ Usage (local): python render_taxonomy_tree.py --boards 3 --out output/atlas/taxo
 import json, argparse, chess, chess.svg
 from collections import defaultdict
 ap = argparse.ArgumentParser()
-ap.add_argument('--boards', type=int, default=3)
+ap.add_argument('--boards', type=int, default=10)
 ap.add_argument('--out', required=True)
 a = ap.parse_args()
 
@@ -31,22 +31,33 @@ sub_order = {b['name']: [sg['name'] for sg in b.get('subgroups', [])] for b in c
 
 def esc(s): return (str(s) or '').replace('&','&amp;').replace('<','&lt;').replace('>','&gt;')
 
-def board_svg(fen, uci, best_uci):
+def board_cell(fen, uci, best_uci):
+    """SVG board + a per-board caption: played move (what it captures), Maia move (type)."""
     try:
-        b = chess.Board(fen); arrows = []; lastmove = None
+        b = chess.Board(fen); arrows = []; lastmove = None; cap_txt = ''; best_txt = ''
         try:
             mv = chess.Move.from_uci(uci); lastmove = mv
             arrows.append(chess.svg.Arrow(mv.from_square, mv.to_square, color='#cc2b2b'))
-        except Exception: pass
+            psan = b.san(mv)
+            if b.is_capture(mv):
+                tgt = b.piece_at(mv.to_square)
+                cap_txt = f"{psan} ×{chess.piece_name(tgt.piece_type) if tgt else 'pawn'}"
+            else:
+                cap_txt = f"{psan} (quiet)"
+        except Exception: psan = uci; cap_txt = uci
         if best_uci and len(best_uci) >= 4:
             try:
                 bm = chess.Move.from_uci(best_uci)
                 arrows.append(chess.svg.Arrow(bm.from_square, bm.to_square, color='#2b8a3e'))
+                kind = 'capture' if b.is_capture(bm) else 'check' if b.gives_check(bm) else 'quiet'
+                best_txt = f"Maia: {b.san(bm)} ({kind})"
             except Exception: pass
-        return chess.svg.board(b, size=210, arrows=arrows, lastmove=lastmove,
-                               orientation=chess.WHITE if b.turn == chess.WHITE else chess.BLACK)
+        svg = chess.svg.board(b, size=200, arrows=arrows, lastmove=lastmove,
+                              orientation=chess.WHITE if b.turn == chess.WHITE else chess.BLACK)
+        cap = f"<div class=bc><span class=r>{esc(cap_txt)}</span>" + (f" · <span class=g>{esc(best_txt)}</span>" if best_txt else "") + "</div>"
+        return f"<div class=cell>{svg}{cap}</div>"
     except Exception:
-        return '<div>bad fen</div>'
+        return '<div class=cell>bad fen</div>'
 
 # best_uci lookup from profiles? profiles only have fen,uci(blunder). best from feature labels? use cache-less: skip best arrow if unknown
 CSS = """
@@ -65,8 +76,11 @@ summary::-webkit-details-marker{display:none}
 .feat .fn{font-size:13px;color:#e6e6e6;margin-bottom:2px}
 .feat .fl{font-size:11px;color:#8b95a3;margin-bottom:6px}
 .feat .mech{font-size:10px;color:#c9a227}
-.boards{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}
+.boards{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.cell{width:200px}
+.bc{font-size:10px;color:#9aa4b2;margin-top:2px;line-height:1.3}
 .legend{font-size:11px}.legend .r{color:#ff8a8a}.legend .g{color:#7ee2a0}
+.r{color:#ff8a8a}.g{color:#7ee2a0}
 """
 parts = [f"<!doctype html><meta charset=utf-8><title>Taxonomy — d1024_k4</title><style>{CSS}</style>"]
 nfeat = sum(len(f) for bk in tree.values() for f in bk.values())
@@ -84,13 +98,19 @@ for bk in bucket_order:
         parts.append(f"<details class=sub><summary>{esc(sub)} <span class=cnt>{len(fids)}</span></summary>")
         for f in fids:
             a_ = d[f]['analysis']; s = st.get('f'+f) or st.get(f) or {}
+            pd = s.get('own_hang_piece_dist', {})
+            pdtxt = ', '.join(f"{k} {v}" for k, v in sorted(pd.items(), key=lambda x: -x[1])) if pd else '—'
+            mech = (f"missed-winning-material {s.get('best_wins_material_pct',0)*100:.0f}% · "
+                    f"hung-own-piece {s.get('blunder_hangs_own_pct',0)*100:.0f}% (med {s.get('own_hang_median',0)}; {pdtxt}) · "
+                    f"best-is-check {s.get('best_is_check_pct',0)*100:.0f}% · best-is-capture {s.get('best_is_capture_pct',0)*100:.0f}% · "
+                    f"fires {s.get('fire_rate',0)*100:.1f}% of corpus")
             parts.append(f"<div class=feat><div class=fn>f{f} — {esc(a_['chip'])}</div>"
                          f"<div class=fl>{esc(a_.get('label',''))}</div>"
-                         f"<div class=mech>bw {s.get('best_wins_material_pct',0)} · oh {s.get('blunder_hangs_own_pct',0)} · chk {s.get('best_is_check_pct',0)} · fires {s.get('fire_rate',0)*100:.1f}%</div>"
+                         f"<div class=mech>{mech}</div>"
                          f"<div class=boards>")
             for ex in prof.get(f, {}).get('examples', [])[:a.boards]:
                 best = best_map.get(ex['fen'] + '|' + ex['uci'], '')
-                parts.append(board_svg(ex['fen'], ex['uci'], best))
+                parts.append(board_cell(ex['fen'], ex['uci'], best))
             parts.append("</div></div>")
         parts.append("</details>")
     parts.append("</details>")
