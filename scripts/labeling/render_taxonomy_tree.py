@@ -111,8 +111,9 @@ for bk in bucket_order:
                         f"moved {top2(sg.get('moved_piece_pct',{}))} · captured {top2(sg.get('captured_piece_pct',{}))} · "
                         f"played-check {sg.get('played_is_check_pct',0)*100:.0f}% · "
                         f"Maia {top2(sg.get('best_piece_pct',{}))} captures {top2(sg.get('best_captured_piece_pct',{}))} · "
-                        f"hung-own {sg.get('blunder_hangs_own_pct',0)*100:.0f}% ({topn(sg.get('own_hang_piece_dist',{}))}) · "
-                        f"missed-material {sg.get('best_wins_material_pct',0)*100:.0f}% · phase {top2(sg.get('phase_pct',{}))}")
+                        f"material {top2(sg.get('material_kind_pct',{}))} (net {sg.get('net_material_median','?')}) · "
+                        f"missed-material {sg.get('best_wins_material_pct',0)*100:.0f}% · phase {top2(sg.get('phase_pct',{}))}<br>"
+                        f"&nbsp;&nbsp;<b>trajectory:</b> {top2({k:v for k,v in sg.get('trajectory_pct',{}).items() if k!='?->?'})} · eval-drop {sg.get('eval_drop_median','?')}cp")
             mech = (sig_line(s, '≥0.7·max') + "<br>" + sig_line(s.get('at_0.8'), '≥0.8·max') + "<br>"
                     f"<b>fires on</b> {int(s.get('fire_rate',0)*168132):,} of 168,132 positions ({s.get('fire_rate',0)*100:.1f}%) · max-act {s.get('max_act','?')}")
             parts.append(f"<div class=feat><div class=fn>f{f} — {esc(a_['chip'])}</div>"
