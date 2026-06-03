@@ -98,7 +98,7 @@ print(f"{a.model}: {len(live)} live, computing SEE-both over top-{a.statn} each"
 # at >= frac of ITS OWN max activation. A feature is monosemantic at its peak and noisy in
 # its tail (the global threshold / top-N over-weights weak activations and dilutes the signature).
 # We compute two cohorts: CORE (>=0.7 max, stable %s) and PEAK (>=0.85 max, pure signature).
-CORE_FRAC = 0.7; PEAK_FRAC = 0.85; CAP = 1500  # cap positions per feature for SEE compute
+CORE_FRAC = 0.7; PEAK_FRAC = 0.8; CAP = 1500  # cohorts: >=0.7max and >=0.8max of feature's own max activation
 feat_idx = {}; feat_maxact = {}; allpos = {}
 for f in live:
     col = ACT[:, f]; mx = col.max()
@@ -151,8 +151,8 @@ for f, idxs in feat_idx.items():
     rec = dict(core)                                    # top-level = CORE (>=0.7) for back-compat
     rec['fire_rate'] = round(float(fire[f]), 4)
     rec['max_act'] = round(mx, 3)
-    rec['cohort'] = f'>={CORE_FRAC}max'
-    rec['peak'] = signature(peak_rs)                    # nested PEAK (>=0.85) signature
+    rec['cohort'] = f'>={CORE_FRAC}max'              # top-level stats = >=0.7max cohort
+    rec['at_0.8'] = signature(peak_rs)                  # nested stats = >=0.8max cohort
     out[f"f{f}"] = rec
 json.dump(out, open(a.out, 'w'), indent=1)
 ncore = np.mean([v['n'] for v in out.values()])
