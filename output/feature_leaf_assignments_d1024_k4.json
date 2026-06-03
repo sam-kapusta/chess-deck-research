@@ -1,0 +1,5102 @@
+{
+ "86": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "88": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Pawn Promotion"
+ },
+ "97": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Pawn Promotion"
+ },
+ "173": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "359": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Pawn Promotion"
+ },
+ "377": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Pawn Promotion"
+ },
+ "325": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Piece Invasion"
+ },
+ "340": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Winning Endgame Maneuver"
+ },
+ "124": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "149": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "394": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Winning Endgame Maneuver"
+ },
+ "419": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Winning Endgame Maneuver"
+ },
+ "430": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Winning Endgame Maneuver"
+ },
+ "9": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "8": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Pawn Breakthrough"
+ },
+ "29": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "62": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "229": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "475": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "284": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Winning Endgame Maneuver"
+ },
+ "302": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "239": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Winning Endgame Maneuver"
+ },
+ "517": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Pawn Breakthrough"
+ },
+ "537": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Pawn Promotion"
+ },
+ "516": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "611": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "628": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Pawn Promotion"
+ },
+ "619": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Pawn Breakthrough"
+ },
+ "836": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Pawn Breakthrough"
+ },
+ "827": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Winning Endgame Maneuver"
+ },
+ "648": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "643": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Winning Endgame Maneuver"
+ },
+ "663": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "899": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Pawn Promotion"
+ },
+ "902": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Pawn Promotion"
+ },
+ "881": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "740": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Pawn Breakthrough"
+ },
+ "754": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Winning Endgame Maneuver"
+ },
+ "705": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Pawn Promotion"
+ },
+ "707": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Piece Invasion"
+ },
+ "712": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Winning Endgame Maneuver"
+ },
+ "1011": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "987": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Piece Invasion"
+ },
+ "1002": {
+  "bucket": "missed_quiet_win",
+  "bucket_name": "Missed Quiet Win",
+  "sub": "Missed Quiet Tactical Shot"
+ },
+ "94": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Material Grab"
+ },
+ "118": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Knight Lunge"
+ },
+ "168": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Knight Lunge"
+ },
+ "387": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Bishop Lunge"
+ },
+ "328": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Check Left Pieces Hanging"
+ },
+ "336": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Check Left Pieces Hanging"
+ },
+ "134": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Sacrifice on f7"
+ },
+ "147": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Sacrifice on f7"
+ },
+ "412": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Sacrifice on f7"
+ },
+ "435": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Material Grab"
+ },
+ "26": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Knight Lunge"
+ },
+ "54": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Sacrifice on f7"
+ },
+ "64": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Check Left Pieces Hanging"
+ },
+ "221": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Material Grab"
+ },
+ "472": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Material Grab"
+ },
+ "250": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Sacrifice on f7"
+ },
+ "275": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Bishop Lunge"
+ },
+ "554": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Promotion Into Capture"
+ },
+ "556": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Promotion Into Capture"
+ },
+ "558": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Sacrifice on f7"
+ },
+ "514": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Check Left Pieces Hanging"
+ },
+ "506": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Promotion Into Capture"
+ },
+ "522": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Sacrifice on f7"
+ },
+ "583": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Check Left Pieces Hanging"
+ },
+ "787": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Knight Lunge"
+ },
+ "636": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Sacrifice on f7"
+ },
+ "833": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Bishop Lunge"
+ },
+ "664": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Bishop Lunge"
+ },
+ "682": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Check Left Pieces Hanging"
+ },
+ "914": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Material Grab"
+ },
+ "927": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Sacrifice on f7"
+ },
+ "957": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Pawn Push"
+ },
+ "735": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Promotion Into Capture"
+ },
+ "698": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Bishop Lunge"
+ },
+ "725": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Knight Lunge"
+ },
+ "1014": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Check Left Pieces Hanging"
+ },
+ "960": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Knight Lunge"
+ },
+ "989": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Knight Lunge"
+ },
+ "997": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Unsound Knight Lunge"
+ },
+ "1004": {
+  "bucket": "premature_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature Pawn Push"
+ },
+ "100": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "95": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "101": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "170": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "172": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "183": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "180": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "192": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Minor Piece Check"
+ },
+ "195": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "353": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Minor Piece Check"
+ },
+ "358": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "115": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "136": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "408": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "11": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "39": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "52": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "75": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "206": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "207": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "465": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "296": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Check Abandoned Key Defense"
+ },
+ "291": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "269": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Minor Piece Check"
+ },
+ "564": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "569": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Minor Piece Check"
+ },
+ "576": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Minor Piece Check"
+ },
+ "581": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "599": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "750": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "782": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "788": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "795": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "800": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "801": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "607": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Minor Piece Check"
+ },
+ "627": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "645": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "806": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "822": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "824": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "839": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "654": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "659": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "670": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "668": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "885": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "905": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "908": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Minor Piece Check"
+ },
+ "916": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "862": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "880": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "929": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "959": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Minor Piece Check"
+ },
+ "746": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Check Abandoned Key Defense"
+ },
+ "694": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Minor Piece Check"
+ },
+ "704": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Rook Check"
+ },
+ "718": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Check Abandoned Key Defense"
+ },
+ "1022": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "976": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless Queen Check"
+ },
+ "1003": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Wrong Piece Check"
+ },
+ "93": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "110": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "107": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "159": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "191": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "380": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "363": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Move in Won Position"
+ },
+ "369": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "382": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Aimless Piece Shuffling"
+ },
+ "383": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "346": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "332": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Autopilot Development"
+ },
+ "137": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Autopilot Development"
+ },
+ "139": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "150": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "398": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "418": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Aimless Piece Shuffling"
+ },
+ "444": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Autopilot Development"
+ },
+ "0": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "46": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "61": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Aimless Piece Shuffling"
+ },
+ "63": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "218": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Aimless Piece Shuffling"
+ },
+ "449": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Aimless Piece Shuffling"
+ },
+ "293": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Aimless Piece Shuffling"
+ },
+ "312": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Move in Won Position"
+ },
+ "306": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Autopilot Development"
+ },
+ "220": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "252": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "273": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Aimless Piece Shuffling"
+ },
+ "540": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Autopilot Development"
+ },
+ "549": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Autopilot Development"
+ },
+ "543": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "555": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "489": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "478": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "493": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Aimless Piece Shuffling"
+ },
+ "504": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Mate During Routine Play"
+ },
+ "508": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "513": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Move in Won Position"
+ },
+ "563": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Aimless Piece Shuffling"
+ },
+ "582": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "573": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "632": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Aimless Piece Shuffling"
+ },
+ "830": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Autopilot Development"
+ },
+ "823": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "662": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Move in Won Position"
+ },
+ "646": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Aimless Piece Shuffling"
+ },
+ "888": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Aimless Piece Shuffling"
+ },
+ "910": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Autopilot Development"
+ },
+ "843": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "849": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Mate During Routine Play"
+ },
+ "845": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Mate During Routine Play"
+ },
+ "876": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Aimless Piece Shuffling"
+ },
+ "950": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Aimless Piece Shuffling"
+ },
+ "732": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Autopilot Development"
+ },
+ "727": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Move in Won Position"
+ },
+ "744": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Mate During Routine Play"
+ },
+ "695": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "716": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Autopilot Development"
+ },
+ "1013": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "994": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "966": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Missed Winning Capture for Passive Move"
+ },
+ "977": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Aimless Piece Shuffling"
+ },
+ "991": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Move in Won Position"
+ },
+ "74": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "81": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "98": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "102": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "116": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "158": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "185": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "182": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "371": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "372": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "374": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Rook Trade"
+ },
+ "391": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "320": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "326": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "314": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Knight Tension"
+ },
+ "333": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "343": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "125": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "129": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "414": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Queen Trade"
+ },
+ "415": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Queen Trade"
+ },
+ "421": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "427": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Queen Trade"
+ },
+ "440": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "17": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "5": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Queen Trade"
+ },
+ "20": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "25": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "57": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Knight Tension"
+ },
+ "79": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Queen Trade"
+ },
+ "80": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "197": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Rook Trade"
+ },
+ "222": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Rook Trade"
+ },
+ "233": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Queen Trade"
+ },
+ "244": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Knight Tension"
+ },
+ "426": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "463": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "470": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "295": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "240": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Rook Trade"
+ },
+ "251": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Knight Tension"
+ },
+ "245": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "261": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Knight Tension"
+ },
+ "544": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Queen Trade"
+ },
+ "483": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "477": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "492": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "572": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "565": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "598": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Knight Tension"
+ },
+ "769": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "781": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "614": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "612": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "634": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "804": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Knight Tension"
+ },
+ "818": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "832": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Queen Trade"
+ },
+ "639": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "674": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Queen Trade"
+ },
+ "892": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Rook Trade"
+ },
+ "921": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "850": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Rook Trade"
+ },
+ "859": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Rook Trade"
+ },
+ "840": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "866": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "898": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "951": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Queen Trade"
+ },
+ "942": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "730": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "760": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "690": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Queen Trade"
+ },
+ "683": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Rook Trade"
+ },
+ "696": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Rook Trade"
+ },
+ "711": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Pawn Tension"
+ },
+ "713": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "1005": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "1008": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Unresolved Bishop Tension"
+ },
+ "1019": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Declined Queen Trade"
+ },
+ "961": {
+  "bucket": "ignored_tension",
+  "bucket_name": "Ignored Tension",
+  "sub": "Quiet Move Ignored Hanging Piece"
+ },
+ "76": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Passive Rook in Endgame"
+ },
+ "112": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Premature Pawn Push in Endgame"
+ },
+ "114": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Failed to Advance Passed Pawn"
+ },
+ "156": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Missed Decisive Simplification"
+ },
+ "178": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Passive Rook in Endgame"
+ },
+ "189": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "370": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Passive Rook in Endgame"
+ },
+ "366": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Passive Rook in Endgame"
+ },
+ "311": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Missed Decisive Simplification"
+ },
+ "344": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Premature Pawn Push in Endgame"
+ },
+ "354": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "365": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "119": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Mishandled Promotion Sequence"
+ },
+ "154": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Premature Pawn Push in Endgame"
+ },
+ "409": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Failed to Advance Passed Pawn"
+ },
+ "422": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Premature Pawn Push in Endgame"
+ },
+ "428": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "10": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Mishandled Promotion Sequence"
+ },
+ "18": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "37": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "78": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Mishandled Promotion Sequence"
+ },
+ "217": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Missed Decisive Simplification"
+ },
+ "438": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "458": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Missed Decisive Simplification"
+ },
+ "459": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "466": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Mishandled Promotion Sequence"
+ },
+ "486": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "290": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "308": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "307": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Mishandled Promotion Sequence"
+ },
+ "248": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Failed to Advance Passed Pawn"
+ },
+ "268": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Premature Pawn Push in Endgame"
+ },
+ "285": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Missed Decisive Simplification"
+ },
+ "521": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "542": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Missed Decisive Simplification"
+ },
+ "502": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "568": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Failed to Advance Passed Pawn"
+ },
+ "753": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Mishandled Promotion Sequence"
+ },
+ "778": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "606": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "811": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "665": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Premature Pawn Push in Endgame"
+ },
+ "666": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Failed to Advance Passed Pawn"
+ },
+ "678": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "681": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Failed to Advance Passed Pawn"
+ },
+ "677": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Missed Decisive Simplification"
+ },
+ "891": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "918": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Mishandled Promotion Sequence"
+ },
+ "848": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "860": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "936": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Missed Decisive Simplification"
+ },
+ "940": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Failed to Advance Passed Pawn"
+ },
+ "726": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Mishandled Promotion Sequence"
+ },
+ "748": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Premature Pawn Push in Endgame"
+ },
+ "758": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Premature Pawn Push in Endgame"
+ },
+ "764": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "709": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "1010": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Failed to Advance Passed Pawn"
+ },
+ "975": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Mishandled Promotion Sequence"
+ },
+ "978": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "King Misplaced in Endgame"
+ },
+ "992": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Premature Pawn Push in Endgame"
+ },
+ "970": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Missed Decisive Simplification"
+ },
+ "988": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique Error",
+  "sub": "Passive Rook in Endgame"
+ },
+ "84": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "108": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Rook Invasion"
+ },
+ "126": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Bishop Tactic"
+ },
+ "175": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Rook Invasion"
+ },
+ "176": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Forcing Blow"
+ },
+ "186": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Rook Invasion"
+ },
+ "179": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Pawn Breakthrough"
+ },
+ "350": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Forcing Blow"
+ },
+ "375": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Rook Invasion"
+ },
+ "368": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Tactic for Quiet Move"
+ },
+ "396": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "317": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Pawn Breakthrough"
+ },
+ "331": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Bishop Tactic"
+ },
+ "338": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Rook Invasion"
+ },
+ "342": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Bishop Tactic"
+ },
+ "349": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Pawn Breakthrough"
+ },
+ "361": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Forcing Blow"
+ },
+ "128": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Tactic for Quiet Move"
+ },
+ "122": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Tactic for Quiet Move"
+ },
+ "132": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Pawn Breakthrough"
+ },
+ "148": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Pawn Breakthrough"
+ },
+ "135": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Forcing Blow"
+ },
+ "161": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "402": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "411": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Rook Invasion"
+ },
+ "420": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Tactic for Quiet Move"
+ },
+ "16": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Bishop Tactic"
+ },
+ "4": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "21": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Forcing Blow"
+ },
+ "40": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Knight Fork"
+ },
+ "24": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Queen Trap"
+ },
+ "45": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "53": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "67": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Knight Fork"
+ },
+ "60": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "230": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Bishop Tactic"
+ },
+ "235": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Tactic for Quiet Move"
+ },
+ "243": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Forcing Blow"
+ },
+ "450": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Forcing Blow"
+ },
+ "468": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Tactic for Quiet Move"
+ },
+ "476": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Knight Fork"
+ },
+ "480": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Rook Invasion"
+ },
+ "471": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Tactic for Quiet Move"
+ },
+ "262": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Bishop Tactic"
+ },
+ "300": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "316": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Pawn Breakthrough"
+ },
+ "313": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Forcing Blow"
+ },
+ "256": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Pawn Breakthrough"
+ },
+ "265": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Bishop Tactic"
+ },
+ "539": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "553": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Tactic for Quiet Move"
+ },
+ "507": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Tactic for Quiet Move"
+ },
+ "511": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Forcing Blow"
+ },
+ "575": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "589": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "578": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "596": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "767": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Queen Trap"
+ },
+ "772": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Pawn Breakthrough"
+ },
+ "783": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "799": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Knight Fork"
+ },
+ "615": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Knight Fork"
+ },
+ "617": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "629": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Knight Fork"
+ },
+ "644": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "633": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Forcing Blow"
+ },
+ "807": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "825": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Knight Fork"
+ },
+ "819": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "816": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Knight Fork"
+ },
+ "838": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Knight Fork"
+ },
+ "835": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "837": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Queen Trap"
+ },
+ "671": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Pawn Breakthrough"
+ },
+ "896": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Pawn Breakthrough"
+ },
+ "893": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "900": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Queen Trap"
+ },
+ "883": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Forcing Blow"
+ },
+ "909": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Forcing Blow"
+ },
+ "911": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Tactic for Quiet Move"
+ },
+ "913": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Forcing Blow"
+ },
+ "842": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Forcing Blow"
+ },
+ "858": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Bishop Tactic"
+ },
+ "853": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Tactic for Quiet Move"
+ },
+ "868": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Tactic for Quiet Move"
+ },
+ "875": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Pawn Breakthrough"
+ },
+ "948": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Queen Trap"
+ },
+ "955": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Tactic for Quiet Move"
+ },
+ "734": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Rook Invasion"
+ },
+ "733": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "752": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Queen Trap"
+ },
+ "747": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "673": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "686": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Pawn Breakthrough"
+ },
+ "702": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Tactic for Quiet Move"
+ },
+ "715": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "1009": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Pawn Breakthrough"
+ },
+ "1016": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Pawn Breakthrough"
+ },
+ "967": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Pawn Breakthrough"
+ },
+ "972": {
+  "bucket": "missed_winning_tactic",
+  "bucket_name": "Missed Winning Tactic",
+  "sub": "Missed Winning Capture"
+ },
+ "89": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece for Routine Move"
+ },
+ "106": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "105": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "109": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "99": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "199": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "212": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece on Diagonal"
+ },
+ "373": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece for Routine Move"
+ },
+ "381": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "386": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "385": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "389": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Pawn Capture of Hanging Piece"
+ },
+ "393": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "329": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "356": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece for Routine Move"
+ },
+ "362": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "133": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "121": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "138": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "142": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "155": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "152": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "406": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "401": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Pawn Capture of Hanging Piece"
+ },
+ "424": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece on Diagonal"
+ },
+ "431": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "3": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "14": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "7": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "41": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "51": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Pawn Capture of Hanging Piece"
+ },
+ "44": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "58": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece on Diagonal"
+ },
+ "69": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Pawn Capture of Hanging Piece"
+ },
+ "65": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "68": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "82": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "204": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "214": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "237": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "241": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Pawn Capture of Hanging Piece"
+ },
+ "447": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "479": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "287": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "288": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "297": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "327": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Pawn Capture of Hanging Piece"
+ },
+ "324": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "253": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece for Routine Move"
+ },
+ "271": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "266": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "277": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Pawn Capture of Hanging Piece"
+ },
+ "531": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece for Routine Move"
+ },
+ "530": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "533": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece on Diagonal"
+ },
+ "534": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "545": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "550": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "566": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "485": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "482": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "496": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "500": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece for Routine Move"
+ },
+ "503": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "512": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Pawn Capture of Hanging Piece"
+ },
+ "520": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "571": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece for Routine Move"
+ },
+ "603": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "601": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "777": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "604": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece for Routine Move"
+ },
+ "610": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece for Routine Move"
+ },
+ "620": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece for Routine Move"
+ },
+ "635": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Pawn Capture of Hanging Piece"
+ },
+ "640": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "809": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "798": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Pawn Capture of Hanging Piece"
+ },
+ "821": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "585": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "660": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "676": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece on Diagonal"
+ },
+ "675": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "907": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "903": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "917": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Pawn Capture of Hanging Piece"
+ },
+ "923": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "856": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "841": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Pawn Capture of Hanging Piece"
+ },
+ "855": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "869": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "877": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece for Routine Move"
+ },
+ "924": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "949": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "965": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Pawn Capture of Hanging Piece"
+ },
+ "736": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "743": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Queen"
+ },
+ "762": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "691": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "697": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "722": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed King Capture in Endgame"
+ },
+ "710": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece for Routine Move"
+ },
+ "963": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "974": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece on Diagonal"
+ },
+ "982": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "983": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece for Routine Move"
+ },
+ "1000": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece"
+ },
+ "83": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Knight Fork Check"
+ },
+ "103": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Bishop Diagonal Mate"
+ },
+ "123": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "171": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "166": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "187": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "190": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Knight Fork Check"
+ },
+ "196": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "364": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "379": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "392": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check for Greedy Capture"
+ },
+ "405": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "335": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Back-Rank Mate"
+ },
+ "348": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "145": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "141": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "144": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "160": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Knight Fork Check"
+ },
+ "162": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check for Greedy Capture"
+ },
+ "151": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "167": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "404": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "416": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "436": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "439": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "448": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "6": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check for Greedy Capture"
+ },
+ "23": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check for Greedy Capture"
+ },
+ "27": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check for Greedy Capture"
+ },
+ "43": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "47": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "55": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Knight Fork Check"
+ },
+ "56": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "71": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "201": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "209": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "208": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "225": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "228": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "231": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "236": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "238": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "451": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Back-Rank Mate"
+ },
+ "454": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "446": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "464": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check for Greedy Capture"
+ },
+ "462": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "460": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "473": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "469": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "481": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "488": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "276": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "292": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "298": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "301": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "310": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "309": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "318": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "249": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Back-Rank Mate"
+ },
+ "260": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Knight Fork Check"
+ },
+ "280": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "283": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "529": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "526": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "528": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "547": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "557": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "498": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "518": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "519": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "524": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "523": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "561": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "580": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "579": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "586": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "597": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "602": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "756": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "779": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "791": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "803": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "792": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "609": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "630": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "641": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Knight Fork Check"
+ },
+ "631": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "797": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "812": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "813": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "834": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "651": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "653": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "650": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "642": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "657": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "667": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "890": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "901": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "919": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "926": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "861": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "863": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "870": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "872": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "879": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "886": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "915": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "932": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "931": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "941": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Knight Fork Check"
+ },
+ "933": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "946": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "930": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "953": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "958": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "731": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "737": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "738": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "742": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Knight Fork Check"
+ },
+ "689": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "701": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check for Greedy Capture"
+ },
+ "700": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "708": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "1007": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "1023": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Knight Fork Check"
+ },
+ "1017": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Back-Rank Mate"
+ },
+ "1015": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "969": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "979": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Queen Check"
+ },
+ "971": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "980": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check for Greedy Capture"
+ },
+ "985": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "993": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forced Checkmate"
+ },
+ "990": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "984": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check"
+ },
+ "87": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "96": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "169": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "174": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "194": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "188": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "184": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "198": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "193": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "355": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "378": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "384": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "397": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "321": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "339": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "337": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "351": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "352": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "157": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "164": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "410": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "417": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "434": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "437": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "13": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "2": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "32": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "31": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "35": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "33": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "36": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "34": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "30": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "42": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "49": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "48": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "73": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "72": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "70": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "200": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "202": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "205": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "224": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "203": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "226": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "232": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "234": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "432": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "433": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "441": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "456": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "457": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "467": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "487": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "281": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "279": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "299": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "304": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "305": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "315": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "323": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "255": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "254": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "257": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "264": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "267": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "263": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "278": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "270": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "274": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "286": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "515": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "527": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "532": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "541": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "538": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "536": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "552": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "495": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "510": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "562": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "570": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "560": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "574": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "590": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "587": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "593": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "588": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "765": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "771": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "774": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "786": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "793": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "790": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "618": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "613": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "621": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "625": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "626": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "623": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "638": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "649": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "808": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "826": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "831": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "828": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "847": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "844": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "647": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "661": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "655": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "658": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "688": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "884": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "894": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "897": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "895": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "904": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "912": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "846": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "854": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "867": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "874": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "851": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "882": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "925": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "939": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "945": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "954": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "956": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "947": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "943": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "968": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "721": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Opening Move Left Piece Hanging"
+ },
+ "717": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "728": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Rook Hanging"
+ },
+ "729": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "745": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "763": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "679": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "699": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "706": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "692": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "714": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "720": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Queen Hanging"
+ },
+ "1006": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "1021": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "1018": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "962": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Quiet Move Left Piece Hanging"
+ },
+ "981": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "986": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Pawn Hanging"
+ },
+ "996": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Ignored Forced Recapture"
+ },
+ "998": {
+  "bucket": "hung_own_piece",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Left Minor Piece Hanging"
+ },
+ "85": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Greedy Capture Ignored Active Threat"
+ },
+ "91": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "90": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "92": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Greedy Capture Ignored Active Threat"
+ },
+ "111": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "113": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "104": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "117": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "140": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "165": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Greedy Capture Ignored Active Threat"
+ },
+ "143": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "163": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "181": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "177": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "367": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "376": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "390": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "388": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "399": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "395": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "400": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "403": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "330": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "345": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Greedy Capture Ignored Active Threat"
+ },
+ "341": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Greedy Capture Ignored Mate"
+ },
+ "347": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "334": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "357": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "360": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "131": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "130": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "127": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "120": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "146": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "153": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "407": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Greedy Capture Ignored Active Threat"
+ },
+ "413": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "425": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "423": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "429": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "445": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "442": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Greedy Capture Ignored Mate"
+ },
+ "15": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "19": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "1": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "12": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "22": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "28": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "38": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Greedy Capture Ignored Active Threat"
+ },
+ "50": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "59": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "66": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "77": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "210": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "215": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "216": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "211": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "213": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "219": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "227": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "443": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "452": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "461": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Greedy Capture Ignored Active Threat"
+ },
+ "455": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "282": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "303": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "289": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "294": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "319": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "322": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "242": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "246": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "247": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Greedy Capture Ignored Active Threat"
+ },
+ "258": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "259": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "272": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "535": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "525": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "546": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "551": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "548": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "491": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "484": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "494": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "499": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "490": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "501": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "509": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "497": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "567": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "559": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "577": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "592": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "584": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "591": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "600": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "595": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "768": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "766": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "770": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "775": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "776": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "785": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "784": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "780": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "773": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "789": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Greedy Capture Ignored Active Threat"
+ },
+ "796": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "802": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "794": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "594": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "605": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "616": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Greedy Capture Ignored Active Threat"
+ },
+ "608": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "624": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "622": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "805": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "810": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Greedy Capture Ignored Active Threat"
+ },
+ "815": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "820": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "814": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "817": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "829": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "652": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "637": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Greedy Capture Ignored Mate"
+ },
+ "656": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "672": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "669": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "680": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "878": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "889": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Greedy Capture Ignored Mate"
+ },
+ "887": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "906": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "920": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "852": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "864": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "873": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "871": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "865": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "922": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "937": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "938": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "944": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "935": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "928": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "934": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "952": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "964": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "724": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "723": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "741": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "739": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "759": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "751": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "755": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "757": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "761": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "749": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "685": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "693": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Rook Captured After Greedy Take"
+ },
+ "684": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "687": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "703": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "719": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "1001": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Missed Stronger Tactic for Inferior Capture"
+ },
+ "1012": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Queen Captured After Greedy Take"
+ },
+ "973": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "999": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Capture Abandoned Key Defense"
+ },
+ "995": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture Backfires",
+  "sub": "Minor Piece Captured After Greedy Take"
+ },
+ "474": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece (fallback)"
+ },
+ "505": {
+  "bucket": "missed_hanging_piece",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed Hanging Piece (fallback)"
+ }
+}
