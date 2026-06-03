@@ -75,9 +75,13 @@ Dropping L2 (z-score only) nearly tripled coherent features (990 vs 350). These 
 models); raw-Gini U-shaped min at k6; sparse-probe concept-isolation flat/decreasing above k6 (k16
 splits hang_queen 0.81→0.70@1). See `plan.md` Current State + `log.md` 2026-06-02 (cont.).
 
+**In S3 (`sae/weights/`) — the two leading candidates:**
+- `btk_2048_k6_nol2.pt` (16MB) — **k6, the structural sweet spot** (3 methods agree).
+- `btk_1024_k4_nol2.pt` (8MB) — clean small dict, 0 dead, 1024 useful. **Fully SEE-labeled** (1020 chips).
+
 **Notebook-only experiment models (reproducible from `scripts/sae/train_maia3_sae.py` + cache, NOT in S3):**
-- z-score-only sweep: `btk_2048_k{4,6,8,10,12,16,32}_nol2.pt` — **k6 is the chosen model.**
-- dict-size: `btk_1024_k{4,6,8}_nol2.pt` (d1024_k4 = 0 dead, 452 feats, recovers k4 concentration).
+- z-score-only sweep: `btk_2048_k{4,8,10,12,16,32}_nol2.pt` (k6 is in S3 above).
+- dict-size: `btk_1024_k{6,8}_nol2.pt` (d1024_k4 is in S3 above).
 - older: k-sweep `btk_2048_k{4,8,12,24}_v2_weights.pt` (z-score+L2), corpus-subsamples `btk_2048_k16_{42,84,126}k.pt`, `btk_2048_k16_raw.pt`.
 Regenerate via `--no-l2 --no-val-split --n-batches-to-dead 126 --seed 42` (args in `blob_experiments_report.md`).
 
