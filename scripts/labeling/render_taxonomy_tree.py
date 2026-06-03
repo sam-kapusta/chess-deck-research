@@ -105,17 +105,16 @@ for bk in bucket_order:
                 if not dist: return '—'
                 tot = sum(dist.values()) or 1
                 return ', '.join(f"{k} {v/tot*100:.0f}%" for k, v in list(dist.items())[:3])
-            mech = (
-                f"<b>player moved:</b> {top2(s.get('moved_piece_pct',{}))} · "
-                f"<b>captured:</b> {top2(s.get('captured_piece_pct',{}))} · "
-                f"<b>played check:</b> {s.get('played_is_check_pct',0)*100:.0f}%<br>"
-                f"<b>Maia move:</b> {top2(s.get('best_piece_pct',{}))} · "
-                f"<b>Maia captures:</b> {top2(s.get('best_captured_piece_pct',{}))} · "
-                f"<b>Maia check:</b> {s.get('best_is_check_pct',0)*100:.0f}%<br>"
-                f"<b>hung own:</b> {s.get('blunder_hangs_own_pct',0)*100:.0f}% (med {s.get('own_hang_median',0)}; {topn(s.get('own_hang_piece_dist',{}))}) · "
-                f"<b>missed material:</b> {s.get('best_wins_material_pct',0)*100:.0f}% · "
-                f"<b>phase:</b> {top2(s.get('phase_pct',{}))} · "
-                f"<b>fires</b> {s.get('fire_rate',0)*100:.1f}% (n={s.get('n','?')})")
+            def sig_line(sg, tag):
+                if not sg: return f"<i>{tag}: no positions</i>"
+                return (f"<u>{tag} (n={sg.get('n','?')})</u> "
+                        f"moved {top2(sg.get('moved_piece_pct',{}))} · captured {top2(sg.get('captured_piece_pct',{}))} · "
+                        f"played-check {sg.get('played_is_check_pct',0)*100:.0f}% · "
+                        f"Maia {top2(sg.get('best_piece_pct',{}))} captures {top2(sg.get('best_captured_piece_pct',{}))} · "
+                        f"hung-own {sg.get('blunder_hangs_own_pct',0)*100:.0f}% ({topn(sg.get('own_hang_piece_dist',{}))}) · "
+                        f"missed-material {sg.get('best_wins_material_pct',0)*100:.0f}% · phase {top2(sg.get('phase_pct',{}))}")
+            mech = (sig_line(s, '≥0.7·max') + "<br>" + sig_line(s.get('at_0.8'), '≥0.8·max') + "<br>"
+                    f"<b>fires on</b> {int(s.get('fire_rate',0)*168132):,} of 168,132 positions ({s.get('fire_rate',0)*100:.1f}%) · max-act {s.get('max_act','?')}")
             parts.append(f"<div class=feat><div class=fn>f{f} — {esc(a_['chip'])}</div>"
                          f"<div class=fl>{esc(a_.get('label',''))}</div>"
                          f"<div class=mech>{mech}</div>"
