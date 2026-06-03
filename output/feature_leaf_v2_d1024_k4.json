@@ -220,8 +220,8 @@
   "sub": "Ignoring King Danger"
  },
  "87": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
   "sub": "Ignoring Promotion Threats"
  },
  "86": {
@@ -520,8 +520,8 @@
   "sub": "Reckless Queen Check"
  },
  "184": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
   "sub": "Pawn Endgame Collapse"
  },
  "188": {
@@ -815,8 +815,8 @@
   "sub": "Declining Bishop Capture"
  },
  "45": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Passive Move Tempo Loss"
  },
  "43": {
@@ -980,8 +980,8 @@
   "sub": "Futile Check Blunder"
  },
  "76": {
-  "bucket": "premature_trade",
-  "bucket_name": "Premature Trade",
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
   "sub": "Losing Rook Exchange Simplification"
  },
  "77": {
@@ -990,8 +990,8 @@
   "sub": "King Safety Neglect Blunder"
  },
  "78": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
   "sub": "Pawn Push Tempo Loss"
  },
  "79": {
@@ -1205,8 +1205,8 @@
   "sub": "Abandoning Active Piece"
  },
  "203": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
   "sub": "Endgame Bishop Blunder"
  },
  "200": {
@@ -1400,8 +1400,8 @@
   "sub": "Passive Over Forcing Promotion"
  },
  "320": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
   "sub": "Opening Piece Neglect"
  },
  "321": {
@@ -1680,8 +1680,8 @@
   "sub": "Ignoring Passed Pawn"
  },
  "136": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Passed Pawn Mishandling"
  },
  "137": {
@@ -1730,8 +1730,8 @@
   "sub": "Missed Check Tactic"
  },
  "146": {
-  "bucket": "premature_trade",
-  "bucket_name": "Premature Trade",
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
   "sub": "Premature Bishop Exchange"
  },
  "147": {
@@ -1955,8 +1955,8 @@
   "sub": "Piece Self-Traps"
  },
  "392": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Attack Abandoned for Material"
  },
  "393": {
@@ -2005,8 +2005,8 @@
   "sub": "Queen Left Hanging"
  },
  "10": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
   "sub": "Ignored Promotion Threat"
  },
  "13": {
@@ -2065,8 +2065,8 @@
   "sub": "Greedy Check Backfires"
  },
  "0": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
   "sub": "Ignoring Promotion Threat"
  },
  "8": {
@@ -2505,8 +2505,8 @@
   "sub": "King Abandons Piece Defense"
  },
  "504": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
   "sub": "Back Rank Neglect"
  },
  "505": {
@@ -3225,8 +3225,8 @@
   "sub": "Missed Winning Check"
  },
  "727": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Missed Concrete Capture"
  },
  "734": {
@@ -3275,8 +3275,8 @@
   "sub": "Missed Discovered Check"
  },
  "737": {
-  "bucket": "premature_trade",
-  "bucket_name": "Premature Trade",
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
   "sub": "Attack Abandoned For Trade"
  },
  "739": {
@@ -3795,8 +3795,8 @@
   "sub": "Missed Queen Capture"
  },
  "963": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Missed Forced Mate"
  },
  "805": {
@@ -5045,8 +5045,8 @@
   "sub": "Premature Passed Pawn Push"
  },
  "993": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
   "sub": "Missed Mating Attack"
  },
  "996": {

@@ -1,0 +1,142 @@
+{
+ "53": {
+  "verdict": "correct",
+  "correct_bucket": "missed_hanging",
+  "why": "The feature describes ignoring a free capture of a hanging/trapped enemy piece in favor of a quiet pawn move, which exactly matches the 'missed_hanging' bucket definition; the SEE showing 'safe' material confirms the capture was free."
+ },
+ "78": {
+  "verdict": "move",
+  "correct_bucket": "passive_play",
+  "why": "Phase data shows 100% opening, not endgame; the feature describes squandering a winning position via aimless pawn advances instead of optimal action, fitting passive/aimless play rather than endgame technique."
+ },
+ "184": {
+  "verdict": "move",
+  "correct_bucket": "passive_play",
+  "why": "With only 38% endgame phase and 62.5% middlegame, the feature primarily fires in middlegame positions; the core pattern of passive/premature pawn moves squandering an advantage aligns better with passive_play than endgame_technique."
+ },
+ "45": {
+  "verdict": "move",
+  "correct_bucket": "missed_tactic",
+  "why": "The feature describes missing an active rook tactic that wins material or delivers a decisive attack, with best-is-check=0% ruling out missed_check_mate; missed-material=1.0 and the tactical nature (missed winning rook move) fit missed_tactic."
+ },
+ "76": {
+  "verdict": "move",
+  "correct_bucket": "endgame_technique",
+  "why": "The feature describes initiating a rook exchange that leads to a lost pawn endgame \u2014 this is an endgame technique error (misjudging the resulting pawn endgame), not a premature trade; SEE shows 0% trade-material and the phase is primarily endgame with trajectory into a losing position."
+ },
+ "320": {
+  "verdict": "move",
+  "correct_bucket": "left_hanging",
+  "why": "The feature describes making a developing move while overlooking your own tactically vulnerable piece \u2014 this means you leave your own piece en prise (left hanging), not that you fail to capture an enemy hanging piece."
+ },
+ "203": {
+  "verdict": "move",
+  "correct_bucket": "left_hanging",
+  "why": "The SEE data shows phase is 100% middlegame (not endgame), and the primary error is hanging material (hangs=1.0), so it belongs in left_hanging rather than endgame_technique."
+ },
+ "87": {
+  "verdict": "move",
+  "correct_bucket": "passive_play",
+  "why": "Phase data shows 64% middlegame and only 21% endgame, so 'endgame_technique' is wrong; the feature describes making passive/irrelevant moves when action is demanded, which fits 'passive_play' regardless of whether a pawn is advanced."
+ },
+ "93": {
+  "verdict": "correct",
+  "correct_bucket": "premature_trade",
+  "why": "The feature describes trading queens at the wrong moment, dissipating a winning attack and shifting trajectory from winning to drawn \u2014 this matches 'premature_trade' perfectly despite low trade-material weight, since the key signals are the even exchange timing error (missed-material=0.733, winning->drawn trajectory) rather than raw material classification."
+ },
+ "302": {
+  "verdict": "correct",
+  "correct_bucket": "premature_trade",
+  "why": "The feature describes trading off an attacking piece for material, surrendering a promising attack \u2014 this is exactly a premature trade (even exchange at the wrong moment, surrendering an advantage); the low trade-material % reflects that the SEE often sees the captured material as 'safe' or 'hanging' rather than a clean trade, but the strategic error is still trading away attacking potential for material gain."
+ },
+ "136": {
+  "verdict": "move",
+  "correct_bucket": "missed_tactic",
+  "why": "71% of activations occur in middlegame positions, not endgame; the feature fires on missed material (0.571) and hanging pieces, indicating failure to exploit passed pawn tactics rather than pure endgame technique errors."
+ },
+ "392": {
+  "verdict": "move",
+  "correct_bucket": "missed_tactic",
+  "why": "With best-is-check only 25%, the feature is primarily about abandoning a mating initiative for material (missed-material=0.75), which is a missed winning combination/tactic rather than specifically a missed check or mate."
+ },
+ "0": {
+  "verdict": "move",
+  "correct_bucket": "passive_play",
+  "why": "80% middlegame phase means this isn't an endgame technique error; ignoring an unstoppable promotion threat by making an irrelevant move is a passive/aimless response when the position demanded urgent action."
+ },
+ "146": {
+  "verdict": "move",
+  "correct_bucket": "left_hanging",
+  "why": "Material signals show 69.6% missed-material (slightly_down + hangs) vs only 26.1% trade; the bishop move leaves material en prise unforced rather than being an even exchange at the wrong time."
+ },
+ "504": {
+  "verdict": "move",
+  "correct_bucket": "king_safety",
+  "why": "The feature describes abandoning back-rank defense (a king safety issue), not missing a check/mate opportunity; best-is-check is only 5%, confirming the move played wasn't failing to deliver check but rather neglecting defensive king safety."
+ },
+ "364": {
+  "verdict": "correct",
+  "correct_bucket": "pointless_check",
+  "why": "The feature describes a futile check that loses material or allows escape from a mating net, exactly matching 'pointless_check'; best-is-check=1.0 confirms a check was played, and the low played-check rate in the objective flag (7%) likely reflects the rarity of the pattern rather than misclassification, while trajectory winning->losing and material-hangs confirm the check was counterproductive."
+ },
+ "487": {
+  "verdict": "correct",
+  "correct_bucket": "premature_trade",
+  "why": "The feature describes trading the queen (key attacking piece) surrendering dynamic advantage, matching premature_trade's definition of an even exchange at the wrong moment; the 0% trade-material flag is misleading because the loss is positional/dynamic rather than material\u2014the trade itself is even but the timing destroys the advantage."
+ },
+ "10": {
+  "verdict": "move",
+  "correct_bucket": "missed_hanging",
+  "why": "The feature fires 65.5% in middlegame positions where the player ignores a free promotion threat (missed-material 0.517); it's fundamentally about failing to capture/stop a hanging tactical resource rather than an endgame technique error."
+ },
+ "528": {
+  "verdict": "correct",
+  "correct_bucket": "pointless_check",
+  "why": "The feature explicitly describes a purposeless/premature check that squanders a winning attack, matching pointless_check perfectly; the 25% played-check rate reflects that the best move was also a check (best-is-check=1.0) but a *different*, winning check\u2014the mistake is choosing the wrong, pointless check over the forcing one."
+ },
+ "727": {
+  "verdict": "move",
+  "correct_bucket": "missed_tactic",
+  "why": "Only 30% missed-material and 50% best-is-check indicate the missed opportunity is often a tactical combination or forcing move rather than a simple hanging-piece capture, fitting missed_tactic (or missed_check_mate) better than missed_hanging."
+ },
+ "774": {
+  "verdict": "correct",
+  "correct_bucket": "king_safety",
+  "why": "The feature directly describes abandoning king safety by moving the queen away, exposing the king to perpetual check \u2014 this is a king safety error regardless of game phase."
+ },
+ "737": {
+  "verdict": "move",
+  "correct_bucket": "missed_check_mate",
+  "why": "best-is-check=1.0 means the best move was a check (likely mating or winning attack continuation); the player abandoned the attack by trading, missing a forcing check/mate opportunity."
+ },
+ "619": {
+  "verdict": "correct",
+  "correct_bucket": "premature_trade",
+  "why": "The feature describes releasing central tension/premature exchanges that squander a winning advantage, perfectly matching 'premature_trade'; the low trade-material (19%) reflects that these are positional/tension-resolution errors rather than pure material exchanges, but the trajectory (winning->drawn, drawn->losing) and 'safe' material confirm an even exchange made at the wrong moment surrendering advantage."
+ },
+ "776": {
+  "verdict": "correct",
+  "correct_bucket": "premature_trade",
+  "why": "The feature describes trading the queen (key attacking piece) converting a winning position into a draw, which is exactly an even exchange made at the wrong moment surrendering an advantage; the 33% trade-material is consistent with queen trades often being scored as 'loses' (losing the advantage) rather than pure material trade classification."
+ },
+ "993": {
+  "verdict": "move",
+  "correct_bucket": "missed_tactic",
+  "why": "Only 18% best-is-check means the missed opportunity is rarely a check/mate itself; the feature fires on missed crushing attacks (queen attacks, mating nets) that are tactical combinations rather than literal forcing checks, fitting missed_tactic better."
+ },
+ "892": {
+  "verdict": "correct",
+  "correct_bucket": "missed_hanging",
+  "why": "The feature detects failing to capture an enemy piece that was available to take (rook takes knight/bishop), which matches 'missed_hanging' \u2014 the low missed-material (2%) just means the hanging piece is usually captured via a safe SEE-positive capture rather than being completely undefended, but the core pattern is still a missed winning capture of an available enemy piece."
+ },
+ "963": {
+  "verdict": "move",
+  "correct_bucket": "missed_tactic",
+  "why": "best-is-check=0.0 means the missed best move is not actually a check\u2014it's a forced mate sequence that doesn't start with check, or more likely the feature captures missed winning combinations in winning positions where material is missed (missed-material=1.0), making missed_tactic the better fit since the objective check contradicts the 'check or mate' requirement of missed_check_mate."
+ },
+ "493": {
+  "verdict": "move",
+  "correct_bucket": "premature_trade",
+  "why": "Wait\u2014re-reading the objective check: trade-material is 0%, meaning the material exchange itself is even (no net material lost in the trade), which is exactly what premature_trade describes: an even exchange at the wrong moment that surrenders a positional/winning advantage. The feature describes forcing/allowing a queen trade that leads to a lost pawn endgame\u2014misjudging the resulting position. This fits premature_trade perfectly: trading queens (even exchange) at the wrong time, surrendering a winning or drawn position. The flag is a false alarm; placement is correct."
+ }
+}

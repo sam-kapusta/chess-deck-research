@@ -1,0 +1,62 @@
+[
+ {
+  "fid": "93",
+  "bucket": "premature_trade",
+  "chip": "Premature Queen Trade/Simplification",
+  "reason": "trade-bucket but trade-material only 11%"
+ },
+ {
+  "fid": "53",
+  "bucket": "missed_hanging",
+  "chip": "Ignored Hanging Piece",
+  "reason": "missed-hanging but missed-material only 0%"
+ },
+ {
+  "fid": "302",
+  "bucket": "premature_trade",
+  "chip": "Attack Abandoned for Material",
+  "reason": "trade-bucket but trade-material only 14%"
+ },
+ {
+  "fid": "364",
+  "bucket": "pointless_check",
+  "chip": "Pointless Desperate Check",
+  "reason": "pointless-check but played-check only 7%"
+ },
+ {
+  "fid": "487",
+  "bucket": "premature_trade",
+  "chip": "Premature Queen Trade",
+  "reason": "trade-bucket but trade-material only 0%"
+ },
+ {
+  "fid": "493",
+  "bucket": "premature_trade",
+  "chip": "Queen Trade Pawn Endgame Blunder",
+  "reason": "trade-bucket but trade-material only 0%"
+ },
+ {
+  "fid": "528",
+  "bucket": "pointless_check",
+  "chip": "Premature Queen Check",
+  "reason": "pointless-check but played-check only 25%"
+ },
+ {
+  "fid": "619",
+  "bucket": "premature_trade",
+  "chip": "Premature Central Resolution",
+  "reason": "trade-bucket but trade-material only 19%"
+ },
+ {
+  "fid": "892",
+  "bucket": "missed_hanging",
+  "chip": "Missed Winning Capture",
+  "reason": "missed-hanging but missed-material only 2%"
+ },
+ {
+  "fid": "776",
+  "bucket": "premature_trade",
+  "chip": "Premature Queen Trade",
+  "reason": "trade-bucket but trade-material only 33%"
+ }
+]
