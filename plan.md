@@ -8,25 +8,49 @@
 > kept under `scripts/sae/new_sae_architecture/` but must be repointed to the v2 cache before
 > any rerun. Next step if revisiting: rebuild all three constructions on v2 data.
 
-## Current State (2026-06-02 end) — z-score-only k=16 chosen, UNLABELED
+## Current State (2026-06-02 end) — k=6 is the sweet spot (3 independent methods agree)
 
-**Chosen model:** `btk_2048_k16_zscore.pt` (S3) — k=16, z-score only (no L2). 990 coherent features (48%).
-Beats z-score+L2 (350) and k=32-z-score (786). Full analysis: `output/blob_experiments_report.md`.
+**Leading model:** `btk_2048_k6_nol2.pt` (notebook; z-score-only). Superseded the earlier
+"k=16 chosen" call after a full k-sweep (k4/6/8/10/12/16/32) + dict-size + sparse-probing analysis.
 
-**Decided this session (evidence in report):**
+**Why k=6 (corroborated three independent ways):**
+1. **Mass concentration** — k6 holds the most activation signal (61.5%) in the useful 0.1–10%
+   fire band among fully-alive models (0 dead), with the fewest blobs. k4 has more band-mass
+   (67%) but 951 dead features; everything above k6 bleeds mass into blobs.
+2. **Raw Gini** (threshold-free) is U-shaped with its MINIMUM at k6 — the only non-monotone
+   structural metric, a real interior optimum. Below k6: dead features hoard mass. Above k6:
+   blobs hoard mass.
+3. **Sparse probing** (SEE concepts) — bal_acc@1 for cleanly-isolated concepts (hang_queen 0.81,
+   hang_major 0.78, best_check 0.89) is FLAT or DECREASING with k; at k16 concepts start
+   SPLITTING (hang_queen@1 drops 0.81→0.70, top feature changes f952→f926). Lower k keeps
+   concepts in single nameable features. k4≈k6 on @1; k6 edges it on smeared concepts.
+
+**Decided earlier (still holds):**
 - DROP L2 — z-score-only nearly triples coherent features. Magnitude = severity, L2 erases it.
-- Coherence probe must measure BOTH moves (blunder + best); best-move axis dominant.
-- k=16 > k=32 (z-score). k=8 z-score in progress (started ~end of session).
-- Position-descriptor axes (phase/dir/severity/traj) are leaky base-rate effects, not coherence.
+- Coherence/signature must measure BOTH moves (blunder + best); best-move axis dominant.
+- Position-descriptor axes (phase/dir/severity/traj) are leaky base-rate effects — confirmed by
+  sparse probing (endgame/severe barely beat base rate @1, +0.04/+0.06 lift).
+- dict=1024 recovers k4's concentration without dead waste but caps vocab (452 feats); 2048
+  gives room to explore. Dead-count is a dict_size artifact, not a quality signal.
+- 0% decoder twins at every k — extra features at high k are distinct directions, not duplicates.
+
+**Labeling pipeline built this session** (skill: `label-sae-features`):
+- `enrich_gap.py` (Stockfish) → `label_positions_btk.py` (Opus per-position motif/tags) →
+  `fuse_feature_names.py` (Opus motif + SEE facts → name). Enrichment cache 55k→77.8k.
+- k4 fully labeled + named: 1075/1097 named, 22 diffuse. Fork/back-rank/king-safety motifs
+  (Opus-only) + hang-piece specifics (SEE) reinforce well on CONCENTRATED features; blobs
+  (f1487/f1313/f1372) over-claim, correctly flagged.
+- Results: `output/fused_names_k4_slim.json`, `output/eval/sparse_probe_results.json`.
+  Full Opus-bearing `fused_names_k4.json` + probe → S3 `sae/labels/`, `sae/eval/`.
 
 **NEXT (in priority order):**
-1. **Relabel the chosen model** — fresh profiles (its own indices) + both-axes Opus prompt that
-   includes the computed signature ("27/30 best move = knight; 18/30 leaves bishop hanging").
-   This fixes the overspecification failure (old f101 "Queen Hanging to Bishop"). Old labels are
-   for the L2 model — DO NOT reuse, indices differ.
-2. Check k=8 z-score result (training at session end) — if it beats k=16 on the dual-axis probe, reconsider.
-3. Rebuild atlas + test-position diagnostic on the chosen (labeled) model.
-4. Ship-vs-expand decision (1M Lichess corpus still optional, for coverage not blob-fix).
+1. **Label + name k6** (the leading model) via the pipeline — top-10 already mostly Opus-covered
+   from the union enrichment; run `fuse_feature_names.py --model k6`.
+2. **Feature-splitting metric** (lit review's #1 unrun fit) — quantify whether k16's extra
+   features are new concepts or fragments, against SEE concepts. The other non-monotone axis.
+3. Audit k6 names (skeptical reviewer vs top-10) like the k4 audit (was 31% clean-correct).
+4. Detection-score (auto-interp held-out) as the non-circular label-quality metric.
+5. Ship-vs-expand decision (1M Lichess corpus optional, for coverage not blob-fix).
 
 **Experiment scripts added (git):** blob_metric[_norm].py, dual_coherence.py, dual_2x2.py,
 multiaxis[_lift].py, see_coherence.py, blob_activation_decay.py, make_subsamples.py, calibrate_threshold.py.

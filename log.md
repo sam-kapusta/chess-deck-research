@@ -589,3 +589,41 @@ DIFFERENCE must measure both sides — one-sided probing = guaranteed false nega
 Also did k-sweep (k4 dead, k8/12/16/24/32) + corpus-size sweep (42-168k, weak) earlier — both in
 `blob_experiments_report.md`. Model is UNLABELED (old labels are L2-model, indices differ); relabel with
 both-axes prompt is the next task.
+
+---
+
+## 2026-06-02 (cont.) — k-sweep settled at k=6 (3 methods), labeling pipeline built, sparse probing
+
+**k decision, three independent angles all point to k=6** (was tentatively "k=16"):
+- Trained full z-score-only sweep k4/6/8/10/12/16/32 + dict=1024 at k4/6/8.
+- **Mass band (0.1–10%):** k6 = 61.5%, most among fully-alive models; k4 higher (67%) but 951 dead.
+  Blobs grow monotonically with k (4→68). `band_mass_sweep.py`.
+- **Raw Gini U-shaped, min at k6** — the only non-monotone structural metric (real interior optimum).
+  Threshold-Gini was an artifact (lower threshold at high k counts more tiny acts). `gini_sweep.py`, `fvu_rawgini_sweep.py`.
+- **0% decoder twins at every k** (`distinct_vocab_sweep.py`) — high-k extra features are distinct, not dupes.
+- **Dict-size:** d1024_k4 recovers k4's 66.7% band-mass with 0 dead but only 452 feats (`dict_size_compare.py`).
+  Dead-count = dict_size artifact, not quality. 2048 gives room to explore.
+
+**Labeling pipeline (new skill `label-sae-features`):** enrich_gap.py (Stockfish, 22.5k positions,
+cache 55k→77.8k) → label_positions_btk.py (Opus 4.6 per-position motif/tags, +6,149 for k4, total 54,763)
+→ fuse_feature_names.py (Opus motif + SEE facts → name). k4: 1075/1097 named, 22 diffuse.
+Fork/back-rank/king-safety come from Opus (SEE can't); hang specifics from SEE. Blobs over-claim (flagged).
+**Scope note:** briefly over-expanded the Opus gap to 4-model union (23.6k); caught + reverted to k4-only (6k)
+before any Opus calls wasted. Enrichment (22.5k) kept — reusable across all models.
+
+**SAE-eval literature** (workflow, 6/10 readers salvaged after 4 stragglers stalled on GitHub fetches):
+- Loss-recovered/KL fidelity CANNOT be computed on our diff x=L7[best]−L7[blunder] (no forward pass). 5/6 agree.
+- **Sparse probing + feature splitting fit cleanly AND aren't forced monotone** — the metrics that can pick k.
+- FVU/explained-variance is the field's sanctioned fidelity fallback when patching unavailable (we did this right).
+- Detection-score (auto-interp, held-out) > our circular top-10 audit. Skip the LLM judge, use SEE labels.
+
+**Sparse probing** (`compute_see_labels.py` → 168k SEE concepts cached; `sparse_probe.py`):
+- Sped up 10× via vectorized f_classif ranking (vs KNN mutual_info); bal_acc identical, validated `--validate-rank`.
+- **Cleanly isolated:** best_check 0.89@1, hang_queen 0.81, hang_major 0.78, hang_rook 0.72 (all via f952/f1372).
+- **Smeared (not nameable):** endgame +0.04, severe +0.06, hang_knight +0.06 @1 — confirms leaky descriptors.
+- **Splitting signal:** hang_queen@1 drops 0.81→0.70 at k16 (top feature f952→f926); lower k keeps concepts
+  in single features. Independent confirmation that k4/k6 > k16 for interpretability.
+
+Artifacts: `output/fused_names_k4_slim.json`, `output/eval/sparse_probe_results.json`;
+full versions S3 `sae/labels/fused_names_k4.json`, `sae/eval/sparse_probe_results.json`.
+Models `btk_2048_k{4,6,8,10,12,16,32}_nol2.pt` + `btk_1024_k{4,6,8}_nol2.pt` on notebook.
