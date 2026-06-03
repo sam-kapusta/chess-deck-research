@@ -21,3 +21,10 @@ output/batch_input_maia3.jsonl
 output/taxonomy_v2/_inputs/opus_english.json
 output/new_saes/*_profiles.json
 output/l7only_explorer_data.json
+
+# Regenerable HTML atlases (large, rebuild from labeler scripts)
+output/atlas/
+# Large untracked intermediates (belong in S3, not git — see S3_INVENTORY)
+output/l7only_explorer_data.json
+output/batch_input_maia3.jsonl
+output/taxonomy_v2/_inputs/opus_english.json
