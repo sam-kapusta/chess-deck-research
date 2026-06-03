@@ -83,65 +83,60 @@ def see_both(fen, blunder_uci, best_uci):
 
 PROMPT = """You are an elite chess analyst labeling an SAE (Sparse Autoencoder) feature.
 
-The feature fires on positions sharing ONE type of mistake. Below are its top activating
-positions. For each you get: the move played, the engine's best move, that position's prior
-analysis, and SEE (static-exchange-eval) numbers computed on BOTH moves as raw data.
+The feature fires on positions sharing ONE type of mistake. You are given TWO things:
+(1) a SEE (static-exchange-eval) aggregate computed over the feature's top {statn} positions —
+    a ROBUST signature, trust it over any single board; and
+(2) the top {nshow} boards to eyeball for the concrete pattern.
 
-READ THE SEE DATA. It disambiguates the mistake:
-- best_wins_material > 0 + played_is_capture = false  => the player MISSED capturing/winning a
-  hanging enemy piece (a "missed hanging piece" feature) — even if the best move is a check that
-  then wins it.
-- blunder_hangs_own > 0  => the player's OWN move left a piece en prise (a "hung piece" feature).
-- These are OPPOSITE mistakes; do not confuse them. Look at which one is consistent across positions.
+READ THE SEE AGGREGATE FIRST. It disambiguates the mistake direction:
+- best_wins_material high + played_capture low  => player MISSED capturing/winning a hanging
+  enemy piece ("Missed Hanging Piece") — true even when the best move is a check that then wins it.
+- blunder_hangs_own high  => the player's OWN move left a piece en prise ("Hung Own Piece").
+- These are OPPOSITE mistakes. The aggregate (over {statn} positions) tells you which is consistent.
 
-=== FEATURE: {n} positions ===
+=== SEE AGGREGATE (over top {statn} activating positions) ===
+best move wins material (enemy piece winnable): {best_win_pct:.0%}   [median value won: {best_win_med}]
+player's move was itself a capture:             {played_cap_pct:.0%}
+player's move left OWN piece hanging:           {own_hang_pct:.0%}    [median value: {own_hang_med}]
+  own-hang piece class distribution: {own_piece_dist}
+best move is a check: {best_check_pct:.0%} | best move is a capture: {best_cap_pct:.0%}
+feature fires on {fire_pct:.1%} of all positions
+
+=== TOP {nshow} BOARDS (most strongly activating) ===
 Moves played: {moves}
-Phases: {phases} | Sides: {sides} | Avg cp_loss: {avg_cp:.0f}
-
-=== SEE AGGREGATE (across {n} positions) ===
-best move wins material (enemy piece winnable): {agg_best_win}/{n}   [median value won: {med_win}]
-player's move was a capture: {agg_played_cap}/{n}
-player's move left OWN piece hanging: {agg_own_hang}/{n}   [median value: {med_own}]
-best move is a check: {agg_best_check}/{n} | best move is a capture: {agg_best_cap}/{n}
-
+Phases: {phases} | Avg cp_loss: {avg_cp:.0f}
 {positions_text}
 
 === INSTRUCTIONS ===
-Identify the SINGLE shared mistake. Use the SEE aggregate to decide direction (missed-winning
-vs hung-own). Name it concisely. Reference counts X/N from the SEE data in your description.
+Identify the SINGLE shared mistake. Use the SEE AGGREGATE to decide direction (missed-winning vs
+hung-own), and the boards to sharpen the specifics (which piece, geometry). Name it concisely.
+Cite the aggregate percentages in your description.
 
 Respond in JSON:
 {{
   "chip": "<2-4 word title, e.g. 'Missed Hanging Piece'>",
   "label": "<one sentence>",
-  "description": "<paragraph citing SEE counts X/N>",
+  "description": "<paragraph citing the SEE aggregate percentages>",
   "why_bad": "<why these moves fail>",
   "confidence": <0-100>
 }}"""
 
-def build_prompt(fid, examples, enrichment, analyses, meta_by_key):
-    moves, phases, sides, cps = [], [], [], []
-    see_rows = []; ptext = ""
-    agg = Counter()
-    win_vals = []; own_vals = []
-    n = 0
-    for i, ex in enumerate(examples):
+def build_prompt(fid, examples, enrichment, analyses, meta_by_key, seestats, nshow, statn):
+    st = seestats.get(f"f{fid}") or seestats.get(str(fid))
+    if st is None: return None
+    moves, phases, cps = [], [], []; ptext = ""; n = 0
+    for i, ex in enumerate(examples[:nshow]):
         key = f"{ex['fen']}|{ex['uci']}"
         enr = enrichment.get(key, {})
         ana = analyses.get(key, {}).get("analysis", {}) if isinstance(analyses.get(key), dict) else {}
-        sb = see_both(ex['fen'], ex['uci'], enr.get('best_uci') or _best_from_meta(key, meta_by_key))
+        # light per-board SEE line (played + best move, for the eyeball boards only)
+        sb = see_both(ex['fen'], ex['uci'], enr.get('best_uci') or meta_by_key.get(key, {}).get('best_uci',''))
         if sb is None: continue
         n += 1
-        moves.append(sb['played']); phases.append(enr.get('phase','?')); sides.append(enr.get('side','?'))
-        cps.append(enr.get('cp_loss',0) or 0)
-        if sb.get('best_wins_material',0) > 0: agg['best_win'] += 1; win_vals.append(sb['best_wins_material'])
-        if sb.get('played_is_capture'): agg['played_cap'] += 1
-        if sb.get('blunder_hangs_own',0) > 0: agg['own_hang'] += 1; own_vals.append(sb['blunder_hangs_own'])
-        if sb.get('best_is_check'): agg['best_check'] += 1
-        if sb.get('best_is_capture'): agg['best_cap'] += 1
+        moves.append(sb['played']); phases.append(enr.get('phase','?')); cps.append(enr.get('cp_loss',0) or 0)
         seeline = (f"SEE: best={sb.get('best','?')} wins {sb.get('best_wins_material',0)} "
                    f"| played={sb['played']} {'(capture)' if sb['played_is_capture'] else '(quiet)'} "
-                   f"| own piece hung after: {sb.get('blunder_hangs_own',0)}"
+                   f"| own hung after: {sb.get('blunder_hangs_own',0)}"
                    + (f" ({sb['blunder_hangs_piece']})" if sb.get('blunder_hangs_piece') else ""))
         feats = "\n".join(f"    - {f}" for f in enr.get("position_features", [])) or "    - (standard)"
         ptext += f"""
@@ -151,22 +146,18 @@ Move: {sb['played']} | Side: {enr.get('side','?')} | Phase: {enr.get('phase','?'
 Eval: {enr.get('eval_before','?')} -> {enr.get('eval_after','?')}
 Position features:
 {feats}
-Analysis: {json.dumps(ana)[:600] if ana else '(none)'}
+Analysis: {json.dumps(ana)[:500] if ana else '(none)'}
 """
     if n < 3: return None
-    med = lambda L: sorted(L)[len(L)//2] if L else 0
-    return PROMPT.format(n=n, moves=", ".join(moves),
+    return PROMPT.format(statn=statn, nshow=n, moves=", ".join(moves),
         phases=", ".join(f"{p}({c})" for p,c in Counter(phases).most_common()),
-        sides=", ".join(f"{s}({c})" for s,c in Counter(sides).most_common()),
         avg_cp=sum(cps)/len(cps),
-        agg_best_win=agg['best_win'], med_win=med(win_vals),
-        agg_played_cap=agg['played_cap'], agg_own_hang=agg['own_hang'], med_own=med(own_vals),
-        agg_best_check=agg['best_check'], agg_best_cap=agg['best_cap'],
-        positions_text=ptext)
-
-_META = {}
-def _best_from_meta(key, meta_by_key):
-    return meta_by_key.get(key, {}).get('best_uci', '')
+        best_win_pct=st['best_wins_material_pct'], best_win_med=st['best_wins_median'],
+        played_cap_pct=st['played_capture_pct'],
+        own_hang_pct=st['blunder_hangs_own_pct'], own_hang_med=st['own_hang_median'],
+        own_piece_dist=st['own_hang_piece_dist'],
+        best_check_pct=st['best_is_check_pct'], best_cap_pct=st['best_is_capture_pct'],
+        fire_pct=st['fire_rate'], positions_text=ptext)
 
 def parse_json(text):
     text = text.strip()
@@ -204,10 +195,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--profiles", required=True); ap.add_argument("--positions", required=True)
     ap.add_argument("--enrichment", required=True); ap.add_argument("--cache", required=True)
+    ap.add_argument("--seestats", required=True); ap.add_argument("--nshow", type=int, default=15)
+    ap.add_argument("--statn", type=int, default=500)
     ap.add_argument("--output", required=True); ap.add_argument("--resume", action="store_true")
     a = ap.parse_args()
     profiles = json.load(open(a.profiles)); analyses = json.load(open(a.positions))
-    enrichment = json.load(open(a.enrichment))
+    enrichment = json.load(open(a.enrichment)); seestats = json.load(open(a.seestats))
     import torch
     meta = torch.load(a.cache, map_location='cpu', weights_only=False)['metadata']
     meta_by_key = {m['fen']+'|'+m['blunder_uci']: m for m in meta}
@@ -220,7 +213,8 @@ def main():
     work = []; skipped = 0
     for fid in sorted(profiles.keys(), key=int):
         if fid in results and "error" not in results[fid]: continue
-        prompt = build_prompt(fid, profiles[fid].get("examples", [])[:15], enrichment, analyses, meta_by_key)
+        prompt = build_prompt(fid, profiles[fid].get("examples", []), enrichment, analyses,
+                              meta_by_key, seestats, a.nshow, a.statn)
         if prompt is None: results[fid] = {"error":"insufficient"}; skipped += 1; continue
         work.append((fid, prompt))
     print(f"To label: {len(work)} (skipped {skipped}) | Opus 4.6 | conc={MAX_CONCURRENT}", flush=True)
