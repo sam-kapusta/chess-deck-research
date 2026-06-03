@@ -1,0 +1,346 @@
+{
+ "buckets": [
+  {
+   "id": "greedy_capture",
+   "name": "Losing Capture",
+   "subgroups": [
+    {
+     "old": "Queen Kamikaze",
+     "name": "Queen Captured After Greedy Take"
+    },
+    {
+     "old": "Rook Into Recapture",
+     "name": "Rook Lost to Recapture"
+    },
+    {
+     "old": "Minor Piece Self-Destructs",
+     "name": "Minor Piece Lost After Greedy Capture"
+    },
+    {
+     "old": "Wrong Target",
+     "name": "Captured Wrong Piece"
+    },
+    {
+     "old": "Capture Abandons Guard",
+     "name": "Capture Abandoned Key Defense"
+    },
+    {
+     "old": "Passive Neglect Drops Piece",
+     "name": "Quiet Move Ignores Active Threat"
+    },
+    {
+     "old": "Greed Ignores Mate",
+     "name": "Captured Material Instead of Mating"
+    }
+   ]
+  },
+  {
+   "id": "hung_own_piece",
+   "name": "Hung a Piece",
+   "subgroups": [
+    {
+     "old": "The Queen Dropper",
+     "name": "Hung the Queen"
+    },
+    {
+     "old": "The Rook Gifter",
+     "name": "Hung a Rook"
+    },
+    {
+     "old": "The Minor Piece Abandoner",
+     "name": "Hung a Minor Piece"
+    },
+    {
+     "old": "The Pawn Forgetter",
+     "name": "Hung a Pawn"
+    },
+    {
+     "old": "The Exchange Dodger",
+     "name": "Ignored Forced Recapture"
+    },
+    {
+     "old": "The Opening Overreacher",
+     "name": "Overextended in the Opening"
+    },
+    {
+     "old": "The Sleepwalker",
+     "name": "Ignored Already Hanging Piece"
+    }
+   ]
+  },
+  {
+   "id": "missed_check_mate",
+   "name": "Missed Check or Checkmate",
+   "subgroups": [
+    {
+     "old": "Fork Knight",
+     "name": "Missed Knight Fork or Check"
+    },
+    {
+     "old": "Mate Blind",
+     "name": "Missed Forced Checkmate"
+    },
+    {
+     "old": "Greed Goggles",
+     "name": "Captured Instead of Forcing Check"
+    },
+    {
+     "old": "Queen Thunderbolt",
+     "name": "Missed Winning Queen Check"
+    },
+    {
+     "old": "Diagonal Dagger",
+     "name": "Missed Diagonal Check or Discovery"
+    },
+    {
+     "old": "Rook Hammer",
+     "name": "Missed Rook Check or Back-Rank Mate"
+    },
+    {
+     "old": "Check Reflex Failure",
+     "name": "Failed to Consider Forcing Checks"
+    }
+   ]
+  },
+  {
+   "id": "missed_hanging_piece",
+   "name": "Missed Free Piece",
+   "subgroups": [
+    {
+     "old": "Queen Blindness",
+     "name": "Missed Hanging Queen"
+    },
+    {
+     "old": "Sleepwalking King",
+     "name": "King Failed to Capture Adjacent Piece"
+    },
+    {
+     "old": "Pawn-Take Blindness",
+     "name": "Missed Pawn Capture of Free Piece"
+    },
+    {
+     "old": "Autopilot Developer",
+     "name": "Developed Instead of Capturing"
+    },
+    {
+     "old": "Diagonal Blindspot",
+     "name": "Missed Diagonal Capture"
+    },
+    {
+     "old": "Generic Piece Blindness",
+     "name": "Missed Undefended Piece"
+    }
+   ]
+  },
+  {
+   "id": "missed_winning_tactic",
+   "name": "Missed Winning Tactic",
+   "subgroups": [
+    {
+     "old": "Knight Fork Blind",
+     "name": "Missed Winning Knight Fork"
+    },
+    {
+     "old": "Pawn Breakthrough Missed",
+     "name": "Missed Pawn Breakthrough"
+    },
+    {
+     "old": "Rook Invasion Missed",
+     "name": "Missed Winning Rook Penetration"
+    },
+    {
+     "old": "Queen Trap Missed",
+     "name": "Missed Queen Trap"
+    },
+    {
+     "old": "Bishop Diagonal Missed",
+     "name": "Missed Bishop Diagonal Tactic"
+    },
+    {
+     "old": "Blind to Captures",
+     "name": "Missed Simple Winning Capture"
+    },
+    {
+     "old": "Missed Forcing Blow",
+     "name": "Missed Decisive Forcing Move"
+    },
+    {
+     "old": "Sleepwalked Past a Win",
+     "name": "Quiet Move Instead of Winning Tactic"
+    }
+   ]
+  },
+  {
+   "id": "ignored_tension",
+   "name": "Ignored Tension",
+   "subgroups": [
+    {
+     "old": "Ducked the Queen Trade",
+     "name": "Declined Necessary Queen Trade"
+    },
+    {
+     "old": "Bishop Staring Contest",
+     "name": "Left Bishop Tension Unresolved"
+    },
+    {
+     "old": "Pawn Tension Left to Rot",
+     "name": "Ignored Critical Pawn Tension"
+    },
+    {
+     "old": "Rook Trade Ducked",
+     "name": "Declined Necessary Rook Exchange"
+    },
+    {
+     "old": "Quiet Move While Piece Hangs",
+     "name": "Quiet Move While Piece En Prise"
+    },
+    {
+     "old": "Knight Swap Blindness",
+     "name": "Left Knight Exchange Unresolved"
+    }
+   ]
+  },
+  {
+   "id": "passive_play",
+   "name": "Passive Play",
+   "subgroups": [
+    {
+     "old": "Missed the Winning Capture",
+     "name": "Missed Winning Capture for Quiet Move"
+    },
+    {
+     "old": "Shuffled Pieces Going Nowhere",
+     "name": "Aimless Piece Shuffling"
+    },
+    {
+     "old": "Blind to Checkmate",
+     "name": "Missed Mating Attack While Drifting"
+    },
+    {
+     "old": "Autopilot Development",
+     "name": "Routine Development Instead of Action"
+    },
+    {
+     "old": "Drifted in a Won Position",
+     "name": "Failed to Convert Winning Position"
+    }
+   ]
+  },
+  {
+   "id": "endgame_technique",
+   "name": "Endgame Technique Error",
+   "subgroups": [
+    {
+     "old": "King Wandered Off",
+     "name": "King Misplaced in Endgame"
+    },
+    {
+     "old": "Lazy Rook",
+     "name": "Passive Rook in Endgame"
+    },
+    {
+     "old": "Pushed Pawn Too Soon",
+     "name": "Premature Pawn Advance"
+    },
+    {
+     "old": "Forgot to Push",
+     "name": "Failed to Advance Passed Pawn"
+    },
+    {
+     "old": "Missed the Kill Shot",
+     "name": "Missed Decisive Simplification"
+    },
+    {
+     "old": "Promotion Fumbler",
+     "name": "Mishandled Promotion Sequence"
+    }
+   ]
+  },
+  {
+   "id": "pointless_check",
+   "name": "Pointless Check",
+   "subgroups": [
+    {
+     "old": "Suicidal Queen Check",
+     "name": "Queen Check Lost to Recapture"
+    },
+    {
+     "old": "Rook Check Hangs Itself",
+     "name": "Rook Check Left En Prise"
+    },
+    {
+     "old": "Knight/Bishop Check Into Capture",
+     "name": "Minor Piece Check Into Capture"
+    },
+    {
+     "old": "Check Abandons the Fort",
+     "name": "Check Removed Key Defender"
+    },
+    {
+     "old": "Missed the Winning Check",
+     "name": "Wrong Check Instead of Winning Check"
+    }
+   ]
+  },
+  {
+   "id": "missed_quiet_win",
+   "name": "Missed Quiet Win",
+   "subgroups": [
+    {
+     "old": "Forgot to Queen",
+     "name": "Missed Pawn Promotion"
+    },
+    {
+     "old": "Missed Pawn Breakthrough",
+     "name": "Missed Quiet Pawn Breakthrough"
+    },
+    {
+     "old": "Endgame Sleepwalking",
+     "name": "Missed Winning Endgame Maneuver"
+    },
+    {
+     "old": "Missed Piece Invasion",
+     "name": "Missed Piece Invasion to Dominant Square"
+    },
+    {
+     "old": "Missed Tactical Shot",
+     "name": "Missed Non-Forcing Tactical Win"
+    }
+   ]
+  },
+  {
+   "id": "premature_aggression",
+   "name": "Premature Aggression",
+   "subgroups": [
+    {
+     "old": "Yolo Nxf7 Sacrifice",
+     "name": "Unsound Sacrifice on f7"
+    },
+    {
+     "old": "Knight Jumped Into Thin Air",
+     "name": "Knight Jumped Into Capture"
+    },
+    {
+     "old": "Flashy Check Hangs Everything",
+     "name": "Showy Check Hung Material"
+    },
+    {
+     "old": "Promoted Into Enemy Fire",
+     "name": "Premature Promotion Into Capture"
+    },
+    {
+     "old": "Bishop Overreach",
+     "name": "Bishop Overextended and Trapped"
+    },
+    {
+     "old": "Greedy Grab Gets Punished",
+     "name": "Impulsive Grab Punished Tactically"
+    },
+    {
+     "old": "Premature Pawn Shove",
+     "name": "Premature Pawn Push"
+    }
+   ]
+  }
+ ]
+}
