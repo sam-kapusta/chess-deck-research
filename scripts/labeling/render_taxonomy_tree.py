@@ -75,7 +75,7 @@ summary::-webkit-details-marker{display:none}
 .feat{margin:6px 0 10px 30px;padding:8px 12px;border-left:2px solid #2a3550;background:#13161e}
 .feat .fn{font-size:13px;color:#e6e6e6;margin-bottom:2px}
 .feat .fl{font-size:11px;color:#8b95a3;margin-bottom:6px}
-.feat .mech{font-size:10px;color:#c9a227}
+.feat .mech{font-size:11px;color:#aeb6c2;line-height:1.5;margin-bottom:4px}.feat .mech b{color:#c9a227;font-weight:600}
 .boards{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
 .cell{width:200px}
 .bc{font-size:10px;color:#9aa4b2;margin-top:2px;line-height:1.3}
@@ -98,12 +98,20 @@ for bk in bucket_order:
         parts.append(f"<details class=sub><summary>{esc(sub)} <span class=cnt>{len(fids)}</span></summary>")
         for f in fids:
             a_ = d[f]['analysis']; s = st.get('f'+f) or st.get(f) or {}
-            pd = s.get('own_hang_piece_dist', {})
-            pdtxt = ', '.join(f"{k} {v}" for k, v in sorted(pd.items(), key=lambda x: -x[1])) if pd else '—'
-            mech = (f"missed-winning-material {s.get('best_wins_material_pct',0)*100:.0f}% · "
-                    f"hung-own-piece {s.get('blunder_hangs_own_pct',0)*100:.0f}% (med {s.get('own_hang_median',0)}; {pdtxt}) · "
-                    f"best-is-check {s.get('best_is_check_pct',0)*100:.0f}% · best-is-capture {s.get('best_is_capture_pct',0)*100:.0f}% · "
-                    f"fires {s.get('fire_rate',0)*100:.1f}% of corpus")
+            def top2(dist):
+                if not dist: return '—'
+                return ', '.join(f"{k} {v*100:.0f}%" for k, v in list(dist.items())[:3])
+            mech = (
+                f"<b>player moved:</b> {top2(s.get('moved_piece_pct',{}))} · "
+                f"<b>captured:</b> {top2(s.get('captured_piece_pct',{}))} · "
+                f"<b>played check:</b> {s.get('played_is_check_pct',0)*100:.0f}%<br>"
+                f"<b>Maia move:</b> {top2(s.get('best_piece_pct',{}))} · "
+                f"<b>Maia captures:</b> {top2(s.get('best_captured_piece_pct',{}))} · "
+                f"<b>Maia check:</b> {s.get('best_is_check_pct',0)*100:.0f}%<br>"
+                f"<b>hung own:</b> {s.get('blunder_hangs_own_pct',0)*100:.0f}% (med {s.get('own_hang_median',0)}; {top2(s.get('own_hang_piece_dist',{}))}) · "
+                f"<b>missed material:</b> {s.get('best_wins_material_pct',0)*100:.0f}% · "
+                f"<b>phase:</b> {top2(s.get('phase_pct',{}))} · "
+                f"<b>fires</b> {s.get('fire_rate',0)*100:.1f}% (n={s.get('n','?')})")
             parts.append(f"<div class=feat><div class=fn>f{f} — {esc(a_['chip'])}</div>"
                          f"<div class=fl>{esc(a_.get('label',''))}</div>"
                          f"<div class=mech>{mech}</div>"
