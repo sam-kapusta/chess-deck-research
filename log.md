@@ -28,8 +28,29 @@ convention) with a README documenting run order + the SEE-is-single-ply lesson. 
 labelers (gemini, pass2, btk, synthesize) left in `scripts/labeling/` — not deleted, flagged for a
 later cleanup pass.
 
-**Open:** re-bucket on new labels (assignments are stale — built on old labels); review the 95
-flagged. `output/relabel_allfields_d2048_k6.json` committed.
+**Re-bucket (same session):** rebuilt the taxonomy bottom-up on the new labels.
+- Mechanical clustering (Titan embeddings + agglomerative) was a DEAD END: prose labels share the
+  "Player consistently..." scaffold so everything is cosine-near everything; no flat distance cut
+  gives usable groups (0.45→156 clusters, 0.55→one 958-feature blob, 0.75→collapse). Chip-only
+  embedding separates better but still 150+ clusters. Recorded, not pursued.
+- What worked: Opus derives the top-level set from a 200-feature sample (chip+label + the
+  self-inflicted-vs-omission SEE tell), reusing the old 11 as a non-forced starting hypothesis.
+  Ran on **3 disjoint 200-samples** — all three independently converged on the same 11-12 buckets
+  within a few % each. The one disagreement (is "Abandoning Defensive Duty" its own bucket) went
+  2-of-3 yes → kept. Final: 12 buckets (`buckets_v3_d2048_k6.json`).
+- Assigned all 2035 (`feature_buckets_v3_d2048_k6.json`): only 5 unassignable, biggest bucket 18%,
+  NO catch-all — the omissions split into Missed Hanging (14%) / Missed Tactic (18%) / Missed
+  Check-Mate (8%). The original "missed_win = 50% of dictionary" problem is resolved by carving on
+  WHAT was missed. fire% >> feat% in Left-Hanging & Missed-Tactic = those buckets hold the blobs.
+- The assigner has NO rules block (unlike old assign_to_buckets.py) — buckets + evidence + the
+  self-inflicted/omission axis only. That axis is what stops "missed a better move" becoming a
+  catch-all (every blunder had a better move).
+
+Sam drove the key corrections this session: "is missed win a bad category? they're all blunders"
+(→ split by what was missed), "I don't want you biasing it at all" (→ unbiased emergent run + no
+rules in assigner), and "try a third one" (→ 3-sample convergence as the validation).
+
+**Open:** sub-bucket within the 12 + render tree; blob display filter; review 95 flagged features.
 
 ## 2026-06-01 (session) — Maia3 v2 SAE bakeoff → l7only winner → overnight labeling
 

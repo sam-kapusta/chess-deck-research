@@ -29,11 +29,39 @@ over-steered and made labels flip between runs — one neutral line is stable).
   `consistency` field is the review signal — genuinely-mixed features (f745-type) come back ~80,
   and over-fit names ("Missed Nxd4") cluster in the flagged set.
 
+## RE-BUCKET DONE (2026-06-04) — v3 12-bucket taxonomy, bottom-up, validated 3×
+
+Rebuilt the taxonomy from scratch on the new labels. Old buckets were built on the OLD (wrong-
+direction) labels — stale. Method (bottom-up, not top-down — the taxonomy_v2 lesson):
+- Tried mechanical clustering (Titan embeddings, agglomerative). FAILED: the prose labels all
+  share "Player consistently..." scaffold + chess vocab, so everything is cosine-near everything.
+  No flat distance cut works (0.45→156 clusters, 0.55→one 958-blob, 0.75→total collapse).
+  Chip-only embedding separates better but still 150+ clusters. Bottom-up clustering alone can't
+  find top-level structure here — recorded as a dead end.
+- What worked: sample 200 features (chip+label+SEE self-inflicted/omission tell), ask Opus for the
+  natural top-level set, reuse old 11 as starting hypothesis (not forced). Ran on **3 disjoint
+  200-samples** — all converged on the same ~11-12 buckets within a few % each. Stable taxonomy.
+
+**v3 taxonomy (`output/buckets_v3_d2048_k6.json`, 12 buckets):** organized by error CHARACTER —
+- self-inflicted (played move loses): Left Piece Hanging, Abandoning Defensive Duty, Greedy
+  Capture, Premature Trade, Unsound Aggression, Pointless Check, King Safety Error
+- omission (played move safe, missed a win): Missed Hanging Piece, Missed Tactic, Missed Check
+  or Mate, Passive Play
+- phase: Endgame Technique
+
+**Assignment (`output/feature_buckets_v3_d2048_k6.json`, all 2035, only 5 unassignable):**
+Missed Tactic 371(18%) · Left Piece Hanging 328(16%) · Missed Hanging 287(14%) · Endgame 210(10%)
+· Greedy 173(9%) · Missed Check/Mate 164(8%) · Pointless Check 111 · Premature Trade 102 · Passive
+89 · King Safety 79 · Abandoning Defense 59 · Unsound Aggression 57. **No catch-all** — biggest
+bucket 18%, omissions properly split by WHAT was missed (the original "missed_win=50%" problem is
+gone). fire% >> feat% in Left-Hanging (91%) and Missed-Tactic (106%) = those buckets hold the blobs.
+
 **NEXT:**
-1. Re-bucket on the new labels (assign_to_buckets → subbucket_and_rollup → audit) — bucket
-   assignments were built on the OLD labels and are now stale.
-2. Review the 95 flagged (≤70) features — split the genuinely-mixed, fix over-fit names.
-3. Then: apply taxonomy to cabbagelover5566's 1,209 blunders (the coaching payoff).
+1. Sub-bucket within the 12 (e.g. Missed Tactic → fork/pin/skewer; Left Hanging → by piece) +
+   render the browsable tree (render_taxonomy_tree.py, repoint to v3).
+2. Blob filter: fire% vs feat% gap shows where blobs cluster — decide display threshold.
+3. Review the 95 flagged (≤70 consistency) features — split genuinely-mixed (f521-type 11.5% blob).
+4. Then: apply taxonomy to cabbagelover5566's 1,209 blunders (the coaching payoff).
 
 Pipeline now lives in `scripts/03_feature_labeling/` (Personas NN_stage convention) with a README.
 
