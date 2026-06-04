@@ -1,0 +1,522 @@
+{
+ "584": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes choosing a tempting but inferior capture over a stronger tactical continuation, which perfectly matches 'Greedy Capture' / 'Inferior Capture Over Tactic'."
+ },
+ "513": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes failing to make a decisive simplifying capture (often with check) in a winning position, instead playing a passive quiet move\u2014this fits 'Passive in Won Position' well."
+ },
+ "522": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes flashy aggressive sacrifices (typically Bxf7+) chosen over strong positional alternatives that win material, fitting squarely into 'Unsound Sacrifice on f7' under 'Unsound Aggression'."
+ },
+ "822": {
+  "verdict": "wrong_bucket",
+  "should_be": "Missed Tactic (Missed Check) / Hung Piece",
+  "why": "The feature is about the player MISSING a strong checking move and instead hanging their own piece, not about playing a pointless or wrong check."
+ },
+ "251": {
+  "verdict": "wrong_bucket",
+  "should_be": "Missed Winning/Saving Knight Move",
+  "why": "The feature is about missing a correct knight development/repositioning that wins or saves material, not about leaving knight tension unresolved; it's a missed tactic involving knights, not an ignored tension situation."
+ },
+ "801": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes a futile queen check that leaves pieces hanging, perfectly matching the 'Pointless Check' / 'Pointless Queen Check' sub-category, and the SEE stats confirm high own_hang rate consistent with pointless checks."
+ },
+ "144": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes missed tactical checks (often forks) winning material, and best_check=0.444 confirms checks are a key component, fitting well under 'Missed Forcing Check'."
+ },
+ "725": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes aggressive knight jumps to the rim that are unsound (high own_hang rate of 0.52 confirms the knight is often left vulnerable), fitting perfectly under 'Unsound Aggression' / 'Unsound Knight Lunge'."
+ },
+ "248": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature directly describes failing to advance a passed pawn in endgames, which perfectly matches the 'Endgame Technique' bucket and 'Failed to Advance Passed Pawn' sub-category."
+ },
+ "261": {
+  "verdict": "borderline",
+  "should_be": "Hanging Piece Blunders",
+  "why": "The feature emphasizes leaving a minor piece hanging (own_hang=0.4) more than ignoring tension; it's about creating a hanging piece via overextension rather than simply leaving tension unresolved, though the knight tension aspect provides some justification for the current placement."
+ },
+ "153": {
+  "verdict": "wrong_bucket",
+  "should_be": "Quiet Move Over Winning Capture",
+  "why": "The feature describes ignoring a free capture in favor of a quiet developing move (not making an inferior capture), so it belongs in a 'missed capture' or 'quiet move over winning capture' category rather than 'Greedy Capture / Inferior Capture Over Tactic'."
+ },
+ "773": {
+  "verdict": "borderline",
+  "should_be": "Greedy Capture / Punished Pawn Grab",
+  "why": "The feature is about a greedy pawn grab that gets tactically punished, not about missing a superior tactic in favor of an inferior capture; the sub-category 'Inferior Capture Over Tactic' implies choosing a worse capture when a better tactic exists, whereas here the issue is grabbing a 'free' pawn that turns out to be poisoned."
+ },
+ "556": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes a premature pawn promotion that hangs the new queen, fitting perfectly under 'Unsound Aggression' / 'Premature Promotion' as it's an aggressive but unsound promotional decision."
+ },
+ "950": {
+  "verdict": "wrong_bucket",
+  "should_be": "King Safety Neglect",
+  "why": "The feature describes neglecting urgent king safety needs by moving another piece instead, which is about ignoring king danger rather than aimless shuffling."
+ },
+ "804": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes ignoring a critical BxN exchange (tension) in favor of centralizing the knight, leaving pieces vulnerable, which fits 'Ignored Tension' / 'Unresolved Knight Tension' as the player bypasses resolving piece tension."
+ },
+ "887": {
+  "verdict": "wrong_bucket",
+  "should_be": "Hanging Piece (Passive Move Hangs Own Piece)",
+  "why": "The feature describes a passive quiet move that leaves the player's own piece en prise, not a greedy capture that abandons defense; there's no capture involved in the player's move."
+ },
+ "0": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes choosing a passive move over an active rook capture of a pawn, which directly matches the 'Passive Move Over Capture' sub-category under 'Passive Play'."
+ },
+ "663": {
+  "verdict": "borderline",
+  "should_be": "Hung Own Piece",
+  "why": "While the best move does win material (0.882), the dominant signal is own_hang=0.545 indicating the player's move hangs their own piece, which aligns more with a 'Hung Own Piece' category than a 'Missed Quiet Tactical Shot', though the missed win aspect is also present."
+ },
+ "925": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature's dominant characteristic is hanging own piece (50.8%) via a quiet move, which directly matches the 'Quiet Move Hangs Piece' sub-category under 'Left Piece Hanging'."
+ },
+ "502": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes passive king moves in critical pawn endgames losing opposition/active positioning, which fits perfectly under Endgame Technique / King Misplaced."
+ },
+ "31": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes hanging one's own queen (own_hang=0.819), fitting perfectly under 'Left Piece Hanging' / 'Left Queen Hanging'."
+ },
+ "77": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature identifies moves where a player's piece becomes undefended and capturable (own_hang=0.761), and the 'Capture Abandons Defense' sub-category describes exactly this pattern where making a capture (active-looking move) leaves one's own piece hanging."
+ },
+ "208": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly involves missing a winning queen check (best_check=0.957, best_wins_material=0.976), fitting perfectly under 'Missed Check or Mate' / 'Missed Winning Queen Check'."
+ },
+ "970": {
+  "verdict": "borderline",
+  "should_be": "Endgame Technique / Missed Quiet Winning Move",
+  "why": "The feature is about missing a precise winning move (often a quiet move addressing a threat) rather than specifically about missing simplification opportunities; 'Missed Simplification' implies trading down to a won position, but the feature is broader than that."
+ },
+ "690": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes ignoring a critical queen exchange in favor of a quiet move, which directly matches 'Ignored Tension' / 'Declined Queen Trade' as the player declines the available queen trade leaving material hanging."
+ },
+ "913": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly identifies cases where a player misses a forcing check/capture that wins material, fitting perfectly under 'Missed Winning Tactic' / 'Missed Forcing Move'."
+ },
+ "436": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes missing a forcing check (Bxf7+) that wins material, which fits perfectly under 'Missed Forcing Check' as the player chose a non-checking capture instead of the superior check."
+ },
+ "258": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes capturing an enemy piece while leaving the capturing piece hanging, which is a greedy capture that sacrifices material - fits 'Greedy Minor Piece Grab' as the player prioritizes winning material over piece safety."
+ },
+ "628": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes missing a pawn promotion (a quiet winning move), which fits perfectly under 'Missed Quiet Win' with sub-category 'Missed Pawn Promotion'."
+ },
+ "34": {
+  "verdict": "wrong_bucket",
+  "should_be": "Left Piece Hanging / General (or a sub-category like 'Rook Move Hangs Other Piece')",
+  "why": "The feature describes a rook move that leaves another piece hanging, not the rook itself being left hanging; the sub-category 'Left Rook Hanging' implies the rook is the piece that is undefended."
+ },
+ "284": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes missing a quiet king move that wins material (rook) through attack/trapping, fitting 'Missed Quiet Win' and specifically an endgame maneuver where king activity is decisive."
+ },
+ "50": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes choosing a tempting material capture over a stronger tactical non-capture move, which perfectly matches the 'Greedy Capture' bucket and 'Inferior Capture Over Tactic' sub-category."
+ },
+ "20": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes ignoring a mutual bishop tension (leaving own bishop hanging), which matches perfectly with the 'Ignored Tension' bucket and 'Unresolved Bishop Tension' sub-category, supported by the high own_hang stat of 0.718."
+ },
+ "167": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly identifies missed queen checks that win material or deliver checkmate, perfectly matching the 'Missed Check or Mate' bucket and 'Missed Winning Queen Check' sub-category."
+ },
+ "608": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes making a tempting capture that hangs a piece while missing a stronger tactic, which perfectly matches 'Inferior Capture Over Tactic' under the 'Greedy Capture' bucket."
+ },
+ "706": {
+  "verdict": "borderline",
+  "should_be": "Ignored Mate-in-One Threat",
+  "why": "While own_hang=0.753 supports the 'hangs piece' aspect, the feature's primary defining characteristic is ignoring an immediate checkmate threat (allowing mate in one), which is a more specific and severe mistake than merely hanging a piece; the hung piece is incidental to the missed mate."
+ },
+ "927": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes a knight capturing on f2/f7 that is immediately lost (hung), which is exactly an unsound sacrifice on f7 (or f2), fitting the 'Unsound Aggression' / 'Unsound Sacrifice on f7' category."
+ },
+ "654": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes pointless checks (often with the queen) that leave the checking piece hanging, which matches the 'Pointless Check' bucket and 'Pointless Queen Check' sub-category perfectly."
+ },
+ "503": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes missing a capture of an undefended enemy piece, and the SEE stats confirm the best move wins material (0.919), perfectly matching the 'Missed Hanging Piece' category."
+ },
+ "656": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes the queen greedily capturing a pawn (the classic 'poisoned pawn') instead of a better alternative, which perfectly fits 'Greedy Capture' / 'Greedy Queen Grab'."
+ },
+ "242": {
+  "verdict": "wrong_bucket",
+  "should_be": "Wrong Priority Hangs Piece",
+  "why": "The feature is specifically about making an active-looking move while hanging one's own piece and missing a winning capture - this matches the 'Wrong Priority Hangs Piece' chip label, not 'Greedy Capture / Inferior Capture Over Tactic' which implies taking an inferior capture rather than leaving pieces hanging."
+ },
+ "570": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes a passive rook move that leaves a piece/pawn undefended, which aligns perfectly with 'Left Piece Hanging' / 'Quiet Move Hangs Piece' \u2014 the own_hang stat of 0.582 confirms pieces are being left hanging via a quiet (non-tactical) move."
+ },
+ "908": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes pointless checks (often with a bishop) that hang pieces, matching perfectly with 'Pointless Minor Piece Check' under the 'Pointless Check' bucket, and the SEE stats confirm high own_hang rate with no material gain."
+ },
+ "662": {
+  "verdict": "wrong_bucket",
+  "should_be": "Aimless Checks",
+  "why": "Giving pointless checks is the opposite of passive play\u2014it's an active but wasteful move; it belongs in an 'Aimless Checks' or 'Impulsive Checks' category rather than 'Passive Play'."
+ },
+ "735": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes promoting a pawn on a square controlled by an enemy piece, immediately hanging the new queen - this is a textbook example of premature promotion (promoting without adequate support), which fits perfectly under Unsound Aggression / Premature Promotion."
+ },
+ "52": {
+  "verdict": "wrong_bucket",
+  "should_be": "Missed Tactic (Queen Capture-Check)",
+  "why": "The feature is about missing a decisive Queen capture with check, not about giving a pointless or wrong check; the best move IS a check that was missed, and the actual move hung their own queen."
+ },
+ "301": {
+  "verdict": "borderline",
+  "should_be": "Missed Zwischenzug",
+  "why": "The feature is specifically about missed zwischenzug checks (intermediate checks before completing a capture), which is more nuanced than a generic 'Missed Forcing Check' \u2014 it could warrant its own zwischenzug-specific category, but since the key missed element is indeed a forcing check, the placement is defensible."
+ },
+ "108": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes missing a winning rook tactic (penetration/capture winning material), which fits perfectly under 'Missed Winning Tactic' / 'Missed Rook Invasion'."
+ },
+ "221": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes capturing/ignoring a passed pawn while leaving own piece en prise (own_hang=0.838), which fits 'Unsound Grab' - taking material (pawn) without adequate justification while leaving pieces hanging."
+ },
+ "668": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes giving check with a rook/queen that is left en prise (hung), which aligns perfectly with 'Pointless Check' / 'Pointless Rook Check' since the check accomplishes nothing meaningful while losing material."
+ },
+ "985": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly identifies missed rook checks (best_check=0.974) that win material or force mate, fitting perfectly under 'Missed Forcing Check'."
+ },
+ "62": {
+  "verdict": "wrong_bucket",
+  "should_be": "Missed Forced Mate",
+  "why": "The feature label explicitly describes missing forced checkmate or decisive winning continuation, which aligns with a 'Missed Forced Mate' or 'Missed Decisive Continuation' bucket rather than 'Missed Quiet Tactical Shot' - the high best_wins_material and own_hang stats suggest dramatic missed wins, not quiet positional shots."
+ },
+ "643": {
+  "verdict": "borderline",
+  "should_be": "Ignored Passed Pawn Threat",
+  "why": "The feature specifically emphasizes ignoring dangerous passed pawns and making tempting but inferior moves, which aligns more with 'Ignoring Critical Passed Pawn' than a generic 'Missed Quiet Win' bucket, though there is overlap since the correct move is often a quiet winning maneuver."
+ },
+ "310": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes missing a non-capturing check that wins material or delivers checkmate, which perfectly matches the 'Missed Forcing Check' sub-category under 'Missed Check or Mate'."
+ },
+ "447": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes missing a free capture of an undefended piece (hanging piece) in endgame positions, which fits perfectly under 'Missed Hanging Piece' with sub-category 'Missed Endgame Capture'."
+ },
+ "44": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes missing a capture of a high-value hanging enemy piece, which fits 'Missed Hanging Piece' bucket, and the passive king move context is consistent with endgame scenarios fitting 'Missed Endgame Capture' sub-category."
+ },
+ "507": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes missing a concrete tactical opportunity by playing a quiet/routine move instead, which perfectly matches 'Missed Winning Tactic' / 'Quiet Move Over Tactic' \u2014 the SEE stats confirm best move wins material that was missed."
+ },
+ "764": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "A passive king retreat in a pawn endgame instead of advancing toward critical squares is a classic endgame technique error involving king misplacement."
+ },
+ "838": {
+  "verdict": "borderline",
+  "should_be": "Missed Winning Tactic / Missed Strong Knight Move",
+  "why": "The feature describes missed knight moves to central squares (captures/domination), not specifically forks; while it fits under 'Missed Winning Tactic', the sub-category 'Missed Knight Fork' is too narrow since the feature encompasses central knight captures and positional dominance, not just forks."
+ },
+ "885": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes giving a non-productive check when a better move exists, which aligns perfectly with 'Pointless Check' / 'Wrong Check'; the SEE stats confirm best move often wins material (0.51) that the player missed by checking instead."
+ },
+ "552": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes making a quiet move that leaves one's own piece en prise, which directly matches 'Left Piece Hanging' / 'Quiet Move Hangs Piece', and the SEE stats confirm own_hang=0.94."
+ },
+ "156": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes missing a critical capture in an endgame, which fits 'Endgame Technique / Missed Simplification' since the player fails to simplify by capturing when they should."
+ },
+ "473": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly involves missed checks (best_check=0.871) that win material (best_wins_material=0.821), fitting perfectly under 'Missed Check or Mate' / 'Missed Forcing Check'."
+ },
+ "585": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes missing a freely capturable enemy piece (bishop/minor piece), which matches the 'Missed Hanging Piece' bucket perfectly, supported by best_wins_material=0.915."
+ },
+ "209": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature specifically involves missing a bishop capture that delivers check (best_check=0.981) and initiates a winning tactical sequence, which fits perfectly under 'Missed Forcing Check'."
+ },
+ "363": {
+  "verdict": "borderline",
+  "should_be": "Hung Piece",
+  "why": "The SEE stats show own_hang=0.478 is the dominant signal, suggesting the feature captures moves that hang pieces rather than purely passive play, though the label describes passivity in won positions."
+ },
+ "741": {
+  "verdict": "wrong_bucket",
+  "should_be": "Hanging Piece",
+  "why": "The feature is about leaving one's own rook undefended/en prise (own_hang=0.881), not about greedily capturing an opponent's rook; it belongs in a 'Hanging Piece' or 'Left Piece Undefended' category."
+ },
+ "755": {
+  "verdict": "wrong_bucket",
+  "should_be": "Hung Piece (non-capture blunder leaving own piece en prise)",
+  "why": "The feature is about playing an active-looking move while leaving one's own piece hanging AND missing a simple capture of an opponent's hanging piece - it's primarily a 'hung piece' blunder rather than choosing an inferior capture, since the player's move isn't necessarily a capture at all but rather a check or active move."
+ },
+ "280": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes a missed queen check that wins decisive material, fitting perfectly under 'Missed Check or Mate' / 'Missed Winning Queen Check'."
+ },
+ "930": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature involves missing a critical check (rook/queen check gaining tempo), which directly fits 'Missed Forcing Check' as a sub-category of 'Missed Check or Mate'."
+ },
+ "479": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes missing a queen capture on an undefended (hanging) rook, which fits perfectly under 'Missed Hanging Piece'."
+ },
+ "611": {
+  "verdict": "wrong_bucket",
+  "should_be": "Missed Forcing/Tactical Win",
+  "why": "The feature specifically involves missing an urgent check or capture (forcing moves), not a quiet tactical shot; the best move is forcing (check/capture), not quiet."
+ },
+ "965": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes missing a simple pawn recapture of a hanging bishop, which fits perfectly under 'Missed Hanging Piece' / 'Missed Pawn Capture'."
+ },
+ "89": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes ignoring a trivially capturable undefended enemy piece in favor of a quiet move, which perfectly matches 'Missed Hanging Piece' / 'Routine Move Over Capture', and the SAE stats confirm best_wins_material is high (0.829)."
+ },
+ "180": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes pointless queen checks that hang the queen itself, matching perfectly with the 'Pointless Check' / 'Pointless Queen Check' sub-category, and the SEE stats confirm high own_hang rate with the best move winning material the player missed."
+ },
+ "947": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes a bishop capture that leaves the bishop en prise (hanging), with own_hang=1.0 confirming it always hangs its own piece, fitting perfectly under 'Left Piece Hanging' / 'Left Minor Piece Hanging'."
+ },
+ "875": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes missing a central pawn thrust that wins material (bishop on c4), fitting perfectly under 'Missed Winning Tactic' / 'Missed Pawn Breakthrough' as confirmed by the high best_wins_material stat of 0.921."
+ },
+ "320": {
+  "verdict": "borderline",
+  "should_be": "Missed Captures",
+  "why": "The feature is specifically about missing a bishop capture opportunity (a missed tactical shot) rather than ignoring existing tension; 'Missed Captures' or 'Missed Material Win' would be more precise, but 'Unresolved Bishop Tension' partially fits since the bishop had an unresolved attacking relationship with an enemy piece."
+ },
+ "308": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "A passive king retreat toward the edge/corner instead of staying centralized is a classic endgame technique error specifically about king misplacement."
+ },
+ "673": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes missing a winning capture (best_wins_material=0.567), which directly matches the 'Missed Winning Capture' sub-category under 'Missed Winning Tactic'."
+ },
+ "803": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes missing a capture that gives check (best_check=0.9), which is a forcing check opportunity missed, fitting perfectly under 'Missed Forcing Check'."
+ },
+ "195": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes wasteful queen checks that miss winning material captures, perfectly matching the 'Pointless Check' bucket and 'Pointless Queen Check' sub-category."
+ },
+ "541": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes hanging one's own queen (own_hang=0.986), and the sub-category 'Left Queen Hanging' precisely matches the feature label about leaving their own queen en prise."
+ },
+ "865": {
+  "verdict": "wrong_bucket",
+  "should_be": "Flashy/Aggressive Move Blunder",
+  "why": "The feature is about making aggressive moves (often checks) that hang pieces while missing simple captures, not about choosing an inferior capture over a tactic\u2014it's more about flashy aggression than greediness."
+ },
+ "97": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes missing an immediately available pawn promotion, which is a quiet winning move missed, and it's filed exactly under the matching sub-category 'Missed Pawn Promotion' within 'Missed Quiet Win'."
+ },
+ "937": {
+  "verdict": "wrong_bucket",
+  "should_be": "Pawn Push Hangs Piece",
+  "why": "The feature describes an aggressive pawn advance (not a capture) that leaves a minor piece undefended; it belongs in a 'Pawn Push Hangs Piece' or similar advancing/overextension bucket, not 'Greedy Capture' since the move is a pawn push, not necessarily a capture."
+ },
+ "632": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes passive, unnecessary king moves instead of decisive winning actions, which perfectly fits 'Aimless Piece Shuffling' under 'Passive Play'."
+ },
+ "1000": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes missing a hanging (undefended) enemy bishop that could be simply captured, which matches 'Missed Hanging Piece' perfectly."
+ },
+ "718": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes a pointless check that leaves the Queen undefended (abandons its defense), matching 'Check Abandons Defense' under the 'Pointless Check' bucket perfectly."
+ },
+ "282": {
+  "verdict": "borderline",
+  "should_be": "Greedy Capture / Central Pawn Grab",
+  "why": "The feature is specifically about greedy central pawn captures rather than cases where a superior tactic was missed; the best_wins_material stat (0.714) does suggest a missed tactic, but the feature's core identity is the greedy pawn grab itself, making a more specific sub-category like 'Central Pawn Grab' slightly more appropriate than the generic 'Inferior Capture Over Tactic'."
+ },
+ "317": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes missing a pawn advance that wins material, which fits perfectly under 'Missed Winning Tactic' / 'Missed Pawn Breakthrough'."
+ },
+ "191": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes ignoring concrete tactical opportunities (captures, checks) in favor of a quiet pawn move, which aligns perfectly with 'Passive Move Over Capture' under 'Passive Play'."
+ },
+ "880": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes ineffective queen checks that miss winning moves, perfectly matching the 'Pointless Check' / 'Pointless Queen Check' bucket."
+ },
+ "412": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes a knight capturing on f7/f2 without compensation (unsound sacrifice), and the high own_hang rate (0.964) confirms the piece is left hanging, perfectly matching the 'Unsound Sacrifice on f7' sub-category under 'Unsound Aggression'."
+ },
+ "428": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature explicitly describes king-and-pawn endgame mistakes where the king moves to the wrong square, which perfectly fits 'Endgame Technique' / 'King Misplaced'."
+ },
+ "744": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes ignoring a mating threat to play a quiet/passive move, which fits perfectly under 'Passive Play' / 'Missed Mate While Passive'."
+ },
+ "989": {
+  "verdict": "borderline",
+  "should_be": "",
+  "why": "The feature is about premature aggression hanging a minor piece, which fits 'Unsound Aggression' well, but the sub-category 'Unsound Knight Lunge' is too narrow since the feature includes captures and pawn pushes leaving any minor piece en prise, not just knight lunges specifically."
+ },
+ "892": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes ignoring an available rook recapture (declining a rook exchange) and playing a quiet move instead, which fits perfectly under 'Ignored Tension' / 'Declined Rook Trade'."
+ },
+ "477": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes ignoring a beneficial exchange (tension) in favor of a quiet move, which perfectly matches 'Ignored Tension' / 'Quiet Move Over Capture'."
+ },
+ "905": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes giving a pointless check when a better material-winning move exists, which aligns perfectly with 'Pointless Check' / 'Wrong Check' \u2014 the player chooses a check that accomplishes nothing over capturing hanging material."
+ },
+ "516": {
+  "verdict": "wrong_bucket",
+  "should_be": "Missed Perpetual Check",
+  "why": "The feature explicitly describes missing a forcing check sequence that draws or wins, and best_check=0.317 confirms checks are frequently the best move; this fits the 'Missed Perpetual Check' chip category, not a quiet tactical shot."
+ },
+ "490": {
+  "verdict": "wrong_bucket",
+  "should_be": "Ambitious/Overreaching Moves (Hanging Own Piece)",
+  "why": "The feature is about ignoring a winning capture to play an ambitious move that hangs a piece, not about making an inferior capture; the player doesn't capture at all, they play a non-capture ambitious move."
+ },
+ "752": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature clearly describes missing a queen trap (a winning tactic), and the SEE stats confirm the best move wins material, making 'Missed Winning Tactic' / 'Missed Queen Trap' the correct placement."
+ },
+ "521": {
+  "verdict": "correct",
+  "should_be": "",
+  "why": "The feature describes king misdirection in pawn endgames, which fits perfectly under 'Endgame Technique' / 'King Misplaced' as it involves the king moving in the wrong direction during the endgame."
+ }
+}
