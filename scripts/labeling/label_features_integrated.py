@@ -129,8 +129,16 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--profiles", required=True); ap.add_argument("--positions", required=True)
 ap.add_argument("--seestats", required=True); ap.add_argument("--output", required=True)
 ap.add_argument("--nshow", type=int, default=12); ap.add_argument("--resume", action="store_true")
+ap.add_argument("--dump-prompts", default="", help="if set, write {fid: prompt} JSON here and exit (no LLM calls)")
 a = ap.parse_args(); NSHOW = a.nshow
 profiles = json.load(open(a.profiles)); analyses = json.load(open(a.positions)); st = json.load(open(a.seestats))
+if a.dump_prompts:
+    prompts = {}
+    for fid in sorted(profiles.keys(), key=int):
+        p = build(fid, profiles[fid], analyses, st)
+        if p is not None: prompts[fid] = p
+    json.dump(prompts, open(a.dump_prompts, "w"), indent=1)
+    print(f"dumped {len(prompts)} prompts -> {a.dump_prompts}"); raise SystemExit
 results = {}
 if a.resume:
     try: results = json.load(open(a.output)); print(f"resume: {sum(1 for v in results.values() if 'error' not in v)} done")
