@@ -1,0 +1,74 @@
+[
+ {
+  "id": "left_hanging",
+  "name": "Left Piece Hanging",
+  "char": "self-inflicted",
+  "desc": "Your move leaves your own piece en prise to a simple capture, unforced (net material loss, not a trade)."
+ },
+ {
+  "id": "abandoned_defense",
+  "name": "Abandoning Defensive Duty",
+  "char": "self-inflicted",
+  "desc": "You move a piece away from a critical defensive role, exposing other material or your king to immediate tactics."
+ },
+ {
+  "id": "greedy_capture",
+  "name": "Greedy Capture",
+  "char": "self-inflicted",
+  "desc": "You grab material that is poisoned/trapped/refuted \u2014 the capturing piece is lost or a stronger move existed (net negative, NOT an even trade)."
+ },
+ {
+  "id": "premature_trade",
+  "name": "Premature Trade",
+  "char": "self-inflicted",
+  "desc": "An even exchange at the wrong moment \u2014 trading off your best piece, simplifying into a worse endgame, or releasing critical tension."
+ },
+ {
+  "id": "unsound_aggression",
+  "name": "Unsound Aggression",
+  "char": "self-inflicted",
+  "desc": "A speculative sacrifice or premature attack that is immediately refuted, losing material for insufficient compensation."
+ },
+ {
+  "id": "pointless_check",
+  "name": "Pointless Check",
+  "char": "self-inflicted",
+  "desc": "A futile or impulsive check that achieves nothing \u2014 wastes tempo or hangs the checking piece."
+ },
+ {
+  "id": "king_safety",
+  "name": "King Safety Error",
+  "char": "self-inflicted",
+  "desc": "A move that fatally weakens your own king's shelter, walks the king into danger, or ignores a mating threat against you."
+ },
+ {
+  "id": "missed_hanging",
+  "name": "Missed Hanging Piece",
+  "char": "omission",
+  "desc": "An enemy piece was free to capture (undefended/en prise) with no complications; you played a passive or unrelated move instead."
+ },
+ {
+  "id": "missed_tactic",
+  "name": "Missed Tactic",
+  "char": "omission",
+  "desc": "A fork, pin, skewer, double attack, zwischenzug, or winning combination was available; you chose a quiet/routine move (non-mating, non-simple-capture)."
+ },
+ {
+  "id": "missed_check_mate",
+  "name": "Missed Check or Mate",
+  "char": "omission",
+  "desc": "A forcing check, back-rank mate, or short forced mate was available; you played something quieter or greedier."
+ },
+ {
+  "id": "passive_play",
+  "name": "Passive Play",
+  "char": "omission",
+  "desc": "Drifting with aimless/slow moves when the position demanded concrete action \u2014 no specific tactic missed, just a lack of urgency."
+ },
+ {
+  "id": "endgame_technique",
+  "name": "Endgame Technique",
+  "char": "phase",
+  "desc": "Endgame-specific technique error: wrong king path, premature pawn push, missed opposition/promotion, passive king, rook-placement mistake."
+ }
+]
