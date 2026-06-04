@@ -8,6 +8,15 @@
 > kept under `scripts/sae/new_sae_architecture/` but must be repointed to the v2 cache before
 > any rerun. Next step if revisiting: rebuild all three constructions on v2 data.
 
+## IN FLIGHT (2026-06-03) — k4-vs-k6 head-to-head, step 2b running
+Background job on chess-poc (screen `opus_k6gap`): Opus-labeling 8,193 k6 gap positions (~90min)
+so d2048_k6 isn't motif-handicapped vs k4 (fair comparison per the spec). Done so far:
+- Step 1: `see_stats_d2048_k6.json` (git+S3). Step 2: `d2048_k6_profiles.json` (S3), top-10/feat.
+  k6 = 2048 live; only 63% had >=5 Opus-covered top-10 -> filling the 8,239-position gap now.
+Next when gap done: Step 3 `label_features_integrated.py` on k6 -> Step 4 assign to existing 11
+buckets (allow unassignable) -> Step 5 audit + 5-metric table + the +315-feature breakdown.
+Spec: `docs/superpowers/specs/2026-06-03-k4-vs-k6-interpretability-headtohead-design.md`
+
 ## Current State (2026-06-03 end) — d1024_k4 fully labeled + 11-bucket taxonomy, audited
 
 **Working model for the taxonomy:** `btk_1024_k4_nol2.pt` (S3 `sae/weights/`). Chosen over k6 for this
