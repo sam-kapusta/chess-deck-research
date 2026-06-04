@@ -1,0 +1,606 @@
+{
+ "bishop_f5": {
+  "mistake": "hung_piece",
+  "move": "9...Bf5",
+  "k4": [
+   {
+    "f": 745,
+    "act": 20.78,
+    "chip": "Piece Left En Prise"
+   },
+   {
+    "f": 127,
+    "act": 19.69,
+    "chip": "Missed Winning Tactic"
+   },
+   {
+    "f": 710,
+    "act": 7.7,
+    "chip": "Ignoring Knight Fork Threat"
+   },
+   {
+    "f": 635,
+    "act": 6.68,
+    "chip": "Opening Autopilot Hangs Pawn"
+   },
+   {
+    "f": 825,
+    "act": 6.08,
+    "chip": "Missed Knight Fork Opening"
+   }
+  ],
+  "k6": [
+   {
+    "f": 952,
+    "act": 20.91,
+    "chip": "Piece Left Hanging"
+   },
+   {
+    "f": 1487,
+    "act": 19.69,
+    "chip": "Passive Move Hangs Piece"
+   },
+   {
+    "f": 1928,
+    "act": 11.56,
+    "chip": "Opening Knight Hang"
+   },
+   {
+    "f": 588,
+    "act": 8.97,
+    "chip": "Opening Piece Hang"
+   },
+   {
+    "f": 837,
+    "act": 5.28,
+    "chip": "Ignoring Free Knight"
+   }
+  ]
+ },
+ "queen_h4": {
+  "mistake": "left_piece_undefended",
+  "move": "17.dxe4",
+  "k4": [
+   {
+    "f": 745,
+    "act": 23.57,
+    "chip": "Piece Left En Prise"
+   },
+   {
+    "f": 391,
+    "act": 19.43,
+    "chip": "Piece Self-Traps"
+   },
+   {
+    "f": 794,
+    "act": 13.9,
+    "chip": "King Safety Neglect"
+   },
+   {
+    "f": 233,
+    "act": 13.49,
+    "chip": "Ignoring Queen Capture Threat"
+   },
+   {
+    "f": 127,
+    "act": 11.37,
+    "chip": "Missed Winning Tactic"
+   },
+   {
+    "f": 487,
+    "act": 10.33,
+    "chip": "Premature Queen Trade"
+   },
+   {
+    "f": 80,
+    "act": 9.19,
+    "chip": "Ignoring King Danger"
+   },
+   {
+    "f": 107,
+    "act": 7.3,
+    "chip": "Premature Castling Tempo Loss"
+   }
+  ],
+  "k6": [
+   {
+    "f": 952,
+    "act": 21.88,
+    "chip": "Piece Left Hanging"
+   },
+   {
+    "f": 1965,
+    "act": 19.45,
+    "chip": "Piece Self-Traps"
+   },
+   {
+    "f": 2021,
+    "act": 13.21,
+    "chip": "King Walk Into Danger"
+   },
+   {
+    "f": 1810,
+    "act": 12.36,
+    "chip": "Costly Queen Trade"
+   },
+   {
+    "f": 1487,
+    "act": 11.47,
+    "chip": "Passive Move Hangs Piece"
+   },
+   {
+    "f": 108,
+    "act": 10.22,
+    "chip": "Missed Zwischenzug Capture"
+   },
+   {
+    "f": 1070,
+    "act": 10.16,
+    "chip": "Queen Left Hanging"
+   },
+   {
+    "f": 891,
+    "act": 8.12,
+    "chip": "Queen Misplacement Loses Tempo"
+   }
+  ]
+ },
+ "knight_e4_trap": {
+  "mistake": "walked_into_tactic",
+  "move": "5...Nxe4??",
+  "k4": [
+   {
+    "f": 341,
+    "act": 23.23,
+    "chip": "Ignoring Mate Threat"
+   },
+   {
+    "f": 443,
+    "act": 10.83,
+    "chip": "Premature Minor Piece Exchange"
+   },
+   {
+    "f": 745,
+    "act": 8.97,
+    "chip": "Piece Left En Prise"
+   },
+   {
+    "f": 455,
+    "act": 8.51,
+    "chip": "Premature Minor Piece Trade"
+   },
+   {
+    "f": 12,
+    "act": 6.78,
+    "chip": "Unpin/Unblock Loses Queen"
+   }
+  ],
+  "k6": [
+   {
+    "f": 1329,
+    "act": 19.29,
+    "chip": "Checkmate Threat Ignored"
+   },
+   {
+    "f": 759,
+    "act": 11.72,
+    "chip": "Removing Critical Defender Trade"
+   },
+   {
+    "f": 952,
+    "act": 10.43,
+    "chip": "Piece Left Hanging"
+   },
+   {
+    "f": 1165,
+    "act": 8.74,
+    "chip": "Premature Minor Piece Exchange"
+   },
+   {
+    "f": 982,
+    "act": 6.14,
+    "chip": "Premature Knight Exchange"
+   },
+   {
+    "f": 138,
+    "act": 5.82,
+    "chip": "Ignoring King Safety Threats"
+   },
+   {
+    "f": 795,
+    "act": 4.94,
+    "chip": "Tactical Blindness Blunder"
+   },
+   {
+    "f": 364,
+    "act": 4.73,
+    "chip": "King Safety Neglect"
+   }
+  ]
+ },
+ "qd5_king_exposed": {
+  "mistake": "misplayed_attack",
+  "move": "8...Qd5",
+  "k4": [
+   {
+    "f": 745,
+    "act": 25.97,
+    "chip": "Piece Left En Prise"
+   },
+   {
+    "f": 468,
+    "act": 11.36,
+    "chip": "Overlooked Tactical Vulnerability"
+   },
+   {
+    "f": 413,
+    "act": 10.41,
+    "chip": "Queen Hanging Blunder"
+   },
+   {
+    "f": 864,
+    "act": 8.63,
+    "chip": "Losing Trade In Endgame"
+   },
+   {
+    "f": 716,
+    "act": 7.62,
+    "chip": "Undefended Bishop Development"
+   },
+   {
+    "f": 608,
+    "act": 6.44,
+    "chip": "Piece Left Undefended"
+   },
+   {
+    "f": 934,
+    "act": 6.18,
+    "chip": "Knight Moves Ignore King Safety"
+   },
+   {
+    "f": 638,
+    "act": 6.16,
+    "chip": "Piece Sacrifice Without Compensation"
+   }
+  ],
+  "k6": [
+   {
+    "f": 952,
+    "act": 26.23,
+    "chip": "Piece Left Hanging"
+   },
+   {
+    "f": 2018,
+    "act": 8.41,
+    "chip": "Losing Trade Simplification"
+   },
+   {
+    "f": 520,
+    "act": 8.28,
+    "chip": "Opening Bishop Hang"
+   },
+   {
+    "f": 681,
+    "act": 7.63,
+    "chip": "Queen Retreats Killing Attack"
+   },
+   {
+    "f": 1502,
+    "act": 7.28,
+    "chip": "Queen Into Danger"
+   },
+   {
+    "f": 1943,
+    "act": 5.64,
+    "chip": "Missed Promotion/Tactic Blunder"
+   },
+   {
+    "f": 825,
+    "act": 4.74,
+    "chip": "Unsound Knight Tactics"
+   },
+   {
+    "f": 394,
+    "act": 4.59,
+    "chip": "Pointless Queen Check"
+   }
+  ]
+ },
+ "bishop_recapture_h5": {
+  "mistake": "hung_piece",
+  "move": "16...Bxh5",
+  "k4": [],
+  "k6": [
+   {
+    "f": 521,
+    "act": 5.84,
+    "chip": "Hanging Piece Oversight"
+   }
+  ]
+ },
+ "rook_d6_blunder": {
+  "mistake": "hung_piece",
+  "move": "31...Rd6",
+  "k4": [
+   {
+    "f": 273,
+    "act": 7.61,
+    "chip": "Passive Rook Tempo Loss"
+   },
+   {
+    "f": 140,
+    "act": 7.48,
+    "chip": "King Safety Neglect"
+   }
+  ],
+  "k6": [
+   {
+    "f": 845,
+    "act": 6.77,
+    "chip": "King Safety Neglect"
+   },
+   {
+    "f": 364,
+    "act": 6.7,
+    "chip": "King Safety Neglect"
+   },
+   {
+    "f": 1487,
+    "act": 5.47,
+    "chip": "Passive Move Hangs Piece"
+   },
+   {
+    "f": 795,
+    "act": 4.8,
+    "chip": "Tactical Blindness Blunder"
+   }
+  ]
+ },
+ "nxe5_recapture": {
+  "mistake": "walked_into_tactic",
+  "move": "12...Nxe5",
+  "k4": [
+   {
+    "f": 443,
+    "act": 21.27,
+    "chip": "Premature Minor Piece Exchange"
+   },
+   {
+    "f": 143,
+    "act": 9.81,
+    "chip": "Knight Trade Allows Fork"
+   },
+   {
+    "f": 177,
+    "act": 6.56,
+    "chip": "Ill-Timed Opening Trade"
+   },
+   {
+    "f": 564,
+    "act": 6.44,
+    "chip": "Flashy Check Squanders Advantage"
+   }
+  ],
+  "k6": [
+   {
+    "f": 1165,
+    "act": 19.38,
+    "chip": "Premature Minor Piece Exchange"
+   },
+   {
+    "f": 1007,
+    "act": 7.56,
+    "chip": "Knight Recapture Fork Blunder"
+   },
+   {
+    "f": 1222,
+    "act": 6.71,
+    "chip": "Opening Knight Trade Fork"
+   },
+   {
+    "f": 37,
+    "act": 6.02,
+    "chip": "Premature Minor Piece Trade"
+   },
+   {
+    "f": 785,
+    "act": 6.01,
+    "chip": "Greedy Capture Hangs Queen"
+   },
+   {
+    "f": 182,
+    "act": 5.35,
+    "chip": "Premature Check Squanders Advantage"
+   },
+   {
+    "f": 917,
+    "act": 5.13,
+    "chip": "Opening King Safety Neglect"
+   },
+   {
+    "f": 1380,
+    "act": 4.63,
+    "chip": "Passive King Retreat"
+   }
+  ]
+ },
+ "rf8_allows_attack": {
+  "mistake": "missed_defensive_resource",
+  "move": "28...Rf8",
+  "k4": [
+   {
+    "f": 418,
+    "act": 6.37,
+    "chip": "Minor Piece Misplacement"
+   }
+  ],
+  "k6": [
+   {
+    "f": 1112,
+    "act": 9.93,
+    "chip": "Rook Self-Traps Tactically"
+   },
+   {
+    "f": 35,
+    "act": 5.29,
+    "chip": "King Safety Neglect"
+   }
+  ]
+ },
+ "qc7_allows_mate": {
+  "mistake": "missed_threat_mate",
+  "move": "30...Qc7",
+  "k4": [
+   {
+    "f": 127,
+    "act": 15.49,
+    "chip": "Missed Winning Tactic"
+   },
+   {
+    "f": 341,
+    "act": 15.39,
+    "chip": "Ignoring Mate Threat"
+   },
+   {
+    "f": 745,
+    "act": 11.11,
+    "chip": "Piece Left En Prise"
+   },
+   {
+    "f": 900,
+    "act": 7.99,
+    "chip": "Tempo Loss Allowing Tactics"
+   },
+   {
+    "f": 837,
+    "act": 6.03,
+    "chip": "Ignoring Queen Threat"
+   }
+  ],
+  "k6": [
+   {
+    "f": 1487,
+    "act": 16.79,
+    "chip": "Passive Move Hangs Piece"
+   },
+   {
+    "f": 1329,
+    "act": 14.71,
+    "chip": "Checkmate Threat Ignored"
+   },
+   {
+    "f": 952,
+    "act": 12.1,
+    "chip": "Piece Left Hanging"
+   },
+   {
+    "f": 290,
+    "act": 8.22,
+    "chip": "Wasted Tempo Blunder"
+   },
+   {
+    "f": 329,
+    "act": 5.28,
+    "chip": "Greedy Rook Capture"
+   },
+   {
+    "f": 252,
+    "act": 5.18,
+    "chip": "Queen Misplacement Ignoring King Safety"
+   },
+   {
+    "f": 618,
+    "act": 4.94,
+    "chip": "Missed Queen Tactic"
+   }
+  ]
+ },
+ "qd4_blunder": {
+  "mistake": "hung_piece",
+  "move": "18...Qd4",
+  "k4": [
+   {
+    "f": 745,
+    "act": 38.28,
+    "chip": "Piece Left En Prise"
+   },
+   {
+    "f": 391,
+    "act": 29.16,
+    "chip": "Piece Self-Traps"
+   },
+   {
+    "f": 127,
+    "act": 20.85,
+    "chip": "Missed Winning Tactic"
+   },
+   {
+    "f": 413,
+    "act": 10.44,
+    "chip": "Queen Hanging Blunder"
+   },
+   {
+    "f": 720,
+    "act": 7.95,
+    "chip": "Queen Hung to Knight"
+   },
+   {
+    "f": 174,
+    "act": 7.93,
+    "chip": "Queen Hung on Diagonal"
+   },
+   {
+    "f": 730,
+    "act": 7.21,
+    "chip": "Bishop Trapped After Retreat"
+   },
+   {
+    "f": 695,
+    "act": 7.19,
+    "chip": "Retreating Instead of Capturing"
+   }
+  ],
+  "k6": [
+   {
+    "f": 952,
+    "act": 38.37,
+    "chip": "Piece Left Hanging"
+   },
+   {
+    "f": 1965,
+    "act": 26.48,
+    "chip": "Piece Self-Traps"
+   },
+   {
+    "f": 1487,
+    "act": 21.74,
+    "chip": "Passive Move Hangs Piece"
+   },
+   {
+    "f": 1342,
+    "act": 11.04,
+    "chip": "Piece Left Hanging"
+   },
+   {
+    "f": 437,
+    "act": 9.17,
+    "chip": "Queen Hung on Diagonal"
+   },
+   {
+    "f": 1608,
+    "act": 7.66,
+    "chip": "Opening Piece Left Hanging"
+   },
+   {
+    "f": 1398,
+    "act": 6.33,
+    "chip": "Missed Decisive Tactic"
+   },
+   {
+    "f": 1267,
+    "act": 6.12,
+    "chip": "Ignoring Fork Threat"
+   }
+  ]
+ }
+}
