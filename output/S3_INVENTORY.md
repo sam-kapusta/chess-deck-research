@@ -123,8 +123,11 @@ Regenerate via `--no-l2 --no-val-split --n-batches-to-dead 126 --seed 42` (args 
 | `output/labels_matryoshka_v2_H1_top32.json` | [git] | 32 top-level v2 features labeled (conf 62–91). |
 | `all_positions_labeled_opus.json` | [notebook] | **54,763** Opus-4.6 per-position analyses (position_description, tactical_motif, tags, blunder_summary, refutation). Keyed `FEN\|move`. Shared across all SAE variants. Grows via `label_positions_btk.py`. |
 | `sae/labels/fused_names_k4.json` / `fused_names_d1024_k4.json` | [S3] | k4 fused names (Opus motif + SEE facts). **SUPERSEDED method** (fragments concept, got f127 direction backwards). Slim in git: `output/fused_names_*_slim.json`. |
-| `sae/labels/feature_labels_see_d1024_k4.json` | [S3]+[git] | **CURRENT label method.** d1024_k4, 1020/1024 features. Opus reads top-12 boards holistically + top-500 SEE-on-both-moves aggregate as raw data. 629 distinct chips (Missed Hanging Piece, Hung Own Queen, Missed Knight Fork...). Produced by `label_features_see.py`. |
-| `sae/labels/see_stats_d1024_k4.json` | [S3]+[git] | Per-feature SEE-on-both-moves stats over top-500: best_wins_material_pct / blunder_hangs_own_pct / piece dist. Grounds the labeler; from `compute_feature_see_stats.py`. |
+| `sae/labels/feature_labels_see_d1024_k4.json` | [S3]+[git] | SUPERSEDED by integrated (below). Opus + top-500 SEE aggregate. From `label_features_see.py`. |
+| `sae/labels/feature_labels_integrated_d1024_k4.json` | [S3]+[git] | **CURRENT labels.** d1024_k4, all 1020 features. Opus + SEE net-material + eval trajectory + per-position motif. mistake_type axis. f91='Premature Queen Trade'. From `label_features_integrated.py`. |
+| `sae/labels/see_stats_d1024_k4.json` | [S3]+[git] | **CURRENT stats.** Per-feature normalized cohorts (≥0.7max + nested ≥0.8max): moved/captured piece %, Maia-move piece+captures, played-check, phase, **net-material kind** (trade/loses/hangs), **eval trajectory** (winning/drawn/losing). From `compute_feature_see_stats.py`. |
+| `sae/labels/d1024_k4_profiles.json` | [S3] | Top-15 positions per feature (fen+blunder_uci). Feeds labeler + tree. |
+| `output/buckets_v2_d1024_k4.json` + `feature_buckets_v2_d1024_k4.json` + `feature_leaf_v2_d1024_k4.json` | [git] | **11-bucket taxonomy** + all-1020 assignments + leaf (bucket→sub). Audited (`audit_buckets.py`). |
 | `sae/eval/sparse_probe_results.json` | [S3] | k-sparse probe (SEE concepts × k4/6/8/16), bal_acc/F1 @p=1..32. Slim in git: `output/eval/sparse_probe_results.json`. `see_labels_168k.npz` (notebook) = the 168k SEE ground-truth concept labels. |
 
 ## 4. Stockfish / enrichment data
