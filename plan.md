@@ -8,14 +8,40 @@
 > kept under `scripts/sae/new_sae_architecture/` but must be repointed to the v2 cache before
 > any rerun. Next step if revisiting: rebuild all three constructions on v2 data.
 
-## IN FLIGHT (2026-06-03) — k4-vs-k6 head-to-head, step 2b running
-Background job on chess-poc (screen `opus_k6gap`): Opus-labeling 8,193 k6 gap positions (~90min)
-so d2048_k6 isn't motif-handicapped vs k4 (fair comparison per the spec). Done so far:
-- Step 1: `see_stats_d2048_k6.json` (git+S3). Step 2: `d2048_k6_profiles.json` (S3), top-10/feat.
-  k6 = 2048 live; only 63% had >=5 Opus-covered top-10 -> filling the 8,239-position gap now.
-Next when gap done: Step 3 `label_features_integrated.py` on k6 -> Step 4 assign to existing 11
-buckets (allow unassignable) -> Step 5 audit + 5-metric table + the +315-feature breakdown.
-Spec: `docs/superpowers/specs/2026-06-03-k4-vs-k6-interpretability-headtohead-design.md`
+## CURRENT STATE (2026-06-04) — d2048_k6 fully relabeled with all-fields method
+
+**k6 is the working model now** (`btk_2048_k6_nol2.pt`, S3 `sae/weights/`). All 2035/2047 live
+features relabeled by `scripts/03_feature_labeling/relabel_all_fields.py`.
+
+**Why we relabeled (the methodology fix):** the old `label_features_integrated.py` fed Opus only
+~2.5 of the 7 per-position fields — it DROPPED `best_moves_analysis` (what the player should have
+played) and `move_intent`. Without the best move you can't tell "hung a piece" from "missed
+winning a piece", so SEE's single-ply `blunder_hangs_own` made it label missed-X features as
+passive/hung. The fix feeds all fields + a one-line SEE floor (the long "distrust SEE" caveat
+over-steered and made labels flip between runs — one neutral line is stable).
+
+**Result (`output/relabel_allfields_d2048_k6.json`):**
+- 2035 labeled (12 insufficient_boards). 1910/2035 chips changed vs old integrated labels (94%).
+- `missed_win` is the LARGEST category — 1020/2035 (50%). The direction-blindness was
+  dictionary-wide, not a few features.
+- spread: missed_win 1020 · hung_own 478 · endgame 216 · greedy 164 · positional 87 · trade 70
+- consistency: median 90, mean 87. 95 features ≤70 flagged for review (~4.7%). The
+  `consistency` field is the review signal — genuinely-mixed features (f745-type) come back ~80,
+  and over-fit names ("Missed Nxd4") cluster in the flagged set.
+
+**NEXT:**
+1. Re-bucket on the new labels (assign_to_buckets → subbucket_and_rollup → audit) — bucket
+   assignments were built on the OLD labels and are now stale.
+2. Review the 95 flagged (≤70) features — split the genuinely-mixed, fix over-fit names.
+3. Then: apply taxonomy to cabbagelover5566's 1,209 blunders (the coaching payoff).
+
+Pipeline now lives in `scripts/03_feature_labeling/` (Personas NN_stage convention) with a README.
+
+## DONE (2026-06-03) — k4-vs-k6 head-to-head + k6 gap labeling
+Gap labeling completed (8,193 k6 positions Opus-labeled so k6 isn't motif-handicapped). k6 won on
+vocabulary at equal cleanliness; chosen as working model. `see_stats_d2048_k6.json`,
+`d2048_k6_profiles.json`, gap-filled `all_positions_labeled_opus.json` (62,956 positions) all on
+notebook. Spec: `docs/superpowers/specs/2026-06-03-k4-vs-k6-interpretability-headtohead-design.md`
 
 ## Current State (2026-06-03 end) — d1024_k4 fully labeled + 11-bucket taxonomy, audited
 

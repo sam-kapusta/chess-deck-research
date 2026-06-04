@@ -1,5 +1,36 @@
 # Chess Lab — Log
 
+## 2026-06-04 — full d2048_k6 relabel with all-fields method + pipeline reorg
+
+**The fix that mattered:** the old labeler (`label_features_integrated.py`) was feeding Opus only
+~2.5 of the 7 per-position Opus fields — it dropped `best_moves_analysis` and `move_intent`. So
+when SEE (single-ply, blind to traps/multi-move tactics) said `blunder_hangs_own`, Opus had no
+way to see that the *best* move was a capture the player skipped → it labeled missed-X features as
+"passive"/"hung". Caught earlier via f1487 (a rook trap SEE can't detect), f745, f950.
+
+Wrote `scripts/03_feature_labeling/relabel_all_fields.py` (production version of the validated
+20-feature prototype): top-10 boards with WHAT WENT WRONG + BEST MOVE + INTENT, one-line SEE floor,
+single Opus call/feature, emits `consistency`. Verified parity on the 20 fids first (17/20 changed,
+f1487→"Missed free capture", f745→"Missed winning capture" cons 80, f952 stays hung cons 90) before
+the full run.
+
+**Full run:** 2035/2047 labeled, 26 min on chess-poc, zero throttles. **1910 chips changed (94%)**.
+`missed_win` = 1020/2035 (50%) — the direction error was dictionary-wide, exactly the f1487 bug
+repeated across half the dictionary. 95 features ≤70 consistency flagged for review.
+
+**Scaling decision recorded:** single-call + consistency-flag, NOT 3-vote consensus. The earlier
+instability (f745 flipping missed↔hung) was a prompt bug (bloated 6-line SEE caveat), already fixed
+by trimming to one line. 3-vote would pay 3× to fix a solved problem; the emitted `consistency`
+already flags mixed features for free.
+
+**Reorg:** moved the feature-labeling arc into `scripts/03_feature_labeling/` (Personas NN_stage
+convention) with a README documenting run order + the SEE-is-single-ply lesson. Older one-off
+labelers (gemini, pass2, btk, synthesize) left in `scripts/labeling/` — not deleted, flagged for a
+later cleanup pass.
+
+**Open:** re-bucket on new labels (assignments are stale — built on old labels); review the 95
+flagged. `output/relabel_allfields_d2048_k6.json` committed.
+
 ## 2026-06-01 (session) — Maia3 v2 SAE bakeoff → l7only winner → overnight labeling
 
 **Big session. Two wrong claims made and corrected mid-session — recorded because the corrections are the lesson.**
