@@ -121,7 +121,9 @@ ap.add_argument("--seestats", required=True)
 ap.add_argument("--prev", default="", help="previous integrated labels, for a changed-label diff")
 ap.add_argument("--output", required=True)
 ap.add_argument("--resume", action="store_true")
+ap.add_argument("--only", default="", help="comma-separated fids to label (spot-check subset)")
 a = ap.parse_args()
+ONLY = set(x.strip() for x in a.only.split(",") if x.strip())
 
 profiles = json.load(open(a.profiles))
 op = json.load(open(a.positions))
@@ -138,6 +140,8 @@ if a.resume:
 
 work = []
 for fid in sorted(profiles.keys(), key=int):
+    if ONLY and fid not in ONLY:
+        continue
     if fid in results and "error" not in results[fid]:
         continue
     p = build(fid, profiles[fid], op, st)
