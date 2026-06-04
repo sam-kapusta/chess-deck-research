@@ -6,6 +6,7 @@ Usage (local): python render_taxonomy_tree.py --boards 3 --out output/atlas/taxo
 """
 import json, argparse, chess, chess.svg
 from collections import defaultdict
+from urllib.parse import quote as _q
 ap = argparse.ArgumentParser()
 ap.add_argument('--boards', type=int, default=10)
 ap.add_argument('--out', required=True)
@@ -57,7 +58,7 @@ def board_cell(fen, uci, best_uci):
         svg = chess.svg.board(b, size=200, arrows=arrows, lastmove=lastmove,
                               orientation=chess.WHITE if b.turn == chess.WHITE else chess.BLACK)
         cap = f"<div class=bc><span class=r>{esc(cap_txt)}</span>" + (f" · <span class=g>{esc(best_txt)}</span>" if best_txt else "") + "</div>"
-        url = 'https://lichess.org/analysis/' + fen.replace(' ', '_')  # click board -> Lichess analysis
+        url = 'https://www.chess.com/analysis?fen=' + _q(fen, safe='')  # click board -> chess.com analysis
         return f"<a class=cell href=\"{url}\" target=_blank style=text-decoration:none;color:inherit>{svg}{cap}</a>"
     except Exception:
         return '<div class=cell>bad fen</div>'
