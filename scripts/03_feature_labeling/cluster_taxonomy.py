@@ -31,8 +31,12 @@ ap.add_argument("--labels", required=True)
 ap.add_argument("--stats", required=True)
 ap.add_argument("--out", required=True)
 ap.add_argument("--threshold", type=float, default=0.45, help="cosine-distance cut (lower = more, tighter clusters)")
-ap.add_argument("--emb-cache", default="/tmp/label_embeddings_cache.json", help="cache embeddings to avoid re-calling Bedrock")
+ap.add_argument("--text-mode", default="both", choices=["both", "chip", "label"],
+    help="what to embed: chip+label ('both'), chip only, or label only. chip strips the shared prose scaffold.")
+ap.add_argument("--emb-cache", default="", help="embedding cache path (default derived from text-mode)")
 a = ap.parse_args()
+if not a.emb_cache:
+    a.emb_cache = f"/tmp/label_embeddings_{a.text_mode}.json"
 
 lab = json.load(open(a.labels))
 st = json.load(open(a.stats))
@@ -42,7 +46,12 @@ def fire(f): return S(f).get("fire_rate", 0)
 feats = [(f, v) for f, v in lab.items() if isinstance(v, dict) and "error" not in v and v.get("chip")]
 feats.sort(key=lambda kv: int(kv[0]))
 fids = [f for f, _ in feats]
-texts = [f"{v.get('chip','')}. {v.get('label','')}" for _, v in feats]
+if a.text_mode == "chip":
+    texts = [v.get("chip", "") for _, v in feats]
+elif a.text_mode == "label":
+    texts = [v.get("label", "") for _, v in feats]
+else:
+    texts = [f"{v.get('chip','')}. {v.get('label','')}" for _, v in feats]
 
 # --- embed (cached) ---
 try:
