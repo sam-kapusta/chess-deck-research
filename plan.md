@@ -81,11 +81,34 @@ Tactic's "General/Forcing" sub (220, 95% fire) — labels too vague to subdivide
 surfaced honestly. **Browsable tree: `output/atlas/taxonomy_v3_d2048_k6.html`** (char-group →
 bucket → sub → feature, blob fire% flagged red, boards clickable to chess.com).
 
+## BLOB REDUNDANCY RESOLVED (2026-06-04 cont'd) — they're distinct, not duplicates
+
+Worried the blobs (esp. 92 "hangs own queen" features) were the SAE smearing one concept across
+many redundant features → splittable. Tested 3 ways (scripts: `decoder_overlap.py`,
+`firing_overlap.py`):
+- **Decoder cosine** (W_dec rows): mean 0.05, max 0.59 vs random-pair p99=0.27 → near-orthogonal.
+- **Top-10 board Jaccard**: 0.0009 → disjoint.
+- **Corpus-wide firing Jaccard** (encode all 168K, fire = act≥0.5·max): mean 0.001, median 0.000,
+  1 pair >0.3 of 4186 → disjoint. (`output/firing_overlap_qh.json`)
+
+**Verdict: the 92 queen-hang features are GENUINELY DISTINCT** — each fires on a different position
+type (to-bishop / giving-check / promoted / opening / ...). NOT redundant, NOT splittable. They
+only LOOK redundant because they collapse to the same 2-word chip. f952 (17% fire) is not a bad
+blob — it's the most GENERAL queen-hang detector, with 91 finer siblings = a coarse→specific
+hierarchy (good structure). The "high overlap-coefficient" pairs are tiny specific features being
+subsets of f952's broad range (Jaccard still ~0), exactly what that hierarchy looks like.
+
+**So the blob problem is NAMING, not the features or redundancy.** Implication for next steps:
+don't merge/filter blobs — instead (a) give same-concept features mechanism-specific chips, and
+(b) the coarse→specific hierarchy is a feature, not a bug — surface it (general detector at top of
+a sub-group, specific siblings under it).
+
 **NEXT:**
-1. Blob handling: the "General/Forcing Tactic" sub + Left-Hanging piece-subs hold the high-fire
-   blobs (f521-type). Decide — display filter by fire%, or re-chip the vague ones.
-2. Review the 130 flagged (≤70 consistency) features.
-3. Then: apply taxonomy to cabbagelover5566's 1,209 blunders (the coaching payoff).
+1. Atlas display: sort specific-first or group "general detector + specific siblings"; the fire%
+   red flag stays but blobs aren't bad, just coarse.
+2. Mechanism-specific chips for same-label clusters (queen-hang → to-bishop/giving-check/promoted).
+3. Review the 130 flagged (≤70 consistency) features.
+4. Then: apply taxonomy to cabbagelover5566's 1,209 blunders (the coaching payoff).
 
 ## (superseded) earlier re-bucket on v1 labels
 The first v3 assignment used the BIASED v1 labels (`feature_buckets_v3_d2048_k6.json`). Superseded
