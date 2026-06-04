@@ -95,16 +95,17 @@ def dom_piece(f):
     s = st.get('f'+f) or st.get(f) or {}
     mp = s.get('moved_piece_pct', {})
     return max(mp, key=mp.get) if mp else '?'
+def cover(fids):  # total fire-rate coverage of a feature list
+    return sum((st.get('f'+f, st.get(f, {})).get('fire_rate', 0)) for f in fids)
 for bk in bucket_order:
     if bk not in tree: continue
-    subs = tree[bk]
-    # flatten: all features in this bucket, sorted by (dominant moved-piece, then fire-rate desc)
-    fids_all = [f for sub in subs for f in subs[sub]]
-    fids_all.sort(key=lambda f: (PIECE_ORDER.get(dom_piece(f), 9),
-                                 -(st.get('f'+f, st.get(f, {})).get('fire_rate', 0))))
-    total = len(fids_all)
-    parts.append(f"<details class=bucket><summary>{esc(bk)} <span class=cnt>{total} features</span></summary>")
-    if True:
+    subs = tree[bk]                                  # sub-bucket -> [fids]
+    total = sum(len(v) for v in subs.values())
+    parts.append(f"<details class=bucket><summary>{esc(bk)} <span class=cnt>{total} features · {cover([f for v in subs.values() for f in v])*100:.0f}% coverage</span></summary>")
+    # sub-buckets ordered by coverage (most-frequent mistakes first)
+    for sub in sorted(subs, key=lambda s: -cover(subs[s])):
+        fids_all = sorted(subs[sub], key=lambda f: -(st.get('f'+f, st.get(f, {})).get('fire_rate', 0)))
+        parts.append(f"<details class=sub><summary>{esc(sub)} <span class=cnt>{len(fids_all)} feats · {cover(fids_all)*100:.1f}%</span></summary>")
         for f in fids_all:
             a_ = d[f]['analysis']; s = st.get('f'+f) or st.get(f) or {}
             def top2(dist):
@@ -133,6 +134,7 @@ for bk in bucket_order:
                 best = best_map.get(ex['fen'] + '|' + ex['uci'], '')
                 parts.append(board_cell(ex['fen'], ex['uci'], best))
             parts.append("</div></div>")
-    parts.append("</details>")
+        parts.append("</details>")   # close sub-bucket
+    parts.append("</details>")       # close bucket
 open(a.out, 'w').write('\n'.join(parts))
 print(f"wrote {a.out} — {len(tree)} buckets, {nfeat} features")
