@@ -57,7 +57,8 @@ def board_cell(fen, uci, best_uci):
         svg = chess.svg.board(b, size=200, arrows=arrows, lastmove=lastmove,
                               orientation=chess.WHITE if b.turn == chess.WHITE else chess.BLACK)
         cap = f"<div class=bc><span class=r>{esc(cap_txt)}</span>" + (f" · <span class=g>{esc(best_txt)}</span>" if best_txt else "") + "</div>"
-        return f"<div class=cell>{svg}{cap}</div>"
+        url = 'https://lichess.org/analysis/' + fen.replace(' ', '_')  # click board -> Lichess analysis
+        return f"<a class=cell href=\"{url}\" target=_blank style=text-decoration:none;color:inherit>{svg}{cap}</a>"
     except Exception:
         return '<div class=cell>bad fen</div>'
 
