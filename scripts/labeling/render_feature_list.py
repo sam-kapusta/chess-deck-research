@@ -12,7 +12,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument('--model', required=True); ap.add_argument('--dict', type=int, required=True)
 ap.add_argument('--feats', default=''); ap.add_argument('--filter', default='')
 ap.add_argument('--boards', type=int, default=10); ap.add_argument('--out', required=True)
-ap.add_argument('--title', default='')
+ap.add_argument('--title', default=''); ap.add_argument('--opus', default='')
 a = ap.parse_args()
 M = f"d{a.dict}_{a.model}"
 lab = json.load(open(f'output/feature_labels_integrated_{M}.json'))
@@ -22,6 +22,8 @@ prof = json.load(open(f'/tmp/{M}_profiles.json'))
 best = json.load(open('/tmp/best_uci_map.json'))
 try: prompts = json.load(open(f'/tmp/{a.model}_prompts.json'))   # exact prompt fed to Opus per feature
 except Exception: prompts = {}
+try: opus = json.load(open(a.opus)) if getattr(a,'opus','') else {}   # per-board Opus analysis {fen|uci: analysis}
+except Exception: opus = {}
 def S(f): return st.get('f'+f) or st.get(f) or {}
 def CO(f): return coh.get('f'+f) or coh.get(f) or {}
 def fire(f): s = S(f); return s.get('fire_rate', 0)
@@ -59,9 +61,14 @@ def board(fen, uci):
             except: pass
         svg=chess.svg.board(b,size=190,arrows=ar,lastmove=lm,orientation=chess.WHITE if b.turn else chess.BLACK)
         url='https://www.chess.com/analysis?fen='+_q(fen,safe='')
-        return f'<a class=cell href="{url}" target=_blank style=text-decoration:none;color:inherit>{svg}<div class=cap>{esc(cap)} ↗</div></a>'
+        oa=opus.get(fen+'|'+uci)
+        an=''
+        if isinstance(oa,dict):
+            mt=esc(oa.get('tactical_motif',''));summ=esc((oa.get('blunder_summary') or '')[:300]);ref=esc((oa.get('refutation_analysis') or '')[:240])
+            an=f"<div class=an><b>{mt}</b> · {summ}<details><summary>refutation ▸</summary>{ref}</details></div>"
+        return f'<div class=cell><a href="{url}" target=_blank style=text-decoration:none;color:inherit>{svg}<div class=cap>{esc(cap)} ↗</div></a>{an}</div>'
     except: return '<div class=cell>bad</div>'
-CSS="body{font-family:sans-serif;background:#0f1115;color:#e6e6e6;margin:0}.feat{padding:14px 18px;border-bottom:2px solid #2a2f3a}.fn{font-size:15px;font-weight:600}.fl{font-size:12px;color:#8b95a3;margin:2px 0}.mech{font-size:11px;color:#aeb6c2;line-height:1.5;margin:4px 0}.mech u{color:#c9a227}.boards{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}.cell{width:190px}.cap{font-size:10px;color:#9aa4b2;margin-top:2px}.prompt{margin:6px 0;font-size:11px}.prompt summary{cursor:pointer;color:#6ea8fe}.prompt pre{white-space:pre-wrap;background:#0b0d12;padding:8px;border-radius:6px;font-size:10px;color:#b9c2cf;max-height:340px;overflow:auto}h1{padding:14px 18px;margin:0;font-size:16px}"
+CSS="body{font-family:sans-serif;background:#0f1115;color:#e6e6e6;margin:0}.feat{padding:14px 18px;border-bottom:2px solid #2a2f3a}.fn{font-size:15px;font-weight:600}.fl{font-size:12px;color:#8b95a3;margin:2px 0}.mech{font-size:11px;color:#aeb6c2;line-height:1.5;margin:4px 0}.mech u{color:#c9a227}.boards{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}.cell{width:230px;vertical-align:top}.cap{font-size:10px;color:#9aa4b2;margin-top:2px}.prompt{margin:6px 0;font-size:11px}.prompt summary{cursor:pointer;color:#6ea8fe}.an{font-size:10px;color:#9aa4b2;margin-top:3px;line-height:1.35}.an b{color:#c9a227}.an details summary{cursor:pointer;color:#6ea8fe}.prompt pre{white-space:pre-wrap;background:#0b0d12;padding:8px;border-radius:6px;font-size:10px;color:#b9c2cf;max-height:340px;overflow:auto}h1{padding:14px 18px;margin:0;font-size:16px}"
 parts=[f"<!doctype html><meta charset=utf-8><style>{CSS}</style><h1>{esc(a.title or (M+' — '+str(len(feats))+' features'))} · boards link to chess.com ↗</h1>"]
 for f in feats:
     av=lab.get(f) or {}; s=S(f); c=CO(f)
