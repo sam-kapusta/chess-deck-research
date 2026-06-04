@@ -8,7 +8,45 @@
 > kept under `scripts/sae/new_sae_architecture/` but must be repointed to the v2 cache before
 > any rerun. Next step if revisiting: rebuild all three constructions on v2 data.
 
-## Current State (2026-06-02 end) — k=6 is the sweet spot (3 independent methods agree)
+## Current State (2026-06-03 end) — d1024_k4 fully labeled + 11-bucket taxonomy, audited
+
+**Working model for the taxonomy:** `btk_1024_k4_nol2.pt` (S3 `sae/weights/`). Chosen over k6 for this
+pass because it's fully alive (0 dead), cleanest concentration, 1024 useful features. k6 remains the
+structural sweet-spot candidate (see below) but we labeled d1024_k4 first — apply-to-games will tell us
+whether k6's extra vocab is needed before retraining the taxonomy on it.
+
+**LABELING — final method (`label_features_integrated.py`):** Opus names each feature from THREE
+integrated signals, not SEE alone (SEE mis-reads trades as material loss and is blind to positional/
+trajectory mistakes — the f91 lesson). Inputs:
+1. SEE descriptive stats (`compute_feature_see_stats.py`, per-feature **normalized cohorts** ≥0.7max &
+   ≥0.8max — features are pure at their activation peak, noisy in the tail): moved/captured piece,
+   **net-material kind** (trade vs loses vs hangs — fixes the trade-as-loss bug), played-check, phase.
+2. **Eval trajectory** (winning/drawn/losing, player POV, ±150cp draw zone): what the mistake cost.
+3. Opus per-position **tactical_motif + tags** (queen_trade_error, king_safety…) — the positional layer.
+- All 1020 live features labeled → `output/feature_labels_integrated_d1024_k4.json` (+S3). f91 went from
+  wrong "Greedy Queen Capture" → correct **"Premature Queen Trade"** once trade-material + trajectory + motif fed in.
+- Stats: `output/see_stats_d1024_k4.json` (+S3). Profiles: S3 `d1024_k4_profiles.json`.
+
+**TAXONOMY — 11 buckets (`buckets_v2_d1024_k4.json`), all 1020 assigned + audited (1.0% flagged, all verified):**
+Left Piece Hanging 219 · Endgame Technique 173 · Missed Tactic 138 · King Safety 88 · Missed Check/Mate 79 ·
+Missed Hanging Piece 78 · Premature Trade 66 · Passive Play 65 · Pointless Check 58 · Greedy Capture 29 ·
+Unsound Aggression 27. Built bottom-up (mistake_type spine), audited via `audit_buckets.py` (objective
+mechanism cross-check) + Opus semantic grade; 17 reassignments applied; Ignored Tension folded into Missed
+Tactic. **Sub-buckets** by piece (Left Hanging → Hung Queen/Rook/…) / phase (Endgame → King/Pawn/Rook),
+with fire-rate coverage per sub. Assignments: `feature_buckets_v2_d1024_k4.json`, leaf:
+`feature_leaf_v2_d1024_k4.json`. Browsable tree: `output/atlas/taxonomy_tree_v2_d1024_k4.html` (gitignored,
+regen via `render_taxonomy_tree.py`).
+
+**NEXT (priority):**
+1. **Apply taxonomy to cabbagelover5566's games** — his 1,209 blunders (502 games) → encode via Maia3-L7 →
+   d1024_k4 → map to the 11 buckets → leak report. Validates the taxonomy + comparable to the old
+   2026-05-27 profile (`cabbagelover_profile.json`, used the OLD SAE: "Pawn Captures That Open King" 2.3×,
+   "Trading Away Dominant Pieces" 1.5×). This is the coaching payoff AND the only criterion for k4-vs-k6.
+2. **Then** consider k6: relabel + re-bucket `btk_2048_k6_nol2.pt` with the same pipeline, compare leak reports.
+3. Detection-score (auto-interp held-out) for label quality; feature-splitting metric.
+
+---
+## k-sweep / structural analysis (2026-06-02) — k=6 is the structural sweet spot
 
 **Leading model:** `btk_2048_k6_nol2.pt` (notebook; z-score-only). Superseded the earlier
 "k=16 chosen" call after a full k-sweep (k4/6/8/10/12/16/32) + dict-size + sparse-probing analysis.

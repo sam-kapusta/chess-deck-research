@@ -659,3 +659,35 @@ hung 108 / greedy-both 213 / other 481) × tactical motif (Opus: fork/pin/back-r
 Artifacts: `output/feature_labels_see_d1024_k4.json`, `output/see_stats_d1024_k4.json` (git + S3
 sae/labels/). Method scripts: compute_feature_see_stats.py, label_features_see.py, render_feature_html.py.
 Superseded (kept): fuse_feature_names.py, heuristic_name_all.py.
+
+---
+
+## 2026-06-03 — integrated labeling (SEE+trajectory+Opus), 11-bucket taxonomy, audit
+
+**The f91 lesson drove a methodology overhaul.** f91 (queen-takes-queen) was mislabeled "Greedy Queen
+Capture" because SEE scores the recapture as -9 "hung own piece" — but it's a TRADE (you took a queen too).
+SEE structurally mis-reads trades as material loss and is blind to positional/trajectory mistakes. Fixes:
+- **net-material** (capture value − recapture): QxQ = net 0 = trade, not -9 loss. material_kind: trade/loses/hangs/safe.
+- **eval trajectory** (winning/drawn/losing, player POV, cp units, ±150 draw zone): what the mistake cost.
+- **per-feature normalized cohorts** (≥0.7max, ≥0.8max): features are pure at their activation peak (f91 QxQ
+  74%→89%→98% as you tighten), noisy in the tail. Divide-by-max for the THRESHOLD (Sam's "0.8+ is pure"
+  model); fixed top-N was diluting. (Tested elbow/p99/activation-weighting — all worse; simple normalized
+  threshold won.)
+- SEE stats now comprehensive: moved/captured piece, Maia-move piece+captures, played-check, phase,
+  net-material, trajectory. 10/11 buckets derivable from stats alone (only Ignored-Tension wasn't → folded).
+
+**Integrated labeler** (`label_features_integrated.py`): Opus reads top-12 boards + all 3 signals → name.
+f91 → "Premature Queen Trade" (was "Greedy Queen Capture"). All 1020 relabeled.
+
+**11-bucket taxonomy** (was an earlier 11 flat → refined): bottom-up from mistake_type spine, 5-way consensus
+method. NEW buckets the old taxonomy couldn't house: **Premature Trade** (66, the f91 family, was buried in
+Greedy) and **King Safety** (88, positional, SEE-blind). Greedy Capture 169→29 (trades+endgame rerouted).
+Audited (`audit_buckets.py` objective cross-check + Opus semantic grade): 1.0% flagged, 17 reassignments
+applied, all remaining flags verified correct. Ignored Tension (14) folded into Missed Tactic. Sub-buckets
+by piece/phase with fire-rate coverage. Tree: `render_taxonomy_tree.py` → atlas html (gitignored).
+
+**Decision:** apply to cabbagelover's 1,209 blunders next (coaching payoff + the only real k4-vs-k6 criterion).
+Defer k6 retrain until we see whether k4's leak report is good enough.
+
+Scripts added: compute_feature_see_stats.py, label_features_integrated.py, audit_buckets.py,
+subbucket_and_rollup.py, render_taxonomy_tree.py. (Superseded but kept: fuse_feature_names.py, label_features_see.py.)
