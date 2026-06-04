@@ -50,7 +50,19 @@ Sam drove the key corrections this session: "is missed win a bad category? they'
 (→ split by what was missed), "I don't want you biasing it at all" (→ unbiased emergent run + no
 rules in assigner), and "try a third one" (→ 3-sample convergence as the validation).
 
-**Open:** sub-bucket within the 12 + render tree; blob display filter; review 95 flagged features.
+**Debias + sub-bucket (same session, cont'd):** while sub-bucketing, found the v1 relabel was
+direction-biased — its prompt said "prefer Missed X if a capture was available," producing 275
+features where the chip says "Missed" but the played move hangs own material. Sam pushed back
+("is missed win bad? they're all blunders"; "I don't want you biasing it"; "use nearly the same
+prompt without the bias"). Audited f19/f745 with Stockfish — and my FIRST audit heuristic
+(drop-vs-gap) was garbage (those quantities are tautologically equal; gave confident-wrong
+verdicts). The real tell: PLAYED-move-captures vs BEST-move-captures. v2 neutral relabel
+(`relabel_all_fields_v2_neutral.py`) reran all 2035: missed_win 1020→905, hung_own 478→707.
+Re-assigned to v3 buckets (now ~56/33/10 self-inflicted/omission/endgame), sub-bucketed
+mechanically by piece/theme, rendered the browsable tree. Lesson saved as memory
+[[project_direction_arbiter_is_board_not_see]]. Tree: `output/atlas/taxonomy_v3_d2048_k6.html`.
+
+**Open:** blob handling (General-Tactic + Left-Hanging subs hold high-fire blobs); review 130 flagged.
 
 ## 2026-06-01 (session) — Maia3 v2 SAE bakeoff → l7only winner → overnight labeling
 

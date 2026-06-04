@@ -56,12 +56,40 @@ Missed Tactic 371(18%) · Left Piece Hanging 328(16%) · Missed Hanging 287(14%)
 bucket 18%, omissions properly split by WHAT was missed (the original "missed_win=50%" problem is
 gone). fire% >> feat% in Left-Hanging (91%) and Missed-Tactic (106%) = those buckets hold the blobs.
 
+## DEBIAS + SUB-BUCKET DONE (2026-06-04 cont'd)
+
+**Found the relabel was biased.** v1 relabel prompt said "prefer Missed X if a capture was
+available" → 275/2035 features direction-conflicted (chip said "Missed" but the played move
+hangs own material). Audited f19/f745 with Stockfish (`audit_direction_stockfish.py`): the real
+hang-vs-miss tell is PLAYED-move-captures vs BEST-move-captures, NOT SEE hang% (and NOT the
+drop-vs-gap heuristic, which is tautological garbage — see [[project_direction_arbiter_is_board_not_see]]).
+
+**Fix = v2 neutral relabel** (`relabel_all_fields_v2_neutral.py`): same prompt/format as v1, the
+biasing sentence replaced with "decide direction from evidence; high loses-own = Hangs X even if a
+better move existed; name dominant, lower consistency when dual." Re-ran all 2035
+(`relabel_v2_neutral_d2048_k6.json`, 2027 labeled). Direction shift: missed_win 1020→905,
+hung_own 478→707 (~200 features corrected). consistency median 85 (vs 90 — lower is honest;
+dual features now score ~80 not falsely-confident). 130 flagged ≤70.
+
+**Re-assigned to v3 buckets** (`feature_buckets_v3_v2labels_d2048_k6.json`, 3 unassignable):
+dictionary now ~56% self-inflicted / 33% omission / 10% endgame. Left Piece Hanging largest (433,
+21%, 128% fire — blob-heavy).
+
+**Sub-bucketed** (`subbucket_v3.py` — MECHANICAL, no LLM; `feature_leaf_v3_d2048_k6.json`):
+material buckets split by piece, tactical by theme keyword. Clean splits everywhere except Missed
+Tactic's "General/Forcing" sub (220, 95% fire) — labels too vague to subdivide, holds the blobs,
+surfaced honestly. **Browsable tree: `output/atlas/taxonomy_v3_d2048_k6.html`** (char-group →
+bucket → sub → feature, blob fire% flagged red, boards clickable to chess.com).
+
 **NEXT:**
-1. Sub-bucket within the 12 (e.g. Missed Tactic → fork/pin/skewer; Left Hanging → by piece) +
-   render the browsable tree (render_taxonomy_tree.py, repoint to v3).
-2. Blob filter: fire% vs feat% gap shows where blobs cluster — decide display threshold.
-3. Review the 95 flagged (≤70 consistency) features — split genuinely-mixed (f521-type 11.5% blob).
-4. Then: apply taxonomy to cabbagelover5566's 1,209 blunders (the coaching payoff).
+1. Blob handling: the "General/Forcing Tactic" sub + Left-Hanging piece-subs hold the high-fire
+   blobs (f521-type). Decide — display filter by fire%, or re-chip the vague ones.
+2. Review the 130 flagged (≤70 consistency) features.
+3. Then: apply taxonomy to cabbagelover5566's 1,209 blunders (the coaching payoff).
+
+## (superseded) earlier re-bucket on v1 labels
+The first v3 assignment used the BIASED v1 labels (`feature_buckets_v3_d2048_k6.json`). Superseded
+by the v2-label assignment above. Taxonomy buckets themselves unchanged (validated 3×).
 
 Pipeline now lives in `scripts/03_feature_labeling/` (Personas NN_stage convention) with a README.
 
