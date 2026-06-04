@@ -38,3 +38,15 @@ Coherent-deep examples (trustworthy at depth):
 ## Artifacts
 `coherence_depth_d2048_k6.json` (git+S3): per-feature identity axis, peak/0.8/0.7 %, verdict.
 Script: `scripts/labeling/coherence_depth.py`.
+
+## k4 vs k6 — coherence comparison (apples-to-apples, same test)
+| | k4 (d1024) | k6 (d2048) |
+|---|-----------|-----------|
+| holds to 0.7·max | 851 (**83%**) | 1,676 (**82%**) |
+| holds to 0.8 only | 93 (9%) | 194 (9%) |
+| peak-only (incoherent) | 80 (8%) | 178 (9%) |
+
+**Verdict:** coherence RATE is tied (~82-83%, within noise) — k6's extra capacity neither dilutes nor
+improves per-feature quality. k6 wins on absolute count: **1,676 coherent features vs k4's 851** (~2×),
+covering more distinct mistake-types (58% of k6 features are concepts k4 lacks). For a coaching product
+that filters to coherent features and wants broad coverage, k6 is the pick — more good features, same quality.

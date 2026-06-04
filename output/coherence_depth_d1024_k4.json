@@ -1,0 +1,10242 @@
+{
+ "f0": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f1": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f2": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f3": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.38,
+  "n9": 1,
+  "n8": 3,
+  "n7": 8,
+  "verdict": "holds_to_0.8"
+ },
+ "f4": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.94,
+  "pct_0.7": 0.92,
+  "n9": 6,
+  "n8": 16,
+  "n7": 49,
+  "verdict": "holds_to_0.7"
+ },
+ "f5": {
+  "identity": "best_captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.86,
+  "pct_0.7": 0.85,
+  "n9": 2,
+  "n8": 7,
+  "n7": 26,
+  "verdict": "holds_to_0.7"
+ },
+ "f6": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.8,
+  "n9": 1,
+  "n8": 5,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f7": {
+  "identity": "best_captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 8,
+  "n7": 22,
+  "verdict": "holds_to_0.7"
+ },
+ "f8": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.97,
+  "n9": 5,
+  "n8": 24,
+  "n7": 75,
+  "verdict": "holds_to_0.7"
+ },
+ "f9": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 8,
+  "n7": 17,
+  "verdict": "holds_to_0.7"
+ },
+ "f10": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.97,
+  "n9": 5,
+  "n8": 16,
+  "n7": 29,
+  "verdict": "holds_to_0.7"
+ },
+ "f11": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.75,
+  "n9": 1,
+  "n8": 5,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f12": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.83,
+  "n9": 2,
+  "n8": 3,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f13": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f14": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.73,
+  "n9": 2,
+  "n8": 2,
+  "n7": 15,
+  "verdict": "holds_to_0.7"
+ },
+ "f15": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 1,
+  "n8": 1,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f16": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.71,
+  "n9": 3,
+  "n8": 6,
+  "n7": 21,
+  "verdict": "holds_to_0.7"
+ },
+ "f17": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.8"
+ },
+ "f18": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.88,
+  "n9": 2,
+  "n8": 5,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f19": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f20": {
+  "identity": "best_captured=bishop",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 10,
+  "n7": 26,
+  "verdict": "holds_to_0.7"
+ },
+ "f21": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.58,
+  "pct_0.7": 0.34,
+  "n9": 2,
+  "n8": 12,
+  "n7": 38,
+  "verdict": "peak_only"
+ },
+ "f22": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f23": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.62,
+  "n9": 2,
+  "n8": 3,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f24": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.99,
+  "n9": 12,
+  "n8": 43,
+  "n7": 145,
+  "verdict": "holds_to_0.7"
+ },
+ "f25": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.94,
+  "n9": 5,
+  "n8": 8,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f26": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.92,
+  "pct_0.7": 0.77,
+  "n9": 5,
+  "n8": 13,
+  "n7": 43,
+  "verdict": "holds_to_0.7"
+ },
+ "f27": {
+  "identity": "own_piece=major",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 5,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f28": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 7,
+  "n8": 41,
+  "n7": 116,
+  "verdict": "holds_to_0.7"
+ },
+ "f29": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 28,
+  "n7": 162,
+  "verdict": "holds_to_0.7"
+ },
+ "f30": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f31": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.86,
+  "n9": 1,
+  "n8": 3,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f32": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.89,
+  "pct_0.7": 0.8,
+  "n9": 4,
+  "n8": 9,
+  "n7": 20,
+  "verdict": "holds_to_0.7"
+ },
+ "f33": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.56,
+  "n9": 1,
+  "n8": 4,
+  "n7": 9,
+  "verdict": "holds_to_0.8"
+ },
+ "f34": {
+  "identity": "moved=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.82,
+  "pct_0.7": 0.88,
+  "n9": 2,
+  "n8": 17,
+  "n7": 50,
+  "verdict": "holds_to_0.7"
+ },
+ "f35": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f36": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 5,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f37": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f38": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.86,
+  "n9": 3,
+  "n8": 5,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f39": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.57,
+  "n9": 2,
+  "n8": 2,
+  "n7": 7,
+  "verdict": "holds_to_0.8"
+ },
+ "f40": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.81,
+  "n9": 6,
+  "n8": 12,
+  "n7": 31,
+  "verdict": "holds_to_0.7"
+ },
+ "f41": {
+  "identity": "best_captured=bishop",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 7,
+  "n8": 13,
+  "n7": 19,
+  "verdict": "holds_to_0.7"
+ },
+ "f42": {
+  "identity": "best_captured=bishop",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.84,
+  "pct_0.7": 0.83,
+  "n9": 5,
+  "n8": 19,
+  "n7": 41,
+  "verdict": "holds_to_0.7"
+ },
+ "f43": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.3,
+  "n9": 2,
+  "n8": 8,
+  "n7": 20,
+  "verdict": "peak_only"
+ },
+ "f44": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f45": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.8"
+ },
+ "f46": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 5,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f47": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.95,
+  "n9": 3,
+  "n8": 8,
+  "n7": 21,
+  "verdict": "holds_to_0.7"
+ },
+ "f48": {
+  "identity": "moved=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.61,
+  "n9": 3,
+  "n8": 8,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f49": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.84,
+  "n9": 1,
+  "n8": 3,
+  "n7": 19,
+  "verdict": "holds_to_0.7"
+ },
+ "f50": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.33,
+  "pct_0.7": 0.33,
+  "n9": 1,
+  "n8": 3,
+  "n7": 6,
+  "verdict": "peak_only"
+ },
+ "f51": {
+  "identity": "best_captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 4,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f52": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.33,
+  "n9": 2,
+  "n8": 3,
+  "n7": 6,
+  "verdict": "holds_to_0.8"
+ },
+ "f53": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f54": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.99,
+  "n9": 7,
+  "n8": 36,
+  "n7": 101,
+  "verdict": "holds_to_0.7"
+ },
+ "f55": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 18,
+  "n8": 60,
+  "n7": 143,
+  "verdict": "holds_to_0.7"
+ },
+ "f56": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.93,
+  "pct_0.7": 0.86,
+  "n9": 6,
+  "n8": 14,
+  "n7": 29,
+  "verdict": "holds_to_0.7"
+ },
+ "f57": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.71,
+  "n9": 3,
+  "n8": 6,
+  "n7": 14,
+  "verdict": "holds_to_0.7"
+ },
+ "f58": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.93,
+  "n9": 4,
+  "n8": 7,
+  "n7": 15,
+  "verdict": "holds_to_0.7"
+ },
+ "f59": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.75,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f60": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.67,
+  "n9": 1,
+  "n8": 5,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f61": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 10,
+  "n7": 31,
+  "verdict": "holds_to_0.7"
+ },
+ "f62": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.98,
+  "n9": 2,
+  "n8": 15,
+  "n7": 57,
+  "verdict": "holds_to_0.7"
+ },
+ "f63": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.96,
+  "n9": 7,
+  "n8": 16,
+  "n7": 27,
+  "verdict": "holds_to_0.7"
+ },
+ "f64": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f65": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.69,
+  "n9": 3,
+  "n8": 6,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f66": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f67": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.73,
+  "pct_0.7": 0.72,
+  "n9": 3,
+  "n8": 15,
+  "n7": 50,
+  "verdict": "holds_to_0.7"
+ },
+ "f68": {
+  "identity": "best_captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 9,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f69": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f70": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f71": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f72": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.67,
+  "n9": 1,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f73": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.82,
+  "n9": 3,
+  "n8": 5,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f74": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.83,
+  "pct_0.7": 0.75,
+  "n9": 4,
+  "n8": 6,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f75": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.81,
+  "n9": 4,
+  "n8": 9,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f76": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 8,
+  "n7": 25,
+  "verdict": "holds_to_0.7"
+ },
+ "f77": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.61,
+  "n9": 3,
+  "n8": 5,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f78": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f79": {
+  "identity": "best_captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 25,
+  "n8": 101,
+  "n7": 278,
+  "verdict": "holds_to_0.7"
+ },
+ "f80": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 2,
+  "n8": 2,
+  "n7": 12,
+  "verdict": "holds_to_0.8"
+ },
+ "f81": {
+  "identity": "best_captured=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 6,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f82": {
+  "identity": "moved=king",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.75,
+  "n9": 2,
+  "n8": 4,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f83": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.84,
+  "n9": 7,
+  "n8": 10,
+  "n7": 19,
+  "verdict": "holds_to_0.7"
+ },
+ "f84": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 4,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f85": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.88,
+  "n9": 2,
+  "n8": 5,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f86": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.79,
+  "pct_0.7": 0.76,
+  "n9": 5,
+  "n8": 19,
+  "n7": 58,
+  "verdict": "holds_to_0.7"
+ },
+ "f87": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.4,
+  "pct_0.7": 0.21,
+  "n9": 1,
+  "n8": 5,
+  "n7": 14,
+  "verdict": "peak_only"
+ },
+ "f88": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 2,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f89": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 4,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f90": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.6,
+  "n9": 2,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f91": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.98,
+  "pct_0.7": 0.95,
+  "n9": 26,
+  "n8": 64,
+  "n7": 168,
+  "verdict": "holds_to_0.7"
+ },
+ "f92": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 8,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f93": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.89,
+  "pct_0.7": 0.91,
+  "n9": 4,
+  "n8": 18,
+  "n7": 45,
+  "verdict": "holds_to_0.7"
+ },
+ "f94": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 4,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f95": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 7,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f96": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 8,
+  "n7": 14,
+  "verdict": "holds_to_0.7"
+ },
+ "f97": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.62,
+  "n9": 3,
+  "n8": 4,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f98": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f99": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.44,
+  "pct_0.7": 0.29,
+  "n9": 2,
+  "n8": 9,
+  "n7": 24,
+  "verdict": "peak_only"
+ },
+ "f100": {
+  "identity": "moved=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.76,
+  "pct_0.7": 0.6,
+  "n9": 5,
+  "n8": 17,
+  "n7": 42,
+  "verdict": "holds_to_0.8"
+ },
+ "f101": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 13,
+  "n7": 39,
+  "verdict": "holds_to_0.7"
+ },
+ "f102": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.93,
+  "n9": 6,
+  "n8": 21,
+  "n7": 58,
+  "verdict": "holds_to_0.7"
+ },
+ "f103": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f104": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.92,
+  "n9": 2,
+  "n8": 4,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f105": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.67,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f106": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f107": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f108": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 17,
+  "n7": 40,
+  "verdict": "holds_to_0.7"
+ },
+ "f109": {
+  "identity": "best_captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.62,
+  "pct_0.7": 0.42,
+  "n9": 2,
+  "n8": 8,
+  "n7": 19,
+  "verdict": "holds_to_0.8"
+ },
+ "f110": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.95,
+  "n9": 4,
+  "n8": 9,
+  "n7": 21,
+  "verdict": "holds_to_0.7"
+ },
+ "f111": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f112": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f113": {
+  "identity": "own_piece=minor",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.81,
+  "n9": 8,
+  "n8": 28,
+  "n7": 70,
+  "verdict": "holds_to_0.7"
+ },
+ "f114": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.92,
+  "pct_0.7": 0.97,
+  "n9": 4,
+  "n8": 13,
+  "n7": 37,
+  "verdict": "holds_to_0.7"
+ },
+ "f115": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f116": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.33,
+  "pct_0.7": 0.33,
+  "n9": 2,
+  "n8": 6,
+  "n7": 12,
+  "verdict": "peak_only"
+ },
+ "f117": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f118": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.91,
+  "pct_0.7": 0.95,
+  "n9": 5,
+  "n8": 11,
+  "n7": 20,
+  "verdict": "holds_to_0.7"
+ },
+ "f119": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f120": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f121": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.71,
+  "pct_0.7": 0.7,
+  "n9": 1,
+  "n8": 7,
+  "n7": 43,
+  "verdict": "holds_to_0.7"
+ },
+ "f122": {
+  "identity": "moved=king",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 5,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f123": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 7,
+  "n7": 22,
+  "verdict": "holds_to_0.7"
+ },
+ "f124": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.44,
+  "n9": 3,
+  "n8": 4,
+  "n7": 9,
+  "verdict": "holds_to_0.8"
+ },
+ "f125": {
+  "identity": "best_captured=bishop",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 11,
+  "n7": 24,
+  "verdict": "holds_to_0.7"
+ },
+ "f126": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.71,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 7,
+  "n7": 21,
+  "verdict": "holds_to_0.7"
+ },
+ "f127": {
+  "identity": "material=hangs",
+  "peak_pct": 0.67,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.65,
+  "n9": 3,
+  "n8": 24,
+  "n7": 119,
+  "verdict": "holds_to_0.7"
+ },
+ "f128": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.83,
+  "n9": 1,
+  "n8": 3,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f129": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 6,
+  "n7": 12,
+  "verdict": "holds_to_0.8"
+ },
+ "f130": {
+  "identity": "moved=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 5,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f131": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.92,
+  "n9": 2,
+  "n8": 5,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f132": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 17,
+  "n8": 52,
+  "n7": 108,
+  "verdict": "holds_to_0.7"
+ },
+ "f133": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.77,
+  "n9": 3,
+  "n8": 12,
+  "n7": 31,
+  "verdict": "holds_to_0.7"
+ },
+ "f134": {
+  "identity": "moved=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 30,
+  "n7": 53,
+  "verdict": "holds_to_0.7"
+ },
+ "f135": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.91,
+  "n9": 2,
+  "n8": 7,
+  "n7": 23,
+  "verdict": "holds_to_0.7"
+ },
+ "f136": {
+  "identity": "best_check=no",
+  "peak_pct": 0.75,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.86,
+  "n9": 4,
+  "n8": 5,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f137": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 6,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f138": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.8,
+  "n9": 1,
+  "n8": 4,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f139": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f140": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 11,
+  "n8": 47,
+  "n7": 156,
+  "verdict": "holds_to_0.7"
+ },
+ "f141": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 10,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f142": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.8"
+ },
+ "f143": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 10,
+  "n7": 17,
+  "verdict": "holds_to_0.7"
+ },
+ "f144": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f145": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.78,
+  "pct_0.7": 0.76,
+  "n9": 4,
+  "n8": 9,
+  "n7": 46,
+  "verdict": "holds_to_0.7"
+ },
+ "f146": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.87,
+  "n9": 5,
+  "n8": 10,
+  "n7": 23,
+  "verdict": "holds_to_0.7"
+ },
+ "f147": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 8,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f148": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.8"
+ },
+ "f149": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.86,
+  "n9": 3,
+  "n8": 5,
+  "n7": 14,
+  "verdict": "holds_to_0.7"
+ },
+ "f150": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.96,
+  "pct_0.7": 0.98,
+  "n9": 8,
+  "n8": 27,
+  "n7": 64,
+  "verdict": "holds_to_0.7"
+ },
+ "f151": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.31,
+  "n9": 2,
+  "n8": 12,
+  "n7": 29,
+  "verdict": "peak_only"
+ },
+ "f152": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f153": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.95,
+  "n9": 2,
+  "n8": 14,
+  "n7": 20,
+  "verdict": "holds_to_0.7"
+ },
+ "f154": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 7,
+  "n8": 18,
+  "n7": 40,
+  "verdict": "holds_to_0.7"
+ },
+ "f155": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.6,
+  "n9": 1,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f156": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f157": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f158": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.8,
+  "n9": 1,
+  "n8": 4,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f159": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.92,
+  "pct_0.7": 0.84,
+  "n9": 5,
+  "n8": 12,
+  "n7": 19,
+  "verdict": "holds_to_0.7"
+ },
+ "f160": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.8,
+  "n9": 4,
+  "n8": 8,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f161": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f162": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f163": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.25,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "peak_only"
+ },
+ "f164": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.33,
+  "n9": 1,
+  "n8": 1,
+  "n7": 6,
+  "verdict": "holds_to_0.8"
+ },
+ "f165": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.89,
+  "n9": 1,
+  "n8": 2,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f166": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 9,
+  "n8": 37,
+  "n7": 107,
+  "verdict": "holds_to_0.7"
+ },
+ "f167": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 6,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f168": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.6,
+  "n9": 2,
+  "n8": 2,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f169": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 4,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f170": {
+  "identity": "moved=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.57,
+  "pct_0.7": 0.55,
+  "n9": 2,
+  "n8": 14,
+  "n7": 49,
+  "verdict": "peak_only"
+ },
+ "f171": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 4,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f172": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.6,
+  "n9": 3,
+  "n8": 3,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f173": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.92,
+  "n9": 4,
+  "n8": 10,
+  "n7": 38,
+  "verdict": "holds_to_0.7"
+ },
+ "f174": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.93,
+  "pct_0.7": 0.94,
+  "n9": 2,
+  "n8": 27,
+  "n7": 81,
+  "verdict": "holds_to_0.7"
+ },
+ "f175": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 19,
+  "n7": 51,
+  "verdict": "holds_to_0.7"
+ },
+ "f176": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f177": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.86,
+  "pct_0.7": 0.92,
+  "n9": 2,
+  "n8": 7,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f178": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.89,
+  "n9": 1,
+  "n8": 5,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f179": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f180": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 6,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f181": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f182": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 7,
+  "n8": 21,
+  "n7": 44,
+  "verdict": "holds_to_0.7"
+ },
+ "f183": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.9,
+  "n9": 2,
+  "n8": 4,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f184": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.62,
+  "n9": 3,
+  "n8": 3,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f185": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f186": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.98,
+  "n9": 5,
+  "n8": 20,
+  "n7": 46,
+  "verdict": "holds_to_0.7"
+ },
+ "f187": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f188": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 4,
+  "n8": 5,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f189": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.89,
+  "n9": 3,
+  "n8": 3,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f190": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "peak_only"
+ },
+ "f191": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.96,
+  "pct_0.7": 0.97,
+  "n9": 22,
+  "n8": 196,
+  "n7": 400,
+  "verdict": "holds_to_0.7"
+ },
+ "f192": {
+  "identity": "moved=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 17,
+  "n7": 45,
+  "verdict": "holds_to_0.7"
+ },
+ "f193": {
+  "identity": "best_check=no",
+  "peak_pct": 0.89,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.8,
+  "n9": 9,
+  "n8": 16,
+  "n7": 25,
+  "verdict": "holds_to_0.7"
+ },
+ "f194": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f195": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f196": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 8,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f197": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 7,
+  "n8": 15,
+  "n7": 35,
+  "verdict": "holds_to_0.7"
+ },
+ "f198": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.99,
+  "n9": 10,
+  "n8": 36,
+  "n7": 97,
+  "verdict": "holds_to_0.7"
+ },
+ "f199": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 3,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f200": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.93,
+  "pct_0.7": 0.88,
+  "n9": 5,
+  "n8": 27,
+  "n7": 64,
+  "verdict": "holds_to_0.7"
+ },
+ "f201": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.93,
+  "pct_0.7": 0.85,
+  "n9": 8,
+  "n8": 15,
+  "n7": 26,
+  "verdict": "holds_to_0.7"
+ },
+ "f202": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.36,
+  "pct_0.7": 0.28,
+  "n9": 2,
+  "n8": 22,
+  "n7": 68,
+  "verdict": "peak_only"
+ },
+ "f203": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f204": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f205": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f206": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 17,
+  "n8": 130,
+  "n7": 400,
+  "verdict": "holds_to_0.7"
+ },
+ "f207": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 9,
+  "n7": 17,
+  "verdict": "holds_to_0.7"
+ },
+ "f208": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.73,
+  "n9": 4,
+  "n8": 5,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f209": {
+  "identity": "best_captured=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.96,
+  "n9": 3,
+  "n8": 11,
+  "n7": 24,
+  "verdict": "holds_to_0.7"
+ },
+ "f210": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 5,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f211": {
+  "identity": "moved=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 2,
+  "n8": 4,
+  "n7": 12,
+  "verdict": "holds_to_0.8"
+ },
+ "f212": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 7,
+  "n7": 15,
+  "verdict": "holds_to_0.7"
+ },
+ "f213": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.57,
+  "pct_0.7": 0.58,
+  "n9": 3,
+  "n8": 7,
+  "n7": 12,
+  "verdict": "peak_only"
+ },
+ "f214": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f215": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.43,
+  "n9": 1,
+  "n8": 3,
+  "n7": 7,
+  "verdict": "holds_to_0.8"
+ },
+ "f216": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 8,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f217": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 4,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f218": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.93,
+  "pct_0.7": 0.82,
+  "n9": 17,
+  "n8": 29,
+  "n7": 51,
+  "verdict": "holds_to_0.7"
+ },
+ "f219": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.9,
+  "pct_0.7": 0.74,
+  "n9": 4,
+  "n8": 10,
+  "n7": 23,
+  "verdict": "holds_to_0.7"
+ },
+ "f220": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.98,
+  "n9": 17,
+  "n8": 53,
+  "n7": 192,
+  "verdict": "holds_to_0.7"
+ },
+ "f221": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f222": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f223": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f224": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.92,
+  "n9": 4,
+  "n8": 22,
+  "n7": 74,
+  "verdict": "holds_to_0.7"
+ },
+ "f225": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 11,
+  "n8": 17,
+  "n7": 33,
+  "verdict": "holds_to_0.7"
+ },
+ "f226": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.62,
+  "n9": 1,
+  "n8": 2,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f227": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 11,
+  "n7": 29,
+  "verdict": "holds_to_0.7"
+ },
+ "f228": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.83,
+  "pct_0.7": 0.75,
+  "n9": 1,
+  "n8": 6,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f229": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f230": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 10,
+  "n8": 16,
+  "n7": 37,
+  "verdict": "holds_to_0.7"
+ },
+ "f231": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 23,
+  "n8": 247,
+  "n7": 400,
+  "verdict": "holds_to_0.7"
+ },
+ "f232": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 15,
+  "n7": 33,
+  "verdict": "holds_to_0.7"
+ },
+ "f233": {
+  "identity": "best_captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 16,
+  "n7": 33,
+  "verdict": "holds_to_0.7"
+ },
+ "f234": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.56,
+  "n9": 3,
+  "n8": 3,
+  "n7": 9,
+  "verdict": "holds_to_0.8"
+ },
+ "f235": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.71,
+  "n9": 1,
+  "n8": 2,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f236": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.71,
+  "n9": 2,
+  "n8": 6,
+  "n7": 21,
+  "verdict": "holds_to_0.7"
+ },
+ "f237": {
+  "identity": "moved=king",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.88,
+  "n9": 2,
+  "n8": 5,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f238": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.42,
+  "n9": 2,
+  "n8": 6,
+  "n7": 12,
+  "verdict": "peak_only"
+ },
+ "f239": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f240": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.62,
+  "pct_0.7": 0.67,
+  "n9": 3,
+  "n8": 8,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f241": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.83,
+  "n9": 3,
+  "n8": 4,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f242": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f243": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f244": {
+  "identity": "best_captured=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.93,
+  "n9": 5,
+  "n8": 21,
+  "n7": 60,
+  "verdict": "holds_to_0.7"
+ },
+ "f245": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.83,
+  "pct_0.7": 0.71,
+  "n9": 4,
+  "n8": 12,
+  "n7": 21,
+  "verdict": "holds_to_0.7"
+ },
+ "f246": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f247": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f248": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f249": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 5,
+  "n8": 8,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f250": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 8,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f251": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 9,
+  "n8": 22,
+  "n7": 60,
+  "verdict": "holds_to_0.7"
+ },
+ "f252": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 9,
+  "n7": 28,
+  "verdict": "holds_to_0.7"
+ },
+ "f253": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.95,
+  "n9": 5,
+  "n8": 9,
+  "n7": 22,
+  "verdict": "holds_to_0.7"
+ },
+ "f254": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f255": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.85,
+  "pct_0.7": 0.82,
+  "n9": 4,
+  "n8": 13,
+  "n7": 28,
+  "verdict": "holds_to_0.7"
+ },
+ "f256": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 8,
+  "n8": 17,
+  "n7": 36,
+  "verdict": "holds_to_0.7"
+ },
+ "f257": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 2,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f258": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f259": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 14,
+  "n7": 28,
+  "verdict": "holds_to_0.7"
+ },
+ "f260": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 7,
+  "n7": 14,
+  "verdict": "holds_to_0.7"
+ },
+ "f261": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 11,
+  "n7": 17,
+  "verdict": "holds_to_0.7"
+ },
+ "f262": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 11,
+  "n7": 30,
+  "verdict": "holds_to_0.7"
+ },
+ "f263": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.25,
+  "pct_0.7": 0.12,
+  "n9": 1,
+  "n8": 4,
+  "n7": 8,
+  "verdict": "peak_only"
+ },
+ "f264": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.75,
+  "n9": 2,
+  "n8": 4,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f265": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 15,
+  "n7": 47,
+  "verdict": "holds_to_0.7"
+ },
+ "f266": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f267": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 20,
+  "n7": 44,
+  "verdict": "holds_to_0.7"
+ },
+ "f268": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 5,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f269": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 6,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f270": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.97,
+  "pct_0.7": 0.96,
+  "n9": 8,
+  "n8": 30,
+  "n7": 98,
+  "verdict": "holds_to_0.7"
+ },
+ "f271": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f272": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f273": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 20,
+  "n8": 90,
+  "n7": 265,
+  "verdict": "holds_to_0.7"
+ },
+ "f274": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f275": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.9,
+  "n9": 1,
+  "n8": 1,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f276": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.57,
+  "n9": 1,
+  "n8": 4,
+  "n7": 14,
+  "verdict": "peak_only"
+ },
+ "f277": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.78,
+  "n9": 2,
+  "n8": 5,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f278": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 29,
+  "n7": 107,
+  "verdict": "holds_to_0.7"
+ },
+ "f279": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f280": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 16,
+  "n8": 51,
+  "n7": 93,
+  "verdict": "holds_to_0.7"
+ },
+ "f281": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 11,
+  "n7": 23,
+  "verdict": "holds_to_0.7"
+ },
+ "f282": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.77,
+  "pct_0.7": 0.84,
+  "n9": 4,
+  "n8": 13,
+  "n7": 25,
+  "verdict": "holds_to_0.7"
+ },
+ "f283": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 14,
+  "n8": 34,
+  "n7": 74,
+  "verdict": "holds_to_0.7"
+ },
+ "f284": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 10,
+  "n8": 44,
+  "n7": 123,
+  "verdict": "holds_to_0.7"
+ },
+ "f285": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f286": {
+  "identity": "best_captured=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 6,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f287": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 3,
+  "n8": 4,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f288": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.86,
+  "n9": 1,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f289": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 5,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f290": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.86,
+  "n9": 1,
+  "n8": 5,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f291": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f292": {
+  "identity": "moved=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.32,
+  "n9": 2,
+  "n8": 8,
+  "n7": 31,
+  "verdict": "peak_only"
+ },
+ "f293": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.83,
+  "pct_0.7": 0.75,
+  "n9": 2,
+  "n8": 6,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f294": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 10,
+  "n7": 22,
+  "verdict": "holds_to_0.7"
+ },
+ "f295": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f296": {
+  "identity": "moved=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.7,
+  "n9": 2,
+  "n8": 6,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f297": {
+  "identity": "best_captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.91,
+  "n9": 2,
+  "n8": 5,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f298": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "peak_only"
+ },
+ "f299": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 4,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f300": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 4,
+  "verdict": "holds_to_0.8"
+ },
+ "f301": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.57,
+  "n9": 2,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "holds_to_0.8"
+ },
+ "f302": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 17,
+  "n8": 69,
+  "n7": 193,
+  "verdict": "holds_to_0.7"
+ },
+ "f303": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.86,
+  "pct_0.7": 0.77,
+  "n9": 2,
+  "n8": 7,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f304": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.73,
+  "n9": 3,
+  "n8": 8,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f305": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.83,
+  "pct_0.7": 0.72,
+  "n9": 2,
+  "n8": 6,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f306": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.94,
+  "n9": 2,
+  "n8": 6,
+  "n7": 35,
+  "verdict": "holds_to_0.7"
+ },
+ "f307": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 9,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f308": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f309": {
+  "identity": "phase=middlegame",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 6,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f310": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f311": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f312": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 3,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f313": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.45,
+  "pct_0.7": 0.42,
+  "n9": 3,
+  "n8": 11,
+  "n7": 24,
+  "verdict": "peak_only"
+ },
+ "f314": {
+  "identity": "best_captured=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.97,
+  "n9": 6,
+  "n8": 17,
+  "n7": 31,
+  "verdict": "holds_to_0.7"
+ },
+ "f315": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f316": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 47,
+  "n8": 392,
+  "n7": 400,
+  "verdict": "holds_to_0.7"
+ },
+ "f317": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.88,
+  "n9": 1,
+  "n8": 5,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f318": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f319": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 3,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f320": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f321": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.8,
+  "n9": 2,
+  "n8": 5,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f322": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.8"
+ },
+ "f323": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 1,
+  "n8": 1,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f324": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.57,
+  "n9": 1,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "peak_only"
+ },
+ "f325": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.69,
+  "n9": 3,
+  "n8": 5,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f326": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.73,
+  "pct_0.7": 0.56,
+  "n9": 3,
+  "n8": 22,
+  "n7": 66,
+  "verdict": "holds_to_0.8"
+ },
+ "f327": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.86,
+  "pct_0.7": 0.75,
+  "n9": 4,
+  "n8": 7,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f328": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 4,
+  "n7": 10,
+  "verdict": "holds_to_0.8"
+ },
+ "f329": {
+  "identity": "best_captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 5,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f330": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 7,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f331": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.92,
+  "n9": 2,
+  "n8": 4,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f332": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 10,
+  "n7": 21,
+  "verdict": "holds_to_0.7"
+ },
+ "f333": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 4,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f334": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 5,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f335": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 9,
+  "n8": 24,
+  "n7": 39,
+  "verdict": "holds_to_0.7"
+ },
+ "f336": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 3,
+  "n7": 6,
+  "verdict": "holds_to_0.8"
+ },
+ "f337": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.8,
+  "n9": 2,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f338": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 8,
+  "n7": 32,
+  "verdict": "holds_to_0.7"
+ },
+ "f339": {
+  "identity": "moved=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.61,
+  "n9": 2,
+  "n8": 3,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f340": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f341": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.95,
+  "pct_0.7": 0.93,
+  "n9": 18,
+  "n8": 62,
+  "n7": 192,
+  "verdict": "holds_to_0.7"
+ },
+ "f342": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.81,
+  "pct_0.7": 0.77,
+  "n9": 7,
+  "n8": 31,
+  "n7": 65,
+  "verdict": "holds_to_0.7"
+ },
+ "f343": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.86,
+  "pct_0.7": 0.89,
+  "n9": 2,
+  "n8": 7,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f344": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.83,
+  "n9": 2,
+  "n8": 3,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f345": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.86,
+  "pct_0.7": 0.81,
+  "n9": 3,
+  "n8": 7,
+  "n7": 26,
+  "verdict": "holds_to_0.7"
+ },
+ "f346": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 5,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f347": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.43,
+  "n9": 1,
+  "n8": 1,
+  "n7": 7,
+  "verdict": "holds_to_0.8"
+ },
+ "f348": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f349": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.67,
+  "n9": 3,
+  "n8": 4,
+  "n7": 15,
+  "verdict": "holds_to_0.7"
+ },
+ "f350": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.95,
+  "pct_0.7": 0.93,
+  "n9": 3,
+  "n8": 19,
+  "n7": 44,
+  "verdict": "holds_to_0.7"
+ },
+ "f351": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f352": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 4,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f353": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.91,
+  "n9": 2,
+  "n8": 4,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f354": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f355": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.43,
+  "pct_0.7": 0.44,
+  "n9": 1,
+  "n8": 7,
+  "n7": 18,
+  "verdict": "peak_only"
+ },
+ "f356": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f357": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.83,
+  "pct_0.7": 0.56,
+  "n9": 2,
+  "n8": 6,
+  "n7": 16,
+  "verdict": "holds_to_0.8"
+ },
+ "f358": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.88,
+  "pct_0.7": 0.83,
+  "n9": 3,
+  "n8": 16,
+  "n7": 47,
+  "verdict": "holds_to_0.7"
+ },
+ "f359": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f360": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f361": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.6,
+  "pct_0.7": 0.38,
+  "n9": 1,
+  "n8": 5,
+  "n7": 13,
+  "verdict": "holds_to_0.8"
+ },
+ "f362": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f363": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.58,
+  "pct_0.7": 0.65,
+  "n9": 3,
+  "n8": 12,
+  "n7": 31,
+  "verdict": "holds_to_0.7"
+ },
+ "f364": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 14,
+  "n7": 30,
+  "verdict": "holds_to_0.7"
+ },
+ "f365": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.86,
+  "n9": 2,
+  "n8": 3,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f366": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.93,
+  "n9": 8,
+  "n8": 15,
+  "n7": 28,
+  "verdict": "holds_to_0.7"
+ },
+ "f367": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f368": {
+  "identity": "best_captured=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.43,
+  "n9": 2,
+  "n8": 3,
+  "n7": 7,
+  "verdict": "holds_to_0.8"
+ },
+ "f369": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 16,
+  "n7": 103,
+  "verdict": "holds_to_0.7"
+ },
+ "f370": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.83,
+  "pct_0.7": 0.56,
+  "n9": 2,
+  "n8": 6,
+  "n7": 16,
+  "verdict": "holds_to_0.8"
+ },
+ "f371": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 8,
+  "n8": 28,
+  "n7": 53,
+  "verdict": "holds_to_0.7"
+ },
+ "f372": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 10,
+  "n7": 22,
+  "verdict": "holds_to_0.7"
+ },
+ "f373": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.4,
+  "pct_0.7": 0.21,
+  "n9": 2,
+  "n8": 5,
+  "n7": 14,
+  "verdict": "peak_only"
+ },
+ "f374": {
+  "identity": "best_captured=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 7,
+  "n7": 24,
+  "verdict": "holds_to_0.7"
+ },
+ "f375": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 8,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f376": {
+  "identity": "moved=bishop",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.5,
+  "n9": 3,
+  "n8": 6,
+  "n7": 16,
+  "verdict": "holds_to_0.8"
+ },
+ "f377": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f378": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.71,
+  "n9": 1,
+  "n8": 2,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f379": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.8,
+  "n9": 1,
+  "n8": 2,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f380": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 6,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f381": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f382": {
+  "identity": "moved=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.96,
+  "pct_0.7": 0.95,
+  "n9": 3,
+  "n8": 25,
+  "n7": 118,
+  "verdict": "holds_to_0.7"
+ },
+ "f383": {
+  "identity": "best_captured=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 8,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f384": {
+  "identity": "best_captured=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.98,
+  "n9": 2,
+  "n8": 17,
+  "n7": 63,
+  "verdict": "holds_to_0.7"
+ },
+ "f385": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.52,
+  "n9": 5,
+  "n8": 15,
+  "n7": 27,
+  "verdict": "holds_to_0.8"
+ },
+ "f386": {
+  "identity": "best_captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 32,
+  "n7": 134,
+  "verdict": "holds_to_0.7"
+ },
+ "f387": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 4,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f388": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 4,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f389": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.57,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 7,
+  "n7": 15,
+  "verdict": "holds_to_0.7"
+ },
+ "f390": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f391": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.98,
+  "n9": 6,
+  "n8": 77,
+  "n7": 400,
+  "verdict": "holds_to_0.7"
+ },
+ "f392": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f393": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f394": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.4,
+  "n9": 1,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.8"
+ },
+ "f395": {
+  "identity": "moved=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.81,
+  "pct_0.7": 0.79,
+  "n9": 5,
+  "n8": 16,
+  "n7": 33,
+  "verdict": "holds_to_0.7"
+ },
+ "f396": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 23,
+  "n7": 89,
+  "verdict": "holds_to_0.7"
+ },
+ "f397": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.88,
+  "pct_0.7": 0.92,
+  "n9": 2,
+  "n8": 8,
+  "n7": 25,
+  "verdict": "holds_to_0.7"
+ },
+ "f398": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.58,
+  "n9": 1,
+  "n8": 6,
+  "n7": 24,
+  "verdict": "holds_to_0.8"
+ },
+ "f399": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.85,
+  "pct_0.7": 0.9,
+  "n9": 4,
+  "n8": 13,
+  "n7": 21,
+  "verdict": "holds_to_0.7"
+ },
+ "f400": {
+  "identity": "own_piece=minor",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 8,
+  "n8": 23,
+  "n7": 59,
+  "verdict": "holds_to_0.7"
+ },
+ "f401": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.82,
+  "pct_0.7": 0.8,
+  "n9": 3,
+  "n8": 11,
+  "n7": 25,
+  "verdict": "holds_to_0.7"
+ },
+ "f402": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.33,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.8"
+ },
+ "f403": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.62,
+  "pct_0.7": 0.53,
+  "n9": 4,
+  "n8": 8,
+  "n7": 17,
+  "verdict": "holds_to_0.8"
+ },
+ "f404": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.94,
+  "n9": 5,
+  "n8": 11,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f405": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 11,
+  "n8": 35,
+  "n7": 69,
+  "verdict": "holds_to_0.7"
+ },
+ "f406": {
+  "identity": "best_captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.43,
+  "n9": 2,
+  "n8": 2,
+  "n7": 14,
+  "verdict": "holds_to_0.8"
+ },
+ "f407": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 7,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f408": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.42,
+  "n9": 3,
+  "n8": 10,
+  "n7": 26,
+  "verdict": "peak_only"
+ },
+ "f409": {
+  "identity": "moved=king",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.54,
+  "n9": 3,
+  "n8": 14,
+  "n7": 26,
+  "verdict": "peak_only"
+ },
+ "f410": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 4,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f411": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.58,
+  "pct_0.7": 0.32,
+  "n9": 3,
+  "n8": 12,
+  "n7": 22,
+  "verdict": "peak_only"
+ },
+ "f412": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f413": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.82,
+  "pct_0.7": 0.83,
+  "n9": 4,
+  "n8": 11,
+  "n7": 23,
+  "verdict": "holds_to_0.7"
+ },
+ "f414": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.75,
+  "n9": 1,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f415": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f416": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f417": {
+  "identity": "moved=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.92,
+  "n9": 3,
+  "n8": 11,
+  "n7": 36,
+  "verdict": "holds_to_0.7"
+ },
+ "f418": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 13,
+  "n8": 56,
+  "n7": 226,
+  "verdict": "holds_to_0.7"
+ },
+ "f419": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 2,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f420": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.88,
+  "pct_0.7": 0.83,
+  "n9": 3,
+  "n8": 8,
+  "n7": 30,
+  "verdict": "holds_to_0.7"
+ },
+ "f421": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 7,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f422": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.83,
+  "n9": 1,
+  "n8": 1,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f423": {
+  "identity": "captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.54,
+  "n9": 3,
+  "n8": 18,
+  "n7": 52,
+  "verdict": "holds_to_0.8"
+ },
+ "f424": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f425": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 4,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f426": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.83,
+  "n9": 2,
+  "n8": 4,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f427": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.71,
+  "n9": 3,
+  "n8": 6,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f428": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 16,
+  "n7": 38,
+  "verdict": "holds_to_0.7"
+ },
+ "f429": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f430": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f431": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f432": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 2,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f433": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.57,
+  "n9": 1,
+  "n8": 2,
+  "n7": 7,
+  "verdict": "holds_to_0.8"
+ },
+ "f434": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.88,
+  "pct_0.7": 0.83,
+  "n9": 4,
+  "n8": 8,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f435": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f436": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.64,
+  "n9": 1,
+  "n8": 8,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f437": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.97,
+  "n9": 2,
+  "n8": 8,
+  "n7": 36,
+  "verdict": "holds_to_0.7"
+ },
+ "f438": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f439": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f440": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.43,
+  "pct_0.7": 0.25,
+  "n9": 3,
+  "n8": 7,
+  "n7": 16,
+  "verdict": "peak_only"
+ },
+ "f441": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f442": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f443": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.93,
+  "pct_0.7": 0.93,
+  "n9": 15,
+  "n8": 115,
+  "n7": 394,
+  "verdict": "holds_to_0.7"
+ },
+ "f444": {
+  "identity": "moved=bishop",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 8,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f445": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f446": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f447": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.2,
+  "pct_0.7": 0.43,
+  "n9": 1,
+  "n8": 5,
+  "n7": 7,
+  "verdict": "peak_only"
+ },
+ "f448": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 45,
+  "n7": 148,
+  "verdict": "holds_to_0.7"
+ },
+ "f449": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 24,
+  "n7": 59,
+  "verdict": "holds_to_0.7"
+ },
+ "f450": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 4,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f451": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 5,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f452": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.8"
+ },
+ "f453": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f454": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 12,
+  "n7": 64,
+  "verdict": "holds_to_0.7"
+ },
+ "f455": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.93,
+  "n9": 15,
+  "n8": 47,
+  "n7": 101,
+  "verdict": "holds_to_0.7"
+ },
+ "f456": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 6,
+  "n7": 15,
+  "verdict": "holds_to_0.7"
+ },
+ "f457": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f458": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f459": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f460": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "peak_only"
+ },
+ "f461": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 8,
+  "n8": 13,
+  "n7": 34,
+  "verdict": "holds_to_0.7"
+ },
+ "f462": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f463": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.78,
+  "n9": 2,
+  "n8": 4,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f464": {
+  "identity": "moved=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f465": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.71,
+  "pct_0.7": 0.86,
+  "n9": 2,
+  "n8": 7,
+  "n7": 21,
+  "verdict": "holds_to_0.7"
+ },
+ "f466": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f467": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.8"
+ },
+ "f468": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.96,
+  "pct_0.7": 0.98,
+  "n9": 9,
+  "n8": 48,
+  "n7": 206,
+  "verdict": "holds_to_0.7"
+ },
+ "f469": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.43,
+  "pct_0.7": 0.5,
+  "n9": 2,
+  "n8": 7,
+  "n7": 24,
+  "verdict": "peak_only"
+ },
+ "f470": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 7,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f471": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.86,
+  "pct_0.7": 0.67,
+  "n9": 3,
+  "n8": 7,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f472": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.97,
+  "n9": 5,
+  "n8": 15,
+  "n7": 31,
+  "verdict": "holds_to_0.7"
+ },
+ "f473": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 15,
+  "n7": 23,
+  "verdict": "holds_to_0.7"
+ },
+ "f474": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 7,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f475": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 7,
+  "n8": 21,
+  "n7": 45,
+  "verdict": "holds_to_0.7"
+ },
+ "f476": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 4,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f477": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 17,
+  "n7": 40,
+  "verdict": "holds_to_0.7"
+ },
+ "f478": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.93,
+  "pct_0.7": 0.89,
+  "n9": 4,
+  "n8": 14,
+  "n7": 36,
+  "verdict": "holds_to_0.7"
+ },
+ "f479": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.57,
+  "n9": 1,
+  "n8": 6,
+  "n7": 14,
+  "verdict": "holds_to_0.8"
+ },
+ "f480": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 6,
+  "n7": 15,
+  "verdict": "holds_to_0.7"
+ },
+ "f481": {
+  "identity": "best_captured=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.87,
+  "n9": 5,
+  "n8": 13,
+  "n7": 23,
+  "verdict": "holds_to_0.7"
+ },
+ "f482": {
+  "identity": "moved=king",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.86,
+  "n9": 2,
+  "n8": 5,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f483": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 2,
+  "n8": 4,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f484": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 3,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f485": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f486": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f487": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.84,
+  "pct_0.7": 0.81,
+  "n9": 13,
+  "n8": 79,
+  "n7": 234,
+  "verdict": "holds_to_0.7"
+ },
+ "f488": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 5,
+  "n7": 22,
+  "verdict": "holds_to_0.7"
+ },
+ "f489": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f490": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.94,
+  "n9": 4,
+  "n8": 8,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f491": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 8,
+  "n7": 20,
+  "verdict": "holds_to_0.7"
+ },
+ "f492": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.4,
+  "pct_0.7": 0.63,
+  "n9": 1,
+  "n8": 5,
+  "n7": 19,
+  "verdict": "holds_to_0.7"
+ },
+ "f493": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.83,
+  "n9": 2,
+  "n8": 5,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f494": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 4,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f495": {
+  "identity": "best_captured=bishop",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 9,
+  "n7": 17,
+  "verdict": "holds_to_0.7"
+ },
+ "f496": {
+  "identity": "best_captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 9,
+  "n7": 19,
+  "verdict": "holds_to_0.7"
+ },
+ "f497": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.86,
+  "pct_0.7": 0.87,
+  "n9": 6,
+  "n8": 14,
+  "n7": 23,
+  "verdict": "holds_to_0.7"
+ },
+ "f498": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f499": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.36,
+  "pct_0.7": 0.42,
+  "n9": 1,
+  "n8": 14,
+  "n7": 26,
+  "verdict": "peak_only"
+ },
+ "f500": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.8"
+ },
+ "f501": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f502": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f503": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 2,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f504": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.95,
+  "n9": 6,
+  "n8": 18,
+  "n7": 43,
+  "verdict": "holds_to_0.7"
+ },
+ "f505": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f506": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f507": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.96,
+  "n9": 7,
+  "n8": 20,
+  "n7": 50,
+  "verdict": "holds_to_0.7"
+ },
+ "f508": {
+  "identity": "moved=king",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.57,
+  "pct_0.7": 0.45,
+  "n9": 2,
+  "n8": 7,
+  "n7": 20,
+  "verdict": "peak_only"
+ },
+ "f509": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f510": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f511": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f512": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f513": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 4,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f514": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f515": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 17,
+  "n7": 50,
+  "verdict": "holds_to_0.7"
+ },
+ "f516": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.6,
+  "n9": 1,
+  "n8": 4,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f517": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.33,
+  "n9": 2,
+  "n8": 3,
+  "n7": 9,
+  "verdict": "holds_to_0.8"
+ },
+ "f518": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.9,
+  "n9": 4,
+  "n8": 4,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f519": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 21,
+  "n7": 48,
+  "verdict": "holds_to_0.7"
+ },
+ "f520": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "peak_only"
+ },
+ "f521": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f522": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.44,
+  "n9": 1,
+  "n8": 1,
+  "n7": 9,
+  "verdict": "holds_to_0.8"
+ },
+ "f523": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 13,
+  "n7": 44,
+  "verdict": "holds_to_0.7"
+ },
+ "f524": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 7,
+  "n8": 12,
+  "n7": 24,
+  "verdict": "holds_to_0.7"
+ },
+ "f525": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f526": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.9,
+  "n9": 2,
+  "n8": 8,
+  "n7": 30,
+  "verdict": "holds_to_0.7"
+ },
+ "f527": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.86,
+  "n9": 4,
+  "n8": 5,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f528": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.75,
+  "n9": 1,
+  "n8": 4,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f529": {
+  "identity": "captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 9,
+  "n7": 21,
+  "verdict": "holds_to_0.7"
+ },
+ "f530": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 4,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f531": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.87,
+  "n9": 1,
+  "n8": 2,
+  "n7": 15,
+  "verdict": "holds_to_0.7"
+ },
+ "f532": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f533": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 2,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f534": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.33,
+  "pct_0.7": 0.6,
+  "n9": 1,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f535": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.2,
+  "n9": 1,
+  "n8": 2,
+  "n7": 5,
+  "verdict": "peak_only"
+ },
+ "f536": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.4,
+  "pct_0.7": 0.33,
+  "n9": 2,
+  "n8": 15,
+  "n7": 39,
+  "verdict": "peak_only"
+ },
+ "f537": {
+  "identity": "phase=endgame",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.94,
+  "n9": 7,
+  "n8": 15,
+  "n7": 33,
+  "verdict": "holds_to_0.7"
+ },
+ "f538": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 7,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f539": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.8,
+  "n9": 2,
+  "n8": 4,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f540": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.55,
+  "n9": 3,
+  "n8": 7,
+  "n7": 20,
+  "verdict": "holds_to_0.8"
+ },
+ "f541": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f542": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.25,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 4,
+  "n7": 16,
+  "verdict": "peak_only"
+ },
+ "f543": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 10,
+  "n7": 15,
+  "verdict": "holds_to_0.7"
+ },
+ "f544": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 1,
+  "n8": 1,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f545": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.92,
+  "pct_0.7": 0.9,
+  "n9": 13,
+  "n8": 64,
+  "n7": 205,
+  "verdict": "holds_to_0.7"
+ },
+ "f546": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 4,
+  "n7": 12,
+  "verdict": "peak_only"
+ },
+ "f547": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f548": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.96,
+  "n9": 5,
+  "n8": 21,
+  "n7": 52,
+  "verdict": "holds_to_0.7"
+ },
+ "f549": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.83,
+  "pct_0.7": 0.88,
+  "n9": 2,
+  "n8": 6,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f550": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 6,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f551": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f552": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.89,
+  "pct_0.7": 0.89,
+  "n9": 4,
+  "n8": 18,
+  "n7": 36,
+  "verdict": "holds_to_0.7"
+ },
+ "f553": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.86,
+  "pct_0.7": 0.8,
+  "n9": 4,
+  "n8": 22,
+  "n7": 50,
+  "verdict": "holds_to_0.7"
+ },
+ "f554": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f555": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.6,
+  "n9": 2,
+  "n8": 2,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f556": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 9,
+  "n7": 22,
+  "verdict": "holds_to_0.7"
+ },
+ "f557": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.7,
+  "pct_0.7": 0.74,
+  "n9": 1,
+  "n8": 10,
+  "n7": 34,
+  "verdict": "holds_to_0.7"
+ },
+ "f558": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 3,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f559": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 5,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f560": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.59,
+  "pct_0.7": 0.56,
+  "n9": 4,
+  "n8": 22,
+  "n7": 61,
+  "verdict": "peak_only"
+ },
+ "f561": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 4,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f562": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.65,
+  "n9": 1,
+  "n8": 5,
+  "n7": 17,
+  "verdict": "holds_to_0.7"
+ },
+ "f563": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.96,
+  "pct_0.7": 0.99,
+  "n9": 5,
+  "n8": 23,
+  "n7": 68,
+  "verdict": "holds_to_0.7"
+ },
+ "f564": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.33,
+  "pct_0.7": 0.29,
+  "n9": 2,
+  "n8": 9,
+  "n7": 34,
+  "verdict": "peak_only"
+ },
+ "f565": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.9,
+  "n9": 1,
+  "n8": 5,
+  "n7": 20,
+  "verdict": "holds_to_0.7"
+ },
+ "f566": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f567": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.78,
+  "n9": 3,
+  "n8": 4,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f568": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.94,
+  "n9": 2,
+  "n8": 10,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f569": {
+  "identity": "moved=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 20,
+  "n7": 36,
+  "verdict": "holds_to_0.7"
+ },
+ "f570": {
+  "identity": "moved=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.91,
+  "pct_0.7": 0.95,
+  "n9": 6,
+  "n8": 11,
+  "n7": 20,
+  "verdict": "holds_to_0.7"
+ },
+ "f571": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.97,
+  "pct_0.7": 0.92,
+  "n9": 10,
+  "n8": 30,
+  "n7": 84,
+  "verdict": "holds_to_0.7"
+ },
+ "f572": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f573": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.91,
+  "pct_0.7": 0.8,
+  "n9": 4,
+  "n8": 11,
+  "n7": 30,
+  "verdict": "holds_to_0.7"
+ },
+ "f574": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f575": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.83,
+  "n9": 3,
+  "n8": 5,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f576": {
+  "identity": "moved=bishop",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 6,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f577": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.9,
+  "pct_0.7": 0.95,
+  "n9": 2,
+  "n8": 10,
+  "n7": 39,
+  "verdict": "holds_to_0.7"
+ },
+ "f578": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.33,
+  "pct_0.7": 0.57,
+  "n9": 1,
+  "n8": 6,
+  "n7": 14,
+  "verdict": "peak_only"
+ },
+ "f579": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.71,
+  "pct_0.7": 0.52,
+  "n9": 2,
+  "n8": 7,
+  "n7": 21,
+  "verdict": "holds_to_0.8"
+ },
+ "f580": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 12,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f581": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.76,
+  "n9": 3,
+  "n8": 8,
+  "n7": 17,
+  "verdict": "holds_to_0.7"
+ },
+ "f582": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f583": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f584": {
+  "identity": "material=safe",
+  "peak_pct": 0.67,
+  "pct_0.8": 0.6,
+  "pct_0.7": 0.6,
+  "n9": 3,
+  "n8": 5,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f585": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.8"
+ },
+ "f586": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 6,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f587": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.92,
+  "n9": 1,
+  "n8": 4,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f588": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 3,
+  "n7": 14,
+  "verdict": "holds_to_0.8"
+ },
+ "f589": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 6,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f590": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f591": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 6,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f592": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 6,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f593": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.33,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.8"
+ },
+ "f594": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 8,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f595": {
+  "identity": "best_check=no",
+  "peak_pct": 0.8,
+  "pct_0.8": 0.85,
+  "pct_0.7": 0.83,
+  "n9": 5,
+  "n8": 13,
+  "n7": 24,
+  "verdict": "holds_to_0.7"
+ },
+ "f596": {
+  "identity": "captured=bishop",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.4,
+  "n9": 2,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.8"
+ },
+ "f597": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.43,
+  "n9": 1,
+  "n8": 2,
+  "n7": 7,
+  "verdict": "peak_only"
+ },
+ "f598": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.88,
+  "n9": 1,
+  "n8": 4,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f599": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.95,
+  "pct_0.7": 0.83,
+  "n9": 6,
+  "n8": 20,
+  "n7": 46,
+  "verdict": "holds_to_0.7"
+ },
+ "f600": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f601": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.38,
+  "n9": 2,
+  "n8": 3,
+  "n7": 8,
+  "verdict": "holds_to_0.8"
+ },
+ "f602": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f603": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.94,
+  "n9": 12,
+  "n8": 29,
+  "n7": 47,
+  "verdict": "holds_to_0.7"
+ },
+ "f604": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f605": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 4,
+  "n7": 10,
+  "verdict": "peak_only"
+ },
+ "f606": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.8,
+  "n9": 1,
+  "n8": 4,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f607": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.8"
+ },
+ "f608": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.8"
+ },
+ "f609": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 8,
+  "n7": 15,
+  "verdict": "holds_to_0.7"
+ },
+ "f610": {
+  "identity": "moved=bishop",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.56,
+  "n9": 3,
+  "n8": 4,
+  "n7": 9,
+  "verdict": "holds_to_0.8"
+ },
+ "f611": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.62,
+  "pct_0.7": 0.64,
+  "n9": 2,
+  "n8": 8,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f612": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 13,
+  "n7": 50,
+  "verdict": "holds_to_0.7"
+ },
+ "f613": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.38,
+  "pct_0.7": 0.33,
+  "n9": 2,
+  "n8": 8,
+  "n7": 18,
+  "verdict": "peak_only"
+ },
+ "f614": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.97,
+  "n9": 3,
+  "n8": 9,
+  "n7": 29,
+  "verdict": "holds_to_0.7"
+ },
+ "f615": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.71,
+  "pct_0.7": 0.75,
+  "n9": 2,
+  "n8": 7,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f616": {
+  "identity": "best_captured=bishop",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f617": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 14,
+  "n8": 117,
+  "n7": 377,
+  "verdict": "holds_to_0.7"
+ },
+ "f618": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.71,
+  "n9": 1,
+  "n8": 2,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f619": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 25,
+  "n7": 58,
+  "verdict": "holds_to_0.7"
+ },
+ "f620": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.92,
+  "n9": 1,
+  "n8": 2,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f621": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f622": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f623": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.38,
+  "n9": 2,
+  "n8": 3,
+  "n7": 8,
+  "verdict": "holds_to_0.8"
+ },
+ "f624": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f625": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.42,
+  "n9": 3,
+  "n8": 10,
+  "n7": 24,
+  "verdict": "peak_only"
+ },
+ "f626": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 8,
+  "n7": 34,
+  "verdict": "holds_to_0.7"
+ },
+ "f627": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.74,
+  "n9": 5,
+  "n8": 12,
+  "n7": 27,
+  "verdict": "holds_to_0.7"
+ },
+ "f628": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f629": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 21,
+  "n7": 48,
+  "verdict": "holds_to_0.7"
+ },
+ "f630": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f631": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 1,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f632": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f633": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 19,
+  "n7": 43,
+  "verdict": "holds_to_0.7"
+ },
+ "f634": {
+  "identity": "moved=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.83,
+  "n9": 4,
+  "n8": 4,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f635": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.62,
+  "pct_0.7": 0.68,
+  "n9": 3,
+  "n8": 8,
+  "n7": 31,
+  "verdict": "holds_to_0.7"
+ },
+ "f636": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 5,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f637": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.57,
+  "pct_0.7": 0.35,
+  "n9": 2,
+  "n8": 7,
+  "n7": 17,
+  "verdict": "peak_only"
+ },
+ "f638": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.33,
+  "pct_0.7": 0.2,
+  "n9": 1,
+  "n8": 3,
+  "n7": 10,
+  "verdict": "peak_only"
+ },
+ "f639": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.86,
+  "n9": 2,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f640": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f641": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 27,
+  "n7": 94,
+  "verdict": "holds_to_0.7"
+ },
+ "f642": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.83,
+  "n9": 1,
+  "n8": 1,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f643": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 7,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f644": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.97,
+  "pct_0.7": 0.92,
+  "n9": 13,
+  "n8": 34,
+  "n7": 79,
+  "verdict": "holds_to_0.7"
+ },
+ "f645": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.8,
+  "n9": 2,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f646": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.97,
+  "n9": 6,
+  "n8": 24,
+  "n7": 80,
+  "verdict": "holds_to_0.7"
+ },
+ "f647": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.5,
+  "n9": 2,
+  "n8": 4,
+  "n7": 12,
+  "verdict": "peak_only"
+ },
+ "f648": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 12,
+  "n7": 15,
+  "verdict": "holds_to_0.7"
+ },
+ "f649": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 4,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f650": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.6,
+  "pct_0.7": 0.67,
+  "n9": 1,
+  "n8": 10,
+  "n7": 33,
+  "verdict": "holds_to_0.7"
+ },
+ "f651": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.8,
+  "n9": 2,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f652": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 9,
+  "n7": 17,
+  "verdict": "holds_to_0.7"
+ },
+ "f653": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 12,
+  "n7": 15,
+  "verdict": "holds_to_0.7"
+ },
+ "f654": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f655": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.8"
+ },
+ "f656": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.9,
+  "pct_0.7": 0.94,
+  "n9": 6,
+  "n8": 10,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f657": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.83,
+  "pct_0.7": 0.86,
+  "n9": 4,
+  "n8": 6,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f658": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f659": {
+  "identity": "played_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 10,
+  "n7": 17,
+  "verdict": "holds_to_0.7"
+ },
+ "f660": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f661": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.92,
+  "pct_0.7": 0.94,
+  "n9": 7,
+  "n8": 13,
+  "n7": 33,
+  "verdict": "holds_to_0.7"
+ },
+ "f662": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.8,
+  "n9": 2,
+  "n8": 4,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f663": {
+  "identity": "moved=king",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 6,
+  "n7": 23,
+  "verdict": "holds_to_0.7"
+ },
+ "f664": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 9,
+  "n7": 14,
+  "verdict": "holds_to_0.7"
+ },
+ "f665": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.2,
+  "n9": 1,
+  "n8": 2,
+  "n7": 5,
+  "verdict": "peak_only"
+ },
+ "f666": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 4,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f667": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.86,
+  "n9": 2,
+  "n8": 3,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f668": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.62,
+  "pct_0.7": 0.53,
+  "n9": 1,
+  "n8": 13,
+  "n7": 34,
+  "verdict": "holds_to_0.8"
+ },
+ "f669": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 4,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f670": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.73,
+  "n9": 2,
+  "n8": 5,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f671": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.91,
+  "pct_0.7": 0.92,
+  "n9": 6,
+  "n8": 11,
+  "n7": 24,
+  "verdict": "holds_to_0.7"
+ },
+ "f672": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f673": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.53,
+  "n9": 2,
+  "n8": 4,
+  "n7": 15,
+  "verdict": "peak_only"
+ },
+ "f674": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "peak_only"
+ },
+ "f675": {
+  "identity": "best_captured=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.88,
+  "n9": 3,
+  "n8": 8,
+  "n7": 25,
+  "verdict": "holds_to_0.7"
+ },
+ "f676": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.84,
+  "pct_0.7": 0.77,
+  "n9": 8,
+  "n8": 31,
+  "n7": 66,
+  "verdict": "holds_to_0.7"
+ },
+ "f677": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.33,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.8"
+ },
+ "f678": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f679": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 9,
+  "n7": 27,
+  "verdict": "holds_to_0.7"
+ },
+ "f680": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.8,
+  "n9": 1,
+  "n8": 1,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f681": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 1,
+  "n8": 1,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f682": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.4,
+  "n9": 1,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.8"
+ },
+ "f683": {
+  "identity": "best_captured=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 17,
+  "n7": 36,
+  "verdict": "holds_to_0.7"
+ },
+ "f684": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.4,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 5,
+  "n7": 10,
+  "verdict": "peak_only"
+ },
+ "f685": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 16,
+  "n7": 35,
+  "verdict": "holds_to_0.7"
+ },
+ "f686": {
+  "identity": "moved=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.95,
+  "n9": 5,
+  "n8": 10,
+  "n7": 20,
+  "verdict": "holds_to_0.7"
+ },
+ "f687": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 9,
+  "n7": 24,
+  "verdict": "holds_to_0.7"
+ },
+ "f688": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f689": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 4,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f690": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.75,
+  "n9": 2,
+  "n8": 5,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f691": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f692": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 5,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f693": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.6,
+  "pct_0.7": 0.43,
+  "n9": 2,
+  "n8": 10,
+  "n7": 30,
+  "verdict": "holds_to_0.8"
+ },
+ "f694": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.89,
+  "n9": 2,
+  "n8": 5,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f695": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.69,
+  "n9": 2,
+  "n8": 5,
+  "n7": 26,
+  "verdict": "holds_to_0.7"
+ },
+ "f696": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.96,
+  "n9": 5,
+  "n8": 13,
+  "n7": 23,
+  "verdict": "holds_to_0.7"
+ },
+ "f697": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.75,
+  "n9": 3,
+  "n8": 12,
+  "n7": 20,
+  "verdict": "holds_to_0.7"
+ },
+ "f698": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.8,
+  "n9": 6,
+  "n8": 12,
+  "n7": 35,
+  "verdict": "holds_to_0.7"
+ },
+ "f699": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 5,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f700": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.33,
+  "pct_0.7": 0.33,
+  "n9": 1,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "peak_only"
+ },
+ "f701": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f702": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.6,
+  "n9": 2,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f703": {
+  "identity": "best_check=no",
+  "peak_pct": 0.88,
+  "pct_0.8": 0.86,
+  "pct_0.7": 0.86,
+  "n9": 8,
+  "n8": 14,
+  "n7": 29,
+  "verdict": "holds_to_0.7"
+ },
+ "f704": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.6,
+  "pct_0.7": 0.67,
+  "n9": 1,
+  "n8": 5,
+  "n7": 27,
+  "verdict": "holds_to_0.7"
+ },
+ "f705": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f706": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.95,
+  "n9": 4,
+  "n8": 6,
+  "n7": 19,
+  "verdict": "holds_to_0.7"
+ },
+ "f707": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 9,
+  "n7": 26,
+  "verdict": "holds_to_0.7"
+ },
+ "f708": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 10,
+  "n8": 15,
+  "n7": 40,
+  "verdict": "holds_to_0.7"
+ },
+ "f709": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 4,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f710": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 5,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f711": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f712": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f713": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.57,
+  "n9": 1,
+  "n8": 6,
+  "n7": 21,
+  "verdict": "holds_to_0.8"
+ },
+ "f714": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f715": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.75,
+  "n9": 3,
+  "n8": 4,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f716": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 31,
+  "n8": 247,
+  "n7": 400,
+  "verdict": "holds_to_0.7"
+ },
+ "f717": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.67,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f718": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.88,
+  "n9": 1,
+  "n8": 1,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f719": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.73,
+  "n9": 2,
+  "n8": 3,
+  "n7": 15,
+  "verdict": "holds_to_0.7"
+ },
+ "f720": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.71,
+  "n9": 1,
+  "n8": 7,
+  "n7": 34,
+  "verdict": "holds_to_0.7"
+ },
+ "f721": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f722": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f723": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f724": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.88,
+  "n9": 1,
+  "n8": 2,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f725": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.88,
+  "n9": 4,
+  "n8": 4,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f726": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f727": {
+  "identity": "moved=king",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.2,
+  "n9": 2,
+  "n8": 2,
+  "n7": 10,
+  "verdict": "holds_to_0.8"
+ },
+ "f728": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.91,
+  "n9": 2,
+  "n8": 3,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f729": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.92,
+  "n9": 4,
+  "n8": 4,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f730": {
+  "identity": "best_captured=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.61,
+  "pct_0.7": 0.56,
+  "n9": 5,
+  "n8": 18,
+  "n7": 36,
+  "verdict": "holds_to_0.8"
+ },
+ "f731": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 10,
+  "n7": 20,
+  "verdict": "holds_to_0.7"
+ },
+ "f732": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 6,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f733": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.98,
+  "n9": 13,
+  "n8": 41,
+  "n7": 163,
+  "verdict": "holds_to_0.7"
+ },
+ "f734": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.94,
+  "pct_0.7": 0.78,
+  "n9": 4,
+  "n8": 16,
+  "n7": 37,
+  "verdict": "holds_to_0.7"
+ },
+ "f735": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f736": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.41,
+  "n9": 2,
+  "n8": 10,
+  "n7": 17,
+  "verdict": "peak_only"
+ },
+ "f737": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f738": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 6,
+  "n7": 15,
+  "verdict": "holds_to_0.7"
+ },
+ "f739": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.86,
+  "n9": 6,
+  "n8": 8,
+  "n7": 21,
+  "verdict": "holds_to_0.7"
+ },
+ "f740": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 3,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f741": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f742": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.8"
+ },
+ "f743": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f744": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.78,
+  "pct_0.7": 0.74,
+  "n9": 2,
+  "n8": 9,
+  "n7": 31,
+  "verdict": "holds_to_0.7"
+ },
+ "f745": {
+  "identity": "own_piece=major",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 7,
+  "n8": 57,
+  "n7": 195,
+  "verdict": "holds_to_0.7"
+ },
+ "f746": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f747": {
+  "identity": "best_captured=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f748": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f749": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f750": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 25,
+  "n7": 55,
+  "verdict": "holds_to_0.7"
+ },
+ "f751": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.88,
+  "pct_0.7": 0.78,
+  "n9": 3,
+  "n8": 8,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f752": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 8,
+  "n8": 25,
+  "n7": 64,
+  "verdict": "holds_to_0.7"
+ },
+ "f753": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f754": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 6,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f755": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.6,
+  "n9": 2,
+  "n8": 2,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f756": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f757": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f758": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.71,
+  "n9": 2,
+  "n8": 20,
+  "n7": 66,
+  "verdict": "holds_to_0.7"
+ },
+ "f759": {
+  "identity": "best_captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.6,
+  "pct_0.7": 0.56,
+  "n9": 2,
+  "n8": 5,
+  "n7": 9,
+  "verdict": "holds_to_0.8"
+ },
+ "f760": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 8,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f761": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f762": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.71,
+  "n9": 4,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f763": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.8"
+ },
+ "f764": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f765": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.88,
+  "pct_0.7": 0.85,
+  "n9": 2,
+  "n8": 8,
+  "n7": 20,
+  "verdict": "holds_to_0.7"
+ },
+ "f766": {
+  "identity": "moved=bishop",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.94,
+  "pct_0.7": 0.96,
+  "n9": 7,
+  "n8": 18,
+  "n7": 45,
+  "verdict": "holds_to_0.7"
+ },
+ "f767": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 13,
+  "n7": 22,
+  "verdict": "holds_to_0.7"
+ },
+ "f768": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.33,
+  "pct_0.7": 0.43,
+  "n9": 1,
+  "n8": 3,
+  "n7": 7,
+  "verdict": "peak_only"
+ },
+ "f769": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.4,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 5,
+  "n7": 12,
+  "verdict": "peak_only"
+ },
+ "f770": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 1,
+  "n8": 2,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f771": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f772": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "peak_only"
+ },
+ "f773": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.77,
+  "pct_0.7": 0.72,
+  "n9": 8,
+  "n8": 13,
+  "n7": 32,
+  "verdict": "holds_to_0.7"
+ },
+ "f774": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 4,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f775": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.89,
+  "pct_0.7": 0.88,
+  "n9": 2,
+  "n8": 9,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f776": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 6,
+  "verdict": "holds_to_0.8"
+ },
+ "f777": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.5,
+  "n9": 2,
+  "n8": 6,
+  "n7": 8,
+  "verdict": "peak_only"
+ },
+ "f778": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f779": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 10,
+  "n8": 33,
+  "n7": 88,
+  "verdict": "holds_to_0.7"
+ },
+ "f780": {
+  "identity": "captured=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.43,
+  "n9": 2,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "peak_only"
+ },
+ "f781": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.58,
+  "pct_0.7": 0.68,
+  "n9": 2,
+  "n8": 12,
+  "n7": 22,
+  "verdict": "holds_to_0.7"
+ },
+ "f782": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f783": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.89,
+  "pct_0.7": 0.86,
+  "n9": 3,
+  "n8": 9,
+  "n7": 22,
+  "verdict": "holds_to_0.7"
+ },
+ "f784": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f785": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.67,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f786": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.96,
+  "n9": 3,
+  "n8": 15,
+  "n7": 48,
+  "verdict": "holds_to_0.7"
+ },
+ "f787": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.86,
+  "n9": 2,
+  "n8": 2,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f788": {
+  "identity": "moved=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 7,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f789": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 5,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f790": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.79,
+  "n9": 2,
+  "n8": 4,
+  "n7": 14,
+  "verdict": "holds_to_0.7"
+ },
+ "f791": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.3,
+  "pct_0.7": 0.2,
+  "n9": 2,
+  "n8": 10,
+  "n7": 20,
+  "verdict": "peak_only"
+ },
+ "f792": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.36,
+  "n9": 2,
+  "n8": 12,
+  "n7": 33,
+  "verdict": "peak_only"
+ },
+ "f793": {
+  "identity": "moved=king",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.95,
+  "pct_0.7": 0.92,
+  "n9": 9,
+  "n8": 22,
+  "n7": 74,
+  "verdict": "holds_to_0.7"
+ },
+ "f794": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.22,
+  "n9": 1,
+  "n8": 2,
+  "n7": 9,
+  "verdict": "peak_only"
+ },
+ "f795": {
+  "identity": "moved=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.88,
+  "pct_0.7": 0.89,
+  "n9": 5,
+  "n8": 24,
+  "n7": 81,
+  "verdict": "holds_to_0.7"
+ },
+ "f796": {
+  "identity": "phase=middlegame",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.94,
+  "n9": 10,
+  "n8": 23,
+  "n7": 65,
+  "verdict": "holds_to_0.7"
+ },
+ "f797": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 29,
+  "n7": 101,
+  "verdict": "holds_to_0.7"
+ },
+ "f798": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.53,
+  "n9": 1,
+  "n8": 12,
+  "n7": 19,
+  "verdict": "peak_only"
+ },
+ "f799": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.22,
+  "n9": 1,
+  "n8": 2,
+  "n7": 9,
+  "verdict": "peak_only"
+ },
+ "f800": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 6,
+  "n7": 19,
+  "verdict": "holds_to_0.7"
+ },
+ "f801": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.95,
+  "pct_0.7": 0.97,
+  "n9": 8,
+  "n8": 22,
+  "n7": 40,
+  "verdict": "holds_to_0.7"
+ },
+ "f802": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f803": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 8,
+  "n8": 25,
+  "n7": 58,
+  "verdict": "holds_to_0.7"
+ },
+ "f804": {
+  "identity": "best_captured=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 13,
+  "n7": 34,
+  "verdict": "holds_to_0.7"
+ },
+ "f805": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f806": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.74,
+  "pct_0.7": 0.62,
+  "n9": 9,
+  "n8": 43,
+  "n7": 92,
+  "verdict": "holds_to_0.7"
+ },
+ "f807": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 8,
+  "n7": 17,
+  "verdict": "holds_to_0.7"
+ },
+ "f808": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 5,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f809": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f810": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.83,
+  "pct_0.7": 0.89,
+  "n9": 3,
+  "n8": 6,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f811": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f812": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f813": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 9,
+  "n7": 20,
+  "verdict": "holds_to_0.7"
+ },
+ "f814": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f815": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.33,
+  "n9": 1,
+  "n8": 4,
+  "n7": 6,
+  "verdict": "peak_only"
+ },
+ "f816": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.62,
+  "pct_0.7": 0.58,
+  "n9": 3,
+  "n8": 8,
+  "n7": 24,
+  "verdict": "holds_to_0.8"
+ },
+ "f817": {
+  "identity": "moved=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.6,
+  "n9": 2,
+  "n8": 2,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f818": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 33,
+  "n7": 90,
+  "verdict": "holds_to_0.7"
+ },
+ "f819": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.69,
+  "n9": 1,
+  "n8": 4,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f820": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.6,
+  "pct_0.7": 0.44,
+  "n9": 1,
+  "n8": 5,
+  "n7": 9,
+  "verdict": "holds_to_0.8"
+ },
+ "f821": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.94,
+  "pct_0.7": 0.88,
+  "n9": 7,
+  "n8": 18,
+  "n7": 56,
+  "verdict": "holds_to_0.7"
+ },
+ "f822": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.6,
+  "n9": 1,
+  "n8": 4,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f823": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.78,
+  "pct_0.7": 0.82,
+  "n9": 2,
+  "n8": 9,
+  "n7": 17,
+  "verdict": "holds_to_0.7"
+ },
+ "f824": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.8,
+  "n9": 1,
+  "n8": 1,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f825": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.87,
+  "n9": 2,
+  "n8": 8,
+  "n7": 23,
+  "verdict": "holds_to_0.7"
+ },
+ "f826": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.86,
+  "pct_0.7": 0.92,
+  "n9": 3,
+  "n8": 7,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f827": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f828": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f829": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.54,
+  "pct_0.7": 0.46,
+  "n9": 1,
+  "n8": 13,
+  "n7": 26,
+  "verdict": "peak_only"
+ },
+ "f830": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.78,
+  "n9": 2,
+  "n8": 5,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f831": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.97,
+  "n9": 11,
+  "n8": 29,
+  "n7": 71,
+  "verdict": "holds_to_0.7"
+ },
+ "f832": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 4,
+  "verdict": "holds_to_0.8"
+ },
+ "f833": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.67,
+  "n9": 1,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f834": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.7,
+  "pct_0.7": 0.69,
+  "n9": 2,
+  "n8": 10,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f835": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f836": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 18,
+  "n7": 66,
+  "verdict": "holds_to_0.7"
+ },
+ "f837": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 27,
+  "n7": 84,
+  "verdict": "holds_to_0.7"
+ },
+ "f838": {
+  "identity": "best_captured=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.83,
+  "pct_0.7": 0.75,
+  "n9": 3,
+  "n8": 6,
+  "n7": 12,
+  "verdict": "holds_to_0.7"
+ },
+ "f839": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "peak_only"
+ },
+ "f840": {
+  "identity": "best_captured=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.57,
+  "pct_0.7": 0.36,
+  "n9": 3,
+  "n8": 7,
+  "n7": 11,
+  "verdict": "peak_only"
+ },
+ "f841": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.2,
+  "pct_0.7": 0.1,
+  "n9": 1,
+  "n8": 5,
+  "n7": 10,
+  "verdict": "peak_only"
+ },
+ "f842": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.89,
+  "pct_0.7": 0.48,
+  "n9": 3,
+  "n8": 9,
+  "n7": 23,
+  "verdict": "holds_to_0.8"
+ },
+ "f843": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.95,
+  "n9": 5,
+  "n8": 17,
+  "n7": 41,
+  "verdict": "holds_to_0.7"
+ },
+ "f844": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 5,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f845": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.97,
+  "n9": 5,
+  "n8": 13,
+  "n7": 29,
+  "verdict": "holds_to_0.7"
+ },
+ "f846": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.64,
+  "n9": 1,
+  "n8": 2,
+  "n7": 14,
+  "verdict": "holds_to_0.7"
+ },
+ "f847": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.7,
+  "pct_0.7": 0.57,
+  "n9": 2,
+  "n8": 10,
+  "n7": 23,
+  "verdict": "holds_to_0.8"
+ },
+ "f848": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.6,
+  "n9": 1,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f849": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.25,
+  "pct_0.7": 0.29,
+  "n9": 1,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "peak_only"
+ },
+ "f850": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.82,
+  "n9": 4,
+  "n8": 6,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f851": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.25,
+  "n9": 1,
+  "n8": 1,
+  "n7": 4,
+  "verdict": "holds_to_0.8"
+ },
+ "f852": {
+  "identity": "moved=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.96,
+  "n9": 9,
+  "n8": 32,
+  "n7": 67,
+  "verdict": "holds_to_0.7"
+ },
+ "f853": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 9,
+  "n7": 24,
+  "verdict": "holds_to_0.7"
+ },
+ "f854": {
+  "identity": "best_captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.83,
+  "n9": 2,
+  "n8": 4,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f855": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f856": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.33,
+  "pct_0.7": 0.2,
+  "n9": 1,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "peak_only"
+ },
+ "f857": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f858": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 6,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f859": {
+  "identity": "best_captured=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 8,
+  "n7": 17,
+  "verdict": "holds_to_0.7"
+ },
+ "f860": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f861": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 5,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f862": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.8,
+  "n9": 1,
+  "n8": 4,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f863": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 26,
+  "n7": 59,
+  "verdict": "holds_to_0.7"
+ },
+ "f864": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.82,
+  "pct_0.7": 0.76,
+  "n9": 4,
+  "n8": 11,
+  "n7": 25,
+  "verdict": "holds_to_0.7"
+ },
+ "f865": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.43,
+  "n9": 3,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "holds_to_0.8"
+ },
+ "f866": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.95,
+  "pct_0.7": 0.98,
+  "n9": 6,
+  "n8": 22,
+  "n7": 51,
+  "verdict": "holds_to_0.7"
+ },
+ "f867": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f868": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 4,
+  "n7": 10,
+  "verdict": "holds_to_0.8"
+ },
+ "f869": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f870": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 2,
+  "n7": 6,
+  "verdict": "peak_only"
+ },
+ "f871": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f872": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.94,
+  "n9": 2,
+  "n8": 7,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f873": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.75,
+  "n9": 3,
+  "n8": 4,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f874": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f875": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 9,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f876": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 4,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f877": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.81,
+  "pct_0.7": 0.72,
+  "n9": 5,
+  "n8": 21,
+  "n7": 46,
+  "verdict": "holds_to_0.7"
+ },
+ "f878": {
+  "identity": "moved=king",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f879": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f880": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 8,
+  "n7": 17,
+  "verdict": "holds_to_0.7"
+ },
+ "f881": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.9,
+  "pct_0.7": 0.88,
+  "n9": 6,
+  "n8": 21,
+  "n7": 59,
+  "verdict": "holds_to_0.7"
+ },
+ "f882": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.8"
+ },
+ "f883": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 5,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f884": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 6,
+  "n7": 20,
+  "verdict": "holds_to_0.7"
+ },
+ "f885": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.33,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.8"
+ },
+ "f886": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.8"
+ },
+ "f887": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.9,
+  "n9": 2,
+  "n8": 5,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f888": {
+  "identity": "moved=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.88,
+  "n9": 3,
+  "n8": 18,
+  "n7": 43,
+  "verdict": "holds_to_0.7"
+ },
+ "f889": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f890": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.78,
+  "pct_0.7": 0.85,
+  "n9": 4,
+  "n8": 9,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f891": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f892": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 24,
+  "n7": 50,
+  "verdict": "holds_to_0.7"
+ },
+ "f893": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 8,
+  "n8": 21,
+  "n7": 59,
+  "verdict": "holds_to_0.7"
+ },
+ "f894": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.8,
+  "n9": 1,
+  "n8": 1,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f895": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.73,
+  "n9": 2,
+  "n8": 4,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f896": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.94,
+  "n9": 2,
+  "n8": 10,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f897": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f898": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.88,
+  "pct_0.7": 0.92,
+  "n9": 11,
+  "n8": 26,
+  "n7": 61,
+  "verdict": "holds_to_0.7"
+ },
+ "f899": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f900": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 25,
+  "n8": 252,
+  "n7": 400,
+  "verdict": "holds_to_0.7"
+ },
+ "f901": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f902": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f903": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 2,
+  "n8": 2,
+  "n7": 6,
+  "verdict": "holds_to_0.8"
+ },
+ "f904": {
+  "identity": "moved=bishop",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 9,
+  "n8": 28,
+  "n7": 55,
+  "verdict": "holds_to_0.7"
+ },
+ "f905": {
+  "identity": "moved=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.6,
+  "pct_0.7": 0.6,
+  "n9": 2,
+  "n8": 5,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f906": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 15,
+  "n8": 32,
+  "n7": 87,
+  "verdict": "holds_to_0.7"
+ },
+ "f907": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "peak_only"
+ },
+ "f908": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.62,
+  "n9": 2,
+  "n8": 4,
+  "n7": 16,
+  "verdict": "holds_to_0.7"
+ },
+ "f909": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.71,
+  "n9": 2,
+  "n8": 3,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f910": {
+  "identity": "moved=bishop",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 7,
+  "n8": 17,
+  "n7": 30,
+  "verdict": "holds_to_0.7"
+ },
+ "f911": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.75,
+  "n9": 2,
+  "n8": 5,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f912": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 12,
+  "n7": 32,
+  "verdict": "holds_to_0.7"
+ },
+ "f913": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.5,
+  "n9": 2,
+  "n8": 3,
+  "n7": 6,
+  "verdict": "holds_to_0.8"
+ },
+ "f914": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.95,
+  "n9": 1,
+  "n8": 9,
+  "n7": 19,
+  "verdict": "holds_to_0.7"
+ },
+ "f915": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.93,
+  "n9": 2,
+  "n8": 6,
+  "n7": 15,
+  "verdict": "holds_to_0.7"
+ },
+ "f916": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.97,
+  "n9": 4,
+  "n8": 11,
+  "n7": 30,
+  "verdict": "holds_to_0.7"
+ },
+ "f917": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f918": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f919": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 18,
+  "n7": 43,
+  "verdict": "holds_to_0.7"
+ },
+ "f920": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f921": {
+  "identity": "moved=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f922": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f923": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.71,
+  "pct_0.7": 0.77,
+  "n9": 1,
+  "n8": 7,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f924": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.82,
+  "pct_0.7": 0.85,
+  "n9": 4,
+  "n8": 11,
+  "n7": 20,
+  "verdict": "holds_to_0.7"
+ },
+ "f925": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.4,
+  "pct_0.7": 0.64,
+  "n9": 1,
+  "n8": 5,
+  "n7": 14,
+  "verdict": "holds_to_0.7"
+ },
+ "f926": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 13,
+  "n7": 24,
+  "verdict": "holds_to_0.7"
+ },
+ "f927": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 5,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f928": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f929": {
+  "identity": "best_captured=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 8,
+  "n7": 14,
+  "verdict": "holds_to_0.7"
+ },
+ "f930": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 5,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f931": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.6,
+  "n9": 2,
+  "n8": 4,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f932": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.82,
+  "n9": 4,
+  "n8": 5,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f933": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.75,
+  "n9": 2,
+  "n8": 4,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f934": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.17,
+  "pct_0.7": 0.26,
+  "n9": 1,
+  "n8": 6,
+  "n7": 27,
+  "verdict": "peak_only"
+ },
+ "f935": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.83,
+  "pct_0.7": 0.68,
+  "n9": 2,
+  "n8": 6,
+  "n7": 19,
+  "verdict": "holds_to_0.7"
+ },
+ "f936": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 5,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f937": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.53,
+  "n9": 1,
+  "n8": 4,
+  "n7": 15,
+  "verdict": "peak_only"
+ },
+ "f938": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.94,
+  "n9": 6,
+  "n8": 8,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f939": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.92,
+  "n9": 2,
+  "n8": 8,
+  "n7": 26,
+  "verdict": "holds_to_0.7"
+ },
+ "f940": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.93,
+  "n9": 3,
+  "n8": 6,
+  "n7": 14,
+  "verdict": "holds_to_0.7"
+ },
+ "f941": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 23,
+  "n7": 66,
+  "verdict": "holds_to_0.7"
+ },
+ "f942": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 1,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f943": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f944": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.83,
+  "n9": 4,
+  "n8": 7,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f945": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.75,
+  "n9": 2,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f946": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.38,
+  "n9": 2,
+  "n8": 4,
+  "n7": 16,
+  "verdict": "holds_to_0.8"
+ },
+ "f947": {
+  "identity": "moved=bishop",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 18,
+  "n7": 34,
+  "verdict": "holds_to_0.7"
+ },
+ "f948": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 11,
+  "n7": 33,
+  "verdict": "holds_to_0.7"
+ },
+ "f949": {
+  "identity": "best_captured=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 14,
+  "n7": 32,
+  "verdict": "holds_to_0.7"
+ },
+ "f950": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.8"
+ },
+ "f951": {
+  "identity": "best_captured=queen",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 10,
+  "n7": 22,
+  "verdict": "holds_to_0.7"
+ },
+ "f952": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 15,
+  "n7": 31,
+  "verdict": "holds_to_0.7"
+ },
+ "f953": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.33,
+  "pct_0.7": 0.4,
+  "n9": 1,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "peak_only"
+ },
+ "f954": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 13,
+  "n7": 40,
+  "verdict": "holds_to_0.7"
+ },
+ "f955": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 9,
+  "n7": 43,
+  "verdict": "holds_to_0.7"
+ },
+ "f956": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "holds_to_0.7"
+ },
+ "f957": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 10,
+  "n8": 47,
+  "n7": 116,
+  "verdict": "holds_to_0.7"
+ },
+ "f958": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.82,
+  "pct_0.7": 0.47,
+  "n9": 2,
+  "n8": 11,
+  "n7": 49,
+  "verdict": "holds_to_0.8"
+ },
+ "f959": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 7,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f960": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.4,
+  "n9": 2,
+  "n8": 3,
+  "n7": 5,
+  "verdict": "holds_to_0.8"
+ },
+ "f961": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f962": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f963": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f964": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.33,
+  "pct_0.7": 0.14,
+  "n9": 1,
+  "n8": 3,
+  "n7": 7,
+  "verdict": "peak_only"
+ },
+ "f965": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.25,
+  "n9": 1,
+  "n8": 2,
+  "n7": 4,
+  "verdict": "peak_only"
+ },
+ "f966": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.9,
+  "n9": 4,
+  "n8": 7,
+  "n7": 21,
+  "verdict": "holds_to_0.7"
+ },
+ "f967": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 4,
+  "n7": 8,
+  "verdict": "holds_to_0.7"
+ },
+ "f968": {
+  "identity": "material=down",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.73,
+  "n9": 3,
+  "n8": 5,
+  "n7": 11,
+  "verdict": "holds_to_0.7"
+ },
+ "f969": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f970": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.8"
+ },
+ "f971": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.17,
+  "n9": 1,
+  "n8": 1,
+  "n7": 6,
+  "verdict": "holds_to_0.8"
+ },
+ "f972": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.88,
+  "pct_0.7": 0.83,
+  "n9": 3,
+  "n8": 8,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ },
+ "f973": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 4,
+  "verdict": "holds_to_0.7"
+ },
+ "f974": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 5,
+  "n7": 9,
+  "verdict": "holds_to_0.7"
+ },
+ "f975": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f976": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.6,
+  "pct_0.7": 0.64,
+  "n9": 2,
+  "n8": 5,
+  "n7": 14,
+  "verdict": "holds_to_0.7"
+ },
+ "f977": {
+  "identity": "moved=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.71,
+  "pct_0.7": 0.61,
+  "n9": 3,
+  "n8": 14,
+  "n7": 46,
+  "verdict": "holds_to_0.7"
+ },
+ "f978": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.6,
+  "pct_0.7": 0.45,
+  "n9": 2,
+  "n8": 10,
+  "n7": 22,
+  "verdict": "holds_to_0.8"
+ },
+ "f979": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.36,
+  "pct_0.7": 0.24,
+  "n9": 1,
+  "n8": 14,
+  "n7": 42,
+  "verdict": "peak_only"
+ },
+ "f980": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.33,
+  "n9": 1,
+  "n8": 1,
+  "n7": 3,
+  "verdict": "holds_to_0.8"
+ },
+ "f981": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.63,
+  "n9": 2,
+  "n8": 8,
+  "n7": 30,
+  "verdict": "holds_to_0.7"
+ },
+ "f982": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f983": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.67,
+  "n9": 2,
+  "n8": 2,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f984": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 23,
+  "n7": 61,
+  "verdict": "holds_to_0.7"
+ },
+ "f985": {
+  "identity": "moved=rook",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.59,
+  "n9": 2,
+  "n8": 9,
+  "n7": 22,
+  "verdict": "holds_to_0.8"
+ },
+ "f986": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.17,
+  "n9": 1,
+  "n8": 1,
+  "n7": 6,
+  "verdict": "holds_to_0.8"
+ },
+ "f987": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.79,
+  "pct_0.7": 0.73,
+  "n9": 3,
+  "n8": 14,
+  "n7": 30,
+  "verdict": "holds_to_0.7"
+ },
+ "f988": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.77,
+  "n9": 5,
+  "n8": 10,
+  "n7": 26,
+  "verdict": "holds_to_0.7"
+ },
+ "f989": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.22,
+  "pct_0.7": 0.31,
+  "n9": 2,
+  "n8": 9,
+  "n7": 16,
+  "verdict": "peak_only"
+ },
+ "f990": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 3,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f991": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.9,
+  "pct_0.7": 0.83,
+  "n9": 4,
+  "n8": 21,
+  "n7": 78,
+  "verdict": "holds_to_0.7"
+ },
+ "f992": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.86,
+  "pct_0.7": 0.91,
+  "n9": 3,
+  "n8": 7,
+  "n7": 22,
+  "verdict": "holds_to_0.7"
+ },
+ "f993": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.6,
+  "pct_0.7": 0.73,
+  "n9": 4,
+  "n8": 10,
+  "n7": 22,
+  "verdict": "holds_to_0.7"
+ },
+ "f994": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.8,
+  "pct_0.7": 0.81,
+  "n9": 2,
+  "n8": 5,
+  "n7": 21,
+  "verdict": "holds_to_0.7"
+ },
+ "f995": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 5,
+  "n7": 13,
+  "verdict": "holds_to_0.7"
+ },
+ "f996": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.6,
+  "n9": 1,
+  "n8": 3,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f997": {
+  "identity": "moved=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 6,
+  "n8": 27,
+  "n7": 50,
+  "verdict": "holds_to_0.7"
+ },
+ "f998": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 6,
+  "verdict": "holds_to_0.8"
+ },
+ "f999": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.74,
+  "n9": 3,
+  "n8": 4,
+  "n7": 19,
+  "verdict": "holds_to_0.7"
+ },
+ "f1000": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.43,
+  "n9": 2,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "peak_only"
+ },
+ "f1001": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.5,
+  "n9": 1,
+  "n8": 1,
+  "n7": 2,
+  "verdict": "holds_to_0.8"
+ },
+ "f1002": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 12,
+  "n7": 47,
+  "verdict": "holds_to_0.7"
+ },
+ "f1003": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.71,
+  "n9": 1,
+  "n8": 4,
+  "n7": 14,
+  "verdict": "holds_to_0.7"
+ },
+ "f1004": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.94,
+  "n9": 4,
+  "n8": 11,
+  "n7": 17,
+  "verdict": "holds_to_0.7"
+ },
+ "f1005": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.67,
+  "pct_0.7": 0.53,
+  "n9": 3,
+  "n8": 6,
+  "n7": 17,
+  "verdict": "holds_to_0.8"
+ },
+ "f1006": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.8,
+  "n9": 1,
+  "n8": 2,
+  "n7": 5,
+  "verdict": "holds_to_0.7"
+ },
+ "f1007": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.9,
+  "n9": 3,
+  "n8": 7,
+  "n7": 10,
+  "verdict": "holds_to_0.7"
+ },
+ "f1008": {
+  "identity": "best_captured=knight",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.94,
+  "n9": 5,
+  "n8": 16,
+  "n7": 48,
+  "verdict": "holds_to_0.7"
+ },
+ "f1009": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.87,
+  "pct_0.7": 0.69,
+  "n9": 3,
+  "n8": 23,
+  "n7": 61,
+  "verdict": "holds_to_0.7"
+ },
+ "f1010": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 3,
+  "n7": 3,
+  "verdict": "holds_to_0.7"
+ },
+ "f1011": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 5,
+  "n8": 11,
+  "n7": 32,
+  "verdict": "holds_to_0.7"
+ },
+ "f1012": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 2,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f1013": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 12,
+  "n7": 45,
+  "verdict": "holds_to_0.7"
+ },
+ "f1014": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.69,
+  "n9": 3,
+  "n8": 9,
+  "n7": 36,
+  "verdict": "holds_to_0.7"
+ },
+ "f1015": {
+  "identity": "material=trade",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 2,
+  "n7": 2,
+  "verdict": "holds_to_0.7"
+ },
+ "f1016": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.56,
+  "n9": 2,
+  "n8": 8,
+  "n7": 16,
+  "verdict": "peak_only"
+ },
+ "f1017": {
+  "identity": "material=loses",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.5,
+  "pct_0.7": 0.29,
+  "n9": 2,
+  "n8": 4,
+  "n7": 7,
+  "verdict": "peak_only"
+ },
+ "f1018": {
+  "identity": "material=hangs",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 0.57,
+  "n9": 1,
+  "n8": 1,
+  "n7": 7,
+  "verdict": "holds_to_0.8"
+ },
+ "f1019": {
+  "identity": "best_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.9,
+  "pct_0.7": 0.93,
+  "n9": 6,
+  "n8": 20,
+  "n7": 41,
+  "verdict": "holds_to_0.7"
+ },
+ "f1020": {
+  "identity": "material=safe",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 1,
+  "n8": 1,
+  "n7": 1,
+  "verdict": "holds_to_0.7"
+ },
+ "f1021": {
+  "identity": "played_check=no",
+  "peak_pct": 1.0,
+  "pct_0.8": 0.75,
+  "pct_0.7": 0.88,
+  "n9": 4,
+  "n8": 12,
+  "n7": 49,
+  "verdict": "holds_to_0.7"
+ },
+ "f1022": {
+  "identity": "moved=pawn",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 3,
+  "n8": 4,
+  "n7": 6,
+  "verdict": "holds_to_0.7"
+ },
+ "f1023": {
+  "identity": "best_check=check",
+  "peak_pct": 1.0,
+  "pct_0.8": 1.0,
+  "pct_0.7": 1.0,
+  "n9": 4,
+  "n8": 4,
+  "n7": 18,
+  "verdict": "holds_to_0.7"
+ }
+}
