@@ -20,6 +20,8 @@ st = json.load(open(f'output/see_stats_{M}.json'))
 coh = json.load(open(f'output/coherence_depth_{M}.json'))
 prof = json.load(open(f'/tmp/{M}_profiles.json'))
 best = json.load(open('/tmp/best_uci_map.json'))
+try: prompts = json.load(open(f'/tmp/{a.model}_prompts.json'))   # exact prompt fed to Opus per feature
+except Exception: prompts = {}
 def S(f): return st.get('f'+f) or st.get(f) or {}
 def CO(f): return coh.get('f'+f) or coh.get(f) or {}
 def fire(f): s = S(f); return s.get('fire_rate', 0)
@@ -59,14 +61,16 @@ def board(fen, uci):
         url='https://www.chess.com/analysis?fen='+_q(fen,safe='')
         return f'<a class=cell href="{url}" target=_blank style=text-decoration:none;color:inherit>{svg}<div class=cap>{esc(cap)} ↗</div></a>'
     except: return '<div class=cell>bad</div>'
-CSS="body{font-family:sans-serif;background:#0f1115;color:#e6e6e6;margin:0}.feat{padding:14px 18px;border-bottom:2px solid #2a2f3a}.fn{font-size:15px;font-weight:600}.fl{font-size:12px;color:#8b95a3;margin:2px 0}.mech{font-size:11px;color:#aeb6c2;line-height:1.5;margin:4px 0}.mech u{color:#c9a227}.boards{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}.cell{width:190px}.cap{font-size:10px;color:#9aa4b2;margin-top:2px}h1{padding:14px 18px;margin:0;font-size:16px}"
+CSS="body{font-family:sans-serif;background:#0f1115;color:#e6e6e6;margin:0}.feat{padding:14px 18px;border-bottom:2px solid #2a2f3a}.fn{font-size:15px;font-weight:600}.fl{font-size:12px;color:#8b95a3;margin:2px 0}.mech{font-size:11px;color:#aeb6c2;line-height:1.5;margin:4px 0}.mech u{color:#c9a227}.boards{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}.cell{width:190px}.cap{font-size:10px;color:#9aa4b2;margin-top:2px}.prompt{margin:6px 0;font-size:11px}.prompt summary{cursor:pointer;color:#6ea8fe}.prompt pre{white-space:pre-wrap;background:#0b0d12;padding:8px;border-radius:6px;font-size:10px;color:#b9c2cf;max-height:340px;overflow:auto}h1{padding:14px 18px;margin:0;font-size:16px}"
 parts=[f"<!doctype html><meta charset=utf-8><style>{CSS}</style><h1>{esc(a.title or (M+' — '+str(len(feats))+' features'))} · boards link to chess.com ↗</h1>"]
 for f in feats:
     av=lab.get(f) or {}; s=S(f); c=CO(f)
     cv=f"coherence {c.get('peak_pct','?')}→{c.get('pct_0.8','?')}→{c.get('pct_0.7','?')} [{c.get('verdict','?')}]" if c else ''
     parts.append(f"<div class=feat><div class=fn>f{f} — {esc(av.get('chip','?'))} <span style=color:#6ea8fe;font-weight:400>fires {fire(f)*100:.1f}% · {cv}</span></div>"
         f"<div class=fl>{esc(av.get('label',''))}</div>"
-        f"<div class=mech>{sig(s,'≥0.7·max')}<br>{sig(s.get('at_0.8'),'≥0.8·max')}</div><div class=boards>")
+        f"<div class=mech>{sig(s,'≥0.7·max')}<br>{sig(s.get('at_0.8'),'≥0.8·max')}</div>"
+        + (f"<details class=prompt><summary>prompt fed to Opus ▸</summary><pre>{esc(prompts.get(f,''))}</pre></details>" if prompts.get(f) else "")
+        + "<div class=boards>")
     for ex in prof.get(f,{}).get('examples',[])[:a.boards]:
         parts.append(board(ex['fen'],ex['uci']))
     parts.append("</div></div>")
