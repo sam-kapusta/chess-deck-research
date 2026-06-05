@@ -73,6 +73,7 @@ def feat_obj(f):
     return {
         "id": int(f), "chip": v.get("chip", ""), "label": v.get("label", ""),
         "cons": v.get("consistency", 0), "fire": round(fr(f) * 100, 2),
+        "mixed": bool(v.get("mixed")),
         "loses": round(s.get("blunder_hangs_own_pct", 0) * 100),
         "wins": round(s.get("best_wins_material_pct", 0) * 100),
         "boards": boards,
@@ -152,6 +153,8 @@ body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',sans-seri
 .gc .stats{display:flex;gap:12px;font-family:'IBM Plex Mono';font-size:10px;color:var(--muted);flex-wrap:wrap;align-items:center}
 .gc .stats b{color:var(--accent);font-weight:500}
 .gc .stats .blob{color:var(--red);font-weight:600}
+.gc .stats .mix b{color:#b5852b}
+.mixbadge{font-family:'IBM Plex Mono';font-size:9px;font-weight:500;color:#8a6d3b;background:#f0e6d2;border:1px solid #e0d2b4;border-radius:3px;padding:1px 5px;vertical-align:middle;letter-spacing:.03em}
 .gc .det{display:none;margin-top:13px;padding-top:11px;border-top:1px solid var(--line)}.gc.open .det{display:block}
 .gc .lab{font-family:'IBM Plex Mono';font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
 .gc .desc{font-size:12px;color:var(--ink2);line-height:1.5;margin-bottom:12px}
@@ -238,10 +241,10 @@ const REG={};
 function fcard(f,color){const k='f'+f.id;REG[k]=f;
   const blob=f.fire>=1;
   return `<div class=gc style="--c:${color}" onclick="toggle(this,'${k}')">
-    <h4>${esc(f.chip)}</h4>
+    <h4>${esc(f.chip)}${f.mixed?' <span class=mixbadge title="genuinely mixed — top boards share no single mistake">mixed</span>':''}</h4>
     <div class=stats><span class=fid>#${f.id}</span>
       <span class="${blob?'blob':''}">fires <b class="${blob?'blob':''}">${f.fire}%</b>${blob?' ◉':''}</span>
-      <span>cons <b>${f.cons}</b></span>
+      <span class="${f.mixed?'mix':''}">cons <b>${f.cons}</b></span>
       <span>loses-own <b>${f.loses}%</b></span>
       <span>best-wins <b>${f.wins}%</b></span>
     </div><div class=det></div></div>`;
