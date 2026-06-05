@@ -45,6 +45,26 @@ for f, bid in asg.items():
     if bid != "unassignable": bycat[bid].append(f)
 
 
+def _first_json(txt):
+    """Parse the first balanced {...} object, ignoring any trailing text."""
+    st = txt.find("{")
+    depth = 0; instr = False; esc = False
+    for i in range(st, len(txt)):
+        ch = txt[i]
+        if instr:
+            if esc: esc = False
+            elif ch == "\\": esc = True
+            elif ch == '"': instr = False
+        else:
+            if ch == '"': instr = True
+            elif ch == "{": depth += 1
+            elif ch == "}":
+                depth -= 1
+                if depth == 0:
+                    return json.loads(txt[st:i+1])
+    return json.loads(txt[st:])
+
+
 def cluster_category(bid, fids):
     fids = sorted(fids, key=lambda f: -fr(f))
     body = "\n".join(f"f{f}: \"{lab[f]['chip']}\" — {lab[f].get('label','')[:140]}" for f in fids)
@@ -52,14 +72,20 @@ def cluster_category(bid, fids):
 "{name[bid]}" ({desc[bid]}). Each feature detects one recurring mistake; below is its id, short chip
 name, and a one-line description.
 
-Group them into NATURAL sub-clusters — features that represent the same specific kind of mistake a
-coach would teach together. Aim for roughly 2-12 features per cluster (a cluster can be larger if the
-features genuinely are one tight theme, or a singleton if a feature is truly unique). Name each cluster
-with a clear, specific coaching label (e.g. "Hangs queen to a knight fork", "Hangs a piece in the
-opening", "Hangs queen while attacking enemy queen"). Group by the SPECIFIC mistake mechanism, not just
-the piece — but piece + mechanism together is ideal.
+Group them into a SMALL number of natural coaching clusters — the kinds of mistakes a coach would
+teach together. Target roughly 10-20 clusters TOTAL for this category (fewer if it's small). Each
+cluster should be a broad, recognizable theme, NOT a hyper-specific variant.
 
-EVERY feature id must appear in exactly one cluster. Do not drop or duplicate any.
+CRITICAL — merge aggressively:
+- Do NOT create near-duplicate clusters. "Hangs piece with aggressive move", "Hangs piece on active
+  square", and "Hangs piece via routine move" are the SAME coaching idea — merge into one.
+- Do NOT append "(general)" or split a theme into general + specific versions. One cluster per theme.
+- Group by the broad mechanism (e.g. "Hangs queen to a simple capture", "Hangs a piece to a fork",
+  "Hangs a piece in the opening", "Hangs queen while attacking the enemy queen"). A cluster of 20-40
+  features is fine if they share one theme. Avoid singletons unless a feature is truly unique.
+
+Name each cluster with a clear, broad coaching label. EVERY feature id must appear in exactly one
+cluster. Do not drop or duplicate any.
 
 FEATURES:
 {body}
@@ -67,11 +93,10 @@ FEATURES:
 Return JSON only:
 {{"clusters":[{{"name":"<specific cluster name>","features":["<id>","<id>",...]}}, ...]}}"""
     r = client.invoke_model(modelId="us.anthropic.claude-opus-4-6-v1", body=json.dumps({
-        "anthropic_version": "bedrock-2023-05-31", "max_tokens": 8000,
+        "anthropic_version": "bedrock-2023-05-31", "max_tokens": 16000,
         "messages": [{"role": "user", "content": prompt}]}))
     txt = "".join(b.get("text", "") for b in json.loads(r["body"].read())["content"] if b.get("type") == "text")
-    s, e = txt.find("{"), txt.rfind("}") + 1
-    obj = json.loads(txt[s:e])
+    obj = _first_json(txt)
     # normalize ids, validate coverage
     seen = set(); clusters = []
     for c in obj["clusters"]:
