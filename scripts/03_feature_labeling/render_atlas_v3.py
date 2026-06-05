@@ -87,7 +87,8 @@ for ch in CHAR_ORDER:
     for bid in sorted(tree[ch], key=lambda k: border.get(k, 99)):
         subs_d = tree[ch][bid]
         subs = []
-        for sub in sorted(subs_d, key=lambda s: -sum(fr(x) for x in subs_d[s])):
+        # sort by fire-coverage, but push "coarse detectors" (⚠) clusters to the bottom
+        for sub in sorted(subs_d, key=lambda s: (s.startswith("⚠"), -sum(fr(x) for x in subs_d[s]))):
             fids = sorted(subs_d[sub], key=lambda x: -fr(x))
             subs.append({"name": sub, "n": len(fids),
                          "fire": round(sum(fr(x) for x in fids) * 100, 1),
