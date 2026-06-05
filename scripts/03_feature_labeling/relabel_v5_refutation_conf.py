@@ -76,7 +76,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 MODEL_ID = "us.anthropic.claude-opus-4-6-v1"   # same model the 20-feature validation used
 REGION = "us-east-1"
 MAX_CONCURRENT = 12
-TIMEOUT = 150
+TIMEOUT = 360   # xhigh extended-thinking calls run long; generous read timeout
 MIN_BOARDS = 3                                  # skip features with <3 Opus-covered boards
 LOW_CONSISTENCY = 70                            # features at/below this get flagged for review
 
