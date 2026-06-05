@@ -150,22 +150,15 @@ def build(fid, prof_f, op, st):
         return None
     prevblock = ""
     if prev.get("chip"):
-        prevblock = (f'EXISTING LABEL (from the peak/strongest boards): "{prev.get("chip")}" — {prev.get("label","")}\n'
-                     "This label is your DEFAULT — keep it unless the evidence below contradicts it. Below you also get the "
-                     "feature's MEDIAN (typical) boards. ONLY change the label if the median boards SUBSTANTIALLY disagree with it:\n"
-                     " - If the median shows the SAME mistake but the specific piece VARIES A LOT (peak all queens, but median has "
-                     "rooks/knights too), broaden just that piece term (e.g. 'queen' -> 'major piece' / 'a piece') and keep the rest.\n"
-                     " - If the median confirms the label (same piece/pattern), KEEP IT AS-IS — do not generalize for its own sake.\n"
-                     " - If the median reveals a genuinely different/mixed mistake, relabel accordingly.\n"
-                     "Do not water down a correct specific label. A specific label the data supports beats a vague one.\n\n")
+        prevblock = f'Current label: "{prev.get("chip")}" — {prev.get("label","")}\n\n'
     body = ""
-    if peak: body += "PEAK BOARDS (strongest activations — canonical form):\n" + chr(10).join(peak) + "\n\n"
-    if med:  body += "MEDIAN BOARDS (typical activation — check the label against these):\n" + chr(10).join(med) + "\n\n"
+    if peak: body += "TOP positions (strongest activation):\n" + chr(10).join(peak) + "\n\n"
+    if med:  body += "MEDIUM positions (typical activation):\n" + chr(10).join(med) + "\n\n"
     return (prevblock +
-            "Confirm or correct the label for this SAE feature using the existing label as default + the boards/stats below. "
-            "Keep a specific piece/position-state if the boards support it; broaden a piece term only if the median clearly shows "
-            "it varies. Direction: own material lost (incl. over 2-3 moves in refutation) = 'Hangs X'; safe move skipping a win = "
-            "'Missed X'. Set confidence low + review=true only if genuinely mixed.\n\n"
+            "Name the ONE recurring mistake this SAE feature detects. Be as SPECIFIC as possible while staying accurate to BOTH "
+            "the top and medium positions (e.g. if the top boards are all queen-forks but the medium ones fork rooks too, say "
+            "'major piece' not 'queen'). Direction: own material lost (incl. over 2-3 moves in the refutation) = 'Hangs X'; "
+            "materially-safe move skipping a win = 'Missed X'. confidence low + review=true if genuinely mixed.\n\n"
             + seeblock(s) + "\n\n" + body +
             'JSON: {"chip":"<3-6 words>","mistake_type":"<missed_win|hung_own|greedy|trade|positional|endgame>",'
             '"consistency":<0-100>,"confidence":"<high|low>","review":<true|false>,"label":"<one sentence>"}')
