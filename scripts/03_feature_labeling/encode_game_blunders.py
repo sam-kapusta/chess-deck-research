@@ -36,15 +36,23 @@ model = MAIA3Model(cfg); model.load_state_dict(ckpt); model.eval().to(DEV)
 tcfg = SimpleNamespace(history=8, include_time_info=False, dim_emb=128)
 print("Maia3 79M loaded", DEV, flush=True)
 
+# --- model/taxonomy selection via env (default = d2048_k6 v3) ---
+import os
+SAE_W = os.environ.get("SAE_WEIGHTS", BASE + "/output/maia3_sae/btk_2048_k6_nol2.pt")
+SAE_K = int(os.environ.get("SAE_K", "6"))
+LBL = os.environ.get("LABELS_FILE", "relabel_v3_5word_d2048_k6.json")
+LEAF = os.environ.get("LEAF_FILE", "feature_leaf_llm_d2048_k6.json")
+
 # corpus z-score constants + SAE weights + taxonomy
 cache = torch.load(BASE + "/cache/maia3_l7only_v2_dedup.pt", map_location="cpu", weights_only=False)
 craw = cache["activations"].float()
 zmean = craw.mean(0); zstd = craw.std(0).clamp(min=1e-6)   # SAME z-score the SAE was trained with
-sd = torch.load(BASE + "/output/maia3_sae/btk_2048_k6_nol2.pt", map_location="cpu", weights_only=False)["state_dict"]
+sd = torch.load(SAE_W, map_location="cpu", weights_only=False)["state_dict"]
+print(f"SAE: {os.path.basename(SAE_W)} k={SAE_K} dict={sd['W_enc'].shape[1]}", flush=True)
 
 # taxonomy (pulled local-> uploaded alongside)
-labels = json.load(open("relabel_v3_5word_d2048_k6.json"))
-leaf = json.load(open("feature_leaf_llm_d2048_k6.json"))
+labels = json.load(open(LBL))
+leaf = json.load(open(LEAF))
 
 buf = {}
 def mk(n):
@@ -65,10 +73,9 @@ def encode_L7(boards, es, eo):
 import torch.nn.functional as F
 def sae_fire(diff_vec):
     x = (torch.tensor(diff_vec, dtype=torch.float32) - zmean) / zstd
-    z = F.relu((x - sd["b_dec"]) @ sd["W_enc"] + sd["b_enc"]).numpy()  # [2048]
-    # BatchTopK at inference: take top-k by activation (k=6)
-    k = 6
-    top = np.argsort(-z)[:k]
+    z = F.relu((x - sd["b_dec"]) @ sd["W_enc"] + sd["b_enc"]).numpy()
+    # BatchTopK at inference: take top-k by activation
+    top = np.argsort(-z)[:SAE_K]
     return [(int(i), float(z[i])) for i in top if z[i] > 0]
 
 blunders = json.load(open(IN))
