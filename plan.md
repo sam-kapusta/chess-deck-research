@@ -127,11 +127,30 @@ together can get there; the failure mode is ME mis-reading individual board tact
 mistakes when they share one structure. The board-geometry "both queens attacked" signal is real
 but a too-specific fix — v3's existing inputs already suffice.
 
+## LLM CLUSTERING DONE (2026-06-04 cont'd) — 2005 features → 174 coaching clusters
+
+Within each category, Opus groups features (chip+label) into natural coaching clusters. Decoder
+and chip-embedding clustering both FAILED (muddy "Hangs"-blob groups — geometry ≠ coaching theme);
+LLM clustering reading labels holistically is the method that works. `cluster_llm.py` (coarse,
+10-20/category, merges near-dups). Output: `feature_clusters_llm_d2048_k6.json`,
+`feature_leaf_llm_d2048_k6.json`. **Atlas: `output/atlas/atlas_v3_llm_d2048_k6.html`.**
+
+**Cleanup applied:**
+- Cross-category moves (4 clusters): RULE = Endgame Technique is mistakes that can ONLY occur in an
+  endgame (king activation, opposition, pawn breaks). A fork/hang/missed-capture that happens in an
+  endgame goes with its MISTAKE-TYPE, not Endgame. Moved "Missed capture in endgame", "Greedy loses
+  endgame advantage", etc. out of Endgame.
+- Per-cluster audit (`audit_clusters.py`): placed all 47 orphans, moved 54 misfit members to better
+  clusters. 7 targetless flags (features fitting no existing cluster) left in place. 0 catch-alls.
+- Integrity verified: 2005 features, 0 dupes, each clustered once. 8-23 clusters/category.
+
+Cluster counts: Missed Tactic 20, Left Hanging 23, Greedy 23, Missed Hanging 17, Missed Check/Mate
+14, Endgame 13, Abandoning Defense 13, Pointless Check 12, Passive 11, Premature Trade 10, Unsound
+Aggression 10, King Safety 8.
+
 **NEXT:**
-1. Atlas display polish: blobs (e.g. Missed Tactic "General/Forcing" 197 feats, 93% fire) are
-   coarse-but-honest, not bad — surface as coarse detectors, don't filter.
-2. Review the ~167 flagged (≤70 consistency) features.
-3. Then: apply taxonomy to cabbagelover5566's 1,209 blunders (the coaching payoff).
+1. Optional: the 7 targetless-flagged features + any low-consistency review.
+2. Then: apply taxonomy to cabbagelover5566's 1,209 blunders (the coaching payoff).
 
 ## (superseded) earlier re-bucket on v1 labels
 The first v3 assignment used the BIASED v1 labels (`feature_buckets_v3_d2048_k6.json`). Superseded
