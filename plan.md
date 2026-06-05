@@ -27,7 +27,18 @@ is at its median activation, which is broader. f103 fires on knight-forks: queen
 median → true label "Hangs to knight fork (often queen)", not "Hangs queen to knight fork". Same root
 cause as f1536 (knight 75%, not 100%). Fix = label from peak+median, not peak alone (v7).
 
-**Pipeline now (rebuild on v7 once it finishes):**
+**v7 FINALIZED (2026-06-05) — labels of record.** Full run done (2033 labeled). The 15 >5%-fire
+blobs were re-labeled fire-rate-aware (honestly coarse, e.g. f1487 "Squandered winning material
+(rook→any)") and folded into the taxonomy as per-category "⚠ Coarse detectors" clusters (sorted
+last). The 2018 specific features → 12 categories → **193 clean clusters**. Distribution healthier
+without blobs inflating fire (Left Hanging 149%→85% fire). Files: `relabel_v7_d2048_k6.json`,
+`feature_buckets_v7_*`, `feature_clusters_v7_final_*`, `feature_leaf_v7_*`. Atlas:
+`output/atlas/atlas_v7_d2048_k6.html`. Same stable 12-category v3 taxonomy (unchanged since 3×
+validation). **Game-application rule learned: filter >5% blobs from per-position diagnosis; read at
+cluster level not feature chip; a feature labeled for its peak piece can fire on a different piece
+on a structurally-similar (often out-of-distribution / median-strength) position.**
+
+**Pipeline (the v7 build, all on chess-poc except render):**
 profiler (`build_peak_median_profiles.py`, on notebook, encodes corpus → 10 peak + 10 median Opus-covered
 boards/feature) → relabel (v7) → assign categories (`assign_v3.py`) → cluster (`cluster_llm.py`) →
 sub-cluster audit (`audit_clusters.py`) → render atlas (`render_atlas_v3.py`). All on chess-poc except render.
