@@ -1,5 +1,55 @@
 # Chess Lab — Log
 
+## 2026-06-05 — labeling v3→v7: debias, refutation, xhigh, peak+median (the over-specification fix)
+
+Long session iterating the d2048_k6 feature labeler through five versions, each fixing a defect
+Sam caught by reading boards. The through-line: **labeling from the top-10 (peak) activations
+systematically over-specifies** — peak boards are the most extreme and piece-homogeneous, so the
+label inherits a specificity the feature doesn't actually have.
+
+- **v2 (debias):** v1's prompt said "prefer Missed X if a capture existed" → 275 features had
+  "Missed X" chips while the played move actually hung material. Removed the steer. missed_win
+  1020→905, hung_own 478→707. (Audited f19/f745 with Stockfish — and learned the `drop≈gap`
+  heuristic is tautological garbage; the real hang-vs-miss tell is played-vs-best CAPTURE.)
+- **v3 (5-word mechanism chips):** dup chips 57%→78% unique. Became the basis for LLM clustering
+  (decoder + chip-embedding clustering both FAILED — produced muddy "Hangs" blobs; the coaching
+  theme lives in the label, so Opus-reads-labels clustering is the method). 12 categories,
+  validated 3× on disjoint 200-samples. Atlas rebuilt as a navigable SPA (was 176MB inline-SVG;
+  now 1.6MB, boards client-side).
+- **v4 (REJECTED):** added refutation_analysis BUT also result-framing — over-steered f882 to
+  generic "Leaves piece undefended". Lesson: refutation good, result-framing bad. Removed.
+- **v5 (refutation + confidence + opus-4-8 xhigh):** the model+thinking were the real unlock.
+  Labelers had been running opus-4-6 with NO thinking; switched to opus-4-8 `thinking:adaptive` +
+  `output_config.effort:xhigh` (the settings.json config). Recovered f882, fixed f1536 ("Hangs
+  knight" → "Hangs piece, knight involved" — it was only 75% knight). Confidence flag now
+  discriminates (was all-high before).
+- **v6 (second pass on 482 flagged):** re-ran cons≤70 features showing v5's guess, told to look
+  harder / stay honestly-uncertain. Fixed f1717 (false "Squanders winning position" → "Passive
+  misses tactic" — trajectory showed it was tense/losing, not winning). 312 stayed honestly flagged.
+- **v7 (peak+median — RUNNING):** the root-cause fix. `build_peak_median_profiles.py` samples 10
+  peak + 10 median (p40-60) Opus-covered boards/feature; v7 labels from both + shows v6 as
+  head-start. f103 ("Hangs queen to knight fork", cons 90, NOT flagged) → "Hangs to knight fork
+  (often queen)" once it saw the median rook-forks. Chip form "Core (often X / major piece)";
+  label narrates top→median broadening. Validated f103/f952/f882/f1536/f1717.
+
+**Sam's catches drove all of it:** "is missed win bad? they're all blunders" (split by what's
+missed), "I don't want you biasing it" (debias + no-rules), "f1536 only 75% knight" (piece
+over-claim), "look at median positions not just peak" (the v7 insight), "you're over-prescriptive"
+(trimmed prompts to minimal — facts in SEE block, not paragraphs).
+
+**Redundancy proven a non-issue:** the 92 "hangs queen" features are decoder-distinct (cosine ~0.05)
+and fire on disjoint boards (Jaccard ~0) — not the SAE wasting capacity, just same-named distinct
+features. `decoder_overlap.py` + `firing_overlap.py`.
+
+**Game application (cabbagelover5566, game 169732298592):** built `encode_game_blunders.py` (Maia3
+L7-diff → k6 SAE → taxonomy, replicating corpus build). Found per-position diagnosis must read at
+the CLUSTER level — a "queen knight-fork" feature fired on the player's ROOK fork (OOD structural
+match at ~23% of the feature's peak). Updated the `/analyze-game` skill with the chess.com
+callback-decode + the Maia3/v3 mapping step.
+
+**State at session end:** v7 full run in progress on chess-poc. v6_merged committed as fallback.
+plan.md + README updated. Next: finish v7 → re-assign → re-cluster → category-fit audit → atlas → game.
+
 ## 2026-06-04 — full d2048_k6 relabel with all-fields method + pipeline reorg
 
 **The fix that mattered:** the old labeler (`label_features_integrated.py`) was feeding Opus only

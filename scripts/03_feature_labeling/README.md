@@ -21,34 +21,45 @@ was labeled in the wrong *direction* (passive/hung instead of missed-win). The f
 fields — is `relabel_all_fields.py`. On the d2048_k6 dictionary it flipped 1900/2035 labels;
 `missed_win` turned out to be the single largest category (1020 of 2035).
 
-## Run order
+## CURRENT pipeline (d2048_k6) — run in this order
+
+All on chess-poc except render. Model for labeling = **opus-4-8 with adaptive thinking + xhigh
+effort** (set `EFFORT=xhigh`; matches the interactive Claude Code config).
 
 | # | Script | What it does | Out |
 |---|--------|--------------|-----|
-| 1 | `compute_feature_see_stats.py` | Per-feature SEE signature over top-N activating positions, in normalized cohorts (≥0.7·max core, ≥0.8·max peak): moved/captured piece, net-material kind (trade/loses/hangs/safe), missed-material, eval trajectory, phase. The objective floor. | `see_stats_{model}.json` |
-| 2 | `deep_signature.py` | Optional deeper multi-granularity signature (hang granularity, best-move type concentration). Diagnostic. | `deep_sig_{model}.json` |
-| 3 | `relabel_all_fields.py` | **The canonical labeler.** Opus names each feature from its top-10 positions with ALL per-position fields (blunder_summary + best_moves_analysis + intent) + a one-line SEE floor. Single call per feature; emits `consistency` 0-100 — features ≤70 are flagged for review. | `relabel_allfields_{model}.json` |
-| 4 | `coherence_depth.py` | Objective (no-LLM) check: does a feature's dominant axis hold from peak down to 0.7·max, or is it peak-only? Verdicts: holds_to_0.7 / holds_to_0.8 / peak_only. | `coherence_depth_{model}.json` |
-| 5 | `assign_to_buckets.py` | Assign labeled features to the 11-bucket mistake taxonomy. Allows `unassignable` (recorded, not force-fit). | `feature_buckets_{model}.json` |
-| 6 | `subbucket_and_rollup.py` | Split buckets into sub-categories, roll up by fire-rate coverage. | `feature_leaf_{model}.json` |
-| 7 | `audit_buckets.py` | Objective audit: does a feature's SEE signature contradict its assigned bucket? Flags violations. | stdout / audit JSON |
+| 1 | `compute_feature_see_stats.py` | Per-feature SEE signature (normalized cohorts ≥0.7/0.8·max): moved/captured piece, net-material, eval trajectory, phase. Objective floor. | `see_stats_{model}.json` |
+| 2 | `build_peak_median_profiles.py` | Encode corpus → per feature, 10 PEAK + 10 MEDIAN (p40-60) Opus-covered boards. The median is what stops piece over-specification. | `peak_median_profiles_{model}.json` |
+| 3 | **`relabel_v7_peakmedian.py`** | **CURRENT labeler.** Labels each feature from peak+median boards + the prior label as head-start. Chip form "Core mistake (often queen / major piece)"; label narrates top→median broadening. Emits `confidence` + `review`. `EFFORT=xhigh`. | `relabel_v7_{model}.json` |
+| 4 | `assign_v3.py` | Assign labeled features to the 12-category v3 taxonomy (`buckets_v3_*.json`). Allows `unassignable`. NO rules block — buckets + evidence + self-inflicted/omission axis. | `feature_buckets_{...}.json` |
+| 5 | `cluster_llm.py` | Within each category, Opus groups features into ~10-20 natural coaching clusters (merges near-dups). | `feature_clusters_{...}.json` |
+| 6 | `audit_clusters.py` | Per-category audit: place orphans + flag features whose label contradicts their category/cluster. | `cluster_audit_{...}.json` |
+| 7 | `render_atlas_v3.py` (local) | SPA atlas: category → cluster → feature, boards client-side from FEN, chess.com links. ~2MB. | `atlas/atlas_*.html` |
 
-## Rendering (eyeball checks)
+## Labeler version lineage (each fixed a validated defect — see plan.md / log.md)
 
-| Script | What |
-|--------|------|
-| `render_feature_list.py` | Rich HTML for an arbitrary feature list — SEE signature (both cohorts), coherence verdict, top-N boards clickable to chess.com, optional per-board Opus analysis. `--filter hardcut` isolates the clear blobs. |
-| `render_taxonomy_tree.py` | The full taxonomy as a collapsible bucket → sub → feature tree, each feature with example boards (played = red arrow, Maia top = green). |
+`relabel_all_fields.py` (v1, biased) → `relabel_all_fields_v2_neutral.py` (debiased) →
+`relabel_v3_5word_mech.py` (5-word mechanism chips) → (v4 refutation+result-framing, REJECTED) →
+`relabel_v5_refutation_conf.py` (refutation fed + confidence + opus-4-8 xhigh) →
+`relabel_v6_secondpass.py` (re-run flagged features with prior guess shown) →
+**`relabel_v7_peakmedian.py` (current — peak+median boards fix piece over-specification).**
 
-## `consistency` is the review signal
+**THE LESSON:** labeling from top-10 (p99 peak) over-specifies the piece (peak boards are
+piece-homogeneous). A feature's true identity is at its MEDIAN activation, which is broader.
+v7 feeds both bands so "Hangs queen to knight fork" (peak only) becomes "Hangs to knight fork
+(often queen)" (peak+median). Same root cause as the earlier missed-vs-hung and knight-75% bugs.
 
-`relabel_all_fields.py` emits `consistency` per feature (how many of the 10 boards fit the named
-mistake). A genuinely mixed feature comes back ~80, not 100. Features ≤70 are flagged — review
-those rather than re-running with consensus voting. Watch for labels that over-fit a specific
-move (e.g. "Missed Nxd4"); those won't generalize and belong in the flagged set.
+## Game application
 
-## Predecessors (superseded)
+`encode_game_blunders.py` — encode a real game's blunders through Maia3 → L7-diff → k6 SAE →
+taxonomy (replicates the corpus build exactly). Read per-position diagnoses at the CLUSTER level,
+not the feature chip (a feature labeled "queen fork" can fire on a rook fork — out-of-distribution
+structural match). See `docs`/`/analyze-game` skill.
 
-`label_features_integrated.py` is the previous labeler — kept for provenance of the
-`feature_labels_integrated_*.json` files, but superseded by `relabel_all_fields.py`. Older
-one-off labelers (gemini, pass2, btk, constrained, synthesize) remain in `scripts/labeling/`.
+## Diagnostics / one-offs
+
+`deep_signature.py`, `coherence_depth.py`, `decoder_overlap.py`, `firing_overlap.py` (redundancy
+tests — proved blob features are distinct, not duplicates), `audit_direction_stockfish.py`
+(hang-vs-miss from played-vs-best capture), `render_feature_list.py`. The v1–v6 labelers,
+`assign_to_buckets.py`, `subbucket_and_rollup.py`, `cluster_taxonomy.py` (embedding clustering —
+dead end), `emergent_categories.py` are kept for provenance; not the current path.

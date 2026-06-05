@@ -8,7 +8,47 @@
 > kept under `scripts/sae/new_sae_architecture/` but must be repointed to the v2 cache before
 > any rerun. Next step if revisiting: rebuild all three constructions on v2 data.
 
-## CURRENT STATE (2026-06-04) — d2048_k6 fully relabeled with all-fields method
+## CURRENT STATE (2026-06-05) — labeling at v7 (peak+median, opus-4-8 xhigh); v7 full run in progress
+
+**Working model: `btk_2048_k6_nol2.pt`** (d2048_k6, S3 `sae/weights/`).
+
+**Label version history (each fixed a real, validated defect — full detail in log.md):**
+- v1 `relabel_all_fields.py` — fed best_moves_analysis (fixed missed-vs-hung direction). BIASED ("prefer Missed X").
+- v2 `relabel_all_fields_v2_neutral.py` — removed the bias. missed_win 1020→905, hung_own 478→707.
+- v3 `relabel_v3_5word_mech.py` — 5-word mechanism chips (dup chips 57%→78% unique). **Was the labels-of-record for the LLM clustering + atlas.**
+- (v4 — refutation + RESULT-framing. REJECTED: over-steered f882 to generic. Removed.)
+- v5 `relabel_v5_refutation_conf.py` — refutation_analysis fed + piece discipline + confidence/review flag + **opus-4-8 xhigh** (was opus-4-6 no-thinking). Fixed f1536 (knight over-claim), f882.
+- v6 `relabel_v6_secondpass.py` — second pass on the 482 cons≤70 flagged (shows v5's guess, looks harder). Fixed f1717 (false "winning"→"passive"). **v6_merged = current fallback, committed.**
+- **v7 `relabel_v7_peakmedian.py` (RUNNING)** — labels from PEAK + MEDIAN boards (10+10), shows v6 label as head-start. Fixes piece OVER-SPECIFICATION: top-10 boards are piece-homogeneous (f103's peak = queen forks) but the median fires on rooks/knights too. v7 chip form: "Core mistake (often queen / major piece)" + label narrates top-vs-median broadening. Validated on f103/f952/f882/f1536/f1717.
+
+**THE BIG LESSON (the v3→v7 arc):** labeling from the top-10 (p99 peak) systematically OVER-SPECIFIES
+the piece, because peak boards are the most extreme + piece-homogeneous. The feature's TRUE identity
+is at its median activation, which is broader. f103 fires on knight-forks: queen at peak, rook/king at
+median → true label "Hangs to knight fork (often queen)", not "Hangs queen to knight fork". Same root
+cause as f1536 (knight 75%, not 100%). Fix = label from peak+median, not peak alone (v7).
+
+**Pipeline now (rebuild on v7 once it finishes):**
+profiler (`build_peak_median_profiles.py`, on notebook, encodes corpus → 10 peak + 10 median Opus-covered
+boards/feature) → relabel (v7) → assign categories (`assign_v3.py`) → cluster (`cluster_llm.py`) →
+sub-cluster audit (`audit_clusters.py`) → render atlas (`render_atlas_v3.py`). All on chess-poc except render.
+
+**FALLBACK:** if v7 worse than v6, `output/relabel_v6_merged_d2048_k6.json` (+ v6 buckets/clusters/leaf) is committed.
+
+**NEXT after v7 finishes:** resume truncation errors → re-assign categories → re-cluster → category-fit audit
+(NOT yet run on v6/v7 — `audit_clusters.py`) → re-render atlas → re-run cabbagelover5566 game 169732298592.
+
+**GAME-APPLICATION LESSON:** per-position diagnosis should read at the CLUSTER level, not the feature chip —
+a feature labeled "queen knight-fork" fired on a player's ROOK fork (out-of-distribution structural match).
+And weak/median-strength activations carry the feature's coarser identity, not its peak-specific piece.
+Encoder: `encode_game_blunders.py` (Maia3 L7-diff → k6 SAE → taxonomy; replicates corpus build exactly).
+
+**KNOWN CLEANUP (not this session):** `output/maia3_stockfish_data.json` (16MB) and
+`labels_2048_k64_canonical.json` (48MB) are gitignored BUT still tracked (committed pre-ignore).
+`git rm --cached` them sometime — pre-existing, not today's work.
+
+---
+
+## (SUPERSEDED) 2026-06-04 — d2048_k6 fully relabeled with all-fields method
 
 **k6 is the working model now** (`btk_2048_k6_nol2.pt`, S3 `sae/weights/`). All 2035/2047 live
 features relabeled by `scripts/03_feature_labeling/relabel_all_fields.py`.
