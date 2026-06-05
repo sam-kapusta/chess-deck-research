@@ -1,0 +1,745 @@
+{
+ "premature_trade": {
+  "place": {
+   "f1729": "C2"
+  },
+  "flag": [
+   {
+    "feat": "f1584",
+    "from": "C3",
+    "to": "C2",
+    "why": "Hangs queen in lost endgame is about losing queen leading to lost endgame, not missing a tactic"
+   },
+   {
+    "feat": "f1773",
+    "from": "C4",
+    "to": "C2",
+    "why": "Avoids simplifying queen trade is about queen trade decisions, not missing stronger tactics"
+   },
+   {
+    "feat": "f1433",
+    "from": "C8",
+    "to": "C0",
+    "why": "Trades into lost pawn endgame fits the major piece exchange cluster"
+   },
+   {
+    "feat": "f1816",
+    "from": "C8",
+    "to": "C0",
+    "why": "Trades into lost pawn endgame fits the major piece exchange cluster"
+   }
+  ],
+  "_clusternames": {
+   "C0": "Trades into Lost Pawn Endgame (Major Piece Exchange)",
+   "C1": "Premature Bishop Exchange Releases Tension or Misses Tactic",
+   "C2": "Premature Queen Trade Kills Attack on Exposed King",
+   "C3": "Queen Trade Misses Winning Tactic or Material",
+   "C4": "Premature Rook/Queen Trade Misses Stronger Tactic",
+   "C5": "Trades Rook into Lost Endgame",
+   "C6": "Premature Knight Trade Misses Fork or Tactic",
+   "C7": "Premature Pawn Capture Releases Tension or Ruins Structure",
+   "C8": "Trades Away Key Minor Piece into Lost Endgame",
+   "C9": "Missed Winning Trade into Pawn Endgame"
+  },
+  "_orphans": [
+   "1729"
+  ]
+ },
+ "unsound_aggression": {
+  "place": {},
+  "flag": [
+   {
+    "feat": "f1838",
+    "from": "C2",
+    "to": "C9",
+    "why": "Hangs knight on f2 fork is about a failed fork/check, fits better with futile check/fork cluster"
+   },
+   {
+    "feat": "f1631",
+    "from": "C2",
+    "to": "C9",
+    "why": "Hangs knight on premature fork fits better with fake fork/futile check cluster"
+   },
+   {
+    "feat": "f1134",
+    "from": "C7",
+    "to": "C9",
+    "why": "Bishop check hangs itself is about hanging a piece delivering a check, fits futile check cluster"
+   },
+   {
+    "feat": "f1217",
+    "from": "C7",
+    "to": "C6",
+    "why": "Illusory pin allows Bxf7+ fork is specifically about a Bxf7+ sacrifice scenario"
+   }
+  ],
+  "_clusternames": {
+   "C0": "Premature knight outpost or fork attempt backfires",
+   "C1": "Premature pawn break opens lines against self",
+   "C2": "Unsound Nxf7/Nxf2 knight sacrifice",
+   "C3": "Unsound Greek Gift (Bxh7/Bxh2) sacrifice",
+   "C4": "Speculative attack hangs piece (general)",
+   "C5": "Premature queen sortie or attack",
+   "C6": "Unsound Bxf7/Bxf2 bishop sacrifice in opening",
+   "C7": "Missed concrete tactic for flashy move",
+   "C8": "Aggressive piece lunge to vulnerable square",
+   "C9": "Hangs piece delivering futile or inferior check"
+  },
+  "_orphans": []
+ },
+ "abandoned_defense": {
+  "place": {},
+  "flag": [
+   {
+    "feat": "f1849",
+    "from": "C1",
+    "to": "C4",
+    "why": "Generic 'hangs piece by abandoning defense' fits better in C4 which collects that exact pattern"
+   },
+   {
+    "feat": "f160",
+    "from": "C5",
+    "to": "C9",
+    "why": "Hanging a1 rook is more about back-rank/corner piece vulnerability than pawn defense"
+   },
+   {
+    "feat": "f1195",
+    "from": "C11",
+    "to": "C4",
+    "why": "Generic 'hangs piece by abandoning defense' doesn't specifically involve king in endgame"
+   },
+   {
+    "feat": "f824",
+    "from": "C9",
+    "to": "C2",
+    "why": "'Rook abandons king defense' is about rook leaving king defense, fits C2's theme"
+   },
+   {
+    "feat": "f1190",
+    "from": "C9",
+    "to": "C10",
+    "why": "'Avoids critical rook exchange' is about refusing a necessary exchange, fits C10"
+   }
+  ],
+  "_clusternames": {
+   "C0": "Queen abandons defensive duty for attack or greed",
+   "C1": "Aggressive or active moves that self-destruct defensively",
+   "C2": "Rook or major piece abandons king defense for activity",
+   "C3": "Minor piece lunges or captures abandoning defense",
+   "C4": "General piece move abandons defense, hangs material",
+   "C5": "Moves defender, hangs specific pawn",
+   "C6": "Greedy capture removes critical defender",
+   "C7": "Knight moves away from guard duty, hanging material",
+   "C8": "Moves piece off blocking square, exposing discovered attack",
+   "C9": "Back-rank defense abandoned, allowing mate or decisive tactics",
+   "C10": "Refuses necessary trade or exchange, leaving position collapsing",
+   "C11": "King abandons defensive post in endgame",
+   "C12": "Specific tactical pattern ignored (Ng6+Qh5 battery)"
+  },
+  "_orphans": []
+ },
+ "greedy_capture": {
+  "place": {},
+  "flag": [
+   {
+    "feat": "f926",
+    "from": "C8",
+    "to": "C2",
+    "why": "'Hangs queen grabbing material' is about losing the queen via greedy capture, fits C2 better than missed mate"
+   },
+   {
+    "feat": "f469",
+    "from": "C3",
+    "to": "C6",
+    "why": "'Greedy opening pawn grab' fits queen/piece trapped grabbing pawns theme better"
+   },
+   {
+    "feat": "f889",
+    "from": "C3",
+    "to": "C7",
+    "why": "'Greedy opening grab hangs piece' is a general greedy capture hanging own piece"
+   },
+   {
+    "feat": "f1264",
+    "from": "C13",
+    "to": "C0",
+    "why": "'Greedy knight ignores king attack' is about ignoring king danger, fits C0"
+   },
+   {
+    "feat": "f1883",
+    "from": "C13",
+    "to": "C21",
+    "why": "'Hangs piece to knight fork' is about exposure to fork after capture, fits C21"
+   },
+   {
+    "feat": "f592",
+    "from": "C8",
+    "to": "C3",
+    "why": "'Greedy pawn grab misses tactic' is general missed tactic, not specifically missed mate"
+   }
+  ],
+  "_clusternames": {
+   "C0": "Greedy capture ignoring checkmate threat",
+   "C1": "Knight captures poisoned/defended central pawn",
+   "C2": "Hangs queen via greedy capture or check",
+   "C3": "Greedy capture misses stronger tactic (general)",
+   "C4": "Rook captured on defended square or hangs to pawn",
+   "C5": "Greedy capture hangs own rook or major piece",
+   "C6": "Queen trapped grabbing pawns (b/c/g file raids)",
+   "C7": "Greedy capture hangs own piece (general tactical oversight)",
+   "C8": "Greedy capture misses available checkmate or mating attack",
+   "C9": "Knight trapped or stranded after greedy pawn grab",
+   "C10": "Grabs decoy/bait piece, loses material",
+   "C11": "Queen captured on defended square (poisoned piece)",
+   "C12": "Greedy king capture in endgame",
+   "C13": "Greedy knight/minor piece capture hangs itself or another piece",
+   "C14": "Greedy Capture Loses Endgame Advantage",
+   "C15": "Greedy capture hangs own queen elsewhere",
+   "C16": "Greedy bishop capture misses stronger tactic",
+   "C17": "Bishop trapped or lost grabbing pawn",
+   "C18": "Wrong capture order or missed intermezzo",
+   "C19": "Greedy pawn capture hangs piece or misses promotion",
+   "C20": "Rook grabs passed pawn and hangs",
+   "C21": "Greedy capture exposes piece to fork",
+   "C22": "Greedy capture ignores discovered attack or pin"
+  },
+  "_orphans": []
+ },
+ "pointless_check": {
+  "place": {
+   "f1478": "C0"
+  },
+  "flag": [
+   {
+    "feat": "f888",
+    "from": "C1",
+    "to": "C0",
+    "why": "Generic 'hangs piece giving futile check' not specific to knight/bishop"
+   },
+   {
+    "feat": "f770",
+    "from": "C1",
+    "to": "C0",
+    "why": "Generic 'hangs piece giving check' not specific to knight/bishop"
+   },
+   {
+    "feat": "f1549",
+    "from": "C1",
+    "to": "C0",
+    "why": "Generic 'hangs piece giving check' not specific to knight/bishop"
+   },
+   {
+    "feat": "f1847",
+    "from": "C1",
+    "to": "C0",
+    "why": "Generic 'pointless check hangs piece' not specific to knight/bishop"
+   },
+   {
+    "feat": "f182",
+    "from": "C1",
+    "to": "C0",
+    "why": "Generic 'premature check hangs piece' not specific to knight/bishop"
+   },
+   {
+    "feat": "f871",
+    "from": "C5",
+    "to": "C2",
+    "why": "'Pointless rook check wastes tempo' fits tempo-loss cluster better"
+   },
+   {
+    "feat": "f1924",
+    "from": "C5",
+    "to": "C10",
+    "why": "'Pointless rook check wastes tempo' fits pointless rook check cluster"
+   },
+   {
+    "feat": "f355",
+    "from": "C10",
+    "to": "C0",
+    "why": "'Hangs piece giving futile check' is generic hang-piece, not rook-endgame specific"
+   }
+  ],
+  "_clusternames": {
+   "C0": "Hangs piece giving check (general/multiple piece types)",
+   "C1": "Hangs knight or bishop by giving check",
+   "C2": "Pointless check wastes tempo (king improves or no gain)",
+   "C3": "Hangs queen by giving check",
+   "C4": "Spite checks or desperate checks with no compensation",
+   "C5": "Hangs rook by giving check",
+   "C6": "Pointless check delays mate or misses forced mate",
+   "C7": "Pointless check misses winning capture or tactic",
+   "C8": "Pointless queen check in endgame wastes tempo",
+   "C9": "Wrong check square (better check or move available on different square)",
+   "C10": "Pointless rook check in endgame",
+   "C11": "Pointless check in opening wastes development tempo"
+  },
+  "_orphans": [
+   "1478"
+  ]
+ },
+ "left_hanging": {
+  "place": {
+   "f471": "C5",
+   "f588": "C3",
+   "f459": "C9",
+   "f1743": "C7",
+   "f387": "C0",
+   "f1471": "C12",
+   "f1890": "C9",
+   "f964": "C1",
+   "f1261": "C1",
+   "f1508": "C6",
+   "f1189": "C0",
+   "f1402": "C4",
+   "f1318": "C10",
+   "f2042": "C9",
+   "f26": "C4",
+   "f901": "C9",
+   "f1156": "C13",
+   "f1269": "C13",
+   "f1286": "C9",
+   "f1472": "C14",
+   "f1769": "C3",
+   "f164": "C9",
+   "f196": "C16",
+   "f401": "C13",
+   "f605": "C3",
+   "f220": "C4",
+   "f0": "C17",
+   "f1727": "C4"
+  },
+  "flag": [
+   {
+    "feat": "f133",
+    "from": "C0",
+    "to": "C5",
+    "why": "Generic piece hanging on attacked square, not specifically queen"
+   },
+   {
+    "feat": "f1811",
+    "from": "C2",
+    "to": "C9",
+    "why": "Hangs piece TO enemy check, not giving check"
+   },
+   {
+    "feat": "f63",
+    "from": "C2",
+    "to": "C16",
+    "why": "King flees instead of capturing is a passive mistake, not a flashy invasion"
+   },
+   {
+    "feat": "f1965",
+    "from": "C2",
+    "to": "C11",
+    "why": "Allows forking is better in fork cluster"
+   },
+   {
+    "feat": "f364",
+    "from": "C2",
+    "to": "C5",
+    "why": "Piece moved to unsafe square is generic, not check/invasion specific"
+   },
+   {
+    "feat": "f347",
+    "from": "C6",
+    "to": "C5",
+    "why": "Generic undefended square hanging, not rook-specific"
+   },
+   {
+    "feat": "f563",
+    "from": "C21",
+    "to": "C1",
+    "why": "Impulsive knight move hangs piece fits aggressive move cluster better"
+   },
+   {
+    "feat": "f1700",
+    "from": "C23",
+    "to": "C14",
+    "why": "Premature exchange hanging bishop fits wrong capture order cluster"
+   }
+  ],
+  "_clusternames": {
+   "C0": "Hangs queen to simple capture (piece controls queen's square)",
+   "C1": "Hangs piece with aggressive or active-looking move",
+   "C2": "Hangs piece giving check or flashy invasion",
+   "C3": "Hangs bishop on open diagonal or undefended square",
+   "C4": "Hangs piece in the opening (general development blunder)",
+   "C5": "Hangs piece by castling or routine king move",
+   "C6": "Hangs rook to minor piece or on open line",
+   "C7": "Pawn push hangs own material",
+   "C8": "Hangs queen to knight fork",
+   "C9": "Hangs piece ignoring existing threat",
+   "C10": "Hangs piece with quiet or passive move",
+   "C11": "Hangs piece to knight fork or knight tactics",
+   "C12": "Hangs knight on undefended or aggressive square",
+   "C13": "Hangs piece to pawn capture or pawn fork",
+   "C14": "Hangs piece via wrong capture order or move-order error",
+   "C15": "Hangs piece ignoring central pawn tension",
+   "C16": "Hangs piece in endgame (king move or careless play)",
+   "C17": "Hangs queen by moving defender or ignoring threat",
+   "C18": "Refuses queen trade and hangs material",
+   "C19": "Hangs piece to enemy queen",
+   "C20": "Hangs piece by opening line or self-interference",
+   "C21": "Quiet queen move misses tactic or hangs material",
+   "C22": "Premature promotion hangs queen",
+   "C23": "Hangs piece declining trade or ignoring recapture"
+  },
+  "_orphans": [
+   "471",
+   "588",
+   "459",
+   "1743",
+   "387",
+   "1471",
+   "1890",
+   "964",
+   "1261",
+   "1508",
+   "1189",
+   "1402",
+   "1318",
+   "2042",
+   "26",
+   "901",
+   "1156",
+   "1269",
+   "1286",
+   "1472",
+   "1769",
+   "164",
+   "196",
+   "401",
+   "605",
+   "220",
+   "0",
+   "1727"
+  ]
+ },
+ "king_safety": {
+  "place": {
+   "f1162": "C1",
+   "f1444": "C2"
+  },
+  "flag": [
+   {
+    "feat": "f1029",
+    "from": "C3",
+    "to": "C2",
+    "why": "King walks into center is about walking into tactical danger, not specifically into checkmate/mating net"
+   },
+   {
+    "feat": "f184",
+    "from": "C4",
+    "to": "C2",
+    "why": "Allows Nc7+ knight fork is about walking into tactical danger (fork), not about castling/f-pawn issues"
+   },
+   {
+    "feat": "f525",
+    "from": "C0",
+    "to": "NEW:Refuses defensive exchange",
+    "why": "Refusing a saving queen trade is about declining a defensive resource, not about ignoring king safety for greed/tempo"
+   }
+  ],
+  "_clusternames": {
+   "C0": "Ignores king safety crisis for activity, tempo, or greed",
+   "C1": "Ignores immediate checkmate threat (greedy or routine move)",
+   "C2": "King moves into tactical danger (forks, skewers, discovered attacks)",
+   "C3": "King walks into checkmate or mating net",
+   "C4": "Premature f-pawn advance or castling issues weakening king",
+   "C5": "Pawn pushes that weaken king shelter",
+   "C6": "Self-inflicted king exposure (removing defenders, blocking escapes, opening lines)",
+   "C7": "Pawn captures that expose own king"
+  },
+  "_orphans": [
+   "1162",
+   "1444"
+  ]
+ },
+ "missed_check_mate": {
+  "place": {
+   "f121": "C5",
+   "f1075": "C1"
+  },
+  "flag": [
+   {
+    "feat": "f368",
+    "from": "C5",
+    "to": "NEW:Greedy Capture Misses Better Move",
+    "why": "Description mentions greedy bishop capture in endgame but doesn't specifically mention missing checkmate"
+   },
+   {
+    "feat": "f1086",
+    "from": "C2",
+    "to": "C0",
+    "why": "'Missed checkmate in endgame' is vague and not specifically mate-in-one"
+   },
+   {
+    "feat": "f530",
+    "from": "C0",
+    "to": "C6",
+    "why": "Back-rank/king-hunt mate fits better with back-rank mate cluster"
+   }
+  ],
+  "_clusternames": {
+   "C0": "Missed Short Forced Checkmate (2-5 moves)",
+   "C1": "Missed Forcing Check Wins Material",
+   "C2": "Missed Mate-in-One",
+   "C3": "Missed Winning Queen Check (General)",
+   "C4": "Missed Winning Rook Check",
+   "C5": "Greedy Capture Instead of Checkmate",
+   "C6": "Missed Back-Rank Mate or Tactic",
+   "C7": "Missed Qxh7/Qxh2/Qxg7/Qxg2 Mating Capture",
+   "C8": "Greedy Capture Instead of Forcing Check",
+   "C9": "Missed Forcing Check into Mate Sequence",
+   "C10": "Missed Queen Capture with Check",
+   "C11": "Missed Intermediate Check (Zwischenzug)",
+   "C12": "Missed Perpetual Check Drawing Resource",
+   "C13": "Missed Winning Check on Open File or Diagonal"
+  },
+  "_orphans": [
+   "121",
+   "1075"
+  ]
+ },
+ "passive_play": {
+  "place": {},
+  "flag": [
+   {
+    "feat": "f1298",
+    "from": "C6",
+    "to": "C2",
+    "why": "Speculative checks and lunges is counterproductive maneuvering, not slow development"
+   },
+   {
+    "feat": "f1139",
+    "from": "C2",
+    "to": "C8",
+    "why": "Rook chasing wing pawn is passive/aimless play in a position, not a knight/queen maneuver"
+   },
+   {
+    "feat": "f274",
+    "from": "C5",
+    "to": "C6",
+    "why": "Bishop developed into pawn fork is a premature/bad development move, not about ignoring a trapped piece"
+   },
+   {
+    "feat": "f1926",
+    "from": "C5",
+    "to": "C6",
+    "why": "Bishop left on fork path is more about slow/careless development than ignoring a trapped piece"
+   }
+  ],
+  "_clusternames": {
+   "C0": "Declined Favorable Queen Exchanges",
+   "C1": "Missed Winning Captures and Tactical Strikes",
+   "C2": "Counterproductive Knight and Queen Maneuvers",
+   "C3": "Ignoring Central Pawn Tension",
+   "C4": "Missed Rook Exchanges and Open File Play",
+   "C5": "Ignoring Trapped or Endangered Pieces",
+   "C6": "Slow Developing Moves Instead of Forcing Continuations",
+   "C7": "Missed Knight Captures and Forks",
+   "C8": "Passive Play in Won Positions",
+   "C9": "Avoided Necessary Piece Exchanges",
+   "C10": "Ignoring Enemy Passed Pawns and Threats"
+  },
+  "_orphans": []
+ },
+ "missed_tactic": {
+  "place": {
+   "f1542": "C3",
+   "f1921": "NEW:Misplaced Knight (Unstable Outpost/Trap)",
+   "f1492": "C7",
+   "f1889": "C9",
+   "f151": "C2",
+   "f1221": "C0",
+   "f721": "C2",
+   "f1739": "C14",
+   "f1980": "C5",
+   "f223": "C7",
+   "f1678": "C13"
+  },
+  "flag": [
+   {
+    "feat": "f998",
+    "from": "C10",
+    "to": "C8",
+    "why": "Missed central pawn thrust belongs with central pawn break cluster"
+   },
+   {
+    "feat": "f1622",
+    "from": "C6",
+    "to": "NEW or C6 borderline but defensive not attack"
+   },
+   {
+    "feat": "f1626",
+    "from": "C6",
+    "to": "NEW or C6 borderline but defensive not attack"
+   },
+   {
+    "feat": "f79",
+    "from": "C17",
+    "to": "C11",
+    "why": "Ignoring enemy knight threats fits piece-specific tactics/removing defenders"
+   }
+  ],
+  "_clusternames": {
+   "C0": "Missed Tactical Capture/Combination (General)",
+   "C1": "Missed Winning Queen Move/Fork/Trap",
+   "C2": "Missed Knight Fork/Check Winning Material",
+   "C3": "Missed Winning Rook Tactic/Invasion",
+   "C4": "Missed Pawn Fork/Capture Winning Material",
+   "C5": "Missed Bishop Sacrifice/Tactical Shot (Bxh7+, Bxf7+, Bxf2+)",
+   "C6": "Missed Decisive King Attack/Sacrifice",
+   "C7": "Missed Forcing Tactical Blow (Quiet/Passive Move Instead)",
+   "C8": "Missed Central Pawn Break/Thrust",
+   "C9": "Missed Forcing Check/Capture Sequence",
+   "C10": "Missed winning capture or forcing tactic",
+   "C11": "Missed Specific Piece Tactics (Removing Defenders, Pins, Trapping)",
+   "C12": "Missed Zwischenzug/Intermediate Move",
+   "C13": "Missed Opening Tactical Shot/Development",
+   "C14": "Missed Tactic Due to Greedy/Routine Pawn Push",
+   "C15": "Missed Winning Capture or Forcing Tactic in Endgame",
+   "C16": "Missed Pawn Promotion/Passed Pawn Tactic",
+   "C17": "Missed Decisive Forcing Continuation (General)",
+   "C18": "Missed Qh5+/Qa4+ Check Exploiting King Weakness"
+  },
+  "_orphans": [
+   "1542",
+   "1921",
+   "1492",
+   "1889",
+   "151",
+   "1221",
+   "721",
+   "1739",
+   "1980",
+   "223",
+   "1678"
+  ]
+ },
+ "missed_hanging": {
+  "place": {},
+  "flag": [
+   {
+    "feat": "f1349",
+    "from": "C13",
+    "to": "C4",
+    "why": "Quiet rook move missing capture, not queen repositioning"
+   },
+   {
+    "feat": "f1602",
+    "from": "C13",
+    "to": "C4",
+    "why": "Knight move missing capture, not queen repositioning"
+   },
+   {
+    "feat": "f1901",
+    "from": "C0",
+    "to": "C4",
+    "why": "'Passive move misses winning capture' is general quiet/passive move theme, not specifically major piece"
+   },
+   {
+    "feat": "f11",
+    "from": "C10",
+    "to": "C14",
+    "why": "'Chases piece, misses capture' is about flashy/chasing move instead of capturing, not pawn captures piece"
+   },
+   {
+    "feat": "f22",
+    "from": "C10",
+    "to": "C2",
+    "why": "'Ignores enemy piece on f3/f6' is general missed capture, not pawn captures piece"
+   },
+   {
+    "feat": "f321",
+    "from": "C10",
+    "to": "C11",
+    "why": "'Missed recapture of bishop' is a missed recapture, not a pawn captures piece pattern"
+   },
+   {
+    "feat": "f1983",
+    "from": "C16",
+    "to": "C1",
+    "why": "'Missed free queen capture' fits perfectly in the dedicated missed free queen capture cluster"
+   },
+   {
+    "feat": "f129",
+    "from": "C14",
+    "to": "C4",
+    "why": "'Missed capturing hanging piece' is general missed capture, not specifically check/flash instead of capture"
+   }
+  ],
+  "_clusternames": {
+   "C0": "Missed free major piece capture",
+   "C1": "Missed free queen capture",
+   "C2": "Missed free piece capture (general)",
+   "C3": "Missed free central/opening pawn capture",
+   "C4": "Missed free capture for quiet/passive move (middlegame)",
+   "C5": "Missed free rook capture",
+   "C6": "Missed free bishop capture",
+   "C7": "Missed free knight capture",
+   "C8": "Missed free capture in endgame (general)",
+   "C9": "Missed bishop captures major piece (rook or queen)",
+   "C10": "Missed pawn captures piece",
+   "C11": "Missed free capture in opening (developing instead of capturing)",
+   "C12": "King move misses available capture in endgame",
+   "C13": "Queen repositioning misses available capture",
+   "C14": "Check or flashy move instead of simple capture",
+   "C15": "Missed capturing hanging queen in opening",
+   "C16": "Missed free queen/rook capture (specific piece patterns)",
+   "C17": "Pawn push misses winning capture in endgame"
+  },
+  "_orphans": []
+ },
+ "endgame_technique": {
+  "place": {
+   "f1999": "C1",
+   "f372": "C0"
+  },
+  "flag": [
+   {
+    "feat": "f76",
+    "from": "C10",
+    "to": "NEW:Miscellaneous Endgame Errors",
+    "why": "Queen move missing king retreat doesn't match king abandoning blockade/escort duty"
+   },
+   {
+    "feat": "f315",
+    "from": "C10",
+    "to": "NEW:Miscellaneous Endgame Errors",
+    "why": "Knight capturing wrong target is not about king abandoning duty"
+   },
+   {
+    "feat": "f198",
+    "from": "C8",
+    "to": "NEW:King Safety Blunder in Endgame",
+    "why": "Stepping into tactical vulnerability is not about passive retreat"
+   },
+   {
+    "feat": "f1852",
+    "from": "C8",
+    "to": "C2",
+    "why": "King entering passed pawn's path is more about failing to handle enemy passed pawn"
+   }
+  ],
+  "_clusternames": {
+   "C0": "Missed Critical Pawn Break or Exchange",
+   "C1": "Missed Critical Tempo in Pawn Endgame",
+   "C2": "Ignores Enemy Passed Pawn / Fails to Blockade",
+   "C3": "King Walks Wrong Direction / Wrong Square",
+   "C4": "Pointless Checks / Wasted Tempo on Non-Forcing Moves",
+   "C5": "Missed Passed Pawn Advance / Delayed Promotion Push",
+   "C6": "Premature Pawn Push (King Should Lead)",
+   "C7": "Passive or Misplaced Rook in Endgame",
+   "C8": "King Retreats Passively Instead of Activating",
+   "C9": "Premature Promotion / Rushing Pawn Without Preparation",
+   "C10": "King Abandons Critical Duty (Blockade/Escort)",
+   "C11": "Quiet King Move Instead of Precise Endgame Technique",
+   "C12": "King Chases Wrong Pawn / Misses Counterplay"
+  },
+  "_orphans": [
+   "1999",
+   "372"
+  ]
+ }
+}

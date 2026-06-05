@@ -159,7 +159,7 @@
   "bucket_name": "Passive Play",
   "sub": "Counterproductive Knight and Queen Maneuvers"
  },
- "1139": {
+ "1298": {
   "bucket": "passive_play",
   "bucket_name": "Passive Play",
   "sub": "Counterproductive Knight and Queen Maneuvers"
@@ -244,30 +244,35 @@
   "bucket_name": "Passive Play",
   "sub": "Missed Rook Exchanges and Open File Play"
  },
- "31": {
+ "1541": {
   "bucket": "passive_play",
   "bucket_name": "Passive Play",
-  "sub": "Ignoring Trapped or Endangered Pieces"
+  "sub": "Passive Play in Won Positions"
  },
- "1129": {
+ "661": {
   "bucket": "passive_play",
   "bucket_name": "Passive Play",
-  "sub": "Ignoring Trapped or Endangered Pieces"
+  "sub": "Passive Play in Won Positions"
  },
- "1790": {
+ "1578": {
   "bucket": "passive_play",
   "bucket_name": "Passive Play",
-  "sub": "Ignoring Trapped or Endangered Pieces"
+  "sub": "Passive Play in Won Positions"
  },
- "274": {
+ "971": {
   "bucket": "passive_play",
   "bucket_name": "Passive Play",
-  "sub": "Ignoring Trapped or Endangered Pieces"
+  "sub": "Passive Play in Won Positions"
  },
- "1926": {
+ "1230": {
   "bucket": "passive_play",
   "bucket_name": "Passive Play",
-  "sub": "Ignoring Trapped or Endangered Pieces"
+  "sub": "Passive Play in Won Positions"
+ },
+ "1139": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Passive Play in Won Positions"
  },
  "1526": {
   "bucket": "passive_play",
@@ -294,11 +299,6 @@
   "bucket_name": "Passive Play",
   "sub": "Slow Developing Moves Instead of Forcing Continuations"
  },
- "1298": {
-  "bucket": "passive_play",
-  "bucket_name": "Passive Play",
-  "sub": "Slow Developing Moves Instead of Forcing Continuations"
- },
  "622": {
   "bucket": "passive_play",
   "bucket_name": "Passive Play",
@@ -310,6 +310,16 @@
   "sub": "Slow Developing Moves Instead of Forcing Continuations"
  },
  "66": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Slow Developing Moves Instead of Forcing Continuations"
+ },
+ "274": {
+  "bucket": "passive_play",
+  "bucket_name": "Passive Play",
+  "sub": "Slow Developing Moves Instead of Forcing Continuations"
+ },
+ "1926": {
   "bucket": "passive_play",
   "bucket_name": "Passive Play",
   "sub": "Slow Developing Moves Instead of Forcing Continuations"
@@ -354,30 +364,20 @@
   "bucket_name": "Passive Play",
   "sub": "Missed Knight Captures and Forks"
  },
- "1541": {
+ "31": {
   "bucket": "passive_play",
   "bucket_name": "Passive Play",
-  "sub": "Passive Play in Won Positions"
+  "sub": "Ignoring Trapped or Endangered Pieces"
  },
- "661": {
+ "1129": {
   "bucket": "passive_play",
   "bucket_name": "Passive Play",
-  "sub": "Passive Play in Won Positions"
+  "sub": "Ignoring Trapped or Endangered Pieces"
  },
- "1578": {
+ "1790": {
   "bucket": "passive_play",
   "bucket_name": "Passive Play",
-  "sub": "Passive Play in Won Positions"
- },
- "971": {
-  "bucket": "passive_play",
-  "bucket_name": "Passive Play",
-  "sub": "Passive Play in Won Positions"
- },
- "1230": {
-  "bucket": "passive_play",
-  "bucket_name": "Passive Play",
-  "sub": "Passive Play in Won Positions"
+  "sub": "Ignoring Trapped or Endangered Pieces"
  },
  "235": {
   "bucket": "passive_play",
@@ -479,11 +479,6 @@
   "bucket_name": "Abandoning Defensive Duty",
   "sub": "Aggressive or active moves that self-destruct defensively"
  },
- "1849": {
-  "bucket": "abandoned_defense",
-  "bucket_name": "Abandoning Defensive Duty",
-  "sub": "Aggressive or active moves that self-destruct defensively"
- },
  "1003": {
   "bucket": "abandoned_defense",
   "bucket_name": "Abandoning Defensive Duty",
@@ -515,6 +510,11 @@
   "sub": "Rook or major piece abandons king defense for activity"
  },
  "505": {
+  "bucket": "abandoned_defense",
+  "bucket_name": "Abandoning Defensive Duty",
+  "sub": "Rook or major piece abandons king defense for activity"
+ },
+ "824": {
   "bucket": "abandoned_defense",
   "bucket_name": "Abandoning Defensive Duty",
   "sub": "Rook or major piece abandons king defense for activity"
@@ -644,20 +644,15 @@
   "bucket_name": "Abandoning Defensive Duty",
   "sub": "General piece move abandons defense, hangs material"
  },
- "611": {
+ "1849": {
   "bucket": "abandoned_defense",
   "bucket_name": "Abandoning Defensive Duty",
-  "sub": "Moves defender, hangs specific pawn"
+  "sub": "General piece move abandons defense, hangs material"
  },
- "1719": {
+ "1195": {
   "bucket": "abandoned_defense",
   "bucket_name": "Abandoning Defensive Duty",
-  "sub": "Moves defender, hangs specific pawn"
- },
- "160": {
-  "bucket": "abandoned_defense",
-  "bucket_name": "Abandoning Defensive Duty",
-  "sub": "Moves defender, hangs specific pawn"
+  "sub": "General piece move abandons defense, hangs material"
  },
  "848": {
   "bucket": "abandoned_defense",
@@ -683,6 +678,16 @@
   "bucket": "abandoned_defense",
   "bucket_name": "Abandoning Defensive Duty",
   "sub": "Greedy capture removes critical defender"
+ },
+ "611": {
+  "bucket": "abandoned_defense",
+  "bucket_name": "Abandoning Defensive Duty",
+  "sub": "Moves defender, hangs specific pawn"
+ },
+ "1719": {
+  "bucket": "abandoned_defense",
+  "bucket_name": "Abandoning Defensive Duty",
+  "sub": "Moves defender, hangs specific pawn"
  },
  "1801": {
   "bucket": "abandoned_defense",
@@ -729,21 +734,6 @@
   "bucket_name": "Abandoning Defensive Duty",
   "sub": "Knight moves away from guard duty, hanging material"
  },
- "1018": {
-  "bucket": "abandoned_defense",
-  "bucket_name": "Abandoning Defensive Duty",
-  "sub": "Moves piece off blocking square, exposing discovered attack"
- },
- "937": {
-  "bucket": "abandoned_defense",
-  "bucket_name": "Abandoning Defensive Duty",
-  "sub": "Moves piece off blocking square, exposing discovered attack"
- },
- "1079": {
-  "bucket": "abandoned_defense",
-  "bucket_name": "Abandoning Defensive Duty",
-  "sub": "Moves piece off blocking square, exposing discovered attack"
- },
  "1775": {
   "bucket": "abandoned_defense",
   "bucket_name": "Abandoning Defensive Duty",
@@ -784,15 +774,25 @@
   "bucket_name": "Abandoning Defensive Duty",
   "sub": "Back-rank defense abandoned, allowing mate or decisive tactics"
  },
- "824": {
+ "160": {
   "bucket": "abandoned_defense",
   "bucket_name": "Abandoning Defensive Duty",
   "sub": "Back-rank defense abandoned, allowing mate or decisive tactics"
  },
- "1190": {
+ "1018": {
   "bucket": "abandoned_defense",
   "bucket_name": "Abandoning Defensive Duty",
-  "sub": "Back-rank defense abandoned, allowing mate or decisive tactics"
+  "sub": "Moves piece off blocking square, exposing discovered attack"
+ },
+ "937": {
+  "bucket": "abandoned_defense",
+  "bucket_name": "Abandoning Defensive Duty",
+  "sub": "Moves piece off blocking square, exposing discovered attack"
+ },
+ "1079": {
+  "bucket": "abandoned_defense",
+  "bucket_name": "Abandoning Defensive Duty",
+  "sub": "Moves piece off blocking square, exposing discovered attack"
  },
  "1428": {
   "bucket": "abandoned_defense",
@@ -809,6 +809,11 @@
   "bucket_name": "Abandoning Defensive Duty",
   "sub": "Refuses necessary trade or exchange, leaving position collapsing"
  },
+ "1190": {
+  "bucket": "abandoned_defense",
+  "bucket_name": "Abandoning Defensive Duty",
+  "sub": "Refuses necessary trade or exchange, leaving position collapsing"
+ },
  "365": {
   "bucket": "abandoned_defense",
   "bucket_name": "Abandoning Defensive Duty",
@@ -820,11 +825,6 @@
   "sub": "King abandons defensive post in endgame"
  },
  "74": {
-  "bucket": "abandoned_defense",
-  "bucket_name": "Abandoning Defensive Duty",
-  "sub": "King abandons defensive post in endgame"
- },
- "1195": {
   "bucket": "abandoned_defense",
   "bucket_name": "Abandoning Defensive Duty",
   "sub": "King abandons defensive post in endgame"
@@ -910,6 +910,16 @@
   "sub": "Trades into Lost Pawn Endgame (Major Piece Exchange)"
  },
  "1804": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Trades into Lost Pawn Endgame (Major Piece Exchange)"
+ },
+ "1433": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Trades into Lost Pawn Endgame (Major Piece Exchange)"
+ },
+ "1816": {
   "bucket": "premature_trade",
   "bucket_name": "Premature Trade",
   "sub": "Trades into Lost Pawn Endgame (Major Piece Exchange)"
@@ -1064,6 +1074,21 @@
   "bucket_name": "Premature Trade",
   "sub": "Premature Queen Trade Kills Attack on Exposed King"
  },
+ "1729": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Queen Trade Kills Attack on Exposed King"
+ },
+ "1584": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Queen Trade Kills Attack on Exposed King"
+ },
+ "1773": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Queen Trade Kills Attack on Exposed King"
+ },
  "1192": {
   "bucket": "premature_trade",
   "bucket_name": "Premature Trade",
@@ -1099,35 +1124,10 @@
   "bucket_name": "Premature Trade",
   "sub": "Queen Trade Misses Winning Tactic or Material"
  },
- "1584": {
-  "bucket": "premature_trade",
-  "bucket_name": "Premature Trade",
-  "sub": "Queen Trade Misses Winning Tactic or Material"
- },
  "2040": {
   "bucket": "premature_trade",
   "bucket_name": "Premature Trade",
   "sub": "Queen Trade Misses Winning Tactic or Material"
- },
- "343": {
-  "bucket": "premature_trade",
-  "bucket_name": "Premature Trade",
-  "sub": "Premature Rook/Queen Trade Misses Stronger Tactic"
- },
- "1773": {
-  "bucket": "premature_trade",
-  "bucket_name": "Premature Trade",
-  "sub": "Premature Rook/Queen Trade Misses Stronger Tactic"
- },
- "376": {
-  "bucket": "premature_trade",
-  "bucket_name": "Premature Trade",
-  "sub": "Premature Rook/Queen Trade Misses Stronger Tactic"
- },
- "1736": {
-  "bucket": "premature_trade",
-  "bucket_name": "Premature Trade",
-  "sub": "Premature Rook/Queen Trade Misses Stronger Tactic"
  },
  "1744": {
   "bucket": "premature_trade",
@@ -1244,6 +1244,21 @@
   "bucket_name": "Premature Trade",
   "sub": "Premature Pawn Capture Releases Tension or Ruins Structure"
  },
+ "343": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Rook/Queen Trade Misses Stronger Tactic"
+ },
+ "376": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Rook/Queen Trade Misses Stronger Tactic"
+ },
+ "1736": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Premature Rook/Queen Trade Misses Stronger Tactic"
+ },
  "999": {
   "bucket": "premature_trade",
   "bucket_name": "Premature Trade",
@@ -1259,16 +1274,6 @@
   "bucket_name": "Premature Trade",
   "sub": "Trades Away Key Minor Piece into Lost Endgame"
  },
- "1433": {
-  "bucket": "premature_trade",
-  "bucket_name": "Premature Trade",
-  "sub": "Trades Away Key Minor Piece into Lost Endgame"
- },
- "1816": {
-  "bucket": "premature_trade",
-  "bucket_name": "Premature Trade",
-  "sub": "Trades Away Key Minor Piece into Lost Endgame"
- },
  "1308": {
   "bucket": "premature_trade",
   "bucket_name": "Premature Trade",
@@ -1279,10 +1284,20 @@
   "bucket_name": "Premature Trade",
   "sub": "Trades Away Key Minor Piece into Lost Endgame"
  },
- "1729": {
+ "176": {
   "bucket": "premature_trade",
   "bucket_name": "Premature Trade",
-  "sub": "Other / unclustered"
+  "sub": "Missed Winning Trade into Pawn Endgame"
+ },
+ "1560": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Missed Winning Trade into Pawn Endgame"
+ },
+ "201": {
+  "bucket": "premature_trade",
+  "bucket_name": "Premature Trade",
+  "sub": "Missed Winning Trade into Pawn Endgame"
  },
  "1634": {
   "bucket": "king_safety",
@@ -1449,6 +1464,11 @@
   "bucket_name": "King Safety Error",
   "sub": "Ignores immediate checkmate threat (greedy or routine move)"
  },
+ "1162": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "Ignores immediate checkmate threat (greedy or routine move)"
+ },
  "1111": {
   "bucket": "king_safety",
   "bucket_name": "King Safety Error",
@@ -1510,6 +1530,21 @@
   "sub": "King moves into tactical danger (forks, skewers, discovered attacks)"
  },
  "2021": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King moves into tactical danger (forks, skewers, discovered attacks)"
+ },
+ "1444": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King moves into tactical danger (forks, skewers, discovered attacks)"
+ },
+ "1029": {
+  "bucket": "king_safety",
+  "bucket_name": "King Safety Error",
+  "sub": "King moves into tactical danger (forks, skewers, discovered attacks)"
+ },
+ "184": {
   "bucket": "king_safety",
   "bucket_name": "King Safety Error",
   "sub": "King moves into tactical danger (forks, skewers, discovered attacks)"
@@ -1579,11 +1614,6 @@
   "bucket_name": "King Safety Error",
   "sub": "King walks into checkmate or mating net"
  },
- "1029": {
-  "bucket": "king_safety",
-  "bucket_name": "King Safety Error",
-  "sub": "King walks into checkmate or mating net"
- },
  "294": {
   "bucket": "king_safety",
   "bucket_name": "King Safety Error",
@@ -1605,11 +1635,6 @@
   "sub": "Premature f-pawn advance or castling issues weakening king"
  },
  "1137": {
-  "bucket": "king_safety",
-  "bucket_name": "King Safety Error",
-  "sub": "Premature f-pawn advance or castling issues weakening king"
- },
- "184": {
   "bucket": "king_safety",
   "bucket_name": "King Safety Error",
   "sub": "Premature f-pawn advance or castling issues weakening king"
@@ -1714,16 +1739,6 @@
   "bucket_name": "King Safety Error",
   "sub": "Pawn captures that expose own king"
  },
- "1162": {
-  "bucket": "king_safety",
-  "bucket_name": "King Safety Error",
-  "sub": "Other / unclustered"
- },
- "1444": {
-  "bucket": "king_safety",
-  "bucket_name": "King Safety Error",
-  "sub": "Other / unclustered"
- },
  "1771": {
   "bucket": "missed_check_mate",
   "bucket_name": "Missed Check or Mate",
@@ -1774,11 +1789,6 @@
   "bucket_name": "Missed Check or Mate",
   "sub": "Missed Short Forced Checkmate (2-5 moves)"
  },
- "530": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
-  "sub": "Missed Short Forced Checkmate (2-5 moves)"
- },
  "20": {
   "bucket": "missed_check_mate",
   "bucket_name": "Missed Check or Mate",
@@ -1790,6 +1800,11 @@
   "sub": "Missed Short Forced Checkmate (2-5 moves)"
  },
  "945": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Short Forced Checkmate (2-5 moves)"
+ },
+ "1086": {
   "bucket": "missed_check_mate",
   "bucket_name": "Missed Check or Mate",
   "sub": "Missed Short Forced Checkmate (2-5 moves)"
@@ -1929,6 +1944,11 @@
   "bucket_name": "Missed Check or Mate",
   "sub": "Missed Forcing Check Wins Material"
  },
+ "1075": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Forcing Check Wins Material"
+ },
  "1000": {
   "bucket": "missed_check_mate",
   "bucket_name": "Missed Check or Mate",
@@ -1945,11 +1965,6 @@
   "sub": "Missed Mate-in-One"
  },
  "947": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
-  "sub": "Missed Mate-in-One"
- },
- "1086": {
   "bucket": "missed_check_mate",
   "bucket_name": "Missed Check or Mate",
   "sub": "Missed Mate-in-One"
@@ -2064,46 +2079,6 @@
   "bucket_name": "Missed Check or Mate",
   "sub": "Missed Winning Queen Check (General)"
  },
- "96": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
-  "sub": "Missed Winning Rook Check"
- },
- "316": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
-  "sub": "Missed Winning Rook Check"
- },
- "225": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
-  "sub": "Missed Winning Rook Check"
- },
- "1582": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
-  "sub": "Missed Winning Rook Check"
- },
- "1266": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
-  "sub": "Missed Winning Rook Check"
- },
- "603": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
-  "sub": "Missed Winning Rook Check"
- },
- "158": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
-  "sub": "Missed Winning Rook Check"
- },
- "1504": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
-  "sub": "Missed Winning Rook Check"
- },
  "188": {
   "bucket": "missed_check_mate",
   "bucket_name": "Missed Check or Mate",
@@ -2169,6 +2144,51 @@
   "bucket_name": "Missed Check or Mate",
   "sub": "Greedy Capture Instead of Checkmate"
  },
+ "121": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Greedy Capture Instead of Checkmate"
+ },
+ "96": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Rook Check"
+ },
+ "316": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Rook Check"
+ },
+ "225": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Rook Check"
+ },
+ "1582": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Rook Check"
+ },
+ "1266": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Rook Check"
+ },
+ "603": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Rook Check"
+ },
+ "158": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Rook Check"
+ },
+ "1504": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Winning Rook Check"
+ },
  "169": {
   "bucket": "missed_check_mate",
   "bucket_name": "Missed Check or Mate",
@@ -2215,6 +2235,11 @@
   "sub": "Missed Back-Rank Mate or Tactic"
  },
  "559": {
+  "bucket": "missed_check_mate",
+  "bucket_name": "Missed Check or Mate",
+  "sub": "Missed Back-Rank Mate or Tactic"
+ },
+ "530": {
   "bucket": "missed_check_mate",
   "bucket_name": "Missed Check or Mate",
   "sub": "Missed Back-Rank Mate or Tactic"
@@ -2469,16 +2494,6 @@
   "bucket_name": "Missed Check or Mate",
   "sub": "Missed Perpetual Check Drawing Resource"
  },
- "121": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
-  "sub": "Other / unclustered"
- },
- "1075": {
-  "bucket": "missed_check_mate",
-  "bucket_name": "Missed Check or Mate",
-  "sub": "Other / unclustered"
- },
  "259": {
   "bucket": "missed_check_mate",
   "bucket_name": "Missed Check or Mate",
@@ -2584,60 +2599,40 @@
   "bucket_name": "Pointless Check",
   "sub": "Hangs piece giving check (general/multiple piece types)"
  },
- "1557": {
+ "1478": {
   "bucket": "pointless_check",
   "bucket_name": "Pointless Check",
-  "sub": "Hangs knight or bishop by giving check"
- },
- "581": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Hangs knight or bishop by giving check"
- },
- "109": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Hangs knight or bishop by giving check"
- },
- "336": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Hangs knight or bishop by giving check"
- },
- "1776": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Hangs knight or bishop by giving check"
+  "sub": "Hangs piece giving check (general/multiple piece types)"
  },
  "888": {
   "bucket": "pointless_check",
   "bucket_name": "Pointless Check",
-  "sub": "Hangs knight or bishop by giving check"
- },
- "571": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Hangs knight or bishop by giving check"
+  "sub": "Hangs piece giving check (general/multiple piece types)"
  },
  "770": {
   "bucket": "pointless_check",
   "bucket_name": "Pointless Check",
-  "sub": "Hangs knight or bishop by giving check"
+  "sub": "Hangs piece giving check (general/multiple piece types)"
  },
  "1549": {
   "bucket": "pointless_check",
   "bucket_name": "Pointless Check",
-  "sub": "Hangs knight or bishop by giving check"
+  "sub": "Hangs piece giving check (general/multiple piece types)"
  },
  "1847": {
   "bucket": "pointless_check",
   "bucket_name": "Pointless Check",
-  "sub": "Hangs knight or bishop by giving check"
+  "sub": "Hangs piece giving check (general/multiple piece types)"
  },
  "182": {
   "bucket": "pointless_check",
   "bucket_name": "Pointless Check",
-  "sub": "Hangs knight or bishop by giving check"
+  "sub": "Hangs piece giving check (general/multiple piece types)"
+ },
+ "355": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Hangs piece giving check (general/multiple piece types)"
  },
  "1505": {
   "bucket": "pointless_check",
@@ -2730,6 +2725,11 @@
   "sub": "Pointless check wastes tempo (king improves or no gain)"
  },
  "1240": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Pointless check wastes tempo (king improves or no gain)"
+ },
+ "871": {
   "bucket": "pointless_check",
   "bucket_name": "Pointless Check",
   "sub": "Pointless check wastes tempo (king improves or no gain)"
@@ -2849,56 +2849,6 @@
   "bucket_name": "Pointless Check",
   "sub": "Spite checks or desperate checks with no compensation"
  },
- "732": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Hangs rook by giving check"
- },
- "1697": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Hangs rook by giving check"
- },
- "551": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Hangs rook by giving check"
- },
- "527": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Hangs rook by giving check"
- },
- "1820": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Hangs rook by giving check"
- },
- "550": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Hangs rook by giving check"
- },
- "1527": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Hangs rook by giving check"
- },
- "871": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Hangs rook by giving check"
- },
- "1924": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Hangs rook by giving check"
- },
- "2037": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Hangs rook by giving check"
- },
  "91": {
   "bucket": "pointless_check",
   "bucket_name": "Pointless Check",
@@ -2994,6 +2944,76 @@
   "bucket_name": "Pointless Check",
   "sub": "Pointless check misses winning capture or tactic"
  },
+ "732": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Hangs rook by giving check"
+ },
+ "1697": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Hangs rook by giving check"
+ },
+ "551": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Hangs rook by giving check"
+ },
+ "527": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Hangs rook by giving check"
+ },
+ "1820": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Hangs rook by giving check"
+ },
+ "550": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Hangs rook by giving check"
+ },
+ "1527": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Hangs rook by giving check"
+ },
+ "2037": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Hangs rook by giving check"
+ },
+ "1557": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Hangs knight or bishop by giving check"
+ },
+ "581": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Hangs knight or bishop by giving check"
+ },
+ "109": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Hangs knight or bishop by giving check"
+ },
+ "336": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Hangs knight or bishop by giving check"
+ },
+ "1776": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Hangs knight or bishop by giving check"
+ },
+ "571": {
+  "bucket": "pointless_check",
+  "bucket_name": "Pointless Check",
+  "sub": "Hangs knight or bishop by giving check"
+ },
  "910": {
   "bucket": "pointless_check",
   "bucket_name": "Pointless Check",
@@ -3044,7 +3064,7 @@
   "bucket_name": "Pointless Check",
   "sub": "Pointless rook check in endgame"
  },
- "355": {
+ "1924": {
   "bucket": "pointless_check",
   "bucket_name": "Pointless Check",
   "sub": "Pointless rook check in endgame"
@@ -3053,11 +3073,6 @@
   "bucket": "pointless_check",
   "bucket_name": "Pointless Check",
   "sub": "Pointless check in opening wastes development tempo"
- },
- "1478": {
-  "bucket": "pointless_check",
-  "bucket_name": "Pointless Check",
-  "sub": "Other / unclustered"
  },
  "789": {
   "bucket": "unsound_aggression",
@@ -3119,16 +3134,6 @@
   "bucket_name": "Unsound Aggression",
   "sub": "Unsound Nxf7/Nxf2 knight sacrifice"
  },
- "1838": {
-  "bucket": "unsound_aggression",
-  "bucket_name": "Unsound Aggression",
-  "sub": "Unsound Nxf7/Nxf2 knight sacrifice"
- },
- "1631": {
-  "bucket": "unsound_aggression",
-  "bucket_name": "Unsound Aggression",
-  "sub": "Unsound Nxf7/Nxf2 knight sacrifice"
- },
  "1604": {
   "bucket": "unsound_aggression",
   "bucket_name": "Unsound Aggression",
@@ -3153,56 +3158,6 @@
   "bucket": "unsound_aggression",
   "bucket_name": "Unsound Aggression",
   "sub": "Unsound Greek Gift (Bxh7/Bxh2) sacrifice"
- },
- "140": {
-  "bucket": "unsound_aggression",
-  "bucket_name": "Unsound Aggression",
-  "sub": "Speculative attack hangs piece (general)"
- },
- "102": {
-  "bucket": "unsound_aggression",
-  "bucket_name": "Unsound Aggression",
-  "sub": "Speculative attack hangs piece (general)"
- },
- "272": {
-  "bucket": "unsound_aggression",
-  "bucket_name": "Unsound Aggression",
-  "sub": "Speculative attack hangs piece (general)"
- },
- "457": {
-  "bucket": "unsound_aggression",
-  "bucket_name": "Unsound Aggression",
-  "sub": "Speculative attack hangs piece (general)"
- },
- "477": {
-  "bucket": "unsound_aggression",
-  "bucket_name": "Unsound Aggression",
-  "sub": "Speculative attack hangs piece (general)"
- },
- "1347": {
-  "bucket": "unsound_aggression",
-  "bucket_name": "Unsound Aggression",
-  "sub": "Speculative attack hangs piece (general)"
- },
- "1486": {
-  "bucket": "unsound_aggression",
-  "bucket_name": "Unsound Aggression",
-  "sub": "Speculative attack hangs piece (general)"
- },
- "117": {
-  "bucket": "unsound_aggression",
-  "bucket_name": "Unsound Aggression",
-  "sub": "Premature queen sortie or attack"
- },
- "1341": {
-  "bucket": "unsound_aggression",
-  "bucket_name": "Unsound Aggression",
-  "sub": "Premature queen sortie or attack"
- },
- "54": {
-  "bucket": "unsound_aggression",
-  "bucket_name": "Unsound Aggression",
-  "sub": "Premature queen sortie or attack"
  },
  "612": {
   "bucket": "unsound_aggression",
@@ -3254,20 +3209,60 @@
   "bucket_name": "Unsound Aggression",
   "sub": "Unsound Bxf7/Bxf2 bishop sacrifice in opening"
  },
- "1233": {
-  "bucket": "unsound_aggression",
-  "bucket_name": "Unsound Aggression",
-  "sub": "Missed concrete tactic for flashy move"
- },
- "1134": {
-  "bucket": "unsound_aggression",
-  "bucket_name": "Unsound Aggression",
-  "sub": "Missed concrete tactic for flashy move"
- },
  "1217": {
   "bucket": "unsound_aggression",
   "bucket_name": "Unsound Aggression",
-  "sub": "Missed concrete tactic for flashy move"
+  "sub": "Unsound Bxf7/Bxf2 bishop sacrifice in opening"
+ },
+ "140": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Speculative attack hangs piece (general)"
+ },
+ "102": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Speculative attack hangs piece (general)"
+ },
+ "272": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Speculative attack hangs piece (general)"
+ },
+ "457": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Speculative attack hangs piece (general)"
+ },
+ "477": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Speculative attack hangs piece (general)"
+ },
+ "1347": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Speculative attack hangs piece (general)"
+ },
+ "1486": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Speculative attack hangs piece (general)"
+ },
+ "117": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature queen sortie or attack"
+ },
+ "1341": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature queen sortie or attack"
+ },
+ "54": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Premature queen sortie or attack"
  },
  "1862": {
   "bucket": "unsound_aggression",
@@ -3278,6 +3273,11 @@
   "bucket": "unsound_aggression",
   "bucket_name": "Unsound Aggression",
   "sub": "Aggressive piece lunge to vulnerable square"
+ },
+ "1233": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Missed concrete tactic for flashy move"
  },
  "553": {
   "bucket": "unsound_aggression",
@@ -3290,6 +3290,21 @@
   "sub": "Hangs piece delivering futile or inferior check"
  },
  "1465": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Hangs piece delivering futile or inferior check"
+ },
+ "1838": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Hangs piece delivering futile or inferior check"
+ },
+ "1631": {
+  "bucket": "unsound_aggression",
+  "bucket_name": "Unsound Aggression",
+  "sub": "Hangs piece delivering futile or inferior check"
+ },
+ "1134": {
   "bucket": "unsound_aggression",
   "bucket_name": "Unsound Aggression",
   "sub": "Hangs piece delivering futile or inferior check"
@@ -3353,6 +3368,81 @@
   "bucket": "greedy_capture",
   "bucket_name": "Greedy Capture",
   "sub": "Greedy capture ignoring checkmate threat"
+ },
+ "1264": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy capture ignoring checkmate threat"
+ },
+ "1810": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Hangs queen via greedy capture or check"
+ },
+ "427": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Hangs queen via greedy capture or check"
+ },
+ "136": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Hangs queen via greedy capture or check"
+ },
+ "295": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Hangs queen via greedy capture or check"
+ },
+ "450": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Hangs queen via greedy capture or check"
+ },
+ "288": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Hangs queen via greedy capture or check"
+ },
+ "583": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Hangs queen via greedy capture or check"
+ },
+ "468": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Hangs queen via greedy capture or check"
+ },
+ "828": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Hangs queen via greedy capture or check"
+ },
+ "892": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Hangs queen via greedy capture or check"
+ },
+ "511": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Hangs queen via greedy capture or check"
+ },
+ "1831": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Hangs queen via greedy capture or check"
+ },
+ "785": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Hangs queen via greedy capture or check"
+ },
+ "926": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Hangs queen via greedy capture or check"
  },
  "16": {
   "bucket": "greedy_capture",
@@ -3429,71 +3519,6 @@
   "bucket_name": "Greedy Capture",
   "sub": "Knight captures poisoned/defended central pawn"
  },
- "1810": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Hangs queen via greedy capture or check"
- },
- "427": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Hangs queen via greedy capture or check"
- },
- "136": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Hangs queen via greedy capture or check"
- },
- "295": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Hangs queen via greedy capture or check"
- },
- "450": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Hangs queen via greedy capture or check"
- },
- "288": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Hangs queen via greedy capture or check"
- },
- "583": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Hangs queen via greedy capture or check"
- },
- "468": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Hangs queen via greedy capture or check"
- },
- "828": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Hangs queen via greedy capture or check"
- },
- "892": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Hangs queen via greedy capture or check"
- },
- "511": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Hangs queen via greedy capture or check"
- },
- "1831": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Hangs queen via greedy capture or check"
- },
- "785": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Hangs queen via greedy capture or check"
- },
  "287": {
   "bucket": "greedy_capture",
   "bucket_name": "Greedy Capture",
@@ -3554,12 +3579,7 @@
   "bucket_name": "Greedy Capture",
   "sub": "Greedy capture misses stronger tactic (general)"
  },
- "469": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Greedy capture misses stronger tactic (general)"
- },
- "889": {
+ "592": {
   "bucket": "greedy_capture",
   "bucket_name": "Greedy Capture",
   "sub": "Greedy capture misses stronger tactic (general)"
@@ -3674,6 +3694,11 @@
   "bucket_name": "Greedy Capture",
   "sub": "Queen trapped grabbing pawns (b/c/g file raids)"
  },
+ "469": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Queen trapped grabbing pawns (b/c/g file raids)"
+ },
  "933": {
   "bucket": "greedy_capture",
   "bucket_name": "Greedy Capture",
@@ -3754,35 +3779,10 @@
   "bucket_name": "Greedy Capture",
   "sub": "Greedy capture hangs own piece (general tactical oversight)"
  },
- "926": {
+ "889": {
   "bucket": "greedy_capture",
   "bucket_name": "Greedy Capture",
-  "sub": "Greedy capture misses available checkmate or mating attack"
- },
- "1064": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Greedy capture misses available checkmate or mating attack"
- },
- "954": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Greedy capture misses available checkmate or mating attack"
- },
- "270": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Greedy capture misses available checkmate or mating attack"
- },
- "1197": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Greedy capture misses available checkmate or mating attack"
- },
- "592": {
-  "bucket": "greedy_capture",
-  "bucket_name": "Greedy Capture",
-  "sub": "Greedy capture misses available checkmate or mating attack"
+  "sub": "Greedy capture hangs own piece (general tactical oversight)"
  },
  "332": {
   "bucket": "greedy_capture",
@@ -3884,30 +3884,45 @@
   "bucket_name": "Greedy Capture",
   "sub": "Greedy king capture in endgame"
  },
- "1586": {
+ "879": {
   "bucket": "greedy_capture",
   "bucket_name": "Greedy Capture",
-  "sub": "Greedy knight/minor piece capture hangs itself or another piece"
+  "sub": "Greedy Capture Loses Endgame Advantage"
  },
- "1887": {
+ "984": {
   "bucket": "greedy_capture",
   "bucket_name": "Greedy Capture",
-  "sub": "Greedy knight/minor piece capture hangs itself or another piece"
+  "sub": "Greedy Capture Loses Endgame Advantage"
  },
- "1930": {
+ "495": {
   "bucket": "greedy_capture",
   "bucket_name": "Greedy Capture",
-  "sub": "Greedy knight/minor piece capture hangs itself or another piece"
+  "sub": "Greedy Capture Loses Endgame Advantage"
  },
- "1264": {
+ "1154": {
   "bucket": "greedy_capture",
   "bucket_name": "Greedy Capture",
-  "sub": "Greedy knight/minor piece capture hangs itself or another piece"
+  "sub": "Greedy Capture Loses Endgame Advantage"
  },
- "1883": {
+ "1386": {
   "bucket": "greedy_capture",
   "bucket_name": "Greedy Capture",
-  "sub": "Greedy knight/minor piece capture hangs itself or another piece"
+  "sub": "Greedy Capture Loses Endgame Advantage"
+ },
+ "651": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy Capture Loses Endgame Advantage"
+ },
+ "807": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy Capture Loses Endgame Advantage"
+ },
+ "1069": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy Capture Loses Endgame Advantage"
  },
  "1362": {
   "bucket": "greedy_capture",
@@ -4079,6 +4094,41 @@
   "bucket_name": "Greedy Capture",
   "sub": "Greedy pawn capture hangs piece or misses promotion"
  },
+ "1064": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy capture misses available checkmate or mating attack"
+ },
+ "954": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy capture misses available checkmate or mating attack"
+ },
+ "270": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy capture misses available checkmate or mating attack"
+ },
+ "1197": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy capture misses available checkmate or mating attack"
+ },
+ "1007": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy capture exposes piece to fork"
+ },
+ "155": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy capture exposes piece to fork"
+ },
+ "1883": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy capture exposes piece to fork"
+ },
  "617": {
   "bucket": "greedy_capture",
   "bucket_name": "Greedy Capture",
@@ -4109,15 +4159,20 @@
   "bucket_name": "Greedy Capture",
   "sub": "Rook grabs passed pawn and hangs"
  },
- "1007": {
+ "1586": {
   "bucket": "greedy_capture",
   "bucket_name": "Greedy Capture",
-  "sub": "Greedy capture exposes piece to fork"
+  "sub": "Greedy knight/minor piece capture hangs itself or another piece"
  },
- "155": {
+ "1887": {
   "bucket": "greedy_capture",
   "bucket_name": "Greedy Capture",
-  "sub": "Greedy capture exposes piece to fork"
+  "sub": "Greedy knight/minor piece capture hangs itself or another piece"
+ },
+ "1930": {
+  "bucket": "greedy_capture",
+  "bucket_name": "Greedy Capture",
+  "sub": "Greedy knight/minor piece capture hangs itself or another piece"
  },
  "1410": {
   "bucket": "greedy_capture",
@@ -4170,11 +4225,6 @@
   "sub": "Missed free major piece capture"
  },
  "346": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Missed free major piece capture"
- },
- "1901": {
   "bucket": "missed_hanging",
   "bucket_name": "Missed Hanging Piece",
   "sub": "Missed free major piece capture"
@@ -4354,6 +4404,11 @@
   "bucket_name": "Missed Hanging Piece",
   "sub": "Missed free queen capture"
  },
+ "1983": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed free queen capture"
+ },
  "878": {
   "bucket": "missed_hanging",
   "bucket_name": "Missed Hanging Piece",
@@ -4519,6 +4574,11 @@
   "bucket_name": "Missed Hanging Piece",
   "sub": "Missed free piece capture (general)"
  },
+ "22": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed free piece capture (general)"
+ },
  "1044": {
   "bucket": "missed_hanging",
   "bucket_name": "Missed Hanging Piece",
@@ -4645,6 +4705,26 @@
   "sub": "Missed free capture for quiet/passive move (middlegame)"
  },
  "178": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed free capture for quiet/passive move (middlegame)"
+ },
+ "1349": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed free capture for quiet/passive move (middlegame)"
+ },
+ "1602": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed free capture for quiet/passive move (middlegame)"
+ },
+ "1901": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed free capture for quiet/passive move (middlegame)"
+ },
+ "129": {
   "bucket": "missed_hanging",
   "bucket_name": "Missed Hanging Piece",
   "sub": "Missed free capture for quiet/passive move (middlegame)"
@@ -4994,51 +5074,6 @@
   "bucket_name": "Missed Hanging Piece",
   "sub": "Missed bishop captures major piece (rook or queen)"
  },
- "236": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Missed pawn captures piece"
- },
- "486": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Missed pawn captures piece"
- },
- "1840": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Missed pawn captures piece"
- },
- "1793": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Missed pawn captures piece"
- },
- "1084": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Missed pawn captures piece"
- },
- "2004": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Missed pawn captures piece"
- },
- "11": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Missed pawn captures piece"
- },
- "22": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Missed pawn captures piece"
- },
- "321": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Missed pawn captures piece"
- },
  "3": {
   "bucket": "missed_hanging",
   "bucket_name": "Missed Hanging Piece",
@@ -5100,6 +5135,11 @@
   "sub": "Missed free capture in opening (developing instead of capturing)"
  },
  "1119": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed free capture in opening (developing instead of capturing)"
+ },
+ "321": {
   "bucket": "missed_hanging",
   "bucket_name": "Missed Hanging Piece",
   "sub": "Missed free capture in opening (developing instead of capturing)"
@@ -5239,41 +5279,6 @@
   "bucket_name": "Missed Hanging Piece",
   "sub": "King move misses available capture in endgame"
  },
- "153": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Queen repositioning misses available capture"
- },
- "439": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Queen repositioning misses available capture"
- },
- "504": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Queen repositioning misses available capture"
- },
- "1349": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Queen repositioning misses available capture"
- },
- "1602": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Queen repositioning misses available capture"
- },
- "689": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Queen repositioning misses available capture"
- },
- "426": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Queen repositioning misses available capture"
- },
  "93": {
   "bucket": "missed_hanging",
   "bucket_name": "Missed Hanging Piece",
@@ -5299,10 +5304,65 @@
   "bucket_name": "Missed Hanging Piece",
   "sub": "Check or flashy move instead of simple capture"
  },
- "129": {
+ "11": {
   "bucket": "missed_hanging",
   "bucket_name": "Missed Hanging Piece",
   "sub": "Check or flashy move instead of simple capture"
+ },
+ "153": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Queen repositioning misses available capture"
+ },
+ "439": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Queen repositioning misses available capture"
+ },
+ "504": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Queen repositioning misses available capture"
+ },
+ "689": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Queen repositioning misses available capture"
+ },
+ "426": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Queen repositioning misses available capture"
+ },
+ "236": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed pawn captures piece"
+ },
+ "486": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed pawn captures piece"
+ },
+ "1840": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed pawn captures piece"
+ },
+ "1793": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed pawn captures piece"
+ },
+ "1084": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed pawn captures piece"
+ },
+ "2004": {
+  "bucket": "missed_hanging",
+  "bucket_name": "Missed Hanging Piece",
+  "sub": "Missed pawn captures piece"
  },
  "1401": {
   "bucket": "missed_hanging",
@@ -5313,11 +5373,6 @@
   "bucket": "missed_hanging",
   "bucket_name": "Missed Hanging Piece",
   "sub": "Missed capturing hanging queen in opening"
- },
- "1983": {
-  "bucket": "missed_hanging",
-  "bucket_name": "Missed Hanging Piece",
-  "sub": "Missed free queen/rook capture (specific piece patterns)"
  },
  "283": {
   "bucket": "missed_hanging",
@@ -5394,6 +5449,11 @@
   "bucket_name": "Endgame Technique",
   "sub": "Missed Critical Pawn Break or Exchange"
  },
+ "372": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Missed Critical Pawn Break or Exchange"
+ },
  "555": {
   "bucket": "endgame_technique",
   "bucket_name": "Endgame Technique",
@@ -5460,6 +5520,11 @@
   "sub": "Missed Critical Tempo in Pawn Endgame"
  },
  "1220": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Missed Critical Tempo in Pawn Endgame"
+ },
+ "1999": {
   "bucket": "endgame_technique",
   "bucket_name": "Endgame Technique",
   "sub": "Missed Critical Tempo in Pawn Endgame"
@@ -5555,6 +5620,11 @@
   "sub": "Ignores Enemy Passed Pawn / Fails to Blockade"
  },
  "1323": {
+  "bucket": "endgame_technique",
+  "bucket_name": "Endgame Technique",
+  "sub": "Ignores Enemy Passed Pawn / Fails to Blockade"
+ },
+ "1852": {
   "bucket": "endgame_technique",
   "bucket_name": "Endgame Technique",
   "sub": "Ignores Enemy Passed Pawn / Fails to Blockade"
@@ -6009,141 +6079,6 @@
   "bucket_name": "Endgame Technique",
   "sub": "King Retreats Passively Instead of Activating"
  },
- "1852": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "King Retreats Passively Instead of Activating"
- },
- "38": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "674": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "876": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "894": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "1014": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "1346": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "1615": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "1522": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "89": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "432": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "50": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "367": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "1130": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "1379": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "1127": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "919": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "977": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "1354": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "1420": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "1512": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "1872": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "1671": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "754": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "900": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "1900": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
- "1106": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
- },
  "211": {
   "bucket": "endgame_technique",
   "bucket_name": "Endgame Technique",
@@ -6229,61 +6164,6 @@
   "bucket_name": "Endgame Technique",
   "sub": "King Abandons Critical Duty (Blockade/Escort)"
  },
- "879": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Greedy Capture Loses Endgame Advantage"
- },
- "984": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Greedy Capture Loses Endgame Advantage"
- },
- "495": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Greedy Capture Loses Endgame Advantage"
- },
- "1154": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Greedy Capture Loses Endgame Advantage"
- },
- "1386": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Greedy Capture Loses Endgame Advantage"
- },
- "651": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Greedy Capture Loses Endgame Advantage"
- },
- "807": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Greedy Capture Loses Endgame Advantage"
- },
- "1069": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Greedy Capture Loses Endgame Advantage"
- },
- "176": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Trade into Pawn Endgame"
- },
- "1560": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Trade into Pawn Endgame"
- },
- "201": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Missed Winning Trade into Pawn Endgame"
- },
  "371": {
   "bucket": "endgame_technique",
   "bucket_name": "Endgame Technique",
@@ -6323,16 +6203,6 @@
   "bucket": "endgame_technique",
   "bucket_name": "Endgame Technique",
   "sub": "King Chases Wrong Pawn / Misses Counterplay"
- },
- "1999": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Other / unclustered"
- },
- "372": {
-  "bucket": "endgame_technique",
-  "bucket_name": "Endgame Technique",
-  "sub": "Other / unclustered"
  },
  "1313": {
   "bucket": "missed_tactic",
@@ -6555,6 +6425,11 @@
   "sub": "Missed Tactical Capture/Combination (General)"
  },
  "327": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactical Capture/Combination (General)"
+ },
+ "1221": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
   "sub": "Missed Tactical Capture/Combination (General)"
@@ -6859,6 +6734,16 @@
   "bucket_name": "Missed Tactic",
   "sub": "Missed Knight Fork/Check Winning Material"
  },
+ "151": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Knight Fork/Check Winning Material"
+ },
+ "721": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Knight Fork/Check Winning Material"
+ },
  "1112": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
@@ -6970,6 +6855,11 @@
   "sub": "Missed Winning Rook Tactic/Invasion"
  },
  "449": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Rook Tactic/Invasion"
+ },
+ "1542": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
   "sub": "Missed Winning Rook Tactic/Invasion"
@@ -7179,65 +7069,10 @@
   "bucket_name": "Missed Tactic",
   "sub": "Missed Bishop Sacrifice/Tactical Shot (Bxh7+, Bxf7+, Bxf2+)"
  },
- "1709": {
+ "1980": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Missed Decisive King Attack/Sacrifice"
- },
- "1036": {
-  "bucket": "missed_tactic",
-  "bucket_name": "Missed Tactic",
-  "sub": "Missed Decisive King Attack/Sacrifice"
- },
- "763": {
-  "bucket": "missed_tactic",
-  "bucket_name": "Missed Tactic",
-  "sub": "Missed Decisive King Attack/Sacrifice"
- },
- "653": {
-  "bucket": "missed_tactic",
-  "bucket_name": "Missed Tactic",
-  "sub": "Missed Decisive King Attack/Sacrifice"
- },
- "620": {
-  "bucket": "missed_tactic",
-  "bucket_name": "Missed Tactic",
-  "sub": "Missed Decisive King Attack/Sacrifice"
- },
- "1528": {
-  "bucket": "missed_tactic",
-  "bucket_name": "Missed Tactic",
-  "sub": "Missed Decisive King Attack/Sacrifice"
- },
- "1866": {
-  "bucket": "missed_tactic",
-  "bucket_name": "Missed Tactic",
-  "sub": "Missed Decisive King Attack/Sacrifice"
- },
- "374": {
-  "bucket": "missed_tactic",
-  "bucket_name": "Missed Tactic",
-  "sub": "Missed Decisive King Attack/Sacrifice"
- },
- "1559": {
-  "bucket": "missed_tactic",
-  "bucket_name": "Missed Tactic",
-  "sub": "Missed Decisive King Attack/Sacrifice"
- },
- "203": {
-  "bucket": "missed_tactic",
-  "bucket_name": "Missed Tactic",
-  "sub": "Missed Decisive King Attack/Sacrifice"
- },
- "1622": {
-  "bucket": "missed_tactic",
-  "bucket_name": "Missed Tactic",
-  "sub": "Missed Decisive King Attack/Sacrifice"
- },
- "1626": {
-  "bucket": "missed_tactic",
-  "bucket_name": "Missed Tactic",
-  "sub": "Missed Decisive King Attack/Sacrifice"
+  "sub": "Missed Bishop Sacrifice/Tactical Shot (Bxh7+, Bxf7+, Bxf2+)"
  },
  "342": {
   "bucket": "missed_tactic",
@@ -7399,6 +7234,76 @@
   "bucket_name": "Missed Tactic",
   "sub": "Missed Forcing Tactical Blow (Quiet/Passive Move Instead)"
  },
+ "1492": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Forcing Tactical Blow (Quiet/Passive Move Instead)"
+ },
+ "223": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Forcing Tactical Blow (Quiet/Passive Move Instead)"
+ },
+ "1709": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Decisive King Attack/Sacrifice"
+ },
+ "1036": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Decisive King Attack/Sacrifice"
+ },
+ "763": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Decisive King Attack/Sacrifice"
+ },
+ "653": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Decisive King Attack/Sacrifice"
+ },
+ "620": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Decisive King Attack/Sacrifice"
+ },
+ "1528": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Decisive King Attack/Sacrifice"
+ },
+ "1866": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Decisive King Attack/Sacrifice"
+ },
+ "374": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Decisive King Attack/Sacrifice"
+ },
+ "1559": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Decisive King Attack/Sacrifice"
+ },
+ "203": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Decisive King Attack/Sacrifice"
+ },
+ "1622": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Decisive King Attack/Sacrifice"
+ },
+ "1626": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Decisive King Attack/Sacrifice"
+ },
  "672": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
@@ -7485,6 +7390,11 @@
   "sub": "Missed Central Pawn Break/Thrust"
  },
  "1273": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Central Pawn Break/Thrust"
+ },
+ "998": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
   "sub": "Missed Central Pawn Break/Thrust"
@@ -7614,6 +7524,126 @@
   "bucket_name": "Missed Tactic",
   "sub": "Missed Forcing Check/Capture Sequence"
  },
+ "1889": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Forcing Check/Capture Sequence"
+ },
+ "27": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "1056": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "1247": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "1957": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "440": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "1787": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "830": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "1761": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "1710": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "1445": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "240": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "757": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "1675": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "466": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "1147": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "1182": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "58": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "751": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "1479": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "1612": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "1625": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "33": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
+ "1409": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed winning capture or forcing tactic"
+ },
  "1099": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
@@ -7699,60 +7729,75 @@
   "bucket_name": "Missed Tactic",
   "sub": "Missed Specific Piece Tactics (Removing Defenders, Pins, Trapping)"
  },
- "1542": {
+ "79": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Other / unclustered"
+  "sub": "Missed Specific Piece Tactics (Removing Defenders, Pins, Trapping)"
  },
- "1921": {
+ "1648": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Other / unclustered"
+  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
  },
- "1492": {
+ "390": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Other / unclustered"
+  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
  },
- "1889": {
+ "812": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Other / unclustered"
+  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
  },
- "151": {
+ "456": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Other / unclustered"
+  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
  },
- "1221": {
+ "1236": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Other / unclustered"
+  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
  },
- "721": {
+ "2016": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Other / unclustered"
+  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+ },
+ "1669": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+ },
+ "626": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+ },
+ "111": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+ },
+ "1468": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+ },
+ "1795": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+ },
+ "1686": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
  },
  "1739": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Other / unclustered"
- },
- "1980": {
-  "bucket": "missed_tactic",
-  "bucket_name": "Missed Tactic",
-  "sub": "Other / unclustered"
- },
- "223": {
-  "bucket": "missed_tactic",
-  "bucket_name": "Missed Tactic",
-  "sub": "Other / unclustered"
- },
- "1678": {
-  "bucket": "missed_tactic",
-  "bucket_name": "Missed Tactic",
-  "sub": "Other / unclustered"
+  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
  },
  "1551": {
   "bucket": "missed_tactic",
@@ -7889,65 +7934,140 @@
   "bucket_name": "Missed Tactic",
   "sub": "Missed Opening Tactical Shot/Development"
  },
- "1648": {
+ "1678": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+  "sub": "Missed Opening Tactical Shot/Development"
  },
- "390": {
+ "38": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
  },
- "812": {
+ "674": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
  },
- "456": {
+ "876": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
  },
- "1236": {
+ "894": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
  },
- "2016": {
+ "1014": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
  },
- "1669": {
+ "1346": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
  },
- "626": {
+ "1615": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
  },
- "111": {
+ "1522": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
  },
- "1468": {
+ "89": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
  },
- "1795": {
+ "432": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
  },
- "1686": {
+ "50": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
-  "sub": "Missed Tactic Due to Greedy/Routine Pawn Push"
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
+ },
+ "367": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
+ },
+ "1130": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
+ },
+ "1379": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
+ },
+ "1127": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
+ },
+ "919": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
+ },
+ "977": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
+ },
+ "1354": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
+ },
+ "1420": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
+ },
+ "1512": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
+ },
+ "1872": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
+ },
+ "1671": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
+ },
+ "754": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
+ },
+ "900": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
+ },
+ "1900": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
+ },
+ "1106": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Missed Winning Capture or Forcing Tactic in Endgame"
  },
  "687": {
   "bucket": "missed_tactic",
@@ -7999,11 +8119,6 @@
   "bucket_name": "Missed Tactic",
   "sub": "Missed Decisive Forcing Continuation (General)"
  },
- "79": {
-  "bucket": "missed_tactic",
-  "bucket_name": "Missed Tactic",
-  "sub": "Missed Decisive Forcing Continuation (General)"
- },
  "7": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
@@ -8034,6 +8149,11 @@
   "bucket_name": "Missed Tactic",
   "sub": "Missed Decisive Forcing Continuation (General)"
  },
+ "1921": {
+  "bucket": "missed_tactic",
+  "bucket_name": "Missed Tactic",
+  "sub": "Misplaced Knight (Unstable Outpost/Trap)"
+ },
  "1331": {
   "bucket": "missed_tactic",
   "bucket_name": "Missed Tactic",
@@ -8050,11 +8170,6 @@
   "sub": "Hangs queen to simple capture (piece controls queen's square)"
  },
  "100": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs queen to simple capture (piece controls queen's square)"
- },
- "133": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
   "sub": "Hangs queen to simple capture (piece controls queen's square)"
@@ -8199,6 +8314,16 @@
   "bucket_name": "Left Piece Hanging",
   "sub": "Hangs queen to simple capture (piece controls queen's square)"
  },
+ "387": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs queen to simple capture (piece controls queen's square)"
+ },
+ "1189": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs queen to simple capture (piece controls queen's square)"
+ },
  "521": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
@@ -8309,40 +8434,80 @@
   "bucket_name": "Left Piece Hanging",
   "sub": "Hangs piece with aggressive or active-looking move"
  },
- "262": {
+ "964": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece giving check or flashy invasion"
+  "sub": "Hangs piece with aggressive or active-looking move"
  },
- "1170": {
+ "1261": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece giving check or flashy invasion"
+  "sub": "Hangs piece with aggressive or active-looking move"
  },
- "1811": {
+ "563": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece giving check or flashy invasion"
+  "sub": "Hangs piece with aggressive or active-looking move"
  },
- "63": {
+ "1439": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece giving check or flashy invasion"
+  "sub": "Hangs piece to knight fork or knight tactics"
  },
- "1886": {
+ "1400": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece giving check or flashy invasion"
+  "sub": "Hangs piece to knight fork or knight tactics"
+ },
+ "1703": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece to knight fork or knight tactics"
+ },
+ "1995": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece to knight fork or knight tactics"
+ },
+ "292": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece to knight fork or knight tactics"
+ },
+ "1417": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece to knight fork or knight tactics"
+ },
+ "779": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece to knight fork or knight tactics"
+ },
+ "685": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece to knight fork or knight tactics"
+ },
+ "1344": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece to knight fork or knight tactics"
+ },
+ "1972": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece to knight fork or knight tactics"
+ },
+ "18": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece to knight fork or knight tactics"
  },
  "1965": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece giving check or flashy invasion"
- },
- "364": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece giving check or flashy invasion"
+  "sub": "Hangs piece to knight fork or knight tactics"
  },
  "251": {
   "bucket": "left_hanging",
@@ -8443,6 +8608,106 @@
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
   "sub": "Hangs bishop on open diagonal or undefended square"
+ },
+ "588": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs bishop on open diagonal or undefended square"
+ },
+ "1769": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs bishop on open diagonal or undefended square"
+ },
+ "605": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs bishop on open diagonal or undefended square"
+ },
+ "1982": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "71": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "578": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "190": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "104": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "698": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "1179": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "1996": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "1711": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "1461": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "1959": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "62": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "1842": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "471": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "133": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "364": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
+ },
+ "347": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece by castling or routine king move"
  },
  "1913": {
   "bucket": "left_hanging",
@@ -8569,180 +8834,25 @@
   "bucket_name": "Left Piece Hanging",
   "sub": "Hangs piece in the opening (general development blunder)"
  },
- "1982": {
+ "1402": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece by castling or routine king move"
+  "sub": "Hangs piece in the opening (general development blunder)"
  },
- "71": {
+ "26": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece by castling or routine king move"
+  "sub": "Hangs piece in the opening (general development blunder)"
  },
- "578": {
+ "220": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece by castling or routine king move"
+  "sub": "Hangs piece in the opening (general development blunder)"
  },
- "190": {
+ "1727": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece by castling or routine king move"
- },
- "104": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece by castling or routine king move"
- },
- "698": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece by castling or routine king move"
- },
- "1179": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece by castling or routine king move"
- },
- "1996": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece by castling or routine king move"
- },
- "1711": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece by castling or routine king move"
- },
- "1461": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece by castling or routine king move"
- },
- "1959": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece by castling or routine king move"
- },
- "62": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece by castling or routine king move"
- },
- "1842": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece by castling or routine king move"
- },
- "529": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "678": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "801": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "1384": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "1450": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "1638": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "205": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "621": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "1270": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "1493": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "1718": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "853": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "1443": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "347": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "663": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "1568": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "517": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "1726": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "2003": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "1850": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "973": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
- },
- "231": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs rook to minor piece or on open line"
+  "sub": "Hangs piece in the opening (general development blunder)"
  },
  "1375": {
   "bucket": "left_hanging",
@@ -8834,55 +8944,10 @@
   "bucket_name": "Left Piece Hanging",
   "sub": "Pawn push hangs own material"
  },
- "103": {
+ "1743": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs queen to knight fork"
- },
- "243": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs queen to knight fork"
- },
- "152": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs queen to knight fork"
- },
- "226": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs queen to knight fork"
- },
- "1295": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs queen to knight fork"
- },
- "1856": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs queen to knight fork"
- },
- "1918": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs queen to knight fork"
- },
- "1223": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs queen to knight fork"
- },
- "308": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs queen to knight fork"
- },
- "2019": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs queen to knight fork"
+  "sub": "Pawn push hangs own material"
  },
  "1262": {
   "bucket": "left_hanging",
@@ -8989,125 +9054,200 @@
   "bucket_name": "Left Piece Hanging",
   "sub": "Hangs piece ignoring existing threat"
  },
- "27": {
+ "459": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs piece ignoring existing threat"
  },
- "1056": {
+ "1890": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs piece ignoring existing threat"
  },
- "1247": {
+ "2042": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs piece ignoring existing threat"
  },
- "1957": {
+ "901": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs piece ignoring existing threat"
  },
- "440": {
+ "1286": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs piece ignoring existing threat"
  },
- "1787": {
+ "164": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs piece ignoring existing threat"
  },
- "830": {
+ "1811": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs piece ignoring existing threat"
  },
- "1761": {
+ "529": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "1710": {
+ "678": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "1445": {
+ "801": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "240": {
+ "1384": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "757": {
+ "1450": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "998": {
+ "1638": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "1675": {
+ "205": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "466": {
+ "621": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "1147": {
+ "1270": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "1182": {
+ "1493": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "58": {
+ "1718": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "751": {
+ "853": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "1479": {
+ "1443": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "1612": {
+ "663": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "1625": {
+ "1568": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "33": {
+ "517": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
  },
- "1409": {
+ "1726": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Missed winning capture or forcing tactic"
+  "sub": "Hangs rook to minor piece or on open line"
+ },
+ "2003": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs rook to minor piece or on open line"
+ },
+ "1850": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs rook to minor piece or on open line"
+ },
+ "973": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs rook to minor piece or on open line"
+ },
+ "231": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs rook to minor piece or on open line"
+ },
+ "1508": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs rook to minor piece or on open line"
+ },
+ "103": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs queen to knight fork"
+ },
+ "243": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs queen to knight fork"
+ },
+ "152": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs queen to knight fork"
+ },
+ "226": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs queen to knight fork"
+ },
+ "1295": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs queen to knight fork"
+ },
+ "1856": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs queen to knight fork"
+ },
+ "1918": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs queen to knight fork"
+ },
+ "1223": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs queen to knight fork"
+ },
+ "308": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs queen to knight fork"
+ },
+ "2019": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs queen to knight fork"
  },
  "1581": {
   "bucket": "left_hanging",
@@ -9179,60 +9319,10 @@
   "bucket_name": "Left Piece Hanging",
   "sub": "Hangs piece with quiet or passive move"
  },
- "1439": {
+ "1318": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece to knight fork or knight tactics"
- },
- "1400": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece to knight fork or knight tactics"
- },
- "1703": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece to knight fork or knight tactics"
- },
- "1995": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece to knight fork or knight tactics"
- },
- "292": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece to knight fork or knight tactics"
- },
- "1417": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece to knight fork or knight tactics"
- },
- "779": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece to knight fork or knight tactics"
- },
- "685": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece to knight fork or knight tactics"
- },
- "1344": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece to knight fork or knight tactics"
- },
- "1972": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece to knight fork or knight tactics"
- },
- "18": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece to knight fork or knight tactics"
+  "sub": "Hangs piece with quiet or passive move"
  },
  "1517": {
   "bucket": "left_hanging",
@@ -9294,145 +9384,10 @@
   "bucket_name": "Left Piece Hanging",
   "sub": "Hangs knight on undefended or aggressive square"
  },
- "471": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "588": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "459": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "1743": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "387": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
  "1471": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "1890": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "964": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "1261": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "1508": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "1189": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "1402": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "1318": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "2042": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "26": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "901": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "1156": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "1269": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "1286": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "1472": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "1769": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "164": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "196": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "401": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "605": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "220": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "0": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
- },
- "1727": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Other / unclustered"
+  "sub": "Hangs knight on undefended or aggressive square"
  },
  "46": {
   "bucket": "left_hanging",
@@ -9519,6 +9474,21 @@
   "bucket_name": "Left Piece Hanging",
   "sub": "Hangs piece to pawn capture or pawn fork"
  },
+ "1156": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece to pawn capture or pawn fork"
+ },
+ "1269": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece to pawn capture or pawn fork"
+ },
+ "401": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece to pawn capture or pawn fork"
+ },
  "21": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
@@ -9579,75 +9549,15 @@
   "bucket_name": "Left Piece Hanging",
   "sub": "Hangs piece via wrong capture order or move-order error"
  },
- "51": {
+ "1472": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece ignoring central pawn tension"
+  "sub": "Hangs piece via wrong capture order or move-order error"
  },
- "351": {
+ "1700": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece ignoring central pawn tension"
- },
- "1337": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece ignoring central pawn tension"
- },
- "997": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece ignoring central pawn tension"
- },
- "1025": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece ignoring central pawn tension"
- },
- "1237": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece ignoring central pawn tension"
- },
- "1723": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece ignoring central pawn tension"
- },
- "359": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece ignoring central pawn tension"
- },
- "94": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece ignoring central pawn tension"
- },
- "1152": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece ignoring central pawn tension"
- },
- "554": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece ignoring central pawn tension"
- },
- "446": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece ignoring central pawn tension"
- },
- "1960": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece ignoring central pawn tension"
- },
- "393": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece ignoring central pawn tension"
+  "sub": "Hangs piece via wrong capture order or move-order error"
  },
  "42": {
   "bucket": "left_hanging",
@@ -9804,6 +9714,86 @@
   "bucket_name": "Left Piece Hanging",
   "sub": "Hangs piece in endgame (king move or careless play)"
  },
+ "196": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece in endgame (king move or careless play)"
+ },
+ "63": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece in endgame (king move or careless play)"
+ },
+ "51": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece ignoring central pawn tension"
+ },
+ "351": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece ignoring central pawn tension"
+ },
+ "1337": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece ignoring central pawn tension"
+ },
+ "997": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece ignoring central pawn tension"
+ },
+ "1025": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece ignoring central pawn tension"
+ },
+ "1237": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece ignoring central pawn tension"
+ },
+ "1723": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece ignoring central pawn tension"
+ },
+ "359": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece ignoring central pawn tension"
+ },
+ "94": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece ignoring central pawn tension"
+ },
+ "1152": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece ignoring central pawn tension"
+ },
+ "554": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece ignoring central pawn tension"
+ },
+ "446": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece ignoring central pawn tension"
+ },
+ "1960": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece ignoring central pawn tension"
+ },
+ "393": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece ignoring central pawn tension"
+ },
  "99": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
@@ -9845,6 +9835,11 @@
   "sub": "Hangs queen by moving defender or ignoring threat"
  },
  "494": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs queen by moving defender or ignoring threat"
+ },
+ "0": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
   "sub": "Hangs queen by moving defender or ignoring threat"
@@ -9898,6 +9893,21 @@
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
   "sub": "Refuses queen trade and hangs material"
+ },
+ "262": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece giving check or flashy invasion"
+ },
+ "1170": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece giving check or flashy invasion"
+ },
+ "1886": {
+  "bucket": "left_hanging",
+  "bucket_name": "Left Piece Hanging",
+  "sub": "Hangs piece giving check or flashy invasion"
  },
  "537": {
   "bucket": "left_hanging",
@@ -9984,11 +9994,6 @@
   "bucket_name": "Left Piece Hanging",
   "sub": "Quiet queen move misses tactic or hangs material"
  },
- "563": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Quiet queen move misses tactic or hangs material"
- },
  "1145": {
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
@@ -10018,10 +10023,5 @@
   "bucket": "left_hanging",
   "bucket_name": "Left Piece Hanging",
   "sub": "Premature promotion hangs queen"
- },
- "1700": {
-  "bucket": "left_hanging",
-  "bucket_name": "Left Piece Hanging",
-  "sub": "Hangs piece declining trade or ignoring recapture"
  }
 }

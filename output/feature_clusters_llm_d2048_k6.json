@@ -44,14 +44,14 @@
   {
    "name": "Counterproductive Knight and Queen Maneuvers",
    "n": 6,
-   "fire": 3.27,
+   "fire": 2.41,
    "features": [
     "946",
     "171",
     "397",
     "1010",
     "1173",
-    "1139"
+    "1298"
    ]
   },
   {
@@ -85,31 +85,33 @@
    ]
   },
   {
-   "name": "Ignoring Trapped or Endangered Pieces",
-   "n": 5,
-   "fire": 1.22,
+   "name": "Passive Play in Won Positions",
+   "n": 6,
+   "fire": 1.66,
    "features": [
-    "31",
-    "1129",
-    "1790",
-    "274",
-    "1926"
+    "1541",
+    "661",
+    "1578",
+    "971",
+    "1230",
+    "1139"
    ]
   },
   {
    "name": "Slow Developing Moves Instead of Forcing Continuations",
-   "n": 9,
-   "fire": 1.15,
+   "n": 10,
+   "fire": 1.6,
    "features": [
     "1526",
     "1389",
     "319",
     "1750",
     "1361",
-    "1298",
     "622",
     "1051",
-    "66"
+    "66",
+    "274",
+    "1926"
    ]
   },
   {
@@ -128,15 +130,13 @@
    ]
   },
   {
-   "name": "Passive Play in Won Positions",
-   "n": 5,
-   "fire": 0.72,
+   "name": "Ignoring Trapped or Endangered Pieces",
+   "n": 3,
+   "fire": 0.69,
    "features": [
-    "1541",
-    "661",
-    "1578",
-    "971",
-    "1230"
+    "31",
+    "1129",
+    "1790"
    ]
   },
   {
@@ -180,20 +180,19 @@
   },
   {
    "name": "Aggressive or active moves that self-destruct defensively",
-   "n": 5,
-   "fire": 4.18,
+   "n": 4,
+   "fire": 4.07,
    "features": [
     "1753",
     "1028",
     "795",
-    "633",
-    "1849"
+    "633"
    ]
   },
   {
    "name": "Rook or major piece abandons king defense for activity",
-   "n": 7,
-   "fire": 3.71,
+   "n": 8,
+   "fire": 3.77,
    "features": [
     "1003",
     "2007",
@@ -201,7 +200,8 @@
     "1756",
     "820",
     "1764",
-    "505"
+    "505",
+    "824"
    ]
   },
   {
@@ -219,8 +219,8 @@
   },
   {
    "name": "General piece move abandons defense, hangs material",
-   "n": 19,
-   "fire": 1.86,
+   "n": 21,
+   "fire": 1.99,
    "features": [
     "1970",
     "548",
@@ -240,17 +240,9 @@
     "128",
     "657",
     "1463",
-    "202"
-   ]
-  },
-  {
-   "name": "Moves defender, hangs specific pawn",
-   "n": 3,
-   "fire": 1.63,
-   "features": [
-    "611",
-    "1719",
-    "160"
+    "202",
+    "1849",
+    "1195"
    ]
   },
   {
@@ -263,6 +255,15 @@
     "131",
     "643",
     "875"
+   ]
+  },
+  {
+   "name": "Moves defender, hangs specific pawn",
+   "n": 2,
+   "fire": 1.29,
+   "features": [
+    "611",
+    "1719"
    ]
   },
   {
@@ -282,6 +283,22 @@
    ]
   },
   {
+   "name": "Back-rank defense abandoned, allowing mate or decisive tactics",
+   "n": 9,
+   "fire": 1.09,
+   "features": [
+    "1775",
+    "473",
+    "36",
+    "903",
+    "666",
+    "1714",
+    "95",
+    "322",
+    "160"
+   ]
+  },
+  {
    "name": "Moves piece off blocking square, exposing discovered attack",
    "n": 3,
    "fire": 0.95,
@@ -292,41 +309,24 @@
    ]
   },
   {
-   "name": "Back-rank defense abandoned, allowing mate or decisive tactics",
-   "n": 10,
-   "fire": 0.92,
+   "name": "Refuses necessary trade or exchange, leaving position collapsing",
+   "n": 4,
+   "fire": 0.38,
    "features": [
-    "1775",
-    "473",
-    "36",
-    "903",
-    "666",
-    "1714",
-    "95",
-    "322",
-    "824",
+    "1428",
+    "736",
+    "1958",
     "1190"
    ]
   },
   {
-   "name": "Refuses necessary trade or exchange, leaving position collapsing",
-   "n": 3,
-   "fire": 0.27,
-   "features": [
-    "1428",
-    "736",
-    "1958"
-   ]
-  },
-  {
    "name": "King abandons defensive post in endgame",
-   "n": 4,
-   "fire": 0.11,
+   "n": 3,
+   "fire": 0.09,
    "features": [
     "365",
     "280",
-    "74",
-    "1195"
+    "74"
    ]
   },
   {
@@ -341,8 +341,8 @@
  "premature_trade": [
   {
    "name": "Trades into Lost Pawn Endgame (Major Piece Exchange)",
-   "n": 16,
-   "fire": 13.79,
+   "n": 18,
+   "fire": 13.84,
    "features": [
     "57",
     "1363",
@@ -359,7 +359,9 @@
     "1702",
     "2018",
     "304",
-    "1804"
+    "1804",
+    "1433",
+    "1816"
    ]
   },
   {
@@ -389,8 +391,8 @@
   },
   {
    "name": "Premature Queen Trade Kills Attack on Exposed King",
-   "n": 12,
-   "fire": 2.78,
+   "n": 15,
+   "fire": 3.42,
    "features": [
     "1681",
     "1598",
@@ -403,13 +405,16 @@
     "1904",
     "1043",
     "415",
-    "681"
+    "681",
+    "1729",
+    "1584",
+    "1773"
    ]
   },
   {
    "name": "Queen Trade Misses Winning Tactic or Material",
-   "n": 9,
-   "fire": 1.36,
+   "n": 8,
+   "fire": 1.35,
    "features": [
     "1192",
     "701",
@@ -418,19 +423,7 @@
     "212",
     "1611",
     "1730",
-    "1584",
     "2040"
-   ]
-  },
-  {
-   "name": "Premature Rook/Queen Trade Misses Stronger Tactic",
-   "n": 4,
-   "fire": 0.98,
-   "features": [
-    "343",
-    "1773",
-    "376",
-    "1736"
    ]
   },
   {
@@ -478,25 +471,35 @@
    ]
   },
   {
+   "name": "Premature Rook/Queen Trade Misses Stronger Tactic",
+   "n": 3,
+   "fire": 0.43,
+   "features": [
+    "343",
+    "376",
+    "1736"
+   ]
+  },
+  {
    "name": "Trades Away Key Minor Piece into Lost Endgame",
-   "n": 7,
-   "fire": 0.22,
+   "n": 5,
+   "fire": 0.17,
    "features": [
     "999",
     "1097",
     "125",
-    "1433",
-    "1816",
     "1308",
     "1640"
    ]
   },
   {
-   "name": "Other / unclustered",
-   "n": 1,
-   "fire": 0.08,
+   "name": "Missed Winning Trade into Pawn Endgame",
+   "n": 3,
+   "fire": 0.16,
    "features": [
-    "1729"
+    "176",
+    "1560",
+    "201"
    ]
   }
  ],
@@ -522,8 +525,8 @@
   },
   {
    "name": "Ignores immediate checkmate threat (greedy or routine move)",
-   "n": 21,
-   "fire": 4.55,
+   "n": 22,
+   "fire": 4.72,
    "features": [
     "1047",
     "195",
@@ -545,13 +548,14 @@
     "1791",
     "357",
     "333",
-    "24"
+    "24",
+    "1162"
    ]
   },
   {
    "name": "King moves into tactical danger (forks, skewers, discovered attacks)",
-   "n": 13,
-   "fire": 3.81,
+   "n": 16,
+   "fire": 4.08,
    "features": [
     "1111",
     "297",
@@ -565,13 +569,16 @@
     "1580",
     "1601",
     "1855",
-    "2021"
+    "2021",
+    "1444",
+    "1029",
+    "184"
    ]
   },
   {
    "name": "King walks into checkmate or mating net",
-   "n": 14,
-   "fire": 2.84,
+   "n": 13,
+   "fire": 2.66,
    "features": [
     "282",
     "1204",
@@ -585,21 +592,19 @@
     "1677",
     "2026",
     "1830",
-    "285",
-    "1029"
+    "285"
    ]
   },
   {
    "name": "Premature f-pawn advance or castling issues weakening king",
-   "n": 6,
-   "fire": 1.44,
+   "n": 5,
+   "fire": 1.43,
    "features": [
     "294",
     "1442",
     "1547",
     "975",
-    "1137",
-    "184"
+    "1137"
    ]
   },
   {
@@ -642,22 +647,13 @@
     "594",
     "1001"
    ]
-  },
-  {
-   "name": "Other / unclustered",
-   "n": 2,
-   "fire": 0.25,
-   "features": [
-    "1162",
-    "1444"
-   ]
   }
  ],
  "missed_check_mate": [
   {
    "name": "Missed Short Forced Checkmate (2-5 moves)",
    "n": 14,
-   "fire": 16.68,
+   "fire": 16.55,
    "features": [
     "1771",
     "1372",
@@ -669,16 +665,16 @@
     "1544",
     "1174",
     "613",
-    "530",
     "20",
     "1336",
-    "945"
+    "945",
+    "1086"
    ]
   },
   {
    "name": "Missed Forcing Check Wins Material",
-   "n": 27,
-   "fire": 4.33,
+   "n": 28,
+   "fire": 4.36,
    "features": [
     "1257",
     "724",
@@ -706,19 +702,19 @@
     "1124",
     "263",
     "1388",
-    "1455"
+    "1455",
+    "1075"
    ]
   },
   {
    "name": "Missed Mate-in-One",
-   "n": 9,
-   "fire": 3.07,
+   "n": 8,
+   "fire": 2.99,
    "features": [
     "1000",
     "1473",
     "970",
     "947",
-    "1086",
     "1094",
     "1621",
     "353",
@@ -751,6 +747,27 @@
    ]
   },
   {
+   "name": "Greedy Capture Instead of Checkmate",
+   "n": 14,
+   "fire": 1.95,
+   "features": [
+    "188",
+    "229",
+    "443",
+    "496",
+    "854",
+    "369",
+    "1026",
+    "1641",
+    "1668",
+    "1844",
+    "1712",
+    "1144",
+    "368",
+    "121"
+   ]
+  },
+  {
    "name": "Missed Winning Rook Check",
    "n": 8,
    "fire": 1.93,
@@ -766,29 +783,9 @@
    ]
   },
   {
-   "name": "Greedy Capture Instead of Checkmate",
-   "n": 13,
-   "fire": 1.83,
-   "features": [
-    "188",
-    "229",
-    "443",
-    "496",
-    "854",
-    "369",
-    "1026",
-    "1641",
-    "1668",
-    "1844",
-    "1712",
-    "1144",
-    "368"
-   ]
-  },
-  {
    "name": "Missed Back-Rank Mate or Tactic",
-   "n": 10,
-   "fire": 1.52,
+   "n": 11,
+   "fire": 1.73,
    "features": [
     "169",
     "465",
@@ -799,7 +796,8 @@
     "1133",
     "2013",
     "1898",
-    "559"
+    "559",
+    "530"
    ]
   },
   {
@@ -895,15 +893,6 @@
    ]
   },
   {
-   "name": "Other / unclustered",
-   "n": 2,
-   "fire": 0.15,
-   "features": [
-    "121",
-    "1075"
-   ]
-  },
-  {
    "name": "Missed Winning Check on Open File or Diagonal",
    "n": 1,
    "fire": 0.13,
@@ -915,8 +904,8 @@
  "pointless_check": [
   {
    "name": "Hangs piece giving check (general/multiple piece types)",
-   "n": 20,
-   "fire": 6.34,
+   "n": 27,
+   "fire": 9.92,
    "features": [
     "1057",
     "784",
@@ -937,31 +926,20 @@
     "2008",
     "890",
     "1518",
-    "1865"
-   ]
-  },
-  {
-   "name": "Hangs knight or bishop by giving check",
-   "n": 11,
-   "fire": 3.83,
-   "features": [
-    "1557",
-    "581",
-    "109",
-    "336",
-    "1776",
+    "1865",
+    "1478",
     "888",
-    "571",
     "770",
     "1549",
     "1847",
-    "182"
+    "182",
+    "355"
    ]
   },
   {
    "name": "Pointless check wastes tempo (king improves or no gain)",
-   "n": 19,
-   "fire": 2.83,
+   "n": 20,
+   "fire": 3.02,
    "features": [
     "1505",
     "197",
@@ -981,7 +959,8 @@
     "1413",
     "314",
     "1279",
-    "1240"
+    "1240",
+    "871"
    ]
   },
   {
@@ -1022,23 +1001,6 @@
    ]
   },
   {
-   "name": "Hangs rook by giving check",
-   "n": 10,
-   "fire": 1.02,
-   "features": [
-    "732",
-    "1697",
-    "551",
-    "527",
-    "1820",
-    "550",
-    "1527",
-    "871",
-    "1924",
-    "2037"
-   ]
-  },
-  {
    "name": "Pointless check delays mate or misses forced mate",
    "n": 5,
    "fire": 1.01,
@@ -1072,6 +1034,34 @@
    ]
   },
   {
+   "name": "Hangs rook by giving check",
+   "n": 8,
+   "fire": 0.75,
+   "features": [
+    "732",
+    "1697",
+    "551",
+    "527",
+    "1820",
+    "550",
+    "1527",
+    "2037"
+   ]
+  },
+  {
+   "name": "Hangs knight or bishop by giving check",
+   "n": 6,
+   "fire": 0.32,
+   "features": [
+    "1557",
+    "581",
+    "109",
+    "336",
+    "1776",
+    "571"
+   ]
+  },
+  {
    "name": "Pointless queen check in endgame wastes tempo",
    "n": 7,
    "fire": 0.27,
@@ -1096,11 +1086,11 @@
   {
    "name": "Pointless rook check in endgame",
    "n": 3,
-   "fire": 0.17,
+   "fire": 0.2,
    "features": [
     "1945",
     "1936",
-    "355"
+    "1924"
    ]
   },
   {
@@ -1109,14 +1099,6 @@
    "fire": 0.05,
    "features": [
     "1519"
-   ]
-  },
-  {
-   "name": "Other / unclustered",
-   "n": 1,
-   "fire": 0.02,
-   "features": [
-    "1478"
    ]
   }
  ],
@@ -1141,8 +1123,8 @@
   },
   {
    "name": "Unsound Nxf7/Nxf2 knight sacrifice",
-   "n": 10,
-   "fire": 1.43,
+   "n": 8,
+   "fire": 1.26,
    "features": [
     "43",
     "5",
@@ -1151,9 +1133,7 @@
     "602",
     "144",
     "699",
-    "1290",
-    "1838",
-    "1631"
+    "1290"
    ]
   },
   {
@@ -1166,6 +1146,24 @@
     "624",
     "1909",
     "1168"
+   ]
+  },
+  {
+   "name": "Unsound Bxf7/Bxf2 bishop sacrifice in opening",
+   "n": 11,
+   "fire": 1.1,
+   "features": [
+    "612",
+    "13",
+    "112",
+    "723",
+    "1481",
+    "1072",
+    "519",
+    "438",
+    "370",
+    "1650",
+    "1217"
    ]
   },
   {
@@ -1193,33 +1191,6 @@
    ]
   },
   {
-   "name": "Unsound Bxf7/Bxf2 bishop sacrifice in opening",
-   "n": 10,
-   "fire": 0.82,
-   "features": [
-    "612",
-    "13",
-    "112",
-    "723",
-    "1481",
-    "1072",
-    "519",
-    "438",
-    "370",
-    "1650"
-   ]
-  },
-  {
-   "name": "Missed concrete tactic for flashy move",
-   "n": 3,
-   "fire": 0.73,
-   "features": [
-    "1233",
-    "1134",
-    "1217"
-   ]
-  },
-  {
    "name": "Aggressive piece lunge to vulnerable square",
    "n": 2,
    "fire": 0.63,
@@ -1229,21 +1200,32 @@
    ]
   },
   {
+   "name": "Missed concrete tactic for flashy move",
+   "n": 1,
+   "fire": 0.44,
+   "features": [
+    "1233"
+   ]
+  },
+  {
    "name": "Hangs piece delivering futile or inferior check",
-   "n": 3,
-   "fire": 0.21,
+   "n": 6,
+   "fire": 0.39,
    "features": [
     "553",
     "1746",
-    "1465"
+    "1465",
+    "1838",
+    "1631",
+    "1134"
    ]
   }
  ],
  "greedy_capture": [
   {
    "name": "Greedy capture ignoring checkmate threat",
-   "n": 12,
-   "fire": 14.13,
+   "n": 13,
+   "fire": 14.32,
    "features": [
     "1329",
     "1721",
@@ -1256,7 +1238,29 @@
     "1467",
     "862",
     "503",
-    "1364"
+    "1364",
+    "1264"
+   ]
+  },
+  {
+   "name": "Hangs queen via greedy capture or check",
+   "n": 14,
+   "fire": 2.39,
+   "features": [
+    "1810",
+    "427",
+    "136",
+    "295",
+    "450",
+    "288",
+    "583",
+    "468",
+    "828",
+    "892",
+    "511",
+    "1831",
+    "785",
+    "926"
    ]
   },
   {
@@ -1282,29 +1286,9 @@
    ]
   },
   {
-   "name": "Hangs queen via greedy capture or check",
-   "n": 13,
-   "fire": 1.97,
-   "features": [
-    "1810",
-    "427",
-    "136",
-    "295",
-    "450",
-    "288",
-    "583",
-    "468",
-    "828",
-    "892",
-    "511",
-    "1831",
-    "785"
-   ]
-  },
-  {
    "name": "Greedy capture misses stronger tactic (general)",
-   "n": 14,
-   "fire": 1.18,
+   "n": 13,
+   "fire": 1.22,
    "features": [
     "287",
     "273",
@@ -1318,8 +1302,7 @@
     "1947",
     "1813",
     "904",
-    "469",
-    "889"
+    "592"
    ]
   },
   {
@@ -1355,20 +1338,21 @@
   },
   {
    "name": "Queen trapped grabbing pawns (b/c/g file raids)",
-   "n": 5,
-   "fire": 0.92,
+   "n": 6,
+   "fire": 0.94,
    "features": [
     "433",
     "1530",
     "1953",
     "249",
-    "84"
+    "84",
+    "469"
    ]
   },
   {
    "name": "Greedy capture hangs own piece (general tactical oversight)",
-   "n": 16,
-   "fire": 0.83,
+   "n": 17,
+   "fire": 0.87,
    "features": [
     "933",
     "716",
@@ -1385,20 +1369,8 @@
     "1212",
     "148",
     "939",
-    "1963"
-   ]
-  },
-  {
-   "name": "Greedy capture misses available checkmate or mating attack",
-   "n": 6,
-   "fire": 0.78,
-   "features": [
-    "926",
-    "1064",
-    "954",
-    "270",
-    "1197",
-    "592"
+    "1963",
+    "889"
    ]
   },
   {
@@ -1450,15 +1422,18 @@
    ]
   },
   {
-   "name": "Greedy knight/minor piece capture hangs itself or another piece",
-   "n": 5,
-   "fire": 0.42,
+   "name": "Greedy Capture Loses Endgame Advantage",
+   "n": 8,
+   "fire": 0.41,
    "features": [
-    "1586",
-    "1887",
-    "1930",
-    "1264",
-    "1883"
+    "879",
+    "984",
+    "495",
+    "1154",
+    "1386",
+    "651",
+    "807",
+    "1069"
    ]
   },
   {
@@ -1531,6 +1506,27 @@
    ]
   },
   {
+   "name": "Greedy capture misses available checkmate or mating attack",
+   "n": 4,
+   "fire": 0.26,
+   "features": [
+    "1064",
+    "954",
+    "270",
+    "1197"
+   ]
+  },
+  {
+   "name": "Greedy capture exposes piece to fork",
+   "n": 3,
+   "fire": 0.24,
+   "features": [
+    "1007",
+    "155",
+    "1883"
+   ]
+  },
+  {
    "name": "Rook grabs passed pawn and hangs",
    "n": 6,
    "fire": 0.23,
@@ -1544,12 +1540,13 @@
    ]
   },
   {
-   "name": "Greedy capture exposes piece to fork",
-   "n": 2,
-   "fire": 0.17,
+   "name": "Greedy knight/minor piece capture hangs itself or another piece",
+   "n": 3,
+   "fire": 0.16,
    "features": [
-    "1007",
-    "155"
+    "1586",
+    "1887",
+    "1930"
    ]
   },
   {
@@ -1566,8 +1563,8 @@
  "missed_hanging": [
   {
    "name": "Missed free major piece capture",
-   "n": 11,
-   "fire": 35.45,
+   "n": 10,
+   "fire": 35.38,
    "features": [
     "1487",
     "1931",
@@ -1577,15 +1574,14 @@
     "1881",
     "1552",
     "346",
-    "1901",
     "1908",
     "1979"
    ]
   },
   {
    "name": "Missed free queen capture",
-   "n": 33,
-   "fire": 14.57,
+   "n": 34,
+   "fire": 14.69,
    "features": [
     "1969",
     "1654",
@@ -1619,13 +1615,14 @@
     "1181",
     "1215",
     "442",
-    "1978"
+    "1978",
+    "1983"
    ]
   },
   {
    "name": "Missed free piece capture (general)",
-   "n": 33,
-   "fire": 5.37,
+   "n": 34,
+   "fire": 5.44,
    "features": [
     "878",
     "40",
@@ -1659,7 +1656,8 @@
     "1357",
     "1713",
     "680",
-    "1246"
+    "1246",
+    "22"
    ]
   },
   {
@@ -1685,8 +1683,8 @@
   },
   {
    "name": "Missed free capture for quiet/passive move (middlegame)",
-   "n": 12,
-   "fire": 2.17,
+   "n": 16,
+   "fire": 2.33,
    "features": [
     "1617",
     "874",
@@ -1699,7 +1697,11 @@
     "1599",
     "1011",
     "1149",
-    "178"
+    "178",
+    "1349",
+    "1602",
+    "1901",
+    "129"
    ]
   },
   {
@@ -1807,25 +1809,9 @@
    ]
   },
   {
-   "name": "Missed pawn captures piece",
-   "n": 9,
-   "fire": 0.63,
-   "features": [
-    "236",
-    "486",
-    "1840",
-    "1793",
-    "1084",
-    "2004",
-    "11",
-    "22",
-    "321"
-   ]
-  },
-  {
    "name": "Missed free capture in opening (developing instead of capturing)",
-   "n": 13,
-   "fire": 0.61,
+   "n": 14,
+   "fire": 0.63,
    "features": [
     "3",
     "660",
@@ -1839,7 +1825,8 @@
     "575",
     "1176",
     "1755",
-    "1119"
+    "1119",
+    "321"
    ]
   },
   {
@@ -1877,30 +1864,41 @@
    ]
   },
   {
-   "name": "Queen repositioning misses available capture",
-   "n": 7,
-   "fire": 0.49,
-   "features": [
-    "153",
-    "439",
-    "504",
-    "1349",
-    "1602",
-    "689",
-    "426"
-   ]
-  },
-  {
    "name": "Check or flashy move instead of simple capture",
    "n": 6,
-   "fire": 0.18,
+   "fire": 0.47,
    "features": [
     "93",
     "350",
     "590",
     "491",
     "1569",
-    "129"
+    "11"
+   ]
+  },
+  {
+   "name": "Queen repositioning misses available capture",
+   "n": 5,
+   "fire": 0.42,
+   "features": [
+    "153",
+    "439",
+    "504",
+    "689",
+    "426"
+   ]
+  },
+  {
+   "name": "Missed pawn captures piece",
+   "n": 6,
+   "fire": 0.23,
+   "features": [
+    "236",
+    "486",
+    "1840",
+    "1793",
+    "1084",
+    "2004"
    ]
   },
   {
@@ -1910,14 +1908,6 @@
    "features": [
     "1401",
     "61"
-   ]
-  },
-  {
-   "name": "Missed free queen/rook capture (specific piece patterns)",
-   "n": 1,
-   "fire": 0.12,
-   "features": [
-    "1983"
    ]
   },
   {
@@ -1933,8 +1923,8 @@
  "endgame_technique": [
   {
    "name": "Missed Critical Pawn Break or Exchange",
-   "n": 13,
-   "fire": 2.45,
+   "n": 14,
+   "fire": 2.46,
    "features": [
     "1281",
     "363",
@@ -1948,13 +1938,14 @@
     "1159",
     "1920",
     "8",
-    "1498"
+    "1498",
+    "372"
    ]
   },
   {
    "name": "Missed Critical Tempo in Pawn Endgame",
-   "n": 14,
-   "fire": 2.17,
+   "n": 15,
+   "fire": 2.21,
    "features": [
     "555",
     "664",
@@ -1969,13 +1960,14 @@
     "772",
     "1864",
     "2017",
-    "1220"
+    "1220",
+    "1999"
    ]
   },
   {
    "name": "Ignores Enemy Passed Pawn / Fails to Blockade",
-   "n": 19,
-   "fire": 2.12,
+   "n": 20,
+   "fire": 2.13,
    "features": [
     "1440",
     "931",
@@ -1995,7 +1987,8 @@
     "648",
     "405",
     "1699",
-    "1323"
+    "1323",
+    "1852"
    ]
   },
   {
@@ -2112,8 +2105,8 @@
   },
   {
    "name": "King Retreats Passively Instead of Activating",
-   "n": 14,
-   "fire": 0.88,
+   "n": 13,
+   "fire": 0.87,
    "features": [
     "670",
     "1501",
@@ -2127,41 +2120,7 @@
     "1459",
     "1968",
     "198",
-    "1833",
-    "1852"
-   ]
-  },
-  {
-   "name": "Missed Winning Capture or Forcing Tactic in Endgame",
-   "n": 26,
-   "fire": 0.82,
-   "features": [
-    "38",
-    "674",
-    "876",
-    "894",
-    "1014",
-    "1346",
-    "1615",
-    "1522",
-    "89",
-    "432",
-    "50",
-    "367",
-    "1130",
-    "1379",
-    "1127",
-    "919",
-    "977",
-    "1354",
-    "1420",
-    "1512",
-    "1872",
-    "1671",
-    "754",
-    "900",
-    "1900",
-    "1106"
+    "1833"
    ]
   },
   {
@@ -2196,31 +2155,6 @@
    ]
   },
   {
-   "name": "Greedy Capture Loses Endgame Advantage",
-   "n": 8,
-   "fire": 0.41,
-   "features": [
-    "879",
-    "984",
-    "495",
-    "1154",
-    "1386",
-    "651",
-    "807",
-    "1069"
-   ]
-  },
-  {
-   "name": "Missed Winning Trade into Pawn Endgame",
-   "n": 3,
-   "fire": 0.16,
-   "features": [
-    "176",
-    "1560",
-    "201"
-   ]
-  },
-  {
    "name": "Quiet King Move Instead of Precise Endgame Technique",
    "n": 5,
    "fire": 0.15,
@@ -2241,22 +2175,13 @@
     "1649",
     "1082"
    ]
-  },
-  {
-   "name": "Other / unclustered",
-   "n": 2,
-   "fire": 0.05,
-   "features": [
-    "1999",
-    "372"
-   ]
   }
  ],
  "missed_tactic": [
   {
    "name": "Missed Tactical Capture/Combination (General)",
-   "n": 45,
-   "fire": 50.34,
+   "n": 46,
+   "fire": 50.49,
    "features": [
     "1313",
     "1398",
@@ -2302,7 +2227,8 @@
     "1994",
     "1992",
     "923",
-    "327"
+    "327",
+    "1221"
    ]
   },
   {
@@ -2338,8 +2264,8 @@
   },
   {
    "name": "Missed Knight Fork/Check Winning Material",
-   "n": 36,
-   "fire": 11.18,
+   "n": 38,
+   "fire": 11.44,
    "features": [
     "950",
     "978",
@@ -2376,13 +2302,15 @@
     "428",
     "518",
     "989",
-    "1735"
+    "1735",
+    "151",
+    "721"
    ]
   },
   {
    "name": "Missed Winning Rook Tactic/Invasion",
-   "n": 23,
-   "fire": 7.55,
+   "n": 24,
+   "fire": 7.84,
    "features": [
     "1112",
     "914",
@@ -2406,7 +2334,8 @@
     "1692",
     "281",
     "761",
-    "449"
+    "449",
+    "1542"
    ]
   },
   {
@@ -2433,8 +2362,8 @@
   },
   {
    "name": "Missed Bishop Sacrifice/Tactical Shot (Bxh7+, Bxf7+, Bxf2+)",
-   "n": 26,
-   "fire": 6.19,
+   "n": 27,
+   "fire": 6.24,
    "features": [
     "222",
     "1123",
@@ -2461,32 +2390,14 @@
     "1090",
     "822",
     "1851",
-    "1748"
-   ]
-  },
-  {
-   "name": "Missed Decisive King Attack/Sacrifice",
-   "n": 12,
-   "fire": 6.04,
-   "features": [
-    "1709",
-    "1036",
-    "763",
-    "653",
-    "620",
-    "1528",
-    "1866",
-    "374",
-    "1559",
-    "203",
-    "1622",
-    "1626"
+    "1748",
+    "1980"
    ]
   },
   {
    "name": "Missed Forcing Tactical Blow (Quiet/Passive Move Instead)",
-   "n": 32,
-   "fire": 5.81,
+   "n": 34,
+   "fire": 6.1,
    "features": [
     "342",
     "817",
@@ -2519,13 +2430,34 @@
     "1579",
     "1910",
     "1962",
-    "1596"
+    "1596",
+    "1492",
+    "223"
+   ]
+  },
+  {
+   "name": "Missed Decisive King Attack/Sacrifice",
+   "n": 12,
+   "fire": 6.04,
+   "features": [
+    "1709",
+    "1036",
+    "763",
+    "653",
+    "620",
+    "1528",
+    "1866",
+    "374",
+    "1559",
+    "203",
+    "1622",
+    "1626"
    ]
   },
   {
    "name": "Missed Central Pawn Break/Thrust",
-   "n": 18,
-   "fire": 5.7,
+   "n": 19,
+   "fire": 5.73,
    "features": [
     "672",
     "730",
@@ -2544,13 +2476,14 @@
     "1679",
     "1466",
     "389",
-    "1273"
+    "1273",
+    "998"
    ]
   },
   {
    "name": "Missed Forcing Check/Capture Sequence",
-   "n": 25,
-   "fire": 4.55,
+   "n": 26,
+   "fire": 4.79,
    "features": [
     "348",
     "1244",
@@ -2576,13 +2509,44 @@
     "1998",
     "1905",
     "766",
-    "2035"
+    "2035",
+    "1889"
+   ]
+  },
+  {
+   "name": "Missed winning capture or forcing tactic",
+   "n": 23,
+   "fire": 3.49,
+   "features": [
+    "27",
+    "1056",
+    "1247",
+    "1957",
+    "440",
+    "1787",
+    "830",
+    "1761",
+    "1710",
+    "1445",
+    "240",
+    "757",
+    "1675",
+    "466",
+    "1147",
+    "1182",
+    "58",
+    "751",
+    "1479",
+    "1612",
+    "1625",
+    "33",
+    "1409"
    ]
   },
   {
    "name": "Missed Specific Piece Tactics (Removing Defenders, Pins, Trapping)",
-   "n": 17,
-   "fire": 3.14,
+   "n": 18,
+   "fire": 3.24,
    "features": [
     "1099",
     "1027",
@@ -2600,25 +2564,28 @@
     "1260",
     "1458",
     "1096",
-    "1672"
+    "1672",
+    "79"
    ]
   },
   {
-   "name": "Other / unclustered",
-   "n": 11,
-   "fire": 1.69,
+   "name": "Missed Tactic Due to Greedy/Routine Pawn Push",
+   "n": 13,
+   "fire": 1.16,
    "features": [
-    "1542",
-    "1921",
-    "1492",
-    "1889",
-    "151",
-    "1221",
-    "721",
-    "1739",
-    "1980",
-    "223",
-    "1678"
+    "1648",
+    "390",
+    "812",
+    "456",
+    "1236",
+    "2016",
+    "1669",
+    "626",
+    "111",
+    "1468",
+    "1795",
+    "1686",
+    "1739"
    ]
   },
   {
@@ -2638,8 +2605,8 @@
   },
   {
    "name": "Missed Opening Tactical Shot/Development",
-   "n": 19,
-   "fire": 1.07,
+   "n": 20,
+   "fire": 1.09,
    "features": [
     "1456",
     "1157",
@@ -2659,26 +2626,41 @@
     "204",
     "248",
     "1448",
-    "642"
+    "642",
+    "1678"
    ]
   },
   {
-   "name": "Missed Tactic Due to Greedy/Routine Pawn Push",
-   "n": 12,
-   "fire": 1.06,
+   "name": "Missed Winning Capture or Forcing Tactic in Endgame",
+   "n": 26,
+   "fire": 0.82,
    "features": [
-    "1648",
-    "390",
-    "812",
-    "456",
-    "1236",
-    "2016",
-    "1669",
-    "626",
-    "111",
-    "1468",
-    "1795",
-    "1686"
+    "38",
+    "674",
+    "876",
+    "894",
+    "1014",
+    "1346",
+    "1615",
+    "1522",
+    "89",
+    "432",
+    "50",
+    "367",
+    "1130",
+    "1379",
+    "1127",
+    "919",
+    "977",
+    "1354",
+    "1420",
+    "1512",
+    "1872",
+    "1671",
+    "754",
+    "900",
+    "1900",
+    "1106"
    ]
   },
   {
@@ -2697,19 +2679,26 @@
   },
   {
    "name": "Missed Decisive Forcing Continuation (General)",
-   "n": 10,
-   "fire": 0.53,
+   "n": 9,
+   "fire": 0.43,
    "features": [
     "1",
     "124",
     "72",
-    "79",
     "7",
     "1088",
     "1171",
     "508",
     "1302",
     "844"
+   ]
+  },
+  {
+   "name": "Misplaced Knight (Unstable Outpost/Trap)",
+   "n": 1,
+   "fire": 0.29,
+   "features": [
+    "1921"
    ]
   },
   {
@@ -2724,13 +2713,12 @@
  "left_hanging": [
   {
    "name": "Hangs queen to simple capture (piece controls queen's square)",
-   "n": 32,
-   "fire": 21.62,
+   "n": 33,
+   "fire": 21.61,
    "features": [
     "952",
     "82",
     "100",
-    "133",
     "150",
     "1077",
     "214",
@@ -2758,13 +2746,15 @@
     "1194",
     "1961",
     "277",
-    "1693"
+    "1693",
+    "387",
+    "1189"
    ]
   },
   {
    "name": "Hangs piece with aggressive or active-looking move",
-   "n": 22,
-   "fire": 16.16,
+   "n": 25,
+   "fire": 16.38,
    "features": [
     "521",
     "1540",
@@ -2787,27 +2777,35 @@
     "1942",
     "1807",
     "562",
-    "422"
+    "422",
+    "964",
+    "1261",
+    "563"
    ]
   },
   {
-   "name": "Hangs piece giving check or flashy invasion",
-   "n": 7,
-   "fire": 11.32,
+   "name": "Hangs piece to knight fork or knight tactics",
+   "n": 12,
+   "fire": 12.04,
    "features": [
-    "262",
-    "1170",
-    "1811",
-    "63",
-    "1886",
-    "1965",
-    "364"
+    "1439",
+    "1400",
+    "1703",
+    "1995",
+    "292",
+    "1417",
+    "779",
+    "685",
+    "1344",
+    "1972",
+    "18",
+    "1965"
    ]
   },
   {
    "name": "Hangs bishop on open diagonal or undefended square",
-   "n": 20,
-   "fire": 8.76,
+   "n": 23,
+   "fire": 9.07,
    "features": [
     "251",
     "925",
@@ -2828,13 +2826,40 @@
     "520",
     "793",
     "1282",
-    "269"
+    "269",
+    "588",
+    "1769",
+    "605"
+   ]
+  },
+  {
+   "name": "Hangs piece by castling or routine king move",
+   "n": 17,
+   "fire": 7.52,
+   "features": [
+    "1982",
+    "71",
+    "578",
+    "190",
+    "104",
+    "698",
+    "1179",
+    "1996",
+    "1711",
+    "1461",
+    "1959",
+    "62",
+    "1842",
+    "471",
+    "133",
+    "364",
+    "347"
    ]
   },
   {
    "name": "Hangs piece in the opening (general development blunder)",
-   "n": 25,
-   "fire": 6.18,
+   "n": 29,
+   "fire": 6.29,
    "features": [
     "1913",
     "1148",
@@ -2860,62 +2885,17 @@
     "1089",
     "267",
     "1451",
-    "1600"
-   ]
-  },
-  {
-   "name": "Hangs piece by castling or routine king move",
-   "n": 13,
-   "fire": 5.12,
-   "features": [
-    "1982",
-    "71",
-    "578",
-    "190",
-    "104",
-    "698",
-    "1179",
-    "1996",
-    "1711",
-    "1461",
-    "1959",
-    "62",
-    "1842"
-   ]
-  },
-  {
-   "name": "Hangs rook to minor piece or on open line",
-   "n": 22,
-   "fire": 4.63,
-   "features": [
-    "529",
-    "678",
-    "801",
-    "1384",
-    "1450",
-    "1638",
-    "205",
-    "621",
-    "1270",
-    "1493",
-    "1718",
-    "853",
-    "1443",
-    "347",
-    "663",
-    "1568",
-    "517",
-    "1726",
-    "2003",
-    "1850",
-    "973",
-    "231"
+    "1600",
+    "1402",
+    "26",
+    "220",
+    "1727"
    ]
   },
   {
    "name": "Pawn push hangs own material",
-   "n": 18,
-   "fire": 4.36,
+   "n": 19,
+   "fire": 4.47,
    "features": [
     "1375",
     "1143",
@@ -2934,30 +2914,14 @@
     "591",
     "1062",
     "1250",
-    "1300"
-   ]
-  },
-  {
-   "name": "Hangs queen to knight fork",
-   "n": 10,
-   "fire": 3.98,
-   "features": [
-    "103",
-    "243",
-    "152",
-    "226",
-    "1295",
-    "1856",
-    "1918",
-    "1223",
-    "308",
-    "2019"
+    "1300",
+    "1743"
    ]
   },
   {
    "name": "Hangs piece ignoring existing threat",
-   "n": 21,
-   "fire": 3.91,
+   "n": 28,
+   "fire": 4.47,
    "features": [
     "1262",
     "168",
@@ -2979,44 +2943,66 @@
     "1319",
     "217",
     "232",
-    "1225"
+    "1225",
+    "459",
+    "1890",
+    "2042",
+    "901",
+    "1286",
+    "164",
+    "1811"
    ]
   },
   {
-   "name": "Missed winning capture or forcing tactic",
-   "n": 24,
-   "fire": 3.52,
+   "name": "Hangs rook to minor piece or on open line",
+   "n": 22,
+   "fire": 4.33,
    "features": [
-    "27",
-    "1056",
-    "1247",
-    "1957",
-    "440",
-    "1787",
-    "830",
-    "1761",
-    "1710",
-    "1445",
-    "240",
-    "757",
-    "998",
-    "1675",
-    "466",
-    "1147",
-    "1182",
-    "58",
-    "751",
-    "1479",
-    "1612",
-    "1625",
-    "33",
-    "1409"
+    "529",
+    "678",
+    "801",
+    "1384",
+    "1450",
+    "1638",
+    "205",
+    "621",
+    "1270",
+    "1493",
+    "1718",
+    "853",
+    "1443",
+    "663",
+    "1568",
+    "517",
+    "1726",
+    "2003",
+    "1850",
+    "973",
+    "231",
+    "1508"
+   ]
+  },
+  {
+   "name": "Hangs queen to knight fork",
+   "n": 10,
+   "fire": 3.98,
+   "features": [
+    "103",
+    "243",
+    "152",
+    "226",
+    "1295",
+    "1856",
+    "1918",
+    "1223",
+    "308",
+    "2019"
    ]
   },
   {
    "name": "Hangs piece with quiet or passive move",
-   "n": 14,
-   "fire": 3.42,
+   "n": 15,
+   "fire": 3.46,
    "features": [
     "1581",
     "356",
@@ -3031,31 +3017,14 @@
     "711",
     "1859",
     "1562",
-    "1494"
-   ]
-  },
-  {
-   "name": "Hangs piece to knight fork or knight tactics",
-   "n": 11,
-   "fire": 3.38,
-   "features": [
-    "1439",
-    "1400",
-    "1703",
-    "1995",
-    "292",
-    "1417",
-    "779",
-    "685",
-    "1344",
-    "1972",
-    "18"
+    "1494",
+    "1318"
    ]
   },
   {
    "name": "Hangs knight on undefended or aggressive square",
-   "n": 12,
-   "fire": 3.24,
+   "n": 13,
+   "fire": 3.33,
    "features": [
     "1517",
     "1050",
@@ -3068,48 +3037,14 @@
     "533",
     "510",
     "1922",
-    "419"
-   ]
-  },
-  {
-   "name": "Other / unclustered",
-   "n": 28,
-   "fire": 1.9,
-   "features": [
-    "471",
-    "588",
-    "459",
-    "1743",
-    "387",
-    "1471",
-    "1890",
-    "964",
-    "1261",
-    "1508",
-    "1189",
-    "1402",
-    "1318",
-    "2042",
-    "26",
-    "901",
-    "1156",
-    "1269",
-    "1286",
-    "1472",
-    "1769",
-    "164",
-    "196",
-    "401",
-    "605",
-    "220",
-    "0",
-    "1727"
+    "419",
+    "1471"
    ]
   },
   {
    "name": "Hangs piece to pawn capture or pawn fork",
-   "n": 17,
-   "fire": 1.89,
+   "n": 20,
+   "fire": 1.97,
    "features": [
     "46",
     "841",
@@ -3127,13 +3062,16 @@
     "1689",
     "652",
     "1128",
-    "1789"
+    "1789",
+    "1156",
+    "1269",
+    "401"
    ]
   },
   {
    "name": "Hangs piece via wrong capture order or move-order error",
-   "n": 12,
-   "fire": 1.6,
+   "n": 14,
+   "fire": 1.69,
    "features": [
     "21",
     "982",
@@ -3146,34 +3084,15 @@
     "849",
     "1049",
     "776",
-    "2027"
-   ]
-  },
-  {
-   "name": "Hangs piece ignoring central pawn tension",
-   "n": 14,
-   "fire": 1.29,
-   "features": [
-    "51",
-    "351",
-    "1337",
-    "997",
-    "1025",
-    "1237",
-    "1723",
-    "359",
-    "94",
-    "1152",
-    "554",
-    "446",
-    "1960",
-    "393"
+    "2027",
+    "1472",
+    "1700"
    ]
   },
   {
    "name": "Hangs piece in endgame (king move or careless play)",
-   "n": 31,
-   "fire": 1.26,
+   "n": 33,
+   "fire": 1.63,
    "features": [
     "42",
     "478",
@@ -3205,13 +3124,36 @@
     "851",
     "1829",
     "1058",
-    "1695"
+    "1695",
+    "196",
+    "63"
+   ]
+  },
+  {
+   "name": "Hangs piece ignoring central pawn tension",
+   "n": 14,
+   "fire": 1.29,
+   "features": [
+    "51",
+    "351",
+    "1337",
+    "997",
+    "1025",
+    "1237",
+    "1723",
+    "359",
+    "94",
+    "1152",
+    "554",
+    "446",
+    "1960",
+    "393"
    ]
   },
   {
    "name": "Hangs queen by moving defender or ignoring threat",
-   "n": 9,
-   "fire": 0.92,
+   "n": 10,
+   "fire": 0.93,
    "features": [
     "99",
     "377",
@@ -3221,7 +3163,8 @@
     "1782",
     "1289",
     "1812",
-    "494"
+    "494",
+    "0"
    ]
   },
   {
@@ -3239,6 +3182,16 @@
     "1803",
     "1877",
     "1115"
+   ]
+  },
+  {
+   "name": "Hangs piece giving check or flashy invasion",
+   "n": 3,
+   "fire": 0.61,
+   "features": [
+    "262",
+    "1170",
+    "1886"
    ]
   },
   {
@@ -3269,15 +3222,14 @@
   },
   {
    "name": "Quiet queen move misses tactic or hangs material",
-   "n": 6,
-   "fire": 0.49,
+   "n": 5,
+   "fire": 0.42,
    "features": [
     "1116",
     "1404",
     "237",
     "942",
-    "1475",
-    "563"
+    "1475"
    ]
   },
   {
@@ -3291,14 +3243,6 @@
     "1733",
     "1585",
     "458"
-   ]
-  },
-  {
-   "name": "Hangs piece declining trade or ignoring recapture",
-   "n": 1,
-   "fire": 0.06,
-   "features": [
-    "1700"
    ]
   }
  ]
