@@ -148,9 +148,21 @@ Cluster counts: Missed Tactic 20, Left Hanging 23, Greedy 23, Missed Hanging 17,
 14, Endgame 13, Abandoning Defense 13, Pointless Check 12, Passive 11, Premature Trade 10, Unsound
 Aggression 10, King Safety 8.
 
-**NEXT:**
-1. Optional: the 7 targetless-flagged features + any low-consistency review.
-2. Then: apply taxonomy to cabbagelover5566's 1,209 blunders (the coaching payoff).
+## POLISH DONE (2026-06-04 cont'd) — low-consistency triaged
+
+Re-labeled the 167 features at consistency ≤70 (v3 prompt) and split them by whether the re-label
+improved:
+- **56 improved >70** → label was a near-miss; adopted the sharper chip (e.g. f573 "Missed Bxe6+
+  check" → "Missed winning bishop sacrifice", 52→82).
+- **93 stayed ≤70** → genuinely polysemantic (re-label gave same chip + same low cons, e.g.
+  f1793 "Missed exf6 queen capture" 50→50). Marked `mixed:true` in the labels; the atlas shows a
+  "mixed" badge so reviewers know the top boards share no single mistake. Not forced into clean names.
+
+Taxonomy pipeline is now complete and clean: v3 labels (5-word, neutral, mixed-flagged) → 12
+categories → 174 LLM coaching clusters → features. Atlas: `output/atlas/atlas_v3_llm_d2048_k6.html`.
+
+**NEXT — the payoff:** apply this taxonomy to cabbagelover5566's 1,209 blunders. Score each blunder
+against the SAE features, roll up to clusters/categories, produce the player's mistake profile.
 
 ## (superseded) earlier re-bucket on v1 labels
 The first v3 assignment used the BIASED v1 labels (`feature_buckets_v3_d2048_k6.json`). Superseded
