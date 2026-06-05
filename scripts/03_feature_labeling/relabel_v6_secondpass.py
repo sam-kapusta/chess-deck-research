@@ -99,13 +99,23 @@ def top(d, k=4):
     return ", ".join(f"{kk} {vv*100:.0f}%" for kk, vv in list(d.items())[:k]) if d else "—"
 
 
+def posbefore(s):
+    """Position the player was in BEFORE the move, summed across boards (from trajectory)."""
+    t = s.get("trajectory_pct", {}) or {}
+    agg = {"winning": 0.0, "drawn": 0.0, "losing": 0.0, "unclear": 0.0}
+    for k, v in t.items():
+        before = k.split("->")[0]
+        agg[{"winning": "winning", "drawn": "drawn", "losing": "losing"}.get(before, "unclear")] += v
+    return ", ".join(f"{k} {v*100:.0f}%" for k, v in sorted(agg.items(), key=lambda x: -x[1]) if v > 0.01)
+
 def seeblock(s):
     """One-line SEE signature. Explicitly flagged single-ply so Opus defers to the per-board
     BEST-MOVE analyses for multi-move tactics SEE cannot see."""
     return ("SEE signature (single-ply approximation; for multi-move tactics defer to the per-board BEST-MOVE analyses):\n"
             f"  player moved: {top(s.get('moved_piece_pct',{}))} | played-capture: {s.get('played_capture_pct',0)*100:.0f}% | played-check: {s.get('played_is_check_pct',0)*100:.0f}%\n"
             f"  player hung own piece: {s.get('blunder_hangs_own_pct',0)*100:.0f}% | material outcome: {top(s.get('material_kind_pct',{}))}\n"
-            f"  best-move-wins-material(SEE floor): {s.get('best_wins_material_pct',0)*100:.0f}% | trajectory: {top({k:v for k,v in (s.get('trajectory_pct',{}) or {}).items() if k!='?->?'})} | phase: {top(s.get('phase_pct',{}))}")
+            f"  position before the move (across boards): {posbefore(s)}\n"
+            f"  best-move-wins-material(SEE floor): {s.get('best_wins_material_pct',0)*100:.0f}% | phase: {top(s.get('phase_pct',{}))}")
 
 
 def build(fid, prof_f, op, st):
@@ -127,39 +137,17 @@ def build(fid, prof_f, op, st):
         return None
     prevblock = ""
     if prev.get("chip"):
-        prevblock = (f"SECOND PASS. A first labeler was UNSURE about this feature and flagged it. It guessed:\n"
-                     f'  chip: "{prev.get("chip")}"  (confidence {prev.get("confidence")}, consistency {prev.get("consistency")})\n'
-                     f"  label: {prev.get('label','')}\n"
-                     "Your job: look harder and figure out what the feature ACTUALLY detects. Three honest outcomes are allowed:\n"
-                     " (1) you find a TRUER core mistake the first pass missed — name it;\n"
-                     " (2) the mistake varies but ONE PIECE is in the decisive play (moved / hung / captured / threatened / executes the\n"
-                     "     punishment) on nearly every board, REGARDLESS of its role — then name the core + '(<piece> involved)'\n"
-                     '     (e.g. "Hangs material (queen involved)", "Hangs piece in opening (knight involved)");\n'
-                     " (3) it is GENUINELY a mix with no single invariant — then say so plainly, keep confidence low, and in the label\n"
-                     '     list the 2-3 things it actually fires on (e.g. "fires on x, y, or z"). Staying unconfident is a valid, correct answer.\n'
-                     "Do NOT manufacture confidence. A role-agnostic '(piece involved)' is true only if that piece is in the DECISIVE action\n"
-                     "of ~8/10+ boards (not merely mentioned in passing — queens/kings appear in most prose).\n\n")
+        prevblock = (f'SECOND PASS — a first labeler was unsure here and guessed: "{prev.get("chip")}" '
+                     f"(conf {prev.get('confidence')}, cons {prev.get('consistency')}). Label: {prev.get('label','')}\n"
+                     "Look harder and say what the feature ACTUALLY detects. Any of these is fine: a truer core mistake; "
+                     "OR if the mistake varies but one piece is in the decisive play of nearly every board regardless of role, "
+                     "core + '(piece involved)'; OR if it's genuinely mixed, say so and list what it fires on. Don't force confidence.\n\n")
     return (prevblock +
-            "Name this sparse-autoencoder chess feature: the ONE recurring mistake across its top-10 positions.\n"
-            "DIRECTION (decide from evidence, no default): a move that loses the player's OWN material (high 'hung own piece %', "
-            "OR the refutation shows their piece falling even over 2-3 moves) is SELF-INFLICTED → 'Hangs X'. A materially-safe move "
-            "that skips a win (high best-move-wins, low hung-own) is an OMISSION → 'Missed X'. Read the REFUTATION line on every "
-            "board — a played move that looks like a 'tempo loss' often actually hangs a piece a couple moves later.\n"
-            "PIECE SPECIFICITY — be honest, do NOT over-commit: only name a specific piece as the thing hung/missed if that piece is "
-            "the CLEAR majority across the boards (≈8/10+). If the hung piece varies (knight here, bishop there, pawn elsewhere), say "
-            "'a piece' — naming one piece would be false. (Lesson: a feature was wrongly called 'Hangs knight' when only ~75% were "
-            "knight moves and the real invariant was just 'a piece hangs in the opening, a knight is somewhere in the tactic'.)\n"
-            "POSITION-STATE — do NOT assert 'winning'/'won'/'squanders a winning position' unless the TRAJECTORY shows the player "
-            "was actually winning before the move on the MAJORITY of boards. Check the trajectory line: 'winning->X' must dominate. "
-            "If it's mostly 'losing->...' or balanced/'?->?' or 'drawn->...', the position was TENSE or WORSE, not winning — say "
-            "'tense position' / 'worse position', never 'winning'. (Lesson: a feature was wrongly called 'Squanders winning position' "
-            "when the positions were only tense/balanced — the description was right but the title's 'winning' claim was false.)\n"
-            "RECURRING ELEMENT — if some element appears in (nearly) ALL boards but ISN'T the thing hung (e.g. a knight is always the "
-            "capturing/forking piece, or it's always the opening, or always involves a check), add it as a parenthetical: "
-            "e.g. 'Hangs piece in opening (knight involved)'. This separates the certain core mistake from a true-but-secondary pattern.\n"
-            "CONFIDENCE — set confidence='high' only if the 10 boards clearly share ONE mistake at the stated specificity. Set "
-            "confidence='low' and review=true when the boards are mixed, the piece is fuzzy, or you had to generalize — so a human "
-            "reviews it later. A wrong-but-confident label (like 'Hangs knight' for a non-knight feature) is the failure to avoid.\n\n"
+            "Name the ONE recurring mistake across this SAE feature's top-10 positions, using the per-board analyses and the "
+            "stats below. Decide direction from evidence (own material lost incl. over 2-3 moves in the refutation = 'Hangs X'; "
+            "safe move that skips a win = 'Missed X'). Only name a specific piece / position-state (winning/tense/losing) if the "
+            "stats support it on most boards; otherwise stay general. Set confidence low + review=true when the feature is mixed "
+            "or you had to generalize.\n\n"
             + seeblock(s) + "\n\nPER-POSITION ANALYSES (top 10):\n" + chr(10).join(lines) +
             '\n\nJSON: {"chip":"<3-6 words; core mistake + optional (element involved)>","mistake_type":"<missed_win|hung_own|greedy|trade|positional|endgame>",'
             '"consistency":<0-100 how many of 10 fit the core>,"confidence":"<high|low>","review":<true|false>,"label":"<one sentence>"}')
