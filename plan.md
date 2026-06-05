@@ -103,12 +103,35 @@ don't merge/filter blobs — instead (a) give same-concept features mechanism-sp
 (b) the coarse→specific hierarchy is a feature, not a bug — surface it (general detector at top of
 a sub-group, specific siblings under it).
 
+## v3 5-WORD LABELS LOCKED (2026-06-04 cont'd) — the label baseline
+
+Labels improved monotonically: integrated "Piece Left Hanging" → v2 "Hangs own queen" → **v3
+"Hangs queen attacking enemy queen"** (the f882 worked example — player attacks the ENEMY queen
+but leaves their OWN hanging; mutual-queen exchange they lose). v3 = neutral direction + 5-word
+mechanism chips, fed SEE + move_intent + best_moves + blunder_summary. **v3 is the baseline.**
+
+- `output/relabel_v3_5word_d2048_k6.json` (2006 labeled): chip diversity 57%→78% unique vs v2;
+  worst duplicate 52→26. Mechanism now in the chip (to-bishop / giving-check / open-file / etc).
+- `output/feature_buckets_v3_5word_d2048_k6.json` — categories (3 unassignable).
+- `output/feature_leaf_v3_5word_d2048_k6.json` — sub-clusters (by piece / by theme).
+- **Atlas: `output/atlas/atlas_v3_5word_d2048_k6.html`** (SPA, 1.6MB, browsable, boards verified).
+
+**v4 was a REGRESSION — removed.** Tried adding refutation_analysis + result-framing; it pushed
+f882 back to generic "Leaves own piece undefended" by over-weighting the refutation and dropping
+the move_intent signal ("intending to attack the queen") that carries the specificity. Lesson:
+move_intent + blunder_summary read together already carry the pattern; don't over-engineer.
+
+**Worked-example lesson (f882):** the pattern WAS in the prose all along (move_intent: "attack the
+queen", blunder_summary: "leaves own queen undefended"). Claude reading 10 boards/summaries
+together can get there; the failure mode is ME mis-reading individual board tactics as different
+mistakes when they share one structure. The board-geometry "both queens attacked" signal is real
+but a too-specific fix — v3's existing inputs already suffice.
+
 **NEXT:**
-1. Atlas display: sort specific-first or group "general detector + specific siblings"; the fire%
-   red flag stays but blobs aren't bad, just coarse.
-2. Mechanism-specific chips for same-label clusters (queen-hang → to-bishop/giving-check/promoted).
-3. Review the 130 flagged (≤70 consistency) features.
-4. Then: apply taxonomy to cabbagelover5566's 1,209 blunders (the coaching payoff).
+1. Atlas display polish: blobs (e.g. Missed Tactic "General/Forcing" 197 feats, 93% fire) are
+   coarse-but-honest, not bad — surface as coarse detectors, don't filter.
+2. Review the ~167 flagged (≤70 consistency) features.
+3. Then: apply taxonomy to cabbagelover5566's 1,209 blunders (the coaching payoff).
 
 ## (superseded) earlier re-bucket on v1 labels
 The first v3 assignment used the BIASED v1 labels (`feature_buckets_v3_d2048_k6.json`). Superseded
