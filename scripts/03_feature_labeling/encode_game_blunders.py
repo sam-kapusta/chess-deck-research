@@ -85,7 +85,7 @@ for m in blunders:
         bestmv = b.parse_san(m["best_san"])
     bb = b.copy(); bb.push(chess.Move.from_uci(blun))
     sb = b.copy(); sb.push(bestmv)
-    L7bl = encode_L7([bb], es, eo)[0]; L7bs = encode_L7([sb], es, eo)[0]
+    L7bl = encode_L7([bb], [es], [eo])[0]; L7bs = encode_L7([sb], [es], [eo])[0]
     diff = (L7bs - L7bl).mean(0)   # mean64
     fired = sae_fire(diff)
     feats = []
