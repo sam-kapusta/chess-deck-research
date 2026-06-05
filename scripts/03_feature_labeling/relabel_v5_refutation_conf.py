@@ -154,7 +154,7 @@ def call(fid, prompt):
     for att in range(3):
         try:
             if EFFORT:
-                body = {"anthropic_version": "bedrock-2023-05-31", "max_tokens": 6000,
+                body = {"anthropic_version": "bedrock-2023-05-31", "max_tokens": 16000,
                         "thinking": {"type": "adaptive"}, "output_config": {"effort": EFFORT},
                         "messages": [{"role": "user", "content": prompt}]}
                 model = THINK_MODEL
