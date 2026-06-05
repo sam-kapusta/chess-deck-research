@@ -155,13 +155,15 @@ def build(fid, prof_f, op, st):
     if peak: body += "TOP positions (strongest activation):\n" + chr(10).join(peak) + "\n\n"
     if med:  body += "MEDIUM positions (typical activation):\n" + chr(10).join(med) + "\n\n"
     return (prevblock +
-            "Name the ONE recurring mistake this SAE feature detects. Be as SPECIFIC as possible while staying accurate to BOTH "
-            "the top and medium positions (e.g. if the top boards are all queen-forks but the medium ones fork rooks too, say "
-            "'major piece' not 'queen'). Direction: own material lost (incl. over 2-3 moves in the refutation) = 'Hangs X'; "
-            "materially-safe move skipping a win = 'Missed X'. confidence low + review=true if genuinely mixed.\n\n"
+            "Name the ONE recurring mistake this SAE feature detects, as SPECIFIC as possible while accurate to BOTH the top and "
+            "medium positions. Use a 'Core mistake (qualifier)' form where the parenthetical captures how it broadens from top to "
+            "medium — e.g. top boards are all queen knight-forks but medium adds rook/knight forks -> 'Allowed knight fork (often "
+            "queen)' or '(major piece)'. In the label, describe the top-vs-medium difference (what's constant at the peak, what "
+            "blurs at medium). Direction: own material lost (incl. over 2-3 moves in the refutation) = 'Hangs X'; materially-safe "
+            "move skipping a win = 'Missed X'. confidence low + review=true if genuinely mixed.\n\n"
             + seeblock(s) + "\n\n" + body +
-            'JSON: {"chip":"<3-6 words>","mistake_type":"<missed_win|hung_own|greedy|trade|positional|endgame>",'
-            '"consistency":<0-100>,"confidence":"<high|low>","review":<true|false>,"label":"<one sentence>"}')
+            'JSON: {"chip":"<core mistake (qualifier), <=6 words>","mistake_type":"<missed_win|hung_own|greedy|trade|positional|endgame>",'
+            '"consistency":<0-100>,"confidence":"<high|low>","review":<true|false>,"label":"<one sentence: top vs medium pattern>"}')
 
 
 def parse(t):
