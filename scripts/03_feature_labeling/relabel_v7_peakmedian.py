@@ -121,11 +121,15 @@ def posbefore(s):
 def seeblock(s):
     """One-line SEE signature. Explicitly flagged single-ply so Opus defers to the per-board
     BEST-MOVE analyses for multi-move tactics SEE cannot see."""
+    fr = s.get("fire_rate", 0) * 100
+    fr_note = "  (this feature fires on %.1f%% of all positions" % fr + (
+        " — very common, so expect a BROAD/coarse pattern, not one specific tactic)\n" if fr >= 5 else ")\n")
     return ("SEE signature (single-ply approximation; for multi-move tactics defer to the per-board BEST-MOVE analyses):\n"
             f"  player moved: {top(s.get('moved_piece_pct',{}))} | played-capture: {s.get('played_capture_pct',0)*100:.0f}% | played-check: {s.get('played_is_check_pct',0)*100:.0f}%\n"
             f"  player hung own piece: {s.get('blunder_hangs_own_pct',0)*100:.0f}% | material outcome: {top(s.get('material_kind_pct',{}))}\n"
             f"  position before the move (across boards): {posbefore(s)}\n"
-            f"  best-move-wins-material(SEE floor): {s.get('best_wins_material_pct',0)*100:.0f}% | phase: {top(s.get('phase_pct',{}))}")
+            f"  best-move-wins-material(SEE floor): {s.get('best_wins_material_pct',0)*100:.0f}% | phase: {top(s.get('phase_pct',{}))}\n"
+            + fr_note)
 
 
 def board_line(i, ex, op):
