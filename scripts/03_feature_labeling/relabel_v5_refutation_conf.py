@@ -144,12 +144,25 @@ def parse(t):
     except Exception: return None
 
 
+import os
+# EFFORT: opus-4-8 uses adaptive thinking + output_config.effort (none|low|high|xhigh).
+# Set EFFORT=xhigh to match the interactive Claude Code config. Default off (plain 4-6, fast/cheap).
+EFFORT = os.environ.get("EFFORT", "")
+THINK_MODEL = os.environ.get("THINK_MODEL", "us.anthropic.claude-opus-4-8")
+
 def call(fid, prompt):
     for att in range(3):
         try:
-            r = client.invoke_model(modelId=MODEL_ID, body=json.dumps({
-                "anthropic_version": "bedrock-2023-05-31", "max_tokens": 600,
-                "messages": [{"role": "user", "content": prompt}]}))
+            if EFFORT:
+                body = {"anthropic_version": "bedrock-2023-05-31", "max_tokens": 6000,
+                        "thinking": {"type": "adaptive"}, "output_config": {"effort": EFFORT},
+                        "messages": [{"role": "user", "content": prompt}]}
+                model = THINK_MODEL
+            else:
+                body = {"anthropic_version": "bedrock-2023-05-31", "max_tokens": 600,
+                        "messages": [{"role": "user", "content": prompt}]}
+                model = MODEL_ID
+            r = client.invoke_model(modelId=model, body=json.dumps(body))
             txt = "".join(b.get("text", "") for b in json.loads(r["body"].read())["content"] if b.get("type") == "text")
             p = parse(txt)
             return (fid, p if p else {"error": "parse"})
