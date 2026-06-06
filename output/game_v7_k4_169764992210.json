@@ -1,0 +1,322 @@
+[
+ {
+  "move_num": 10,
+  "san": "Bb5",
+  "cp_loss": 105,
+  "best_san": "Ba2",
+  "features": [
+   {
+    "fid": 1217,
+    "act": 4.69,
+    "chip": "Hangs piece (often failed bishop pin)",
+    "category": "Left Piece Hanging",
+    "cluster": "Hangs bishop on opening sortie (Bg4/Bg5/Bh6 etc.)",
+    "mixed": false
+   },
+   {
+    "fid": 758,
+    "act": 2.71,
+    "chip": "Hangs over-advanced knight (often any piece)",
+    "category": "Left Piece Hanging",
+    "cluster": "Hangs knight on aggressive or rim sortie",
+    "mixed": false
+   },
+   {
+    "fid": 1487,
+    "act": 2.53,
+    "chip": "Hangs material (often whole piece in won game)",
+    "category": "Left Piece Hanging",
+    "cluster": "\u26a0 Coarse detectors (>5% fire \u2014 broad, not specific)",
+    "mixed": false
+   },
+   {
+    "fid": 1029,
+    "act": 2.42,
+    "chip": "Exposed king to attack (king-walk)",
+    "category": "King Safety Error",
+    "cluster": "Walked King into Forced Mate (King Move into Mating Net)",
+    "mixed": false
+   }
+  ]
+ },
+ {
+  "move_num": 17,
+  "san": "d4",
+  "cp_loss": 113,
+  "best_san": "Ng3",
+  "features": [
+   {
+    "fid": 1684,
+    "act": 3.02,
+    "chip": "Hangs piece in opening (greedy capture)",
+    "category": "Greedy Capture",
+    "cluster": "Knight grabs defended central pawn and is recaptured",
+    "mixed": false
+   },
+   {
+    "fid": 1148,
+    "act": 2.91,
+    "chip": "Loosening move hangs material (was winning)",
+    "category": "Left Piece Hanging",
+    "cluster": "Squanders won or winning position (hangs piece or misses forced win)",
+    "mixed": false
+   },
+   {
+    "fid": 1220,
+    "act": 2.88,
+    "chip": "Squandered won endgame (often king)",
+    "category": "Endgame Technique",
+    "cluster": "Squandered Won Endgame via Slow/Passive King Move",
+    "mixed": false
+   },
+   {
+    "fid": 672,
+    "act": 2.51,
+    "chip": "Missed central break (\u2192any precise move)",
+    "category": "Missed Tactic",
+    "cluster": "Missed Central Pawn Break (d4/d5/e5/f5)",
+    "mixed": false
+   }
+  ]
+ },
+ {
+  "move_num": 20,
+  "san": "Qf3",
+  "cp_loss": 117,
+  "best_san": "Qf2",
+  "features": [
+   {
+    "fid": 1250,
+    "act": 7.52,
+    "chip": "Hangs piece by deserting defender (often fork)",
+    "category": "Abandoning Defensive Duty",
+    "cluster": "Piece deserts defender allowing fork or simple capture",
+    "mixed": false
+   },
+   {
+    "fid": 643,
+    "act": 4.23,
+    "chip": "Hangs pawn (king-walk; medium any piece)",
+    "category": "Left Piece Hanging",
+    "cluster": "Hangs piece in endgame (king move abandons defense)",
+    "mixed": false
+   },
+   {
+    "fid": 282,
+    "act": 3.94,
+    "chip": "Quiet move skips forcing tactic (king/rook)",
+    "category": "Missed Tactic",
+    "cluster": "Quiet Move Overlooks Available Tactic (General)",
+    "mixed": false
+   },
+   {
+    "fid": 1010,
+    "act": 3.28,
+    "chip": "Hangs material on quiet pawn move",
+    "category": "Left Piece Hanging",
+    "cluster": "Hangs pawn on premature or loosening push",
+    "mixed": false
+   }
+  ]
+ },
+ {
+  "move_num": 32,
+  "san": "gxh5",
+  "cp_loss": 254,
+  "best_san": "Kh4",
+  "features": [
+   {
+    "fid": 1487,
+    "act": 12.63,
+    "chip": "Hangs material (often whole piece in won game)",
+    "category": "Left Piece Hanging",
+    "cluster": "\u26a0 Coarse detectors (>5% fire \u2014 broad, not specific)",
+    "mixed": false
+   },
+   {
+    "fid": 968,
+    "act": 11.21,
+    "chip": "Released pawn tension into recapture (often pawn endgame)",
+    "category": "Premature Trade",
+    "cluster": "Released Pawn/Central Tension Prematurely",
+    "mixed": false
+   },
+   {
+    "fid": 1165,
+    "act": 10.64,
+    "chip": "Hangs material in 'even' trade (bishop)",
+    "category": "Premature Trade",
+    "cluster": "\u26a0 Coarse detectors (>5% fire \u2014 broad, not specific)",
+    "mixed": false
+   },
+   {
+    "fid": 1220,
+    "act": 9.3,
+    "chip": "Squandered won endgame (often king)",
+    "category": "Endgame Technique",
+    "cluster": "Squandered Won Endgame via Slow/Passive King Move",
+    "mixed": false
+   }
+  ]
+ },
+ {
+  "move_num": 38,
+  "san": "h4",
+  "cp_loss": 185,
+  "best_san": "Bd2",
+  "features": [
+   {
+    "fid": 2018,
+    "act": 4.03,
+    "chip": "Hangs material (greedy capture\u2192any move)",
+    "category": "Greedy Capture",
+    "cluster": "\u26a0 Coarse detectors (>5% fire \u2014 broad, not specific)",
+    "mixed": false
+   },
+   {
+    "fid": 555,
+    "act": 3.92,
+    "chip": "Slow endgame king move (pawn\u2192passed-pawn)",
+    "category": "Endgame Technique",
+    "cluster": "Lost Pawn Promotion Race (Tempo Errors)",
+    "mixed": false
+   },
+   {
+    "fid": 1148,
+    "act": 3.54,
+    "chip": "Loosening move hangs material (was winning)",
+    "category": "Left Piece Hanging",
+    "cluster": "Squanders won or winning position (hangs piece or misses forced win)",
+    "mixed": false
+   },
+   {
+    "fid": 1968,
+    "act": 3.36,
+    "chip": "Misplaced endgame king (often opposition)",
+    "category": "Endgame Technique",
+    "cluster": "King Loses Opposition / Key Square in Pawn Endgame",
+    "mixed": false
+   }
+  ]
+ },
+ {
+  "move_num": 40,
+  "san": "Bd2",
+  "cp_loss": 282,
+  "best_san": "cxb4",
+  "features": [
+   {
+    "fid": 499,
+    "act": 9.09,
+    "chip": "Conceded passed pawn (pawn endgame)",
+    "category": "Endgame Technique",
+    "cluster": "General Lost-Endgame Tempo / Move-Order Errors",
+    "mixed": false
+   },
+   {
+    "fid": 360,
+    "act": 6.96,
+    "chip": "Weakening pawn push (top loses pawn)",
+    "category": "Endgame Technique",
+    "cluster": "Premature / Wrong Pawn Push in Endgame",
+    "mixed": false
+   },
+   {
+    "fid": 1241,
+    "act": 6.01,
+    "chip": "Edge-losing pawn push (endgame)",
+    "category": "Endgame Technique",
+    "cluster": "Premature / Wrong Pawn Push in Endgame",
+    "mixed": false
+   },
+   {
+    "fid": 1763,
+    "act": 5.32,
+    "chip": "Hangs material (often opening center)",
+    "category": "Left Piece Hanging",
+    "cluster": "Hangs piece ignoring central pawn tension (skipped capture)",
+    "mixed": false
+   }
+  ]
+ },
+ {
+  "move_num": 50,
+  "san": "Kg8",
+  "cp_loss": 475,
+  "best_san": "Bg5",
+  "features": [
+   {
+    "fid": 2018,
+    "act": 14.09,
+    "chip": "Hangs material (greedy capture\u2192any move)",
+    "category": "Greedy Capture",
+    "cluster": "\u26a0 Coarse detectors (>5% fire \u2014 broad, not specific)",
+    "mixed": false
+   },
+   {
+    "fid": 1271,
+    "act": 6.4,
+    "chip": "Vacated king-shelter square (rook\u2192any)",
+    "category": "Abandoning Defensive Duty",
+    "cluster": "Back-rank mate after removing/vacating defender",
+    "mixed": false
+   },
+   {
+    "fid": 555,
+    "act": 6.36,
+    "chip": "Slow endgame king move (pawn\u2192passed-pawn)",
+    "category": "Endgame Technique",
+    "cluster": "Lost Pawn Promotion Race (Tempo Errors)",
+    "mixed": false
+   },
+   {
+    "fid": 1924,
+    "act": 5.7,
+    "chip": "Faulty king move drops material (also rook/knight)",
+    "category": "Abandoning Defensive Duty",
+    "cluster": "King move abandons defended material or walks into danger",
+    "mixed": false
+   }
+  ]
+ },
+ {
+  "move_num": 56,
+  "san": "Kg6",
+  "cp_loss": 680,
+  "best_san": "Kxh8",
+  "features": [
+   {
+    "fid": 2018,
+    "act": 26.36,
+    "chip": "Hangs material (greedy capture\u2192any move)",
+    "category": "Greedy Capture",
+    "cluster": "\u26a0 Coarse detectors (>5% fire \u2014 broad, not specific)",
+    "mixed": false
+   },
+   {
+    "fid": 1422,
+    "act": 15.76,
+    "chip": "Allows opponent decisive gain (top: king pawn-race)",
+    "category": "Endgame Technique",
+    "cluster": "Wrong King Direction / King Strays from Pawn Race",
+    "mixed": false
+   },
+   {
+    "fid": 691,
+    "act": 13.69,
+    "chip": "Missed free capture (medium: hangs material)",
+    "category": "Missed Hanging Piece",
+    "cluster": "Missed free capture in won endgame (generic)",
+    "mixed": false
+   },
+   {
+    "fid": 1864,
+    "act": 12.82,
+    "chip": "Hangs drawn endgame (king\u2192any piece)",
+    "category": "Endgame Technique",
+    "cluster": "Blew Drawn Endgame (King Misstep / Technique Failure)",
+    "mixed": false
+   }
+  ]
+ }
+]

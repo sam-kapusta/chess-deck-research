@@ -15,6 +15,64 @@ Research-package-specific concepts. Shared cross-package concepts (SAE pipeline,
 - **k=16 > k=32** (990 vs 786 coherent, z-score). k=8 z-score in progress.
 - **Position-descriptor axes (phase/direction/severity/trajectory) are leaky** — features concentrate on them via corpus base rate, not mistake structure. Only piece-identity, what-hangs (SEE), and best-move-character are trustworthy coherence axes. Refutation-motif is moot (0 features, and Maia never computes refutations anyway).
 
+## What the SAE can and cannot tell you (2026-06-06 — three experiments)
+
+Triggered by applying v7 k6 to a real game and asking "why doesn't it say *why* the move was
+bad, mechanically (e.g. 'allowed pin, knight→queen')?" Three experiments answered it. The ceiling
+is **architectural, not statistical** — none of these are fixed by more data or higher elo.
+
+**1. "Hangs" overclaims severity (label defect, not model defect).** The chip says "Hangs bishop"
+on moves where the piece is only *threatened / about to be chased*, not lost. Verified on move 10
+(Bb5): zero attackers on the bishop after the move, a −105cp tempo slip, yet labeled "Hangs." Root
+cause: the diff `L7[best]−L7[blunder]` encodes "this move was worse than best" but not *by how much
+/ whether material is actually lost*. The labeler reaches for the strongest verb. **Fix (cheap, not
+yet done):** gate the verb on signal we already have — `cp_loss` + `blunder_hangs_own_pct` →
+hangs (material lost) / drops / **misplaces·chases-out** (cp_loss<~150, no material change) /
+weakens (positional). A labeling-prompt change, in the v7 lineage's spirit.
+
+**2. Elo conditioning sharpens *category* but never reaches *mechanism* (pooling ceiling).** Ran the
+game through the encoder at 2400/2400 vs the players' real ~1518. Per-move top-activation change was
+NOT a uniform OOD inflation: most moves *dropped* (m20 −3.7, m50 −3.5, m56 −2.5); the one soft
+inaccuracy that *sharpened* was move 17 d4 (+3.58, the largest swing). At 2400 the spurious "hangs"
+features **dropped out** (f1684/f996/f1439/f521 gone) and were replaced by a more coherent theme —
+f319 "King Safety › self-weakening / deflects defender" + f351/f1114 "committal move squanders the
+better side." The shared anchor f672 "Missed Central Pawn Break" *strengthened* (4.0→5.6). So:
+strong conditioning makes the read **cleaner and more coherent**, BUT the best it produces is
+"self-weakening/overextending committal move," never "pin, N→Q." `mean64` pooling averaged away
+"which knight / which file" before the SAE ever saw it — no elo setting recovers deleted info.
+Side benefit worth keeping: **strong-elo conditioning is a free denoiser** for soft inaccuracies
+(removes junk "hangs" features) with no retrain. NOTE: the SAE was trained on ~1500 diffs, so 2400
+input is OOD *for the SAE itself* — a properly 2400-*trained* SAE would likely be cleaner still.
+
+**3. Sample size is NOT the driver of low consistency (decisive).** Median feature trained on only
+118 diff-examples; 40% on <100; cache is 168,132 diffs. BUT consistency is **flat across
+example-count**: features with <50 examples have mean consistency 65.4, features with >1500 have
+63.2. **Pearson r(log10 examples, consistency) = −0.002.** If thin data caused the messiness, the
+under-trained features would be the messy ones — they are not. This is the signature of an intrinsic
+ceiling. More games → same median-60 consistency, just over more vectors. Two caveats: (a) this
+measures *quality of existing features*, not *coverage* — rare patterns (1-per-5000-games) could
+still be absent from 168K; (b) all diffs come from the same ~3,843-game pool, so a *position-
+diversity* limit is invisible to this within-cache test (would need 2K-vs-4K-game SAEs to probe).
+
+### The design fork (what to actually change if pursuing "what was the model thinking")
+The high-elo-everything path is a **local minimum** — too strong to model the 1500's actual cognition
+(kills coaching), too un-localized to beat Stockfish at mechanism (SF refutation lines already give
+"pin N→Q" perfectly). The two real forks:
+- **Coaching / blind-spots → elo CONTRAST, not level.** The gold is "what does 2400 represent here
+  that 1500 doesn't" = `L7[pos@2400] − L7[pos@1500]` (or the crosscoder framing). Keep the 1500;
+  the upgrade is the *difference* between weak and strong Maia. An elo-conditioned model is *for*
+  this; training on one elo throws the contrast away.
+- **Mechanism / "why is d4 bad" → UN-POOLED, decision-point extraction.** Requires a new cache
+  (square-resolved L7, no mean64). Gate it behind a cheap probe FIRST: ~50 positions with known
+  pins/forks, extract L7 without pooling, ask "does a linear probe find a pin direction?" If no,
+  Maia doesn't represent tactics explicitly and goal (B) should be abandoned — do not spend GPU
+  before that probe returns yes. See [[direction_arbiter_is_board_not_see]] for the related lesson
+  that mechanism must come from the board/refutation, not SEE heuristics.
+
+Artifacts: `output/game_v7_169764992210.json` (1518), `output/game_v7_2400_169764992210.json`
+(2400), `output/game_v7_k4_169764992210.json` (k4). Game 169764992210 = cabbagelover White, an
+endgame-technique collapse, useful as the canonical "soft inaccuracy + losing endgame" probe game.
+
 ## Architecture — what works (and why)
 
 ### BatchTopK (SandstonePersonas pattern) — CURRENT

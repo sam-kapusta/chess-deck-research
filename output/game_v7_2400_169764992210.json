@@ -1,0 +1,450 @@
+[
+ {
+  "move_num": 10,
+  "san": "Bb5",
+  "cp_loss": 105,
+  "best_san": "Ba2",
+  "features": [
+   {
+    "fid": 1129,
+    "act": 4.46,
+    "chip": "Hangs rim bishop to pawn thrust (minor)",
+    "category": "Left Piece Hanging",
+    "cluster": "Hangs opening material to pin (Bg4/Bg5/Bb5 motifs)",
+    "mixed": false
+   },
+   {
+    "fid": 1091,
+    "act": 3.91,
+    "chip": "Plausible move over best (often queen)",
+    "category": "Left Piece Hanging",
+    "cluster": "Missed winning tactic or capture (fork, check, mate)",
+    "mixed": false
+   },
+   {
+    "fid": 953,
+    "act": 3.73,
+    "chip": "Missed forced win (often mate)",
+    "category": "Missed Check or Mate",
+    "cluster": "Missed Back-Rank Mate (Rook or Queen on 8th/1st Rank)",
+    "mixed": false
+   },
+   {
+    "fid": 252,
+    "act": 3.62,
+    "chip": "Ignored threat, hangs material (queen attack)",
+    "category": "Abandoning Defensive Duty",
+    "cluster": "Ignores decisive threat (mate or major tactic)",
+    "mixed": false
+   },
+   {
+    "fid": 31,
+    "act": 3.56,
+    "chip": "Lets own piece get trapped (often queen)",
+    "category": "Passive Play",
+    "cluster": "Over-Aggressive or Misplaced Piece Loses Tempo and Hangs Material",
+    "mixed": false
+   },
+   {
+    "fid": 1914,
+    "act": 3.11,
+    "chip": "Hangs bishop to knight fork (broadens)",
+    "category": "Left Piece Hanging",
+    "cluster": "Hangs piece to knight fork (non-queen targets)",
+    "mixed": false
+   }
+  ]
+ },
+ {
+  "move_num": 17,
+  "san": "d4",
+  "cp_loss": 113,
+  "best_san": "Ng3",
+  "features": [
+   {
+    "fid": 1487,
+    "act": 7.61,
+    "chip": "Squandered winning material (rook\u2192any)",
+    "category": "Missed Hanging Piece",
+    "cluster": "\u26a0 Coarse detectors (>5% fire \u2014 broad, not specific)",
+    "mixed": false
+   },
+   {
+    "fid": 672,
+    "act": 5.63,
+    "chip": "Skips central break (or hangs sac)",
+    "category": "Missed Tactic",
+    "cluster": "Missed Central Pawn Break",
+    "mixed": false
+   },
+   {
+    "fid": 319,
+    "act": 5.62,
+    "chip": "Self-weakening move (defender\u2192overextension)",
+    "category": "King Safety Error",
+    "cluster": "Removing or deflecting key king defender",
+    "mixed": false
+   },
+   {
+    "fid": 351,
+    "act": 3.97,
+    "chip": "Squandered win with plausible move (opening\u2192all phases)",
+    "category": "Left Piece Hanging",
+    "cluster": "Squanders winning position (hangs piece or misses decisive tactic)",
+    "mixed": false
+   },
+   {
+    "fid": 1313,
+    "act": 3.62,
+    "chip": "Squanders win (hang/miss\u2192quiet slips)",
+    "category": "Left Piece Hanging",
+    "cluster": "\u26a0 Coarse detectors (>5% fire \u2014 broad, not specific)",
+    "mixed": false
+   },
+   {
+    "fid": 1114,
+    "act": 3.51,
+    "chip": "Committal move squanders win (often pawn)",
+    "category": "Missed Tactic",
+    "cluster": "Squandered Win with Greedy or Premature Move",
+    "mixed": false
+   }
+  ]
+ },
+ {
+  "move_num": 20,
+  "san": "Qf3",
+  "cp_loss": 117,
+  "best_san": "Qf2",
+  "features": [
+   {
+    "fid": 1250,
+    "act": 3.43,
+    "chip": "Hangs undefended material (knight\u2192any)",
+    "category": "Abandoning Defensive Duty",
+    "cluster": "Knight abandons defensive duty (forks, king safety, or key square)",
+    "mixed": false
+   },
+   {
+    "fid": 2018,
+    "act": 3.07,
+    "chip": "Traded key piece (worsening lost position)",
+    "category": "Premature Trade",
+    "cluster": "\u26a0 Coarse detectors (>5% fire \u2014 broad, not specific)",
+    "mixed": false
+   },
+   {
+    "fid": 182,
+    "act": 3.06,
+    "chip": "Premature check spoils win (often knight)",
+    "category": "Pointless Check",
+    "cluster": "Premature knight check squanders winning position",
+    "mixed": false
+   },
+   {
+    "fid": 611,
+    "act": 2.86,
+    "chip": "Hangs defended pawn (sometimes piece)",
+    "category": "Abandoning Defensive Duty",
+    "cluster": "Greedy or off-task move abandons defense (general)",
+    "mixed": false
+   },
+   {
+    "fid": 1056,
+    "act": 2.51,
+    "chip": "Quiet reposition ignores tactic (often queen)",
+    "category": "Left Piece Hanging",
+    "cluster": "Hangs piece by passive/quiet/idle move ignoring threat",
+    "mixed": false
+   },
+   {
+    "fid": 1341,
+    "act": 2.32,
+    "chip": "Queen harassed with tempo (sometimes hung)",
+    "category": "Unsound Aggression",
+    "cluster": "Premature Queen Sortie Punished with Tempo/Fork",
+    "mixed": false
+   }
+  ]
+ },
+ {
+  "move_num": 32,
+  "san": "gxh5",
+  "cp_loss": 254,
+  "best_san": "Kh4",
+  "features": [
+   {
+    "fid": 1277,
+    "act": 14.11,
+    "chip": "Released pawn tension (capture\u2192push/trade)",
+    "category": "Premature Trade",
+    "cluster": "Released Central/Pawn Tension Prematurely",
+    "mixed": false
+   },
+   {
+    "fid": 1165,
+    "act": 11.23,
+    "chip": "Premature capture squanders edge (often bishop)",
+    "category": "Premature Trade",
+    "cluster": "\u26a0 Coarse detectors (>5% fire \u2014 broad, not specific)",
+    "mixed": false
+   },
+   {
+    "fid": 1858,
+    "act": 7.45,
+    "chip": "Botched pawn endgame (\u2192 piece endings)",
+    "category": "Endgame Technique",
+    "cluster": "Passive king move loses endgame (general technique)",
+    "mixed": false
+   },
+   {
+    "fid": 1487,
+    "act": 6.94,
+    "chip": "Squandered winning material (rook\u2192any)",
+    "category": "Missed Hanging Piece",
+    "cluster": "\u26a0 Coarse detectors (>5% fire \u2014 broad, not specific)",
+    "mixed": false
+   },
+   {
+    "fid": 648,
+    "act": 5.88,
+    "chip": "Passive king move loses endgame (often draw)",
+    "category": "Endgame Technique",
+    "cluster": "Wrong-way king / loses opposition or key square",
+    "mixed": false
+   },
+   {
+    "fid": 275,
+    "act": 5.44,
+    "chip": "Premature trade squanders advantage (often queen)",
+    "category": "Premature Trade",
+    "cluster": "Premature Queen Trade Squanders Attack/Win",
+    "mixed": false
+   }
+  ]
+ },
+ {
+  "move_num": 38,
+  "san": "h4",
+  "cp_loss": 185,
+  "best_san": "Bd2",
+  "features": [
+   {
+    "fid": 1228,
+    "act": 3.14,
+    "chip": "Skips forcing move (win or safety)",
+    "category": "Missed Tactic",
+    "cluster": "Missed Forcing Check or Zwischenzug",
+    "mixed": false
+   },
+   {
+    "fid": 1067,
+    "act": 3.08,
+    "chip": "Losing king move in endgame (mate\u2192material)",
+    "category": "Endgame Technique",
+    "cluster": "Passive king move loses endgame (general technique)",
+    "mixed": false
+   },
+   {
+    "fid": 2018,
+    "act": 3.07,
+    "chip": "Traded key piece (worsening lost position)",
+    "category": "Premature Trade",
+    "cluster": "\u26a0 Coarse detectors (>5% fire \u2014 broad, not specific)",
+    "mixed": false
+   },
+   {
+    "fid": 555,
+    "act": 2.73,
+    "chip": "Mistimed pawn/king move (any endgame)",
+    "category": "Endgame Technique",
+    "cluster": "Passive king move loses endgame (general technique)",
+    "mixed": false
+   },
+   {
+    "fid": 233,
+    "act": 2.73,
+    "chip": "Squanders won position (tempo\u2192hung material)",
+    "category": "Passive Play",
+    "cluster": "Squandered Winning Position with Quiet/Slow Move",
+    "mixed": false
+   },
+   {
+    "fid": 296,
+    "act": 2.56,
+    "chip": "Passive blockade of passed pawn (rook)",
+    "category": "Endgame Technique",
+    "cluster": "Missed saving or prophylactic resource (check, blockade, defense)",
+    "mixed": false
+   }
+  ]
+ },
+ {
+  "move_num": 40,
+  "san": "Bd2",
+  "cp_loss": 282,
+  "best_san": "cxb4",
+  "features": [
+   {
+    "fid": 233,
+    "act": 6.16,
+    "chip": "Squanders won position (tempo\u2192hung material)",
+    "category": "Passive Play",
+    "cluster": "Squandered Winning Position with Quiet/Slow Move",
+    "mixed": false
+   },
+   {
+    "fid": 555,
+    "act": 6.12,
+    "chip": "Mistimed pawn/king move (any endgame)",
+    "category": "Endgame Technique",
+    "cluster": "Passive king move loses endgame (general technique)",
+    "mixed": false
+   },
+   {
+    "fid": 499,
+    "act": 5.35,
+    "chip": "Skipped resolving pawn capture (endgame)",
+    "category": "Endgame Technique",
+    "cluster": "Missed decisive pawn break or resolving capture",
+    "mixed": false
+   },
+   {
+    "fid": 1281,
+    "act": 5.27,
+    "chip": "Weakening pawn push (sometimes tactical)",
+    "category": "Endgame Technique",
+    "cluster": "Weakening pawn push (structural or positional)",
+    "mixed": false
+   },
+   {
+    "fid": 425,
+    "act": 4.95,
+    "chip": "Endgame structural blunder (pure-pawn\u2192mixed)",
+    "category": "Endgame Technique",
+    "cluster": "Passive king move loses endgame (general technique)",
+    "mixed": false
+   },
+   {
+    "fid": 1858,
+    "act": 4.76,
+    "chip": "Botched pawn endgame (\u2192 piece endings)",
+    "category": "Endgame Technique",
+    "cluster": "Passive king move loses endgame (general technique)",
+    "mixed": false
+   }
+  ]
+ },
+ {
+  "move_num": 50,
+  "san": "Kg8",
+  "cp_loss": 475,
+  "best_san": "Bg5",
+  "features": [
+   {
+    "fid": 2018,
+    "act": 10.77,
+    "chip": "Traded key piece (worsening lost position)",
+    "category": "Premature Trade",
+    "cluster": "\u26a0 Coarse detectors (>5% fire \u2014 broad, not specific)",
+    "mixed": false
+   },
+   {
+    "fid": 952,
+    "act": 8.76,
+    "chip": "Hangs piece (queen, then tactical)",
+    "category": "Left Piece Hanging",
+    "cluster": "\u26a0 Coarse detectors (>5% fire \u2014 broad, not specific)",
+    "mixed": false
+   },
+   {
+    "fid": 845,
+    "act": 7.07,
+    "chip": "Hangs material on piece-chase (rook/queen)",
+    "category": "Abandoning Defensive Duty",
+    "cluster": "Active piece-chase abandons defense (rook or queen chasing)",
+    "mixed": false
+   },
+   {
+    "fid": 555,
+    "act": 7.06,
+    "chip": "Mistimed pawn/king move (any endgame)",
+    "category": "Endgame Technique",
+    "cluster": "Passive king move loses endgame (general technique)",
+    "mixed": false
+   },
+   {
+    "fid": 795,
+    "act": 6.02,
+    "chip": "Hangs own piece (often queen)",
+    "category": "Left Piece Hanging",
+    "cluster": "Hangs queen to immediate capture (moving onto attacked square or ignoring threat)",
+    "mixed": false
+   },
+   {
+    "fid": 113,
+    "act": 5.68,
+    "chip": "Missed winning capture (often bishop)",
+    "category": "Left Piece Hanging",
+    "cluster": "Missed winning tactic or capture (fork, check, mate)",
+    "mixed": false
+   }
+  ]
+ },
+ {
+  "move_num": 56,
+  "san": "Kg6",
+  "cp_loss": 680,
+  "best_san": "Kxh8",
+  "features": [
+   {
+    "fid": 2018,
+    "act": 25.02,
+    "chip": "Traded key piece (worsening lost position)",
+    "category": "Premature Trade",
+    "cluster": "\u26a0 Coarse detectors (>5% fire \u2014 broad, not specific)",
+    "mixed": false
+   },
+   {
+    "fid": 1931,
+    "act": 15.4,
+    "chip": "Missed free capture (often queen)",
+    "category": "Missed Hanging Piece",
+    "cluster": "Missed free queen capture",
+    "mixed": false
+   },
+   {
+    "fid": 625,
+    "act": 13.3,
+    "chip": "Ignores hanging piece (often queen)",
+    "category": "Missed Hanging Piece",
+    "cluster": "Missed free queen capture",
+    "mixed": false
+   },
+   {
+    "fid": 1841,
+    "act": 13.04,
+    "chip": "Missed hanging queen (sometimes bishop)",
+    "category": "Missed Hanging Piece",
+    "cluster": "Missed free queen capture",
+    "mixed": false
+   },
+   {
+    "fid": 293,
+    "act": 11.33,
+    "chip": "Missed hanging-piece capture (often rook)",
+    "category": "Missed Hanging Piece",
+    "cluster": "Missed free rook capture",
+    "mixed": false
+   },
+   {
+    "fid": 1003,
+    "act": 10.69,
+    "chip": "Allowed forced mate (or losing material)",
+    "category": "King Safety Error",
+    "cluster": "Self-exposing move hastens loss in already-lost position",
+    "mixed": false
+   }
+  ]
+ }
+]
