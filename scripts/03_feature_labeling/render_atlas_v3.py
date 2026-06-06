@@ -67,17 +67,23 @@ for f, v in leaf.items():
     if v["bucket"] == "unassignable": continue
     tree[CHAR.get(v["bucket"], "phase")][v["bucket"]][v["sub"]].append(f)
 
+def mk_boards(exs):
+    return [{"fen": ex["fen"], "u": ex["uci"], "b": best_map.get(ex["fen"] + "|" + ex["uci"], "")}
+            for ex in exs[:a.boards]]
+
 def feat_obj(f):
     v = lab[f]; s = S(f)
-    boards = [{"fen": ex["fen"], "u": ex["uci"], "b": best_map.get(ex["fen"] + "|" + ex["uci"], "")}
-              for ex in prof.get(f, {}).get("examples", [])[:a.boards]]
+    p = prof.get(f, {})
+    # v7 profiles carry separate peak/median bands; fall back to a single "examples" list for old profiles
+    peak = mk_boards(p.get("peak", p.get("examples", [])))
+    median = mk_boards(p.get("median", []))
     return {
         "id": int(f), "chip": v.get("chip", ""), "label": v.get("label", ""),
         "cons": v.get("consistency", 0), "fire": round(fr(f) * 100, 2),
         "mixed": bool(v.get("mixed")),
         "loses": round(s.get("blunder_hangs_own_pct", 0) * 100),
         "wins": round(s.get("best_wins_material_pct", 0) * 100),
-        "boards": boards,
+        "boards": peak, "median": median,
     }
 
 # assemble DATA: groups[].buckets[].subs[].features[]
@@ -158,7 +164,9 @@ body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',sans-seri
 .gc .stats .mix b{color:#b5852b}
 .mixbadge{font-family:'IBM Plex Mono';font-size:9px;font-weight:500;color:#8a6d3b;background:#f0e6d2;border:1px solid #e0d2b4;border-radius:3px;padding:1px 5px;vertical-align:middle;letter-spacing:.03em}
 .gc .det{display:none;margin-top:13px;padding-top:11px;border-top:1px solid var(--line)}.gc.open .det{display:block}
-.gc .lab{font-family:'IBM Plex Mono';font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.gc .lab{font-family:'IBM Plex Mono';font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;margin-top:13px}
+.gc .lab:first-child{margin-top:0}
+.bandnote{text-transform:none;letter-spacing:0;color:var(--accent);font-style:italic;margin-left:6px}
 .gc .desc{font-size:12px;color:var(--ink2);line-height:1.5;margin-bottom:12px}
 .boards{display:flex;gap:9px;flex-wrap:wrap}
 .bd{width:148px}.bd .cap{font-size:9.5px;color:var(--muted);margin-top:3px;font-family:'IBM Plex Mono'}
@@ -254,8 +262,10 @@ function fcard(f,color){const k='f'+f.id;REG[k]=f;
 function toggle(el,k){const f=REG[k];const was=el.classList.contains('open');
   document.querySelectorAll('.gc.open').forEach(e=>{e.classList.remove('open');e.querySelector('.det').innerHTML='';});
   if(!was){el.classList.add('open');
+    const med=(f.median&&f.median.length)?`<div class=lab title="typical (p40-60) activation — the feature's broader identity">Medium activating positions <span class=bandnote>typical strength — broader pattern</span></div><div class=boards>${f.median.map(boardCell).join('')}</div>`:'';
     el.querySelector('.det').innerHTML=`<div class=lab>What this feature detects</div><div class=desc>${esc(f.label)}</div>
-    <div class=lab>Top activating positions</div><div class=boards>${f.boards.map(boardCell).join('')}</div>
+    <div class=lab title="strongest (p99 peak) activation — most extreme, often piece-homogeneous">Top activating positions <span class=bandnote>peak strength</span></div><div class=boards>${f.boards.map(boardCell).join('')}</div>
+    ${med}
     <div class=legend><span class=r>▶ red = move played (blunder)</span> &nbsp; <span class=g>▶ green = Maia best move</span> · click a board for chess.com</div>`;
     el.scrollIntoView({behavior:'smooth',block:'nearest'});}
 }

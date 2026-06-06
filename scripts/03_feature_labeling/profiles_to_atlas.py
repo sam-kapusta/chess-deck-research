@@ -32,12 +32,17 @@ def fr(f):
 
 profiles, best_map = {}, {}
 for f, v in pm.items():
-    examples = []
-    for ex in (v.get("peak", []) + v.get("median", [])):
-        examples.append({"fen": ex["fen"], "uci": ex["uci"]})
-        if ex.get("best"):
-            best_map[ex["fen"] + "|" + ex["uci"]] = ex["best"]
-    profiles[f] = {"examples": examples, "fire_rate": fr(f)}
+    def band(items):
+        out = []
+        for ex in items:
+            out.append({"fen": ex["fen"], "uci": ex["uci"]})
+            if ex.get("best"):
+                best_map[ex["fen"] + "|" + ex["uci"]] = ex["best"]
+        return out
+    peak = band(v.get("peak", []))
+    median = band(v.get("median", []))
+    # `examples` (peak+median) kept for back-compat; `peak`/`median` let the atlas show two labeled rows
+    profiles[f] = {"examples": peak + median, "peak": peak, "median": median, "fire_rate": fr(f)}
 
 json.dump(profiles, open(a.out_profiles, "w"))
 json.dump(best_map, open(a.out_best, "w"))
