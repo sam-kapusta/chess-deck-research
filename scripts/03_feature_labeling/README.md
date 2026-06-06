@@ -33,8 +33,15 @@ effort** (set `EFFORT=xhigh`; matches the interactive Claude Code config).
 | 3 | **`relabel_v7_peakmedian.py`** | **CURRENT labeler.** Labels each feature from peak+median boards + the prior label as head-start. Chip form "Core mistake (often queen / major piece)"; label narrates top→median broadening. Emits `confidence` + `review`. `EFFORT=xhigh`. | `relabel_v7_{model}.json` |
 | 4 | `assign_v3.py` | Assign labeled features to the 12-category v3 taxonomy (`buckets_v3_*.json`). Allows `unassignable`. NO rules block — buckets + evidence + self-inflicted/omission axis. | `feature_buckets_{...}.json` |
 | 5 | `cluster_llm.py` | Within each category, Opus groups features into ~10-20 natural coaching clusters (merges near-dups). | `feature_clusters_{...}.json` |
-| 6 | `audit_clusters.py` | Per-category audit: place orphans + flag features whose label contradicts their category/cluster. | `cluster_audit_{...}.json` |
-| 7 | `render_atlas_v3.py` (local) | SPA atlas: category → cluster → feature, boards client-side from FEN, chess.com links. ~2MB. | `atlas/atlas_*.html` |
+| 6 | `build_leaf.py` | Flatten clusters → per-feature `{bucket, sub}` leaf the atlas reads. FOLDS >5% blob features into one `⚠ Coarse detectors` sub per bucket (they're broad material-lost detectors, not specific tactics). | `feature_leaf_{...}.json` |
+| 7 | `profiles_to_atlas.py` | Adapt peak+median profiles → the `{examples, fire_rate}` profiles + `best_uci_map` the atlas needs (peak first, extracts inline best move for the green arrow). | `atlas_profiles_{...}.json` + `best_uci_map_{...}.json` |
+| 8 | `audit_clusters.py` | Per-category audit: place orphans + flag features whose label contradicts their category/cluster. | `cluster_audit_{...}.json` |
+| 9 | `render_atlas_v3.py` (local) | SPA atlas: category → cluster → feature, boards client-side from FEN, chess.com links. `--dict-label` tags the title. ~1-2MB. | `atlas/atlas_*.html` |
+
+**Dictionaries built with this pipeline:** `d2048_k6` (2033 features, median consistency 63) and
+`d2048_k4` (1148 features, median consistency 60). k6 is cleaner on every quality metric — fewer
+features (1148 vs 2033) covering the same corpus makes k4 marginally *more* polysemantic, not less.
+The `buckets_v3_d2048_k6.json` category definitions are dictionary-independent and reused for both.
 
 ## Labeler version lineage (each fixed a validated defect — see plan.md / log.md)
 

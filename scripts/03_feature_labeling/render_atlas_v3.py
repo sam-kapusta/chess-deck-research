@@ -25,6 +25,7 @@ ap.add_argument("--buckets", default="output/buckets_v3_d2048_k6.json")
 ap.add_argument("--stats", default="output/see_stats_d2048_k6.json")
 ap.add_argument("--profiles", default="/tmp/d2048_k6_profiles.json")
 ap.add_argument("--best", default="/tmp/best_uci_map.json")
+ap.add_argument("--dict-label", default="d2048_k6", help="dictionary tag shown in the atlas title/subtitle")
 a = ap.parse_args()
 
 lab = json.load(open(a.labels))
@@ -105,7 +106,7 @@ DATA = {"nfeat": nfeat, "nun": nun, "nbuckets": len(buckets), "groups": groups}
 
 HTML = r"""<!DOCTYPE html><html lang=en><head><meta charset=UTF-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<title>Chess Mistake Taxonomy — d2048_k6</title>
+<title>Chess Mistake Taxonomy — __DICTLABEL__</title>
 <link rel=preconnect href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel=stylesheet>
 <style>
@@ -227,7 +228,7 @@ function home(){
   setOn('');crumbs([{label:'All categories'}]);
   stat(`<span><b>${DATA.nfeat.toLocaleString()}</b> features</span><span><b>${DATA.nbuckets}</b> buckets</span><span><b>${DATA.nun}</b> unassigned</span>`);
   let h=`<div class="head fade"><h1>Chess Mistake Taxonomy</h1></div>
-  <div class="sub fade"><b>${DATA.nfeat.toLocaleString()}</b> SAE features (d2048_k6) across <b>${DATA.nbuckets}</b> coaching buckets, grouped by error character. Each feature detects one recurring kind of blunder; the bucket is what a coach would name it. Click a bucket, then a feature to see its boards.</div>`;
+  <div class="sub fade"><b>${DATA.nfeat.toLocaleString()}</b> SAE features (__DICTLABEL__) across <b>${DATA.nbuckets}</b> coaching buckets, grouped by error character. Each feature detects one recurring kind of blunder; the bucket is what a coach would name it. Click a bucket, then a feature to see its boards.</div>`;
   DATA.groups.forEach(g=>{
     h+=`<div class=subhd>${g.label} <span class=sn>${g.blurb} · ${g.n} features</span></div><div class="grid fade">`;
     g.buckets.forEach(b=>{h+=`<div class=glcard style="--c:${b.color}" onclick="showBucket('${b.id}')">
@@ -280,6 +281,7 @@ sidebar();home();
 
 import os
 os.makedirs(os.path.dirname(a.out), exist_ok=True)
-open(a.out, "w").write(HTML.replace("__DATA__", json.dumps(DATA, separators=(",", ":"))))
+open(a.out, "w").write(HTML.replace("__DICTLABEL__", a.dict_label)
+                            .replace("__DATA__", json.dumps(DATA, separators=(",", ":"))))
 sz = os.path.getsize(a.out) / 1e6
 print(f"wrote {a.out} — {nfeat} features, {len(buckets)} buckets, {sz:.1f}MB")

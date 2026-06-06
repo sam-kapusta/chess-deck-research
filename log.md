@@ -805,3 +805,42 @@ Defer k6 retrain until we see whether k4's leak report is good enough.
 
 Scripts added: compute_feature_see_stats.py, label_features_integrated.py, audit_buckets.py,
 subbucket_and_rollup.py, render_taxonomy_tree.py. (Superseded but kept: fuse_feature_names.py, label_features_see.py.)
+
+---
+
+## 2026-06-05 — v7 pipeline applied to d2048_k4 (the k4-vs-k6 comparison, finally apples-to-apples)
+
+Ran the full v7 peak+median labeling pipeline on `btk_2048_k4_nol2.pt` — same L7 cache
+(`maia3_l7only_v2_dedup.pt`), same recipe, same opus-4-8 xhigh engine as k6. Differs only in k (4 vs 6).
+Verified inputs clean before launch (right cache, W_enc [1024,2048], d_input matches).
+
+**Result — k6 wins on every quality metric.** The hypothesis that k4 might be *less* over-specialized was
+wrong; it's marginally *more* polysemantic.
+
+| metric | d2048_k6 | d2048_k4 |
+|---|---|---|
+| live / labeled | 2033 | 1148 |
+| median consistency | 63 | 60 |
+| mean consistency | 65 | 62 |
+| ≥70 (clean) | 35% | 22% |
+| confidence=high | 38% | 30% |
+| blobs (>5% fire) | 15 | 11 |
+
+**Why:** fewer live features (1148 vs 2033) covering the same corpus → each does more work → more mixed
+boards per feature. Sparser per-position activation (k=4) does NOT buy cleaner features when you also have
+fewer total features. The blobs are the SAME feature indices in both dicts (f1487, f1313, f952, f1372,
+f2018, f1965, f290, f1329, f1165) firing on the same coarse material-lost patterns — k4 doesn't escape
+the coarse-detector problem either.
+
+**What v7 DID fix: the naming.** The earlier k4 frustration was bad labels, and that's gone — top k4
+features read clean (f647 "Missed mate, grabbed material (M1)", f1946 "Hangs queen (usually to bishop)",
+f148 "Allowed back-rank mate (no luft)", f1475 "Premature queen trade (squanders win)"). So v7 naming
+generalizes across dictionaries; k4 is just not a better dictionary than k6.
+
+Taxonomy: 1148 assigned to the 12 v3 categories (7 unassignable), 163 clusters, 11 blobs folded as
+`⚠ Coarse detectors`. Atlas rendered + visually verified (home / bucket / expanded feature all clean,
+boards draw with played/best arrows). **k6 remains the dictionary of record.**
+
+Scripts added (were ad-hoc for k6, now committed for reproducibility): `build_leaf.py` (clusters → atlas
+leaf + blob fold), `profiles_to_atlas.py` (peak/median → atlas profiles + best_uci_map). `render_atlas_v3.py`
+got a `--dict-label` arg so the title isn't hardcoded to k6.
