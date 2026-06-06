@@ -26,6 +26,7 @@ ap.add_argument("--positions", default="/home/ec2-user/SageMaker/all_positions_l
 ap.add_argument("--out", required=True)
 ap.add_argument("--n-peak", type=int, default=10)
 ap.add_argument("--n-med", type=int, default=10)
+ap.add_argument("--k", type=int, default=0, help="BatchTopK k; 0 = read from weights config")
 ap.add_argument("--only", default="", help="comma fids to limit (testing)")
 a = ap.parse_args()
 ONLY = set(int(x) for x in a.only.split(",") if x.strip())
@@ -34,17 +35,21 @@ cache = torch.load(a.cache, map_location="cpu", weights_only=False)
 craw = cache["activations"].float(); meta = cache["metadata"]
 zmean = craw.mean(0); zstd = craw.std(0).clamp(min=1e-6)
 x = (craw - zmean) / zstd
-sd = torch.load(a.weights, map_location="cpu", weights_only=False)["state_dict"]
+_ckpt = torch.load(a.weights, map_location="cpu", weights_only=False)
+sd = _ckpt["state_dict"]
 op = json.load(open(a.positions))
 We, be, bd = sd["W_enc"], sd["b_enc"], sd["b_dec"]
 N, D = x.shape[0], We.shape[1]
-print(f"corpus {N} x {x.shape[1]} | encoding (BatchTopK k=6) ...", flush=True)
+# BatchTopK k MUST match the model's training k, else the gating is wrong. Read it from the saved
+# config (falls back to --k). The old hardcoded 6 silently corrupted profiles for non-k6 models.
+K = a.k if a.k else int((_ckpt.get("config") or {}).get("k", 6))
+print(f"corpus {N} x {x.shape[1]} | encoding (BatchTopK k={K}) ...", flush=True)
 
-# full activation matrix after BatchTopK gating (only top-6 per row kept)
+# full activation matrix after BatchTopK gating (only top-K per row kept)
 ACT = np.zeros((N, D), np.float32)
 for i in range(0, N, 8192):
     z = F.relu((x[i:i+8192] - bd) @ We + be)
-    topv, topi = z.topk(6, dim=1)
+    topv, topi = z.topk(K, dim=1)
     mask = torch.zeros_like(z); mask.scatter_(1, topi, 1.0)
     ACT[i:i+8192] = (z * mask).numpy()
 print("encoded.", flush=True)
