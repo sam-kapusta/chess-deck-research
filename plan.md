@@ -8,9 +8,18 @@
 > kept under `scripts/sae/new_sae_architecture/` but must be repointed to the v2 cache before
 > any rerun. Next step if revisiting: rebuild all three constructions on v2 data.
 
-## CURRENT STATE (2026-06-05) — labeling at v7 (peak+median, opus-4-8 xhigh); v7 full run in progress
+## CURRENT STATE (2026-06-05) — v7 finalized on k6; k4 tested and rejected
 
-**Working model: `btk_2048_k6_nol2.pt`** (d2048_k6, S3 `sae/weights/`).
+**Working model: `btk_2048_k6_nol2.pt`** (d2048_k6, S3 `sae/weights/`). Dictionary of record.
+
+**k4-vs-k6 RESOLVED (2026-06-05): k6 wins, k4 rejected.** Ran the identical v7 pipeline on
+`btk_2048_k4_nol2.pt` (same L7 cache, recipe, opus-4-8 xhigh — differs only in k). k6 beats k4 on
+every quality metric: median consistency 63 vs 60, ≥70-clean 35% vs 22%, confidence=high 38% vs 30%.
+The hypothesis that k4 might be *less* over-specialized was wrong — fewer live features (1148 vs 2033)
+covering the same corpus makes each do more work → marginally *more* polysemantic. Blobs are the same
+feature indices in both. v7 DID fix k4's bad naming (the original frustration), but k4 is still not a
+better dictionary. Full k4 artifacts committed (`*_d2048_k4.json` + atlas) for the record; not promoted.
+Two reusable scripts extracted from k6's ad-hoc steps: `build_leaf.py`, `profiles_to_atlas.py`.
 
 **Label version history (each fixed a real, validated defect — full detail in log.md):**
 - v1 `relabel_all_fields.py` — fed best_moves_analysis (fixed missed-vs-hung direction). BIASED ("prefer Missed X").
@@ -19,7 +28,7 @@
 - (v4 — refutation + RESULT-framing. REJECTED: over-steered f882 to generic. Removed.)
 - v5 `relabel_v5_refutation_conf.py` — refutation_analysis fed + piece discipline + confidence/review flag + **opus-4-8 xhigh** (was opus-4-6 no-thinking). Fixed f1536 (knight over-claim), f882.
 - v6 `relabel_v6_secondpass.py` — second pass on the 482 cons≤70 flagged (shows v5's guess, looks harder). Fixed f1717 (false "winning"→"passive"). **v6_merged = current fallback, committed.**
-- **v7 `relabel_v7_peakmedian.py` (RUNNING)** — labels from PEAK + MEDIAN boards (10+10), shows v6 label as head-start. Fixes piece OVER-SPECIFICATION: top-10 boards are piece-homogeneous (f103's peak = queen forks) but the median fires on rooks/knights too. v7 chip form: "Core mistake (often queen / major piece)" + label narrates top-vs-median broadening. Validated on f103/f952/f882/f1536/f1717.
+- **v7 `relabel_v7_peakmedian.py` (FINALIZED, labels of record)** — labels from PEAK + MEDIAN boards (10+10), shows v6 label as head-start. Fixes piece OVER-SPECIFICATION: top-10 boards are piece-homogeneous (f103's peak = queen forks) but the median fires on rooks/knights too. v7 chip form: "Core mistake (often queen / major piece)" + label narrates top-vs-median broadening. Validated on f103/f952/f882/f1536/f1717.
 
 **THE BIG LESSON (the v3→v7 arc):** labeling from the top-10 (p99 peak) systematically OVER-SPECIFIES
 the piece, because peak boards are the most extreme + piece-homogeneous. The feature's TRUE identity
@@ -45,8 +54,9 @@ sub-cluster audit (`audit_clusters.py`) → render atlas (`render_atlas_v3.py`).
 
 **FALLBACK:** if v7 worse than v6, `output/relabel_v6_merged_d2048_k6.json` (+ v6 buckets/clusters/leaf) is committed.
 
-**NEXT after v7 finishes:** resume truncation errors → re-assign categories → re-cluster → category-fit audit
-(NOT yet run on v6/v7 — `audit_clusters.py`) → re-render atlas → re-run cabbagelover5566 game 169732298592.
+**NEXT:** (1) run the category-fit audit `audit_clusters.py` on v7 k6 (not yet run on v6/v7) → re-render.
+(2) Re-run cabbagelover5566 games (169732298592, 169761777684, 169762150590) against final v7 k6 WITH the
+>5% blob filter applied (deferred). k4 is settled — no further work on it.
 
 **GAME-APPLICATION LESSON:** per-position diagnosis should read at the CLUSTER level, not the feature chip —
 a feature labeled "queen knight-fork" fired on a player's ROOK fork (out-of-distribution structural match).
