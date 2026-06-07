@@ -122,7 +122,9 @@ ap.add_argument("--seestats", required=True)
 ap.add_argument("--system", required=True, help="path to the editable system-prompt text file")
 ap.add_argument("--output", required=True)
 ap.add_argument("--resume", action="store_true")
+ap.add_argument("--only", default="", help="comma-separated fids to label (test subset)")
 a = ap.parse_args()
+ONLY = set(x.strip() for x in a.only.split(",") if x.strip())
 
 system = open(a.system).read()
 profiles = json.load(open(a.profiles)); op = json.load(open(a.positions)); st = json.load(open(a.seestats))
@@ -138,6 +140,8 @@ if a.resume:
 
 work = []
 for fid in sorted(profiles.keys(), key=int):
+    if ONLY and fid not in ONLY:
+        continue
     if fid in results and "error" not in results[fid]:
         continue
     p = build(fid, profiles[fid], op, st, system)
