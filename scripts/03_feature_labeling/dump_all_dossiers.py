@@ -37,27 +37,46 @@ def band(rank,n):
     q=rank/max(1,n)
     return "top" if q<.25 else "upper" if q<.5 else "mid" if q<.75 else "low"
 
+def rec_for(idx, fa, bn):
+    m=meta[idx]; fen=m["fen"]; uci=m.get("blunder_uci") or m.get("uci",""); best=m.get("best_uci","")
+    o=opus.get(fen+"|"+uci)
+    if isinstance(o,dict): o=o.get("analysis",o)
+    if not isinstance(o,dict): return None
+    b=chess.Board(fen)
+    try: psan=b.san(chess.Move.from_uci(uci))
+    except: psan=uci
+    bsan=best
+    try: bsan=b.san(chess.Move.from_uci(best))
+    except: pass
+    return (bn, round(float(fa[idx]),1), psan, bsan, o.get("tactical_motif"),
+            o.get("blunder_summary") or "", o.get("best_moves_analysis") or "")
+
+NPER=a.per_feat//2  # N from top, N from middle
 for f in FIDS:
     fa=ACT[f]; fired=np.where(fa>0)[0]; fired=fired[np.argsort(-fa[fired])]; nf=len(fired)
-    # take positions WITH opus, capped, spread across the ranking
-    recs=[]
-    for rank,idx in enumerate(fired):
-        m=meta[idx]; fen=m["fen"]; uci=m.get("blunder_uci") or m.get("uci",""); best=m.get("best_uci","")
-        o=opus.get(fen+"|"+uci)
-        if isinstance(o,dict): o=o.get("analysis",o)
-        if not isinstance(o,dict): continue
-        b=chess.Board(fen)
-        try: psan=b.san(chess.Move.from_uci(uci))
-        except: psan=uci
-        bsan=best
-        try: bsan=b.san(chess.Move.from_uci(best))
-        except: pass
-        recs.append((band(rank,nf), round(float(fa[idx]),1), psan, bsan, o.get("tactical_motif"),
-                     o.get("blunder_summary") or "", o.get("best_moves_analysis") or ""))
-        if len(recs)>=a.per_feat: break
+    # TOP band: highest-activation opus-covered, up to NPER
+    top=[]
+    for idx in fired:
+        r=rec_for(idx,fa,"TOP")
+        if r: top.append(r)
+        if len(top)>=NPER: break
+    # MIDDLE band: opus-covered positions around the median activation (45-55 percentile)
+    mlo,mhi=int(nf*0.40),int(nf*0.60)
+    mid=[]
+    for idx in fired[mlo:mhi]:
+        r=rec_for(idx,fa,"MIDDLE")
+        if r: mid.append(r)
+        if len(mid)>=NPER: break
+    # if middle band thin on opus, widen
+    if len(mid)<NPER:
+        for idx in fired[mhi:]:
+            r=rec_for(idx,fa,"MIDDLE")
+            if r: mid.append(r)
+            if len(mid)>=NPER: break
+    recs=top+mid
     lines=[HEADER]
     for i,(bn,act,p,bm,mo,ws,ba) in enumerate(recs,1):
         lines.append(f"{i}.[{bn} act{act}] {p}>{bm} ({mo}): {ws} | BEST: {ba[:200]}")
     open(f"{a.outdir}/f{f}.txt","w").write("\n".join(lines))
-    print(f"f{f}: {len(recs)} positions -> {a.outdir}/f{f}.txt", flush=True)
+    print(f"f{f}: {len(top)} top + {len(mid)} middle -> {a.outdir}/f{f}.txt", flush=True)
 print("DONE",flush=True)
