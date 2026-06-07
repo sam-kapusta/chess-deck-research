@@ -30,3 +30,6 @@ output/batch_input_maia3.jsonl
 output/taxonomy_v2/_inputs/opus_english.json
 output/taxonomy_*_raw.txt
 output/sub_buckets_d1024_k4.json
+output/atlas_opus_sidecar_*.json
+output/f*_boards.json
+output/all_feat_boards_*.json

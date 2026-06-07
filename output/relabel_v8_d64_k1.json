@@ -1,0 +1,383 @@
+{
+ "3": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 100,
+  "label": "The player skipped a free or decisive capture (often of the queen, but also rooks, knights, or a promoting pawn), with the specific piece, square, and tactic varying board to board."
+ },
+ "8": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 65,
+  "label": "Player overlooks an available capture (usually of an undefended/hanging piece) and plays a non-capturing move instead; the captured piece, square, and tactic vary board to board."
+ },
+ "5": {
+  "chip": "Hangs piece",
+  "direction": "hung",
+  "consistency": 85,
+  "label": "Self-inflicted blunders where a developed/moved piece (queen, knight, or bishop) lands on an attacked, undefended square and is lost for little or nothing; the specific piece, square, and resulting tactic vary board to board."
+ },
+ "0": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 68,
+  "label": "Player overlooks a stronger capturing move (frequently a queen-winning capture like Bxd8/Bxd3/Nxd8) and plays a non-capturing or weaker move instead, with the piece, square, and exact tactic varying board to board."
+ },
+ "14": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 75,
+  "label": "The player skips a free/winning capture (the best move grabs an undefended or hanging piece); the captured piece, square, and resulting tactic vary board to board."
+ },
+ "6": {
+  "chip": "Premature trade",
+  "direction": "hung",
+  "consistency": 90,
+  "label": "Capturing/trading material prematurely\u2014most often exchanging queens or grabbing a piece\u2014instead of keeping the attacker for mate or a winning line; the piece traded and the missed continuation vary board to board."
+ },
+ "9": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 55,
+  "label": "Failing to capture a dangerous attacking piece (most often capturing an invading knight on g6/g3 with the h-pawn), with the specific piece, square, and pawn varying board to board."
+ },
+ "13": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 60,
+  "label": "Missed capture \u2014 the side to move declines a free/hanging piece (often the blockader of a passed pawn) instead of grabbing it with king or pawn, with the captured piece, square, and capturing unit varying board to board."
+ },
+ "11": {
+  "chip": "Premature trade",
+  "direction": "hung",
+  "consistency": 65,
+  "label": "Voluntarily exchanging pieces (usually rooks or queens) into a lost pawn endgame; the piece traded and exact endgame vary, but the self-inflicted trade into a worse position is constant."
+ },
+ "4": {
+  "chip": "Pointless check",
+  "direction": "hung",
+  "consistency": 85,
+  "label": "Player gives a check that achieves nothing\u2014losing tempo or hanging material to the recapture\u2014instead of the simple capturing/defending move; the piece checked, the square, and the material dropped vary board to board."
+ },
+ "15": {
+  "chip": "Bad capture",
+  "direction": "hung",
+  "consistency": 90,
+  "label": "Player initiates an unfavorable capture/trade that loses material or squanders advantage; the captured piece, recapturing unit, and resulting damage (hung piece, opened file, lost bishop pair, delayed castling) vary board to board."
+ },
+ "17": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 85,
+  "label": "Player skips a free or winning capture of an undefended/hanging piece; the captured piece, square, and exact tactic vary board to board, but the constant is an available capture left unplayed."
+ },
+ "21": {
+  "chip": "Hangs piece",
+  "direction": "hung",
+  "consistency": 88,
+  "label": "The player ignores or mishandles an attacked piece (usually a knight or bishop hit by a pawn), leaving it to be captured for inadequate compensation; the specific piece, square, and attacking unit vary board to board."
+ },
+ "22": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 65,
+  "label": "Missed capture \u2014 the best move grabs a free enemy piece or pawn (queen, rook, bishop, or pawn) while the player instead makes a non-capturing move, the captured target varying board to board."
+ },
+ "7": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 55,
+  "label": "Missed capture \u2014 failing to play the available capture of an undefended or decisive piece, where the captured piece (rook, bishop, queen, pawn) and square vary across boards while the failure to take what's free stays constant."
+ },
+ "1": {
+  "chip": "Wasted tempo",
+  "direction": "hung",
+  "consistency": 80,
+  "label": "Playing a slow/passive king or pawn move that squanders a critical tempo instead of the urgent break, capture, or move-order \u2014 the lost-time move varies (a-pawn push, king shuffle, prophylactic pawn) but each forfeits the initiative or timing the position demanded."
+ },
+ "20": {
+  "chip": "Wasted tempo",
+  "direction": "hung",
+  "consistency": 78,
+  "label": "The played move squanders time \u2014 relocating a piece passively or failing to hit the enemy queen \u2014 instead of the tempo-gaining move that attacks the queen and forces a retreat; the piece moved, square, and target queen vary board to board."
+ },
+ "10": {
+  "chip": "Bad trade",
+  "direction": "hung",
+  "consistency": 60,
+  "label": "Self-inflicted bad exchange/capture that liquidates the player's own key (often only active or defensive) piece into a lost position or mate; the piece swapped and the resulting endgame vary board to board."
+ },
+ "24": {
+  "chip": "Hangs material",
+  "direction": "hung",
+  "consistency": 80,
+  "label": "A passive or careless move that self-inflicts material loss \u2014 varying across boards by which unit hangs (pawn, knight, bishop) and which tactic (fork, capture, pawn break) the opponent uses to win it."
+ },
+ "26": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 65,
+  "label": "Missed capture \u2014 the player declines the best-move capture (most often a simplifying trade/exchange into a won king-and-pawn endgame), with the piece captured, the square, and the follow-up varying board to board."
+ },
+ "25": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 85,
+  "label": "Player skipped a forcing capture\u2014usually a queen or rook exchange that resolves the tension first\u2014choosing a non-capturing move instead; the captured piece, square, and resulting tactic vary board to board."
+ },
+ "29": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 80,
+  "label": "The player skipped a free or winning capture (queen, rook, knight, or capture-mate) in favor of a non-capturing move; the captured piece, square, and follow-up tactic vary board to board."
+ },
+ "31": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 100,
+  "label": "Missed capture \u2014 the best move is a capture (of a bishop, knight, pawn, or queen on varying squares, often a thematic exchange or tactical strike) that the player skipped in favor of a non-capturing move."
+ },
+ "12": {
+  "chip": "Hangs piece",
+  "direction": "hung",
+  "consistency": 70,
+  "label": "Self-inflicted material loss: the player moves a piece to a square where it (or the material it was guarding) gets captured \u2014 the piece, square, and resulting tactic vary board to board."
+ },
+ "27": {
+  "chip": "King safety",
+  "direction": "hung",
+  "consistency": 80,
+  "label": "King safety \u2014 the played move weakens or neglects the player's own king (removing a defender, walking into a check/fork, or ignoring the attack), allowing a devastating attack or mate; the exposed king, attacking piece, and missed defensive resource (often a queen trade or prophylactic king move) vary board to board."
+ },
+ "2": {
+  "chip": "Premature pawn push",
+  "direction": "hung",
+  "consistency": 65,
+  "label": "A self-inflicted, non-developing pawn move (wing or center advance) that wastes tempo, loosens the king, or allows the opponent a tactic \u2014 the specific pawn, square, and resulting weakness vary board to board."
+ },
+ "37": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 90,
+  "label": "Missed capture \u2014 the best move is a free or winning capture (queen, rook, knight, etc.) that the player skipped in favor of a check, retreat, or wrong move, varying by piece and square across boards."
+ },
+ "34": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 72,
+  "label": "Player skips a favorable capture (most often resolving central tension like ...exd4 or ...exd5/cxd5, but the captured piece and square vary board to board)."
+ },
+ "30": {
+  "chip": "Bad sacrifice",
+  "direction": "hung",
+  "consistency": 70,
+  "label": "Player makes an unsound capture/sacrifice (most often a bishop grabbing a pawn on h3/h6/g6) that loses material with no compensation \u2014 the sacrificed piece, target pawn, and square vary, but it's always self-inflicted material loss for too little."
+ },
+ "16": {
+  "chip": "Walks into tactic",
+  "direction": "hung",
+  "consistency": 85,
+  "label": "A self-inflicted move that places the player's own king or piece on a vulnerable square (often the a7-g1 diagonal), inviting a pin, fork, or skewer that wins material \u2014 varying across king walks, queen self-traps, and greedy captures that expose the position."
+ },
+ "35": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 80,
+  "label": "The player skipped a winning capture (often an intermediate move/zwischenzug exploiting mutual threats), but the captured piece, square, and exact tactic vary board to board, and a few cases are non-capture queen-trades or checks."
+ },
+ "18": {
+  "chip": "King misstep",
+  "direction": "hung",
+  "consistency": 65,
+  "label": "In king-and-pawn / minor-piece endgames the player walks the king (or shuffles a piece) to the wrong square, abandoning a critical pawn or controlling square; what varies is which square is vacated and which pawn or mating net is given up."
+ },
+ "32": {
+  "chip": "Premature push",
+  "direction": "hung",
+  "consistency": 72,
+  "label": "Self-inflicted pawn advance that prematurely breaks a locked/defensive structure or wastes a needed tempo; the pawn, square, and side vary, and some medium boards substitute a misplaced piece move."
+ },
+ "42": {
+  "chip": "Hangs piece",
+  "direction": "hung",
+  "consistency": 85,
+  "label": "Self-inflicted hanging of material \u2014 the played move leaves a piece (most often the queen, sometimes a rook or bishop) on a square where it can be freely captured; the piece, square, and surrounding tactic vary board to board."
+ },
+ "40": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 75,
+  "label": "The player skipped a best-move capture (usually a queen/knight/rook capture defusing the attack) in favor of an irrelevant or passive move; the captured piece, square, and follow-up tactic vary board to board."
+ },
+ "33": {
+  "chip": "Hangs piece",
+  "direction": "hung",
+  "consistency": 90,
+  "label": "The move played leaves the player's own material exposed to capture or trapping (often a bishop pushed to a bad square instead of a safe retreat, or a move allowing a trap/fork); the specific piece and mechanism vary board to board."
+ },
+ "43": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 60,
+  "label": "Player overlooks a free winning capture (rook, queen, or other piece varies board to board), playing a quiet king or pawn move instead of grabbing the hanging material."
+ },
+ "28": {
+  "chip": "Squandered attack",
+  "direction": "hung",
+  "consistency": 80,
+  "label": "Player throws away a winning attack or forced mate\u2014often by grabbing material or playing a passive/defensive move\u2014instead of continuing the decisive blow; the winning resource abandoned and the distracting move vary board to board."
+ },
+ "36": {
+  "chip": "Allowed promotion",
+  "direction": "hung",
+  "consistency": 80,
+  "label": "The played move abandons the blockade or loses the promotion race, allowing an enemy passed pawn to queen; the pawn's file, promotion square, and the correct stopping method (blockade, king walk, fork-with-check) vary board to board."
+ },
+ "38": {
+  "chip": "Bad sacrifice",
+  "direction": "hung",
+  "consistency": 55,
+  "label": "Self-inflicted material loss from premature or unsound sacrifices and forced combinations \u2014 the player throws a piece into a check/fork/attack that the opponent simply refutes by capturing, varying by which piece is sacrificed (knight, rook) and which tactic (fork, check, exchange) is botched."
+ },
+ "23": {
+  "chip": "Missed mate",
+  "direction": "missed",
+  "consistency": 70,
+  "label": "A forcing checkmate (or decisive forcing win) was available, but the player chose a slow, non-forcing quiet move instead; the specific forcing move\u2014usually a check\u2014and the mate length vary board to board."
+ },
+ "48": {
+  "chip": "Bad sacrifice",
+  "direction": "hung",
+  "consistency": 100,
+  "label": "Unsound sacrifice giving up the player's own material for insufficient compensation \u2014 the sacrificed piece and target square vary (Bxf7+, Nxf2, etc.) but each move throws away material without follow-up."
+ },
+ "49": {
+  "chip": "Hangs piece",
+  "direction": "hung",
+  "consistency": 85,
+  "label": "Develops or moves a piece (usually a bishop to g4/g5, but also rooks, knights, pawns) onto an undefended square where it is simply captured\u2014often after an intermezzo check\u2014the piece and square varying board to board."
+ },
+ "51": {
+  "chip": "Missed capture",
+  "direction": "missed",
+  "consistency": 70,
+  "label": "Player declines an available capture\u2014often of an undefended queen, rook, or attacker\u2014choosing a passive king/pawn/piece move instead; the captured piece and resulting tactic vary board to board."
+ },
+ "47": {
+  "chip": "Missed mate",
+  "direction": "missed",
+  "consistency": 75,
+  "label": "Player overlooks a forced checkmate (mate-in-1 to mate-in-several) and plays an unrelated or greedy move instead; the exact mating piece, square, and depth vary board to board, with a few cases being missed decisive tactics rather than pure mates."
+ },
+ "50": {
+  "chip": "Hangs piece",
+  "direction": "hung",
+  "consistency": 65,
+  "label": "A self-inflicted material blunder where the played move parks or trades a piece into immediate loss; varies from clear hung bishops in the openings to broader self-inflicted material/king-safety concessions in the typical boards."
+ },
+ "53": {
+  "chip": "Hangs piece",
+  "direction": "hung",
+  "consistency": 80,
+  "label": "Self-inflicted material loss \u2014 the player moves a piece onto an attacked/undefended square or trades a key defender, with the specific piece, square, and whether it's a clean hang or a losing trade varying board to board."
+ },
+ "41": {
+  "chip": "Passive move",
+  "direction": "hung",
+  "consistency": 80,
+  "label": "Squandering the position by playing a slow, non-forcing move instead of the demanded forcing shot \u2014 the wasted tactic varies (missed capture, check, zwischenzug, or avoiding a bad trade) but the constant is choosing a passive move that throws away the advantage."
+ },
+ "39": {
+  "chip": "King safety",
+  "direction": "hung",
+  "consistency": 75,
+  "label": "The player moves their own king to an inferior square\u2014walking it into checks/mate or steering it the wrong way in king-and-pawn endgames\u2014where the specific threat, file, and target square vary board to board."
+ },
+ "59": {
+  "chip": "Allows mate",
+  "direction": "hung",
+  "consistency": 80,
+  "label": "Self-inflicted move (often capturing the lone defender or ignoring a threat) that walks the player's own king into checkmate; varies in the mating piece, square, and exact tactic, with a few boards merely collapsing into a lost position rather than forced mate."
+ },
+ "52": {
+  "chip": "Ignored threat",
+  "direction": "hung",
+  "consistency": 82,
+  "label": "Player makes a passive or off-point move that neglects the position's one decisive threat \u2014 usually an enemy passed pawn about to promote, but sometimes an incoming mate or a capture of an undefended piece \u2014 and the specific threat ignored varies board to board."
+ },
+ "57": {
+  "chip": "Abandons defense",
+  "direction": "hung",
+  "consistency": 72,
+  "label": "A piece (usually the queen) deserts a critical defensive post \u2014 a guarded square, pawn, or the king's shelter \u2014 to make an attacking/repositioning sortie, self-inflicting loss of material; the deserted duty and the piece that falls vary board to board."
+ },
+ "61": {
+  "chip": "Missed mate",
+  "direction": "missed",
+  "consistency": 75,
+  "label": "Failing to execute a forced checkmate\u2014usually mate-in-one but ranging up to mate-in-several\u2014by playing a routine capture, check, or king move instead; the mating piece, square, and depth vary board to board."
+ },
+ "54": {
+  "chip": "Missed fork",
+  "direction": "missed",
+  "consistency": 75,
+  "label": "The player passes up a winning tactical shot \u2014 overwhelmingly a knight fork (often with check) that wins the queen or an exchange \u2014 playing a slow/quiet move instead; the forking piece, target, and square vary, and a minority of boards swap the fork for an analogous missed check, capture, or mate."
+ },
+ "58": {
+  "chip": "Hangs piece",
+  "direction": "hung",
+  "consistency": 60,
+  "label": "Self-inflicted material loss \u2014 the move played throws away the player's own material (often by a greedy or unsafe capture/advance), with the specific piece, square, and tactic varying board to board."
+ },
+ "56": {
+  "chip": "Premature trade",
+  "direction": "hung",
+  "consistency": 75,
+  "label": "Premature trade \u2014 the player grabs/exchanges a piece (most often a bishop capture, also knight or pawn) instead of a stronger waiting or tactical move, dissolving their own advantage; the piece traded, square, and missed resource vary from board to board."
+ },
+ "60": {
+  "chip": "Allows mate",
+  "direction": "hung",
+  "consistency": 90,
+  "label": "The played move self-inflicts (accelerates or permits) checkmate of the player's own king \u2014 by walking the king into a net, removing a key defender, or skipping the only saving check \u2014 and the exact mating mechanism varies across boards."
+ },
+ "63": {
+  "chip": "Wasted tempo",
+  "direction": "hung",
+  "consistency": 85,
+  "label": "Squanders a winning advantage by playing a slow king/piece move instead of the urgent pawn push or breakthrough \u2014 the wasted-tempo move and the missed critical push vary board to board."
+ },
+ "45": {
+  "chip": "Bad queen trade",
+  "direction": "hung",
+  "consistency": 55,
+  "label": "Self-inflicted queen mishandling \u2014 the player moves the queen onto a square that forces/allows an unfavorable exchange (or abandons a piece) and collapses the position; the trade square, lost endgame, and occasionally the hung piece vary board to board."
+ },
+ "62": {
+  "chip": "Missed check",
+  "direction": "missed",
+  "consistency": 65,
+  "label": "Failing to play a winning queen check that exploits a stuck/uncastled king to win loose material (Qa5+/Qa4+/Qh4+/Qh5+); the exact check square and the piece won vary, with a minority of boards being other missed wins (endgame king moves, missed captures)."
+ },
+ "55": {
+  "chip": "Misplaced piece",
+  "direction": "hung",
+  "consistency": 75,
+  "label": "The player moves a piece to an inferior/passive square (or wrong piece/tempo-wasting push), abandoning the strong square and squandering the win \u2014 the piece, square, and lost tactic vary, but the self-inflicted relocation that throws away material or advantage is constant."
+ },
+ "44": {
+  "chip": "King safety",
+  "direction": "hung",
+  "consistency": 72,
+  "label": "Self-inflicted king-exposure blunders \u2014 the player moves the king to a bad square or removes a defender, walking into a decisive attack (discovered check, back-rank, or mate) that costs the queen or the game; the exposed piece and exact tactic vary, but the safe alternative is almost always a quiet king/blocking move."
+ },
+ "19": {
+  "chip": "Declines promotion",
+  "direction": "hung",
+  "consistency": 60,
+  "label": "Self-inflicted: with a winning promotion on the board the player plays a non-promoting move (a check, king step, rook shuffle, or pawn push to the wrong square) instead of queening \u2014 the pawn, square, and substitute move vary, and the fuzzier (medium) cases instead step a key piece off its defensive duty."
+ },
+ "46": {
+  "error": "parse"
+ }
+}

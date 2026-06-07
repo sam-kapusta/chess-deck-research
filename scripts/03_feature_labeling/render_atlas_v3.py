@@ -208,16 +208,27 @@ function board(o){
     cells+=`<text x="${x+SQ/2}" y="${y+SQ/2+0.5}" font-size="${SQ*0.82}" text-anchor="middle" dominant-baseline="central">${PIECES[ch]||''}</text>`;
     f++;
   }}
-  // arrows
-  function arrow(uci,col){if(!uci||uci.length<4)return'';const[a,b]=[uci.slice(0,2),uci.slice(2,4)];
-    const[x1,y1]=sqxy(a,flip),[x2,y2]=sqxy(b,flip);
-    return `<line x1=${x1} y1=${y1} x2=${x2} y2=${y2} stroke="${col}" stroke-width=4 stroke-linecap=round opacity=.85 marker-end="url(#ar${col.slice(1)})"/>`;}
-  const defs=`<defs><marker id=ar${o._rc} markerWidth=4 markerHeight=4 refX=2 refY=2 orient=auto><path d="M0,0 L4,2 L0,4 z" fill="${o._red}"/></marker><marker id=ar${o._gc} markerWidth=4 markerHeight=4 refX=2 refY=2 orient=auto><path d="M0,0 L4,2 L0,4 z" fill="${o._grn}"/></marker></defs>`;
-  return `<svg width=148 height=148 viewBox="0 0 148 148" style="border-radius:5px;display:block">${defs}${cells}${arrow(o.u,o._red)}${arrow(o.b,o._grn)}</svg>`;
+  // arrows — drawn ON TOP of pieces, shortened at both ends so the from/to squares stay visible and
+  // the arrowhead clearly shows direction. id-per-color marker keyed to a unique board id.
+  function arrow(uci,col,mid){if(!uci||uci.length<4)return'';const[a,b]=[uci.slice(0,2),uci.slice(2,4)];
+    let[x1,y1]=sqxy(a,flip),[x2,y2]=sqxy(b,flip);
+    const dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy)||1,ux=dx/len,uy=dy/len;
+    // inset the tail by ~38% of a square and the head by ~30% so both squares + the arrowhead read
+    x1+=ux*SQ*0.30;y1+=uy*SQ*0.30;x2-=ux*SQ*0.34;y2-=uy*SQ*0.34;
+    return `<line x1=${x1} y1=${y1} x2=${x2} y2=${y2} stroke="${col}" stroke-width=5.5 stroke-linecap=round opacity=.9 marker-end="url(#${mid})"/>`;}
+  const mk=(id,c)=>`<marker id=${id} markerWidth=3.2 markerHeight=3.2 refX=2.2 refY=1.6 orient=auto><path d="M0,0 L3.2,1.6 L0,3.2 z" fill="${c}"/></marker>`;
+  const defs=`<defs>${mk(o._rc,o._red)}${mk(o._gc,o._grn)}${mk(o._bc,o._blu)}</defs>`;
+  // order: best(green) under, played(red) over, refutation(blue) on top
+  return `<svg width=148 height=148 viewBox="0 0 148 148" style="border-radius:5px;display:block">${defs}${cells}${arrow(o.b,o._grn,o._gc)}${arrow(o.u,o._red,o._rc)}${arrow(o.r,o._blu,o._bc)}</svg>`;
 }
-function boardCell(o){o._red='#c0392b';o._grn='#1f8a4c';o._rc='R';o._gc='G';
+let _bid=0;
+function boardCell(o,cap){
+  const id=_bid++;
+  o._red='#c0392b';o._grn='#1f8a4c';o._blu='#2563c9';
+  o._rc='r'+id;o._gc='g'+id;o._bc='b'+id;  // unique marker ids per board (avoid cross-board collisions)
   const url='https://www.chess.com/analysis?fen='+encodeURIComponent(o.fen);
-  return `<div class=bd><a href="${url}" target=_blank>${board(o)}</a></div>`;}
+  const capHtml=cap?`<div class=cap>${cap}</div>`:'';
+  return `<div class=bd><a href="${url}" target=_blank>${board(o)}</a>${capHtml}</div>`;}
 
 function setOn(id){document.querySelectorAll('.sb').forEach(b=>b.classList.remove('on'));const e=document.getElementById('sb-'+id);if(e)e.classList.add('on');}
 function crumbs(items){document.getElementById('crumbs').innerHTML=items.map((it,i)=>(i>0?'<span class=sep>›</span>':'')+`<b ${it.fn?`onclick="${it.fn}"`:''}>${it.label}</b>`).join('');}
@@ -259,15 +270,59 @@ function fcard(f,color){const k='f'+f.id;REG[k]=f;
       <span>best-wins <b>${f.wins}%</b></span>
     </div><div class=det></div></div>`;
 }
-function toggle(el,k){const f=REG[k];const was=el.classList.contains('open');
+// lazy Opus sidecar: fetched once on first feature-expand, keyed by "fen|uci"
+let OPUS=null, OPUS_TRIED=false;
+function opusKey(o){return o.fen+'|'+o.u;}
+async function loadOpus(){
+  if(OPUS_TRIED) return; OPUS_TRIED=true;
+  try{const r=await fetch(OPUS_FILE);if(r.ok)OPUS=await r.json();}catch(e){OPUS=null;}
+}
+// render one board cell, wiring its click to the Opus panel (and pulling the blue refutation arrow)
+function boardWithOpus(o,i,band,fkey){
+  if(OPUS){const a=OPUS[opusKey(o)];if(a&&a.refute_uci)o.r=a.refute_uci;}
+  const id=band+i+'_'+fkey;
+  const url='https://www.chess.com/analysis?fen='+encodeURIComponent(o.fen);
+  return `<div class=bd>
+    <div class=bdsvg onclick="showOpus('${fkey}','${band}',${i})">${board(Object.assign(o,markerIds()))}</div>
+    <div class=cap><a href="${url}" target=_blank>act ${o.act!=null?o.act:''} ↗</a></div>
+  </div>`;
+}
+let _mid=0; function markerIds(){const i=_mid++;return {_red:'#c0392b',_grn:'#1f8a4c',_blu:'#2563c9',_rc:'r'+i,_gc:'g'+i,_bc:'b'+i};}
+
+function boardsRow(arr,band,fkey){return arr.map((o,i)=>boardWithOpus(o,i,band,fkey)).join('');}
+
+function showOpus(fkey,band,i){
+  const f=REG[fkey];const o=(band==='top'?f.boards:f.median)[i];
+  const panel=document.getElementById('opus-'+fkey);if(!panel)return;
+  const a=OPUS?OPUS[opusKey(o)]:null;
+  const url='https://www.chess.com/analysis?fen='+encodeURIComponent(o.fen);
+  if(!a){panel.innerHTML=`<div class=opushd>${band} #${i+1} · <a href="${url}" target=_blank>open on chess.com ↗</a></div><div class=opusrow>No Opus analysis cached for this position.</div>`;panel.style.display='block';return;}
+  const row=(lbl,v,cls)=>v?`<div class=opusrow><span class=opusk>${lbl}</span><span class="opusv ${cls||''}">${esc(v)}</span></div>`:'';
+  const tags=Array.isArray(a.tags)?a.tags.join(', '):a.tags;
+  panel.innerHTML=`<div class=opushd>${band} position #${i+1} — full Opus analysis · <a href="${url}" target=_blank>chess.com ↗</a></div>
+    ${row('Position',a.position_description)}
+    ${row('Intent (why this move)',a.move_intent)}
+    ${row('What went wrong',a.blunder_summary,'wrong')}
+    ${row('Refutation (how it\\'s punished)',a.refutation_analysis,'refu')}
+    ${row('Best move instead',a.best_moves_analysis,'best')}
+    ${row('Motif',a.tactical_motif)}
+    ${row('Tags',tags)}`;
+  panel.style.display='block';
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+async function toggle(el,k){const f=REG[k];const was=el.classList.contains('open');
   document.querySelectorAll('.gc.open').forEach(e=>{e.classList.remove('open');e.querySelector('.det').innerHTML='';});
-  if(!was){el.classList.add('open');
-    const med=(f.median&&f.median.length)?`<div class=lab title="typical (p40-60) activation — the feature's broader identity">Medium activating positions <span class=bandnote>typical strength — broader pattern</span></div><div class=boards>${f.median.map(boardCell).join('')}</div>`:'';
-    el.querySelector('.det').innerHTML=`<div class=lab>What this feature detects</div><div class=desc>${esc(f.label)}</div>
-    <div class=lab title="strongest (p99 peak) activation — most extreme, often piece-homogeneous">Top activating positions <span class=bandnote>peak strength</span></div><div class=boards>${f.boards.map(boardCell).join('')}</div>
+  if(was)return;
+  el.classList.add('open');
+  await loadOpus();
+  const med=(f.median&&f.median.length)?`<div class=lab title="typical (p40-60) activation — the feature's broader identity">Medium activating positions <span class=bandnote>typical strength — broader pattern · ${f.median.length} shown</span></div><div class=boards>${boardsRow(f.median,'med',k)}</div>`:'';
+  el.querySelector('.det').innerHTML=`<div class=lab>What this feature detects</div><div class=desc>${esc(f.label)}</div>
+    <div class=lab title="strongest (p99 peak) activation — most extreme, often piece-homogeneous">Top activating positions <span class=bandnote>peak strength · ${f.boards.length} shown</span></div><div class=boards>${boardsRow(f.boards,'top',k)}</div>
     ${med}
-    <div class=legend><span class=r>▶ red = move played (blunder)</span> &nbsp; <span class=g>▶ green = Maia best move</span> · click a board for chess.com</div>`;
-    el.scrollIntoView({behavior:'smooth',block:'nearest'});}
+    <div class=legend><span class=r>▶ red = move played (blunder)</span> &nbsp; <span class=g>▶ green = best move</span> &nbsp; <span class=b>▶ blue = opponent's refutation</span> · click any board for its full Opus analysis below</div>
+    <div class=opuspanel id=opus-${k}></div>`;
+  el.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 const esc=s=>(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 

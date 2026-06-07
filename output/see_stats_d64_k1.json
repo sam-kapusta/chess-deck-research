@@ -1,0 +1,7149 @@
+{
+ "f0": {
+  "n": 19,
+  "best_wins_material_pct": 1.0,
+  "best_wins_median": 6.0,
+  "played_capture_pct": 0.632,
+  "blunder_hangs_own_pct": 0.737,
+  "own_hang_median": 3.0,
+  "own_hang_piece_dist": {
+   "minor": 12,
+   "major": 1,
+   "pawn": 1
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 1.0,
+  "moved_piece_pct": {
+   "queen": 0.684,
+   "pawn": 0.211,
+   "bishop": 0.053,
+   "rook": 0.053
+  },
+  "captured_piece_pct": {
+   "bishop": 0.474,
+   "none": 0.368,
+   "knight": 0.105,
+   "rook": 0.053
+  },
+  "best_piece_pct": {
+   "bishop": 0.526,
+   "knight": 0.316,
+   "pawn": 0.105,
+   "rook": 0.053
+  },
+  "best_captured_piece_pct": {
+   "queen": 1.0
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "middlegame": 0.526,
+   "opening": 0.474
+  },
+  "material_kind_pct": {
+   "trade": 0.474,
+   "safe": 0.263,
+   "hangs": 0.263
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "winning->drawn": 0.263,
+   "?->?": 0.211,
+   "winning->losing": 0.211,
+   "drawn->losing": 0.158,
+   "winning->winning": 0.105,
+   "losing->losing": 0.053
+  },
+  "eval_drop_median": 484.0,
+  "fire_rate": 0.0007,
+  "max_act": 34.088,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 9,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 6.0,
+   "played_capture_pct": 0.667,
+   "blunder_hangs_own_pct": 0.667,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "minor": 5,
+    "major": 1
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "queen": 0.778,
+    "pawn": 0.222
+   },
+   "captured_piece_pct": {
+    "bishop": 0.556,
+    "none": 0.333,
+    "knight": 0.111
+   },
+   "best_piece_pct": {
+    "bishop": 0.556,
+    "knight": 0.222,
+    "pawn": 0.111,
+    "rook": 0.111
+   },
+   "best_captured_piece_pct": {
+    "queen": 1.0
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "opening": 0.556,
+    "middlegame": 0.444
+   },
+   "material_kind_pct": {
+    "trade": 0.444,
+    "safe": 0.333,
+    "hangs": 0.222
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->drawn": 0.556,
+    "winning->losing": 0.222,
+    "losing->losing": 0.111,
+    "drawn->losing": 0.111
+   },
+   "eval_drop_median": 484.0
+  }
+ },
+ "f1": {
+  "n": 10,
+  "best_wins_material_pct": 0.7,
+  "best_wins_median": 1.0,
+  "played_capture_pct": 0.0,
+  "blunder_hangs_own_pct": 0.0,
+  "own_hang_median": 0,
+  "own_hang_piece_dist": {},
+  "best_is_check_pct": 0.1,
+  "best_is_capture_pct": 0.5,
+  "moved_piece_pct": {
+   "pawn": 0.5,
+   "king": 0.4,
+   "knight": 0.1
+  },
+  "captured_piece_pct": {
+   "none": 1.0
+  },
+  "best_piece_pct": {
+   "king": 0.6,
+   "pawn": 0.2,
+   "bishop": 0.1,
+   "knight": 0.1
+  },
+  "best_captured_piece_pct": {
+   "none": 0.5,
+   "pawn": 0.4,
+   "knight": 0.1
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "endgame": 0.7,
+   "middlegame": 0.3
+  },
+  "material_kind_pct": {
+   "safe": 1.0
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "losing->losing": 0.4,
+   "drawn->losing": 0.2,
+   "?->?": 0.2,
+   "winning->winning": 0.2
+  },
+  "eval_drop_median": 249.0,
+  "fire_rate": 0.0024,
+  "max_act": 37.761,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 3,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 0.0,
+   "own_hang_median": 0,
+   "own_hang_piece_dist": {},
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.667,
+   "moved_piece_pct": {
+    "pawn": 0.667,
+    "king": 0.333
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "king": 1.0
+   },
+   "best_captured_piece_pct": {
+    "pawn": 0.333,
+    "knight": 0.333,
+    "none": 0.333
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "middlegame": 0.667,
+    "endgame": 0.333
+   },
+   "material_kind_pct": {
+    "safe": 1.0
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "?->?": 0.333,
+    "losing->losing": 0.333,
+    "drawn->losing": 0.333
+   },
+   "eval_drop_median": 415.0
+  }
+ },
+ "f2": {
+  "n": 573,
+  "best_wins_material_pct": 0.115,
+  "best_wins_median": 3.0,
+  "played_capture_pct": 0.003,
+  "blunder_hangs_own_pct": 0.412,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 190,
+   "minor": 36,
+   "major": 10
+  },
+  "best_is_check_pct": 0.019,
+  "best_is_capture_pct": 0.092,
+  "moved_piece_pct": {
+   "pawn": 0.976,
+   "bishop": 0.009,
+   "king": 0.005,
+   "queen": 0.003,
+   "knight": 0.003,
+   "rook": 0.003
+  },
+  "captured_piece_pct": {
+   "none": 0.997,
+   "knight": 0.002,
+   "bishop": 0.002
+  },
+  "best_piece_pct": {
+   "knight": 0.281,
+   "pawn": 0.237,
+   "bishop": 0.19,
+   "king": 0.112,
+   "queen": 0.091,
+   "rook": 0.089
+  },
+  "best_captured_piece_pct": {
+   "none": 0.908,
+   "pawn": 0.037,
+   "knight": 0.031,
+   "bishop": 0.024
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "opening": 0.574,
+   "middlegame": 0.426
+  },
+  "material_kind_pct": {
+   "safe": 0.588,
+   "hangs": 0.412
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "?->?": 0.602,
+   "drawn->losing": 0.246,
+   "winning->drawn": 0.061,
+   "drawn->drawn": 0.037,
+   "losing->losing": 0.033,
+   "winning->losing": 0.012,
+   "winning->winning": 0.007,
+   "drawn->winning": 0.002
+  },
+  "eval_drop_median": 257.0,
+  "fire_rate": 0.0171,
+  "max_act": 33.225,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 130,
+   "best_wins_material_pct": 0.054,
+   "best_wins_median": 3.0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 0.392,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 41,
+    "minor": 6,
+    "major": 4
+   },
+   "best_is_check_pct": 0.008,
+   "best_is_capture_pct": 0.046,
+   "moved_piece_pct": {
+    "pawn": 0.992,
+    "bishop": 0.008
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "knight": 0.254,
+    "pawn": 0.215,
+    "bishop": 0.208,
+    "king": 0.131,
+    "rook": 0.1,
+    "queen": 0.092
+   },
+   "best_captured_piece_pct": {
+    "none": 0.954,
+    "pawn": 0.023,
+    "knight": 0.015,
+    "bishop": 0.008
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "opening": 0.608,
+    "middlegame": 0.392
+   },
+   "material_kind_pct": {
+    "safe": 0.608,
+    "hangs": 0.392
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "?->?": 0.523,
+    "drawn->losing": 0.3,
+    "winning->drawn": 0.077,
+    "drawn->drawn": 0.046,
+    "losing->losing": 0.038,
+    "winning->winning": 0.008,
+    "winning->losing": 0.008
+   },
+   "eval_drop_median": 255.0
+  }
+ },
+ "f3": {
+  "n": 88,
+  "best_wins_material_pct": 0.989,
+  "best_wins_median": 9.0,
+  "played_capture_pct": 0.148,
+  "blunder_hangs_own_pct": 0.557,
+  "own_hang_median": 3.0,
+  "own_hang_piece_dist": {
+   "major": 23,
+   "minor": 13,
+   "pawn": 13
+  },
+  "best_is_check_pct": 0.17,
+  "best_is_capture_pct": 1.0,
+  "moved_piece_pct": {
+   "queen": 0.216,
+   "rook": 0.182,
+   "king": 0.182,
+   "bishop": 0.159,
+   "knight": 0.136,
+   "pawn": 0.125
+  },
+  "captured_piece_pct": {
+   "none": 0.852,
+   "pawn": 0.136,
+   "knight": 0.011
+  },
+  "best_piece_pct": {
+   "queen": 0.352,
+   "knight": 0.227,
+   "rook": 0.17,
+   "bishop": 0.136,
+   "pawn": 0.114
+  },
+  "best_captured_piece_pct": {
+   "queen": 0.943,
+   "rook": 0.057
+  },
+  "played_is_check_pct": 0.102,
+  "phase_pct": {
+   "middlegame": 0.83,
+   "opening": 0.125,
+   "endgame": 0.045
+  },
+  "material_kind_pct": {
+   "hangs": 0.455,
+   "safe": 0.443,
+   "slightly_down": 0.045,
+   "trade": 0.034,
+   "loses": 0.023
+  },
+  "net_material_median": -1.0,
+  "trajectory_pct": {
+   "winning->winning": 0.443,
+   "?->?": 0.182,
+   "winning->losing": 0.159,
+   "winning->drawn": 0.148,
+   "losing->winning": 0.045,
+   "losing->drawn": 0.011,
+   "losing->losing": 0.011
+  },
+  "eval_drop_median": 510.0,
+  "fire_rate": 0.0149,
+  "max_act": 63.346,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 25,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 9.0,
+   "played_capture_pct": 0.08,
+   "blunder_hangs_own_pct": 0.72,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "minor": 8,
+    "major": 8,
+    "pawn": 2
+   },
+   "best_is_check_pct": 0.24,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "rook": 0.24,
+    "knight": 0.2,
+    "queen": 0.2,
+    "pawn": 0.16,
+    "bishop": 0.12,
+    "king": 0.08
+   },
+   "captured_piece_pct": {
+    "none": 0.92,
+    "pawn": 0.08
+   },
+   "best_piece_pct": {
+    "queen": 0.36,
+    "knight": 0.24,
+    "bishop": 0.2,
+    "rook": 0.16,
+    "pawn": 0.04
+   },
+   "best_captured_piece_pct": {
+    "queen": 0.92,
+    "rook": 0.08
+   },
+   "played_is_check_pct": 0.12,
+   "phase_pct": {
+    "middlegame": 0.8,
+    "opening": 0.16,
+    "endgame": 0.04
+   },
+   "material_kind_pct": {
+    "hangs": 0.64,
+    "safe": 0.28,
+    "slightly_down": 0.08
+   },
+   "net_material_median": -3.0,
+   "trajectory_pct": {
+    "winning->winning": 0.52,
+    "winning->drawn": 0.2,
+    "winning->losing": 0.16,
+    "losing->drawn": 0.04,
+    "?->?": 0.04,
+    "losing->winning": 0.04
+   },
+   "eval_drop_median": 609.0
+  }
+ },
+ "f4": {
+  "n": 492,
+  "best_wins_material_pct": 0.661,
+  "best_wins_median": 3.0,
+  "played_capture_pct": 0.23,
+  "blunder_hangs_own_pct": 0.846,
+  "own_hang_median": 5.0,
+  "own_hang_piece_dist": {
+   "major": 244,
+   "minor": 86,
+   "pawn": 86
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 0.394,
+  "moved_piece_pct": {
+   "queen": 0.533,
+   "rook": 0.226,
+   "knight": 0.118,
+   "bishop": 0.11,
+   "pawn": 0.01,
+   "king": 0.004
+  },
+  "captured_piece_pct": {
+   "none": 0.77,
+   "pawn": 0.179,
+   "rook": 0.022,
+   "bishop": 0.014,
+   "knight": 0.014
+  },
+  "best_piece_pct": {
+   "queen": 0.272,
+   "rook": 0.258,
+   "pawn": 0.175,
+   "knight": 0.124,
+   "bishop": 0.12,
+   "king": 0.051
+  },
+  "best_captured_piece_pct": {
+   "none": 0.606,
+   "pawn": 0.102,
+   "rook": 0.093,
+   "knight": 0.067,
+   "queen": 0.067,
+   "bishop": 0.065
+  },
+  "played_is_check_pct": 1.0,
+  "phase_pct": {
+   "middlegame": 0.896,
+   "endgame": 0.057,
+   "opening": 0.047
+  },
+  "material_kind_pct": {
+   "hangs": 0.63,
+   "safe": 0.154,
+   "loses": 0.144,
+   "slightly_down": 0.041,
+   "trade": 0.03
+  },
+  "net_material_median": -3.0,
+  "trajectory_pct": {
+   "?->?": 0.5,
+   "losing->losing": 0.213,
+   "drawn->losing": 0.1,
+   "winning->losing": 0.065,
+   "losing->winning": 0.045,
+   "winning->winning": 0.041,
+   "winning->drawn": 0.033,
+   "losing->drawn": 0.004
+  },
+  "eval_drop_median": 316.0,
+  "fire_rate": 0.0379,
+  "max_act": 51.149,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 114,
+   "best_wins_material_pct": 0.693,
+   "best_wins_median": 3.0,
+   "played_capture_pct": 0.184,
+   "blunder_hangs_own_pct": 0.825,
+   "own_hang_median": 5.0,
+   "own_hang_piece_dist": {
+    "major": 60,
+    "pawn": 19,
+    "minor": 15
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.386,
+   "moved_piece_pct": {
+    "queen": 0.605,
+    "rook": 0.246,
+    "knight": 0.079,
+    "bishop": 0.053,
+    "king": 0.018
+   },
+   "captured_piece_pct": {
+    "none": 0.816,
+    "pawn": 0.132,
+    "rook": 0.026,
+    "knight": 0.018,
+    "bishop": 0.009
+   },
+   "best_piece_pct": {
+    "queen": 0.298,
+    "rook": 0.228,
+    "bishop": 0.149,
+    "pawn": 0.123,
+    "knight": 0.114,
+    "king": 0.088
+   },
+   "best_captured_piece_pct": {
+    "none": 0.614,
+    "pawn": 0.14,
+    "rook": 0.079,
+    "queen": 0.061,
+    "bishop": 0.053,
+    "knight": 0.053
+   },
+   "played_is_check_pct": 1.0,
+   "phase_pct": {
+    "middlegame": 0.93,
+    "endgame": 0.061,
+    "opening": 0.009
+   },
+   "material_kind_pct": {
+    "hangs": 0.64,
+    "safe": 0.175,
+    "loses": 0.132,
+    "slightly_down": 0.044,
+    "trade": 0.009
+   },
+   "net_material_median": -3.0,
+   "trajectory_pct": {
+    "?->?": 0.421,
+    "losing->losing": 0.254,
+    "drawn->losing": 0.123,
+    "winning->losing": 0.079,
+    "losing->winning": 0.061,
+    "winning->winning": 0.044,
+    "winning->drawn": 0.018
+   },
+   "eval_drop_median": 366.0
+  }
+ },
+ "f5": {
+  "n": 23,
+  "best_wins_material_pct": 0.0,
+  "best_wins_median": 0,
+  "played_capture_pct": 0.261,
+  "blunder_hangs_own_pct": 1.0,
+  "own_hang_median": 3.0,
+  "own_hang_piece_dist": {
+   "minor": 17,
+   "major": 5,
+   "pawn": 1
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 0.0,
+  "moved_piece_pct": {
+   "knight": 0.826,
+   "queen": 0.13,
+   "pawn": 0.043
+  },
+  "captured_piece_pct": {
+   "none": 0.739,
+   "pawn": 0.261
+  },
+  "best_piece_pct": {
+   "pawn": 0.565,
+   "knight": 0.174,
+   "queen": 0.13,
+   "bishop": 0.087,
+   "king": 0.043
+  },
+  "best_captured_piece_pct": {
+   "none": 1.0
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "opening": 1.0
+  },
+  "material_kind_pct": {
+   "hangs": 0.739,
+   "slightly_down": 0.261
+  },
+  "net_material_median": -3.0,
+  "trajectory_pct": {
+   "drawn->losing": 1.0
+  },
+  "eval_drop_median": 414.0,
+  "fire_rate": 0.001,
+  "max_act": 32.544,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 13,
+   "best_wins_material_pct": 0.0,
+   "best_wins_median": 0,
+   "played_capture_pct": 0.385,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "minor": 11,
+    "major": 2
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.0,
+   "moved_piece_pct": {
+    "knight": 0.846,
+    "queen": 0.154
+   },
+   "captured_piece_pct": {
+    "none": 0.615,
+    "pawn": 0.385
+   },
+   "best_piece_pct": {
+    "pawn": 0.692,
+    "knight": 0.231,
+    "king": 0.077
+   },
+   "best_captured_piece_pct": {
+    "none": 1.0
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "opening": 1.0
+   },
+   "material_kind_pct": {
+    "hangs": 0.615,
+    "slightly_down": 0.385
+   },
+   "net_material_median": -3.0,
+   "trajectory_pct": {
+    "drawn->losing": 1.0
+   },
+   "eval_drop_median": 414.0
+  }
+ },
+ "f6": {
+  "n": 99,
+  "best_wins_material_pct": 0.869,
+  "best_wins_median": 95.0,
+  "played_capture_pct": 1.0,
+  "blunder_hangs_own_pct": 0.99,
+  "own_hang_median": 9.0,
+  "own_hang_piece_dist": {
+   "major": 92,
+   "minor": 6
+  },
+  "best_is_check_pct": 0.687,
+  "best_is_capture_pct": 0.192,
+  "moved_piece_pct": {
+   "queen": 0.707,
+   "rook": 0.141,
+   "bishop": 0.081,
+   "pawn": 0.03,
+   "knight": 0.03,
+   "king": 0.01
+  },
+  "captured_piece_pct": {
+   "queen": 0.808,
+   "rook": 0.182,
+   "pawn": 0.01
+  },
+  "best_piece_pct": {
+   "rook": 0.343,
+   "queen": 0.343,
+   "bishop": 0.131,
+   "knight": 0.081,
+   "king": 0.051,
+   "pawn": 0.051
+  },
+  "best_captured_piece_pct": {
+   "none": 0.808,
+   "pawn": 0.182,
+   "bishop": 0.01
+  },
+  "played_is_check_pct": 0.455,
+  "phase_pct": {
+   "middlegame": 0.859,
+   "endgame": 0.081,
+   "opening": 0.061
+  },
+  "material_kind_pct": {
+   "trade": 0.97,
+   "loses": 0.02,
+   "safe": 0.01
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "?->?": 0.333,
+   "winning->winning": 0.283,
+   "winning->drawn": 0.162,
+   "losing->winning": 0.131,
+   "drawn->losing": 0.051,
+   "winning->losing": 0.03,
+   "losing->drawn": 0.01
+  },
+  "eval_drop_median": 276.0,
+  "fire_rate": 0.0056,
+  "max_act": 43.521,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 44,
+   "best_wins_material_pct": 0.841,
+   "best_wins_median": 95.0,
+   "played_capture_pct": 1.0,
+   "blunder_hangs_own_pct": 0.977,
+   "own_hang_median": 9.0,
+   "own_hang_piece_dist": {
+    "major": 41,
+    "minor": 2
+   },
+   "best_is_check_pct": 0.818,
+   "best_is_capture_pct": 0.136,
+   "moved_piece_pct": {
+    "queen": 0.75,
+    "rook": 0.114,
+    "pawn": 0.045,
+    "knight": 0.045,
+    "bishop": 0.023,
+    "king": 0.023
+   },
+   "captured_piece_pct": {
+    "queen": 0.841,
+    "rook": 0.159
+   },
+   "best_piece_pct": {
+    "queen": 0.386,
+    "rook": 0.364,
+    "bishop": 0.136,
+    "pawn": 0.045,
+    "knight": 0.045,
+    "king": 0.023
+   },
+   "best_captured_piece_pct": {
+    "none": 0.864,
+    "pawn": 0.136
+   },
+   "played_is_check_pct": 0.409,
+   "phase_pct": {
+    "middlegame": 0.841,
+    "endgame": 0.114,
+    "opening": 0.045
+   },
+   "material_kind_pct": {
+    "trade": 0.977,
+    "safe": 0.023
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->winning": 0.364,
+    "?->?": 0.273,
+    "losing->winning": 0.182,
+    "winning->drawn": 0.114,
+    "drawn->losing": 0.068
+   },
+   "eval_drop_median": 288.0
+  }
+ },
+ "f7": {
+  "n": 4,
+  "best_wins_material_pct": 1.0,
+  "best_wins_median": 5.0,
+  "played_capture_pct": 0.0,
+  "blunder_hangs_own_pct": 0.75,
+  "own_hang_median": 5.0,
+  "own_hang_piece_dist": {
+   "major": 3
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 1.0,
+  "moved_piece_pct": {
+   "pawn": 0.25,
+   "king": 0.25,
+   "rook": 0.25,
+   "queen": 0.25
+  },
+  "captured_piece_pct": {
+   "none": 1.0
+  },
+  "best_piece_pct": {
+   "rook": 0.75,
+   "king": 0.25
+  },
+  "best_captured_piece_pct": {
+   "rook": 0.75,
+   "pawn": 0.25
+  },
+  "played_is_check_pct": 0.5,
+  "phase_pct": {
+   "endgame": 1.0
+  },
+  "material_kind_pct": {
+   "hangs": 0.75,
+   "safe": 0.25
+  },
+  "net_material_median": -5.0,
+  "trajectory_pct": {
+   "winning->losing": 0.5,
+   "winning->drawn": 0.5
+  },
+  "eval_drop_median": 1731.0,
+  "fire_rate": 0.0004,
+  "max_act": 51.292,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 3,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 5.0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 5.0,
+   "own_hang_piece_dist": {
+    "major": 3
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "pawn": 0.333,
+    "king": 0.333,
+    "queen": 0.333
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "rook": 0.667,
+    "king": 0.333
+   },
+   "best_captured_piece_pct": {
+    "rook": 0.667,
+    "pawn": 0.333
+   },
+   "played_is_check_pct": 0.333,
+   "phase_pct": {
+    "endgame": 1.0
+   },
+   "material_kind_pct": {
+    "hangs": 1.0
+   },
+   "net_material_median": -5.0,
+   "trajectory_pct": {
+    "winning->losing": 0.667,
+    "winning->drawn": 0.333
+   },
+   "eval_drop_median": 1731.0
+  }
+ },
+ "f8": {
+  "n": 33,
+  "best_wins_material_pct": 0.788,
+  "best_wins_median": 5.0,
+  "played_capture_pct": 0.061,
+  "blunder_hangs_own_pct": 0.515,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 11,
+   "major": 4,
+   "minor": 2
+  },
+  "best_is_check_pct": 0.091,
+  "best_is_capture_pct": 0.818,
+  "moved_piece_pct": {
+   "rook": 0.697,
+   "king": 0.152,
+   "knight": 0.061,
+   "queen": 0.03,
+   "bishop": 0.03,
+   "pawn": 0.03
+  },
+  "captured_piece_pct": {
+   "none": 0.939,
+   "knight": 0.03,
+   "pawn": 0.03
+  },
+  "best_piece_pct": {
+   "rook": 0.364,
+   "knight": 0.242,
+   "bishop": 0.182,
+   "king": 0.121,
+   "queen": 0.061,
+   "pawn": 0.03
+  },
+  "best_captured_piece_pct": {
+   "rook": 0.758,
+   "none": 0.182,
+   "knight": 0.061
+  },
+  "played_is_check_pct": 0.03,
+  "phase_pct": {
+   "middlegame": 0.848,
+   "endgame": 0.152
+  },
+  "material_kind_pct": {
+   "safe": 0.485,
+   "hangs": 0.485,
+   "slightly_down": 0.03
+  },
+  "net_material_median": -1.0,
+  "trajectory_pct": {
+   "?->?": 0.424,
+   "losing->losing": 0.121,
+   "winning->drawn": 0.121,
+   "drawn->losing": 0.121,
+   "winning->losing": 0.121,
+   "losing->winning": 0.061,
+   "winning->winning": 0.03
+  },
+  "eval_drop_median": 584.0,
+  "fire_rate": 0.0013,
+  "max_act": 28.903,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 11,
+   "best_wins_material_pct": 0.636,
+   "best_wins_median": 5.0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 0.545,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 4,
+    "minor": 1,
+    "major": 1
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.909,
+   "moved_piece_pct": {
+    "rook": 0.727,
+    "knight": 0.091,
+    "king": 0.091,
+    "bishop": 0.091
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "bishop": 0.364,
+    "rook": 0.364,
+    "knight": 0.091,
+    "king": 0.091,
+    "pawn": 0.091
+   },
+   "best_captured_piece_pct": {
+    "rook": 0.727,
+    "knight": 0.182,
+    "none": 0.091
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "middlegame": 0.909,
+    "endgame": 0.091
+   },
+   "material_kind_pct": {
+    "hangs": 0.545,
+    "safe": 0.455
+   },
+   "net_material_median": -1.0,
+   "trajectory_pct": {
+    "?->?": 0.545,
+    "losing->losing": 0.182,
+    "winning->drawn": 0.182,
+    "drawn->losing": 0.091
+   },
+   "eval_drop_median": 488.0
+  }
+ },
+ "f9": {
+  "n": 10,
+  "best_wins_material_pct": 1.0,
+  "best_wins_median": 2.0,
+  "played_capture_pct": 0.3,
+  "blunder_hangs_own_pct": 0.9,
+  "own_hang_median": 5.0,
+  "own_hang_piece_dist": {
+   "major": 8,
+   "minor": 1
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 1.0,
+  "moved_piece_pct": {
+   "knight": 0.3,
+   "pawn": 0.3,
+   "bishop": 0.2,
+   "king": 0.2
+  },
+  "captured_piece_pct": {
+   "none": 0.7,
+   "rook": 0.1,
+   "pawn": 0.1,
+   "bishop": 0.1
+  },
+  "best_piece_pct": {
+   "pawn": 1.0
+  },
+  "best_captured_piece_pct": {
+   "knight": 0.8,
+   "bishop": 0.2
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "opening": 0.8,
+   "middlegame": 0.2
+  },
+  "material_kind_pct": {
+   "hangs": 0.6,
+   "trade": 0.1,
+   "safe": 0.1,
+   "loses": 0.1,
+   "slightly_down": 0.1
+  },
+  "net_material_median": -2.0,
+  "trajectory_pct": {
+   "losing->losing": 0.6,
+   "drawn->losing": 0.3,
+   "winning->drawn": 0.1
+  },
+  "eval_drop_median": 367.0,
+  "fire_rate": 0.0003,
+  "max_act": 36.604,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 6,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 2.0,
+   "played_capture_pct": 0.167,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 5.0,
+   "own_hang_piece_dist": {
+    "major": 5,
+    "minor": 1
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "pawn": 0.5,
+    "bishop": 0.333,
+    "knight": 0.167
+   },
+   "captured_piece_pct": {
+    "none": 0.833,
+    "bishop": 0.167
+   },
+   "best_piece_pct": {
+    "pawn": 1.0
+   },
+   "best_captured_piece_pct": {
+    "knight": 0.833,
+    "bishop": 0.167
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "opening": 1.0
+   },
+   "material_kind_pct": {
+    "hangs": 0.833,
+    "slightly_down": 0.167
+   },
+   "net_material_median": -2.0,
+   "trajectory_pct": {
+    "losing->losing": 0.667,
+    "drawn->losing": 0.333
+   },
+   "eval_drop_median": 473.0
+  }
+ },
+ "f10": {
+  "n": 20,
+  "best_wins_material_pct": 0.6,
+  "best_wins_median": 5.0,
+  "played_capture_pct": 0.9,
+  "blunder_hangs_own_pct": 0.95,
+  "own_hang_median": 5.0,
+  "own_hang_piece_dist": {
+   "major": 16,
+   "minor": 2,
+   "pawn": 1
+  },
+  "best_is_check_pct": 0.05,
+  "best_is_capture_pct": 0.1,
+  "moved_piece_pct": {
+   "rook": 0.45,
+   "queen": 0.2,
+   "bishop": 0.15,
+   "pawn": 0.1,
+   "knight": 0.1
+  },
+  "captured_piece_pct": {
+   "rook": 0.5,
+   "queen": 0.35,
+   "none": 0.1,
+   "pawn": 0.05
+  },
+  "best_piece_pct": {
+   "rook": 0.4,
+   "queen": 0.25,
+   "pawn": 0.15,
+   "king": 0.1,
+   "bishop": 0.1
+  },
+  "best_captured_piece_pct": {
+   "none": 0.9,
+   "pawn": 0.05,
+   "rook": 0.05
+  },
+  "played_is_check_pct": 0.25,
+  "phase_pct": {
+   "middlegame": 0.55,
+   "endgame": 0.4,
+   "opening": 0.05
+  },
+  "material_kind_pct": {
+   "trade": 0.8,
+   "hangs": 0.1,
+   "safe": 0.05,
+   "slightly_down": 0.05
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "losing->losing": 0.75,
+   "drawn->losing": 0.1,
+   "losing->winning": 0.1,
+   "?->?": 0.05
+  },
+  "eval_drop_median": 160.0,
+  "fire_rate": 0.0035,
+  "max_act": 44.213,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 3,
+   "best_wins_material_pct": 0.333,
+   "best_wins_median": 9.0,
+   "played_capture_pct": 1.0,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 5.0,
+   "own_hang_piece_dist": {
+    "major": 3
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.0,
+   "moved_piece_pct": {
+    "rook": 0.333,
+    "queen": 0.333,
+    "knight": 0.333
+   },
+   "captured_piece_pct": {
+    "queen": 0.667,
+    "rook": 0.333
+   },
+   "best_piece_pct": {
+    "rook": 0.333,
+    "queen": 0.333,
+    "pawn": 0.333
+   },
+   "best_captured_piece_pct": {
+    "none": 1.0
+   },
+   "played_is_check_pct": 0.333,
+   "phase_pct": {
+    "middlegame": 0.667,
+    "endgame": 0.333
+   },
+   "material_kind_pct": {
+    "trade": 1.0
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "losing->losing": 0.667,
+    "drawn->losing": 0.333
+   },
+   "eval_drop_median": 250.0
+  }
+ },
+ "f11": {
+  "n": 47,
+  "best_wins_material_pct": 0.66,
+  "best_wins_median": 1.0,
+  "played_capture_pct": 1.0,
+  "blunder_hangs_own_pct": 1.0,
+  "own_hang_median": 5.0,
+  "own_hang_piece_dist": {
+   "major": 47
+  },
+  "best_is_check_pct": 0.298,
+  "best_is_capture_pct": 0.085,
+  "moved_piece_pct": {
+   "rook": 0.723,
+   "queen": 0.277
+  },
+  "captured_piece_pct": {
+   "rook": 0.702,
+   "queen": 0.277,
+   "bishop": 0.021
+  },
+  "best_piece_pct": {
+   "rook": 0.702,
+   "queen": 0.213,
+   "pawn": 0.043,
+   "king": 0.043
+  },
+  "best_captured_piece_pct": {
+   "none": 0.915,
+   "pawn": 0.085
+  },
+  "played_is_check_pct": 0.851,
+  "phase_pct": {
+   "endgame": 0.66,
+   "middlegame": 0.34
+  },
+  "material_kind_pct": {
+   "trade": 0.957,
+   "slightly_down": 0.021,
+   "loses": 0.021
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "drawn->losing": 0.447,
+   "losing->losing": 0.404,
+   "winning->drawn": 0.085,
+   "winning->winning": 0.043,
+   "winning->losing": 0.021
+  },
+  "eval_drop_median": 299.0,
+  "fire_rate": 0.0017,
+  "max_act": 45.066,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 24,
+   "best_wins_material_pct": 0.583,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 1.0,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 5.0,
+   "own_hang_piece_dist": {
+    "major": 24
+   },
+   "best_is_check_pct": 0.167,
+   "best_is_capture_pct": 0.125,
+   "moved_piece_pct": {
+    "rook": 0.833,
+    "queen": 0.167
+   },
+   "captured_piece_pct": {
+    "rook": 0.833,
+    "queen": 0.167
+   },
+   "best_piece_pct": {
+    "rook": 0.792,
+    "queen": 0.125,
+    "pawn": 0.042,
+    "king": 0.042
+   },
+   "best_captured_piece_pct": {
+    "none": 0.875,
+    "pawn": 0.125
+   },
+   "played_is_check_pct": 0.958,
+   "phase_pct": {
+    "endgame": 0.708,
+    "middlegame": 0.292
+   },
+   "material_kind_pct": {
+    "trade": 1.0
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "drawn->losing": 0.458,
+    "losing->losing": 0.375,
+    "winning->drawn": 0.083,
+    "winning->winning": 0.042,
+    "winning->losing": 0.042
+   },
+   "eval_drop_median": 280.0
+  }
+ },
+ "f12": {
+  "n": 75,
+  "best_wins_material_pct": 0.453,
+  "best_wins_median": 3.0,
+  "played_capture_pct": 0.373,
+  "blunder_hangs_own_pct": 0.973,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 36,
+   "minor": 35,
+   "major": 2
+  },
+  "best_is_check_pct": 0.04,
+  "best_is_capture_pct": 0.16,
+  "moved_piece_pct": {
+   "pawn": 0.387,
+   "knight": 0.267,
+   "bishop": 0.2,
+   "rook": 0.067,
+   "king": 0.067,
+   "queen": 0.013
+  },
+  "captured_piece_pct": {
+   "none": 0.627,
+   "pawn": 0.347,
+   "rook": 0.013,
+   "bishop": 0.013
+  },
+  "best_piece_pct": {
+   "bishop": 0.253,
+   "pawn": 0.253,
+   "knight": 0.24,
+   "rook": 0.107,
+   "king": 0.093,
+   "queen": 0.053
+  },
+  "best_captured_piece_pct": {
+   "none": 0.84,
+   "pawn": 0.053,
+   "bishop": 0.053,
+   "knight": 0.04,
+   "rook": 0.013
+  },
+  "played_is_check_pct": 0.04,
+  "phase_pct": {
+   "middlegame": 0.787,
+   "opening": 0.173,
+   "endgame": 0.04
+  },
+  "material_kind_pct": {
+   "hangs": 0.6,
+   "slightly_down": 0.2,
+   "trade": 0.16,
+   "safe": 0.027,
+   "loses": 0.013
+  },
+  "net_material_median": -1.0,
+  "trajectory_pct": {
+   "?->?": 0.587,
+   "drawn->losing": 0.2,
+   "winning->losing": 0.133,
+   "losing->losing": 0.04,
+   "winning->drawn": 0.04
+  },
+  "eval_drop_median": 519.0,
+  "fire_rate": 0.0189,
+  "max_act": 38.003,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 9,
+   "best_wins_material_pct": 0.556,
+   "best_wins_median": 3.0,
+   "played_capture_pct": 0.333,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "minor": 5,
+    "pawn": 3,
+    "major": 1
+   },
+   "best_is_check_pct": 0.111,
+   "best_is_capture_pct": 0.333,
+   "moved_piece_pct": {
+    "pawn": 0.333,
+    "knight": 0.333,
+    "bishop": 0.333
+   },
+   "captured_piece_pct": {
+    "none": 0.667,
+    "pawn": 0.333
+   },
+   "best_piece_pct": {
+    "bishop": 0.333,
+    "rook": 0.222,
+    "king": 0.111,
+    "queen": 0.111,
+    "pawn": 0.111,
+    "knight": 0.111
+   },
+   "best_captured_piece_pct": {
+    "none": 0.667,
+    "bishop": 0.111,
+    "knight": 0.111,
+    "pawn": 0.111
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "middlegame": 0.778,
+    "opening": 0.111,
+    "endgame": 0.111
+   },
+   "material_kind_pct": {
+    "hangs": 0.667,
+    "slightly_down": 0.333
+   },
+   "net_material_median": -2.0,
+   "trajectory_pct": {
+    "?->?": 0.444,
+    "winning->losing": 0.333,
+    "drawn->losing": 0.111,
+    "winning->drawn": 0.111
+   },
+   "eval_drop_median": 737.0
+  }
+ },
+ "f13": {
+  "n": 13,
+  "best_wins_material_pct": 1.0,
+  "best_wins_median": 3.0,
+  "played_capture_pct": 0.0,
+  "blunder_hangs_own_pct": 0.077,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 1
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 1.0,
+  "moved_piece_pct": {
+   "pawn": 0.538,
+   "king": 0.308,
+   "bishop": 0.077,
+   "knight": 0.077
+  },
+  "captured_piece_pct": {
+   "none": 1.0
+  },
+  "best_piece_pct": {
+   "king": 0.692,
+   "pawn": 0.231,
+   "bishop": 0.077
+  },
+  "best_captured_piece_pct": {
+   "bishop": 0.385,
+   "knight": 0.308,
+   "pawn": 0.154,
+   "rook": 0.154
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "endgame": 1.0
+  },
+  "material_kind_pct": {
+   "safe": 0.923,
+   "hangs": 0.077
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "winning->drawn": 0.385,
+   "winning->winning": 0.385,
+   "winning->losing": 0.231
+  },
+  "eval_drop_median": 647.0,
+  "fire_rate": 0.0004,
+  "max_act": 38.878,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 5,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 3.0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 0.0,
+   "own_hang_median": 0,
+   "own_hang_piece_dist": {},
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "pawn": 0.4,
+    "king": 0.4,
+    "knight": 0.2
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "king": 0.8,
+    "pawn": 0.2
+   },
+   "best_captured_piece_pct": {
+    "bishop": 0.4,
+    "knight": 0.4,
+    "rook": 0.2
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "endgame": 1.0
+   },
+   "material_kind_pct": {
+    "safe": 1.0
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->drawn": 0.6,
+    "winning->losing": 0.4
+   },
+   "eval_drop_median": 844.0
+  }
+ },
+ "f14": {
+  "n": 23,
+  "best_wins_material_pct": 1.0,
+  "best_wins_median": 5.0,
+  "played_capture_pct": 0.087,
+  "blunder_hangs_own_pct": 0.478,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 7,
+   "major": 3,
+   "minor": 1
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 1.0,
+  "moved_piece_pct": {
+   "pawn": 0.435,
+   "king": 0.348,
+   "rook": 0.13,
+   "queen": 0.043,
+   "knight": 0.043
+  },
+  "captured_piece_pct": {
+   "none": 0.913,
+   "pawn": 0.087
+  },
+  "best_piece_pct": {
+   "bishop": 0.304,
+   "knight": 0.174,
+   "rook": 0.174,
+   "pawn": 0.13,
+   "queen": 0.13,
+   "king": 0.087
+  },
+  "best_captured_piece_pct": {
+   "rook": 0.739,
+   "knight": 0.087,
+   "bishop": 0.087,
+   "queen": 0.087
+  },
+  "played_is_check_pct": 0.043,
+  "phase_pct": {
+   "endgame": 0.826,
+   "middlegame": 0.174
+  },
+  "material_kind_pct": {
+   "safe": 0.522,
+   "hangs": 0.391,
+   "trade": 0.087
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "losing->winning": 0.478,
+   "winning->winning": 0.391,
+   "losing->losing": 0.087,
+   "losing->drawn": 0.043
+  },
+  "eval_drop_median": -10000.0,
+  "fire_rate": 0.0023,
+  "max_act": 53.756,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 10,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 5.0,
+   "played_capture_pct": 0.1,
+   "blunder_hangs_own_pct": 0.6,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "pawn": 3,
+    "major": 2,
+    "minor": 1
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "pawn": 0.4,
+    "king": 0.3,
+    "queen": 0.1,
+    "knight": 0.1,
+    "rook": 0.1
+   },
+   "captured_piece_pct": {
+    "none": 0.9,
+    "pawn": 0.1
+   },
+   "best_piece_pct": {
+    "pawn": 0.2,
+    "knight": 0.2,
+    "rook": 0.2,
+    "bishop": 0.2,
+    "king": 0.1,
+    "queen": 0.1
+   },
+   "best_captured_piece_pct": {
+    "rook": 0.7,
+    "bishop": 0.2,
+    "queen": 0.1
+   },
+   "played_is_check_pct": 0.1,
+   "phase_pct": {
+    "endgame": 0.9,
+    "middlegame": 0.1
+   },
+   "material_kind_pct": {
+    "hangs": 0.5,
+    "safe": 0.4,
+    "trade": 0.1
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->winning": 0.5,
+    "losing->winning": 0.3,
+    "losing->drawn": 0.1,
+    "losing->losing": 0.1
+   },
+   "eval_drop_median": 246.0
+  }
+ },
+ "f15": {
+  "n": 416,
+  "best_wins_material_pct": 0.375,
+  "best_wins_median": 1.0,
+  "played_capture_pct": 0.964,
+  "blunder_hangs_own_pct": 1.0,
+  "own_hang_median": 3.0,
+  "own_hang_piece_dist": {
+   "minor": 326,
+   "major": 81,
+   "pawn": 9
+  },
+  "best_is_check_pct": 0.046,
+  "best_is_capture_pct": 0.159,
+  "moved_piece_pct": {
+   "bishop": 0.582,
+   "knight": 0.188,
+   "queen": 0.118,
+   "rook": 0.075,
+   "pawn": 0.031,
+   "king": 0.007
+  },
+  "captured_piece_pct": {
+   "knight": 0.637,
+   "bishop": 0.125,
+   "queen": 0.113,
+   "rook": 0.048,
+   "pawn": 0.041,
+   "none": 0.036
+  },
+  "best_piece_pct": {
+   "knight": 0.298,
+   "bishop": 0.2,
+   "pawn": 0.195,
+   "queen": 0.144,
+   "rook": 0.091,
+   "king": 0.072
+  },
+  "best_captured_piece_pct": {
+   "none": 0.841,
+   "pawn": 0.111,
+   "knight": 0.019,
+   "bishop": 0.019,
+   "rook": 0.007,
+   "queen": 0.002
+  },
+  "played_is_check_pct": 0.099,
+  "phase_pct": {
+   "middlegame": 0.555,
+   "opening": 0.445
+  },
+  "material_kind_pct": {
+   "trade": 0.918,
+   "slightly_down": 0.043,
+   "hangs": 0.036,
+   "loses": 0.002
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "?->?": 0.464,
+   "drawn->losing": 0.264,
+   "winning->drawn": 0.159,
+   "losing->losing": 0.046,
+   "winning->losing": 0.031,
+   "drawn->drawn": 0.031,
+   "winning->winning": 0.002,
+   "losing->winning": 0.002
+  },
+  "eval_drop_median": 246.0,
+  "fire_rate": 0.0242,
+  "max_act": 43.367,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 129,
+   "best_wins_material_pct": 0.287,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 0.961,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "minor": 106,
+    "major": 21,
+    "pawn": 2
+   },
+   "best_is_check_pct": 0.016,
+   "best_is_capture_pct": 0.171,
+   "moved_piece_pct": {
+    "bishop": 0.651,
+    "knight": 0.163,
+    "queen": 0.109,
+    "rook": 0.054,
+    "pawn": 0.023
+   },
+   "captured_piece_pct": {
+    "knight": 0.698,
+    "bishop": 0.116,
+    "queen": 0.109,
+    "none": 0.039,
+    "rook": 0.023,
+    "pawn": 0.016
+   },
+   "best_piece_pct": {
+    "knight": 0.318,
+    "bishop": 0.217,
+    "pawn": 0.202,
+    "queen": 0.14,
+    "king": 0.101,
+    "rook": 0.023
+   },
+   "best_captured_piece_pct": {
+    "none": 0.829,
+    "pawn": 0.14,
+    "knight": 0.016,
+    "bishop": 0.016
+   },
+   "played_is_check_pct": 0.039,
+   "phase_pct": {
+    "middlegame": 0.535,
+    "opening": 0.465
+   },
+   "material_kind_pct": {
+    "trade": 0.93,
+    "hangs": 0.039,
+    "slightly_down": 0.031
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "?->?": 0.434,
+    "drawn->losing": 0.31,
+    "winning->drawn": 0.132,
+    "drawn->drawn": 0.047,
+    "losing->losing": 0.047,
+    "winning->losing": 0.031
+   },
+   "eval_drop_median": 237.0
+  }
+ },
+ "f16": {
+  "n": 41,
+  "best_wins_material_pct": 0.683,
+  "best_wins_median": 3.0,
+  "played_capture_pct": 0.537,
+  "blunder_hangs_own_pct": 0.22,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 7,
+   "minor": 2
+  },
+  "best_is_check_pct": 0.073,
+  "best_is_capture_pct": 0.195,
+  "moved_piece_pct": {
+   "pawn": 0.293,
+   "queen": 0.22,
+   "king": 0.171,
+   "rook": 0.146,
+   "bishop": 0.122,
+   "knight": 0.049
+  },
+  "captured_piece_pct": {
+   "none": 0.463,
+   "pawn": 0.317,
+   "knight": 0.098,
+   "rook": 0.073,
+   "bishop": 0.049
+  },
+  "best_piece_pct": {
+   "queen": 0.341,
+   "king": 0.317,
+   "rook": 0.122,
+   "bishop": 0.073,
+   "knight": 0.073,
+   "pawn": 0.073
+  },
+  "best_captured_piece_pct": {
+   "none": 0.805,
+   "rook": 0.049,
+   "bishop": 0.049,
+   "pawn": 0.049,
+   "knight": 0.049
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "middlegame": 0.683,
+   "opening": 0.171,
+   "endgame": 0.146
+  },
+  "material_kind_pct": {
+   "safe": 0.78,
+   "trade": 0.171,
+   "slightly_down": 0.024,
+   "hangs": 0.024
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "drawn->losing": 0.317,
+   "winning->losing": 0.268,
+   "?->?": 0.268,
+   "losing->losing": 0.073,
+   "winning->drawn": 0.073
+  },
+  "eval_drop_median": 474.0,
+  "fire_rate": 0.001,
+  "max_act": 27.594,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 15,
+   "best_wins_material_pct": 0.8,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 0.6,
+   "blunder_hangs_own_pct": 0.267,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 3,
+    "minor": 1
+   },
+   "best_is_check_pct": 0.067,
+   "best_is_capture_pct": 0.2,
+   "moved_piece_pct": {
+    "pawn": 0.333,
+    "queen": 0.267,
+    "rook": 0.133,
+    "bishop": 0.133,
+    "king": 0.133
+   },
+   "captured_piece_pct": {
+    "pawn": 0.467,
+    "none": 0.4,
+    "rook": 0.067,
+    "knight": 0.067
+   },
+   "best_piece_pct": {
+    "king": 0.4,
+    "queen": 0.333,
+    "rook": 0.133,
+    "pawn": 0.067,
+    "bishop": 0.067
+   },
+   "best_captured_piece_pct": {
+    "none": 0.8,
+    "bishop": 0.133,
+    "pawn": 0.067
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "middlegame": 0.667,
+    "opening": 0.2,
+    "endgame": 0.133
+   },
+   "material_kind_pct": {
+    "safe": 0.733,
+    "trade": 0.267
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "drawn->losing": 0.4,
+    "winning->losing": 0.333,
+    "losing->losing": 0.133,
+    "?->?": 0.133
+   },
+   "eval_drop_median": 448.0
+  }
+ },
+ "f17": {
+  "n": 58,
+  "best_wins_material_pct": 0.983,
+  "best_wins_median": 3.0,
+  "played_capture_pct": 0.069,
+  "blunder_hangs_own_pct": 0.328,
+  "own_hang_median": 6.0,
+  "own_hang_piece_dist": {
+   "major": 11,
+   "minor": 5,
+   "pawn": 3
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 1.0,
+  "moved_piece_pct": {
+   "pawn": 0.328,
+   "bishop": 0.328,
+   "knight": 0.241,
+   "king": 0.103
+  },
+  "captured_piece_pct": {
+   "none": 0.931,
+   "pawn": 0.069
+  },
+  "best_piece_pct": {
+   "bishop": 0.345,
+   "queen": 0.31,
+   "knight": 0.259,
+   "pawn": 0.086
+  },
+  "best_captured_piece_pct": {
+   "bishop": 0.776,
+   "knight": 0.224
+  },
+  "played_is_check_pct": 0.017,
+  "phase_pct": {
+   "opening": 0.983,
+   "middlegame": 0.017
+  },
+  "material_kind_pct": {
+   "safe": 0.672,
+   "hangs": 0.276,
+   "loses": 0.034,
+   "slightly_down": 0.017
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "winning->drawn": 0.621,
+   "winning->losing": 0.276,
+   "?->?": 0.052,
+   "winning->winning": 0.034,
+   "drawn->losing": 0.017
+  },
+  "eval_drop_median": 471.0,
+  "fire_rate": 0.0038,
+  "max_act": 39.859,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 24,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 3.0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 0.375,
+   "own_hang_median": 6.0,
+   "own_hang_piece_dist": {
+    "major": 6,
+    "minor": 3
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "bishop": 0.375,
+    "pawn": 0.292,
+    "knight": 0.208,
+    "king": 0.125
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "bishop": 0.417,
+    "queen": 0.333,
+    "knight": 0.25
+   },
+   "best_captured_piece_pct": {
+    "bishop": 0.75,
+    "knight": 0.25
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "opening": 1.0
+   },
+   "material_kind_pct": {
+    "safe": 0.625,
+    "hangs": 0.375
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->drawn": 0.542,
+    "winning->losing": 0.417,
+    "?->?": 0.042
+   },
+   "eval_drop_median": 493.0
+  }
+ },
+ "f18": {
+  "n": 9,
+  "best_wins_material_pct": 0.222,
+  "best_wins_median": 1.0,
+  "played_capture_pct": 0.0,
+  "blunder_hangs_own_pct": 0.222,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 2
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 0.222,
+  "moved_piece_pct": {
+   "king": 0.778,
+   "knight": 0.222
+  },
+  "captured_piece_pct": {
+   "none": 1.0
+  },
+  "best_piece_pct": {
+   "pawn": 0.333,
+   "king": 0.333,
+   "rook": 0.111,
+   "knight": 0.111,
+   "bishop": 0.111
+  },
+  "best_captured_piece_pct": {
+   "none": 0.778,
+   "pawn": 0.222
+  },
+  "played_is_check_pct": 0.111,
+  "phase_pct": {
+   "endgame": 1.0
+  },
+  "material_kind_pct": {
+   "safe": 0.778,
+   "hangs": 0.222
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "winning->winning": 0.556,
+   "drawn->losing": 0.222,
+   "losing->winning": 0.111,
+   "winning->drawn": 0.111
+  },
+  "eval_drop_median": 378.0,
+  "fire_rate": 0.0017,
+  "max_act": 49.529,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 3,
+   "best_wins_material_pct": 0.333,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 0.667,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 2
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.333,
+   "moved_piece_pct": {
+    "king": 0.667,
+    "knight": 0.333
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "rook": 0.333,
+    "pawn": 0.333,
+    "king": 0.333
+   },
+   "best_captured_piece_pct": {
+    "none": 0.667,
+    "pawn": 0.333
+   },
+   "played_is_check_pct": 0.333,
+   "phase_pct": {
+    "endgame": 1.0
+   },
+   "material_kind_pct": {
+    "hangs": 0.667,
+    "safe": 0.333
+   },
+   "net_material_median": -1.0,
+   "trajectory_pct": {
+    "winning->winning": 0.333,
+    "losing->winning": 0.333,
+    "drawn->losing": 0.333
+   },
+   "eval_drop_median": 668.0
+  }
+ },
+ "f19": {
+  "n": 19,
+  "best_wins_material_pct": 0.737,
+  "best_wins_median": 5.0,
+  "played_capture_pct": 0.053,
+  "blunder_hangs_own_pct": 0.211,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 4
+  },
+  "best_is_check_pct": 0.211,
+  "best_is_capture_pct": 0.0,
+  "moved_piece_pct": {
+   "rook": 0.632,
+   "king": 0.211,
+   "pawn": 0.158
+  },
+  "captured_piece_pct": {
+   "none": 0.947,
+   "pawn": 0.053
+  },
+  "best_piece_pct": {
+   "pawn": 1.0
+  },
+  "best_captured_piece_pct": {
+   "none": 1.0
+  },
+  "played_is_check_pct": 0.421,
+  "phase_pct": {
+   "endgame": 1.0
+  },
+  "material_kind_pct": {
+   "safe": 0.789,
+   "hangs": 0.158,
+   "trade": 0.053
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "winning->winning": 0.684,
+   "winning->drawn": 0.211,
+   "losing->winning": 0.053,
+   "losing->losing": 0.053
+  },
+  "eval_drop_median": 34.0,
+  "fire_rate": 0.0003,
+  "max_act": 36.822,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 12,
+   "best_wins_material_pct": 0.833,
+   "best_wins_median": 5.0,
+   "played_capture_pct": 0.083,
+   "blunder_hangs_own_pct": 0.167,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 2
+   },
+   "best_is_check_pct": 0.167,
+   "best_is_capture_pct": 0.0,
+   "moved_piece_pct": {
+    "rook": 0.583,
+    "pawn": 0.25,
+    "king": 0.167
+   },
+   "captured_piece_pct": {
+    "none": 0.917,
+    "pawn": 0.083
+   },
+   "best_piece_pct": {
+    "pawn": 1.0
+   },
+   "best_captured_piece_pct": {
+    "none": 1.0
+   },
+   "played_is_check_pct": 0.417,
+   "phase_pct": {
+    "endgame": 1.0
+   },
+   "material_kind_pct": {
+    "safe": 0.833,
+    "trade": 0.083,
+    "hangs": 0.083
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->winning": 0.833,
+    "winning->drawn": 0.167
+   },
+   "eval_drop_median": 75.0
+  }
+ },
+ "f20": {
+  "n": 836,
+  "best_wins_material_pct": 0.995,
+  "best_wins_median": 8.0,
+  "played_capture_pct": 0.159,
+  "blunder_hangs_own_pct": 0.423,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 178,
+   "minor": 124,
+   "major": 52
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 0.042,
+  "moved_piece_pct": {
+   "knight": 0.237,
+   "pawn": 0.225,
+   "bishop": 0.189,
+   "queen": 0.139,
+   "rook": 0.13,
+   "king": 0.08
+  },
+  "captured_piece_pct": {
+   "none": 0.841,
+   "pawn": 0.1,
+   "knight": 0.029,
+   "bishop": 0.028,
+   "rook": 0.001,
+   "queen": 0.001
+  },
+  "best_piece_pct": {
+   "knight": 0.311,
+   "rook": 0.237,
+   "pawn": 0.23,
+   "bishop": 0.222
+  },
+  "best_captured_piece_pct": {
+   "none": 0.958,
+   "pawn": 0.038,
+   "knight": 0.002,
+   "bishop": 0.001
+  },
+  "played_is_check_pct": 0.006,
+  "phase_pct": {
+   "middlegame": 0.594,
+   "opening": 0.406
+  },
+  "material_kind_pct": {
+   "safe": 0.577,
+   "hangs": 0.295,
+   "trade": 0.091,
+   "slightly_down": 0.024,
+   "loses": 0.013
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "?->?": 0.654,
+   "winning->drawn": 0.124,
+   "drawn->losing": 0.096,
+   "winning->losing": 0.051,
+   "winning->winning": 0.029,
+   "losing->losing": 0.029,
+   "drawn->drawn": 0.017
+  },
+  "eval_drop_median": 311.0,
+  "fire_rate": 0.0377,
+  "max_act": 37.992,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 211,
+   "best_wins_material_pct": 0.995,
+   "best_wins_median": 8.0,
+   "played_capture_pct": 0.142,
+   "blunder_hangs_own_pct": 0.403,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 44,
+    "minor": 32,
+    "major": 9
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.024,
+   "moved_piece_pct": {
+    "knight": 0.242,
+    "bishop": 0.204,
+    "pawn": 0.199,
+    "rook": 0.142,
+    "queen": 0.114,
+    "king": 0.1
+   },
+   "captured_piece_pct": {
+    "none": 0.858,
+    "pawn": 0.081,
+    "bishop": 0.038,
+    "knight": 0.024
+   },
+   "best_piece_pct": {
+    "rook": 0.313,
+    "knight": 0.246,
+    "pawn": 0.242,
+    "bishop": 0.199
+   },
+   "best_captured_piece_pct": {
+    "none": 0.976,
+    "pawn": 0.024
+   },
+   "played_is_check_pct": 0.005,
+   "phase_pct": {
+    "opening": 0.517,
+    "middlegame": 0.483
+   },
+   "material_kind_pct": {
+    "safe": 0.597,
+    "hangs": 0.27,
+    "trade": 0.09,
+    "slightly_down": 0.028,
+    "loses": 0.014
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "?->?": 0.564,
+    "winning->drawn": 0.156,
+    "drawn->losing": 0.133,
+    "winning->losing": 0.071,
+    "winning->winning": 0.043,
+    "losing->losing": 0.024,
+    "drawn->drawn": 0.009
+   },
+   "eval_drop_median": 316.0
+  }
+ },
+ "f21": {
+  "n": 68,
+  "best_wins_material_pct": 0.265,
+  "best_wins_median": 1.0,
+  "played_capture_pct": 0.0,
+  "blunder_hangs_own_pct": 1.0,
+  "own_hang_median": 2.0,
+  "own_hang_piece_dist": {
+   "minor": 68
+  },
+  "best_is_check_pct": 0.015,
+  "best_is_capture_pct": 0.294,
+  "moved_piece_pct": {
+   "pawn": 0.368,
+   "knight": 0.353,
+   "bishop": 0.221,
+   "king": 0.029,
+   "rook": 0.015,
+   "queen": 0.015
+  },
+  "captured_piece_pct": {
+   "none": 1.0
+  },
+  "best_piece_pct": {
+   "knight": 0.456,
+   "pawn": 0.279,
+   "bishop": 0.25,
+   "queen": 0.015
+  },
+  "best_captured_piece_pct": {
+   "none": 0.706,
+   "pawn": 0.279,
+   "knight": 0.015
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "opening": 1.0
+  },
+  "material_kind_pct": {
+   "hangs": 1.0
+  },
+  "net_material_median": -2.0,
+  "trajectory_pct": {
+   "drawn->losing": 0.853,
+   "?->?": 0.059,
+   "losing->losing": 0.044,
+   "winning->losing": 0.044
+  },
+  "eval_drop_median": 352.0,
+  "fire_rate": 0.0041,
+  "max_act": 45.544,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 20,
+   "best_wins_material_pct": 0.15,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 2.0,
+   "own_hang_piece_dist": {
+    "minor": 20
+   },
+   "best_is_check_pct": 0.05,
+   "best_is_capture_pct": 0.2,
+   "moved_piece_pct": {
+    "pawn": 0.4,
+    "knight": 0.35,
+    "bishop": 0.15,
+    "rook": 0.05,
+    "queen": 0.05
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "knight": 0.6,
+    "pawn": 0.2,
+    "bishop": 0.2
+   },
+   "best_captured_piece_pct": {
+    "none": 0.8,
+    "pawn": 0.15,
+    "knight": 0.05
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "opening": 1.0
+   },
+   "material_kind_pct": {
+    "hangs": 1.0
+   },
+   "net_material_median": -2.0,
+   "trajectory_pct": {
+    "drawn->losing": 0.95,
+    "winning->losing": 0.05
+   },
+   "eval_drop_median": 330.0
+  }
+ },
+ "f22": {
+  "n": 3,
+  "best_wins_material_pct": 1.0,
+  "best_wins_median": 9.0,
+  "played_capture_pct": 0.0,
+  "blunder_hangs_own_pct": 0.0,
+  "own_hang_median": 0,
+  "own_hang_piece_dist": {},
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 1.0,
+  "moved_piece_pct": {
+   "king": 0.667,
+   "knight": 0.333
+  },
+  "captured_piece_pct": {
+   "none": 1.0
+  },
+  "best_piece_pct": {
+   "knight": 0.667,
+   "king": 0.333
+  },
+  "best_captured_piece_pct": {
+   "queen": 0.667,
+   "pawn": 0.333
+  },
+  "played_is_check_pct": 0.333,
+  "phase_pct": {
+   "endgame": 1.0
+  },
+  "material_kind_pct": {
+   "safe": 1.0
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "drawn->losing": 1.0
+  },
+  "eval_drop_median": 402.0,
+  "fire_rate": 0.0001,
+  "max_act": 98.019,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 2,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 9.0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 0.0,
+   "own_hang_median": 0,
+   "own_hang_piece_dist": {},
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "knight": 0.5,
+    "king": 0.5
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "knight": 1.0
+   },
+   "best_captured_piece_pct": {
+    "queen": 1.0
+   },
+   "played_is_check_pct": 0.5,
+   "phase_pct": {
+    "endgame": 1.0
+   },
+   "material_kind_pct": {
+    "safe": 1.0
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "drawn->losing": 1.0
+   },
+   "eval_drop_median": 402.0
+  }
+ },
+ "f23": {
+  "n": 29,
+  "best_wins_material_pct": 1.0,
+  "best_wins_median": 9.0,
+  "played_capture_pct": 0.103,
+  "blunder_hangs_own_pct": 0.276,
+  "own_hang_median": 5.0,
+  "own_hang_piece_dist": {
+   "major": 4,
+   "pawn": 4
+  },
+  "best_is_check_pct": 1.0,
+  "best_is_capture_pct": 0.552,
+  "moved_piece_pct": {
+   "rook": 0.414,
+   "queen": 0.207,
+   "pawn": 0.172,
+   "king": 0.172,
+   "bishop": 0.034
+  },
+  "captured_piece_pct": {
+   "none": 0.897,
+   "pawn": 0.103
+  },
+  "best_piece_pct": {
+   "queen": 0.483,
+   "rook": 0.345,
+   "pawn": 0.103,
+   "knight": 0.034,
+   "bishop": 0.034
+  },
+  "best_captured_piece_pct": {
+   "none": 0.448,
+   "pawn": 0.207,
+   "rook": 0.138,
+   "queen": 0.103,
+   "knight": 0.069,
+   "bishop": 0.034
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "endgame": 0.517,
+   "middlegame": 0.483
+  },
+  "material_kind_pct": {
+   "safe": 0.724,
+   "hangs": 0.276
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "winning->winning": 0.414,
+   "losing->winning": 0.207,
+   "losing->losing": 0.172,
+   "?->?": 0.138,
+   "winning->drawn": 0.034,
+   "losing->drawn": 0.034
+  },
+  "eval_drop_median": 0.0,
+  "fire_rate": 0.0044,
+  "max_act": 38.809,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 6,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 9.0,
+   "played_capture_pct": 0.167,
+   "blunder_hangs_own_pct": 0.333,
+   "own_hang_median": 9.0,
+   "own_hang_piece_dist": {
+    "major": 2
+   },
+   "best_is_check_pct": 1.0,
+   "best_is_capture_pct": 0.833,
+   "moved_piece_pct": {
+    "rook": 0.5,
+    "king": 0.5
+   },
+   "captured_piece_pct": {
+    "none": 0.833,
+    "pawn": 0.167
+   },
+   "best_piece_pct": {
+    "queen": 0.667,
+    "rook": 0.333
+   },
+   "best_captured_piece_pct": {
+    "queen": 0.333,
+    "pawn": 0.333,
+    "none": 0.167,
+    "rook": 0.167
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "endgame": 0.833,
+    "middlegame": 0.167
+   },
+   "material_kind_pct": {
+    "safe": 0.667,
+    "hangs": 0.333
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->winning": 0.5,
+    "winning->drawn": 0.167,
+    "losing->drawn": 0.167,
+    "losing->losing": 0.167
+   },
+   "eval_drop_median": 9340.0
+  }
+ },
+ "f24": {
+  "n": 508,
+  "best_wins_material_pct": 1.0,
+  "best_wins_median": 2.0,
+  "played_capture_pct": 0.043,
+  "blunder_hangs_own_pct": 0.222,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 76,
+   "minor": 20,
+   "major": 17
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 0.018,
+  "moved_piece_pct": {
+   "pawn": 0.325,
+   "knight": 0.203,
+   "bishop": 0.195,
+   "queen": 0.108,
+   "rook": 0.091,
+   "king": 0.079
+  },
+  "captured_piece_pct": {
+   "none": 0.957,
+   "pawn": 0.03,
+   "bishop": 0.012,
+   "knight": 0.002
+  },
+  "best_piece_pct": {
+   "pawn": 0.988,
+   "rook": 0.008,
+   "knight": 0.002,
+   "queen": 0.002
+  },
+  "best_captured_piece_pct": {
+   "none": 0.982,
+   "pawn": 0.012,
+   "bishop": 0.006
+  },
+  "played_is_check_pct": 0.002,
+  "phase_pct": {
+   "opening": 0.646,
+   "middlegame": 0.354
+  },
+  "material_kind_pct": {
+   "safe": 0.778,
+   "hangs": 0.197,
+   "trade": 0.02,
+   "slightly_down": 0.004,
+   "loses": 0.002
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "?->?": 0.65,
+   "drawn->losing": 0.148,
+   "winning->drawn": 0.146,
+   "losing->losing": 0.028,
+   "drawn->drawn": 0.02,
+   "winning->losing": 0.006,
+   "winning->winning": 0.004
+  },
+  "eval_drop_median": 264.0,
+  "fire_rate": 0.0259,
+  "max_act": 36.769,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 91,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 2.0,
+   "played_capture_pct": 0.033,
+   "blunder_hangs_own_pct": 0.176,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 13,
+    "major": 2,
+    "minor": 1
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.011,
+   "moved_piece_pct": {
+    "pawn": 0.451,
+    "knight": 0.187,
+    "bishop": 0.176,
+    "rook": 0.11,
+    "queen": 0.055,
+    "king": 0.022
+   },
+   "captured_piece_pct": {
+    "none": 0.967,
+    "pawn": 0.033
+   },
+   "best_piece_pct": {
+    "pawn": 1.0
+   },
+   "best_captured_piece_pct": {
+    "none": 0.989,
+    "pawn": 0.011
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "opening": 0.692,
+    "middlegame": 0.308
+   },
+   "material_kind_pct": {
+    "safe": 0.824,
+    "hangs": 0.143,
+    "trade": 0.033
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "?->?": 0.44,
+    "winning->drawn": 0.319,
+    "drawn->losing": 0.176,
+    "losing->losing": 0.044,
+    "drawn->drawn": 0.022
+   },
+   "eval_drop_median": 271.0
+  }
+ },
+ "f25": {
+  "n": 126,
+  "best_wins_material_pct": 0.0,
+  "best_wins_median": 0,
+  "played_capture_pct": 0.286,
+  "blunder_hangs_own_pct": 0.667,
+  "own_hang_median": 5.0,
+  "own_hang_piece_dist": {
+   "major": 49,
+   "pawn": 24,
+   "minor": 11
+  },
+  "best_is_check_pct": 0.627,
+  "best_is_capture_pct": 1.0,
+  "moved_piece_pct": {
+   "queen": 0.222,
+   "pawn": 0.206,
+   "bishop": 0.19,
+   "knight": 0.175,
+   "rook": 0.119,
+   "king": 0.087
+  },
+  "captured_piece_pct": {
+   "none": 0.714,
+   "pawn": 0.214,
+   "knight": 0.04,
+   "bishop": 0.032
+  },
+  "best_piece_pct": {
+   "queen": 0.833,
+   "rook": 0.167
+  },
+  "best_captured_piece_pct": {
+   "queen": 0.817,
+   "rook": 0.183
+  },
+  "played_is_check_pct": 0.016,
+  "phase_pct": {
+   "middlegame": 0.659,
+   "opening": 0.31,
+   "endgame": 0.032
+  },
+  "material_kind_pct": {
+   "hangs": 0.476,
+   "safe": 0.333,
+   "loses": 0.103,
+   "trade": 0.048,
+   "slightly_down": 0.04
+  },
+  "net_material_median": -1.0,
+  "trajectory_pct": {
+   "drawn->losing": 0.437,
+   "?->?": 0.286,
+   "losing->losing": 0.206,
+   "losing->winning": 0.032,
+   "winning->losing": 0.016,
+   "winning->drawn": 0.016,
+   "drawn->winning": 0.008
+  },
+  "eval_drop_median": 377.0,
+  "fire_rate": 0.0041,
+  "max_act": 33.468,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 38,
+   "best_wins_material_pct": 0.0,
+   "best_wins_median": 0,
+   "played_capture_pct": 0.316,
+   "blunder_hangs_own_pct": 0.789,
+   "own_hang_median": 9.0,
+   "own_hang_piece_dist": {
+    "major": 23,
+    "minor": 4,
+    "pawn": 3
+   },
+   "best_is_check_pct": 0.684,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "bishop": 0.237,
+    "knight": 0.184,
+    "rook": 0.184,
+    "king": 0.158,
+    "pawn": 0.132,
+    "queen": 0.105
+   },
+   "captured_piece_pct": {
+    "none": 0.684,
+    "pawn": 0.184,
+    "knight": 0.105,
+    "bishop": 0.026
+   },
+   "best_piece_pct": {
+    "queen": 0.789,
+    "rook": 0.211
+   },
+   "best_captured_piece_pct": {
+    "queen": 0.789,
+    "rook": 0.211
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "middlegame": 0.711,
+    "opening": 0.237,
+    "endgame": 0.053
+   },
+   "material_kind_pct": {
+    "hangs": 0.474,
+    "safe": 0.211,
+    "loses": 0.211,
+    "trade": 0.053,
+    "slightly_down": 0.053
+   },
+   "net_material_median": -5.0,
+   "trajectory_pct": {
+    "drawn->losing": 0.474,
+    "losing->losing": 0.237,
+    "?->?": 0.211,
+    "losing->winning": 0.053,
+    "winning->drawn": 0.026
+   },
+   "eval_drop_median": 459.0
+  }
+ },
+ "f26": {
+  "n": 36,
+  "best_wins_material_pct": 0.028,
+  "best_wins_median": 5.0,
+  "played_capture_pct": 0.028,
+  "blunder_hangs_own_pct": 0.083,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 2,
+   "major": 1
+  },
+  "best_is_check_pct": 0.556,
+  "best_is_capture_pct": 1.0,
+  "moved_piece_pct": {
+   "rook": 0.528,
+   "king": 0.194,
+   "queen": 0.167,
+   "pawn": 0.111
+  },
+  "captured_piece_pct": {
+   "none": 0.972,
+   "pawn": 0.028
+  },
+  "best_piece_pct": {
+   "rook": 0.833,
+   "queen": 0.167
+  },
+  "best_captured_piece_pct": {
+   "rook": 0.556,
+   "knight": 0.25,
+   "queen": 0.139,
+   "bishop": 0.056
+  },
+  "played_is_check_pct": 0.306,
+  "phase_pct": {
+   "endgame": 0.861,
+   "middlegame": 0.139
+  },
+  "material_kind_pct": {
+   "safe": 0.917,
+   "hangs": 0.083
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "winning->winning": 0.556,
+   "winning->drawn": 0.389,
+   "losing->losing": 0.028,
+   "losing->winning": 0.028
+  },
+  "eval_drop_median": 213.0,
+  "fire_rate": 0.0012,
+  "max_act": 48.198,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 16,
+   "best_wins_material_pct": 0.0,
+   "best_wins_median": 0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 0.062,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 1
+   },
+   "best_is_check_pct": 0.625,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "queen": 0.312,
+    "rook": 0.312,
+    "king": 0.25,
+    "pawn": 0.125
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "rook": 0.688,
+    "queen": 0.312
+   },
+   "best_captured_piece_pct": {
+    "knight": 0.375,
+    "rook": 0.375,
+    "queen": 0.25
+   },
+   "played_is_check_pct": 0.312,
+   "phase_pct": {
+    "endgame": 0.938,
+    "middlegame": 0.062
+   },
+   "material_kind_pct": {
+    "safe": 0.938,
+    "hangs": 0.062
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->winning": 0.625,
+    "winning->drawn": 0.375
+   },
+   "eval_drop_median": 210.0
+  }
+ },
+ "f27": {
+  "n": 395,
+  "best_wins_material_pct": 0.98,
+  "best_wins_median": 9.0,
+  "played_capture_pct": 0.116,
+  "blunder_hangs_own_pct": 0.504,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 117,
+   "major": 42,
+   "minor": 40
+  },
+  "best_is_check_pct": 0.03,
+  "best_is_capture_pct": 0.142,
+  "moved_piece_pct": {
+   "queen": 0.21,
+   "king": 0.203,
+   "pawn": 0.203,
+   "rook": 0.139,
+   "bishop": 0.124,
+   "knight": 0.122
+  },
+  "captured_piece_pct": {
+   "none": 0.884,
+   "pawn": 0.078,
+   "bishop": 0.015,
+   "knight": 0.013,
+   "rook": 0.01
+  },
+  "best_piece_pct": {
+   "queen": 0.886,
+   "rook": 0.104,
+   "bishop": 0.005,
+   "knight": 0.005
+  },
+  "best_captured_piece_pct": {
+   "none": 0.858,
+   "pawn": 0.091,
+   "knight": 0.025,
+   "bishop": 0.018,
+   "rook": 0.008
+  },
+  "played_is_check_pct": 0.023,
+  "phase_pct": {
+   "middlegame": 0.868,
+   "opening": 0.114,
+   "endgame": 0.018
+  },
+  "material_kind_pct": {
+   "safe": 0.496,
+   "hangs": 0.433,
+   "trade": 0.056,
+   "loses": 0.008,
+   "slightly_down": 0.008
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "?->?": 0.673,
+   "losing->losing": 0.104,
+   "drawn->losing": 0.099,
+   "winning->drawn": 0.048,
+   "winning->losing": 0.035,
+   "winning->winning": 0.02,
+   "losing->winning": 0.01,
+   "drawn->drawn": 0.01
+  },
+  "eval_drop_median": 307.0,
+  "fire_rate": 0.009,
+  "max_act": 29.471,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 105,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 9.0,
+   "played_capture_pct": 0.105,
+   "blunder_hangs_own_pct": 0.457,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "pawn": 21,
+    "minor": 15,
+    "major": 12
+   },
+   "best_is_check_pct": 0.01,
+   "best_is_capture_pct": 0.105,
+   "moved_piece_pct": {
+    "queen": 0.229,
+    "king": 0.21,
+    "pawn": 0.21,
+    "knight": 0.143,
+    "bishop": 0.124,
+    "rook": 0.086
+   },
+   "captured_piece_pct": {
+    "none": 0.895,
+    "pawn": 0.076,
+    "rook": 0.019,
+    "bishop": 0.01
+   },
+   "best_piece_pct": {
+    "queen": 0.924,
+    "rook": 0.076
+   },
+   "best_captured_piece_pct": {
+    "none": 0.895,
+    "pawn": 0.048,
+    "bishop": 0.029,
+    "knight": 0.019,
+    "rook": 0.01
+   },
+   "played_is_check_pct": 0.029,
+   "phase_pct": {
+    "middlegame": 0.838,
+    "opening": 0.152,
+    "endgame": 0.01
+   },
+   "material_kind_pct": {
+    "safe": 0.543,
+    "hangs": 0.41,
+    "trade": 0.029,
+    "loses": 0.019
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "?->?": 0.629,
+    "losing->losing": 0.133,
+    "drawn->losing": 0.114,
+    "winning->losing": 0.057,
+    "losing->winning": 0.029,
+    "winning->drawn": 0.029,
+    "drawn->drawn": 0.01
+   },
+   "eval_drop_median": 293.0
+  }
+ },
+ "f28": {
+  "n": 214,
+  "best_wins_material_pct": 0.72,
+  "best_wins_median": 1.0,
+  "played_capture_pct": 0.252,
+  "blunder_hangs_own_pct": 0.416,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 51,
+   "minor": 27,
+   "major": 11
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 0.145,
+  "moved_piece_pct": {
+   "rook": 0.224,
+   "pawn": 0.192,
+   "bishop": 0.187,
+   "queen": 0.178,
+   "knight": 0.173,
+   "king": 0.047
+  },
+  "captured_piece_pct": {
+   "none": 0.748,
+   "pawn": 0.154,
+   "knight": 0.047,
+   "bishop": 0.023,
+   "rook": 0.019,
+   "queen": 0.009
+  },
+  "best_piece_pct": {
+   "queen": 0.579,
+   "rook": 0.154,
+   "bishop": 0.107,
+   "knight": 0.098,
+   "pawn": 0.047,
+   "king": 0.014
+  },
+  "best_captured_piece_pct": {
+   "none": 0.855,
+   "pawn": 0.093,
+   "knight": 0.033,
+   "bishop": 0.009,
+   "rook": 0.009
+  },
+  "played_is_check_pct": 0.061,
+  "phase_pct": {
+   "middlegame": 0.897,
+   "opening": 0.079,
+   "endgame": 0.023
+  },
+  "material_kind_pct": {
+   "safe": 0.584,
+   "hangs": 0.266,
+   "trade": 0.126,
+   "slightly_down": 0.019,
+   "loses": 0.005
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "?->?": 0.495,
+   "winning->drawn": 0.126,
+   "winning->winning": 0.121,
+   "winning->losing": 0.107,
+   "drawn->losing": 0.075,
+   "losing->losing": 0.033,
+   "losing->winning": 0.023,
+   "losing->drawn": 0.019
+  },
+  "eval_drop_median": 416.0,
+  "fire_rate": 0.0146,
+  "max_act": 43.196,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 58,
+   "best_wins_material_pct": 0.759,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 0.224,
+   "blunder_hangs_own_pct": 0.414,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 14,
+    "minor": 7,
+    "major": 3
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.121,
+   "moved_piece_pct": {
+    "knight": 0.224,
+    "rook": 0.207,
+    "bishop": 0.207,
+    "queen": 0.172,
+    "pawn": 0.155,
+    "king": 0.034
+   },
+   "captured_piece_pct": {
+    "none": 0.776,
+    "pawn": 0.086,
+    "knight": 0.052,
+    "rook": 0.034,
+    "bishop": 0.034,
+    "queen": 0.017
+   },
+   "best_piece_pct": {
+    "queen": 0.638,
+    "knight": 0.155,
+    "bishop": 0.103,
+    "rook": 0.052,
+    "pawn": 0.052
+   },
+   "best_captured_piece_pct": {
+    "none": 0.879,
+    "pawn": 0.086,
+    "knight": 0.034
+   },
+   "played_is_check_pct": 0.069,
+   "phase_pct": {
+    "middlegame": 0.931,
+    "opening": 0.052,
+    "endgame": 0.017
+   },
+   "material_kind_pct": {
+    "safe": 0.586,
+    "hangs": 0.31,
+    "trade": 0.086,
+    "slightly_down": 0.017
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "?->?": 0.466,
+    "winning->losing": 0.138,
+    "winning->winning": 0.138,
+    "drawn->losing": 0.103,
+    "winning->drawn": 0.103,
+    "losing->losing": 0.034,
+    "losing->winning": 0.017
+   },
+   "eval_drop_median": 496.0
+  }
+ },
+ "f29": {
+  "n": 34,
+  "best_wins_material_pct": 1.0,
+  "best_wins_median": 5.0,
+  "played_capture_pct": 0.265,
+  "blunder_hangs_own_pct": 0.882,
+  "own_hang_median": 5.0,
+  "own_hang_piece_dist": {
+   "major": 21,
+   "pawn": 6,
+   "minor": 3
+  },
+  "best_is_check_pct": 0.882,
+  "best_is_capture_pct": 0.882,
+  "moved_piece_pct": {
+   "queen": 0.294,
+   "rook": 0.265,
+   "knight": 0.176,
+   "pawn": 0.118,
+   "bishop": 0.088,
+   "king": 0.059
+  },
+  "captured_piece_pct": {
+   "none": 0.735,
+   "pawn": 0.147,
+   "queen": 0.088,
+   "knight": 0.029
+  },
+  "best_piece_pct": {
+   "queen": 0.706,
+   "rook": 0.176,
+   "knight": 0.088,
+   "bishop": 0.029
+  },
+  "best_captured_piece_pct": {
+   "rook": 0.588,
+   "none": 0.118,
+   "bishop": 0.118,
+   "pawn": 0.088,
+   "queen": 0.059,
+   "knight": 0.029
+  },
+  "played_is_check_pct": 0.176,
+  "phase_pct": {
+   "middlegame": 0.941,
+   "opening": 0.059
+  },
+  "material_kind_pct": {
+   "hangs": 0.618,
+   "trade": 0.176,
+   "safe": 0.118,
+   "slightly_down": 0.059,
+   "loses": 0.029
+  },
+  "net_material_median": -2.0,
+  "trajectory_pct": {
+   "winning->losing": 0.294,
+   "?->?": 0.294,
+   "winning->drawn": 0.176,
+   "winning->winning": 0.118,
+   "losing->losing": 0.088,
+   "losing->drawn": 0.029
+  },
+  "eval_drop_median": 818.0,
+  "fire_rate": 0.0307,
+  "max_act": 54.321,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 4,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 5.0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 9.0,
+   "own_hang_piece_dist": {
+    "major": 4
+   },
+   "best_is_check_pct": 1.0,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "rook": 0.5,
+    "knight": 0.25,
+    "queen": 0.25
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "queen": 0.5,
+    "rook": 0.25,
+    "knight": 0.25
+   },
+   "best_captured_piece_pct": {
+    "rook": 0.75,
+    "bishop": 0.25
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "middlegame": 1.0
+   },
+   "material_kind_pct": {
+    "hangs": 1.0
+   },
+   "net_material_median": -5.0,
+   "trajectory_pct": {
+    "winning->losing": 1.0
+   },
+   "eval_drop_median": 1151.0
+  }
+ },
+ "f30": {
+  "n": 54,
+  "best_wins_material_pct": 0.056,
+  "best_wins_median": 2.0,
+  "played_capture_pct": 0.981,
+  "blunder_hangs_own_pct": 1.0,
+  "own_hang_median": 2.0,
+  "own_hang_piece_dist": {
+   "minor": 54
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 0.019,
+  "moved_piece_pct": {
+   "bishop": 0.778,
+   "knight": 0.222
+  },
+  "captured_piece_pct": {
+   "pawn": 0.981,
+   "none": 0.019
+  },
+  "best_piece_pct": {
+   "bishop": 0.296,
+   "pawn": 0.278,
+   "knight": 0.204,
+   "queen": 0.111,
+   "rook": 0.093,
+   "king": 0.019
+  },
+  "best_captured_piece_pct": {
+   "none": 0.981,
+   "bishop": 0.019
+  },
+  "played_is_check_pct": 0.056,
+  "phase_pct": {
+   "opening": 0.537,
+   "middlegame": 0.463
+  },
+  "material_kind_pct": {
+   "trade": 0.556,
+   "slightly_down": 0.426,
+   "hangs": 0.019
+  },
+  "net_material_median": -1.0,
+  "trajectory_pct": {
+   "?->?": 0.444,
+   "drawn->losing": 0.426,
+   "winning->drawn": 0.056,
+   "drawn->drawn": 0.056,
+   "losing->losing": 0.019
+  },
+  "eval_drop_median": 266.0,
+  "fire_rate": 0.0022,
+  "max_act": 31.764,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 22,
+   "best_wins_material_pct": 0.0,
+   "best_wins_median": 0,
+   "played_capture_pct": 1.0,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 2.0,
+   "own_hang_piece_dist": {
+    "minor": 22
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.0,
+   "moved_piece_pct": {
+    "bishop": 0.818,
+    "knight": 0.182
+   },
+   "captured_piece_pct": {
+    "pawn": 1.0
+   },
+   "best_piece_pct": {
+    "pawn": 0.273,
+    "bishop": 0.273,
+    "knight": 0.227,
+    "queen": 0.136,
+    "rook": 0.091
+   },
+   "best_captured_piece_pct": {
+    "none": 1.0
+   },
+   "played_is_check_pct": 0.045,
+   "phase_pct": {
+    "opening": 0.591,
+    "middlegame": 0.409
+   },
+   "material_kind_pct": {
+    "trade": 0.545,
+    "slightly_down": 0.455
+   },
+   "net_material_median": -1.0,
+   "trajectory_pct": {
+    "drawn->losing": 0.545,
+    "?->?": 0.318,
+    "winning->drawn": 0.091,
+    "drawn->drawn": 0.045
+   },
+   "eval_drop_median": 255.0
+  }
+ },
+ "f31": {
+  "n": 424,
+  "best_wins_material_pct": 0.009,
+  "best_wins_median": 2.0,
+  "played_capture_pct": 0.012,
+  "blunder_hangs_own_pct": 0.325,
+  "own_hang_median": 3.0,
+  "own_hang_piece_dist": {
+   "minor": 84,
+   "pawn": 41,
+   "major": 13
+  },
+  "best_is_check_pct": 0.054,
+  "best_is_capture_pct": 1.0,
+  "moved_piece_pct": {
+   "bishop": 0.363,
+   "knight": 0.224,
+   "pawn": 0.203,
+   "queen": 0.099,
+   "rook": 0.059,
+   "king": 0.052
+  },
+  "captured_piece_pct": {
+   "none": 0.988,
+   "pawn": 0.012
+  },
+  "best_piece_pct": {
+   "bishop": 0.738,
+   "knight": 0.231,
+   "pawn": 0.021,
+   "rook": 0.007,
+   "queen": 0.002
+  },
+  "best_captured_piece_pct": {
+   "knight": 0.66,
+   "bishop": 0.3,
+   "pawn": 0.021,
+   "rook": 0.017,
+   "queen": 0.002
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "opening": 0.677,
+   "middlegame": 0.323
+  },
+  "material_kind_pct": {
+   "safe": 0.675,
+   "hangs": 0.318,
+   "slightly_down": 0.005,
+   "trade": 0.002
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "drawn->losing": 0.436,
+   "?->?": 0.434,
+   "winning->drawn": 0.071,
+   "drawn->drawn": 0.026,
+   "losing->losing": 0.021,
+   "winning->losing": 0.007,
+   "winning->winning": 0.002,
+   "drawn->winning": 0.002
+  },
+  "eval_drop_median": 297.0,
+  "fire_rate": 0.0379,
+  "max_act": 48.155,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 75,
+   "best_wins_material_pct": 0.0,
+   "best_wins_median": 0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 0.293,
+   "own_hang_median": 2.0,
+   "own_hang_piece_dist": {
+    "minor": 13,
+    "pawn": 9
+   },
+   "best_is_check_pct": 0.027,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "bishop": 0.427,
+    "pawn": 0.187,
+    "knight": 0.173,
+    "queen": 0.107,
+    "king": 0.067,
+    "rook": 0.04
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "bishop": 0.84,
+    "knight": 0.16
+   },
+   "best_captured_piece_pct": {
+    "knight": 0.667,
+    "bishop": 0.333
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "opening": 0.84,
+    "middlegame": 0.16
+   },
+   "material_kind_pct": {
+    "safe": 0.707,
+    "hangs": 0.293
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "drawn->losing": 0.627,
+    "?->?": 0.253,
+    "drawn->drawn": 0.04,
+    "winning->drawn": 0.027,
+    "losing->losing": 0.027,
+    "winning->winning": 0.013,
+    "drawn->winning": 0.013
+   },
+   "eval_drop_median": 307.0
+  }
+ },
+ "f32": {
+  "n": 14,
+  "best_wins_material_pct": 0.0,
+  "best_wins_median": 0,
+  "played_capture_pct": 0.143,
+  "blunder_hangs_own_pct": 0.714,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 10
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 0.0,
+  "moved_piece_pct": {
+   "pawn": 1.0
+  },
+  "captured_piece_pct": {
+   "none": 0.857,
+   "pawn": 0.143
+  },
+  "best_piece_pct": {
+   "king": 0.643,
+   "pawn": 0.357
+  },
+  "best_captured_piece_pct": {
+   "none": 1.0
+  },
+  "played_is_check_pct": 0.071,
+  "phase_pct": {
+   "endgame": 0.857,
+   "middlegame": 0.143
+  },
+  "material_kind_pct": {
+   "hangs": 0.571,
+   "safe": 0.286,
+   "trade": 0.143
+  },
+  "net_material_median": -1.0,
+  "trajectory_pct": {
+   "losing->losing": 0.714,
+   "drawn->losing": 0.214,
+   "losing->winning": 0.071
+  },
+  "eval_drop_median": 111.0,
+  "fire_rate": 0.0012,
+  "max_act": 37.637,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 8,
+   "best_wins_material_pct": 0.0,
+   "best_wins_median": 0,
+   "played_capture_pct": 0.125,
+   "blunder_hangs_own_pct": 0.875,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 7
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.0,
+   "moved_piece_pct": {
+    "pawn": 1.0
+   },
+   "captured_piece_pct": {
+    "none": 0.875,
+    "pawn": 0.125
+   },
+   "best_piece_pct": {
+    "king": 0.5,
+    "pawn": 0.5
+   },
+   "best_captured_piece_pct": {
+    "none": 1.0
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "endgame": 0.875,
+    "middlegame": 0.125
+   },
+   "material_kind_pct": {
+    "hangs": 0.75,
+    "trade": 0.125,
+    "safe": 0.125
+   },
+   "net_material_median": -1.0,
+   "trajectory_pct": {
+    "losing->losing": 1.0
+   },
+   "eval_drop_median": 44.0
+  }
+ },
+ "f33": {
+  "n": 40,
+  "best_wins_material_pct": 0.175,
+  "best_wins_median": 1.0,
+  "played_capture_pct": 0.025,
+  "blunder_hangs_own_pct": 0.05,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 2
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 0.2,
+  "moved_piece_pct": {
+   "bishop": 0.45,
+   "pawn": 0.225,
+   "knight": 0.2,
+   "queen": 0.075,
+   "king": 0.05
+  },
+  "captured_piece_pct": {
+   "none": 0.975,
+   "pawn": 0.025
+  },
+  "best_piece_pct": {
+   "pawn": 0.625,
+   "bishop": 0.275,
+   "knight": 0.1
+  },
+  "best_captured_piece_pct": {
+   "none": 0.8,
+   "pawn": 0.175,
+   "bishop": 0.025
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "opening": 0.95,
+   "middlegame": 0.05
+  },
+  "material_kind_pct": {
+   "safe": 0.95,
+   "hangs": 0.05
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "drawn->losing": 0.8,
+   "?->?": 0.125,
+   "drawn->drawn": 0.075
+  },
+  "eval_drop_median": 316.0,
+  "fire_rate": 0.0012,
+  "max_act": 33.806,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 13,
+   "best_wins_material_pct": 0.154,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 0.077,
+   "blunder_hangs_own_pct": 0.0,
+   "own_hang_median": 0,
+   "own_hang_piece_dist": {},
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.231,
+   "moved_piece_pct": {
+    "bishop": 0.462,
+    "pawn": 0.231,
+    "king": 0.154,
+    "knight": 0.154
+   },
+   "captured_piece_pct": {
+    "none": 0.923,
+    "pawn": 0.077
+   },
+   "best_piece_pct": {
+    "bishop": 0.538,
+    "pawn": 0.462
+   },
+   "best_captured_piece_pct": {
+    "none": 0.769,
+    "pawn": 0.154,
+    "bishop": 0.077
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "opening": 0.923,
+    "middlegame": 0.077
+   },
+   "material_kind_pct": {
+    "safe": 1.0
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "drawn->losing": 0.923,
+    "?->?": 0.077
+   },
+   "eval_drop_median": 312.0
+  }
+ },
+ "f34": {
+  "n": 20,
+  "best_wins_material_pct": 0.3,
+  "best_wins_median": 1.0,
+  "played_capture_pct": 0.0,
+  "blunder_hangs_own_pct": 0.8,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 10,
+   "minor": 6
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 1.0,
+  "moved_piece_pct": {
+   "pawn": 0.65,
+   "bishop": 0.25,
+   "knight": 0.1
+  },
+  "captured_piece_pct": {
+   "none": 1.0
+  },
+  "best_piece_pct": {
+   "pawn": 1.0
+  },
+  "best_captured_piece_pct": {
+   "pawn": 1.0
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "opening": 1.0
+  },
+  "material_kind_pct": {
+   "hangs": 0.8,
+   "safe": 0.2
+  },
+  "net_material_median": -1.0,
+  "trajectory_pct": {
+   "drawn->losing": 0.8,
+   "winning->drawn": 0.1,
+   "?->?": 0.05,
+   "losing->losing": 0.05
+  },
+  "eval_drop_median": 321.0,
+  "fire_rate": 0.0011,
+  "max_act": 39.206,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 9,
+   "best_wins_material_pct": 0.222,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 0.889,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 6,
+    "minor": 2
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "pawn": 0.667,
+    "bishop": 0.333
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "pawn": 1.0
+   },
+   "best_captured_piece_pct": {
+    "pawn": 1.0
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "opening": 1.0
+   },
+   "material_kind_pct": {
+    "hangs": 0.889,
+    "safe": 0.111
+   },
+   "net_material_median": -1.0,
+   "trajectory_pct": {
+    "drawn->losing": 0.889,
+    "winning->drawn": 0.111
+   },
+   "eval_drop_median": 321.0
+  }
+ },
+ "f35": {
+  "n": 33,
+  "best_wins_material_pct": 0.121,
+  "best_wins_median": 97.0,
+  "played_capture_pct": 0.455,
+  "blunder_hangs_own_pct": 0.485,
+  "own_hang_median": 3.0,
+  "own_hang_piece_dist": {
+   "minor": 12,
+   "major": 3,
+   "pawn": 1
+  },
+  "best_is_check_pct": 0.212,
+  "best_is_capture_pct": 0.879,
+  "moved_piece_pct": {
+   "queen": 0.485,
+   "pawn": 0.333,
+   "knight": 0.091,
+   "bishop": 0.061,
+   "rook": 0.03
+  },
+  "captured_piece_pct": {
+   "none": 0.545,
+   "bishop": 0.303,
+   "rook": 0.061,
+   "knight": 0.03,
+   "queen": 0.03,
+   "pawn": 0.03
+  },
+  "best_piece_pct": {
+   "bishop": 0.667,
+   "knight": 0.242,
+   "rook": 0.061,
+   "queen": 0.03
+  },
+  "best_captured_piece_pct": {
+   "knight": 0.667,
+   "bishop": 0.152,
+   "none": 0.121,
+   "pawn": 0.061
+  },
+  "played_is_check_pct": 0.061,
+  "phase_pct": {
+   "opening": 0.636,
+   "middlegame": 0.364
+  },
+  "material_kind_pct": {
+   "safe": 0.515,
+   "trade": 0.364,
+   "loses": 0.061,
+   "hangs": 0.061
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "winning->drawn": 0.485,
+   "losing->losing": 0.152,
+   "drawn->losing": 0.121,
+   "?->?": 0.091,
+   "winning->losing": 0.091,
+   "winning->winning": 0.061
+  },
+  "eval_drop_median": 369.0,
+  "fire_rate": 0.0027,
+  "max_act": 38.559,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 15,
+   "best_wins_material_pct": 0.0,
+   "best_wins_median": 0,
+   "played_capture_pct": 0.533,
+   "blunder_hangs_own_pct": 0.533,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "minor": 7,
+    "major": 1
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "queen": 0.6,
+    "pawn": 0.4
+   },
+   "captured_piece_pct": {
+    "bishop": 0.467,
+    "none": 0.467,
+    "knight": 0.067
+   },
+   "best_piece_pct": {
+    "bishop": 0.733,
+    "knight": 0.267
+   },
+   "best_captured_piece_pct": {
+    "knight": 0.733,
+    "bishop": 0.2,
+    "pawn": 0.067
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "opening": 0.667,
+    "middlegame": 0.333
+   },
+   "material_kind_pct": {
+    "trade": 0.467,
+    "safe": 0.467,
+    "loses": 0.067
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->drawn": 0.6,
+    "drawn->losing": 0.2,
+    "?->?": 0.067,
+    "losing->losing": 0.067,
+    "winning->winning": 0.067
+   },
+   "eval_drop_median": 366.0
+  }
+ },
+ "f36": {
+  "n": 5,
+  "best_wins_material_pct": 0.4,
+  "best_wins_median": 100.0,
+  "played_capture_pct": 0.6,
+  "blunder_hangs_own_pct": 0.0,
+  "own_hang_median": 0,
+  "own_hang_piece_dist": {},
+  "best_is_check_pct": 0.2,
+  "best_is_capture_pct": 0.0,
+  "moved_piece_pct": {
+   "king": 0.6,
+   "pawn": 0.2,
+   "rook": 0.2
+  },
+  "captured_piece_pct": {
+   "knight": 0.4,
+   "none": 0.4,
+   "pawn": 0.2
+  },
+  "best_piece_pct": {
+   "king": 0.4,
+   "rook": 0.4,
+   "knight": 0.2
+  },
+  "best_captured_piece_pct": {
+   "none": 1.0
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "endgame": 1.0
+  },
+  "material_kind_pct": {
+   "safe": 1.0
+  },
+  "net_material_median": 1.0,
+  "trajectory_pct": {
+   "winning->losing": 0.6,
+   "losing->losing": 0.2,
+   "winning->winning": 0.2
+  },
+  "eval_drop_median": 728.0,
+  "fire_rate": 0.0007,
+  "max_act": 45.317,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 2,
+   "best_wins_material_pct": 0.5,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 0.0,
+   "own_hang_median": 0,
+   "own_hang_piece_dist": {},
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.0,
+   "moved_piece_pct": {
+    "king": 0.5,
+    "pawn": 0.5
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "king": 0.5,
+    "rook": 0.5
+   },
+   "best_captured_piece_pct": {
+    "none": 1.0
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "endgame": 1.0
+   },
+   "material_kind_pct": {
+    "safe": 1.0
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->losing": 0.5,
+    "losing->losing": 0.5
+   },
+   "eval_drop_median": 1059.0
+  }
+ },
+ "f37": {
+  "n": 139,
+  "best_wins_material_pct": 0.568,
+  "best_wins_median": 6.0,
+  "played_capture_pct": 0.094,
+  "blunder_hangs_own_pct": 0.576,
+  "own_hang_median": 3.0,
+  "own_hang_piece_dist": {
+   "major": 37,
+   "pawn": 36,
+   "minor": 7
+  },
+  "best_is_check_pct": 0.158,
+  "best_is_capture_pct": 1.0,
+  "moved_piece_pct": {
+   "queen": 0.302,
+   "king": 0.252,
+   "rook": 0.216,
+   "pawn": 0.115,
+   "knight": 0.065,
+   "bishop": 0.05
+  },
+  "captured_piece_pct": {
+   "none": 0.906,
+   "pawn": 0.072,
+   "bishop": 0.007,
+   "rook": 0.007,
+   "knight": 0.007
+  },
+  "best_piece_pct": {
+   "queen": 0.446,
+   "rook": 0.237,
+   "knight": 0.144,
+   "pawn": 0.086,
+   "bishop": 0.058,
+   "king": 0.029
+  },
+  "best_captured_piece_pct": {
+   "queen": 0.763,
+   "rook": 0.201,
+   "bishop": 0.022,
+   "pawn": 0.007,
+   "knight": 0.007
+  },
+  "played_is_check_pct": 0.158,
+  "phase_pct": {
+   "middlegame": 0.863,
+   "endgame": 0.137
+  },
+  "material_kind_pct": {
+   "hangs": 0.511,
+   "safe": 0.424,
+   "trade": 0.036,
+   "loses": 0.029
+  },
+  "net_material_median": -1.0,
+  "trajectory_pct": {
+   "winning->losing": 0.424,
+   "?->?": 0.187,
+   "losing->losing": 0.173,
+   "drawn->losing": 0.094,
+   "winning->winning": 0.043,
+   "losing->winning": 0.043,
+   "winning->drawn": 0.029,
+   "drawn->winning": 0.007
+  },
+  "eval_drop_median": 839.0,
+  "fire_rate": 0.0195,
+  "max_act": 51.304,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 32,
+   "best_wins_material_pct": 0.625,
+   "best_wins_median": 8.0,
+   "played_capture_pct": 0.156,
+   "blunder_hangs_own_pct": 0.531,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 12,
+    "major": 5
+   },
+   "best_is_check_pct": 0.156,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "rook": 0.219,
+    "queen": 0.219,
+    "king": 0.188,
+    "bishop": 0.125,
+    "knight": 0.125,
+    "pawn": 0.125
+   },
+   "captured_piece_pct": {
+    "none": 0.844,
+    "pawn": 0.094,
+    "rook": 0.031,
+    "knight": 0.031
+   },
+   "best_piece_pct": {
+    "queen": 0.375,
+    "rook": 0.312,
+    "pawn": 0.156,
+    "knight": 0.094,
+    "bishop": 0.031,
+    "king": 0.031
+   },
+   "best_captured_piece_pct": {
+    "queen": 0.781,
+    "rook": 0.219
+   },
+   "played_is_check_pct": 0.312,
+   "phase_pct": {
+    "middlegame": 0.812,
+    "endgame": 0.188
+   },
+   "material_kind_pct": {
+    "safe": 0.469,
+    "hangs": 0.406,
+    "trade": 0.094,
+    "loses": 0.031
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->losing": 0.5,
+    "losing->losing": 0.156,
+    "?->?": 0.125,
+    "drawn->losing": 0.062,
+    "losing->winning": 0.062,
+    "winning->winning": 0.062,
+    "drawn->winning": 0.031
+   },
+   "eval_drop_median": 817.0
+  }
+ },
+ "f38": {
+  "n": 31,
+  "best_wins_material_pct": 0.677,
+  "best_wins_median": 4.0,
+  "played_capture_pct": 0.452,
+  "blunder_hangs_own_pct": 0.774,
+  "own_hang_median": 3.0,
+  "own_hang_piece_dist": {
+   "minor": 16,
+   "major": 5,
+   "pawn": 3
+  },
+  "best_is_check_pct": 0.194,
+  "best_is_capture_pct": 0.387,
+  "moved_piece_pct": {
+   "knight": 0.581,
+   "queen": 0.194,
+   "bishop": 0.129,
+   "rook": 0.097
+  },
+  "captured_piece_pct": {
+   "none": 0.548,
+   "pawn": 0.323,
+   "rook": 0.065,
+   "queen": 0.032,
+   "bishop": 0.032
+  },
+  "best_piece_pct": {
+   "bishop": 0.29,
+   "knight": 0.226,
+   "queen": 0.194,
+   "pawn": 0.129,
+   "rook": 0.129,
+   "king": 0.032
+  },
+  "best_captured_piece_pct": {
+   "none": 0.613,
+   "bishop": 0.097,
+   "queen": 0.097,
+   "knight": 0.097,
+   "rook": 0.065,
+   "pawn": 0.032
+  },
+  "played_is_check_pct": 1.0,
+  "phase_pct": {
+   "middlegame": 0.774,
+   "opening": 0.161,
+   "endgame": 0.065
+  },
+  "material_kind_pct": {
+   "hangs": 0.419,
+   "safe": 0.226,
+   "trade": 0.226,
+   "slightly_down": 0.097,
+   "loses": 0.032
+  },
+  "net_material_median": -1.0,
+  "trajectory_pct": {
+   "winning->drawn": 0.226,
+   "winning->losing": 0.226,
+   "winning->winning": 0.226,
+   "?->?": 0.161,
+   "drawn->losing": 0.161
+  },
+  "eval_drop_median": 466.0,
+  "fire_rate": 0.0043,
+  "max_act": 44.587,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 11,
+   "best_wins_material_pct": 0.636,
+   "best_wins_median": 4.0,
+   "played_capture_pct": 0.455,
+   "blunder_hangs_own_pct": 0.636,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "minor": 3,
+    "major": 3,
+    "pawn": 1
+   },
+   "best_is_check_pct": 0.091,
+   "best_is_capture_pct": 0.182,
+   "moved_piece_pct": {
+    "knight": 0.636,
+    "rook": 0.273,
+    "queen": 0.091
+   },
+   "captured_piece_pct": {
+    "none": 0.545,
+    "pawn": 0.364,
+    "rook": 0.091
+   },
+   "best_piece_pct": {
+    "rook": 0.273,
+    "pawn": 0.182,
+    "knight": 0.182,
+    "queen": 0.182,
+    "bishop": 0.091,
+    "king": 0.091
+   },
+   "best_captured_piece_pct": {
+    "none": 0.818,
+    "bishop": 0.091,
+    "knight": 0.091
+   },
+   "played_is_check_pct": 1.0,
+   "phase_pct": {
+    "middlegame": 0.727,
+    "opening": 0.273
+   },
+   "material_kind_pct": {
+    "safe": 0.364,
+    "hangs": 0.364,
+    "trade": 0.182,
+    "loses": 0.091
+   },
+   "net_material_median": -1.0,
+   "trajectory_pct": {
+    "winning->drawn": 0.364,
+    "winning->losing": 0.273,
+    "drawn->losing": 0.182,
+    "winning->winning": 0.182
+   },
+   "eval_drop_median": 434.0
+  }
+ },
+ "f39": {
+  "n": 10,
+  "best_wins_material_pct": 0.7,
+  "best_wins_median": 1.0,
+  "played_capture_pct": 0.0,
+  "blunder_hangs_own_pct": 0.1,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 1
+  },
+  "best_is_check_pct": 0.2,
+  "best_is_capture_pct": 0.3,
+  "moved_piece_pct": {
+   "king": 0.9,
+   "knight": 0.1
+  },
+  "captured_piece_pct": {
+   "none": 1.0
+  },
+  "best_piece_pct": {
+   "king": 0.4,
+   "pawn": 0.3,
+   "bishop": 0.2,
+   "knight": 0.1
+  },
+  "best_captured_piece_pct": {
+   "none": 0.7,
+   "pawn": 0.3
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "endgame": 0.9,
+   "middlegame": 0.1
+  },
+  "material_kind_pct": {
+   "safe": 0.9,
+   "hangs": 0.1
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "losing->losing": 0.8,
+   "drawn->losing": 0.1,
+   "losing->winning": 0.1
+  },
+  "eval_drop_median": 96.0,
+  "fire_rate": 0.0008,
+  "max_act": 46.201,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 7,
+   "best_wins_material_pct": 0.714,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 0.143,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 1
+   },
+   "best_is_check_pct": 0.143,
+   "best_is_capture_pct": 0.286,
+   "moved_piece_pct": {
+    "king": 0.857,
+    "knight": 0.143
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "pawn": 0.429,
+    "king": 0.286,
+    "bishop": 0.143,
+    "knight": 0.143
+   },
+   "best_captured_piece_pct": {
+    "none": 0.714,
+    "pawn": 0.286
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "endgame": 0.857,
+    "middlegame": 0.143
+   },
+   "material_kind_pct": {
+    "safe": 0.857,
+    "hangs": 0.143
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "losing->losing": 0.857,
+    "losing->winning": 0.143
+   },
+   "eval_drop_median": 87.0
+  }
+ },
+ "f40": {
+  "n": 62,
+  "best_wins_material_pct": 0.129,
+  "best_wins_median": 5.0,
+  "played_capture_pct": 0.081,
+  "blunder_hangs_own_pct": 0.435,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 19,
+   "minor": 5,
+   "major": 3
+  },
+  "best_is_check_pct": 0.274,
+  "best_is_capture_pct": 0.935,
+  "moved_piece_pct": {
+   "queen": 0.484,
+   "king": 0.21,
+   "rook": 0.161,
+   "pawn": 0.081,
+   "bishop": 0.065
+  },
+  "captured_piece_pct": {
+   "none": 0.919,
+   "pawn": 0.081
+  },
+  "best_piece_pct": {
+   "queen": 0.694,
+   "rook": 0.274,
+   "pawn": 0.016,
+   "knight": 0.016
+  },
+  "best_captured_piece_pct": {
+   "queen": 0.694,
+   "pawn": 0.113,
+   "rook": 0.097,
+   "none": 0.065,
+   "knight": 0.016,
+   "bishop": 0.016
+  },
+  "played_is_check_pct": 0.016,
+  "phase_pct": {
+   "middlegame": 0.871,
+   "endgame": 0.113,
+   "opening": 0.016
+  },
+  "material_kind_pct": {
+   "safe": 0.565,
+   "hangs": 0.387,
+   "trade": 0.032,
+   "slightly_down": 0.016
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "losing->losing": 0.532,
+   "?->?": 0.194,
+   "losing->winning": 0.161,
+   "drawn->losing": 0.097,
+   "winning->winning": 0.016
+  },
+  "eval_drop_median": 251.0,
+  "fire_rate": 0.0152,
+  "max_act": 57.664,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 12,
+   "best_wins_material_pct": 0.083,
+   "best_wins_median": 4.0,
+   "played_capture_pct": 0.167,
+   "blunder_hangs_own_pct": 0.167,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 2
+   },
+   "best_is_check_pct": 0.333,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "queen": 0.5,
+    "rook": 0.25,
+    "pawn": 0.167,
+    "bishop": 0.083
+   },
+   "captured_piece_pct": {
+    "none": 0.833,
+    "pawn": 0.167
+   },
+   "best_piece_pct": {
+    "queen": 0.75,
+    "rook": 0.25
+   },
+   "best_captured_piece_pct": {
+    "queen": 0.833,
+    "pawn": 0.167
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "middlegame": 0.667,
+    "endgame": 0.25,
+    "opening": 0.083
+   },
+   "material_kind_pct": {
+    "safe": 0.833,
+    "trade": 0.083,
+    "hangs": 0.083
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "losing->losing": 0.75,
+    "drawn->losing": 0.167,
+    "losing->winning": 0.083
+   },
+   "eval_drop_median": 370.0
+  }
+ },
+ "f41": {
+  "n": 5,
+  "best_wins_material_pct": 1.0,
+  "best_wins_median": 5.0,
+  "played_capture_pct": 0.2,
+  "blunder_hangs_own_pct": 0.8,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 3,
+   "major": 1
+  },
+  "best_is_check_pct": 0.4,
+  "best_is_capture_pct": 0.6,
+  "moved_piece_pct": {
+   "pawn": 0.4,
+   "king": 0.2,
+   "rook": 0.2,
+   "queen": 0.2
+  },
+  "captured_piece_pct": {
+   "none": 0.8,
+   "queen": 0.2
+  },
+  "best_piece_pct": {
+   "queen": 0.4,
+   "pawn": 0.2,
+   "king": 0.2,
+   "rook": 0.2
+  },
+  "best_captured_piece_pct": {
+   "none": 0.4,
+   "rook": 0.4,
+   "pawn": 0.2
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "middlegame": 1.0
+  },
+  "material_kind_pct": {
+   "hangs": 0.6,
+   "safe": 0.2,
+   "trade": 0.2
+  },
+  "net_material_median": -1.0,
+  "trajectory_pct": {
+   "losing->winning": 0.2,
+   "winning->drawn": 0.2,
+   "losing->losing": 0.2,
+   "winning->winning": 0.2,
+   "drawn->losing": 0.2
+  },
+  "eval_drop_median": 314.0,
+  "fire_rate": 0.0019,
+  "max_act": 46.06,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 1,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 5.0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 0.0,
+   "own_hang_median": 0,
+   "own_hang_piece_dist": {},
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "rook": 1.0
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "rook": 1.0
+   },
+   "best_captured_piece_pct": {
+    "rook": 1.0
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "middlegame": 1.0
+   },
+   "material_kind_pct": {
+    "safe": 1.0
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->winning": 1.0
+   },
+   "eval_drop_median": 425.0
+  }
+ },
+ "f42": {
+  "n": 261,
+  "best_wins_material_pct": 0.605,
+  "best_wins_median": 3.0,
+  "played_capture_pct": 0.284,
+  "blunder_hangs_own_pct": 1.0,
+  "own_hang_median": 9.0,
+  "own_hang_piece_dist": {
+   "major": 261
+  },
+  "best_is_check_pct": 0.172,
+  "best_is_capture_pct": 0.23,
+  "moved_piece_pct": {
+   "queen": 0.533,
+   "rook": 0.176,
+   "pawn": 0.119,
+   "knight": 0.065,
+   "bishop": 0.057,
+   "king": 0.05
+  },
+  "captured_piece_pct": {
+   "none": 0.716,
+   "pawn": 0.176,
+   "knight": 0.054,
+   "bishop": 0.031,
+   "rook": 0.019,
+   "queen": 0.004
+  },
+  "best_piece_pct": {
+   "queen": 0.563,
+   "rook": 0.149,
+   "pawn": 0.096,
+   "knight": 0.088,
+   "bishop": 0.069,
+   "king": 0.034
+  },
+  "best_captured_piece_pct": {
+   "none": 0.77,
+   "pawn": 0.084,
+   "bishop": 0.057,
+   "rook": 0.05,
+   "queen": 0.027,
+   "knight": 0.011
+  },
+  "played_is_check_pct": 0.18,
+  "phase_pct": {
+   "middlegame": 0.605,
+   "opening": 0.261,
+   "endgame": 0.134
+  },
+  "material_kind_pct": {
+   "hangs": 0.716,
+   "loses": 0.261,
+   "trade": 0.011,
+   "slightly_down": 0.011
+  },
+  "net_material_median": -8.0,
+  "trajectory_pct": {
+   "?->?": 0.352,
+   "drawn->losing": 0.249,
+   "winning->losing": 0.245,
+   "losing->losing": 0.138,
+   "drawn->winning": 0.011,
+   "losing->winning": 0.004
+  },
+  "eval_drop_median": 660.0,
+  "fire_rate": 0.0529,
+  "max_act": 54.846,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 71,
+   "best_wins_material_pct": 0.577,
+   "best_wins_median": 3.0,
+   "played_capture_pct": 0.239,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 9.0,
+   "own_hang_piece_dist": {
+    "major": 71
+   },
+   "best_is_check_pct": 0.099,
+   "best_is_capture_pct": 0.183,
+   "moved_piece_pct": {
+    "queen": 0.549,
+    "rook": 0.197,
+    "pawn": 0.099,
+    "bishop": 0.07,
+    "knight": 0.042,
+    "king": 0.042
+   },
+   "captured_piece_pct": {
+    "none": 0.761,
+    "pawn": 0.169,
+    "knight": 0.042,
+    "bishop": 0.028
+   },
+   "best_piece_pct": {
+    "queen": 0.577,
+    "rook": 0.127,
+    "pawn": 0.113,
+    "knight": 0.085,
+    "bishop": 0.07,
+    "king": 0.028
+   },
+   "best_captured_piece_pct": {
+    "none": 0.817,
+    "bishop": 0.085,
+    "pawn": 0.07,
+    "rook": 0.028
+   },
+   "played_is_check_pct": 0.183,
+   "phase_pct": {
+    "middlegame": 0.479,
+    "opening": 0.394,
+    "endgame": 0.127
+   },
+   "material_kind_pct": {
+    "hangs": 0.761,
+    "loses": 0.225,
+    "slightly_down": 0.014
+   },
+   "net_material_median": -9.0,
+   "trajectory_pct": {
+    "winning->losing": 0.366,
+    "drawn->losing": 0.31,
+    "?->?": 0.211,
+    "losing->losing": 0.085,
+    "losing->winning": 0.014,
+    "drawn->winning": 0.014
+   },
+   "eval_drop_median": 722.0
+  }
+ },
+ "f43": {
+  "n": 21,
+  "best_wins_material_pct": 1.0,
+  "best_wins_median": 5.0,
+  "played_capture_pct": 0.095,
+  "blunder_hangs_own_pct": 0.524,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 7,
+   "minor": 2,
+   "major": 2
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 1.0,
+  "moved_piece_pct": {
+   "king": 0.571,
+   "knight": 0.143,
+   "bishop": 0.095,
+   "pawn": 0.095,
+   "rook": 0.048,
+   "queen": 0.048
+  },
+  "captured_piece_pct": {
+   "none": 0.905,
+   "pawn": 0.095
+  },
+  "best_piece_pct": {
+   "bishop": 0.286,
+   "knight": 0.19,
+   "rook": 0.19,
+   "pawn": 0.143,
+   "king": 0.095,
+   "queen": 0.095
+  },
+  "best_captured_piece_pct": {
+   "rook": 0.571,
+   "queen": 0.429
+  },
+  "played_is_check_pct": 0.048,
+  "phase_pct": {
+   "endgame": 0.714,
+   "middlegame": 0.286
+  },
+  "material_kind_pct": {
+   "safe": 0.476,
+   "hangs": 0.429,
+   "trade": 0.095
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "winning->losing": 0.905,
+   "winning->drawn": 0.095
+  },
+  "eval_drop_median": 1045.0,
+  "fire_rate": 0.0009,
+  "max_act": 36.96,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 7,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 9.0,
+   "played_capture_pct": 0.143,
+   "blunder_hangs_own_pct": 0.571,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 3,
+    "major": 1
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "king": 0.857,
+    "bishop": 0.143
+   },
+   "captured_piece_pct": {
+    "none": 0.857,
+    "pawn": 0.143
+   },
+   "best_piece_pct": {
+    "rook": 0.429,
+    "bishop": 0.286,
+    "king": 0.143,
+    "knight": 0.143
+   },
+   "best_captured_piece_pct": {
+    "queen": 0.571,
+    "rook": 0.429
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "endgame": 0.857,
+    "middlegame": 0.143
+   },
+   "material_kind_pct": {
+    "safe": 0.429,
+    "hangs": 0.429,
+    "trade": 0.143
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->losing": 1.0
+   },
+   "eval_drop_median": 1023.0
+  }
+ },
+ "f44": {
+  "n": 48,
+  "best_wins_material_pct": 0.375,
+  "best_wins_median": 3.0,
+  "played_capture_pct": 0.083,
+  "blunder_hangs_own_pct": 0.438,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 13,
+   "minor": 4,
+   "major": 4
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 0.104,
+  "moved_piece_pct": {
+   "king": 0.333,
+   "knight": 0.25,
+   "rook": 0.188,
+   "bishop": 0.104,
+   "pawn": 0.062,
+   "queen": 0.062
+  },
+  "captured_piece_pct": {
+   "none": 0.917,
+   "pawn": 0.062,
+   "rook": 0.021
+  },
+  "best_piece_pct": {
+   "king": 0.667,
+   "queen": 0.188,
+   "pawn": 0.062,
+   "rook": 0.062,
+   "bishop": 0.021
+  },
+  "best_captured_piece_pct": {
+   "none": 0.896,
+   "rook": 0.062,
+   "queen": 0.021,
+   "bishop": 0.021
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "middlegame": 0.812,
+   "opening": 0.188
+  },
+  "material_kind_pct": {
+   "safe": 0.562,
+   "hangs": 0.354,
+   "trade": 0.062,
+   "slightly_down": 0.021
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "drawn->losing": 0.292,
+   "losing->losing": 0.271,
+   "?->?": 0.167,
+   "winning->losing": 0.104,
+   "losing->winning": 0.062,
+   "winning->drawn": 0.042,
+   "winning->winning": 0.042,
+   "drawn->winning": 0.021
+  },
+  "eval_drop_median": 429.0,
+  "fire_rate": 0.0014,
+  "max_act": 31.174,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 17,
+   "best_wins_material_pct": 0.353,
+   "best_wins_median": 3.0,
+   "played_capture_pct": 0.059,
+   "blunder_hangs_own_pct": 0.412,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "pawn": 3,
+    "major": 2,
+    "minor": 2
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.0,
+   "moved_piece_pct": {
+    "knight": 0.412,
+    "king": 0.235,
+    "queen": 0.176,
+    "rook": 0.118,
+    "bishop": 0.059
+   },
+   "captured_piece_pct": {
+    "none": 0.941,
+    "pawn": 0.059
+   },
+   "best_piece_pct": {
+    "king": 0.647,
+    "queen": 0.235,
+    "pawn": 0.059,
+    "rook": 0.059
+   },
+   "best_captured_piece_pct": {
+    "none": 1.0
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "middlegame": 0.765,
+    "opening": 0.235
+   },
+   "material_kind_pct": {
+    "safe": 0.588,
+    "hangs": 0.353,
+    "slightly_down": 0.059
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "losing->losing": 0.412,
+    "drawn->losing": 0.294,
+    "winning->losing": 0.118,
+    "?->?": 0.059,
+    "winning->winning": 0.059,
+    "losing->winning": 0.059
+   },
+   "eval_drop_median": 403.0
+  }
+ },
+ "f45": {
+  "n": 226,
+  "best_wins_material_pct": 0.46,
+  "best_wins_median": 1.0,
+  "played_capture_pct": 0.15,
+  "blunder_hangs_own_pct": 0.429,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 72,
+   "minor": 13,
+   "major": 12
+  },
+  "best_is_check_pct": 0.062,
+  "best_is_capture_pct": 0.164,
+  "moved_piece_pct": {
+   "queen": 0.876,
+   "rook": 0.062,
+   "pawn": 0.031,
+   "knight": 0.022,
+   "king": 0.009
+  },
+  "captured_piece_pct": {
+   "none": 0.85,
+   "pawn": 0.115,
+   "knight": 0.022,
+   "bishop": 0.009,
+   "rook": 0.004
+  },
+  "best_piece_pct": {
+   "queen": 0.27,
+   "king": 0.23,
+   "pawn": 0.181,
+   "rook": 0.124,
+   "knight": 0.111,
+   "bishop": 0.084
+  },
+  "best_captured_piece_pct": {
+   "none": 0.836,
+   "pawn": 0.097,
+   "knight": 0.027,
+   "rook": 0.018,
+   "queen": 0.013,
+   "bishop": 0.009
+  },
+  "played_is_check_pct": 0.075,
+  "phase_pct": {
+   "middlegame": 0.819,
+   "opening": 0.102,
+   "endgame": 0.08
+  },
+  "material_kind_pct": {
+   "safe": 0.571,
+   "hangs": 0.363,
+   "trade": 0.053,
+   "loses": 0.009,
+   "slightly_down": 0.004
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "?->?": 0.588,
+   "drawn->losing": 0.177,
+   "losing->losing": 0.102,
+   "winning->drawn": 0.058,
+   "winning->losing": 0.04,
+   "losing->winning": 0.018,
+   "winning->winning": 0.013,
+   "drawn->drawn": 0.004
+  },
+  "eval_drop_median": 275.0,
+  "fire_rate": 0.0035,
+  "max_act": 26.002,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 58,
+   "best_wins_material_pct": 0.362,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 0.138,
+   "blunder_hangs_own_pct": 0.397,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 17,
+    "minor": 5,
+    "major": 1
+   },
+   "best_is_check_pct": 0.034,
+   "best_is_capture_pct": 0.052,
+   "moved_piece_pct": {
+    "queen": 0.897,
+    "rook": 0.069,
+    "king": 0.034
+   },
+   "captured_piece_pct": {
+    "none": 0.862,
+    "pawn": 0.138
+   },
+   "best_piece_pct": {
+    "king": 0.345,
+    "queen": 0.224,
+    "pawn": 0.172,
+    "knight": 0.121,
+    "rook": 0.086,
+    "bishop": 0.052
+   },
+   "best_captured_piece_pct": {
+    "none": 0.948,
+    "pawn": 0.034,
+    "queen": 0.017
+   },
+   "played_is_check_pct": 0.121,
+   "phase_pct": {
+    "middlegame": 0.776,
+    "endgame": 0.19,
+    "opening": 0.034
+   },
+   "material_kind_pct": {
+    "safe": 0.603,
+    "hangs": 0.362,
+    "trade": 0.034
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "?->?": 0.517,
+    "drawn->losing": 0.224,
+    "losing->losing": 0.155,
+    "winning->drawn": 0.034,
+    "winning->losing": 0.017,
+    "winning->winning": 0.017,
+    "losing->winning": 0.017,
+    "drawn->drawn": 0.017
+   },
+   "eval_drop_median": 275.0
+  }
+ },
+ "f46": {
+  "n": 13,
+  "best_wins_material_pct": 1.0,
+  "best_wins_median": 3.0,
+  "played_capture_pct": 0.846,
+  "blunder_hangs_own_pct": 1.0,
+  "own_hang_median": 6.0,
+  "own_hang_piece_dist": {
+   "major": 9,
+   "minor": 2,
+   "pawn": 2
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 1.0,
+  "moved_piece_pct": {
+   "bishop": 0.385,
+   "knight": 0.385,
+   "pawn": 0.077,
+   "rook": 0.077,
+   "queen": 0.077
+  },
+  "captured_piece_pct": {
+   "pawn": 0.308,
+   "queen": 0.308,
+   "none": 0.154,
+   "knight": 0.154,
+   "rook": 0.077
+  },
+  "best_piece_pct": {
+   "queen": 0.462,
+   "pawn": 0.308,
+   "knight": 0.154,
+   "rook": 0.077
+  },
+  "best_captured_piece_pct": {
+   "bishop": 0.692,
+   "knight": 0.231,
+   "rook": 0.077
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "opening": 0.769,
+   "middlegame": 0.231
+  },
+  "material_kind_pct": {
+   "trade": 0.385,
+   "loses": 0.385,
+   "hangs": 0.154,
+   "slightly_down": 0.077
+  },
+  "net_material_median": -1.0,
+  "trajectory_pct": {
+   "drawn->losing": 0.615,
+   "winning->drawn": 0.231,
+   "winning->winning": 0.077,
+   "losing->losing": 0.077
+  },
+  "eval_drop_median": 277.0,
+  "fire_rate": 0.0019,
+  "max_act": 38.379,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 5,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 3.0,
+   "played_capture_pct": 1.0,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 6.0,
+   "own_hang_piece_dist": {
+    "major": 5
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "knight": 1.0
+   },
+   "captured_piece_pct": {
+    "pawn": 0.4,
+    "knight": 0.4,
+    "queen": 0.2
+   },
+   "best_piece_pct": {
+    "queen": 0.6,
+    "knight": 0.4
+   },
+   "best_captured_piece_pct": {
+    "bishop": 1.0
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "opening": 1.0
+   },
+   "material_kind_pct": {
+    "loses": 0.8,
+    "trade": 0.2
+   },
+   "net_material_median": -3.0,
+   "trajectory_pct": {
+    "winning->drawn": 0.6,
+    "drawn->losing": 0.4
+   },
+   "eval_drop_median": 168.0
+  }
+ },
+ "f47": {
+  "n": 882,
+  "best_wins_material_pct": 0.956,
+  "best_wins_median": 91.0,
+  "played_capture_pct": 0.336,
+  "blunder_hangs_own_pct": 0.571,
+  "own_hang_median": 2.0,
+  "own_hang_piece_dist": {
+   "pawn": 243,
+   "minor": 142,
+   "major": 119
+  },
+  "best_is_check_pct": 1.0,
+  "best_is_capture_pct": 0.366,
+  "moved_piece_pct": {
+   "queen": 0.248,
+   "rook": 0.22,
+   "pawn": 0.162,
+   "knight": 0.162,
+   "bishop": 0.146,
+   "king": 0.061
+  },
+  "captured_piece_pct": {
+   "none": 0.664,
+   "pawn": 0.124,
+   "knight": 0.065,
+   "rook": 0.062,
+   "bishop": 0.057,
+   "queen": 0.028
+  },
+  "best_piece_pct": {
+   "queen": 0.596,
+   "bishop": 0.164,
+   "rook": 0.152,
+   "knight": 0.076,
+   "pawn": 0.011
+  },
+  "best_captured_piece_pct": {
+   "none": 0.634,
+   "pawn": 0.28,
+   "rook": 0.05,
+   "bishop": 0.027,
+   "knight": 0.009
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "middlegame": 0.909,
+   "opening": 0.063,
+   "endgame": 0.027
+  },
+  "material_kind_pct": {
+   "safe": 0.429,
+   "hangs": 0.34,
+   "trade": 0.181,
+   "loses": 0.026,
+   "slightly_down": 0.024
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "?->?": 0.553,
+   "winning->losing": 0.107,
+   "losing->losing": 0.084,
+   "winning->winning": 0.084,
+   "winning->drawn": 0.057,
+   "losing->winning": 0.046,
+   "drawn->losing": 0.04,
+   "losing->drawn": 0.026,
+   "drawn->winning": 0.002,
+   "drawn->drawn": 0.001
+  },
+  "eval_drop_median": 455.0,
+  "fire_rate": 0.0927,
+  "max_act": 54.518,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 120,
+   "best_wins_material_pct": 0.958,
+   "best_wins_median": 91.0,
+   "played_capture_pct": 0.417,
+   "blunder_hangs_own_pct": 0.542,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 33,
+    "minor": 17,
+    "major": 15
+   },
+   "best_is_check_pct": 1.0,
+   "best_is_capture_pct": 0.375,
+   "moved_piece_pct": {
+    "queen": 0.258,
+    "knight": 0.217,
+    "rook": 0.183,
+    "pawn": 0.15,
+    "bishop": 0.125,
+    "king": 0.067
+   },
+   "captured_piece_pct": {
+    "none": 0.583,
+    "pawn": 0.183,
+    "bishop": 0.1,
+    "knight": 0.058,
+    "rook": 0.05,
+    "queen": 0.025
+   },
+   "best_piece_pct": {
+    "queen": 0.667,
+    "rook": 0.175,
+    "bishop": 0.117,
+    "knight": 0.042
+   },
+   "best_captured_piece_pct": {
+    "none": 0.625,
+    "pawn": 0.292,
+    "rook": 0.067,
+    "bishop": 0.017
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "middlegame": 0.9,
+    "opening": 0.058,
+    "endgame": 0.042
+   },
+   "material_kind_pct": {
+    "safe": 0.458,
+    "hangs": 0.283,
+    "trade": 0.208,
+    "loses": 0.033,
+    "slightly_down": 0.017
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "?->?": 0.45,
+    "losing->losing": 0.192,
+    "winning->losing": 0.108,
+    "winning->winning": 0.1,
+    "losing->drawn": 0.058,
+    "winning->drawn": 0.058,
+    "losing->winning": 0.017,
+    "drawn->losing": 0.017
+   },
+   "eval_drop_median": 249.0
+  }
+ },
+ "f48": {
+  "n": 131,
+  "best_wins_material_pct": 0.198,
+  "best_wins_median": 1.0,
+  "played_capture_pct": 0.962,
+  "blunder_hangs_own_pct": 1.0,
+  "own_hang_median": 3.0,
+  "own_hang_piece_dist": {
+   "minor": 131
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 0.046,
+  "moved_piece_pct": {
+   "bishop": 0.802,
+   "knight": 0.198
+  },
+  "captured_piece_pct": {
+   "pawn": 0.962,
+   "none": 0.038
+  },
+  "best_piece_pct": {
+   "pawn": 0.405,
+   "knight": 0.366,
+   "king": 0.115,
+   "bishop": 0.107,
+   "rook": 0.008
+  },
+  "best_captured_piece_pct": {
+   "none": 0.954,
+   "pawn": 0.046
+  },
+  "played_is_check_pct": 0.802,
+  "phase_pct": {
+   "opening": 1.0
+  },
+  "material_kind_pct": {
+   "slightly_down": 0.962,
+   "hangs": 0.038
+  },
+  "net_material_median": -2.0,
+  "trajectory_pct": {
+   "drawn->losing": 0.847,
+   "?->?": 0.107,
+   "losing->losing": 0.023,
+   "winning->losing": 0.023
+  },
+  "eval_drop_median": 318.0,
+  "fire_rate": 0.0024,
+  "max_act": 41.417,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 82,
+   "best_wins_material_pct": 0.122,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 1.0,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "minor": 82
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.024,
+   "moved_piece_pct": {
+    "bishop": 0.866,
+    "knight": 0.134
+   },
+   "captured_piece_pct": {
+    "pawn": 1.0
+   },
+   "best_piece_pct": {
+    "knight": 0.402,
+    "pawn": 0.39,
+    "king": 0.122,
+    "bishop": 0.085
+   },
+   "best_captured_piece_pct": {
+    "none": 0.976,
+    "pawn": 0.024
+   },
+   "played_is_check_pct": 0.866,
+   "phase_pct": {
+    "opening": 1.0
+   },
+   "material_kind_pct": {
+    "slightly_down": 1.0
+   },
+   "net_material_median": -2.0,
+   "trajectory_pct": {
+    "drawn->losing": 0.866,
+    "?->?": 0.085,
+    "losing->losing": 0.037,
+    "winning->losing": 0.012
+   },
+   "eval_drop_median": 323.0
+  }
+ },
+ "f49": {
+  "n": 514,
+  "best_wins_material_pct": 0.263,
+  "best_wins_median": 1.0,
+  "played_capture_pct": 0.023,
+  "blunder_hangs_own_pct": 0.654,
+  "own_hang_median": 2.0,
+  "own_hang_piece_dist": {
+   "pawn": 147,
+   "minor": 145,
+   "major": 44
+  },
+  "best_is_check_pct": 0.018,
+  "best_is_capture_pct": 0.272,
+  "moved_piece_pct": {
+   "bishop": 0.36,
+   "pawn": 0.261,
+   "rook": 0.206,
+   "knight": 0.173
+  },
+  "captured_piece_pct": {
+   "none": 0.977,
+   "pawn": 0.019,
+   "knight": 0.004
+  },
+  "best_piece_pct": {
+   "knight": 0.249,
+   "bishop": 0.212,
+   "pawn": 0.198,
+   "rook": 0.136,
+   "king": 0.111,
+   "queen": 0.093
+  },
+  "best_captured_piece_pct": {
+   "none": 0.728,
+   "knight": 0.097,
+   "pawn": 0.08,
+   "bishop": 0.066,
+   "rook": 0.019,
+   "queen": 0.01
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "middlegame": 0.607,
+   "opening": 0.393
+  },
+  "material_kind_pct": {
+   "hangs": 0.636,
+   "safe": 0.346,
+   "slightly_down": 0.008,
+   "trade": 0.008,
+   "loses": 0.002
+  },
+  "net_material_median": -1.0,
+  "trajectory_pct": {
+   "?->?": 0.613,
+   "drawn->losing": 0.175,
+   "losing->losing": 0.078,
+   "winning->drawn": 0.066,
+   "winning->losing": 0.031,
+   "drawn->drawn": 0.014,
+   "losing->winning": 0.01,
+   "winning->winning": 0.01,
+   "drawn->winning": 0.004
+  },
+  "eval_drop_median": 294.0,
+  "fire_rate": 0.0239,
+  "max_act": 34.016,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 118,
+   "best_wins_material_pct": 0.203,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 0.017,
+   "blunder_hangs_own_pct": 0.602,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "minor": 32,
+    "pawn": 32,
+    "major": 7
+   },
+   "best_is_check_pct": 0.008,
+   "best_is_capture_pct": 0.314,
+   "moved_piece_pct": {
+    "bishop": 0.559,
+    "pawn": 0.195,
+    "rook": 0.127,
+    "knight": 0.119
+   },
+   "captured_piece_pct": {
+    "none": 0.983,
+    "pawn": 0.017
+   },
+   "best_piece_pct": {
+    "knight": 0.305,
+    "bishop": 0.195,
+    "pawn": 0.195,
+    "king": 0.127,
+    "rook": 0.102,
+    "queen": 0.076
+   },
+   "best_captured_piece_pct": {
+    "none": 0.686,
+    "knight": 0.153,
+    "pawn": 0.085,
+    "bishop": 0.059,
+    "rook": 0.017
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "opening": 0.542,
+    "middlegame": 0.458
+   },
+   "material_kind_pct": {
+    "hangs": 0.593,
+    "safe": 0.398,
+    "loses": 0.008
+   },
+   "net_material_median": -1.0,
+   "trajectory_pct": {
+    "?->?": 0.551,
+    "drawn->losing": 0.246,
+    "winning->drawn": 0.11,
+    "losing->losing": 0.059,
+    "winning->losing": 0.017,
+    "drawn->drawn": 0.008,
+    "winning->winning": 0.008
+   },
+   "eval_drop_median": 313.0
+  }
+ },
+ "f50": {
+  "n": 8,
+  "best_wins_material_pct": 0.0,
+  "best_wins_median": 0,
+  "played_capture_pct": 0.625,
+  "blunder_hangs_own_pct": 1.0,
+  "own_hang_median": 3.0,
+  "own_hang_piece_dist": {
+   "minor": 8
+  },
+  "best_is_check_pct": 0.0,
+  "best_is_capture_pct": 0.0,
+  "moved_piece_pct": {
+   "bishop": 1.0
+  },
+  "captured_piece_pct": {
+   "pawn": 0.625,
+   "none": 0.375
+  },
+  "best_piece_pct": {
+   "pawn": 0.75,
+   "knight": 0.25
+  },
+  "best_captured_piece_pct": {
+   "none": 1.0
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "opening": 1.0
+  },
+  "material_kind_pct": {
+   "slightly_down": 0.625,
+   "hangs": 0.375
+  },
+  "net_material_median": -2.0,
+  "trajectory_pct": {
+   "drawn->losing": 1.0
+  },
+  "eval_drop_median": 490.0,
+  "fire_rate": 0.0007,
+  "max_act": 50.93,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 3,
+   "best_wins_material_pct": 0.0,
+   "best_wins_median": 0,
+   "played_capture_pct": 1.0,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "minor": 3
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.0,
+   "moved_piece_pct": {
+    "bishop": 1.0
+   },
+   "captured_piece_pct": {
+    "pawn": 1.0
+   },
+   "best_piece_pct": {
+    "pawn": 1.0
+   },
+   "best_captured_piece_pct": {
+    "none": 1.0
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "opening": 1.0
+   },
+   "material_kind_pct": {
+    "slightly_down": 1.0
+   },
+   "net_material_median": -2.0,
+   "trajectory_pct": {
+    "drawn->losing": 1.0
+   },
+   "eval_drop_median": 450.0
+  }
+ },
+ "f51": {
+  "n": 26,
+  "best_wins_material_pct": 0.885,
+  "best_wins_median": 5.0,
+  "played_capture_pct": 0.077,
+  "blunder_hangs_own_pct": 0.846,
+  "own_hang_median": 5.0,
+  "own_hang_piece_dist": {
+   "major": 17,
+   "minor": 3,
+   "pawn": 2
+  },
+  "best_is_check_pct": 0.038,
+  "best_is_capture_pct": 0.808,
+  "moved_piece_pct": {
+   "king": 0.385,
+   "rook": 0.269,
+   "pawn": 0.154,
+   "queen": 0.077,
+   "bishop": 0.077,
+   "knight": 0.038
+  },
+  "captured_piece_pct": {
+   "none": 0.923,
+   "pawn": 0.077
+  },
+  "best_piece_pct": {
+   "rook": 0.538,
+   "pawn": 0.192,
+   "queen": 0.077,
+   "king": 0.077,
+   "bishop": 0.077,
+   "knight": 0.038
+  },
+  "best_captured_piece_pct": {
+   "queen": 0.423,
+   "rook": 0.385,
+   "none": 0.192
+  },
+  "played_is_check_pct": 0.115,
+  "phase_pct": {
+   "middlegame": 0.577,
+   "endgame": 0.423
+  },
+  "material_kind_pct": {
+   "hangs": 0.769,
+   "safe": 0.154,
+   "loses": 0.077
+  },
+  "net_material_median": -5.0,
+  "trajectory_pct": {
+   "losing->losing": 0.462,
+   "losing->winning": 0.423,
+   "winning->losing": 0.077,
+   "drawn->winning": 0.038
+  },
+  "eval_drop_median": 196.0,
+  "fire_rate": 0.0017,
+  "max_act": 39.552,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 12,
+   "best_wins_material_pct": 0.833,
+   "best_wins_median": 5.0,
+   "played_capture_pct": 0.083,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 5.0,
+   "own_hang_piece_dist": {
+    "major": 8,
+    "minor": 3,
+    "pawn": 1
+   },
+   "best_is_check_pct": 0.083,
+   "best_is_capture_pct": 0.833,
+   "moved_piece_pct": {
+    "king": 0.333,
+    "rook": 0.25,
+    "bishop": 0.167,
+    "knight": 0.083,
+    "pawn": 0.083,
+    "queen": 0.083
+   },
+   "captured_piece_pct": {
+    "none": 0.917,
+    "pawn": 0.083
+   },
+   "best_piece_pct": {
+    "rook": 0.583,
+    "king": 0.083,
+    "knight": 0.083,
+    "pawn": 0.083,
+    "bishop": 0.083,
+    "queen": 0.083
+   },
+   "best_captured_piece_pct": {
+    "rook": 0.5,
+    "queen": 0.333,
+    "none": 0.167
+   },
+   "played_is_check_pct": 0.167,
+   "phase_pct": {
+    "endgame": 0.75,
+    "middlegame": 0.25
+   },
+   "material_kind_pct": {
+    "hangs": 0.917,
+    "loses": 0.083
+   },
+   "net_material_median": -5.0,
+   "trajectory_pct": {
+    "losing->losing": 0.583,
+    "losing->winning": 0.417
+   },
+   "eval_drop_median": 294.0
+  }
+ },
+ "f52": {
+  "n": 13,
+  "best_wins_material_pct": 0.462,
+  "best_wins_median": 1.0,
+  "played_capture_pct": 0.385,
+  "blunder_hangs_own_pct": 0.692,
+  "own_hang_median": 5.0,
+  "own_hang_piece_dist": {
+   "major": 6,
+   "pawn": 2,
+   "minor": 1
+  },
+  "best_is_check_pct": 0.154,
+  "best_is_capture_pct": 0.538,
+  "moved_piece_pct": {
+   "knight": 0.462,
+   "rook": 0.231,
+   "bishop": 0.154,
+   "queen": 0.077,
+   "pawn": 0.077
+  },
+  "captured_piece_pct": {
+   "none": 0.615,
+   "pawn": 0.231,
+   "knight": 0.154
+  },
+  "best_piece_pct": {
+   "rook": 0.385,
+   "knight": 0.308,
+   "queen": 0.231,
+   "bishop": 0.077
+  },
+  "best_captured_piece_pct": {
+   "none": 0.462,
+   "pawn": 0.308,
+   "bishop": 0.154,
+   "rook": 0.077
+  },
+  "played_is_check_pct": 0.077,
+  "phase_pct": {
+   "middlegame": 0.615,
+   "endgame": 0.308,
+   "opening": 0.077
+  },
+  "material_kind_pct": {
+   "hangs": 0.538,
+   "safe": 0.308,
+   "loses": 0.077,
+   "slightly_down": 0.077
+  },
+  "net_material_median": -2.0,
+  "trajectory_pct": {
+   "losing->losing": 0.769,
+   "losing->winning": 0.154,
+   "?->?": 0.077
+  },
+  "eval_drop_median": 252.0,
+  "fire_rate": 0.0031,
+  "max_act": 42.936,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 4,
+   "best_wins_material_pct": 0.5,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 0.75,
+   "blunder_hangs_own_pct": 0.5,
+   "own_hang_median": 9.0,
+   "own_hang_piece_dist": {
+    "major": 2
+   },
+   "best_is_check_pct": 0.25,
+   "best_is_capture_pct": 1.0,
+   "moved_piece_pct": {
+    "bishop": 0.5,
+    "pawn": 0.25,
+    "rook": 0.25
+   },
+   "captured_piece_pct": {
+    "knight": 0.5,
+    "none": 0.25,
+    "pawn": 0.25
+   },
+   "best_piece_pct": {
+    "rook": 0.5,
+    "queen": 0.25,
+    "bishop": 0.25
+   },
+   "best_captured_piece_pct": {
+    "pawn": 0.75,
+    "bishop": 0.25
+   },
+   "played_is_check_pct": 0.25,
+   "phase_pct": {
+    "endgame": 0.5,
+    "middlegame": 0.5
+   },
+   "material_kind_pct": {
+    "safe": 0.5,
+    "loses": 0.25,
+    "slightly_down": 0.25
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "losing->losing": 1.0
+   },
+   "eval_drop_median": 382.0
+  }
+ },
+ "f53": {
+  "n": 9,
+  "best_wins_material_pct": 0.556,
+  "best_wins_median": 3.0,
+  "played_capture_pct": 0.556,
+  "blunder_hangs_own_pct": 0.889,
+  "own_hang_median": 5.0,
+  "own_hang_piece_dist": {
+   "major": 4,
+   "minor": 3,
+   "pawn": 1
+  },
+  "best_is_check_pct": 0.222,
+  "best_is_capture_pct": 0.556,
+  "moved_piece_pct": {
+   "knight": 0.778,
+   "pawn": 0.222
+  },
+  "captured_piece_pct": {
+   "none": 0.444,
+   "pawn": 0.222,
+   "queen": 0.222,
+   "knight": 0.111
+  },
+  "best_piece_pct": {
+   "knight": 0.333,
+   "queen": 0.333,
+   "bishop": 0.111,
+   "king": 0.111,
+   "pawn": 0.111
+  },
+  "best_captured_piece_pct": {
+   "none": 0.444,
+   "bishop": 0.222,
+   "knight": 0.111,
+   "queen": 0.111,
+   "pawn": 0.111
+  },
+  "played_is_check_pct": 0.111,
+  "phase_pct": {
+   "endgame": 0.444,
+   "middlegame": 0.333,
+   "opening": 0.222
+  },
+  "material_kind_pct": {
+   "slightly_down": 0.333,
+   "hangs": 0.333,
+   "trade": 0.222,
+   "safe": 0.111
+  },
+  "net_material_median": -2.0,
+  "trajectory_pct": {
+   "losing->winning": 0.222,
+   "winning->winning": 0.222,
+   "drawn->losing": 0.222,
+   "losing->losing": 0.111,
+   "winning->drawn": 0.111,
+   "winning->losing": 0.111
+  },
+  "eval_drop_median": 286.0,
+  "fire_rate": 0.0012,
+  "max_act": 40.49,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 2,
+   "best_wins_material_pct": 0.0,
+   "best_wins_median": 0,
+   "played_capture_pct": 0.5,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 9.0,
+   "own_hang_piece_dist": {
+    "minor": 1,
+    "major": 1
+   },
+   "best_is_check_pct": 0.5,
+   "best_is_capture_pct": 0.5,
+   "moved_piece_pct": {
+    "knight": 1.0
+   },
+   "captured_piece_pct": {
+    "pawn": 0.5,
+    "none": 0.5
+   },
+   "best_piece_pct": {
+    "pawn": 0.5,
+    "queen": 0.5
+   },
+   "best_captured_piece_pct": {
+    "none": 0.5,
+    "queen": 0.5
+   },
+   "played_is_check_pct": 0.5,
+   "phase_pct": {
+    "endgame": 1.0
+   },
+   "material_kind_pct": {
+    "slightly_down": 0.5,
+    "hangs": 0.5
+   },
+   "net_material_median": -2.0,
+   "trajectory_pct": {
+    "winning->drawn": 0.5,
+    "drawn->losing": 0.5
+   },
+   "eval_drop_median": 495.0
+  }
+ },
+ "f54": {
+  "n": 212,
+  "best_wins_material_pct": 0.991,
+  "best_wins_median": 97.0,
+  "played_capture_pct": 0.274,
+  "blunder_hangs_own_pct": 0.283,
+  "own_hang_median": 3.0,
+  "own_hang_piece_dist": {
+   "pawn": 29,
+   "minor": 26,
+   "major": 5
+  },
+  "best_is_check_pct": 0.816,
+  "best_is_capture_pct": 0.104,
+  "moved_piece_pct": {
+   "knight": 0.264,
+   "pawn": 0.193,
+   "rook": 0.165,
+   "queen": 0.151,
+   "bishop": 0.142,
+   "king": 0.085
+  },
+  "captured_piece_pct": {
+   "none": 0.726,
+   "pawn": 0.175,
+   "bishop": 0.052,
+   "knight": 0.028,
+   "rook": 0.014,
+   "queen": 0.005
+  },
+  "best_piece_pct": {
+   "knight": 0.774,
+   "bishop": 0.212,
+   "queen": 0.005,
+   "pawn": 0.005,
+   "rook": 0.005
+  },
+  "best_captured_piece_pct": {
+   "none": 0.896,
+   "pawn": 0.099,
+   "knight": 0.005
+  },
+  "played_is_check_pct": 0.137,
+  "phase_pct": {
+   "middlegame": 0.835,
+   "opening": 0.123,
+   "endgame": 0.042
+  },
+  "material_kind_pct": {
+   "safe": 0.717,
+   "hangs": 0.17,
+   "trade": 0.085,
+   "slightly_down": 0.024,
+   "loses": 0.005
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "?->?": 0.472,
+   "winning->winning": 0.245,
+   "winning->drawn": 0.184,
+   "winning->losing": 0.08,
+   "losing->winning": 0.014,
+   "drawn->losing": 0.005
+  },
+  "eval_drop_median": 410.0,
+  "fire_rate": 0.0113,
+  "max_act": 41.3,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 72,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 97.0,
+   "played_capture_pct": 0.264,
+   "blunder_hangs_own_pct": 0.194,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "minor": 10,
+    "pawn": 3,
+    "major": 1
+   },
+   "best_is_check_pct": 0.875,
+   "best_is_capture_pct": 0.083,
+   "moved_piece_pct": {
+    "pawn": 0.264,
+    "knight": 0.236,
+    "rook": 0.181,
+    "bishop": 0.139,
+    "queen": 0.111,
+    "king": 0.069
+   },
+   "captured_piece_pct": {
+    "none": 0.736,
+    "pawn": 0.181,
+    "bishop": 0.056,
+    "knight": 0.028
+   },
+   "best_piece_pct": {
+    "knight": 0.861,
+    "bishop": 0.139
+   },
+   "best_captured_piece_pct": {
+    "none": 0.917,
+    "pawn": 0.069,
+    "knight": 0.014
+   },
+   "played_is_check_pct": 0.111,
+   "phase_pct": {
+    "middlegame": 0.792,
+    "opening": 0.194,
+    "endgame": 0.014
+   },
+   "material_kind_pct": {
+    "safe": 0.806,
+    "hangs": 0.097,
+    "trade": 0.083,
+    "slightly_down": 0.014
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "?->?": 0.319,
+    "winning->winning": 0.306,
+    "winning->drawn": 0.264,
+    "winning->losing": 0.083,
+    "losing->winning": 0.028
+   },
+   "eval_drop_median": 384.0
+  }
+ },
+ "f55": {
+  "n": 40,
+  "best_wins_material_pct": 0.95,
+  "best_wins_median": 97.0,
+  "played_capture_pct": 0.2,
+  "blunder_hangs_own_pct": 0.325,
+  "own_hang_median": 3.0,
+  "own_hang_piece_dist": {
+   "pawn": 6,
+   "minor": 5,
+   "major": 2
+  },
+  "best_is_check_pct": 0.825,
+  "best_is_capture_pct": 0.225,
+  "moved_piece_pct": {
+   "knight": 0.425,
+   "rook": 0.2,
+   "bishop": 0.15,
+   "king": 0.1,
+   "queen": 0.075,
+   "pawn": 0.05
+  },
+  "captured_piece_pct": {
+   "none": 0.8,
+   "pawn": 0.15,
+   "rook": 0.05
+  },
+  "best_piece_pct": {
+   "knight": 0.575,
+   "bishop": 0.175,
+   "rook": 0.1,
+   "queen": 0.1,
+   "pawn": 0.05
+  },
+  "best_captured_piece_pct": {
+   "none": 0.775,
+   "pawn": 0.1,
+   "rook": 0.075,
+   "queen": 0.025,
+   "bishop": 0.025
+  },
+  "played_is_check_pct": 0.275,
+  "phase_pct": {
+   "endgame": 0.55,
+   "middlegame": 0.45
+  },
+  "material_kind_pct": {
+   "safe": 0.675,
+   "hangs": 0.25,
+   "trade": 0.05,
+   "slightly_down": 0.025
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "winning->losing": 0.4,
+   "drawn->losing": 0.225,
+   "?->?": 0.175,
+   "losing->losing": 0.125,
+   "drawn->winning": 0.05,
+   "winning->winning": 0.025
+  },
+  "eval_drop_median": 668.0,
+  "fire_rate": 0.0015,
+  "max_act": 31.206,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 12,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 99.0,
+   "played_capture_pct": 0.083,
+   "blunder_hangs_own_pct": 0.5,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "minor": 3,
+    "pawn": 3
+   },
+   "best_is_check_pct": 0.917,
+   "best_is_capture_pct": 0.25,
+   "moved_piece_pct": {
+    "knight": 0.5,
+    "king": 0.25,
+    "rook": 0.167,
+    "bishop": 0.083
+   },
+   "captured_piece_pct": {
+    "none": 0.917,
+    "pawn": 0.083
+   },
+   "best_piece_pct": {
+    "knight": 0.75,
+    "bishop": 0.167,
+    "pawn": 0.083
+   },
+   "best_captured_piece_pct": {
+    "none": 0.75,
+    "pawn": 0.167,
+    "bishop": 0.083
+   },
+   "played_is_check_pct": 0.25,
+   "phase_pct": {
+    "endgame": 0.583,
+    "middlegame": 0.417
+   },
+   "material_kind_pct": {
+    "safe": 0.5,
+    "hangs": 0.417,
+    "trade": 0.083
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->losing": 0.417,
+    "drawn->losing": 0.25,
+    "drawn->winning": 0.083,
+    "?->?": 0.083,
+    "losing->losing": 0.083,
+    "winning->winning": 0.083
+   },
+   "eval_drop_median": 585.0
+  }
+ },
+ "f56": {
+  "n": 40,
+  "best_wins_material_pct": 0.975,
+  "best_wins_median": 3.0,
+  "played_capture_pct": 1.0,
+  "blunder_hangs_own_pct": 1.0,
+  "own_hang_median": 3.0,
+  "own_hang_piece_dist": {
+   "minor": 32,
+   "major": 4,
+   "pawn": 4
+  },
+  "best_is_check_pct": 0.1,
+  "best_is_capture_pct": 0.05,
+  "moved_piece_pct": {
+   "bishop": 0.7,
+   "pawn": 0.125,
+   "knight": 0.1,
+   "rook": 0.075
+  },
+  "captured_piece_pct": {
+   "knight": 0.675,
+   "bishop": 0.325
+  },
+  "best_piece_pct": {
+   "queen": 0.575,
+   "rook": 0.175,
+   "knight": 0.125,
+   "king": 0.075,
+   "pawn": 0.05
+  },
+  "best_captured_piece_pct": {
+   "none": 0.95,
+   "pawn": 0.05
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "middlegame": 0.625,
+   "opening": 0.375
+  },
+  "material_kind_pct": {
+   "trade": 0.9,
+   "slightly_down": 0.1
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "?->?": 0.325,
+   "winning->drawn": 0.275,
+   "drawn->losing": 0.2,
+   "winning->losing": 0.15,
+   "losing->losing": 0.05
+  },
+  "eval_drop_median": 398.0,
+  "fire_rate": 0.0015,
+  "max_act": 32.897,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 14,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 3.0,
+   "played_capture_pct": 1.0,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "minor": 12,
+    "pawn": 2
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.0,
+   "moved_piece_pct": {
+    "bishop": 0.786,
+    "pawn": 0.143,
+    "knight": 0.071
+   },
+   "captured_piece_pct": {
+    "knight": 0.929,
+    "bishop": 0.071
+   },
+   "best_piece_pct": {
+    "queen": 0.786,
+    "pawn": 0.071,
+    "knight": 0.071,
+    "rook": 0.071
+   },
+   "best_captured_piece_pct": {
+    "none": 1.0
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "middlegame": 0.643,
+    "opening": 0.357
+   },
+   "material_kind_pct": {
+    "trade": 1.0
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->drawn": 0.357,
+    "drawn->losing": 0.286,
+    "?->?": 0.214,
+    "winning->losing": 0.143
+   },
+   "eval_drop_median": 414.0
+  }
+ },
+ "f57": {
+  "n": 48,
+  "best_wins_material_pct": 0.646,
+  "best_wins_median": 3.0,
+  "played_capture_pct": 0.104,
+  "blunder_hangs_own_pct": 0.667,
+  "own_hang_median": 2.0,
+  "own_hang_piece_dist": {
+   "pawn": 14,
+   "minor": 10,
+   "major": 8
+  },
+  "best_is_check_pct": 0.25,
+  "best_is_capture_pct": 0.354,
+  "moved_piece_pct": {
+   "queen": 0.667,
+   "bishop": 0.167,
+   "knight": 0.083,
+   "rook": 0.083
+  },
+  "captured_piece_pct": {
+   "none": 0.896,
+   "pawn": 0.083,
+   "knight": 0.021
+  },
+  "best_piece_pct": {
+   "bishop": 0.292,
+   "queen": 0.25,
+   "pawn": 0.146,
+   "rook": 0.146,
+   "knight": 0.104,
+   "king": 0.062
+  },
+  "best_captured_piece_pct": {
+   "none": 0.646,
+   "pawn": 0.167,
+   "bishop": 0.083,
+   "knight": 0.083,
+   "rook": 0.021
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "middlegame": 0.875,
+   "opening": 0.125
+  },
+  "material_kind_pct": {
+   "hangs": 0.583,
+   "safe": 0.333,
+   "trade": 0.062,
+   "slightly_down": 0.021
+  },
+  "net_material_median": -1.0,
+  "trajectory_pct": {
+   "?->?": 0.375,
+   "winning->winning": 0.146,
+   "winning->drawn": 0.125,
+   "losing->winning": 0.125,
+   "losing->losing": 0.104,
+   "drawn->losing": 0.062,
+   "winning->losing": 0.062
+  },
+  "eval_drop_median": 251.0,
+  "fire_rate": 0.0065,
+  "max_act": 41.478,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 14,
+   "best_wins_material_pct": 0.786,
+   "best_wins_median": 3.0,
+   "played_capture_pct": 0.143,
+   "blunder_hangs_own_pct": 0.857,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 7,
+    "minor": 4,
+    "major": 1
+   },
+   "best_is_check_pct": 0.286,
+   "best_is_capture_pct": 0.357,
+   "moved_piece_pct": {
+    "queen": 0.857,
+    "bishop": 0.071,
+    "rook": 0.071
+   },
+   "captured_piece_pct": {
+    "none": 0.857,
+    "pawn": 0.143
+   },
+   "best_piece_pct": {
+    "bishop": 0.357,
+    "queen": 0.214,
+    "pawn": 0.143,
+    "rook": 0.143,
+    "knight": 0.071,
+    "king": 0.071
+   },
+   "best_captured_piece_pct": {
+    "none": 0.643,
+    "pawn": 0.143,
+    "bishop": 0.071,
+    "knight": 0.071,
+    "rook": 0.071
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "middlegame": 0.929,
+    "opening": 0.071
+   },
+   "material_kind_pct": {
+    "hangs": 0.714,
+    "safe": 0.143,
+    "trade": 0.071,
+    "slightly_down": 0.071
+   },
+   "net_material_median": -1.0,
+   "trajectory_pct": {
+    "losing->losing": 0.214,
+    "losing->winning": 0.214,
+    "winning->winning": 0.214,
+    "?->?": 0.143,
+    "drawn->losing": 0.143,
+    "winning->drawn": 0.071
+   },
+   "eval_drop_median": 279.0
+  }
+ },
+ "f58": {
+  "n": 9,
+  "best_wins_material_pct": 0.222,
+  "best_wins_median": 100.0,
+  "played_capture_pct": 1.0,
+  "blunder_hangs_own_pct": 1.0,
+  "own_hang_median": 9.0,
+  "own_hang_piece_dist": {
+   "major": 8,
+   "minor": 1
+  },
+  "best_is_check_pct": 0.222,
+  "best_is_capture_pct": 0.0,
+  "moved_piece_pct": {
+   "queen": 0.556,
+   "rook": 0.333,
+   "bishop": 0.111
+  },
+  "captured_piece_pct": {
+   "pawn": 0.889,
+   "rook": 0.111
+  },
+  "best_piece_pct": {
+   "pawn": 0.667,
+   "queen": 0.222,
+   "bishop": 0.111
+  },
+  "best_captured_piece_pct": {
+   "none": 1.0
+  },
+  "played_is_check_pct": 1.0,
+  "phase_pct": {
+   "endgame": 1.0
+  },
+  "material_kind_pct": {
+   "loses": 0.889,
+   "slightly_down": 0.111
+  },
+  "net_material_median": -4.0,
+  "trajectory_pct": {
+   "winning->winning": 0.667,
+   "winning->drawn": 0.333
+  },
+  "eval_drop_median": 310.0,
+  "fire_rate": 0.0004,
+  "max_act": 55.435,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 5,
+   "best_wins_material_pct": 0.2,
+   "best_wins_median": 100.0,
+   "played_capture_pct": 1.0,
+   "blunder_hangs_own_pct": 1.0,
+   "own_hang_median": 9.0,
+   "own_hang_piece_dist": {
+    "major": 4,
+    "minor": 1
+   },
+   "best_is_check_pct": 0.2,
+   "best_is_capture_pct": 0.0,
+   "moved_piece_pct": {
+    "queen": 0.6,
+    "rook": 0.2,
+    "bishop": 0.2
+   },
+   "captured_piece_pct": {
+    "pawn": 1.0
+   },
+   "best_piece_pct": {
+    "pawn": 0.6,
+    "bishop": 0.2,
+    "queen": 0.2
+   },
+   "best_captured_piece_pct": {
+    "none": 1.0
+   },
+   "played_is_check_pct": 1.0,
+   "phase_pct": {
+    "endgame": 1.0
+   },
+   "material_kind_pct": {
+    "loses": 0.8,
+    "slightly_down": 0.2
+   },
+   "net_material_median": -8.0,
+   "trajectory_pct": {
+    "winning->winning": 0.6,
+    "winning->drawn": 0.4
+   },
+   "eval_drop_median": 310.0
+  }
+ },
+ "f59": {
+  "n": 96,
+  "best_wins_material_pct": 0.594,
+  "best_wins_median": 3.0,
+  "played_capture_pct": 0.615,
+  "blunder_hangs_own_pct": 0.812,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 40,
+   "minor": 32,
+   "major": 6
+  },
+  "best_is_check_pct": 0.052,
+  "best_is_capture_pct": 0.094,
+  "moved_piece_pct": {
+   "pawn": 0.25,
+   "bishop": 0.24,
+   "knight": 0.198,
+   "rook": 0.135,
+   "queen": 0.104,
+   "king": 0.073
+  },
+  "captured_piece_pct": {
+   "none": 0.385,
+   "pawn": 0.208,
+   "knight": 0.167,
+   "rook": 0.125,
+   "bishop": 0.104,
+   "queen": 0.01
+  },
+  "best_piece_pct": {
+   "pawn": 0.479,
+   "queen": 0.156,
+   "rook": 0.125,
+   "knight": 0.104,
+   "bishop": 0.094,
+   "king": 0.042
+  },
+  "best_captured_piece_pct": {
+   "none": 0.906,
+   "queen": 0.031,
+   "rook": 0.021,
+   "bishop": 0.021,
+   "pawn": 0.01,
+   "knight": 0.01
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "middlegame": 0.875,
+   "opening": 0.115,
+   "endgame": 0.01
+  },
+  "material_kind_pct": {
+   "trade": 0.458,
+   "hangs": 0.292,
+   "safe": 0.188,
+   "slightly_down": 0.031,
+   "loses": 0.031
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "?->?": 0.312,
+   "winning->winning": 0.156,
+   "losing->losing": 0.146,
+   "drawn->winning": 0.135,
+   "drawn->losing": 0.094,
+   "winning->losing": 0.094,
+   "losing->winning": 0.062
+  },
+  "eval_drop_median": -9288.0,
+  "fire_rate": 0.0186,
+  "max_act": 48.373,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 30,
+   "best_wins_material_pct": 0.567,
+   "best_wins_median": 5.0,
+   "played_capture_pct": 0.8,
+   "blunder_hangs_own_pct": 0.8,
+   "own_hang_median": 3.0,
+   "own_hang_piece_dist": {
+    "minor": 17,
+    "pawn": 6,
+    "major": 1
+   },
+   "best_is_check_pct": 0.033,
+   "best_is_capture_pct": 0.133,
+   "moved_piece_pct": {
+    "knight": 0.333,
+    "bishop": 0.233,
+    "pawn": 0.167,
+    "rook": 0.133,
+    "queen": 0.1,
+    "king": 0.033
+   },
+   "captured_piece_pct": {
+    "knight": 0.4,
+    "none": 0.2,
+    "rook": 0.167,
+    "bishop": 0.1,
+    "pawn": 0.1,
+    "queen": 0.033
+   },
+   "best_piece_pct": {
+    "pawn": 0.367,
+    "bishop": 0.3,
+    "knight": 0.133,
+    "queen": 0.133,
+    "rook": 0.033,
+    "king": 0.033
+   },
+   "best_captured_piece_pct": {
+    "none": 0.867,
+    "bishop": 0.067,
+    "queen": 0.067
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "middlegame": 0.833,
+    "opening": 0.133,
+    "endgame": 0.033
+   },
+   "material_kind_pct": {
+    "trade": 0.633,
+    "safe": 0.2,
+    "hangs": 0.133,
+    "slightly_down": 0.033
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "drawn->losing": 0.233,
+    "drawn->winning": 0.2,
+    "winning->winning": 0.2,
+    "winning->losing": 0.167,
+    "?->?": 0.1,
+    "losing->losing": 0.1
+   },
+   "eval_drop_median": 9463.0
+  }
+ },
+ "f60": {
+  "n": 315,
+  "best_wins_material_pct": 0.99,
+  "best_wins_median": 100.0,
+  "played_capture_pct": 0.21,
+  "blunder_hangs_own_pct": 0.578,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 93,
+   "major": 63,
+   "minor": 26
+  },
+  "best_is_check_pct": 1.0,
+  "best_is_capture_pct": 0.086,
+  "moved_piece_pct": {
+   "rook": 0.327,
+   "king": 0.2,
+   "pawn": 0.156,
+   "queen": 0.156,
+   "knight": 0.083,
+   "bishop": 0.079
+  },
+  "captured_piece_pct": {
+   "none": 0.79,
+   "pawn": 0.162,
+   "bishop": 0.019,
+   "rook": 0.016,
+   "queen": 0.006,
+   "knight": 0.006
+  },
+  "best_piece_pct": {
+   "rook": 0.505,
+   "queen": 0.241,
+   "knight": 0.127,
+   "bishop": 0.121,
+   "pawn": 0.006
+  },
+  "best_captured_piece_pct": {
+   "none": 0.914,
+   "pawn": 0.063,
+   "rook": 0.01,
+   "knight": 0.01,
+   "bishop": 0.003
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "middlegame": 0.6,
+   "endgame": 0.397,
+   "opening": 0.003
+  },
+  "material_kind_pct": {
+   "safe": 0.422,
+   "hangs": 0.422,
+   "trade": 0.079,
+   "loses": 0.044,
+   "slightly_down": 0.032
+  },
+  "net_material_median": -1.0,
+  "trajectory_pct": {
+   "?->?": 0.46,
+   "losing->losing": 0.311,
+   "losing->winning": 0.146,
+   "winning->winning": 0.051,
+   "drawn->losing": 0.022,
+   "drawn->winning": 0.01
+  },
+  "eval_drop_median": 57.0,
+  "fire_rate": 0.013,
+  "max_act": 41.043,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 111,
+   "best_wins_material_pct": 0.991,
+   "best_wins_median": 100.0,
+   "played_capture_pct": 0.171,
+   "blunder_hangs_own_pct": 0.541,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 36,
+    "major": 21,
+    "minor": 3
+   },
+   "best_is_check_pct": 1.0,
+   "best_is_capture_pct": 0.081,
+   "moved_piece_pct": {
+    "rook": 0.342,
+    "king": 0.252,
+    "pawn": 0.171,
+    "queen": 0.117,
+    "bishop": 0.072,
+    "knight": 0.045
+   },
+   "captured_piece_pct": {
+    "none": 0.829,
+    "pawn": 0.135,
+    "knight": 0.018,
+    "bishop": 0.009,
+    "rook": 0.009
+   },
+   "best_piece_pct": {
+    "rook": 0.541,
+    "queen": 0.198,
+    "knight": 0.144,
+    "bishop": 0.117
+   },
+   "best_captured_piece_pct": {
+    "none": 0.919,
+    "pawn": 0.081
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "middlegame": 0.586,
+    "endgame": 0.414
+   },
+   "material_kind_pct": {
+    "safe": 0.459,
+    "hangs": 0.423,
+    "trade": 0.072,
+    "loses": 0.027,
+    "slightly_down": 0.018
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "?->?": 0.36,
+    "losing->losing": 0.333,
+    "losing->winning": 0.198,
+    "winning->winning": 0.072,
+    "drawn->losing": 0.018,
+    "drawn->winning": 0.018
+   },
+   "eval_drop_median": 0.0
+  }
+ },
+ "f61": {
+  "n": 27,
+  "best_wins_material_pct": 0.926,
+  "best_wins_median": 5.0,
+  "played_capture_pct": 0.37,
+  "blunder_hangs_own_pct": 0.407,
+  "own_hang_median": 3.0,
+  "own_hang_piece_dist": {
+   "pawn": 5,
+   "minor": 3,
+   "major": 3
+  },
+  "best_is_check_pct": 1.0,
+  "best_is_capture_pct": 0.815,
+  "moved_piece_pct": {
+   "queen": 0.37,
+   "rook": 0.296,
+   "pawn": 0.148,
+   "bishop": 0.074,
+   "king": 0.074,
+   "knight": 0.037
+  },
+  "captured_piece_pct": {
+   "none": 0.63,
+   "pawn": 0.185,
+   "knight": 0.148,
+   "queen": 0.037
+  },
+  "best_piece_pct": {
+   "queen": 0.778,
+   "rook": 0.185,
+   "pawn": 0.037
+  },
+  "best_captured_piece_pct": {
+   "rook": 0.444,
+   "pawn": 0.333,
+   "none": 0.185,
+   "queen": 0.037
+  },
+  "played_is_check_pct": 0.037,
+  "phase_pct": {
+   "middlegame": 0.815,
+   "opening": 0.111,
+   "endgame": 0.074
+  },
+  "material_kind_pct": {
+   "safe": 0.593,
+   "hangs": 0.296,
+   "trade": 0.111
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "winning->winning": 0.444,
+   "losing->winning": 0.333,
+   "losing->drawn": 0.111,
+   "?->?": 0.037,
+   "winning->drawn": 0.037,
+   "losing->losing": 0.037
+  },
+  "eval_drop_median": 197.0,
+  "fire_rate": 0.0054,
+  "max_act": 43.524,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 5,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 0.6,
+   "blunder_hangs_own_pct": 0.4,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 2
+   },
+   "best_is_check_pct": 1.0,
+   "best_is_capture_pct": 0.8,
+   "moved_piece_pct": {
+    "rook": 0.4,
+    "pawn": 0.2,
+    "queen": 0.2,
+    "king": 0.2
+   },
+   "captured_piece_pct": {
+    "pawn": 0.6,
+    "none": 0.4
+   },
+   "best_piece_pct": {
+    "queen": 0.8,
+    "pawn": 0.2
+   },
+   "best_captured_piece_pct": {
+    "pawn": 0.8,
+    "none": 0.2
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "middlegame": 0.6,
+    "opening": 0.2,
+    "endgame": 0.2
+   },
+   "material_kind_pct": {
+    "safe": 0.6,
+    "trade": 0.2,
+    "hangs": 0.2
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->winning": 0.8,
+    "losing->drawn": 0.2
+   },
+   "eval_drop_median": 9253.0
+  }
+ },
+ "f62": {
+  "n": 133,
+  "best_wins_material_pct": 1.0,
+  "best_wins_median": 91.0,
+  "played_capture_pct": 0.143,
+  "blunder_hangs_own_pct": 0.075,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 8,
+   "minor": 2
+  },
+  "best_is_check_pct": 1.0,
+  "best_is_capture_pct": 0.008,
+  "moved_piece_pct": {
+   "pawn": 0.421,
+   "knight": 0.233,
+   "bishop": 0.195,
+   "king": 0.068,
+   "queen": 0.06,
+   "rook": 0.023
+  },
+  "captured_piece_pct": {
+   "none": 0.857,
+   "pawn": 0.113,
+   "bishop": 0.015,
+   "knight": 0.015
+  },
+  "best_piece_pct": {
+   "queen": 1.0
+  },
+  "best_captured_piece_pct": {
+   "none": 0.992,
+   "pawn": 0.008
+  },
+  "played_is_check_pct": 0.0,
+  "phase_pct": {
+   "opening": 0.955,
+   "middlegame": 0.045
+  },
+  "material_kind_pct": {
+   "safe": 0.925,
+   "hangs": 0.045,
+   "trade": 0.03
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "winning->drawn": 0.534,
+   "?->?": 0.316,
+   "drawn->losing": 0.045,
+   "winning->losing": 0.045,
+   "winning->winning": 0.038,
+   "drawn->drawn": 0.023
+  },
+  "eval_drop_median": 365.0,
+  "fire_rate": 0.0022,
+  "max_act": 32.264,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 57,
+   "best_wins_material_pct": 1.0,
+   "best_wins_median": 91.0,
+   "played_capture_pct": 0.14,
+   "blunder_hangs_own_pct": 0.053,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 3
+   },
+   "best_is_check_pct": 1.0,
+   "best_is_capture_pct": 0.0,
+   "moved_piece_pct": {
+    "pawn": 0.439,
+    "knight": 0.298,
+    "bishop": 0.175,
+    "king": 0.07,
+    "rook": 0.018
+   },
+   "captured_piece_pct": {
+    "none": 0.86,
+    "pawn": 0.14
+   },
+   "best_piece_pct": {
+    "queen": 1.0
+   },
+   "best_captured_piece_pct": {
+    "none": 1.0
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "opening": 1.0
+   },
+   "material_kind_pct": {
+    "safe": 0.947,
+    "hangs": 0.035,
+    "trade": 0.018
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->drawn": 0.684,
+    "?->?": 0.211,
+    "winning->losing": 0.053,
+    "drawn->drawn": 0.018,
+    "drawn->losing": 0.018,
+    "winning->winning": 0.018
+   },
+   "eval_drop_median": 366.0
+  }
+ },
+ "f63": {
+  "n": 20,
+  "best_wins_material_pct": 0.65,
+  "best_wins_median": 1.0,
+  "played_capture_pct": 0.1,
+  "blunder_hangs_own_pct": 0.3,
+  "own_hang_median": 1.0,
+  "own_hang_piece_dist": {
+   "pawn": 5,
+   "major": 1
+  },
+  "best_is_check_pct": 0.05,
+  "best_is_capture_pct": 0.2,
+  "moved_piece_pct": {
+   "king": 0.55,
+   "pawn": 0.35,
+   "rook": 0.05,
+   "knight": 0.05
+  },
+  "captured_piece_pct": {
+   "none": 0.9,
+   "pawn": 0.05,
+   "knight": 0.05
+  },
+  "best_piece_pct": {
+   "pawn": 0.85,
+   "knight": 0.1,
+   "queen": 0.05
+  },
+  "best_captured_piece_pct": {
+   "none": 0.8,
+   "bishop": 0.1,
+   "pawn": 0.1
+  },
+  "played_is_check_pct": 0.05,
+  "phase_pct": {
+   "endgame": 0.9,
+   "middlegame": 0.1
+  },
+  "material_kind_pct": {
+   "safe": 0.7,
+   "hangs": 0.25,
+   "trade": 0.05
+  },
+  "net_material_median": 0.0,
+  "trajectory_pct": {
+   "winning->losing": 0.4,
+   "winning->drawn": 0.25,
+   "drawn->losing": 0.2,
+   "winning->winning": 0.05,
+   "losing->losing": 0.05,
+   "?->?": 0.05
+  },
+  "eval_drop_median": 616.0,
+  "fire_rate": 0.0011,
+  "max_act": 35.348,
+  "cohort": ">=0.7max",
+  "at_0.8": {
+   "n": 9,
+   "best_wins_material_pct": 0.667,
+   "best_wins_median": 1.0,
+   "played_capture_pct": 0.0,
+   "blunder_hangs_own_pct": 0.111,
+   "own_hang_median": 1.0,
+   "own_hang_piece_dist": {
+    "pawn": 1
+   },
+   "best_is_check_pct": 0.0,
+   "best_is_capture_pct": 0.0,
+   "moved_piece_pct": {
+    "king": 0.556,
+    "pawn": 0.333,
+    "knight": 0.111
+   },
+   "captured_piece_pct": {
+    "none": 1.0
+   },
+   "best_piece_pct": {
+    "pawn": 0.889,
+    "knight": 0.111
+   },
+   "best_captured_piece_pct": {
+    "none": 1.0
+   },
+   "played_is_check_pct": 0.0,
+   "phase_pct": {
+    "endgame": 0.889,
+    "middlegame": 0.111
+   },
+   "material_kind_pct": {
+    "safe": 0.889,
+    "hangs": 0.111
+   },
+   "net_material_median": 0.0,
+   "trajectory_pct": {
+    "winning->losing": 0.444,
+    "winning->drawn": 0.222,
+    "drawn->losing": 0.111,
+    "winning->winning": 0.111,
+    "losing->losing": 0.111
+   },
+   "eval_drop_median": 616.0
+  }
+ }
+}

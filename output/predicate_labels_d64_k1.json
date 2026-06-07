@@ -1,0 +1,834 @@
+{
+ "0": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.26,
+   "best_capture": 0.49,
+   "best_is_check": 0.03,
+   "played_attacks_queen": 0.27,
+   "allows_check": 0.54,
+   "top_piece_share": 0.24
+  },
+  "current_chip": "Missed Queen Capture",
+  "edited": false
+ },
+ "1": {
+  "predicate_name": "Exposed King",
+  "preds": {
+   "played_capture": 0.08,
+   "best_capture": 0.2,
+   "best_is_check": 0.0,
+   "played_attacks_queen": 0.0,
+   "allows_check": 0.74,
+   "top_piece_share": 0.26
+  },
+  "current_chip": "Wasted Tempo / Mistimed Move",
+  "edited": false
+ },
+ "2": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.08,
+   "best_capture": 0.12,
+   "best_is_check": 0.0,
+   "played_attacks_queen": 0.0,
+   "allows_check": 0.52,
+   "top_piece_share": 0.67
+  },
+  "current_chip": "Exposed King (often pawn)",
+  "edited": true
+ },
+ "3": {
+  "predicate_name": "Missed Capture",
+  "preds": {
+   "played_capture": 0.13,
+   "best_capture": 0.94,
+   "best_is_check": 0.17,
+   "played_attacks_queen": 0.3,
+   "allows_check": 0.66,
+   "top_piece_share": 0.32
+  },
+  "current_chip": "Missed Hanging Queen",
+  "edited": false
+ },
+ "4": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.29,
+   "best_capture": 0.33,
+   "best_is_check": 0.01,
+   "played_attacks_queen": 0.2,
+   "allows_check": 0.03,
+   "top_piece_share": 0.5
+  },
+  "current_chip": "Pointless Check",
+  "edited": false
+ },
+ "5": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.04,
+   "best_capture": 0.06,
+   "best_is_check": 0.0,
+   "played_attacks_queen": 0.01,
+   "allows_check": 0.53,
+   "top_piece_share": 0.32
+  },
+  "current_chip": "Hung Piece (Premature Opening Sortie)",
+  "edited": false
+ },
+ "6": {
+  "predicate_name": "Bad Capture",
+  "preds": {
+   "played_capture": 0.86,
+   "best_capture": 0.18,
+   "best_is_check": 0.29,
+   "played_attacks_queen": 0.04,
+   "allows_check": 0.17,
+   "top_piece_share": 0.46
+  },
+  "current_chip": "Premature Queen Trade",
+  "edited": false
+ },
+ "7": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.06,
+   "best_capture": 0.27,
+   "best_is_check": 0.17,
+   "played_attacks_queen": 0.08,
+   "allows_check": 0.34,
+   "top_piece_share": 0.3
+  },
+  "current_chip": "Missed Hanging Piece",
+  "edited": false
+ },
+ "8": {
+  "predicate_name": "Exposed King",
+  "preds": {
+   "played_capture": 0.04,
+   "best_capture": 0.3,
+   "best_is_check": 0.0,
+   "played_attacks_queen": 0.0,
+   "allows_check": 0.78,
+   "top_piece_share": 0.62
+  },
+  "current_chip": "Missed Winning Capture",
+  "edited": false
+ },
+ "9": {
+  "predicate_name": "Exposed King",
+  "preds": {
+   "played_capture": 0.14,
+   "best_capture": 0.33,
+   "best_is_check": 0.02,
+   "played_attacks_queen": 0.09,
+   "allows_check": 0.78,
+   "top_piece_share": 0.37
+  },
+  "current_chip": "Missed Defensive Capture, Allowed Discovered Check",
+  "edited": false
+ },
+ "10": {
+  "predicate_name": "Exposed King",
+  "preds": {
+   "played_capture": 0.38,
+   "best_capture": 0.04,
+   "best_is_check": 0.03,
+   "played_attacks_queen": 0.02,
+   "allows_check": 0.73,
+   "top_piece_share": 0.26
+  },
+  "current_chip": "Premature Trade into Lost Endgame",
+  "edited": false
+ },
+ "11": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.51,
+   "best_capture": 0.18,
+   "best_is_check": 0.17,
+   "played_attacks_queen": 0.04,
+   "allows_check": 0.29,
+   "top_piece_share": 0.38
+  },
+  "current_chip": "Losing Rook/Queen Trade into Pawn Endgame",
+  "edited": false
+ },
+ "12": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.16,
+   "best_capture": 0.12,
+   "best_is_check": 0.0,
+   "played_attacks_queen": 0.02,
+   "allows_check": 0.67,
+   "top_piece_share": 0.34
+  },
+  "current_chip": "Hung Piece",
+  "edited": false
+ },
+ "13": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.08,
+   "best_capture": 0.2,
+   "best_is_check": 0.06,
+   "played_attacks_queen": 0.0,
+   "allows_check": 0.41,
+   "top_piece_share": 0.34
+  },
+  "current_chip": "Missed Hanging Piece",
+  "edited": false
+ },
+ "14": {
+  "predicate_name": "Missed Capture (loose)",
+  "preds": {
+   "played_capture": 0.14,
+   "best_capture": 0.64,
+   "best_is_check": 0.04,
+   "played_attacks_queen": 0.02,
+   "allows_check": 0.53,
+   "top_piece_share": 0.31
+  },
+  "current_chip": "Missed Free Rook",
+  "edited": false
+ },
+ "15": {
+  "predicate_name": "Bad Capture",
+  "preds": {
+   "played_capture": 0.91,
+   "best_capture": 0.27,
+   "best_is_check": 0.03,
+   "played_attacks_queen": 0.21,
+   "allows_check": 0.43,
+   "top_piece_share": 0.46
+  },
+  "current_chip": "Bad Capture",
+  "edited": true
+ },
+ "16": {
+  "predicate_name": "Exposed King",
+  "preds": {
+   "played_capture": 0.17,
+   "best_capture": 0.06,
+   "best_is_check": 0.0,
+   "played_attacks_queen": 0.0,
+   "allows_check": 0.72,
+   "top_piece_share": 0.29
+  },
+  "current_chip": "Exposed King, Queen Lost to Pin",
+  "edited": false
+ },
+ "17": {
+  "predicate_name": "Missed Capture",
+  "preds": {
+   "played_capture": 0.1,
+   "best_capture": 0.93,
+   "best_is_check": 0.02,
+   "played_attacks_queen": 0.0,
+   "allows_check": 0.42,
+   "top_piece_share": 0.32
+  },
+  "current_chip": "Missed Hanging Piece",
+  "edited": false
+ },
+ "18": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.09,
+   "best_capture": 0.06,
+   "best_is_check": 0.02,
+   "played_attacks_queen": 0.0,
+   "allows_check": 0.33,
+   "top_piece_share": 0.31
+  },
+  "current_chip": "Misplaced King in Endgame",
+  "edited": false
+ },
+ "19": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.11,
+   "best_capture": 0.21,
+   "best_is_check": 0.0,
+   "played_attacks_queen": 0.01,
+   "allows_check": 0.59,
+   "top_piece_share": 0.31
+  },
+  "current_chip": "Missed Promotion",
+  "edited": false
+ },
+ "20": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.14,
+   "best_capture": 0.2,
+   "best_is_check": 0.0,
+   "played_attacks_queen": 0.02,
+   "allows_check": 0.68,
+   "top_piece_share": 0.27
+  },
+  "current_chip": "Missed Attack on Queen",
+  "edited": true
+ },
+ "21": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.14,
+   "best_capture": 0.24,
+   "best_is_check": 0.0,
+   "played_attacks_queen": 0.01,
+   "allows_check": 0.26,
+   "top_piece_share": 0.39
+  },
+  "current_chip": "Hung Knight",
+  "edited": false
+ },
+ "22": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.03,
+   "best_capture": 0.14,
+   "best_is_check": 0.02,
+   "played_attacks_queen": 0.0,
+   "allows_check": 0.4,
+   "top_piece_share": 0.32
+  },
+  "current_chip": "Missed Winning Capture",
+  "edited": false
+ },
+ "23": {
+  "predicate_name": "Missed Check/Mate",
+  "preds": {
+   "played_capture": 0.14,
+   "best_capture": 0.24,
+   "best_is_check": 0.9,
+   "played_attacks_queen": 0.0,
+   "allows_check": 0.32,
+   "top_piece_share": 0.29
+  },
+  "current_chip": "Missed Check/Mate",
+  "edited": false
+ },
+ "24": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.08,
+   "best_capture": 0.09,
+   "best_is_check": 0.0,
+   "played_attacks_queen": 0.03,
+   "allows_check": 0.58,
+   "top_piece_share": 0.24
+  },
+  "current_chip": "Missed Pawn / Backwards Move",
+  "edited": true
+ },
+ "25": {
+  "predicate_name": "Missed Capture (loose)",
+  "preds": {
+   "played_capture": 0.22,
+   "best_capture": 0.79,
+   "best_is_check": 0.43,
+   "played_attacks_queen": 0.47,
+   "allows_check": 0.81,
+   "top_piece_share": 0.23
+  },
+  "current_chip": "Hung Queen (Skipped Queen Trade)",
+  "edited": false
+ },
+ "26": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.21,
+   "best_capture": 0.44,
+   "best_is_check": 0.2,
+   "played_attacks_queen": 0.04,
+   "allows_check": 0.5,
+   "top_piece_share": 0.19
+  },
+  "current_chip": "Missed Winning Simplification",
+  "edited": false
+ },
+ "27": {
+  "predicate_name": "Exposed King",
+  "preds": {
+   "played_capture": 0.22,
+   "best_capture": 0.18,
+   "best_is_check": 0.0,
+   "played_attacks_queen": 0.03,
+   "allows_check": 0.74,
+   "top_piece_share": 0.24
+  },
+  "current_chip": "Neglected King Defense (Allowed Mating Attack)",
+  "edited": false
+ },
+ "28": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.11,
+   "best_capture": 0.13,
+   "best_is_check": 0.02,
+   "played_attacks_queen": 0.03,
+   "allows_check": 0.48,
+   "top_piece_share": 0.27
+  },
+  "current_chip": "Squandered Winning Attack",
+  "edited": false
+ },
+ "29": {
+  "predicate_name": "Missed Capture (loose)",
+  "preds": {
+   "played_capture": 0.18,
+   "best_capture": 0.61,
+   "best_is_check": 0.09,
+   "played_attacks_queen": 0.17,
+   "allows_check": 0.57,
+   "top_piece_share": 0.3
+  },
+  "current_chip": "Hung Piece / Missed Capture",
+  "edited": true
+ },
+ "30": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.44,
+   "best_capture": 0.06,
+   "best_is_check": 0.01,
+   "played_attacks_queen": 0.04,
+   "allows_check": 0.51,
+   "top_piece_share": 0.46
+  },
+  "current_chip": "Unsound Bishop Sacrifice",
+  "edited": false
+ },
+ "31": {
+  "predicate_name": "Missed Capture",
+  "preds": {
+   "played_capture": 0.07,
+   "best_capture": 1.0,
+   "best_is_check": 0.04,
+   "played_attacks_queen": 0.08,
+   "allows_check": 0.49,
+   "top_piece_share": 0.27
+  },
+  "current_chip": "Missed Capture",
+  "edited": true
+ },
+ "32": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.03,
+   "best_capture": 0.11,
+   "best_is_check": 0.02,
+   "played_attacks_queen": 0.02,
+   "allows_check": 0.58,
+   "top_piece_share": 0.61
+  },
+  "current_chip": "Premature Pawn Break",
+  "edited": false
+ },
+ "33": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.09,
+   "best_capture": 0.12,
+   "best_is_check": 0.0,
+   "played_attacks_queen": 0.0,
+   "allows_check": 0.38,
+   "top_piece_share": 0.29
+  },
+  "current_chip": "Missed Pawn Fork/Trap",
+  "edited": false
+ },
+ "34": {
+  "predicate_name": "Missed Capture (loose)",
+  "preds": {
+   "played_capture": 0.06,
+   "best_capture": 0.78,
+   "best_is_check": 0.01,
+   "played_attacks_queen": 0.01,
+   "allows_check": 0.39,
+   "top_piece_share": 0.41
+  },
+  "current_chip": "Missed Central Capture (...exd4)",
+  "edited": false
+ },
+ "35": {
+  "predicate_name": "Missed Capture (loose)",
+  "preds": {
+   "played_capture": 0.39,
+   "best_capture": 0.7,
+   "best_is_check": 0.24,
+   "played_attacks_queen": 0.1,
+   "allows_check": 0.5,
+   "top_piece_share": 0.33
+  },
+  "current_chip": "Missed Zwischenzug",
+  "edited": false
+ },
+ "36": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.09,
+   "best_capture": 0.07,
+   "best_is_check": 0.07,
+   "played_attacks_queen": 0.03,
+   "allows_check": 0.5,
+   "top_piece_share": 0.31
+  },
+  "current_chip": "Lost the Promotion Race (Unstopped Passer)",
+  "edited": false
+ },
+ "37": {
+  "predicate_name": "Missed Capture",
+  "preds": {
+   "played_capture": 0.18,
+   "best_capture": 0.94,
+   "best_is_check": 0.07,
+   "played_attacks_queen": 0.38,
+   "allows_check": 0.79,
+   "top_piece_share": 0.29
+  },
+  "current_chip": "Missed Winning Capture",
+  "edited": false
+ },
+ "38": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.2,
+   "best_capture": 0.16,
+   "best_is_check": 0.18,
+   "played_attacks_queen": 0.12,
+   "allows_check": 0.54,
+   "top_piece_share": 0.26
+  },
+  "current_chip": "Bad Check Sacrifice (Failed Fork)",
+  "edited": false
+ },
+ "39": {
+  "predicate_name": "Exposed King",
+  "preds": {
+   "played_capture": 0.07,
+   "best_capture": 0.19,
+   "best_is_check": 0.03,
+   "played_attacks_queen": 0.0,
+   "allows_check": 0.79,
+   "top_piece_share": 0.31
+  },
+  "current_chip": "King to the Wrong Square",
+  "edited": false
+ },
+ "40": {
+  "predicate_name": "Missed Capture (loose)",
+  "preds": {
+   "played_capture": 0.08,
+   "best_capture": 0.63,
+   "best_is_check": 0.12,
+   "played_attacks_queen": 0.13,
+   "allows_check": 0.74,
+   "top_piece_share": 0.26
+  },
+  "current_chip": "Missed Queen Trade",
+  "edited": false
+ },
+ "41": {
+  "predicate_name": "Exposed King",
+  "preds": {
+   "played_capture": 0.04,
+   "best_capture": 0.43,
+   "best_is_check": 0.01,
+   "played_attacks_queen": 0.1,
+   "allows_check": 0.7,
+   "top_piece_share": 0.26
+  },
+  "current_chip": "Missed Forcing Move (Played Passively)",
+  "edited": false
+ },
+ "42": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.38,
+   "best_capture": 0.16,
+   "best_is_check": 0.04,
+   "played_attacks_queen": 0.21,
+   "allows_check": 0.44,
+   "top_piece_share": 0.37
+  },
+  "current_chip": "Hung Queen/Piece",
+  "edited": false
+ },
+ "43": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.1,
+   "best_capture": 0.34,
+   "best_is_check": 0.02,
+   "played_attacks_queen": 0.07,
+   "allows_check": 0.59,
+   "top_piece_share": 0.32
+  },
+  "current_chip": "Missed Hanging Piece",
+  "edited": false
+ },
+ "44": {
+  "predicate_name": "Exposed King",
+  "preds": {
+   "played_capture": 0.19,
+   "best_capture": 0.17,
+   "best_is_check": 0.0,
+   "played_attacks_queen": 0.06,
+   "allows_check": 0.88,
+   "top_piece_share": 0.28
+  },
+  "current_chip": "King Walks Into Discovered Check",
+  "edited": false
+ },
+ "45": {
+  "predicate_name": "Exposed King",
+  "preds": {
+   "played_capture": 0.24,
+   "best_capture": 0.13,
+   "best_is_check": 0.04,
+   "played_attacks_queen": 0.76,
+   "allows_check": 0.72,
+   "top_piece_share": 0.69
+  },
+  "current_chip": "Bad Queen Trade",
+  "edited": false
+ },
+ "46": {
+  "predicate_name": "Missed Capture (loose)",
+  "preds": {
+   "played_capture": 0.32,
+   "best_capture": 0.8,
+   "best_is_check": 0.03,
+   "played_attacks_queen": 0.14,
+   "allows_check": 0.68,
+   "top_piece_share": 0.23
+  },
+  "current_chip": "Greedy Capture, Hung Queen",
+  "edited": false
+ },
+ "47": {
+  "predicate_name": "Missed Check/Mate",
+  "preds": {
+   "played_capture": 0.22,
+   "best_capture": 0.39,
+   "best_is_check": 0.99,
+   "played_attacks_queen": 0.12,
+   "allows_check": 0.66,
+   "top_piece_share": 0.23
+  },
+  "current_chip": "Missed Check/Mate",
+  "edited": false
+ },
+ "48": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.79,
+   "best_capture": 0.07,
+   "best_is_check": 0.03,
+   "played_attacks_queen": 0.14,
+   "allows_check": 0.18,
+   "top_piece_share": 0.62
+  },
+  "current_chip": "Unsound f7/f2 Sacrifice",
+  "edited": false
+ },
+ "49": {
+  "predicate_name": "Incorrectly Threatened Queen",
+  "preds": {
+   "played_capture": 0.07,
+   "best_capture": 0.12,
+   "best_is_check": 0.0,
+   "played_attacks_queen": 0.94,
+   "allows_check": 0.82,
+   "top_piece_share": 0.43
+  },
+  "current_chip": "Incorrectly Threatened Queen",
+  "edited": true
+ },
+ "50": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.14,
+   "best_capture": 0.03,
+   "best_is_check": 0.0,
+   "played_attacks_queen": 0.11,
+   "allows_check": 0.62,
+   "top_piece_share": 0.4
+  },
+  "current_chip": "Hung Bishop",
+  "edited": false
+ },
+ "51": {
+  "predicate_name": "Exposed King",
+  "preds": {
+   "played_capture": 0.11,
+   "best_capture": 0.44,
+   "best_is_check": 0.02,
+   "played_attacks_queen": 0.06,
+   "allows_check": 0.86,
+   "top_piece_share": 0.3
+  },
+  "current_chip": "Missed Capture",
+  "edited": false
+ },
+ "52": {
+  "predicate_name": "Exposed King",
+  "preds": {
+   "played_capture": 0.19,
+   "best_capture": 0.26,
+   "best_is_check": 0.01,
+   "played_attacks_queen": 0.06,
+   "allows_check": 0.82,
+   "top_piece_share": 0.27
+  },
+  "current_chip": "Missed Passed-Pawn Promotion",
+  "edited": false
+ },
+ "53": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.27,
+   "best_capture": 0.32,
+   "best_is_check": 0.1,
+   "played_attacks_queen": 0.02,
+   "allows_check": 0.69,
+   "top_piece_share": 0.28
+  },
+  "current_chip": "Hung Knight",
+  "edited": false
+ },
+ "54": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.26,
+   "best_capture": 0.14,
+   "best_is_check": 0.33,
+   "played_attacks_queen": 0.04,
+   "allows_check": 0.33,
+   "top_piece_share": 0.21
+  },
+  "current_chip": "Missed Knight Fork",
+  "edited": false
+ },
+ "55": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.21,
+   "best_capture": 0.11,
+   "best_is_check": 0.09,
+   "played_attacks_queen": 0.0,
+   "allows_check": 0.68,
+   "top_piece_share": 0.33
+  },
+  "current_chip": "Missed Knight Fork",
+  "edited": false
+ },
+ "56": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.69,
+   "best_capture": 0.1,
+   "best_is_check": 0.03,
+   "played_attacks_queen": 0.27,
+   "allows_check": 0.66,
+   "top_piece_share": 0.41
+  },
+  "current_chip": "Bad Trade",
+  "edited": false
+ },
+ "57": {
+  "predicate_name": "Exposed King",
+  "preds": {
+   "played_capture": 0.17,
+   "best_capture": 0.27,
+   "best_is_check": 0.06,
+   "played_attacks_queen": 0.02,
+   "allows_check": 0.7,
+   "top_piece_share": 0.44
+  },
+  "current_chip": "Unsound Queen Attack",
+  "edited": false
+ },
+ "58": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.24,
+   "best_capture": 0.06,
+   "best_is_check": 0.09,
+   "played_attacks_queen": 0.0,
+   "allows_check": 0.53,
+   "top_piece_share": 0.33
+  },
+  "current_chip": "Premature Queen Trade (Endgame)",
+  "edited": false
+ },
+ "59": {
+  "predicate_name": "Allowed Check/Mate",
+  "preds": {
+   "played_capture": 0.27,
+   "best_capture": 0.02,
+   "best_is_check": 0.01,
+   "played_attacks_queen": 0.16,
+   "allows_check": 0.99,
+   "top_piece_share": 0.26
+  },
+  "current_chip": "Allowed Check/Mate",
+  "edited": true
+ },
+ "60": {
+  "predicate_name": "Missed Check/Mate",
+  "preds": {
+   "played_capture": 0.13,
+   "best_capture": 0.07,
+   "best_is_check": 0.94,
+   "played_attacks_queen": 0.09,
+   "allows_check": 0.77,
+   "top_piece_share": 0.29
+  },
+  "current_chip": "Missed Defensive Check",
+  "edited": false
+ },
+ "61": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.2,
+   "best_capture": 0.44,
+   "best_is_check": 0.66,
+   "played_attacks_queen": 0.02,
+   "allows_check": 0.28,
+   "top_piece_share": 0.41
+  },
+  "current_chip": "Missed Forced Mate",
+  "edited": false
+ },
+ "62": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.04,
+   "best_capture": 0.08,
+   "best_is_check": 0.42,
+   "played_attacks_queen": 0.01,
+   "allows_check": 0.39,
+   "top_piece_share": 0.24
+  },
+  "current_chip": "Missed Winning Queen Check",
+  "edited": false
+ },
+ "63": {
+  "predicate_name": "Mixed / unclear",
+  "preds": {
+   "played_capture": 0.18,
+   "best_capture": 0.19,
+   "best_is_check": 0.02,
+   "played_attacks_queen": 0.0,
+   "allows_check": 0.5,
+   "top_piece_share": 0.33
+  },
+  "current_chip": "Missed Pawn Breakthrough",
+  "edited": false
+ }
+}
