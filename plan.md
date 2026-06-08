@@ -1,5 +1,15 @@
 # Chess Encoder
 
+> **NOW (2026-06-08): the product direction is the RULE-BASED TAGGER, not the SAE.** The SAE is
+> polysemantic and won't crisply assign per-position labels; tagging blunders with a known coaching
+> vocabulary is supervised classification, so deterministic rules win. Built + validated in
+> `scripts/04_tagger/` (see its README + log.md 2026-06-07/08). 104 tags over 19,362 blunders,
+> directional cross-check vs the SAE gold PASSED (f54 fork 87%, f47 mate 9/9). The SAE's remaining
+> role: it seeded the vocabulary and it's the regression/validation set — NOT runtime assignment.
+> **Next:** Sam evaluates `output/tag_atlas.html` for tag crispness → prune/rename → wire into the
+> per-game coaching report (the consumer). Maia rarity (L3) plugs in at report time per game.
+> Open detector TODOs: skewer geometry, interference/clearance/backward-pawn confidence.
+
 > **CORRECTION (2026-05-31): the option_a / board_diff / l2l7 architecture search below is INVALID.**
 > All three SAEs were trained on the v1 blunder cache (`maia3_blunder_diff.pt`, Black-to-move
 > label-inversion bug). The weights, caches, labels, profiles, and eval artifacts have been

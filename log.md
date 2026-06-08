@@ -844,3 +844,56 @@ boards draw with played/best arrows). **k6 remains the dictionary of record.**
 Scripts added (were ad-hoc for k6, now committed for reproducibility): `build_leaf.py` (clusters → atlas
 leaf + blob fold), `profiles_to_atlas.py` (peak/median → atlas profiles + best_uci_map). `render_atlas_v3.py`
 got a `--dict-label` arg so the title isn't hardcoded to k6.
+
+## 2026-06-07/08 (overnight) — rule-based mistake tagger: cook port finished, validated against SAE
+
+**The pivot is real and it works.** Abandoned the SAE for per-position label *assignment* (it's
+polysemantic — f55 cons 50, f0 split). Built a deterministic rule tagger in `scripts/04_tagger/`.
+Tagging blunders with a known vocabulary ("Missed Fork", "Allowed Mate", "Hung Material") is supervised
+classification, not unsupervised discovery — rules win. The SAE's lasting value: it seeded the label
+vocabulary AND it's now the ground-truth regression/validation set.
+
+**Architecture (see `scripts/04_tagger/README.md`):** L0 `mistake.py` (data contract) · L1
+`predicates.py` (position/material) · L2 `motifs.py`+`chesslib_util.py` (tactics/mates ported from
+lichess-puzzler cook.py, pov-explicit) · L3 `maia_rarity.py` (numeric). Orchestrator `tagger.py`.
+
+**The key idea — three directions from one detector set:** Missed X (best line, pov=mover) / Allowed X
+([played]+refutation, pov=opponent — the puzzle shape) / Failed X (played move, single-move only).
+
+**THE BUG CLASS this whole module kills (pov parity):** cook hardcodes `mainline[1::2]` (solver moves)
+because a puzzle always starts with the opponent's setup blunder. That parity is right for ALLOWED,
+WRONG for MISSED. The old `cook_adapter.py` overrode pov + used a parity-union hack → **Sacrifice 46%**.
+Port replaces `mainline[1::2]`→`pov_nodes(nodes,pov)`, `mainline[::2]`→`opp_nodes(nodes,pov)`, pov
+explicit. Verified: `node.turn()` = color to move AFTER the node, so pov moves = `turn()!=pov`. cook
+geometry copied verbatim (proven). Same bug found+fixed in 3 places:
+- `sacrifice_line` raw `diffs[1::2]` sampled wrong side in MISSED → Missed Sacrifice 24.6%→12%.
+- `mate_in_line` used `len//2` (assumes node0=opp) → count pov's own moves → parity-robust.
+- `hung_material` (L1) measured GROSS mover loss, ignored recaptures → over-claimed ~2x (30% of fires
+  claimed 5+pts when cp_loss justified <40% of that). Fixed to NET material_diff swing →
+  **Hung Material 65%→41.6%, cp/material agreement ratio 0.56→0.91.**
+
+**Validation — "not completely wrong" gate PASSED.** `validate_vs_sae.py` cross-checks detectors against
+Sam's hand-confirmed SAE gold (`relabel_v9_d64_k1.json` + `all_feat_boards_d64_k1.json`). On the SAE's
+OWN confirmed positions: f54 fork/pin **87%** agreement (0% on a non-tactical control), f3 hanging 67%,
+f17 free-capture 60%, f47 mate **9/9**, f59 allowed-mate 1/1. <100% expected (SAE polysemantic). The rule
+detectors agree with the hand-confirmed ground truth AND have clean specificity. `regression.py` 16/16
+(single-move from gold f54, line/mate, mate-suppression).
+
+**Coaching-quality fixes beyond cook:** mate-suppression (a forced mate outranks lesser tactics in the
+same direction — "you missed mate in 3", not "you missed a fork"). Endgame-type + pawn-structure +
+backward-pawn predicates added (wishlist tags). Maia rarity (L3) verified end-to-end (rare/common
+blunder, skill-gap move) but not run on full corpus (slow ONNX; it's a per-game report-time annotation).
+
+**Full corpus (19,362 blunders) → 104 distinct tags, fire rates all sane:** Hung Material 41.6%,
+Missed Sacrifice 15.6%, Allowed Mate 6.4%, Allowed Sacrifice 4.8%, Missed Fork 4.1%, named mates firing
+(back-rank, smothered, anastasia, etc.), endgame types (Rook 5.6%, Pawn 3.6%, Bishop/Queen ~1%).
+Evaluation atlas `output/tag_atlas.html` (98 tags, example boards + SAN lines + cp_loss + freq) built +
+visually verified via Playwright. `output/mistake_tags.json` (14MB) gitignored — regenerable in 12min.
+
+**Open for Sam to judge in the atlas:** Hung Material still 41.6% (high but now net-calibrated; ~20%
+remaining are positional-compensation cases, arguably correct) · Missed Sacrifice 15.6% vs Allowed 4.8%
+(best lines longer → more material-investment chances; "Missed Sacrifice" vs "Missed Combination"?) ·
+skewer geometry still a known TODO (rare ~1%) · interference/clearance/backward-pawn lower-confidence.
+
+NOTE: Sam's hand-edits to `relabel_v9_d64_k1.json` (the per-feature chip corrections + `review:confirmed`
+flags) are uncommitted in the working tree — left untouched, the validation script only READS that file.
