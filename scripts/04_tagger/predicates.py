@@ -236,11 +236,76 @@ def captured_wrong_piece(m):
     return []
 
 
+# ---------- endgame type (board context, like phase — info tags) ----------
+def _only_piece_types_present(board, allowed):
+    """True if every non-king piece on the board is in `allowed` (a set of piece types)."""
+    for p in board.piece_map().values():
+        if p.piece_type == chess.KING:
+            continue
+        if p.piece_type not in allowed:
+            return False
+    return True
+
+
+def endgame_type(m):
+    """Name the endgame by surviving material (only fires in the Endgame phase). Mirrors cook's
+    piece_endgame / queen_rook_endgame: a 'X endgame' = only kings, pawns, and X-type pieces."""
+    if phase(m)[0][0] != "Endgame":
+        return []
+    b = m.board_before
+    has = lambda pt: bool(b.pieces(pt, chess.WHITE) or b.pieces(pt, chess.BLACK))
+    P = chess.PAWN
+    # pure single-piece endgames (kings + pawns + that one piece type present)
+    for pt, name in [(chess.QUEEN, "Queen"), (chess.ROOK, "Rook"),
+                     (chess.BISHOP, "Bishop"), (chess.KNIGHT, "Knight")]:
+        if has(pt) and _only_piece_types_present(b, {P, pt}):
+            return [(f"{name} Endgame", "info", f"only K+P+{name.lower()}s on board")]
+    # pawn endgame: kings + pawns only
+    if _only_piece_types_present(b, {P}):
+        return [("Pawn Endgame", "info", "only kings and pawns")]
+    # queen+rook endgame: exactly one queen, >=1 rook, only Q/R/P/K
+    pieces = list(b.piece_map().values())
+    nq = sum(1 for p in pieces if p.piece_type == chess.QUEEN)
+    if nq == 1 and any(p.piece_type == chess.ROOK for p in pieces) and \
+       _only_piece_types_present(b, {P, chess.QUEEN, chess.ROOK}):
+        return [("Queen + Rook Endgame", "info", "Q+R+P endgame")]
+    return []
+
+
+def backward_pawn(m):
+    """Played move creates/leaves a backward pawn: a pawn behind its neighbors on adjacent files,
+    on a half-open file, that can't safely advance. Light heuristic — flag for Sam to judge."""
+    pm = _played_move(m)
+    if pm is None or m.board_before.piece_type_at(pm.from_square) != chess.PAWN:
+        return []
+    after = m.board_before.copy(); after.push(pm)
+    tf = chess.square_file(pm.to_square); tr = chess.square_rank(pm.to_square)
+    files = _pawn_files(after, m.mover)
+    # backward: no friendly pawn on adjacent files at or behind this pawn's rank, and the stop
+    # square is controlled by an enemy pawn (can't advance). Direction depends on color.
+    fwd = 1 if m.mover == chess.WHITE else -1
+    neighbors_behind = False
+    for nf in (tf - 1, tf + 1):
+        for nr in files.get(nf, []):
+            # "behind or level" relative to advance direction
+            if (m.mover == chess.WHITE and nr <= tr) or (m.mover == chess.BLACK and nr >= tr):
+                neighbors_behind = True
+    if neighbors_behind:
+        return []
+    stop = chess.square(tf, tr + fwd) if 0 <= tr + fwd <= 7 else None
+    if stop is not None and after.is_attacked_by(not m.mover, stop):
+        # only if the attacker on the stop square is a pawn
+        for asq in after.attackers(not m.mover, stop):
+            if after.piece_type_at(asq) == chess.PAWN:
+                return [("Created Backward Pawn", "played", f"pawn on {chr(97+tf)} backward, stop square held")]
+    return []
+
+
 # ---------- registry ----------
 ALL_PREDICATES = [
     phase, game_state, capture_or_exchange, bad_capture, hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
-    wrong_move_order, captured_wrong_piece,
+    wrong_move_order, captured_wrong_piece, endgame_type, backward_pawn,
 ]
 
 

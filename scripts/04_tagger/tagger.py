@@ -135,7 +135,32 @@ def _motif_tags(m):
     except Exception:
         pass
 
-    return out
+    return _suppress_lesser_under_mate(out)
+
+
+# Lesser tactical motifs that a forced mate should outrank in the SAME direction. A coach says
+# "you missed mate in 3", not "you missed a fork" — the fork is just a step inside the mating net.
+# We keep Mate + named mates + Exposed King / attacks (they describe the mating attack), and we never
+# touch the OTHER direction or position/material tags.
+_MATE_OUTRANKS = {"Fork", "Pin", "Skewer", "Discovered Attack", "Deflection", "Attraction",
+                  "Clearance", "Interference", "Zwischenzug", "Overload", "X-Ray",
+                  "Capture of Defender", "Hanging Piece", "Sacrifice", "Trapped Piece"}
+
+def _suppress_lesser_under_mate(tags):
+    """If a direction produced 'Missed/Allowed Mate', drop the lesser tactical motifs in that
+    same direction (config — Sam can disable). Returns the filtered list, order preserved."""
+    mate_dirs = {d for (lab, d, ev) in tags if lab in ("Missed Mate", "Allowed Mate")}
+    if not mate_dirs:
+        return tags
+    kept = []
+    for (lab, d, ev) in tags:
+        if d in mate_dirs:
+            # strip the "Missed "/"Allowed "/"Failed " prefix to get the bare motif name
+            bare = lab.split(" ", 1)[1] if " " in lab else lab
+            if bare in _MATE_OUTRANKS:
+                continue
+        kept.append((lab, d, ev))
+    return kept
 
 
 def categorize(label):

@@ -11,6 +11,7 @@ Add cases here as each detector is built/tweaked.
 import sys, os, chess
 sys.path.insert(0, os.path.dirname(__file__))
 import motifs as M
+import tagger as T
 
 # (name, fen, move_uci, detector, expected) — all FENs verified legal + answer hand-checked
 SINGLE_MOVE_CASES = [
@@ -79,7 +80,29 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {key:16} {name}: present={got} exp={exp}")
 
-    total = len(SINGLE_MOVE_CASES) + len(LINE_CASES)
+    print("--- tagger: mate suppression ---")
+    # a forced mate in a direction outranks lesser tactical motifs in that SAME direction only
+    supp_cases = [
+        ("mate suppresses same-dir fork",
+         [("Missed Mate", "missed", "m"), ("Missed Fork", "missed", "f")], "Missed Fork", False),
+        ("mate keeps other-dir fork",
+         [("Missed Mate", "missed", "m"), ("Allowed Fork", "allowed", "f")], "Allowed Fork", True),
+        ("mate keeps material tag",
+         [("Missed Mate", "missed", "m"), ("Hung Material", "hung", "h")], "Hung Material", True),
+        ("no mate -> fork survives",
+         [("Missed Fork", "missed", "f")], "Missed Fork", True),
+    ]
+    for name, tags, label, should_keep in supp_cases:
+        kept = [t[0] for t in T._suppress_lesser_under_mate(tags)]
+        got = (label in kept)
+        passed = (got == should_keep)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
+
+    total = len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(supp_cases)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 
