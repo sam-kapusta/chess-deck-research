@@ -114,22 +114,29 @@ def bad_capture(m):
     return [(f"Bad Capture", "played", f"played {m.played_san} (took {pname.lower()}) lost {m.cp_loss}cp")]
 
 
+def _material_diff(board, side):
+    return _material(board, side) - _material(board, not side)
+
+
 def hung_material(m):
-    """Played move loses own material in the refutation line (end-of-line delta — validated metric)."""
+    """Played move loses material on NET across the refutation line. Uses the change in material_diff
+    (mover minus opponent), so the player's own recaptures in the line are netted out — a player who
+    loses a rook but takes a bishop back is down 2, not 5. (The old gross-loss metric over-claimed by
+    ~2x: 30% of fires claimed 5+ pts while cp_loss justified far less — line-flow, not a real hang.)"""
     if not m.refutation_san:
         return []
     b = m.board_after  # opponent to move; refutation is from here
-    before = _material(b, m.mover)
+    start_diff = _material_diff(b, m.mover)
     bb = chess.Board(b.fen())
     for san in m.refutation_san:
         try:
             bb.push(bb.parse_san(san))
         except Exception:
             break
-    lost = before - _material(bb, m.mover)
-    if lost >= 2:
-        # name by the largest own piece captured in the line
-        return [("Hung Material", "hung", f"refutation nets {lost} pts of mover's material")]
+    end_diff = _material_diff(bb, m.mover)
+    net_lost = start_diff - end_diff   # how much worse the mover's material balance got
+    if net_lost >= 2:
+        return [("Hung Material", "hung", f"refutation costs {net_lost} pts net (recaptures included)")]
     return []
 
 

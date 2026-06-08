@@ -33,3 +33,4 @@ output/sub_buckets_d1024_k4.json
 output/atlas_opus_sidecar_*.json
 output/f*_boards.json
 output/all_feat_boards_*.json
+output/mistake_tags.json  # 14MB derived artifact — regenerate via scripts/04_tagger/run_corpus.py
