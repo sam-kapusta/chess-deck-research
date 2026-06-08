@@ -104,6 +104,19 @@ def _allowed_line_ucis(m):
     return ucis
 
 
+def _motif_label(key, ev):
+    """Map a motif key + evidence to its display label, applying the DEPTH SPLIT for fork:
+    depth=0 -> the tactic is the move to play now ('Fork'); depth>0 -> it comes after a setup
+    sequence ('Combination → Fork'). Depth is parsed from the 'depth=N ' prefix detect_line adds."""
+    if key == "fork" and ev.startswith("depth="):
+        try:
+            depth = int(ev.split("depth=", 1)[1].split()[0])
+        except Exception:
+            depth = 0
+        return "Fork" if depth == 0 else "Combination → Fork"
+    return MOTIF_LABEL.get(key, key)
+
+
 def _motif_tags(m):
     """Layer 2: owned motif detectors across MISSED / ALLOWED / FAILED."""
     out = []  # (label, direction, evidence)
@@ -115,14 +128,14 @@ def _motif_tags(m):
     best_ucis = _best_line_ucis(m)
     if len(best_ucis) >= 1:
         for key, ev in MO.detect_line(b, best_ucis, mover).items():
-            lab = MOTIF_LABEL.get(key, key)
+            lab = _motif_label(key, ev)
             out.append((f"Missed {lab}".strip(), "missed", ev))
 
     # ALLOWED: [played]+refutation, pov = opponent (== cook's puzzle shape, the validated one)
     allowed_ucis = _allowed_line_ucis(m)
     if len(allowed_ucis) >= 2:   # need the played move + at least one punishment ply
         for key, ev in MO.detect_line(b, allowed_ucis, opp).items():
-            lab = MOTIF_LABEL.get(key, key)
+            lab = _motif_label(key, ev)
             out.append((f"Allowed {lab}".strip(), "allowed", ev))
 
     # FAILED: the played move itself was a (single-move) tactic that backfired
@@ -142,8 +155,8 @@ def _motif_tags(m):
 # "you missed mate in 3", not "you missed a fork" — the fork is just a step inside the mating net.
 # We keep Mate + named mates + Exposed King / attacks (they describe the mating attack), and we never
 # touch the OTHER direction or position/material tags.
-_MATE_OUTRANKS = {"Fork", "Pin", "Skewer", "Discovered Attack", "Deflection", "Attraction",
-                  "Clearance", "Interference", "Zwischenzug", "Overload", "X-Ray",
+_MATE_OUTRANKS = {"Fork", "Combination → Fork", "Pin", "Skewer", "Discovered Attack", "Deflection",
+                  "Attraction", "Clearance", "Interference", "Zwischenzug", "Overload", "X-Ray",
                   "Capture of Defender", "Hanging Piece", "Sacrifice", "Trapped Piece"}
 
 def _suppress_lesser_under_mate(tags):

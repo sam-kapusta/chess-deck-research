@@ -129,12 +129,26 @@ def _start_board(nodes: List[ChildNode]) -> Optional[chess.Board]:
     return nodes[0].parent.board() if nodes else None
 
 
+def _first_fire_index(nodes, pov, single_move_fn, skip_king=True):
+    """Index among POV's OWN moves (0 = the move pov should play NOW) at which `single_move_fn`
+    (a board,move -> bool detector) first fires, or None. This is what lets us split a tag by DEPTH:
+    index 0 = the tactic is directly available (e.g. 'Missed Fork'); index >0 = it comes after a
+    setup sequence (e.g. 'Missed Combination -> Fork')."""
+    for i, node in enumerate(U.pov_nodes(nodes, pov)[:-1]):
+        if skip_king and U.moved_piece_type(node) is KING:
+            continue
+        if single_move_fn(node.parent.board(), node.move):
+            return i
+    return None
+
+
 def fork_line(nodes, pov) -> bool:
-    for node in U.pov_nodes(nodes, pov)[:-1]:
-        if U.moved_piece_type(node) is not KING:
-            if is_fork(node.parent.board(), node.move):
-                return True
-    return False
+    return _first_fire_index(nodes, pov, is_fork) is not None
+
+
+def fork_depth(nodes, pov):
+    """Depth (index among pov's moves) of the first fork, or None. 0 = fork is the move to play now."""
+    return _first_fire_index(nodes, pov, is_fork)
 
 
 def hanging_piece_line(nodes, pov) -> bool:
@@ -783,6 +797,15 @@ def detect_line(start_board: chess.Board, ucis: List[str], pov: bool) -> dict:
         try:
             if fn(nodes, pov):
                 found[key] = f"line={' '.join(ucis[:6])}"
+        except Exception:
+            pass
+    # depth annotation for fork: index among pov's moves where it fires (0 = available NOW).
+    # The tagger uses this to split "Missed Fork" (depth 0) from "Missed Combination -> Fork" (deeper).
+    if "fork" in found:
+        try:
+            depth = fork_depth(nodes, pov)
+            if depth is not None:
+                found["fork"] = f"depth={depth} {found['fork']}"
         except Exception:
             pass
     # mates (separate: returns a specific key)

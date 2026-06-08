@@ -39,7 +39,9 @@ ap.add_argument("--tags", default="output/mistake_tags.json")
 ap.add_argument("--out", default="output/tag_atlas.html")
 ap.add_argument("--per-tag", type=int, default=12)
 ap.add_argument("--min-count", type=int, default=2)
+ap.add_argument("--only", default="", help="comma-separated tag labels to include (others dropped)")
 a = ap.parse_args()
+ONLY = set(s.strip() for s in a.only.split(",")) if a.only else None
 
 data = json.load(open(a.tags))
 N = len(data)
@@ -73,7 +75,7 @@ def categorize(label):
 
 cat_tags = defaultdict(list)
 for lab, n in counts.most_common():
-    if n >= a.min_count:
+    if n >= a.min_count and (ONLY is None or lab in ONLY):
         cat_tags[categorize(lab)].append((lab, n))
 
 # build the JSON the page renders: for each tag, sample positions across the cp_loss range.

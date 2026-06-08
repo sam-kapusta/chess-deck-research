@@ -80,6 +80,23 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {key:16} {name}: present={got} exp={exp}")
 
+    print("--- tagger: fork depth split ---")
+    # depth=0 -> 'Fork' (available now); depth>0 -> 'Combination → Fork' (after setup)
+    split_cases = [
+        ("depth0 -> Fork", "fork", "depth=0 line=...", "Fork"),
+        ("depth1 -> Combination", "fork", "depth=1 line=...", "Combination → Fork"),
+        ("depth2 -> Combination", "fork", "depth=2 line=...", "Combination → Fork"),
+        ("no depth prefix -> Fork", "fork", "line=...", "Fork"),
+    ]
+    for name, key, ev, want in split_cases:
+        got = T._motif_label(key, ev)
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: label={got!r} exp={want!r}")
+
     print("--- tagger: mate suppression ---")
     # a forced mate in a direction outranks lesser tactical motifs in that SAME direction only
     supp_cases = [
@@ -102,7 +119,7 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
-    total = len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(supp_cases)
+    total = len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases) + len(supp_cases)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 
