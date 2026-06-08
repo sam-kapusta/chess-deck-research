@@ -28,8 +28,27 @@ SINGLE_MOVE_CASES = [
 ]
 
 
+# (name, fen, line_ucis, pov_is_white, motif_key, expected_present) — line detectors + mates.
+# pov is WHATEVER side the detector should evaluate from: for an ALLOWED-shape line (blunder then
+# refutation) pov = the punisher (opponent of the mover); for a raw winning line pov = the winner.
+LINE_CASES = [
+    # back-rank mate: white Re8# (single move, pov=white). king g8 boxed by f7/g7/h7.
+    ("back-rank Re8#", "6k1/5ppp/8/8/8/8/8/R3R1K1 w - - 0 1", ["e1e8"], True, "backRankMate", True),
+    ("back-rank also tags mate", "6k1/5ppp/8/8/8/8/8/R3R1K1 w - - 0 1", ["e1e8"], True, "mate", True),
+    # smothered mate: white Nh6-f7# (king h8 boxed by Rg8 + g7/h7 pawns).
+    ("smothered Nf7#", "6rk/6pp/7N/8/8/8/8/6K1 w - - 0 1", ["h6f7"], True, "smotheredMate", True),
+    # f59 ALLOWED: black g6h5 allows forced mate; punisher=white. Must tag mate (mateIn2), NOT a named mate.
+    ("f59 allowed mate", "r2qr1k1/1b2bp1p/pnp1p1pQ/1p1nP2N/2pP4/5N2/PPB2PPP/R1B1R1K1 b - - 3 16",
+     ["g6h5", "h6h7", "g8f8", "h7h8"], True, "mate", True),
+    # back-rank should NOT fire on a non-mate quiet line
+    ("quiet line != backrank", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+     ["e2e4", "e7e5"], True, "backRankMate", False),
+]
+
+
 def run():
     ok = 0; fails = []
+    print("--- single-move ---")
     for name, fen, uci, fn, exp in SINGLE_MOVE_CASES:
         b = chess.Board(fen)
         try:
@@ -43,7 +62,25 @@ def run():
         if not passed:
             fails.append(name)
         print(f"  [{mark}] {fn.__name__:20} {name}: got={got} exp={exp}")
-    print(f"\n{ok}/{len(SINGLE_MOVE_CASES)} passed" + (f" | FAILS: {fails}" if fails else ""))
+
+    print("--- line / mate ---")
+    for name, fen, ucis, pov_white, key, exp in LINE_CASES:
+        try:
+            b = chess.Board(fen)
+            pov = chess.WHITE if pov_white else chess.BLACK
+            res = M.detect_line(b, ucis, pov)
+            got = (key in res)
+        except Exception as e:
+            got = f"ERR:{e}"
+        passed = (got == exp)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {key:16} {name}: present={got} exp={exp}")
+
+    total = len(SINGLE_MOVE_CASES) + len(LINE_CASES)
+    print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 
 
