@@ -195,6 +195,10 @@ def categorize(label):
         return "Endgame"
     if any(w in l for w in ["pawn", "tempo", "development", "advanced"]):
         return "Positional"
+    # exact game-state words (renamed from "Blunder While X"). Exact-match so "winning" inside
+    # "Missed Winning Capture" doesn't reach here — that's already caught by Material above anyway.
+    if l in ("winning", "losing", "equal"):
+        return "Meta"
     if any(w in l for w in ["blunder while", "only move", "multiple good", "move order"]):
         return "Meta"
     return "Other"

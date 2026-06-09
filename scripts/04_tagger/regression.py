@@ -143,8 +143,8 @@ def run():
 
     print("--- predicates: bishop endgame color split ---")
     be_cases = [
-        ("same-color bishops", "4k3/8/8/3b4/4B3/8/4P1P1/4K3 w - - 0 1", "Same-Color Bishop Endgame"),
-        ("opposite-color bishops", "4k3/8/8/2b5/4B3/8/4P1P1/4K3 w - - 0 1", "Opposite-Color Bishop Endgame"),
+        ("same-color bishops", "4k3/8/8/3b4/4B3/8/4P1P1/4K3 w - - 0 1", "Bishop Endgame (Same Color)"),
+        ("opposite-color bishops", "4k3/8/8/2b5/4B3/8/4P1P1/4K3 w - - 0 1", "Bishop Endgame (Opposite Color)"),
     ]
     for name, fen, want in be_cases:
         b = chess.Board(fen)

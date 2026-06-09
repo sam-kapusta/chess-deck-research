@@ -70,11 +70,11 @@ def game_state(m):
     # white-POV cp -> mover-POV
     cp = m.eval_before if m.mover == chess.WHITE else -m.eval_before
     if cp >= 150:
-        s = "Blunder While Winning"
+        s = "Winning"
     elif cp <= -150:
-        s = "Blunder While Losing"
+        s = "Losing"
     else:
-        s = "Blunder While Equal"
+        s = "Equal"
     return [(s, "info", f"{cp:+d}cp before (mover POV)")]
 
 
@@ -313,15 +313,17 @@ def endgame_type(m):
                      (chess.BISHOP, "Bishop"), (chess.KNIGHT, "Knight")]:
         if has(pt) and _only_piece_types_present(b, {P, pt}):
             if pt == chess.BISHOP:
-                # one bishop each side -> same- vs opposite-color (opp-color is famously drawish)
+                # one bishop each side -> Same/Opposite color (opp-color is famously drawish).
+                # Multiple bishops / lopsided (bishop pair vs none) -> bare "Bishop Endgame".
                 wb = list(b.pieces(chess.BISHOP, chess.WHITE))
                 bb = list(b.pieces(chess.BISHOP, chess.BLACK))
                 if len(wb) == 1 and len(bb) == 1:
                     same = (chess.square_rank(wb[0]) + chess.square_file(wb[0])) % 2 == \
                            (chess.square_rank(bb[0]) + chess.square_file(bb[0])) % 2
-                    kind = "Same-Color" if same else "Opposite-Color"
-                    return [(f"{kind} Bishop Endgame", "info",
+                    kind = "Same Color" if same else "Opposite Color"
+                    return [(f"Bishop Endgame ({kind})", "info",
                              f"one bishop each, {'same' if same else 'opposite'} square color")]
+                return [("Bishop Endgame", "info", "only K+P+bishops (multiple/lopsided)")]
             return [(f"{name} Endgame", "info", f"only K+P+{name.lower()}s on board")]
     # pawn endgame: kings + pawns only
     if _only_piece_types_present(b, {P}):

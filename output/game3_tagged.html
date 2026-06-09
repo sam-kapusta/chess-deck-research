@@ -1,0 +1,52 @@
+<!doctype html><html><head><meta charset=utf-8><title>Game Tags — game3.pgn</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:14px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#13151a;color:#e8e6e1}
+#top{position:sticky;top:0;background:#1a1d24;border-bottom:1px solid #2a2e38;padding:14px 22px;z-index:10}
+.logo{font-size:19px;font-weight:700}.logo span{color:#d99}#stat{color:#8a909c;font-size:13px;margin-top:3px}
+#main{padding:20px 26px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{background:#1a1d24;border:1px solid #262a34;border-radius:10px;padding:12px}
+.mv{font-size:15px;font-weight:700;margin-bottom:2px}.mv .cp{color:#d99;font-weight:600;font-size:13px}
+.sub{color:#9aa0ac;font-size:12px;margin-bottom:8px}
+.bd a{text-decoration:none}
+.tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:11px;padding:3px 8px;border-radius:11px;background:#2a3140;color:#cfe}
+.tag.tactic{background:#2d2540;color:#d9c3ff}.tag.position{background:#243140;color:#bcd}
+.tag.info{background:#222;color:#888}
+.legend{grid-column:1/-1;font-size:12px;color:#8a909c;margin:-6px 0 4px}
+.legend i{font-style:normal;font-weight:700}.lg{color:#1f8a4c}.lr{color:#c0392b}
+</style></head><body>
+<div id=top><div class=logo>Game Tags · <span>game3.pgn</span></div><div id=stat>6 mistakes · 24 tags</div></div>
+<div id=main>
+<div class=legend>arrows: <i class=lg>best move</i> · <i class=lr>played move</i></div>
+__CARDS__
+</div>
+<script>
+const PIECES={k:'\u265a',q:'\u265b',r:'\u265c',b:'\u265d',n:'\u265e',p:'\u265f',K:'\u2654',Q:'\u2655',R:'\u2656',B:'\u2657',N:'\u2658',P:'\u2659'};
+const SQ=148/8;
+function sqxy(sq,flip){let f=sq.charCodeAt(0)-97,r=8-(+sq[1]);if(flip){f=7-f;r=7-r}return [f*SQ+SQ/2,r*SQ+SQ/2];}
+function board(o,id){
+  const rows=o.fen.split(' ')[0].split('/');const wtm=o.fen.split(' ')[1]!=='b';const flip=!wtm;
+  let cells='';
+  for(let dr=0;dr<8;dr++)for(let df=0;df<8;df++){const dark=(dr+df)%2===1;
+    cells+=`<rect x="${df*SQ}" y="${dr*SQ}" width="${SQ}" height="${SQ}" fill="${dark?'#b88a5a':'#efe2cf'}"/>`;}
+  for(let r=0;r<8;r++){let f=0;for(const ch of rows[r]){
+    if(/\d/.test(ch)){f+=+ch;continue;}
+    const dr=flip?7-r:r, df=flip?7-f:f;
+    cells+=`<text x="${df*SQ+SQ/2}" y="${dr*SQ+SQ/2+0.5}" font-size="${SQ*0.82}" text-anchor="middle" dominant-baseline="central">${PIECES[ch]||''}</text>`;f++;}}
+  function arrow(uci,col,mid){if(!uci||uci.length<4)return'';const a=uci.slice(0,2),b=uci.slice(2,4);
+    let[x1,y1]=sqxy(a,flip),[x2,y2]=sqxy(b,flip);const dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy)||1,ux=dx/len,uy=dy/len;
+    x1+=ux*SQ*0.30;y1+=uy*SQ*0.30;x2-=ux*SQ*0.34;y2-=uy*SQ*0.34;
+    return `<line x1=${x1} y1=${y1} x2=${x2} y2=${y2} stroke="${col}" stroke-width=5.5 stroke-linecap=round opacity=.9 marker-end="url(#${mid})"/>`;}
+  const mk=(i,c)=>`<marker id=${i} markerWidth=3.2 markerHeight=3.2 refX=2.2 refY=1.6 orient=auto><path d="M0,0 L3.2,1.6 L0,3.2 z" fill="${c}"/></marker>`;
+  const defs=`<defs>${mk('r'+id,'#c0392b')}${mk('g'+id,'#1f8a4c')}</defs>`;
+  return `<svg width=148 height=148 viewBox="0 0 148 148" style="border-radius:5px;display:block">${defs}${cells}${arrow(o.b,'#1f8a4c','g'+id)}${arrow(o.u,'#c0392b','r'+id)}</svg>`;}
+const CARDS=[{"fen": "r2qr1k1/pp3ppp/2nb1n2/1Bpp4/8/P1NP1b2/1PPQ1PPP/R1B1R1K1 w - - 0 13", "u": "g2f3", "b": "b5c6", "mv": "13 gxf3", "ps": "gxf3", "bs": "Bxc6", "cp": 168, "tags": [{"label": "Allowed Sacrifice", "layer": "tactic"}, {"label": "Middlegame", "layer": "position"}, {"label": "Blunder While Losing", "layer": "position"}, {"label": "Missed Exchange (Knight)", "layer": "position"}, {"label": "Bad Capture", "layer": "position"}, {"label": "Pawn Move Exposed King", "layer": "position"}, {"label": "Created Doubled Pawn", "layer": "position"}, {"label": "Created Isolated Pawn", "layer": "position"}, {"label": "Wrong Move Order", "layer": "position"}]}, {"fen": "r2qr1k1/pp3ppp/2nb1n2/1Bpp4/8/P1NP1P2/1PPQ1P1P/R1B1R1K1 b - - 0 13", "u": "d8c7", "b": "c6d4", "mv": "13... Qc7", "ps": "Qc7", "bs": "Nd4", "cp": 168, "tags": [{"label": "Middlegame", "layer": "position"}, {"label": "Blunder While Losing", "layer": "position"}]}, {"fen": "r2q1rk1/pp3ppp/2nbbn2/1Bpp4/8/P1NP1N2/1PP1QPPP/R1B2RK1 b - - 7 10", "u": "f8e8", "b": "c6d4", "mv": "10... Re8", "ps": "Re8", "bs": "Nd4", "cp": 63, "tags": [{"label": "Opening", "layer": "position"}, {"label": "Blunder While Losing", "layer": "position"}]}, {"fen": "r2q1rk1/pp3ppp/2nbbn2/1Bpp4/8/P1NP1N2/1PP1QPPP/R1B1K2R w KQ - 6 10", "u": "e1g1", "b": "b5c6", "mv": "10 O-O", "ps": "O-O", "bs": "Bxc6", "cp": 61, "tags": [{"label": "Missed Castling", "layer": "tactic"}, {"label": "Opening", "layer": "position"}, {"label": "Blunder While Losing", "layer": "position"}, {"label": "Missed Exchange (Knight)", "layer": "position"}, {"label": "Wrong Move Order", "layer": "position"}]}, {"fen": "r1bqk2r/pp3ppp/2nb1n2/1Bpp4/8/P1NP4/1PP2PPP/R1BQK1NR w KQkq - 2 8", "u": "d1e2", "b": "g1e2", "mv": "8 Qe2+", "ps": "Qe2+", "bs": "Nge2", "cp": 60, "tags": [{"label": "Allowed Castling", "layer": "tactic"}, {"label": "Opening", "layer": "position"}, {"label": "Blunder While Equal", "layer": "position"}]}, {"fen": "r1bqkb1r/pp3ppp/2n2n2/2pp4/2B5/P1NP4/1PP2PPP/R1BQK1NR w KQkq - 0 7", "u": "c4b5", "b": "c4a2", "mv": "7 Bb5", "ps": "Bb5", "bs": "Ba2", "cp": 56, "tags": [{"label": "Allowed Castling", "layer": "tactic"}, {"label": "Opening", "layer": "position"}, {"label": "Blunder While Equal", "layer": "position"}]}];
+document.getElementById('main').insertAdjacentHTML('beforeend', CARDS.map((o,i)=>{
+  const url='https://www.chess.com/analysis?fen='+encodeURIComponent(o.fen);
+  const tags=o.tags.map(t=>`<span class="tag ${t.layer}">${t.label}</span>`).join('');
+  return `<div class=card><div class=mv>${o.mv} <span class=cp>-${o.cp}cp</span></div>
+    <div class=sub>played ${o.ps} · best ${o.bs}</div>
+    <div class=bd><a href="${url}" target=_blank>${board(o,i)}</a></div>
+    <div class=tags>${tags}</div></div>`;
+}).join(''));
+</script></body></html>
