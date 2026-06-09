@@ -102,6 +102,16 @@ def is_discovered_attack(board: chess.Board, move: chess.Move) -> bool:
     return False
 
 
+def is_outpost_move(board: chess.Board, move: chess.Move) -> bool:
+    """`move` lands a knight/bishop on an outpost (enemy half, pawn-defended, unchallengeable by an
+    enemy pawn). Positional, not tactical — the mover is board.turn."""
+    pov = board.turn
+    if board.piece_type_at(move.from_square) not in (KNIGHT, BISHOP):
+        return False
+    b = board.copy(stack=False); b.push(move)
+    return U.is_outpost(b, move.to_square, pov)
+
+
 def exposes_own_king(board: chess.Board, move: chess.Move, threshold: int = 2) -> bool:
     """After `move`, the mover's own king has >= threshold more enemy attackers on/around it."""
     pov = board.turn
@@ -149,6 +159,11 @@ def fork_line(nodes, pov) -> bool:
 def fork_depth(nodes, pov):
     """Depth (index among pov's moves) of the first fork, or None. 0 = fork is the move to play now."""
     return _first_fire_index(nodes, pov, is_fork)
+
+
+def outpost_line(nodes, pov) -> bool:
+    """pov establishes an outpost in this line (a knight/bishop move to an unchallengeable square)."""
+    return _first_fire_index(nodes, pov, is_outpost_move) is not None
 
 
 def hanging_piece_line(nodes, pov) -> bool:
@@ -792,7 +807,7 @@ LINE_DETECTORS = {
     "attackingF2F7": attacking_f2_f7_line, "kingsideAttack": kingside_attack_line,
     "queensideAttack": queenside_attack_line, "clearance": clearance_line,
     "advancedPawn": advanced_pawn_line, "enPassant": en_passant_line, "castling": castling_line,
-    "promotion": promotion_line, "underPromotion": under_promotion_line,
+    "promotion": promotion_line, "underPromotion": under_promotion_line, "outpost": outpost_line,
 }
 
 

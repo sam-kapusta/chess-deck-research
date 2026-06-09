@@ -176,6 +176,33 @@ def run():
     print(f"  [{'PASS' if not not_om else 'FAIL'}] not only-move (115cp gap): {not not_om}")
     extra_tg = 3
 
+    print("--- motifs: outpost (enemy half, pawn-defended, unchallengeable) ---")
+    import chesslib_util as CU
+    # (name, fen, move_uci_or_None, square, pov_white, expected)
+    out_cases = [
+        ("Nd4 outpost (c2 blocked by Nc3)", "r1bq1rk1/pp2npbp/2n3p1/1Bpp4/5P2/P1NP1N2/1PP3PP/R1BQ1RK1 b - - 1 10",
+         "c6d4", chess.D4, False, True),
+        ("Nd4 NOT outpost (c-pawn can play c3)", "r1bq1rk1/pp2npbp/6p1/1Bpp4/3n1P2/P2P1N2/1PP3PP/R1BQ1RK1 w - - 0 11",
+         None, chess.D4, False, False),
+        ("Ne5 outpost (no enemy d/f pawn)", "4k3/pp6/8/4N3/3P4/8/8/4K3 w - - 0 1",
+         None, chess.E5, True, True),
+        ("Ne5 NOT outpost (black f7 plays f6)", "4k3/pp3p2/8/4N3/3P4/8/8/4K3 w - - 0 1",
+         None, chess.E5, True, False),
+        ("Nd4 NOT outpost (no pawn defender)", "4k3/8/8/8/3N4/8/8/4K3 w - - 0 1",
+         None, chess.D4, True, False),
+    ]
+    for name, fen, mv, sq, pov_white, want in out_cases:
+        b = chess.Board(fen)
+        if mv:
+            b.push(chess.Move.from_uci(mv))
+        got = CU.is_outpost(b, sq, chess.WHITE if pov_white else chess.BLACK)
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: {got} (want {want})")
+
     print("--- predicates: bishop endgame color split ---")
     be_cases = [
         ("same-color bishops", "4k3/8/8/3b4/4B3/8/4P1P1/4K3 w - - 0 1", "Bishop Endgame (Same Color)"),
@@ -242,7 +269,7 @@ def run():
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + len(ps_cases) + extra_tg + 2 + extra_cd
+             + len(hung_cases) + len(ps_cases) + extra_tg + 2 + extra_cd + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases))
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails

@@ -16,7 +16,7 @@ Two layers here:
 import chess
 import chess.pgn
 from chess import square_rank, square_file, Color, Board, Square, Piece, square_distance
-from chess import KING, QUEEN, ROOK, BISHOP, KNIGHT, PAWN
+from chess import KING, QUEEN, ROOK, BISHOP, KNIGHT, PAWN, WHITE, BLACK
 from chess.pgn import ChildNode, Game
 from typing import List, Tuple, Optional
 
@@ -115,6 +115,71 @@ def attacked_opponent_pieces(board: Board, from_square: Square, pov: Color) -> L
 
 def attacker_pieces(board: Board, color: Color, square: Square) -> List[Piece]:
     return [p for p in (board.piece_at(s) for s in board.attackers(color, square)) if p]
+
+
+def is_outpost(board: Board, square: Square, pov: Color) -> bool:
+    """The piece on `square` (a knight or bishop of `pov`) sits on an OUTPOST: in the enemy half,
+    defended by a friendly pawn, and NO enemy pawn can ever advance to attack it.
+
+    'No enemy pawn can challenge it' = for each adjacent file, no enemy pawn is positioned BEHIND the
+    square (so it could advance toward it) with a clear path of empty squares to the attacking square.
+    A blocked pawn (e.g. White c2 stuck behind its own Nc3) cannot challenge -> the square is permanent.
+    """
+    p = board.piece_at(square)
+    if p is None or p.color != pov or p.piece_type not in (KNIGHT, BISHOP):
+        return False
+    rank, file = square_rank(square), square_file(square)
+    # in the enemy half: pov advances toward higher ranks (White) / lower ranks (Black).
+    # White outposts live on ranks 4-6 (idx 3-5), Black on ranks 3-5 (idx 2-4). Require crossing center.
+    if pov == WHITE and rank < 3:
+        return False
+    if pov == BLACK and rank > 4:
+        return False
+    # defended by a friendly pawn (the square is held)
+    pawn_def = any(board.piece_type_at(s) == PAWN for s in board.attackers(pov, square))
+    if not pawn_def:
+        return False
+    # An enemy pawn challenges the outpost by reaching an adjacent-file square ONE rank toward pov's
+    # side (= rank + adv), from which it attacks `square`. pov's pawns advance by +adv; enemy pawns
+    # advance by -adv. So a challenger sits on the far side (rank beyond attack_from, in the -adv
+    # direction) and must have a clear path of empty squares to advance up to attack_from_rank.
+    enemy = not pov
+    adv = 1 if pov == WHITE else -1
+    attack_from_rank = rank + adv          # the square an enemy pawn attacks the outpost FROM
+    if not (0 <= attack_from_rank <= 7):
+        return True                         # outpost on a rank where no pawn could ever attack it
+    for df in (-1, 1):
+        af = file + df
+        if not (0 <= af <= 7):
+            continue
+        for r in range(8):
+            sq = chess.square(af, r)
+            pc = board.piece_at(sq)
+            if pc is None or pc.piece_type != PAWN or pc.color != enemy:
+                continue
+            # enemy pawn advances by -adv. To REACH attack_from_rank it must move in the -adv
+            # direction, so (attack_from_rank - r) has the same sign as -adv.
+            needs_to_advance = (attack_from_rank - r) * (-adv) > 0
+            if not needs_to_advance and r != attack_from_rank:
+                continue
+            # already on the attacking square -> it challenges now
+            if r == attack_from_rank:
+                return False
+            # clear path from r down to attack_from_rank (advancing by -adv), squares exclusive of r,
+            # inclusive of the target — any blocker (own or enemy) stops the pawn (e.g. Nc3 blocks c2).
+            step = -adv
+            rr = r + step
+            clear = True
+            while True:
+                if board.piece_at(chess.square(af, rr)) is not None:
+                    clear = False
+                    break
+                if rr == attack_from_rank:
+                    break
+                rr += step
+            if clear:
+                return False
+    return True
 
 
 # ---------------- ChildNode helpers (for sequence detectors) ----------------

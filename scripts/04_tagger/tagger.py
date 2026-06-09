@@ -34,7 +34,7 @@ MOTIF_LABEL = {
     "exposedKing": "Exposed King", "kingsideAttack": "Kingside Attack",
     "queensideAttack": "Queenside Attack", "promotion": "Promotion", "underPromotion": "Underpromotion",
     "enPassant": "En Passant", "castling": "Castling", "doubleCheck": "Double Check",
-    "attackingF2F7": "f2/f7 Attack", "advancedPawn": "Advanced Pawn",
+    "attackingF2F7": "f2/f7 Attack", "advancedPawn": "Advanced Pawn", "outpost": "Outpost",
     "mate": "Mate", "anastasiaMate": "Anastasia's Mate", "arabianMate": "Arabian Mate",
     "bodenMate": "Boden's Mate", "doubleBishopMate": "Double Bishop Mate",
     "smotheredMate": "Smothered Mate", "backRankMate": "Back-Rank Mate", "hookMate": "Hook Mate",
@@ -193,7 +193,7 @@ def categorize(label):
         return "King Safety"
     if "endgame" in l or "zugzwang" in l or "opposition" in l or "promotion" in l:
         return "Endgame"
-    if any(w in l for w in ["pawn", "tempo", "development", "advanced"]):
+    if any(w in l for w in ["pawn", "tempo", "development", "advanced", "outpost"]):
         return "Positional"
     # exact game-state words (renamed from "Blunder While X"). Exact-match so "winning" inside
     # "Missed Winning Capture" doesn't reach here — that's already caught by Material above anyway.
