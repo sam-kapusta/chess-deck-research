@@ -44,7 +44,10 @@ MOTIF_LABEL = {
 
 # Motifs where the FAILED direction (played move itself was the tactic, and it backfired) is sensible.
 # Single-move detectors only — sequence motifs need the opponent's cooperation so "failed X" is noise.
-FAILED_OK = {"Fork", "Hanging Piece", "Pin", "Discovered Attack"}
+# NB "Hanging Piece" is NOT here: capturing a free piece (is_hanging_piece) can't "fail" — you won
+# material. It fired "Failed Hanging Piece" on a recapture that was simply sub-optimal (gxf3 took a
+# free bishop but Bxc6 first was better). A category error; only real attacking tactics can backfire.
+FAILED_OK = {"Fork", "Pin", "Discovered Attack"}
 
 # Mates render with their distance; keep the mate distance string off the label but in evidence.
 def _mate_label(key, evidence):
@@ -177,15 +180,16 @@ def _suppress_lesser_under_mate(tags):
 
 
 def categorize(label):
+    # Material FIRST — "Hung Material" contains the substring "mate" (in "MATErial"), so the tactical
+    # check must not see it first. Material/hung labels are unambiguous, so they win the tie.
     l = label.lower()
-    if any(w in l for w in ["mate", "check", "fork", "pin", "skewer", "discovered", "deflection",
-                            "attraction", "clearance", "interference", "zwischenzug", "overload",
-                            "x-ray", "sacrifice", "double check", "f2/f7", "trapped piece",
-                            "capture of defender"]):
-        return "Tactical"
-    if any(w in l for w in ["capture", "exchange", "hung", "bad capture", "material", "wrong piece"]):
+    if any(w in l for w in ["material", "capture", "exchange", "hung", "wrong piece"]):
         return "Material"
-    if any(w in l for w in ["king", "castl", "attack", "mating"]):
+    if any(w in l for w in ["mate", "check", "fork", "combination", "pin", "skewer", "discovered",
+                            "deflection", "attraction", "clearance", "interference", "zwischenzug",
+                            "overload", "x-ray", "sacrifice", "f2/f7", "trapped piece", "defender"]):
+        return "Tactical"
+    if any(w in l for w in ["king", "castl", "attack"]):
         return "King Safety"
     if "endgame" in l or "zugzwang" in l or "opposition" in l or "promotion" in l:
         return "Endgame"

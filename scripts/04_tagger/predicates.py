@@ -122,22 +122,43 @@ def hung_material(m):
     """Played move loses material on NET across the refutation line. Uses the change in material_diff
     (mover minus opponent), so the player's own recaptures in the line are netted out — a player who
     loses a rook but takes a bishop back is down 2, not 5. (The old gross-loss metric over-claimed by
-    ~2x: 30% of fires claimed 5+ pts while cp_loss justified far less — line-flow, not a real hang.)"""
+    ~2x: 30% of fires claimed 5+ pts while cp_loss justified far less — line-flow, not a real hang.)
+
+    Split by DEPTH (like fork): IMMEDIATE = >=2 pts already gone after the opponent's FIRST reply
+    ("Hung Material" — a one-move oversight, the piece is just taken; 98% of these the 1st reply is a
+    capture). DELAYED = the net loss is realized only after a multi-move sequence ("Lost Material to
+    Combination" — you allowed a tactic that wins material a few moves deep). Verified clean ~48/52."""
     if not m.refutation_san:
         return []
-    b = m.board_after  # opponent to move; refutation is from here
-    start_diff = _material_diff(b, m.mover)
-    bb = chess.Board(b.fen())
+    # Reference point MUST be board_BEFORE the played move, so that if the played move is itself a
+    # capture, the player's own gain is netted in. Measuring from board_after (post-capture) made an
+    # EQUAL trade (e.g. Bxc6 bxc6, 3-for-3) read as a 3-pt hang — it counted the recapture loss but
+    # not the capture gain. Now an equal trade nets 0 and does NOT fire. (Caught by Sam.)
+    b0 = m.board_before
+    start_diff = _material_diff(b0, m.mover)
+    bb = chess.Board(b0.fen())
+    try:
+        bb.push(chess.Move.from_uci(m.played_uci))
+    except Exception:
+        return []
+    diffs = [_material_diff(bb, m.mover)]   # diffs[0] = right after the played move (opponent to move)
     for san in m.refutation_san:
         try:
             bb.push(bb.parse_san(san))
         except Exception:
             break
-    end_diff = _material_diff(bb, m.mover)
-    net_lost = start_diff - end_diff   # how much worse the mover's material balance got
-    if net_lost >= 2:
-        return [("Hung Material", "hung", f"refutation costs {net_lost} pts net (recaptures included)")]
-    return []
+        diffs.append(_material_diff(bb, m.mover))
+    end_diff = diffs[-1]
+    net_lost = start_diff - end_diff   # vs BEFORE the played move — equal trades net 0
+    if net_lost < 2:
+        return []
+    # how much is already gone after the opponent's first reply (ply 1 of the refutation)?
+    immediate_lost = start_diff - diffs[1] if len(diffs) > 1 else (start_diff - diffs[0])
+    if immediate_lost >= 2:
+        return [("Hung Material", "hung",
+                 f"opponent's first reply wins {immediate_lost} pts ({net_lost} net over line)")]
+    return [("Lost Material to Combination", "hung",
+             f"refutation wins {net_lost} pts net over {len(diffs)-1} plies (delayed, not a 1-move hang)")]
 
 
 # ---------- king safety ----------

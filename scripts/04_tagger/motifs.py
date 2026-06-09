@@ -179,19 +179,29 @@ def hanging_piece_line(nodes, pov) -> bool:
 
 
 def sacrifice_line(nodes, pov) -> bool:
-    # cook: pov is down >=2 material (vs initial) at some pov ply after the first, no promotion.
-    # cook's raw diffs[1::2]/[::2] only mean "pov moves"/"opp moves" under puzzle parity (node0=opp).
-    # We make them pov-relative so MISSED (node0=mover) doesn't sample the OPPONENT's plies (which dip
-    # right after a capture and false-fire). This is the same parity bug class as the 46% adapter.
-    if not nodes:
+    # A sacrifice = pov INVESTS material that is NOT recovered: pov is still down >=2 at the END of
+    # the line (the payoff is positional/mating, not material).
+    #
+    # cook fires on a TRANSIENT dip at any pov ply (right for puzzles, where the dip is the point).
+    # For coaching that's wrong: a mid-exchange dip (you capture, opp recaptures, you recapture back)
+    # momentarily reads -3 but nets 0 — NOT a sac. 44% of corpus 'Missed Sacrifice' were these
+    # transient dips (e.g. Bxe2 Nxe2 ... Nxc6 bxc6, dead equal). Caught while auditing a real game.
+    #
+    # Fix: require the deficit to PERSIST to the final position (and pov's last move) — measured vs
+    # the position BEFORE pov's first move, so pov's own captures are netted in (the equal-trade fix).
+    if len(nodes) < 2:
         return False
-    diffs = [U.material_diff(n.board(), pov) for n in nodes]
-    initial = diffs[0]
-    pov_idx = [i for i, n in enumerate(nodes) if n.turn() != pov]   # pov's own moves
-    opp_idx = [i for i, n in enumerate(nodes) if n.turn() == pov]   # opponent's moves
-    for i in pov_idx[1:]:                                            # skip pov's first move (cook [1:])
-        if diffs[i] - initial <= -2:
-            return not any(nodes[j].move.promotion for j in opp_idx[1:])
+    initial = U.material_diff(nodes[0].parent.board(), pov)   # before pov's first move
+    pov_nodes = U.pov_nodes(nodes, pov)
+    if len(pov_nodes) < 2:
+        return False
+    end_diff = U.material_diff(nodes[-1].board(), pov)
+    last_pov_diff = U.material_diff(pov_nodes[-1].board(), pov)
+    # invested >=2 that survives to the end of the line AND to pov's final move (not a transient dip)
+    if (end_diff - initial <= -2) and (last_pov_diff - initial <= -2):
+        # not a promotion line (cook excludes those — they're combinations, not sacs)
+        if not any(n.move.promotion for n in pov_nodes):
+            return True
     return False
 
 

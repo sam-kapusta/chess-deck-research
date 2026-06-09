@@ -11,6 +11,7 @@ Add cases here as each detector is built/tweaked.
 import sys, os, chess
 sys.path.insert(0, os.path.dirname(__file__))
 import motifs as M
+import chesslib_util as U
 import tagger as T
 
 # (name, fen, move_uci, detector, expected) — all FENs verified legal + answer hand-checked
@@ -97,6 +98,57 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {name}: label={got!r} exp={want!r}")
 
+    print("--- predicates: hung material (equal trades excluded, immediate vs delayed) ---")
+    import predicates as PR
+    from mistake import Mistake
+    # (name, fen, played_uci, refutation_san, expected_label_or_None)
+    hung_cases = [
+        # dead-equal trade Bxc6 bxc6 (bishop-for-knight, 3-for-3) — must NOT fire (the bug Sam caught)
+        ("equal trade != hung", "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 1",
+         "c4c6", ["bxc6"], None),
+        # quiet move, opponent grabs a free bishop next move — immediate hang
+        ("free piece = Hung Material", "3k4/8/8/3b4/8/8/3R4/4K3 b - - 0 1",
+         "d8c8", ["Rxd5"], "Hung Material"),
+    ]
+    for name, fen, uci, ref, want in hung_cases:
+        b = chess.Board(fen)
+        m = Mistake(fen, uci, "", [], ref, 0, -300, 300, b.turn)
+        res = PR.hung_material(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+
+    print("--- motifs: sacrifice (persistent investment, not transient dip) ---")
+    # (name, fen, line_san, pov_white, expected)
+    sac_cases = [
+        # dead-equal trade mid-line: Bxe2 Nxe2 Bd6 Nxc6 bxc6 O-O — material recovers, NOT a sac
+        ("transient dip != sacrifice", "r2qkb1r/pp3ppp/2n1pn2/3pN1Bb/3P4/2N4P/PPP1BPP1/R2QK2R b KQkq - 2 9",
+         ["Bxe2", "Nxe2", "Bd6", "Nxc6", "bxc6", "O-O"], False, False),
+        # real sac: white gives a bishop on f7 that is never recovered
+        ("real unrecovered sac", "rnbqkb1r/pppp1ppp/5n2/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR w KQkq - 0 1",
+         ["Bxf7+", "Kxf7", "Qh5+", "Kg8"], True, True),
+    ]
+    for name, fen, line_san, pov_white, want in sac_cases:
+        b = chess.Board(fen)
+        ucis = []
+        for san in line_san:
+            try:
+                mv = b.parse_san(san); ucis.append(mv.uci()); b.push(mv)
+            except Exception:
+                break
+        nodes = U.build_line(chess.Board(fen), ucis)
+        got = M.sacrifice_line(nodes, chess.WHITE if pov_white else chess.BLACK)
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: fires={got} exp={want}")
+
     print("--- tagger: mate suppression ---")
     # a forced mate in a direction outranks lesser tactical motifs in that SAME direction only
     supp_cases = [
@@ -119,7 +171,8 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
-    total = len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases) + len(supp_cases)
+    total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
+             + len(hung_cases) + len(sac_cases) + len(supp_cases))
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 
