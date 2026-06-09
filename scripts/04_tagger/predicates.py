@@ -216,24 +216,49 @@ def _pawn_files(board, color):
     return files
 
 
+def _doubled_isolated(files, board_files):
+    """Return (doubled_file, isolated_file) defects present in `files` (a _pawn_files map)."""
+    doubled = next((f for f, ranks in files.items() if len(ranks) >= 2), None)
+    return doubled
+
+
 def pawn_structure(m):
+    """A pawn move CREATED a structural weakness that the mistake caused. Two guards make this honest:
+      1. Skip CAPTURES — a recapture (gxf3 regaining a piece) that incidentally doubles a pawn is not
+         a voluntary structural concession. Only a quiet pawn push can "create" a weakness as the point.
+      2. Compare against the BEST line — if the best move leads to the SAME doubled/isolated pawn, the
+         defect isn't a consequence of the blunder, so don't tag it. (Caught by Sam on 13.gxf3, where
+         the doubled f-pawn appears in the best line too: ...bxc6 gxf3.)"""
     pm = _played_move(m)
     if pm is None or m.board_before.piece_type_at(pm.from_square) != chess.PAWN:
         return []
     before = m.board_before
+    if before.is_capture(pm):          # guard 1: recaptures don't "create" a structural concession
+        return []
     after = before.copy(); after.push(pm)
-    out = []
     bf = _pawn_files(before, m.mover); af = _pawn_files(after, m.mover)
-    # doubled: a file gained a 2nd+ pawn
+
+    # what the BEST move's resulting structure looks like (guard 2)
+    best_af = None
+    bm = _best_move(m)
+    if bm is not None:
+        ab = before.copy(); ab.push(bm)
+        best_af = _pawn_files(ab, m.mover)
+
+    out = []
+    # doubled: a file gained a 2nd+ pawn that the blunder caused AND the best move didn't also cause
     for f, ranks in af.items():
         if len(ranks) >= 2 and len(bf.get(f, [])) < len(ranks):
-            out.append(("Created Doubled Pawn", "played", f"file {chr(97+f)} doubled"))
+            if best_af is not None and len(best_af.get(f, [])) >= 2:
+                continue   # best move also doubles this file -> not a consequence of the blunder
+            out.append(("Created Doubled Pawn", "played", f"file {chr(97+f)} doubled (not in best line)"))
             break
-    # isolated: the moved pawn's file has no friendly pawn on adjacent files
+    # isolated: the moved pawn's file has no friendly pawn on adjacent files, and best move avoids it
     tf = chess.square_file(pm.to_square)
-    if tf in af:
-        if (tf - 1) not in af and (tf + 1) not in af:
-            out.append(("Created Isolated Pawn", "played", f"pawn on {chr(97+tf)} isolated"))
+    if tf in af and (tf - 1) not in af and (tf + 1) not in af:
+        best_isolates = best_af is not None and tf in best_af and (tf - 1) not in best_af and (tf + 1) not in best_af
+        if not best_isolates:
+            out.append(("Created Isolated Pawn", "played", f"pawn on {chr(97+tf)} isolated (not in best line)"))
     return out
 
 
@@ -287,6 +312,16 @@ def endgame_type(m):
     for pt, name in [(chess.QUEEN, "Queen"), (chess.ROOK, "Rook"),
                      (chess.BISHOP, "Bishop"), (chess.KNIGHT, "Knight")]:
         if has(pt) and _only_piece_types_present(b, {P, pt}):
+            if pt == chess.BISHOP:
+                # one bishop each side -> same- vs opposite-color (opp-color is famously drawish)
+                wb = list(b.pieces(chess.BISHOP, chess.WHITE))
+                bb = list(b.pieces(chess.BISHOP, chess.BLACK))
+                if len(wb) == 1 and len(bb) == 1:
+                    same = (chess.square_rank(wb[0]) + chess.square_file(wb[0])) % 2 == \
+                           (chess.square_rank(bb[0]) + chess.square_file(bb[0])) % 2
+                    kind = "Same-Color" if same else "Opposite-Color"
+                    return [(f"{kind} Bishop Endgame", "info",
+                             f"one bishop each, {'same' if same else 'opposite'} square color")]
             return [(f"{name} Endgame", "info", f"only K+P+{name.lower()}s on board")]
     # pawn endgame: kings + pawns only
     if _only_piece_types_present(b, {P}):

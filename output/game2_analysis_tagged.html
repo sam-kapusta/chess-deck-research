@@ -1,0 +1,67 @@
+<!doctype html><html><head><meta charset=utf-8><title>Game Tags — game2.pgn</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:14px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#13151a;color:#e8e6e1}
+#top{position:sticky;top:0;background:#1a1d24;border-bottom:1px solid #2a2e38;padding:14px 22px;z-index:10}
+.logo{font-size:19px;font-weight:700}.logo span{color:#d99}#stat{color:#8a909c;font-size:13px;margin-top:3px}
+#main{padding:20px 26px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{background:#1a1d24;border:1px solid #262a34;border-radius:10px;padding:12px}
+.mv{font-size:15px;font-weight:700;margin-bottom:2px}.mv .cp{color:#d99;font-weight:600;font-size:13px}
+.sub{color:#9aa0ac;font-size:12px;margin-bottom:8px}
+.bd a{text-decoration:none}
+.tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:11px;padding:3px 8px;border-radius:11px;background:#2a3140;color:#cfe}
+.tag.tactic{background:#2d2540;color:#d9c3ff}.tag.position{background:#243140;color:#bcd}
+.tag.info{background:#222;color:#888}
+.legend{grid-column:1/-1;font-size:12px;color:#8a909c;margin:-6px 0 4px}
+.legend i{font-style:normal;font-weight:700}.lg{color:#1f8a4c}.lr{color:#c0392b}
+.gem{margin-top:10px;background:#0e1014;border:1px solid #262a34;border-radius:6px;padding:8px;position:relative}
+.gem pre{margin:0;font:11px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;color:#aeb6c2;white-space:pre-wrap;word-break:break-all}
+.gem button{position:absolute;top:6px;right:6px;font-size:10px;padding:2px 7px;border:1px solid #3a4150;border-radius:5px;background:#222630;color:#cfd2d8;cursor:pointer}
+.gem button:active{background:#2a3140}
+</style></head><body>
+<div id=top><div class=logo>Game Tags · <span>game2.pgn</span></div><div id=stat>8 mistakes · 33 tags</div></div>
+<div id=main>
+<div class=legend>arrows: <i class=lg>best move</i> · <i class=lr>played move</i></div>
+</div>
+<script>
+const PIECES={k:'\u265a',q:'\u265b',r:'\u265c',b:'\u265d',n:'\u265e',p:'\u265f',K:'\u2654',Q:'\u2655',R:'\u2656',B:'\u2657',N:'\u2658',P:'\u2659'};
+const SQ=148/8;
+function sqxy(sq,flip){let f=sq.charCodeAt(0)-97,r=8-(+sq[1]);if(flip){f=7-f;r=7-r}return [f*SQ+SQ/2,r*SQ+SQ/2];}
+function board(o,id){
+  const rows=o.fen.split(' ')[0].split('/');const wtm=o.fen.split(' ')[1]!=='b';const flip=!wtm;
+  let cells='';
+  for(let dr=0;dr<8;dr++)for(let df=0;df<8;df++){const dark=(dr+df)%2===1;
+    cells+=`<rect x="${df*SQ}" y="${dr*SQ}" width="${SQ}" height="${SQ}" fill="${dark?'#b88a5a':'#efe2cf'}"/>`;}
+  for(let r=0;r<8;r++){let f=0;for(const ch of rows[r]){
+    if(/\d/.test(ch)){f+=+ch;continue;}
+    const dr=flip?7-r:r, df=flip?7-f:f;
+    cells+=`<text x="${df*SQ+SQ/2}" y="${dr*SQ+SQ/2+0.5}" font-size="${SQ*0.82}" text-anchor="middle" dominant-baseline="central">${PIECES[ch]||''}</text>`;f++;}}
+  function arrow(uci,col,mid){if(!uci||uci.length<4)return'';const a=uci.slice(0,2),b=uci.slice(2,4);
+    let[x1,y1]=sqxy(a,flip),[x2,y2]=sqxy(b,flip);const dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy)||1,ux=dx/len,uy=dy/len;
+    x1+=ux*SQ*0.30;y1+=uy*SQ*0.30;x2-=ux*SQ*0.34;y2-=uy*SQ*0.34;
+    return `<line x1=${x1} y1=${y1} x2=${x2} y2=${y2} stroke="${col}" stroke-width=5.5 stroke-linecap=round opacity=.9 marker-end="url(#${mid})"/>`;}
+  const mk=(i,c)=>`<marker id=${i} markerWidth=3.2 markerHeight=3.2 refX=2.2 refY=1.6 orient=auto><path d="M0,0 L3.2,1.6 L0,3.2 z" fill="${c}"/></marker>`;
+  const defs=`<defs>${mk('r'+id,'#c0392b')}${mk('g'+id,'#1f8a4c')}</defs>`;
+  return `<svg width=148 height=148 viewBox="0 0 148 148" style="border-radius:5px;display:block">${defs}${cells}${arrow(o.b,'#1f8a4c','g'+id)}${arrow(o.u,'#c0392b','r'+id)}</svg>`;}
+const CARDS=[{"fen": "r2qkb1r/pp3ppp/2n1pn2/3pN1Bb/3P4/2N4P/PPP1BPP1/R2QK2R b KQkq - 2 9", "u": "f8d6", "b": "h5e2", "mv": "9... Bd6", "ps": "Bd6", "bs": "Bxe2", "cp": 375, "bl": "Bxe2 Nxe2 Bd6 Nxc6 bxc6 O-O", "rf": "Nxc6 bxc6 Bxh5 Rb8 Rb1 h6", "tags": [{"label": "Opening", "layer": "position"}, {"label": "Blunder While Equal", "layer": "position"}, {"label": "Missed Exchange (Bishop)", "layer": "position"}, {"label": "Hung Material", "layer": "position"}, {"label": "Wrong Move Order", "layer": "position"}]}, {"fen": "1r1q1rk1/p4pp1/2pbpn1p/3p4/3P3B/2N2B1P/PPP2PP1/R2QK2R w KQ - 2 14", "u": "b2b3", "b": "a1b1", "mv": "14 b3", "ps": "b3", "bs": "Rb1", "cp": 336, "bl": "Rb1 g5 Bg3 Bxg3 fxg3 c5", "rf": "Bb4 Qd3 Qa5 O-O Bxc3 Rad1", "tags": [{"label": "Allowed Pin", "layer": "tactic"}, {"label": "Middlegame", "layer": "position"}, {"label": "Blunder While Winning", "layer": "position"}, {"label": "Lost Material to Combination", "layer": "position"}]}, {"fen": "1r1q1rk1/p4p2/2pbpn1p/3p2p1/3P4/1PN2BBP/P1P2PP1/R2QK2R b KQ - 1 15", "u": "d6g3", "b": "d6b4", "mv": "15... Bxg3", "ps": "Bxg3", "bs": "Bb4", "cp": 264, "bl": "Bb4 Qd3 Qa5 O-O Bxc3 Be5", "rf": "fxg3 Qa5 Qd2 c5 O-O Kg7", "tags": [{"label": "Missed Pin", "layer": "tactic"}, {"label": "Allowed Castling", "layer": "tactic"}, {"label": "Failed Pin", "layer": "tactic"}, {"label": "Middlegame", "layer": "position"}, {"label": "Blunder While Equal", "layer": "position"}, {"label": "Bad Capture", "layer": "position"}]}, {"fen": "1r3rk1/p4p2/2pqpn1p/3p2p1/3P4/1PN2BPP/P1P3P1/R2QK2R w KQ - 1 17", "u": "e1f2", "b": "e1g1", "mv": "17 Kf2", "ps": "Kf2", "bs": "O-O", "cp": 146, "bl": "O-O c5 Kh2 Rfc8 Be2 cxd4", "rf": "e5 Rf1 e4 Bg4 Nxg4+ hxg4", "tags": [{"label": "Missed Castling", "layer": "tactic"}, {"label": "Middlegame", "layer": "position"}, {"label": "Blunder While Winning", "layer": "position"}, {"label": "Lost Castling Rights", "layer": "position"}]}, {"fen": "1r3rk1/p4p2/3qpn1p/2pp2p1/3P4/1P3BPP/P1P1NKP1/R2Q3R b - - 1 18", "u": "f8c8", "b": "c5d4", "mv": "18... Rfc8", "ps": "Rfc8", "bs": "cxd4", "cp": 71, "bl": "cxd4 Rf1 e5 Kg1 Rfc8 Rc1", "rf": "c3 cxd4 cxd4 a5 Rf1 a4", "tags": [{"label": "Middlegame", "layer": "position"}, {"label": "Blunder While Winning", "layer": "position"}, {"label": "Missed Exchange (Pawn)", "layer": "position"}, {"label": "Wrong Move Order", "layer": "position"}]}, {"fen": "1rr3k1/p4p2/3qpn1p/2pp2p1/3P4/1P3BPP/P1P1NKP1/R2Q1R2 b - - 3 19", "u": "f6e4", "b": "c5d4", "mv": "19... Ne4+", "ps": "Ne4+", "bs": "cxd4", "cp": 159, "bl": "cxd4 Qxd4 e5 Qe3 Rxc2 Kg1", "rf": "Kg1 cxd4 Bxe4 dxe4 Qxd4 Qxd4+", "tags": [{"label": "Middlegame", "layer": "position"}, {"label": "Blunder While Winning", "layer": "position"}, {"label": "Missed Exchange (Pawn)", "layer": "position"}]}, {"fen": "1rr3k1/p4p2/4p2p/2q3p1/3Qp3/1P4PP/P1P1NKP1/R4R2 b - - 1 22", "u": "f7f5", "b": "c5d4", "mv": "22... f5", "ps": "f5", "bs": "Qxd4+", "cp": 108, "bl": "Qc7 Rac1 Rd8 Qe3 f5 Kg1", "rf": "Qxc5 Rxc5 c4 Kf7 Nc3 a5", "tags": [{"label": "Middlegame", "layer": "position"}, {"label": "Blunder While Winning", "layer": "position"}, {"label": "Missed Exchange (Queen)", "layer": "position"}, {"label": "Pawn Move Exposed King", "layer": "position"}, {"label": "Wrong Move Order", "layer": "position"}]}, {"fen": "1r4k1/p7/4p2p/2r2pp1/2P1p3/1P4PP/P3NKP1/R4R2 b - - 0 24", "u": "b8d8", "b": "f5f4", "mv": "24... Rd8", "ps": "Rd8", "bs": "f4", "cp": 86, "bl": "Kg7 Rad1 Kf6 Rd7 Ke5 Rfd1", "rf": "Rad1 Rcc8 Nc3 g4 Ke2 gxh3", "tags": [{"label": "Middlegame", "layer": "position"}, {"label": "Blunder While Winning", "layer": "position"}]}];
+function gemText(o){
+  const tags=o.tags.map(t=>t.label).join(', ');
+  return `FEN: ${o.fen}
+Side to move: ${o.fen.split(' ')[1]==='w'?'White':'Black'}
+Played move: ${o.ps} (${o.u})  [lost ${o.cp}cp]
+Best move: ${o.bs} (${o.b})
+Best line: ${o.bl||'n/a'}
+Refutation of played: ${o.rf||'n/a'}
+Our tags: ${tags}`;
+}
+document.getElementById('main').insertAdjacentHTML('beforeend', CARDS.map((o,i)=>{
+  const url='https://www.chess.com/analysis?fen='+encodeURIComponent(o.fen);
+  const tags=o.tags.map(t=>`<span class="tag ${t.layer}">${t.label}</span>`).join('');
+  const gt=gemText(o).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  return `<div class=card><div class=mv>${o.mv} <span class=cp>-${o.cp}cp</span></div>
+    <div class=sub>played ${o.ps} · best ${o.bs}</div>
+    <div class=bd><a href="${url}" target=_blank>${board(o,i)}</a></div>
+    <div class=tags>${tags}</div>
+    <div class=gem><button onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent);this.textContent='copied'">copy</button><pre>${gt}</pre></div></div>`;
+}).join(''));
+</script></body></html>

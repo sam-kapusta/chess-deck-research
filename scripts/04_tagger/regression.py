@@ -122,6 +122,41 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
 
+    print("--- predicates: pawn structure (recapture + best-line guards) ---")
+    # (name, fen, played_uci, best_uci, refutation_san, label_must_NOT_appear)
+    ps_cases = [
+        # 13.gxf3 — a recapture that doubles the f-pawn, but it's a CAPTURE and the doubling is also
+        # in the best line. Must NOT tag Created Doubled Pawn. (Caught by Sam.)
+        ("recapture doesn't create doubled", "r2qr1k1/pp3ppp/2nb1n2/1Bpp4/8/P1NP1b2/1PPQ1PPP/R1B1R1K1 w - - 0 13",
+         "g2f3", "b5c6", "Created Doubled Pawn"),
+    ]
+    for name, fen, uci, best, must_not in ps_cases:
+        b = chess.Board(fen)
+        m = Mistake(fen, uci, best, [], [], 0, -200, 200, b.turn)
+        labels = [t[0] for t in PR.pawn_structure(m)]
+        passed = must_not not in labels
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: labels={labels} (must not contain {must_not!r})")
+
+    print("--- predicates: bishop endgame color split ---")
+    be_cases = [
+        ("same-color bishops", "4k3/8/8/3b4/4B3/8/4P1P1/4K3 w - - 0 1", "Same-Color Bishop Endgame"),
+        ("opposite-color bishops", "4k3/8/8/2b5/4B3/8/4P1P1/4K3 w - - 0 1", "Opposite-Color Bishop Endgame"),
+    ]
+    for name, fen, want in be_cases:
+        b = chess.Board(fen)
+        m = Mistake(fen, "e1d1", "e1f1", [], [], 10, 5, 5, b.turn)
+        labels = [t[0] for t in PR.endgame_type(m)]
+        passed = want in labels
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: {labels} exp contains {want!r}")
+
     print("--- motifs: sacrifice (persistent investment, not transient dip) ---")
     # (name, fen, line_san, pov_white, expected)
     sac_cases = [
@@ -172,7 +207,7 @@ def run():
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + len(sac_cases) + len(supp_cases))
+             + len(hung_cases) + len(ps_cases) + len(be_cases) + len(sac_cases) + len(supp_cases))
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 
