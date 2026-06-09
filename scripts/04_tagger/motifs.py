@@ -68,21 +68,54 @@ def is_hanging_piece(board: chess.Board, move: chess.Move) -> bool:
     return U.is_hanging(board, victim, move.to_square)
 
 
+def _pin_target(board: chess.Board, move: chess.Move):
+    """After `move` by pov (a ray piece), does it pin an enemy piece against a MORE VALUABLE enemy
+    piece (or the king) behind it on the same ray? Returns the piece_type pinned-TO (the valuable one
+    behind), or None. Covers BOTH absolute pins (to king) and RELATIVE pins (to queen/rook) — the
+    latter are invisible to python-chess's is_pinned (king-only). The pinned piece must be less
+    valuable than what it shields, else it's not a pin (you'd just take)."""
+    # board is ALREADY pushed, so board.turn is the opponent; the mover (pov) is the other color.
+    pov = not board.turn
+    pt = board.piece_type_at(move.to_square)
+    if pt not in U.ray_piece_types:
+        return None
+    b = board
+    to = move.to_square
+    fr, ff = chess.square_rank(to), chess.square_file(to)
+    # for each ray direction the moved piece travels, walk outward: first enemy piece = candidate
+    # pinned; next piece along the same ray, if a more-valuable enemy, is what it's pinned to.
+    DIRS = {ROOK: [(1,0),(-1,0),(0,1),(0,-1)], BISHOP: [(1,1),(1,-1),(-1,1),(-1,-1)],
+            QUEEN: [(1,0),(-1,0),(0,1),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1)]}[pt]
+    for dr, df in DIRS:
+        first = None
+        r, f = fr + dr, ff + df
+        while 0 <= r <= 7 and 0 <= f <= 7:
+            sq = chess.square(f, r)
+            p = b.piece_at(sq)
+            if p is not None:
+                if first is None:
+                    if p.color == pov:
+                        break          # own piece first -> no pin this ray
+                    first = p           # candidate pinned enemy piece
+                else:
+                    # second piece along ray
+                    if p.color != pov and U.king_values[p.piece_type] > U.king_values[first.piece_type]:
+                        return p.piece_type   # pinned `first` against more-valuable `p`
+                    break
+            r += dr; f += df
+    return None
+
+
 def is_pin(board: chess.Board, move: chess.Move) -> bool:
-    """After `move` by pov, an enemy piece is pinned by the moved piece's line."""
-    pov = board.turn
+    """After `move` by pov, an enemy piece is pinned (absolute or relative) by the moved piece."""
     b = board.copy(stack=False); b.push(move)
-    for sq, p in b.piece_map().items():
-        if p.color == pov:
-            continue
-        if b.is_pinned(not pov, sq):
-            if move.to_square in b.attackers(pov, sq) or _on_pin_ray(b, move.to_square, sq, not pov):
-                return True
-    return False
+    return _pin_target(b, move) is not None
 
 
-def _on_pin_ray(board, mover_sq, pinned_sq, pinned_color):
-    return mover_sq in board.pin(pinned_color, pinned_sq)
+def pin_target_piece(board: chess.Board, move: chess.Move):
+    """The piece_type the pin is AGAINST (KING/QUEEN/ROOK...), or None. For naming the tag."""
+    b = board.copy(stack=False); b.push(move)
+    return _pin_target(b, move)
 
 
 def is_discovered_attack(board: chess.Board, move: chess.Move) -> bool:
@@ -437,7 +470,28 @@ def skewer_line(nodes, pov) -> bool:
 
 
 def pin_line(nodes, pov) -> bool:
-    return _pin_prevents_attack(nodes, pov) or _pin_prevents_escape(nodes, pov)
+    # cook's pin-prevents-attack/escape (king-pin tactics) OR a fresh relative/absolute pin move
+    return (_pin_prevents_attack(nodes, pov) or _pin_prevents_escape(nodes, pov)
+            or _first_fire_index(nodes, pov, is_pin) is not None)
+
+
+def pin_target(nodes, pov):
+    """The piece_type the pin is AGAINST (KING/QUEEN/ROOK) — for naming. Returns the most valuable
+    target among pov's pinning moves in the line, or None."""
+    best = None
+    for node in U.pov_nodes(nodes, pov)[:-1] or U.pov_nodes(nodes, pov):
+        tgt = _pin_target_after(node)
+        if tgt is not None and (best is None or U.king_values[tgt] > U.king_values[best]):
+            best = tgt
+    return best
+
+
+def _pin_target_after(node):
+    """pin target of node.move played from node.parent.board()."""
+    try:
+        return _pin_target(node.board(), node.move)
+    except Exception:
+        return None
 
 
 def _pin_prevents_attack(nodes, pov) -> bool:
@@ -831,6 +885,14 @@ def detect_line(start_board: chess.Board, ucis: List[str], pov: bool) -> dict:
             depth = fork_depth(nodes, pov)
             if depth is not None:
                 found["fork"] = f"depth={depth} {found['fork']}"
+        except Exception:
+            pass
+    # pin target annotation: what the pin is AGAINST (king/queen/rook), for naming "Pin (to Queen)".
+    if "pin" in found:
+        try:
+            tgt = pin_target(nodes, pov)
+            if tgt is not None:
+                found["pin"] = f"target={U.PIECE_NAME[tgt]} {found['pin']}"
         except Exception:
             pass
     # mates (separate: returns a specific key)

@@ -176,6 +176,30 @@ def run():
     print(f"  [{'PASS' if not not_om else 'FAIL'}] not only-move (115cp gap): {not not_om}")
     extra_tg = 3
 
+    print("--- motifs: pin target (relative pins + naming) ---")
+    # (name, fen, move_uci, expected_target_piece_type or None)
+    pin_cases = [
+        # Bg4 pins Ne2 to Qd1 — RELATIVE pin (to queen), invisible to python-chess is_pinned (king-only).
+        # FEN is the d4 position AFTER White's d4, Black to move; Bc8-g4 is the pin.
+        ("Bg4 pins Ne2 to queen", "r1bq1rk1/5pbp/p5p1/1p1p4/2pP1P2/P7/1PPBN1PP/1R1Q1R1K b - - 0 17",
+         "c8g4", chess.QUEEN),
+        # Bb5 pins Nc6 to king — absolute pin (to king).
+        ("Bb5 pins Nc6 to king", "r1bqkbnr/ppp1pppp/2n5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1",
+         "f1b5", chess.KING),
+        # quiet move pins nothing
+        ("e4 pins nothing", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "e2e4", None),
+    ]
+    for name, fen, uci, want in pin_cases:
+        b = chess.Board(fen)
+        mv = chess.Move.from_uci(uci)
+        got = M.pin_target_piece(b, mv) if mv in b.legal_moves else f"ILLEGAL({uci})"
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: target={got} exp={want}")
+
     print("--- motifs: outpost (enemy half, pawn-defended, unchallengeable) ---")
     import chesslib_util as CU
     # (name, fen, move_uci_or_None, square, pov_white, expected)
@@ -269,7 +293,8 @@ def run():
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + len(ps_cases) + extra_tg + 2 + extra_cd + len(out_cases)
+             + len(hung_cases) + len(ps_cases) + extra_tg + 2 + extra_cd
+             + len(pin_cases) + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases))
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails

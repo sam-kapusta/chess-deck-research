@@ -117,6 +117,10 @@ def _motif_label(key, ev):
         except Exception:
             depth = 0
         return "Fork" if depth == 0 else "Combination → Fork"
+    # pin: name what it's against — "Pin (to Queen)" / "Pin (to King)". detect_line prefixes "target=X".
+    if key == "pin" and ev.startswith("target="):
+        tgt = ev.split("target=", 1)[1].split()[0]
+        return f"Pin (to {tgt})"
     return MOTIF_LABEL.get(key, key)
 
 
@@ -173,7 +177,9 @@ def _suppress_lesser_under_mate(tags):
         if d in mate_dirs:
             # strip the "Missed "/"Allowed "/"Failed " prefix to get the bare motif name
             bare = lab.split(" ", 1)[1] if " " in lab else lab
-            if bare in _MATE_OUTRANKS:
+            # match exact OR parametrized labels like "Pin (to Queen)" -> "Pin"
+            base = bare.split(" (", 1)[0]
+            if bare in _MATE_OUTRANKS or base in _MATE_OUTRANKS:
                 continue
         kept.append((lab, d, ev))
     return kept
