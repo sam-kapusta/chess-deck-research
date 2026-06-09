@@ -18,18 +18,31 @@ from mistake import Mistake
 from tagger import tag_mistake_full, categorize
 
 
+def _real_best(e, b):
+    """The deep best move = top_lines[0].moves[0], NOT the shallow `best_san` field. The shallow
+    best_san can be STALE (equal to the played move) while the deep MultiPV has the true best — e.g.
+    40.Bd2: best_san='Bd2' but top_lines[0]='cxb4'. Always trust the deep PV. Returns (uci, san)."""
+    tl = e.get("top_lines") or []
+    if tl and tl[0].get("moves"):
+        san0 = tl[0]["moves"][0]
+        try:
+            return b.parse_san(san0).uci(), san0
+        except Exception:
+            pass
+    # fallback to the shallow field only if no deep line
+    bs = e.get("best_san", "")
+    try:
+        return b.parse_san(bs).uci(), bs
+    except Exception:
+        return "", bs
+
+
 def deep_entry_to_mistake(e, player_elo, oppo_elo):
     """Map one analyze_cli `deep` entry -> Mistake. analyze_cli stores `refutation` (singular dict)
-    and `cp_before/after`; we normalize to the Mistake contract."""
+    and `cp_before/after`; we normalize to the Mistake contract. Best move = deep PV's first move."""
     fen = e["fen"]; uci = e["uci"]
     b = chess.Board(fen)
-    best_uci = ""
-    best_san = e.get("best_san", "")
-    if best_san:
-        try:
-            best_uci = b.parse_san(best_san).uci()
-        except Exception:
-            best_uci = ""
+    best_uci, best_san = _real_best(e, b)
     best_line = (e.get("top_lines") or [{}])[0].get("moves", [])
     refut = (e.get("refutation") or {}).get("moves", [])
     return Mistake(
@@ -42,16 +55,67 @@ def deep_entry_to_mistake(e, player_elo, oppo_elo):
     )
 
 
+def _eval_cp(s):
+    """Deep eval string -> mover-relative cp. '#'/'mate' -> large signed sentinel."""
+    if s is None:
+        return None
+    s = str(s)
+    if "#" in s or "mate" in s.lower():
+        sign = -1 if "-" in s else 1
+        return sign * 100000
+    try:
+        return int(float(s))
+    except ValueError:
+        return None
+
+
+def _only_move(e):
+    """True if there is exactly one good move: a big eval gap between the best line and the 2nd-best.
+    Uses deep MultiPV evals (white-POV). Threshold 150cp = clearly only one move holds the position."""
+    tl = e.get("top_lines") or []
+    if len(tl) < 2:
+        return False
+    e0, e1 = _eval_cp(tl[0].get("eval")), _eval_cp(tl[1].get("eval"))
+    if e0 is None or e1 is None:
+        return False
+    return abs(e0 - e1) >= 150
+
+
+def _played_is_best(e):
+    """Deep analysis says the played move IS the best move (the deep PV's first move == played uci).
+    Uses the deep PV, not the stale best_san field. These are shallow-scan false positives."""
+    try:
+        b = chess.Board(e["fen"])
+        best_uci, _ = _real_best(e, b)
+        return best_uci == e["uci"]
+    except Exception:
+        return False
+
+
 def tag_game(analysis, player_elo=1800, oppo_elo=1800, with_maia=False, player_side=None):
     """Add tags to each deep mistake. If player_side ('white'/'black') is given, only that side's
-    mistakes are tagged with player_elo (the coached player); the opponent's keep oppo_elo."""
+    mistakes are tagged with player_elo (the coached player); the opponent's keep oppo_elo.
+
+    Two deep-analysis-aware adjustments (the shallow scan flags moves the deep pass later clears):
+      - played == best  -> NOT a mistake. Tag only 'Best Move (deep)' + phase context, skip motifs.
+      - only one good move (>=150cp gap to 2nd best) -> add 'Only Move'."""
     tagged = []
     for e in analysis.get("deep", []):
         side = e.get("side")
         pe = player_elo if (player_side is None or side == player_side) else oppo_elo
         m = deep_entry_to_mistake(e, pe, oppo_elo)
+        if _played_is_best(e):
+            # deep analysis revised the verdict: the played move was best. Don't tag a mistake.
+            phase_state = [t for t in tag_mistake_full(m, with_maia=False)["tags"] if t["layer"] == "position" and t["direction"] == "info"]
+            tags = [{"label": "Best Move (deep analysis)", "direction": "info", "evidence": "shallow flagged, deep cleared", "layer": "info"}] + phase_state
+            tagged.append({**e, "tags": tags, "categories": [], "maia": {}})
+            continue
         res = tag_mistake_full(m, with_maia=with_maia)
-        tagged.append({**e, "tags": res["tags"], "categories": res["categories"], "maia": res["maia"]})
+        tags = res["tags"]
+        if _only_move(e):
+            tags = tags + [{"label": "Only Move", "direction": "info",
+                            "evidence": "best move >=150cp better than 2nd best", "layer": "position"}]
+        tagged.append({**e, "tags": tags, "categories": res["categories"], "maia": res["maia"]})
     return {**analysis, "deep": tagged}
 
 

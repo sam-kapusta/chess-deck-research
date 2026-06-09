@@ -141,6 +141,41 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {name}: labels={labels} (must not contain {must_not!r})")
 
+    print("--- tag_game: deep-best + played==best + only-move (deep-analysis aware) ---")
+    import tag_game as TG
+    # deep-best: best comes from top_lines[0], NOT the stale best_san field. 40.Bd2: best_san='Bd2'
+    # (== played) but deep PV top_lines[0]='cxb4'. Must resolve best to cxb4, NOT played.
+    e_stale = {"fen": "8/4b3/8/3p1k1K/1ppPp2P/2P1B3/1P6/8 w - - 0 40", "uci": "e3d2", "best_san": "Bd2",
+               "top_lines": [{"eval": "-428", "moves": ["cxb4", "Bxb4", "Kh6"]}]}
+    bu, _ = TG._real_best(e_stale, chess.Board(e_stale["fen"]))
+    deep_ok = (bu == "c3b4")
+    not_pb = not TG._played_is_best(e_stale)
+    ok += deep_ok; (fails.append("deep-best from top_lines") if not deep_ok else None)
+    ok += not_pb; (fails.append("stale best_san not played==best") if not not_pb else None)
+    print(f"  [{'PASS' if deep_ok else 'FAIL'}] deep best from top_lines (cxb4 not Bd2): {bu}")
+    print(f"  [{'PASS' if not_pb else 'FAIL'}] stale best_san != played==best: {not_pb}")
+    # capture-direction: passive instead of capture -> Missed Capture
+    m_stale = TG.deep_entry_to_mistake(e_stale, 1800, 1800)
+    labs = [t[0] for t in PR.capture_direction(m_stale)]
+    mc_ok = "Missed Capture" in labs
+    ok += mc_ok; (fails.append("Missed Capture (passive)") if not mc_ok else None)
+    print(f"  [{'PASS' if mc_ok else 'FAIL'}] Missed Capture (passive instead of cxb4): {labs}")
+    extra_cd = 1
+    # played==best: deep verdict cleared the shallow flag
+    e_best = {"fen": "8/4b3/8/p2p1k1K/1PpPp2P/2P1B3/1P6/8 b - - 0 39", "uci": "a5b4", "best_san": "axb4",
+              "top_lines": [{"eval": "-427", "moves": ["axb4"]}, {"eval": "+155", "moves": ["Bd8"]}]}
+    pib = TG._played_is_best(e_best)
+    ok += pib; (fails.append("played==best detect") if not pib else None)
+    print(f"  [{'PASS' if pib else 'FAIL'}] played==best detected: {pib}")
+    # only-move: >=150cp gap to 2nd best
+    om = TG._only_move({"top_lines": [{"eval": "-39"}, {"eval": "-485"}]})
+    not_om = TG._only_move({"top_lines": [{"eval": "-375"}, {"eval": "-490"}]})  # 115cp gap < 150
+    ok += om; (fails.append("only-move detect") if not om else None)
+    ok += (not not_om); (fails.append("only-move false-positive") if not_om else None)
+    print(f"  [{'PASS' if om else 'FAIL'}] only-move (446cp gap): {om}")
+    print(f"  [{'PASS' if not not_om else 'FAIL'}] not only-move (115cp gap): {not not_om}")
+    extra_tg = 3
+
     print("--- predicates: bishop endgame color split ---")
     be_cases = [
         ("same-color bishops", "4k3/8/8/3b4/4B3/8/4P1P1/4K3 w - - 0 1", "Bishop Endgame (Same Color)"),
@@ -207,7 +242,8 @@ def run():
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + len(ps_cases) + len(be_cases) + len(sac_cases) + len(supp_cases))
+             + len(hung_cases) + len(ps_cases) + extra_tg + 2 + extra_cd
+             + len(be_cases) + len(sac_cases) + len(supp_cases))
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 
