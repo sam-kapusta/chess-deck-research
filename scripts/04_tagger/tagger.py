@@ -18,7 +18,9 @@ import chess
 sys.path.insert(0, os.path.dirname(__file__))
 import motifs as MO
 import predicates as PR
-import maia_rarity as MR
+# maia_rarity is imported LAZILY inside tag_mistake_full(with_maia=True) — it pulls in the ONNX Maia
+# engine, which the product worker doesn't ship. Keeping the import lazy lets the tagger run with
+# with_maia=False in environments without the Maia model (e.g. the vendored copy in the ECS worker).
 
 # direction -> display prefix
 DIR_PREFIX = {"missed": "Missed", "allowed": "Allowed", "failed": "Failed",
@@ -232,6 +234,7 @@ def tag_mistake_full(m, with_maia=True):
     maia = {}
     if with_maia:
         try:
+            import maia_rarity as MR   # lazy — only load the ONNX Maia engine when actually needed
             maia = MR.rarity(m)
         except Exception:
             maia = {}
