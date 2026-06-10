@@ -161,11 +161,17 @@ def hung_material(m):
     except Exception:
         return []
     diffs = [_material_diff(bb, m.mover)]   # diffs[0] = right after the played move (opponent to move)
-    for san in m.refutation_san:
+    first_victim = None                      # the piece the opponent CAPTURES on its first reply
+    for i, san in enumerate(m.refutation_san):
         try:
-            bb.push(bb.parse_san(san))
+            mv = bb.parse_san(san)
         except Exception:
             break
+        if i == 0 and bb.is_capture(mv):
+            vic = bb.piece_at(mv.to_square)   # capture target on the post-played board
+            if vic is not None:               # None = en passant (a pawn); leave unnamed
+                first_victim = vic.piece_type
+        bb.push(mv)
         diffs.append(_material_diff(bb, m.mover))
     end_diff = diffs[-1]
     net_lost = start_diff - end_diff   # vs BEFORE the played move — equal trades net 0
@@ -174,6 +180,12 @@ def hung_material(m):
     # how much is already gone after the opponent's first reply (ply 1 of the refutation)?
     immediate_lost = start_diff - diffs[1] if len(diffs) > 1 else (start_diff - diffs[0])
     if immediate_lost >= 2:
+        # Name the hung piece when the opponent's first reply is a clean capture AND that capture is
+        # the dominant loss (the named piece is worth ~the net loss). Else keep generic "Hung Material".
+        if first_victim is not None and VAL.get(first_victim, 0) >= net_lost - 1:
+            pname = PIECE_NAME[first_victim]
+            return [(f"Hung {pname}", "hung",
+                     f"opponent's first reply captures your {pname.lower()} ({net_lost} net over line)")]
         return [("Hung Material", "hung",
                  f"opponent's first reply wins {immediate_lost} pts ({net_lost} net over line)")]
     return [("Lost Material to Combination", "hung",

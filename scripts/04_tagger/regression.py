@@ -106,9 +106,9 @@ def run():
         # dead-equal trade Bxc6 bxc6 (bishop-for-knight, 3-for-3) — must NOT fire (the bug Sam caught)
         ("equal trade != hung", "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 1",
          "c4c6", ["bxc6"], None),
-        # quiet move, opponent grabs a free bishop next move — immediate hang
-        ("free piece = Hung Material", "3k4/8/8/3b4/8/8/3R4/4K3 b - - 0 1",
-         "d8c8", ["Rxd5"], "Hung Material"),
+        # quiet move, opponent grabs a free bishop next move — immediate hang, NAMED by the victim piece
+        ("free bishop = Hung Bishop", "3k4/8/8/3b4/8/8/3R4/4K3 b - - 0 1",
+         "d8c8", ["Rxd5"], "Hung Bishop"),
     ]
     for name, fen, uci, ref, want in hung_cases:
         b = chess.Board(fen)
@@ -222,7 +222,7 @@ def run():
     print(f"  [{'PASS' if pos else 'FAIL'}] check-clearance (Ne6+ clears for Bh8): fires={pos} (want True)")
     extra_clr = 1   # the positive case (negative is counted inline above with the +1 in total)
 
-    print("--- tag_adapter: refutation with leaked played move still tags Hung Material ---")
+    print("--- tag_adapter: refutation with leaked played move still tags the hung piece ---")
     import sys as _sys, os as _os
     _sys.path.insert(0, _os.path.join(_os.path.dirname(__file__), "..", "..", "..",
                                       "chess-deck-code", "backend", "worker"))
@@ -232,11 +232,11 @@ def run():
              "uci": "f4h4", "pv_uci": ["f4f3"], "san": "Rh4", "bestMoveSan": "Rf3", "eval": 2.36,
              "refutation_uci": ["f4h4", "e7h4", "g2g3"]}   # NOTE leading f4h4 = the played move
         labs = [t["label"] for t in TA.tags_for_eval(e)]
-        hm_ok = "Hung Material" in labs
+        hm_ok = "Hung Rook" in labs   # Qxh4 captures the rook -> named hang
         ok += hm_ok
         if not hm_ok:
             fails.append("adapter strips leaked played move")
-        print(f"  [{'PASS' if hm_ok else 'FAIL'}] leaked-played-move refutation still yields Hung Material: {labs}")
+        print(f"  [{'PASS' if hm_ok else 'FAIL'}] leaked-played-move refutation still yields Hung Rook: {labs}")
         extra_adapter = 1
     except Exception as ex:
         print(f"  [SKIP] tag_adapter not importable ({ex})")

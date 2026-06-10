@@ -397,6 +397,22 @@
       "category": "Material",
       "blurb": "Your move dropped material to a one-move capture"
     },
+    "Hung Knight": {
+      "category": "Material",
+      "blurb": "Your move left your knight to be captured next move"
+    },
+    "Hung Bishop": {
+      "category": "Material",
+      "blurb": "Your move left your bishop to be captured next move"
+    },
+    "Hung Rook": {
+      "category": "Material",
+      "blurb": "Your move left your rook to be captured next move"
+    },
+    "Hung Queen": {
+      "category": "Material",
+      "blurb": "Your move left your queen to be captured next move"
+    },
     "Lost Material to Combination": {
       "category": "Material",
       "blurb": "Your move lost material after a short sequence"

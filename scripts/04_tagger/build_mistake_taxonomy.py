@@ -83,6 +83,8 @@ def build_taxonomy():
     add("Wrong Capture", "You captured the wrong target")
     add("Bad Capture", "Your capture lost material/eval")
     add("Hung Material", "Your move dropped material to a one-move capture")
+    for p in ["Knight", "Bishop", "Rook", "Queen"]:
+        add(f"Hung {p}", f"Your move left your {p.lower()} to be captured next move")
     add("Lost Material to Combination", "Your move lost material after a short sequence")
     add("Captured With Wrong Piece", "You recaptured with the wrong piece")
     # King safety predicates
