@@ -188,6 +188,10 @@ def run():
          "f1b5", chess.KING),
         # quiet move pins nothing
         ("e4 pins nothing", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "e2e4", None),
+        # Rf3 down an open f-file sees f5-pawn then f8-rook behind: NOT a pin (pinned piece is a PAWN).
+        # (Sam's case — was falsely tagging "Pin (to Rook)".)
+        ("Rf3 pawn-not-pin", "r4r1k/pbnnq2p/1p2p3/3pPp1B/1P1P1R2/PN6/6PP/R1BQ3K w - - 6 22",
+         "f4f3", None),
     ]
     for name, fen, uci, want in pin_cases:
         b = chess.Board(fen)
@@ -199,6 +203,36 @@ def run():
         if not passed:
             fails.append(name)
         print(f"  [{mark}] {name}: target={got} exp={want}")
+
+    print("--- motifs: clearance requires a sacrifice (not a quiet line-opening) ---")
+    # Rf3 (safe rook) then Bh6 incidentally uses the vacated f4 on its diagonal — NOT a clearance.
+    clr_nodes = U.build_line(chess.Board("r4r1k/pbnnq2p/1p2p3/3pPp1B/1P1P1R2/PN6/6PP/R1BQ3K w - - 6 22"),
+                             ["f4f3", "f8g8", "c1h6", "b7a6", "d1d2", "a6c4"])
+    clr_got = M.clearance_line(clr_nodes, chess.WHITE)
+    ok += (not clr_got)
+    if clr_got:
+        fails.append("safe Rf3 != clearance")
+    print(f"  [{'PASS' if not clr_got else 'FAIL'}] safe-rook line-opening is NOT a clearance: fires={clr_got} (want False)")
+
+    print("--- tag_adapter: refutation with leaked played move still tags Hung Material ---")
+    import sys as _sys, os as _os
+    _sys.path.insert(0, _os.path.join(_os.path.dirname(__file__), "..", "..", "..",
+                                      "chess-deck-code", "backend", "worker"))
+    try:
+        import tag_adapter as TA
+        e = {"fen_before": "r4r1k/pbnnq2p/1p2p3/3pPp1B/1P1P1R2/PN6/6PP/R1BQ3K w - - 6 22",
+             "uci": "f4h4", "pv_uci": ["f4f3"], "san": "Rh4", "bestMoveSan": "Rf3", "eval": 2.36,
+             "refutation_uci": ["f4h4", "e7h4", "g2g3"]}   # NOTE leading f4h4 = the played move
+        labs = [t["label"] for t in TA.tags_for_eval(e)]
+        hm_ok = "Hung Material" in labs
+        ok += hm_ok
+        if not hm_ok:
+            fails.append("adapter strips leaked played move")
+        print(f"  [{'PASS' if hm_ok else 'FAIL'}] leaked-played-move refutation still yields Hung Material: {labs}")
+        extra_adapter = 1
+    except Exception as ex:
+        print(f"  [SKIP] tag_adapter not importable ({ex})")
+        extra_adapter = 0
 
     print("--- motifs: outpost (enemy half, pawn-defended, unchallengeable) ---")
     import chesslib_util as CU
@@ -294,7 +328,7 @@ def run():
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
              + len(hung_cases) + len(ps_cases) + extra_tg + 2 + extra_cd
-             + len(pin_cases) + len(out_cases)
+             + len(pin_cases) + 1 + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases))
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails

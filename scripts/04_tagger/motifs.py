@@ -96,7 +96,10 @@ def _pin_target(board: chess.Board, move: chess.Move):
                 if first is None:
                     if p.color == pov:
                         break          # own piece first -> no pin this ray
-                    first = p           # candidate pinned enemy piece
+                    if p.piece_type == PAWN:
+                        break          # a pinned PAWN is not a real pin worth naming (it's blocked
+                                       # along the file/diagonal anyway, nothing is won) -> skip ray
+                    first = p           # candidate pinned enemy PIECE (knight/bishop/rook/queen)
                 else:
                     # second piece along ray
                     if p.color != pov and U.king_values[p.piece_type] > U.king_values[first.piece_type]:
@@ -652,8 +655,12 @@ def clearance_line(nodes, pov) -> bool:
                     and (not board.is_check() or U.moved_piece_type(node.parent) != KING)):
                     if (prev_move.from_square == node.move.to_square
                         or prev_move.from_square in SquareSet.between(node.move.from_square, node.move.to_square)):
-                        if (prev.parent and not prev.parent.board().piece_at(prev_move.to_square)
-                                or U.is_in_bad_spot(prev.board(), prev_move.to_square)):
+                        # A clearance worth tagging is a SACRIFICE: the clearing piece is given up /
+                        # lands in a bad spot specifically to open the line. cook's original also
+                        # allowed "clearing piece moved to an empty square" (A and B) or (sac) — but
+                        # that loophole fired on ANY quiet line-opening move (e.g. a safe Rf4-f3 that
+                        # incidentally vacates a diagonal a bishop later uses). Require the sacrifice.
+                        if U.is_in_bad_spot(prev.board(), prev_move.to_square):
                             return True
     return False
 
