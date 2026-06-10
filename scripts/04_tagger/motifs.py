@@ -655,12 +655,15 @@ def clearance_line(nodes, pov) -> bool:
                     and (not board.is_check() or U.moved_piece_type(node.parent) != KING)):
                     if (prev_move.from_square == node.move.to_square
                         or prev_move.from_square in SquareSet.between(node.move.from_square, node.move.to_square)):
-                        # A clearance worth tagging is a SACRIFICE: the clearing piece is given up /
-                        # lands in a bad spot specifically to open the line. cook's original also
-                        # allowed "clearing piece moved to an empty square" (A and B) or (sac) — but
-                        # that loophole fired on ANY quiet line-opening move (e.g. a safe Rf4-f3 that
-                        # incidentally vacates a diagonal a bishop later uses). Require the sacrifice.
-                        if U.is_in_bad_spot(prev.board(), prev_move.to_square):
+                        # A clearance worth tagging is FORCING — the clearing move is either:
+                        #   (a) a SACRIFICE (clearing piece is en prise / in a bad spot), or
+                        #   (b) a CHECK (forces the opponent's reply, so opening the line is the point —
+                        #       "clearance with tempo", e.g. N-moves-with-check to open a B's mating
+                        #       diagonal even though the knight lands safely).
+                        # cook's original loophole — "clearing piece moved to an empty square" — fired
+                        # on ANY quiet line-opening move (a safe Rf4-f3 that incidentally vacates a
+                        # diagonal a bishop later uses). Dropped; require sacrifice-or-check instead.
+                        if U.is_in_bad_spot(prev.board(), prev_move.to_square) or prev.board().is_check():
                             return True
     return False
 

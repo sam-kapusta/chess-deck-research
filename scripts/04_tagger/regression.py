@@ -204,15 +204,23 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {name}: target={got} exp={want}")
 
-    print("--- motifs: clearance requires a sacrifice (not a quiet line-opening) ---")
-    # Rf3 (safe rook) then Bh6 incidentally uses the vacated f4 on its diagonal — NOT a clearance.
-    clr_nodes = U.build_line(chess.Board("r4r1k/pbnnq2p/1p2p3/3pPp1B/1P1P1R2/PN6/6PP/R1BQ3K w - - 6 22"),
-                             ["f4f3", "f8g8", "c1h6", "b7a6", "d1d2", "a6c4"])
-    clr_got = M.clearance_line(clr_nodes, chess.WHITE)
-    ok += (not clr_got)
-    if clr_got:
+    print("--- motifs: clearance requires sacrifice OR check (not a quiet line-opening) ---")
+    # NEG: Rf3 (safe rook, no check) then Bh6 incidentally uses the vacated f4 — NOT a clearance.
+    clr_neg = U.build_line(chess.Board("r4r1k/pbnnq2p/1p2p3/3pPp1B/1P1P1R2/PN6/6PP/R1BQ3K w - - 6 22"),
+                           ["f4f3", "f8g8", "c1h6", "b7a6", "d1d2", "a6c4"])
+    neg = M.clearance_line(clr_neg, chess.WHITE)
+    ok += (not neg)
+    if neg:
         fails.append("safe Rf3 != clearance")
-    print(f"  [{'PASS' if not clr_got else 'FAIL'}] safe-rook line-opening is NOT a clearance: fires={clr_got} (want False)")
+    print(f"  [{'PASS' if not neg else 'FAIL'}] safe-rook line-opening is NOT a clearance: fires={neg} (want False)")
+    # POS: Ne6+ (check) clears d4 off the a1-h8 diagonal for Ba1-h8 — clearance-with-tempo (Gemini).
+    clr_pos = U.build_line(chess.Board("3k4/8/8/8/3N4/8/8/B5K1 w - - 0 1"), ["d4e6", "d8e8", "a1h8"])
+    pos = M.clearance_line(clr_pos, chess.WHITE)
+    ok += pos
+    if not pos:
+        fails.append("check-clearance Ne6+/Bh8")
+    print(f"  [{'PASS' if pos else 'FAIL'}] check-clearance (Ne6+ clears for Bh8): fires={pos} (want True)")
+    extra_clr = 1   # the positive case (negative is counted inline above with the +1 in total)
 
     print("--- tag_adapter: refutation with leaked played move still tags Hung Material ---")
     import sys as _sys, os as _os
@@ -328,7 +336,7 @@ def run():
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
              + len(hung_cases) + len(ps_cases) + extra_tg + 2 + extra_cd
-             + len(pin_cases) + 1 + extra_adapter + len(out_cases)
+             + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases))
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
