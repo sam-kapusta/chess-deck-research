@@ -26,7 +26,7 @@ PIECES = ["Pawn", "Knight", "Bishop", "Rook", "Queen"]
 
 # One-line coaching blurb per BASE concept.
 BLURB = {
-    "Fork": "A fork was available you didn't play",
+    "Fork": "A fork was available",
     "Combination → Fork": "A short combination ending in a fork was available",
     "Skewer": "A skewer was available", "Discovered Attack": "A discovered attack was available",
     "Deflection": "A deflection was available", "Attraction": "An attraction was available",

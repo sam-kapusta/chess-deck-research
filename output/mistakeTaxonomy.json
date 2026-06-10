@@ -203,7 +203,7 @@
     },
     "Missed Fork": {
       "category": "Tactical",
-      "blurb": "A fork was available you didn't play (you didn't play it)"
+      "blurb": "A fork was available (you didn't play it)"
     },
     "Allowed Fork": {
       "category": "Tactical",
