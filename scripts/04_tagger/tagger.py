@@ -189,11 +189,12 @@ def categorize(label):
     # Material FIRST — "Hung Material" contains the substring "mate" (in "MATErial"), so the tactical
     # check must not see it first. Material/hung labels are unambiguous, so they win the tie.
     l = label.lower()
-    if any(w in l for w in ["material", "capture", "exchange", "hung", "wrong piece"]):
+    if any(w in l for w in ["material", "capture", "exchange", "hung", "hanging", "wrong piece"]):
         return "Material"
     if any(w in l for w in ["mate", "check", "fork", "combination", "pin", "skewer", "discovered",
                             "deflection", "attraction", "clearance", "interference", "zwischenzug",
-                            "overload", "x-ray", "sacrifice", "f2/f7", "trapped piece", "defender"]):
+                            "overload", "x-ray", "sacrifice", "f2/f7", "trapped piece", "defender",
+                            "en passant"]):
         return "Tactical"
     if any(w in l for w in ["king", "castl", "attack"]):
         return "King Safety"

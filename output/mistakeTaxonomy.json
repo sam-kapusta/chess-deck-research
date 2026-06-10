@@ -1,0 +1,501 @@
+{
+  "categories": {
+    "Tactical": {},
+    "Material": {},
+    "King Safety": {},
+    "Positional": {},
+    "Endgame": {},
+    "Meta": {},
+    "Other": {}
+  },
+  "tags": {
+    "Missed Skewer": {
+      "category": "Tactical",
+      "blurb": "A skewer was available (you didn't play it)"
+    },
+    "Allowed Skewer": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent: a skewer was available"
+    },
+    "Missed Discovered Attack": {
+      "category": "Tactical",
+      "blurb": "A discovered attack was available (you didn't play it)"
+    },
+    "Allowed Discovered Attack": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent: a discovered attack was available"
+    },
+    "Missed Deflection": {
+      "category": "Tactical",
+      "blurb": "A deflection was available (you didn't play it)"
+    },
+    "Allowed Deflection": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent: a deflection was available"
+    },
+    "Missed Attraction": {
+      "category": "Tactical",
+      "blurb": "An attraction was available (you didn't play it)"
+    },
+    "Allowed Attraction": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent: an attraction was available"
+    },
+    "Missed Clearance": {
+      "category": "Tactical",
+      "blurb": "A clearance was available (you didn't play it)"
+    },
+    "Allowed Clearance": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent: a clearance was available"
+    },
+    "Missed Zwischenzug": {
+      "category": "Tactical",
+      "blurb": "An in-between move was available (you didn't play it)"
+    },
+    "Allowed Zwischenzug": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent: an in-between move was available"
+    },
+    "Missed Overload": {
+      "category": "Tactical",
+      "blurb": "An overloaded enemy piece could be exploited (you didn't play it)"
+    },
+    "Allowed Overload": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent: an overloaded enemy piece could be exploited"
+    },
+    "Missed X-Ray": {
+      "category": "Tactical",
+      "blurb": "An x-ray was available (you didn't play it)"
+    },
+    "Allowed X-Ray": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent: an x-ray was available"
+    },
+    "Missed Trapped Piece": {
+      "category": "Tactical",
+      "blurb": "An enemy piece could be trapped (you didn't play it)"
+    },
+    "Allowed Trapped Piece": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent: an enemy piece could be trapped"
+    },
+    "Missed Sacrifice": {
+      "category": "Tactical",
+      "blurb": "A sound sacrifice was available (you didn't play it)"
+    },
+    "Allowed Sacrifice": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent: a sound sacrifice was available"
+    },
+    "Missed Capture of Defender": {
+      "category": "Material",
+      "blurb": "Capturing the defender was available (you didn't play it)"
+    },
+    "Allowed Capture of Defender": {
+      "category": "Material",
+      "blurb": "Your move let the opponent: capturing the defender was available"
+    },
+    "Missed Hanging Piece": {
+      "category": "Material",
+      "blurb": "A piece was hanging (you didn't play it)"
+    },
+    "Allowed Hanging Piece": {
+      "category": "Material",
+      "blurb": "Your move let the opponent: a piece was hanging"
+    },
+    "Missed Exposed King": {
+      "category": "King Safety",
+      "blurb": "The enemy king was exposed (you didn't play it)"
+    },
+    "Allowed Exposed King": {
+      "category": "King Safety",
+      "blurb": "Your move let the opponent: the enemy king was exposed"
+    },
+    "Missed Kingside Attack": {
+      "category": "King Safety",
+      "blurb": "A kingside attack was available (you didn't play it)"
+    },
+    "Allowed Kingside Attack": {
+      "category": "King Safety",
+      "blurb": "Your move let the opponent: a kingside attack was available"
+    },
+    "Missed Queenside Attack": {
+      "category": "King Safety",
+      "blurb": "A queenside attack was available (you didn't play it)"
+    },
+    "Allowed Queenside Attack": {
+      "category": "King Safety",
+      "blurb": "Your move let the opponent: a queenside attack was available"
+    },
+    "Missed Promotion": {
+      "category": "Endgame",
+      "blurb": "A promotion was available (you didn't play it)"
+    },
+    "Allowed Promotion": {
+      "category": "Endgame",
+      "blurb": "Your move let the opponent: a promotion was available"
+    },
+    "Missed Underpromotion": {
+      "category": "Endgame",
+      "blurb": "An underpromotion was the move (you didn't play it)"
+    },
+    "Allowed Underpromotion": {
+      "category": "Endgame",
+      "blurb": "Your move let the opponent: an underpromotion was the move"
+    },
+    "Missed En Passant": {
+      "category": "Tactical",
+      "blurb": "En passant was the move (you didn't play it)"
+    },
+    "Allowed En Passant": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent: en passant was the move"
+    },
+    "Missed Castling": {
+      "category": "King Safety",
+      "blurb": "Castling was the move (you didn't play it)"
+    },
+    "Allowed Castling": {
+      "category": "King Safety",
+      "blurb": "Your move let the opponent: castling was the move"
+    },
+    "Missed Double Check": {
+      "category": "Tactical",
+      "blurb": "A double check was available (you didn't play it)"
+    },
+    "Allowed Double Check": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent: a double check was available"
+    },
+    "Missed f2/f7 Attack": {
+      "category": "Tactical",
+      "blurb": "An attack on the f2/f7 square was available (you didn't play it)"
+    },
+    "Allowed f2/f7 Attack": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent: an attack on the f2/f7 square was available"
+    },
+    "Missed Advanced Pawn": {
+      "category": "Positional",
+      "blurb": "An advanced pawn push was the move (you didn't play it)"
+    },
+    "Allowed Advanced Pawn": {
+      "category": "Positional",
+      "blurb": "Your move let the opponent: an advanced pawn push was the move"
+    },
+    "Missed Mate": {
+      "category": "Tactical",
+      "blurb": "Forced mate was available (you didn't play it)"
+    },
+    "Allowed Mate": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent: forced mate was available"
+    },
+    "Missed Outpost": {
+      "category": "Positional",
+      "blurb": "A piece could take a permanent outpost (you didn't play it)"
+    },
+    "Allowed Outpost": {
+      "category": "Positional",
+      "blurb": "Your move let the opponent: a piece could take a permanent outpost"
+    },
+    "Missed Fork": {
+      "category": "Tactical",
+      "blurb": "A fork was available you didn't play (you didn't play it)"
+    },
+    "Allowed Fork": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent execute fork"
+    },
+    "Missed Combination \u2192 Fork": {
+      "category": "Tactical",
+      "blurb": "A short combination ending in a fork was available (you didn't play it)"
+    },
+    "Allowed Combination \u2192 Fork": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent execute combination \u2192 fork"
+    },
+    "Missed Pin (to King)": {
+      "category": "Tactical",
+      "blurb": "A pin against the king was available"
+    },
+    "Allowed Pin (to King)": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent pin a piece to your king"
+    },
+    "Missed Pin (to Queen)": {
+      "category": "Tactical",
+      "blurb": "A pin against the queen was available"
+    },
+    "Allowed Pin (to Queen)": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent pin a piece to your queen"
+    },
+    "Missed Pin (to Rook)": {
+      "category": "Tactical",
+      "blurb": "A pin against the rook was available"
+    },
+    "Allowed Pin (to Rook)": {
+      "category": "Tactical",
+      "blurb": "Your move let the opponent pin a piece to your rook"
+    },
+    "Missed Anastasia's Mate": {
+      "category": "Tactical",
+      "blurb": "Anastasia's Mate was available (you didn't play it)"
+    },
+    "Allowed Anastasia's Mate": {
+      "category": "Tactical",
+      "blurb": "Your move allowed Anastasia's Mate"
+    },
+    "Missed Arabian Mate": {
+      "category": "Tactical",
+      "blurb": "Arabian Mate was available (you didn't play it)"
+    },
+    "Allowed Arabian Mate": {
+      "category": "Tactical",
+      "blurb": "Your move allowed Arabian Mate"
+    },
+    "Missed Boden's Mate": {
+      "category": "Tactical",
+      "blurb": "Boden's Mate was available (you didn't play it)"
+    },
+    "Allowed Boden's Mate": {
+      "category": "Tactical",
+      "blurb": "Your move allowed Boden's Mate"
+    },
+    "Missed Double Bishop Mate": {
+      "category": "Tactical",
+      "blurb": "Double Bishop Mate was available (you didn't play it)"
+    },
+    "Allowed Double Bishop Mate": {
+      "category": "Tactical",
+      "blurb": "Your move allowed Double Bishop Mate"
+    },
+    "Missed Smothered Mate": {
+      "category": "Tactical",
+      "blurb": "Smothered Mate was available (you didn't play it)"
+    },
+    "Allowed Smothered Mate": {
+      "category": "Tactical",
+      "blurb": "Your move allowed Smothered Mate"
+    },
+    "Missed Back-Rank Mate": {
+      "category": "Tactical",
+      "blurb": "Back-Rank Mate was available (you didn't play it)"
+    },
+    "Allowed Back-Rank Mate": {
+      "category": "Tactical",
+      "blurb": "Your move allowed Back-Rank Mate"
+    },
+    "Missed Hook Mate": {
+      "category": "Tactical",
+      "blurb": "Hook Mate was available (you didn't play it)"
+    },
+    "Allowed Hook Mate": {
+      "category": "Tactical",
+      "blurb": "Your move allowed Hook Mate"
+    },
+    "Missed Dovetail Mate": {
+      "category": "Tactical",
+      "blurb": "Dovetail Mate was available (you didn't play it)"
+    },
+    "Allowed Dovetail Mate": {
+      "category": "Tactical",
+      "blurb": "Your move allowed Dovetail Mate"
+    },
+    "Failed Discovered Attack": {
+      "category": "Tactical",
+      "blurb": "You tried a discovered attack but it backfired"
+    },
+    "Failed Fork": {
+      "category": "Tactical",
+      "blurb": "You tried a fork but it backfired"
+    },
+    "Failed Pin": {
+      "category": "Tactical",
+      "blurb": "You tried a pin but it backfired"
+    },
+    "Missed Free Capture (Pawn)": {
+      "category": "Material",
+      "blurb": "A free pawn could be captured"
+    },
+    "Missed Winning Capture (Pawn)": {
+      "category": "Material",
+      "blurb": "Winning a pawn for less was available"
+    },
+    "Missed Free Capture (Knight)": {
+      "category": "Material",
+      "blurb": "A free knight could be captured"
+    },
+    "Missed Winning Capture (Knight)": {
+      "category": "Material",
+      "blurb": "Winning a knight for less was available"
+    },
+    "Missed Exchange (Knight)": {
+      "category": "Material",
+      "blurb": "An even knight trade was the move"
+    },
+    "Missed Free Capture (Bishop)": {
+      "category": "Material",
+      "blurb": "A free bishop could be captured"
+    },
+    "Missed Winning Capture (Bishop)": {
+      "category": "Material",
+      "blurb": "Winning a bishop for less was available"
+    },
+    "Missed Exchange (Bishop)": {
+      "category": "Material",
+      "blurb": "An even bishop trade was the move"
+    },
+    "Missed Free Capture (Rook)": {
+      "category": "Material",
+      "blurb": "A free rook could be captured"
+    },
+    "Missed Winning Capture (Rook)": {
+      "category": "Material",
+      "blurb": "Winning a rook for less was available"
+    },
+    "Missed Exchange (Rook)": {
+      "category": "Material",
+      "blurb": "An even rook trade was the move"
+    },
+    "Missed Free Capture (Queen)": {
+      "category": "Material",
+      "blurb": "A free queen could be captured"
+    },
+    "Missed Winning Capture (Queen)": {
+      "category": "Material",
+      "blurb": "Winning a queen for less was available"
+    },
+    "Missed Exchange (Queen)": {
+      "category": "Material",
+      "blurb": "An even queen trade was the move"
+    },
+    "Missed Pawn Trade": {
+      "category": "Positional",
+      "blurb": "An even pawn trade was the move"
+    },
+    "Missed Capture (Pawn)": {
+      "category": "Material",
+      "blurb": "An en-passant capture was available"
+    },
+    "Missed Capture": {
+      "category": "Material",
+      "blurb": "A capture was the best move; you played a quiet move"
+    },
+    "Wrong Capture": {
+      "category": "Material",
+      "blurb": "You captured the wrong target"
+    },
+    "Bad Capture": {
+      "category": "Material",
+      "blurb": "Your capture lost material/eval"
+    },
+    "Hung Material": {
+      "category": "Material",
+      "blurb": "Your move dropped material to a one-move capture"
+    },
+    "Lost Material to Combination": {
+      "category": "Material",
+      "blurb": "Your move lost material after a short sequence"
+    },
+    "Captured With Wrong Piece": {
+      "category": "Material",
+      "blurb": "You recaptured with the wrong piece"
+    },
+    "King in Center": {
+      "category": "King Safety",
+      "blurb": "Your king stayed in the center too long"
+    },
+    "Lost Castling Rights": {
+      "category": "King Safety",
+      "blurb": "Your move forfeited castling"
+    },
+    "Pawn Move Exposed King": {
+      "category": "King Safety",
+      "blurb": "A pawn move weakened your king's shelter"
+    },
+    "Created Doubled Pawn": {
+      "category": "Positional",
+      "blurb": "Your move created a doubled pawn"
+    },
+    "Created Isolated Pawn": {
+      "category": "Positional",
+      "blurb": "Your move created a isolated pawn"
+    },
+    "Created Backward Pawn": {
+      "category": "Positional",
+      "blurb": "Your move created a backward pawn"
+    },
+    "Pawn Endgame": {
+      "category": "Endgame",
+      "blurb": "A pawn endgame"
+    },
+    "Rook Endgame": {
+      "category": "Endgame",
+      "blurb": "A rook endgame"
+    },
+    "Queen Endgame": {
+      "category": "Endgame",
+      "blurb": "A queen endgame"
+    },
+    "Knight Endgame": {
+      "category": "Endgame",
+      "blurb": "A knight endgame"
+    },
+    "Queen + Rook Endgame": {
+      "category": "Endgame",
+      "blurb": "A queen-and-rook endgame"
+    },
+    "Bishop Endgame": {
+      "category": "Endgame",
+      "blurb": "A bishop endgame"
+    },
+    "Bishop Endgame (Same Color)": {
+      "category": "Endgame",
+      "blurb": "A same-color-bishop endgame"
+    },
+    "Bishop Endgame (Opposite Color)": {
+      "category": "Endgame",
+      "blurb": "An opposite-color-bishop endgame (often drawish)"
+    },
+    "Winning": {
+      "category": "Meta",
+      "blurb": "You were winning before this move"
+    },
+    "Losing": {
+      "category": "Meta",
+      "blurb": "You were losing before this move"
+    },
+    "Equal": {
+      "category": "Meta",
+      "blurb": "The position was equal before this move"
+    },
+    "Only Move": {
+      "category": "Meta",
+      "blurb": "There was only one good move here"
+    },
+    "Wrong Move Order": {
+      "category": "Meta",
+      "blurb": "Right idea, wrong move order"
+    },
+    "Best Move (deep analysis)": {
+      "category": "Other",
+      "blurb": "Deep analysis confirms your move was best"
+    },
+    "Opening": {
+      "category": "Other",
+      "blurb": "Opening phase"
+    },
+    "Middlegame": {
+      "category": "Other",
+      "blurb": "Middlegame phase"
+    },
+    "Endgame": {
+      "category": "Endgame",
+      "blurb": "Endgame phase"
+    }
+  }
+}
