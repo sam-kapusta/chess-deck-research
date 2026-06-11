@@ -317,73 +317,49 @@
       "category": "Tactical",
       "blurb": "You tried a pin but it backfired"
     },
-    "Missed Free Capture (Pawn)": {
+    "Missed Free Pawn": {
       "category": "Material",
-      "blurb": "A free pawn could be captured"
+      "blurb": "A free or favorable pawn capture was available"
     },
-    "Missed Winning Capture (Pawn)": {
+    "Missed Free Knight": {
       "category": "Material",
-      "blurb": "Winning a pawn for less was available"
+      "blurb": "A free or favorable knight capture was available"
     },
-    "Missed Free Capture (Knight)": {
-      "category": "Material",
-      "blurb": "A free knight could be captured"
-    },
-    "Missed Winning Capture (Knight)": {
-      "category": "Material",
-      "blurb": "Winning a knight for less was available"
-    },
-    "Missed Exchange (Knight)": {
+    "Missed Knight Exchange": {
       "category": "Material",
       "blurb": "An even knight trade was the move"
     },
-    "Missed Free Capture (Bishop)": {
+    "Missed Free Bishop": {
       "category": "Material",
-      "blurb": "A free bishop could be captured"
+      "blurb": "A free or favorable bishop capture was available"
     },
-    "Missed Winning Capture (Bishop)": {
-      "category": "Material",
-      "blurb": "Winning a bishop for less was available"
-    },
-    "Missed Exchange (Bishop)": {
+    "Missed Bishop Exchange": {
       "category": "Material",
       "blurb": "An even bishop trade was the move"
     },
-    "Missed Free Capture (Rook)": {
+    "Missed Free Rook": {
       "category": "Material",
-      "blurb": "A free rook could be captured"
+      "blurb": "A free or favorable rook capture was available"
     },
-    "Missed Winning Capture (Rook)": {
-      "category": "Material",
-      "blurb": "Winning a rook for less was available"
-    },
-    "Missed Exchange (Rook)": {
+    "Missed Rook Exchange": {
       "category": "Material",
       "blurb": "An even rook trade was the move"
     },
-    "Missed Free Capture (Queen)": {
+    "Missed Free Queen": {
       "category": "Material",
-      "blurb": "A free queen could be captured"
+      "blurb": "A free or favorable queen capture was available"
     },
-    "Missed Winning Capture (Queen)": {
-      "category": "Material",
-      "blurb": "Winning a queen for less was available"
-    },
-    "Missed Exchange (Queen)": {
+    "Missed Queen Exchange": {
       "category": "Material",
       "blurb": "An even queen trade was the move"
     },
     "Missed Pawn Trade": {
-      "category": "Positional",
+      "category": "Material",
       "blurb": "An even pawn trade was the move"
     },
     "Missed Capture (Pawn)": {
       "category": "Material",
       "blurb": "An en-passant capture was available"
-    },
-    "Missed Capture": {
-      "category": "Material",
-      "blurb": "A capture was the best move; you played a quiet move"
     },
     "Wrong Capture": {
       "category": "Material",

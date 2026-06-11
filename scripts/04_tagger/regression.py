@@ -45,6 +45,16 @@ LINE_CASES = [
     # back-rank should NOT fire on a non-mate quiet line
     ("quiet line != backrank", "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
      ["e2e4", "e7e5"], True, "backRankMate", False),
+    # PRE-EXISTING pin must NOT tag "Missed Pin". Best line is Ng5 (attacks queen, gains tempo) — no
+    # pin created. Black's g8-knight is already pinned to h8 by White's Qh8 at line start; the
+    # _pin_prevents_escape geometry scan used to fire on that static pin. pov=White (the missed line).
+    # (Caught by Sam: ply 19, b3 blunder, this exact false-positive "Missed Pin".)
+    ("preexisting pin != missed pin", "r1b1k1nQ/ppp2q1p/3p4/2b1p3/4P3/2N2N2/PP1P1PPP/n1BK3R w q - 0 10",
+     ["f3g5", "f7h5", "g5f3", "c8e6", "h8g7", "e8c8"], True, "pin", False),
+    # ...but a pin pov's line actually ESTABLISHES still fires. Same position, played b3 allowed
+    # Black's Bg4 pinning Nf3 to Kd1. pov=Black (the punisher in the allowed line).
+    ("established pin still tags", "r1b1k1nQ/ppp2q1p/3p4/2b1p3/4P3/2N2N2/PP1P1PPP/n1BK3R w q - 0 10",
+     ["b2b3", "c8g4", "d2d4", "g4f3", "g2f3", "e8c8"], False, "pin", True),
 ]
 
 
@@ -154,12 +164,14 @@ def run():
     ok += not_pb; (fails.append("stale best_san not played==best") if not not_pb else None)
     print(f"  [{'PASS' if deep_ok else 'FAIL'}] deep best from top_lines (cxb4 not Bd2): {bu}")
     print(f"  [{'PASS' if not_pb else 'FAIL'}] stale best_san != played==best: {not_pb}")
-    # capture-direction: passive instead of capture -> Missed Capture
+    # capture-direction: passive instead of capture -> NO generic tag. The specific piece tag from
+    # capture_or_exchange already covers "best was a capture you didn't play", so the old generic
+    # "Missed Capture" was always a redundant duplicate and is intentionally gone. (Removed per Sam.)
     m_stale = TG.deep_entry_to_mistake(e_stale, 1800, 1800)
     labs = [t[0] for t in PR.capture_direction(m_stale)]
-    mc_ok = "Missed Capture" in labs
-    ok += mc_ok; (fails.append("Missed Capture (passive)") if not mc_ok else None)
-    print(f"  [{'PASS' if mc_ok else 'FAIL'}] Missed Capture (passive instead of cxb4): {labs}")
+    mc_ok = "Missed Capture" not in labs
+    ok += mc_ok; (fails.append("Missed Capture suppressed (passive)") if not mc_ok else None)
+    print(f"  [{'PASS' if mc_ok else 'FAIL'}] no generic 'Missed Capture' on passive miss: {labs}")
     extra_cd = 1
     # played==best: deep verdict cleared the shallow flag
     e_best = {"fen": "8/4b3/8/p2p1k1K/1PpPp2P/2P1B3/1P6/8 b - - 0 39", "uci": "a5b4", "best_san": "axb4",

@@ -15,8 +15,10 @@ def test_taxonomy_shape_and_coverage():
         assert entry["blurb"].strip(), f"{label} has empty blurb"
         assert entry["category"] in tax["categories"]
     for known in ["Missed Fork", "Allowed Pin (to Queen)", "Hung Material",
-                  "Bishop Endgame (Same Color)", "Missed Free Capture (Knight)"]:
+                  "Bishop Endgame (Same Color)", "Missed Free Knight", "Missed Queen Exchange"]:
         assert known in tax["tags"], f"missing {known}"
+    # the generic 'Missed Capture' was removed (redundant with the piece-specific tags)
+    assert "Missed Capture" not in tax["tags"], "generic 'Missed Capture' should be gone"
 
 
 def test_known_categories():
@@ -24,3 +26,8 @@ def test_known_categories():
     assert tax["tags"]["Missed Fork"]["category"] == "Tactical"
     assert tax["tags"]["Hung Material"]["category"] == "Material"
     assert tax["tags"]["Bishop Endgame (Same Color)"]["category"] == "Endgame"
+    # renamed capture tags lost the "capture" substring — they must still land in Material, not
+    # fall through to Positional via "pawn"/"free". (Guards the categorize() keyword fix.)
+    assert tax["tags"]["Missed Free Pawn"]["category"] == "Material"
+    assert tax["tags"]["Missed Queen Exchange"]["category"] == "Material"
+    assert tax["tags"]["Missed Pawn Trade"]["category"] == "Material"

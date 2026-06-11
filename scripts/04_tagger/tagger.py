@@ -191,7 +191,12 @@ def categorize(label):
     # Material FIRST — "Hung Material" contains the substring "mate" (in "MATErial"), so the tactical
     # check must not see it first. Material/hung labels are unambiguous, so they win the tie.
     l = label.lower()
-    if any(w in l for w in ["material", "capture", "exchange", "hung", "hanging", "wrong piece"]):
+    # Material capture family. NB the piece-specific tags are "Missed Free <Piece>" /
+    # "Missed <Piece> Exchange" / "Missed Pawn Trade" — piece name inline, so "capture" is NOT a
+    # substring. Match on "free "/"trade" too, else "Missed Free Pawn" would fall through to the
+    # "pawn" -> Positional branch below. (Caught while renaming the capture tags.)
+    if any(w in l for w in ["material", "capture", "exchange", "hung", "hanging", "wrong piece",
+                            "missed free ", "trade"]):
         return "Material"
     if any(w in l for w in ["mate", "check", "fork", "combination", "pin", "skewer", "discovered",
                             "deflection", "attraction", "clearance", "interference", "zwischenzug",
@@ -204,8 +209,8 @@ def categorize(label):
         return "Endgame"
     if any(w in l for w in ["pawn", "tempo", "development", "advanced", "outpost"]):
         return "Positional"
-    # exact game-state words (renamed from "Blunder While X"). Exact-match so "winning" inside
-    # "Missed Winning Capture" doesn't reach here — that's already caught by Material above anyway.
+    # exact game-state words (renamed from "Blunder While X"). Exact-match so a stray "winning"/
+    # "losing" substring inside some other label can't reach here.
     if l in ("winning", "losing", "equal"):
         return "Meta"
     if any(w in l for w in ["blunder while", "only move", "multiple good", "move order"]):

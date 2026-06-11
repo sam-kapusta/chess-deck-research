@@ -497,11 +497,28 @@ def _pin_target_after(node):
         return None
 
 
+def _preexisting_pins(nodes, pov):
+    """Enemy squares ALREADY pinned on the line's start board. A "Missed Pin" must be a pin pov's
+    line establishes — a pin that was on the board before pov moved is not something pov missed.
+    Without this gate, _pin_prevents_* fire on static pre-existing pins (e.g. a knight already
+    pinned to its rook by your queen), producing phantom "Missed Pin" tags on quiet moves. (Caught
+    by Sam: ply where best=Ng5 tagged "Missed Pin" off Black's g8-knight pinned to h8 at line start.)"""
+    start = _start_board(nodes)
+    if start is None:
+        return set()
+    pinned = set()
+    for sq, pc in start.piece_map().items():
+        if pc.color != pov and start.pin(pc.color, sq) != chess.BB_ALL:
+            pinned.add(sq)
+    return pinned
+
+
 def _pin_prevents_attack(nodes, pov) -> bool:
+    preexisting = _preexisting_pins(nodes, pov)
     for node in U.pov_nodes(nodes, pov):
         board = node.board()
         for square, piece in board.piece_map().items():
-            if piece.color == pov:
+            if piece.color == pov or square in preexisting:
                 continue
             pin_dir = board.pin(piece.color, square)
             if pin_dir == chess.BB_ALL:
@@ -516,10 +533,11 @@ def _pin_prevents_attack(nodes, pov) -> bool:
 
 
 def _pin_prevents_escape(nodes, pov) -> bool:
+    preexisting = _preexisting_pins(nodes, pov)
     for node in U.pov_nodes(nodes, pov):
         board = node.board()
         for pinned_sq, pinned_piece in board.piece_map().items():
-            if pinned_piece.color == pov:
+            if pinned_piece.color == pov or pinned_sq in preexisting:
                 continue
             pin_dir = board.pin(pinned_piece.color, pinned_sq)
             if pin_dir == chess.BB_ALL:

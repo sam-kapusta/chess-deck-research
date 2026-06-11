@@ -95,29 +95,31 @@ def capture_or_exchange(m):
     defended = after.is_attacked_by(not m.mover, bm.to_square)
     pname = PIECE_NAME[victim.piece_type]
     if not defended:
-        return [(f"Missed Free Capture ({pname})", "missed", f"best {m.best_san} takes undefended {pname.lower()}")]
-    # defended: even trade vs winning capture
+        return [(f"Missed Free {pname}", "missed", f"best {m.best_san} takes undefended {pname.lower()}")]
+    # defended but you still win material (attacker worth less than victim). Displayed as the same
+    # "Missed Free X" tag as the undefended case (Sam: collapse free/winning into one coaching tag);
+    # the distinction survives in the evidence string ("wins X for less" vs "takes undefended X").
     attacker = b.piece_at(bm.from_square)
     if attacker and VAL[victim.piece_type] > VAL[attacker.piece_type] + 0.5:
-        return [(f"Missed Winning Capture ({pname})", "missed", f"best wins {pname.lower()} for less")]
+        return [(f"Missed Free {pname}", "missed", f"best {m.best_san} wins {pname.lower()} for less")]
     if victim.piece_type == chess.PAWN:
         return [("Missed Pawn Trade", "missed", f"best {m.best_san} = even pawn trade")]
-    return [(f"Missed Exchange ({pname})", "missed", f"best {m.best_san} = even trade of {pname.lower()}")]
+    return [(f"Missed {pname} Exchange", "missed", f"best {m.best_san} = even trade of {pname.lower()}")]
 
 
 def capture_direction(m):
-    """Behavior-level capture mistake (complements the piece-specific capture_or_exchange tags):
-      - best is a capture, played is NOT a capture  -> 'Missed Capture'  (passive instead of capturing)
-      - best is a capture, played is a DIFFERENT capture -> 'Wrong Capture' (captured, but wrong target)
-    When best isn't a capture, neither fires."""
+    """Behavior-level capture mistake: best is a capture, played is a DIFFERENT capture
+      -> 'Wrong Capture' (you captured, but the wrong target).
+    The "played a quiet move instead of capturing" case is intentionally NOT tagged here: whenever
+    best is a capture, capture_or_exchange already emits the specific piece tag (Missed Free X /
+    Missed X Exchange / ...), so a generic "Missed Capture" was always a redundant duplicate of it.
+    (Removed per Sam — ply 17 fired both "Missed Free Pawn" and "Missed Capture".)"""
     b = m.board_before
     bm = _best_move(m); pm = _played_move(m)
     if bm is None or pm is None or not b.is_capture(bm):
         return []
-    if not b.is_capture(pm):
-        return [("Missed Capture", "missed", f"best {m.best_san} captures; played {m.played_san} was passive")]
     # both captures — wrong one (different target square OR different piece on same square)
-    if pm.to_square != bm.to_square or pm.from_square != bm.from_square:
+    if b.is_capture(pm) and (pm.to_square != bm.to_square or pm.from_square != bm.from_square):
         return [("Wrong Capture", "played", f"captured {m.played_san}; best capture was {m.best_san}")]
     return []
 

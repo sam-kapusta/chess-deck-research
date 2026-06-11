@@ -71,15 +71,17 @@ def build_taxonomy():
     # FAILED direction (single-move tactics that backfired)
     for x in sorted(FAILED_OK):
         add(f"Failed {x}", f"You tried a {x.lower()} but it backfired")
-    # Layer-1 material predicates
+    # Layer-1 material predicates. Label form is "Missed Free <Piece>" / "Missed <Piece> Exchange"
+    # (piece name inline, not parenthesized) — must match the strings predicates.capture_or_exchange
+    # emits.
+    # "Missed Free X" covers BOTH an undefended grab AND a favorable (win-material) capture — the
+    # tagger merges them into one tag (the old separate "Missed Winning Capture (X)" is gone).
     for p in PIECES:
-        add(f"Missed Free Capture ({p})", f"A free {p.lower()} could be captured")
-        add(f"Missed Winning Capture ({p})", f"Winning a {p.lower()} for less was available")
+        add(f"Missed Free {p}", f"A free or favorable {p.lower()} capture was available")
         if p != "Pawn":
-            add(f"Missed Exchange ({p})", f"An even {p.lower()} trade was the move")
+            add(f"Missed {p} Exchange", f"An even {p.lower()} trade was the move")
     add("Missed Pawn Trade", "An even pawn trade was the move")
     add("Missed Capture (Pawn)", "An en-passant capture was available")
-    add("Missed Capture", "A capture was the best move; you played a quiet move")
     add("Wrong Capture", "You captured the wrong target")
     add("Bad Capture", "Your capture lost material/eval")
     add("Hung Material", "Your move dropped material to a one-move capture")
