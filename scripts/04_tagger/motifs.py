@@ -99,6 +99,13 @@ def _pin_target(board: chess.Board, move: chess.Move):
                     if p.piece_type == PAWN:
                         break          # a pinned PAWN is not a real pin worth naming (it's blocked
                                        # along the file/diagonal anyway, nothing is won) -> skip ray
+                    # The front piece must be DEFENDED. If it's hanging, there's nothing to "pin" —
+                    # pov just captures it; whatever valuable piece sits behind it on the ray is
+                    # coincidental geometry (and the move is usually a fork/check instead). Without
+                    # this, Qd4 lining up an UNDEFENDED c3-knight in front of the a1-rook fired a
+                    # phantom "Pin (to Rook)". (Caught by Sam via Gemini, ply 23.)
+                    if not b.is_attacked_by(b.turn, sq):
+                        break          # hanging front piece -> not a pin on this ray
                     first = p           # candidate pinned enemy PIECE (knight/bishop/rook/queen)
                 else:
                     # second piece along ray

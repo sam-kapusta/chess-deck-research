@@ -26,6 +26,14 @@ SINGLE_MOVE_CASES = [
     ("Rxe5 defended knight (not hang)", "4k3/4r3/8/4n3/8/8/4R3/4K3 w - - 0 1", "e2e5", M.is_hanging_piece, False),
     # --- pin (d7 empty so the b5-e8 diagonal is clear) ---
     ("Bb5 pins Nc6 to king", "r1bqkbnr/ppp1pppp/2n5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1", "f1b5", M.is_pin, True),
+    # HANGING front piece is NOT a pin — you just capture it; the valuable piece behind is
+    # coincidental geometry. Here Black Qd4 lines up c3-knight (UNDEFENDED) in front of the a1-rook;
+    # it's a fork (Qd4+ also checks g1), not a Pin to Rook. (Caught by Sam via Gemini, ply 23.)
+    ("Qd4 hits hanging knight = not a pin", "2kr1b1r/pppq2p1/4pn2/4p3/1P2P3/2NP3P/P1P3P1/R1BQ1RK1 b - - 0 12", "d7d4", M.is_pin, False),
+    # control: same geometry but the front knight IS defended (d2 pawn guards c3, OFF the pinning
+    # diagonal so the ray to a1 stays clear) → a genuine relative pin to the rook. Distinguishes the
+    # fix from a blunt "never pin to rook".
+    ("Qd4 pins DEFENDED knight to rook", "2kr1b1r/pppq2p1/4pn2/4p3/4P3/2NP4/P2P2P1/R1BQ1RK1 b - - 0 12", "d7d4", M.is_pin, True),
     # --- skewer: KNOWN TODO (geometry needs work; rare 0.6% of corpus). No case asserted yet. ---
 ]
 
