@@ -102,6 +102,14 @@ def capture_or_exchange(m):
     attacker = b.piece_at(bm.from_square)
     if attacker and VAL[victim.piece_type] > VAL[attacker.piece_type] + 0.5:
         return [(f"Missed Free {pname}", "missed", f"best {m.best_san} wins {pname.lower()} for less")]
+    # Equal-value gate: an "exchange/trade" means like-for-like value. If the attacker is worth MORE
+    # than the (defended) victim, capturing it sheds material — that's a SACRIFICE, not an even trade,
+    # and sacrifice_line already names it ("Missed Sacrifice"). Without this gate, Q-takes-defended-B
+    # mislabels as "Missed Bishop Exchange" — 24% of Exchange fires (310/1274), 207 of which ALSO carry
+    # "Missed Sacrifice" (a direct contradiction). Drop the bogus exchange label and let the sac stand.
+    # (Sam, ply 50: best Qxe4+ = queen for a defended bishop was tagged "Missed Bishop Exchange".)
+    if attacker and VAL[attacker.piece_type] > VAL[victim.piece_type] + 0.5:
+        return []
     if victim.piece_type == chess.PAWN:
         return [("Missed Pawn Trade", "missed", f"best {m.best_san} = even pawn trade")]
     return [(f"Missed {pname} Exchange", "missed", f"best {m.best_san} = even trade of {pname.lower()}")]
