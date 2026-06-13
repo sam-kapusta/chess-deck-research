@@ -135,6 +135,23 @@ bug to chase** — it's mostly the irreducible "the best move was just better, n
 which is the LLM-narrative's job, not a rule's. (Sanity-checked the samples: Qd7/Qd8, Qf2/Qc3 — no clean
 motif to name.)
 
+## SHIPPED (2026-06-13): four endgame detectors
+
+Built + shipped the "BUILD" tier below. Each fires when the best move exhibits the theme AND the played
+move didn't — **no causal gate** (Sam's call: fire-when-present, prune noise by reviewing outputs). All
+render as "Endgame" chips on Review (the drill-filter bridge is still a separate project). Spec:
+`2026-06-13-endgame-detectors-design.md`. Corpus firing rates (19,342 moments), all sane (<3%, no
+pov-parity-style runaway):
+
+| Detector | Fires | Eyeball verdict |
+|---|---|---|
+| Missed King Activity | 489 (2.5%) | clean on real endgame king mistakes |
+| Lost the Opposition | 43 (0.2%) | clean, all pawn endgames, real opposition geometry |
+| Missed Passed Pawn | 556 (2.9%) | geometry correct, but **main noise source** — fires on captures in crowded middlegames where the passer is a side effect; watch in outputs |
+| Rook Behind Passer | 85 (0.4%) | clean |
+
+Regression 63/63 (8 new endgame cases). `quietMove` deliberately NOT built (router-only, per below).
+
 ## DECIDED ranking (2026-06-13, with Sam) — by coaching value, NOT naked-rate
 
 The principle we settled on: **a tag must teach something true about THIS mistake.** Descriptors that
