@@ -80,8 +80,8 @@ def game_state(m):
 
 # ---------- material: capture vs exchange, by piece ----------
 def capture_or_exchange(m):
-    """Best move is a capture: free (undefended) -> Missed Free Capture (Piece);
-    defended/even -> Missed Exchange (Piece)."""
+    """Best move is a capture: free (undefended) -> Missed Free <Piece> (e.g. "Missed Free Pawn");
+    defended/even -> Missed <Piece> Exchange (e.g. "Missed Queen Exchange")."""
     b = m.board_before
     bm = _best_move(m)
     pm = _played_move(m)
