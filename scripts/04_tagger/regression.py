@@ -174,6 +174,63 @@ def run():
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_exch = len(exch_cases)
 
+    print("--- predicates: endgame detectors (king activity / opposition / passed pawn / rook-behind) ---")
+    # (name, fen, played_uci, best_uci, best_san, predicate_fn, expected_label_or_None)
+    # eval_before set so phase()/game_state don't matter; cp_loss=200. mover = side to move in the FEN.
+    eg_cases = [
+        # --- Missed King Activity: best is a non-check king move toward center/pawns, played wasn't ---
+        # corpus: played Ng2, best Kf3 (king toward center). 8 pieces -> endgame.
+        ("king activity: best Kf3 not Ng2", "8/8/6p1/5pkp/8/4N3/4K3/8 w - - 0 51",
+         "e3g2", "e2f3", "Kf3", "missed_king_activity", "Missed King Activity"),
+        # corpus: played Kb5, best Kd4 (toward center).
+        ("king activity: best Kd4 not Kb5", "8/8/3k2pp/p2P1p2/2K2P1P/1p3P2/1P6/8 w - - 0 35",
+         "c4b5", "c4d4", "Kd4", "missed_king_activity", "Missed King Activity"),
+        # NEG: best king move AWAY from center (Kf3->Kg2, toward corner) must NOT fire. Mirror the
+        # first case: from a position where the best is the passive king step.
+        ("king activity NEG: best heads to corner", "8/8/6p1/5pkp/8/4NK2/8/8 b - - 0 51",
+         "g5g4", "g5h4", "Kh4", "missed_king_activity", None),
+        # NEG: not an endgame (full board) — king activity should not fire even if best is a king move.
+        ("king activity NEG: not endgame", "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+         "e7e5", "e8e7", "Ke7", "missed_king_activity", None),
+
+        # --- Lost the Opposition: pawn-only endgame, best king move takes direct opposition ---
+        # corpus: played Kf4, best Kd3 takes opposition vs Kd5 (dist 2, same file d). pawn-only.
+        ("opposition: best Kd3 takes it", "8/8/8/3k1p1p/3P2pP/4K1P1/8/8 w - - 2 53",
+         "e3f4", "e3d3", "Kd3", "lost_opposition", "Lost the Opposition"),
+        # NEG: same geometry but NOT a pawn-only endgame (add a knight) -> opposition concept N/A.
+        ("opposition NEG: not pawn-only", "8/8/8/3k1p1p/3P2pP/4K1P1/6n1/8 w - - 2 53",
+         "e3f4", "e3d3", "Kd3", "lost_opposition", None),
+
+        # --- Missed Passed Pawn: best is a pawn move creating/advancing a passer, played wasn't ---
+        # corpus: played Kh4, best h4 makes the h-pawn passed. endgame.
+        ("passed pawn: best h4 not Kh4", "8/8/4p3/5k1K/p1pP1P2/P6P/1P6/8 w - - 1 38",
+         "h5h4", "h3h4", "h4", "missed_passed_pawn", "Missed Passed Pawn"),
+        # NEG: best pawn move that is NOT passed (enemy pawn still blocks on adjacent file).
+        ("passed pawn NEG: still blocked", "8/2p5/8/2P5/8/5k2/5p2/5K2 w - - 0 1",
+         "f1f2", "c5c6", "c6", "missed_passed_pawn", None),
+
+        # --- Rook Behind Passer: best puts a rook behind a passed pawn, played didn't ---
+        # corpus: played Rg8, best Rd8 (rook behind the d5 passer). endgame.
+        ("rook behind passer: best Rd8", "7R/8/p1r4p/3pp2P/8/4KP2/k7/8 w - - 0 44",
+         "h8g8", "h8d8", "Rd8", "rook_behind_passer", "Rook Behind Passer"),
+        # NEG: rook move to a file whose pawns are BLOCKED (c4/c5 mutually block -> neither passed),
+        # so "behind a passer" geometry is absent. Must not fire.
+        ("rook behind NEG: no passer on file", "7R/8/8/2p5/2P5/4KP2/k7/8 w - - 0 44",
+         "h8g8", "h8c8", "Rc8", "rook_behind_passer", None),
+    ]
+    for name, fen, uci, best, bsan, fn_name, want in eg_cases:
+        b = chess.Board(fen)
+        m = Mistake(fen, uci, best, [], [], 200, 0, 0, b.turn, best_san=bsan)
+        got_list = getattr(PR, fn_name)(m)
+        got = got_list[0][0] if got_list else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_eg = len(eg_cases)
+
     print("--- predicates: pawn structure (recapture + best-line guards) ---")
     # (name, fen, played_uci, best_uci, refutation_san, label_must_NOT_appear)
     ps_cases = [
@@ -389,7 +446,7 @@ def run():
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + extra_exch + len(ps_cases) + extra_tg + 2 + extra_cd
+             + len(hung_cases) + extra_exch + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases))
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))

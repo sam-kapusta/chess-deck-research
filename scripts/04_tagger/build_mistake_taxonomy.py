@@ -103,6 +103,11 @@ def build_taxonomy():
     add("Bishop Endgame", "A bishop endgame")
     add("Bishop Endgame (Same Color)", "A same-color-bishop endgame")
     add("Bishop Endgame (Opposite Color)", "An opposite-color-bishop endgame (often drawish)")
+    # Endgame mistakes (detectors, 2026-06-13)
+    add("Missed King Activity", "Your king should have activated toward the center or the pawns")
+    add("Lost the Opposition", "You gave up the opposition in a king-and-pawn endgame")
+    add("Missed Passed Pawn", "A move that made or advanced a passed pawn was best")
+    add("Rook Behind Passer", "The rook belonged behind the passed pawn")
     # Meta + phase + info
     add("Winning", "You were winning before this move")
     add("Losing", "You were losing before this move")

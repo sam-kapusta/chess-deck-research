@@ -182,6 +182,51 @@ def is_outpost(board: Board, square: Square, pov: Color) -> bool:
     return True
 
 
+# ---------------- endgame geometry (king activity / opposition / passed pawns) ----------------
+
+_CENTER_SQUARES = [chess.D4, chess.E4, chess.D5, chess.E5]
+
+
+def center_distance(square: Square) -> int:
+    """Chebyshev distance from `square` to the nearest of the four central squares (d4/e4/d5/e5).
+    Lower = more central. Used to detect a king move that heads toward the center."""
+    return min(square_distance(square, c) for c in _CENTER_SQUARES)
+
+
+def nearest_enemy_pawn_distance(board: Board, square: Square, pov: Color) -> int:
+    """Chebyshev distance from `square` to the nearest enemy (not-pov) pawn; 99 if there are none.
+    Used to detect a king move that heads toward the opponent's pawns (the other face of king activity)."""
+    enemy_pawns = board.pieces(PAWN, not pov)
+    return min((square_distance(square, p) for p in enemy_pawns), default=99)
+
+
+def is_passed_pawn(board: Board, square: Square, color: Color) -> bool:
+    """True if a `color` pawn on `square` is passed: no enemy pawn on its file or the two adjacent
+    files, on any rank ahead of it (in `color`'s advance direction). Assumes a pawn of `color` is (or
+    will be) on `square` — caller pushes the move first when checking the post-move position."""
+    f, r = square_file(square), square_rank(square)
+    step = 1 if color == WHITE else -1
+    for ef in (f - 1, f, f + 1):
+        if not (0 <= ef <= 7):
+            continue
+        er = r + step
+        while 0 <= er <= 7:
+            pc = board.piece_at(chess.square(ef, er))
+            if pc is not None and pc.piece_type == PAWN and pc.color != color:
+                return False
+            er += step
+    return True
+
+
+def is_pawn_only_endgame(board: Board) -> bool:
+    """True if the only non-king pieces on the board are pawns (a king-and-pawn endgame). This is the
+    regime where the opposition is the decisive concept."""
+    for p in board.piece_map().values():
+        if p.piece_type not in (KING, PAWN):
+            return False
+    return True
+
+
 # ---------------- ChildNode helpers (for sequence detectors) ----------------
 # A "line" is a list[ChildNode] from build_line(); cook's per-node logic ports verbatim onto it.
 

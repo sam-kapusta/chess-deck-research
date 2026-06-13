@@ -9,6 +9,7 @@ material (from the refutation line, end-of-line delta — the validated metric, 
 safety, pawn-structure deltas, wrong move-order, only-move, captured-with-wrong-piece.
 """
 import chess
+import chesslib_util as U
 
 VAL = {chess.PAWN: 1, chess.KNIGHT: 3, chess.BISHOP: 3, chess.ROOK: 5, chess.QUEEN: 9, chess.KING: 0}
 PIECE_NAME = {chess.PAWN: "Pawn", chess.KNIGHT: "Knight", chess.BISHOP: "Bishop",
@@ -407,11 +408,105 @@ def backward_pawn(m):
     return []
 
 
+# ---------- endgame mistake detectors ----------
+# All fire on the SAME rule: the best move exhibits the theme AND the played move did not. No causal
+# gate ("is this the real mistake?") — fire when the theme is present; noise is pruned by reviewing
+# real outputs (Sam's call). These are drill-filter categories: "would someone want to drill positions
+# of this type?" — so marking the type whenever present is the goal. (See findings/spec 2026-06-13.)
+
+def _is_endgame(m):
+    """Reuse phase()'s endgame determination (npieces<=12 or non-pawns<=4) — single source."""
+    return phase(m)[0][0] == "Endgame"
+
+
+def missed_king_activity(m):
+    """Endgame: best move is a non-check king move toward the center OR the enemy pawns, and the played
+    move wasn't that. Escaping a check is defense, not activity — excluded."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    if b.is_check():
+        return []
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.KING:
+        return []
+    toward_center = U.center_distance(bm.to_square) < U.center_distance(bm.from_square)
+    toward_pawns = (U.nearest_enemy_pawn_distance(b, bm.to_square, m.mover)
+                    < U.nearest_enemy_pawn_distance(b, bm.from_square, m.mover))
+    if not (toward_center or toward_pawns):
+        return []
+    where = "center" if toward_center else "the enemy pawns"
+    return [("Missed King Activity", "missed", f"best {m.best_san} activates the king toward {where}")]
+
+
+def lost_opposition(m):
+    """King-and-pawn endgame: best move is a king move that takes DIRECT opposition (kings 2 squares
+    apart on the same file or rank), and the played move didn't."""
+    b = m.board_before
+    if not U.is_pawn_only_endgame(b):
+        return []
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.KING:
+        return []
+    ek = b.king(not m.mover)
+    if ek is None:
+        return []
+    same_line = (chess.square_file(bm.to_square) == chess.square_file(ek)
+                 or chess.square_rank(bm.to_square) == chess.square_rank(ek))
+    if chess.square_distance(bm.to_square, ek) == 2 and same_line:
+        return [("Lost the Opposition", "missed", f"best {m.best_san} takes the opposition")]
+    return []
+
+
+def missed_passed_pawn(m):
+    """Best move is a pawn move that results in a passed pawn (creates a new one or advances an existing
+    passer), and the played move wasn't. No phase gate — passers matter before the endgame too."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.PAWN:
+        return []
+    after = b.copy(); after.push(bm)
+    if U.is_passed_pawn(after, bm.to_square, m.mover):
+        return [("Missed Passed Pawn", "missed", f"best {m.best_san} makes/advances a passed pawn")]
+    return []
+
+
+def rook_behind_passer(m):
+    """Endgame: best move puts a rook on a file containing a passed pawn (either color), BEHIND that
+    pawn (Tarrasch — behind your own to push it, behind the enemy's to stop it), and the played didn't."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.ROOK:
+        return []
+    tf = chess.square_file(bm.to_square); tr = chess.square_rank(bm.to_square)
+    for sq, pc in b.piece_map().items():
+        if pc.piece_type != chess.PAWN or chess.square_file(sq) != tf:
+            continue
+        if not U.is_passed_pawn(b, sq, pc.color):
+            continue
+        pr = chess.square_rank(sq)
+        behind = (pc.color == chess.WHITE and tr < pr) or (pc.color == chess.BLACK and tr > pr)
+        if behind:
+            return [("Rook Behind Passer", "missed", f"best {m.best_san} puts the rook behind the passed pawn")]
+    return []
+
+
 # ---------- registry ----------
 ALL_PREDICATES = [
     phase, game_state, capture_or_exchange, capture_direction, bad_capture, hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
     wrong_move_order, captured_wrong_piece, endgame_type, backward_pawn,
+    missed_king_activity, lost_opposition, missed_passed_pawn, rook_behind_passer,
 ]
 
 

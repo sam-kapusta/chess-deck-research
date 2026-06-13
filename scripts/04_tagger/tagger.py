@@ -198,6 +198,11 @@ def categorize(label):
     if any(w in l for w in ["material", "capture", "exchange", "hung", "hanging", "wrong piece",
                             "missed free ", "trade"]):
         return "Material"
+    # Endgame mistake tags — distinctive phrases, checked BEFORE the "king"/"pawn" substring branches
+    # below (categorize is first-match): "King Activity" would else hit King Safety, "Passed Pawn" and
+    # "Rook Behind Passer" would hit Positional/Other. (Added with the endgame detectors, 2026-06-13.)
+    if any(w in l for w in ["king activity", "opposition", "passed pawn", "passer", "behind passer"]):
+        return "Endgame"
     if any(w in l for w in ["mate", "check", "fork", "combination", "pin", "skewer", "discovered",
                             "deflection", "attraction", "clearance", "interference", "zwischenzug",
                             "overload", "x-ray", "sacrifice", "f2/f7", "trapped piece", "defender",

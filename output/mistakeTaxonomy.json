@@ -453,6 +453,22 @@
       "category": "Endgame",
       "blurb": "An opposite-color-bishop endgame (often drawish)"
     },
+    "Missed King Activity": {
+      "category": "Endgame",
+      "blurb": "Your king should have activated toward the center or the pawns"
+    },
+    "Lost the Opposition": {
+      "category": "Endgame",
+      "blurb": "You gave up the opposition in a king-and-pawn endgame"
+    },
+    "Missed Passed Pawn": {
+      "category": "Endgame",
+      "blurb": "A move that made or advanced a passed pawn was best"
+    },
+    "Rook Behind Passer": {
+      "category": "Endgame",
+      "blurb": "The rook belonged behind the passed pawn"
+    },
     "Winning": {
       "category": "Meta",
       "blurb": "You were winning before this move"
