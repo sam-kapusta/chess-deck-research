@@ -468,6 +468,14 @@ def skewer_line(nodes, pov) -> bool:
         if not isinstance(prev, ChildNode):
             continue
         capture = prev.board().piece_at(node.move.to_square)
+        # Minor-piece floor: a real skewer wins the (less-valuable) BACK piece — a real piece, not a
+        # pawn. Without this, any ray capture of a pawn on a square a major piece vacated along the ray
+        # reads as a "skewer" (e.g. Qe6+ deflects the queen off f3, Bxg2 grabs a pawn — geometry only).
+        # That degenerate pawn-grab is 37% of corpus skewer fires (105/286 reconstructable) and is
+        # better named by deflection / discovered-attack. Verified: ALL 105 removed fires capture a
+        # pawn; every fire that wins >= a minor (181) is kept. (Sam.)
+        if capture and capture.piece_type == PAWN:
+            continue
         if capture and U.moved_piece_type(node) in U.ray_piece_types and not node.board().is_checkmate():
             between = SquareSet.between(node.move.from_square, node.move.to_square)
             op_move = prev.move

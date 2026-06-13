@@ -63,6 +63,15 @@ LINE_CASES = [
     # Black's Bg4 pinning Nf3 to Kd1. pov=Black (the punisher in the allowed line).
     ("established pin still tags", "r1b1k1nQ/ppp2q1p/3p4/2b1p3/4P3/2N2N2/PP1P1PPP/n1BK3R w q - 0 10",
      ["b2b3", "c8g4", "d2d4", "g4f3", "g2f3", "e8c8"], False, "pin", True),
+    # --- skewer: minor-piece floor. A skewer wins the (less-valuable) BACK piece — a real piece.
+    # NEG: Qf3 allowed Qe6+ Qe2 Bxg2 — the bishop only grabs a PAWN on g2 (the queen was DEFLECTED off
+    # f3 by the check, not driven off by the bishop). Pawn-back => NOT a skewer. (Sam, ply 15.)
+    ("pawn-back deflection != skewer", "rn2kbnr/pb2pppp/1p6/1Ppq4/8/P1PB4/3P1PPP/RNBQK1NR w KQkq - 0 8",
+     ["d1f3", "d5e6", "f3e2", "b7g2", "f2f3", "g8f6"], False, "skewer", False),
+    # POS: classic file skewer — Re1+ checks Ke4, king steps to d4, Rxe8 wins the ROOK behind it.
+    # Front=king (skewered), back=rook (won, >= minor). pov=White (the winner). Must still fire.
+    ("king-front rook-back still skewers", "4r3/8/8/8/4k3/8/8/R5K1 w - - 0 1",
+     ["a1e1", "e4d4", "e1e8"], True, "skewer", True),
 ]
 
 
