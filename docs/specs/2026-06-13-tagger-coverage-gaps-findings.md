@@ -116,8 +116,15 @@ attack a non-pawn piece, not an advanced pawn push, not a king move) against all
 | **king move** (upstream excludes — needs the king-activity detector) | 130 | **9%** |
 | **forcing** (capture / check / attacks a piece) | 616 | **41%** |
 
-So **`quietMove` alone tags 50%** of the naked set, and **+ king-activity → ~59%**. That's the headline:
-two detectors cut the naked-mistake count roughly in half.
+So **`quietMove` alone tags 50%** of the naked set, and **+ king-activity → ~59%**.
+
+**⚠️ Update (2026-06-13, after review with Sam): the 50% is a mirage — don't chase it.** `quietMove`
+covers 50% *precisely because it's contentless* — it fires on the absence of a tactic, telling the player
+nothing about why their move was bad. The naked-rate metric counts any tag as "covered," so a descriptor
+scores like a real explanation. That's the metric's flaw, not quietMove's strength. The two kinds of tag:
+**explanations** ("you lost the opposition" — teach something) vs **descriptors** ("quiet move was best" —
+describe the board). The metric can't tell them apart; a human reading outputs can. **The right metric is
+"does the tag teach something true about THIS mistake," which is eyeball-only.** See revised ranking below.
 
 **The 41% forcing residual is murkier — be honest about it.** Breaking it down: 417 "best attacks a
 piece," 127 "best gives check," 72 "escapes a check." But "best move attacks a piece" (e.g. Qd7→Qd8)
@@ -128,55 +135,49 @@ bug to chase** — it's mostly the irreducible "the best move was just better, n
 which is the LLM-narrative's job, not a rule's. (Sanity-checked the samples: Qd7/Qd8, Qf2/Qc3 — no clean
 motif to name.)
 
-## Ranked options (what to build, by value÷effort)
+## DECIDED ranking (2026-06-13, with Sam) — by coaching value, NOT naked-rate
 
-**Tier 1 — do these; highest value, upstream code exists or logic is simple:**
+The principle we settled on: **a tag must teach something true about THIS mistake.** Descriptors that
+just characterize the board don't count, no matter how much naked-rate they "cover."
 
-1. **`quietMove` / "Quiet Move Was Best"** (port from cook.py). **Measured: tags 50% of all naked
-   mistakes (759/1505).** ~30 LOC, upstream-proven. Caveat: it's a weak explanation ("the right move was
-   positional") — but a weak explanation beats a naked mistake, and it's the floor the better detectors
-   build on. **Recommended first** — biggest single drop in the naked rate for the least code.
+**BUILD — these name a concept the player can learn:**
 
-2. **King-activity / opposition detector** (endgame, NEW). **Measured: +9% (130/1505)** — and these are
-   the moves `quietMove` deliberately won't touch, so it's purely additive. A focused detector: in an
-   endgame (≤ a piece-count threshold),
-   if the best move is a king move toward the center / toward the action / taking the opposition, and the
-   played move wasn't → "Missed King Activity" / "Lost the Opposition." Opposition is computable (kings on
-   same file/rank/diagonal, odd squares between, side-to-move loses opposition). Highest *measured*
-   coaching value. Needs care to avoid overfiring.
+1. **King-activity / opposition** (endgame, NEW). Covers only 9% by the metric, but every fire is real
+   content: "your king went the wrong way," "you lost the opposition." Concept the player learns;
+   opposition is precisely computable (kings on same file/rank/diagonal, odd squares between, side-to-move
+   loses it). **The actual winner** — smaller number, real teaching. Catch: precision without overfiring
+   on quiet-but-fine king moves is genuine work. Prototype against the 4 endgame FENs above FIRST.
+2. **Passed-pawn creation / blockade**. Real, nameable, statically computable (no enemy pawns on the file
+   or adjacent files ahead). Build it.
 
-**Tier 2 — real value, more design:**
+**ROUTER, NOT A CHIP:**
 
-3. **Implement `overloading`** (currently stubbed `return False`). It's already in the taxonomy and
-   referenced by `_MATE_OUTRANKS`; finishing it is honest completion, not new scope.
-4. **Passed-pawn creation / blockade** (endgame + middlegame). Computable from pawn structure
-   (no enemy pawns on the file or adjacent files ahead). Pairs naturally with the endgame push.
-5. **Open-file rook** / **bad bishop** — classic positional axes, fully static-computable.
+3. **`quietMove`** — do NOT ship as a user-facing tag. It's contentless as an explanation. Its real value
+   is as an internal flag ("this mistake is positional, not tactical → hand to the LLM to narrate"). The
+   50% coverage is the metric rewarding noise. Use it to steer, never to display.
 
-**Tier 3 — defer; high effort or low marginal value:**
+**DROP / DEFER:**
 
-6. `zugzwang` (engine-required — needs the static analyzer's Stockfish, doable once that lands but
-   couples the tagger to eval). `collinearMove`, `defensiveMove` (niche). Exchange sacrifice, trade
-   management, prophylaxis (fuzzy — hard to make precise without false positives).
+4. **`overloading`** (stubbed `return False`) — SKIP. "It's already in the enum" is not a reason. Reliable
+   overload detection is hard (prove a piece had two duties, one removed); cook.py stubbed it for that
+   reason. Only revisit with a clean detection idea.
+5. **Open-file rook / bad bishop** — DEFER. Same trap as quietMove: detecting "there's a bad bishop"
+   is easy, but proving "*this move* was a mistake *because* of it" is hard. The easy version is a
+   descriptor. Low value-per-risk.
+6. `zugzwang` (engine-required), `collinearMove`, `defensiveMove`, exchange-sacrifice, trade-management,
+   prophylaxis — defer (engine coupling or too fuzzy to make precise).
 
-## The key decision for Sam
+**Everything else quiet → the LLM narrative**, not a rule. Rules are good at tactics/material (crisp
+facts), bad at positional judgment — exactly where STANDARDS.md's "keyword rules are often more accurate"
+inverts. Don't stack fuzzy positional rules to chase coverage.
 
-**Is the goal coverage (fewer naked mistakes) or precision (every tag trustworthy)?** They pull opposite
-ways:
+## The metric lesson (why the ranking flipped)
 
-- The naked-mistake gap is overwhelmingly **quiet positional/endgame** moves. Closing it means detectors
-  that reason about *position*, not material — which are inherently fuzzier and overfire more (cf. the
-  skewer floor, the pin preexisting-gate — every positional detector has needed a guard).
-- Alternatively: **accept that quiet positional mistakes get no tactical tag**, and instead surface the
-  *eval swing + best move* plainly ("Best was Kd3 — king activity"), letting the LLM coach narrate the
-  why from the position rather than forcing a rule-based label. This dodges the overfire risk entirely
-  and may be the *better* product answer for the quiet 92% — rules are good at tactics, bad at judgment.
-
-My lean: **port `quietMove` (cheap, safe, upstream-proven) + build the endgame king-activity detector
-(highest measured value), and for everything else quiet, lean on the LLM narrative rather than stacking
-fuzzy positional rules.** That matches the existing instinct in the codebase — keyword rules for what's
-crisp (STANDARDS.md: "keyword rules are often more accurate" — but that's for *tactical/material* facts;
-positional judgment is exactly where it inverts).
+The naked-rate metric (% of mistakes with ≥1 tag) **rewards noise** — a contentless descriptor scores
+like a real explanation. It made `quietMove` look like the top pick (50%) when it's the weakest. The
+honest metric is "does the tag teach something true about this mistake," which is **eyeball-only** — Sam
+reading ply 15 / ply 50 caught more than the 19K-corpus script did. Use the corpus for *firing counts /
+overfire sizing* (where it's great — see the skewer & exchange fixes), NOT for ranking coaching value.
 
 ## Verification notes for whoever builds this
 
