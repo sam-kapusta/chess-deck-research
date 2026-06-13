@@ -77,6 +77,25 @@ is a 57-theme vocabulary. What we did NOT port:
 - Exchange sacrifice (strategic R-for-minor — distinct from tactical "Sacrifice")
 - Trade management (trading the wrong piece — your only active piece)
 
+## Precision bugs found + fixed this session (separate from coverage)
+
+While reviewing real outputs Sam flagged, two crisp **mislabel** bugs surfaced and were fixed (same
+discipline as a coverage gap is different work — these are "the tag we DO emit is wrong," not "we emit
+nothing"):
+
+1. **Skewer pawn-floor** — `skewer_line` fired on any ray capture of a *pawn* on a square a major piece
+   vacated along the ray (a deflection/discovered-attack, not a skewer). 105/286 reconstructable fires
+   (37%) were pawn-grabs. Floor: captured back piece must be ≥ a minor. All 181 piece-back fires kept.
+2. **Exchange equal-value gate** — `capture_or_exchange` labeled a higher-value piece taking a defended
+   lower-value one (Q×defended-B) as "Missed Bishop Exchange." That's a sacrifice, not an even trade —
+   and `sacrifice_line` already names it, so the label was wrong AND contradictory. 310/1274 Exchange
+   fires (24%) were this misfire; 207 co-occurred with "Missed Sacrifice." Gate: suppress when
+   attacker > victim+0.5. All 964 genuine trades kept.
+
+Both have regression cases now. The lesson for the coverage work below: **every detector needs a corpus
+before/after firing count + a regression case** — both bugs were invisible until measured against the
+19K corpus, and neither had a regression case before.
+
 ## What we already cover well (don't re-build)
 
 Top explanatory tags by corpus frequency: Lost Material to Combination (4,007), Bad Capture (3,520),
