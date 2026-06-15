@@ -13,7 +13,7 @@ Layer 1 = position predicates (predicates.py). Layer 3 = Maia rarity (numeric, n
 No cook_adapter, no vendor import — we own motifs.py. The motif->label map and category map are
 config; Sam prunes/edits freely.
 """
-import sys, os
+import sys, os, re
 import chess
 sys.path.insert(0, os.path.dirname(__file__))
 import motifs as MO
@@ -123,7 +123,29 @@ def _motif_label(key, ev):
     if key == "pin" and ev.startswith("target="):
         tgt = ev.split("target=", 1)[1].split()[0]
         return f"Pin (to {tgt})"
+    # trappedPiece: name the piece — "Trapped Bishop" / "Trapped Knight". detect_line prefixes "piece=X".
+    if key == "trappedPiece" and "piece=" in ev:
+        piece = ev.split("piece=", 1)[1].split()[0]
+        return f"Trapped {piece}"
     return MOTIF_LABEL.get(key, key)
+
+
+# Motifs whose display label does NOT follow the "Missed X / Allowed X" convention. Each maps a
+# motif key -> {direction: explicit label}. exposedKing reads as a positional state, not a sharp
+# tactic: your king exposed = "Exposed King"; the enemy king exposed-but-unexploited = "Enemy King
+# Exposed". (Sam, 2026-06-14.)
+LABEL_OVERRIDE = {
+    "exposedKing": {"missed": "Enemy King Exposed", "allowed": "Exposed King"},
+}
+
+
+def _directional_label(key, lab, direction):
+    """Apply the Missed/Allowed prefix, unless the motif has an explicit override for this direction."""
+    ov = LABEL_OVERRIDE.get(key)
+    if ov and direction in ov:
+        return ov[direction]
+    prefix = {"missed": "Missed", "allowed": "Allowed"}.get(direction, "")
+    return f"{prefix} {lab}".strip()
 
 
 def _motif_tags(m):
@@ -138,14 +160,14 @@ def _motif_tags(m):
     if len(best_ucis) >= 1:
         for key, ev in MO.detect_line(b, best_ucis, mover).items():
             lab = _motif_label(key, ev)
-            out.append((f"Missed {lab}".strip(), "missed", ev))
+            out.append((_directional_label(key, lab, "missed"), "missed", ev))
 
     # ALLOWED: [played]+refutation, pov = opponent (== cook's puzzle shape, the validated one)
     allowed_ucis = _allowed_line_ucis(m)
     if len(allowed_ucis) >= 2:   # need the played move + at least one punishment ply
         for key, ev in MO.detect_line(b, allowed_ucis, opp).items():
             lab = _motif_label(key, ev)
-            out.append((f"Allowed {lab}".strip(), "allowed", ev))
+            out.append((_directional_label(key, lab, "allowed"), "allowed", ev))
 
     # FAILED: the played move itself was a (single-move) tactic that backfired
     try:
@@ -187,39 +209,96 @@ def _suppress_lesser_under_mate(tags):
     return kept
 
 
-def categorize(label):
-    # Material FIRST — "Hung Material" contains the substring "mate" (in "MATErial"), so the tactical
-    # check must not see it first. Material/hung labels are unambiguous, so they win the tie.
+# Tactical motif substrings — a tag containing one of these IS a tactic. Direction then splits it into
+# "Missed Tactic" (find it) vs "Allowed Tactic" (prevent it) — genuinely different drill skills.
+_TACTIC_WORDS = ("fork", "pin", "skewer", "discovered", "deflection", "attraction", "clearance",
+                 "interference", "zwischenzug", "overload", "x-ray", "trapped", "sacrifice",
+                 "double check", "combination")
+
+
+def _direction_from_label(label):
+    """Derive direction from the label prefix when the caller doesn't pass it explicitly
+    (the taxonomy builder enumerates labels with their direction baked into the prefix)."""
+    for pfx, d in (("Missed ", "missed"), ("Allowed ", "allowed"),
+                   ("Hung ", "hung"), ("Failed ", "failed")):
+        if label.startswith(pfx):
+            return d
+    return ""
+
+
+def categorize(label, direction=None):
+    """Map a tag → one of the 10 drill categories (skill-based, direction-aware), plus Meta/Other for
+    info/context tags. The 10: Hung Piece, Missed Capture, Missed Tactic, Missed Mate, Allowed Tactic,
+    Calculation, Trading, Position, King Safety, Endgame. (Sam, 2026-06-14 — replaces the old
+    chess-concept scheme; "hung a piece" and "missed a free piece" are opposite SKILLS, not both
+    "Material".)"""
+    if direction is None:
+        direction = _direction_from_label(label)
     l = label.lower()
-    # Material capture family. NB the piece-specific tags are "Missed Free <Piece>" /
-    # "Missed <Piece> Exchange" / "Missed Pawn Trade" — piece name inline, so "capture" is NOT a
-    # substring. Match on "free "/"trade" too, else "Missed Free Pawn" would fall through to the
-    # "pawn" -> Positional branch below. (Caught while renaming the capture tags.)
-    if any(w in l for w in ["material", "capture", "exchange", "hung", "hanging", "wrong piece",
-                            "missed free ", "trade"]):
-        return "Material"
-    # Endgame mistake tags — distinctive phrases, checked BEFORE the "king"/"pawn" substring branches
-    # below (categorize is first-match): "King Activity" would else hit King Safety, "Passed Pawn" and
-    # "Rook Behind Passer" would hit Positional/Other. (Added with the endgame detectors, 2026-06-13.)
-    if any(w in l for w in ["king activity", "opposition", "passed pawn", "passer", "behind passer"]):
+
+    # Phase / game-state context tags (direction == "info") are not drill categories.
+    # Bare phase words only — "Rook Endgame" / "Bishop Endgame (...)" are endgame-TYPE tags (below).
+    if l in ("opening", "middlegame", "endgame"):
+        return "Other"
+    if l in ("winning", "losing", "equal") or l.startswith("blunder while"):
+        return "Meta"
+    if any(w in l for w in ("only move", "multiple good", "wrong move order")):
+        # Wrong Move Order is a calculation/sequencing error, not Meta. Only-move is context.
+        if "move order" in l:
+            return "Calculation"
+        return "Meta"
+
+    # Mate vision is its own skill when MISSED; allowing mate is King Safety. Word-boundary so
+    # "Material"/"checkmate-in-text" don't false-match.
+    if re.search(r"\bmate\b", l) or "back-rank" in l:
+        return "Missed Mate" if direction == "missed" else "King Safety"
+
+    # Endgame technique + endgame-type context tags ("Rook Endgame", "Pawn Endgame", etc.).
+    # BEFORE king/pawn substring branches.
+    if "endgame" in l or any(w in l for w in (
+            "king activity", "opposition", "passed pawn", "passer", "behind passer",
+            "promotion", "pawn race", "en passant")):
         return "Endgame"
-    if any(w in l for w in ["mate", "check", "fork", "combination", "pin", "skewer", "discovered",
-                            "deflection", "attraction", "clearance", "interference", "zwischenzug",
-                            "overload", "x-ray", "sacrifice", "f2/f7", "trapped piece", "defender",
-                            "en passant"]):
-        return "Tactical"
-    if any(w in l for w in ["king", "castl", "attack"]):
+
+    # Enemy king exposed but unexploited = a missed attacking chance (Missed Tactic), NOT your own
+    # king safety. Check BEFORE the King Safety branch (which would catch "king"/"exposed").
+    if l == "enemy king exposed":
+        return "Missed Tactic"
+    # King safety (your king). "Exposed King" (your king exposed), castling, kingside/queenside attack.
+    if any(w in l for w in ("exposed king", "kingside attack", "queenside attack", "castl",
+                            "f2/f7", "pawn move exposed king", "king in center")):
         return "King Safety"
-    if "endgame" in l or "zugzwang" in l or "opposition" in l or "promotion" in l:
-        return "Endgame"
-    if any(w in l for w in ["pawn", "tempo", "development", "advanced", "outpost"]):
-        return "Positional"
-    # exact game-state words (renamed from "Blunder While X"). Exact-match so a stray "winning"/
-    # "losing" substring inside some other label can't reach here.
-    if l in ("winning", "losing", "equal"):
-        return "Meta"
-    if any(w in l for w in ["blunder while", "only move", "multiple good", "move order"]):
-        return "Meta"
+
+    # Hung material (you dropped a piece in one move).
+    if l.startswith("hung ") or l == "allowed hanging piece":
+        return "Hung Piece"
+
+    # Missed free material (opponent gave you something).
+    if l.startswith("missed free") or l.startswith("missed winning capture") \
+       or l in ("missed hanging piece", "missed capture of defender", "missed capture (pawn)"):
+        return "Missed Capture"
+
+    # Trading (exchange decisions).
+    if "exchange" in l or l == "missed pawn trade" or l == "premature trade":
+        return "Trading"
+
+    # Calculation (saw it, miscounted / wrong execution).
+    if l in ("captured with wrong piece", "bad capture", "wrong capture",
+             "lost material to combination") or l.startswith("failed "):
+        return "Calculation"
+
+    # Tactical motifs — split by direction.
+    if any(w in l for w in _TACTIC_WORDS):
+        return "Missed Tactic" if direction == "missed" else "Allowed Tactic"
+    if "capture of defender" in l:   # Allowed Capture of Defender = a tactic you allowed
+        return "Allowed Tactic"
+
+    # Positional (plan execution + structure).
+    if any(w in l for w in ("advanced pawn", "isolated pawn", "doubled pawn", "backward pawn",
+                            "outpost", "open file", "piece activation", "prophylaxis", "pawn break",
+                            "tempo push", "tempo", "development")):
+        return "Position"
+
     return "Other"
 
 
@@ -239,7 +318,7 @@ def tag_mistake_full(m, with_maia=True):
             continue
         seen.add(t[0]); tags.append(t)
 
-    cat_set = sorted({categorize(t[0]) for t in tags})
+    cat_set = sorted({categorize(t[0], t[1]) for t in tags})
 
     maia = {}
     if with_maia:

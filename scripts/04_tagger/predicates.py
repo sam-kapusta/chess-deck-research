@@ -199,7 +199,7 @@ def hung_material(m):
                      f"opponent's first reply captures your {pname.lower()} ({net_lost} net over line)")]
         return [("Hung Material", "hung",
                  f"opponent's first reply wins {immediate_lost} pts ({net_lost} net over line)")]
-    return [("Lost Material to Combination", "hung",
+    return [("Lost Material to Combination", "allowed",
              f"refutation wins {net_lost} pts net over {len(diffs)-1} plies (delayed, not a 1-move hang)")]
 
 
@@ -501,12 +501,263 @@ def rook_behind_passer(m):
     return []
 
 
+# ---------- positional: plan execution ----------
+
+def missed_pawn_break(m):
+    """Best move is a pawn advance that creates tension (adjacent to an enemy pawn or opens a file),
+    and the played move isn't a pawn advance toward the same goal. Covers central breaks, kingside
+    storms, and minority attacks."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.PAWN:
+        return []
+    if m.cp_loss < 50:
+        return []
+    # the played move is also a pawn advance to a nearby file — player tried, just wrong pawn
+    if pm and b.piece_type_at(pm.from_square) == chess.PAWN:
+        if abs(chess.square_file(pm.to_square) - chess.square_file(bm.to_square)) <= 1:
+            return []
+    # check: does the pawn advance create tension (enemy pawn adjacent)?
+    to_f = chess.square_file(bm.to_square)
+    to_r = chess.square_rank(bm.to_square)
+    creates_tension = False
+    for adj_f in (to_f - 1, to_f, to_f + 1):
+        if not (0 <= adj_f <= 7):
+            continue
+        for adj_r in (to_r - 1, to_r, to_r + 1):
+            if not (0 <= adj_r <= 7):
+                continue
+            pc = b.piece_at(chess.square(adj_f, adj_r))
+            if pc and pc.piece_type == chess.PAWN and pc.color != m.mover:
+                creates_tension = True
+                break
+        if creates_tension:
+            break
+    # also check: is it a capture (pawn takes pawn = break)
+    if b.is_capture(bm):
+        creates_tension = True
+    if not creates_tension:
+        return []
+    # determine the type of break
+    opp_king = b.king(not m.mover)
+    if opp_king is not None and abs(to_f - chess.square_file(opp_king)) <= 2:
+        kind = "kingside" if chess.square_file(opp_king) >= 4 else "queenside"
+        return [("Missed Pawn Break", "missed", f"best {m.best_san} = {kind} pawn storm")]
+    return [("Missed Pawn Break", "missed", f"best {m.best_san} = pawn break creating tension")]
+
+
+def missed_tempo_push(m):
+    """Best move is a pawn advance (non-capture) that attacks an enemy minor/major piece which was NOT
+    attacked before the push — a tempo gain that dislodges the piece. The pawn must be safe to push
+    (not just hanging itself). Distinct from Missed Pawn Break (structural tension): this kicks a piece.
+    Examples: d5 hitting Nc6, e5 hitting Nf6."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.PAWN:
+        return []
+    if b.is_capture(bm):           # a capture is a break/grab, not a tempo push
+        return []
+    if bm.promotion is not None:   # promotion: the new piece attacks, not the pawn — not a tempo push
+        return []
+    if m.cp_loss < 40:
+        return []
+    to_sq = bm.to_square
+    after = b.copy(); after.push(bm)
+    # the pushed pawn must survive (not a free pawn sac); allow if defended or undefended-but-unattacked
+    if after.is_attacked_by(not m.mover, to_sq) and not after.is_attacked_by(m.mover, to_sq):
+        return []
+    # what does the pawn now attack that it didn't before?
+    KICKABLE = (chess.KNIGHT, chess.BISHOP, chess.ROOK, chess.QUEEN)
+    for sq in after.attacks(to_sq):
+        victim = after.piece_at(sq)
+        if victim is None or victim.color == m.mover or victim.piece_type not in KICKABLE:
+            continue
+        # was this enemy piece already attacked by one of our pawns before the push? then no new tempo
+        was_attacked = False
+        for asq in b.attackers(m.mover, sq):
+            if b.piece_type_at(asq) == chess.PAWN:
+                was_attacked = True
+                break
+        if not was_attacked:
+            vname = PIECE_NAME[victim.piece_type].lower()
+            return [("Missed Tempo Push", "missed",
+                     f"best {m.best_san} attacks the {vname} on {chess.square_name(sq)}, gaining tempo")]
+    return []
+
+
+def missed_open_file(m):
+    """Best move places a rook on an open or half-open file, and the played move doesn't."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.ROOK:
+        return []
+    if m.cp_loss < 40:
+        return []
+    to_file = chess.square_file(bm.to_square)
+    # check if the file is open (no pawns) or half-open (no friendly pawns)
+    friendly_pawn_on_file = any(
+        p.piece_type == chess.PAWN and p.color == m.mover and chess.square_file(sq) == to_file
+        for sq, p in b.piece_map().items()
+    )
+    enemy_pawn_on_file = any(
+        p.piece_type == chess.PAWN and p.color != m.mover and chess.square_file(sq) == to_file
+        for sq, p in b.piece_map().items()
+    )
+    if friendly_pawn_on_file:
+        return []  # closed for us
+    # rook is already on this file?
+    if chess.square_file(bm.from_square) == to_file:
+        return []  # just a rook lift, not file occupation
+    kind = "open" if not enemy_pawn_on_file else "half-open"
+    return [("Missed Open File", "missed", f"best {m.best_san} = rook to {kind} {chr(97+to_file)}-file")]
+
+
+def premature_trade(m):
+    """Played move is a capture that leads to a trade (opponent recaptures), but the engine preferred
+    maintaining tension. Only fires when the player had an eval advantage before the trade."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or pm == bm:
+        return []
+    if not b.is_capture(pm):
+        return []
+    if m.cp_loss < 50:
+        return []
+    # player must have been at least slightly better before the trade (mover POV)
+    if m.eval_before is None:
+        return []
+    cp_before = m.eval_before if m.mover == chess.WHITE else -m.eval_before
+    if cp_before < 30:
+        return []  # not clearly better — trade might be fine
+    # check: does the opponent recapture on the same square? (from refutation line)
+    if not m.refutation_san or len(m.refutation_san) < 1:
+        return []
+    after = b.copy(); after.push(pm)
+    try:
+        recapture = after.parse_san(m.refutation_san[0])
+        if recapture.to_square != pm.to_square:
+            return []  # opponent's reply isn't a recapture → not a trade
+    except Exception:
+        return []
+    # the best move should NOT be a capture of the same piece (then it's "wrong capture", not premature trade)
+    if b.is_capture(bm) and bm.to_square == pm.to_square:
+        return []
+    victim = b.piece_at(pm.to_square)
+    pname = PIECE_NAME[victim.piece_type] if victim else "piece"
+    return [("Premature Trade", "played", f"traded {pname.lower()} ({m.played_san}) while ahead; tension was an asset")]
+
+
+def missed_prophylaxis(m):
+    """The opponent's first move in the refutation line is a strong positional threat (pawn break,
+    piece to outpost, or attack) that the best move would have prevented. Fires when best move
+    directly contests or blocks the threat square."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or pm == bm:
+        return []
+    if m.cp_loss < 60:
+        return []
+    if not m.refutation_san or len(m.refutation_san) < 1:
+        return []
+    # the opponent's threat: first move of refutation line
+    after_played = b.copy(); after_played.push(pm)
+    try:
+        threat = after_played.parse_san(m.refutation_san[0])
+    except Exception:
+        return []
+    threat_sq = threat.to_square
+    # does the best move directly address the threat square? (moves to it, controls it, or blocks it)
+    if bm.to_square == threat_sq:
+        return [("Missed Prophylaxis", "missed",
+                 f"best {m.best_san} prevents opponent's {m.refutation_san[0]}")]
+    # best move controls the threat square
+    after_best = b.copy(); after_best.push(bm)
+    if after_best.is_attacked_by(m.mover, threat_sq) and not b.is_attacked_by(m.mover, threat_sq):
+        return [("Missed Prophylaxis", "missed",
+                 f"best {m.best_san} controls the square opponent wants ({m.refutation_san[0]})")]
+    return []
+
+
+def missed_piece_activation(m):
+    """Best move repositions a minor piece or rook (not a capture, not a king move) to a square with
+    significantly more mobility/influence, and the played move doesn't address the same piece."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return []
+    piece_type = b.piece_type_at(bm.from_square)
+    if piece_type not in (chess.KNIGHT, chess.BISHOP, chess.ROOK):
+        return []
+    if b.is_capture(bm):
+        return []  # captures are handled by capture predicates
+    if m.cp_loss < 50:
+        return []
+    # the piece currently has low mobility (few legal destinations from its square)
+    current_mobility = 0
+    for sq in chess.SQUARES:
+        test = chess.Move(bm.from_square, sq)
+        if test in b.legal_moves:
+            current_mobility += 1
+    if current_mobility > 4:
+        return []  # piece isn't really stuck
+    # after the best move, piece has better mobility
+    after = b.copy(); after.push(bm)
+    new_mobility = 0
+    for sq in chess.SQUARES:
+        test = chess.Move(bm.to_square, sq)
+        if test in after.legal_moves:
+            new_mobility += 1
+    if new_mobility <= current_mobility:
+        return []  # didn't actually improve
+    pname = PIECE_NAME[piece_type]
+    return [("Missed Piece Activation", "missed",
+             f"best {m.best_san} activates the {pname.lower()} ({current_mobility}→{new_mobility} squares)")]
+
+
+def wrong_pawn_race(m):
+    """Endgame with passed pawns on both sides: best move is a king or pawn move that wins the race,
+    played move goes in a different direction and loses the race."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or pm == bm:
+        return []
+    if m.cp_loss < 80:
+        return []
+    # both sides should have passed pawns or potential passers
+    our_passers = [sq for sq, p in b.piece_map().items()
+                   if p.piece_type == chess.PAWN and p.color == m.mover and U.is_passed_pawn(b, sq, m.mover)]
+    their_passers = [sq for sq, p in b.piece_map().items()
+                     if p.piece_type == chess.PAWN and p.color != m.mover and U.is_passed_pawn(b, sq, not m.mover)]
+    if not our_passers and not their_passers:
+        return []
+    # best and played should both be king or pawn moves but in different directions
+    bm_type = b.piece_type_at(bm.from_square)
+    pm_type = b.piece_type_at(pm.from_square)
+    if bm_type not in (chess.KING, chess.PAWN) or pm_type not in (chess.KING, chess.PAWN):
+        return []
+    # different direction: files diverge or ranks diverge meaningfully
+    if abs(chess.square_file(bm.to_square) - chess.square_file(pm.to_square)) < 2:
+        if abs(chess.square_rank(bm.to_square) - chess.square_rank(pm.to_square)) < 2:
+            return []  # same direction, just a tempo difference — not a "wrong race"
+    return [("Wrong Pawn Race", "missed", f"best {m.best_san} wins the race; {m.played_san} loses a tempo")]
+
+
 # ---------- registry ----------
 ALL_PREDICATES = [
     phase, game_state, capture_or_exchange, capture_direction, bad_capture, hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
     wrong_move_order, captured_wrong_piece, endgame_type, backward_pawn,
     missed_king_activity, lost_opposition, missed_passed_pawn, rook_behind_passer,
+    missed_pawn_break, missed_tempo_push, missed_open_file, premature_trade, missed_prophylaxis,
+    missed_piece_activation, wrong_pawn_race,
 ]
 
 

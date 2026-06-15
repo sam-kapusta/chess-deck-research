@@ -11,13 +11,14 @@ from tagger import categorize, FAILED_OK
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "..", "output", "mistakeTaxonomy.json")
 
-CATEGORIES = ["Tactical", "Material", "King Safety", "Positional", "Endgame", "Meta", "Other"]
+CATEGORIES = ["Hung Piece", "Missed Capture", "Missed Tactic", "Missed Mate", "Allowed Tactic",
+              "Calculation", "Trading", "Position", "King Safety", "Endgame", "Meta", "Other"]
 
 # Directional motifs (Missed/Allowed). Pin and Fork are parametrized separately below.
 DIRECTIONAL = [
     "Skewer", "Discovered Attack", "Deflection", "Attraction", "Clearance", "Zwischenzug",
     "Overload", "X-Ray", "Trapped Piece", "Sacrifice", "Capture of Defender", "Hanging Piece",
-    "Exposed King", "Kingside Attack", "Queenside Attack", "Promotion", "Underpromotion",
+    "Kingside Attack", "Queenside Attack", "Promotion", "Underpromotion",
     "En Passant", "Castling", "Double Check", "f2/f7 Attack", "Advanced Pawn", "Mate", "Outpost",
 ]
 NAMED_MATES = ["Anastasia's Mate", "Arabian Mate", "Boden's Mate", "Double Bishop Mate",
@@ -89,13 +90,30 @@ def build_taxonomy():
         add(f"Hung {p}", f"Your move left your {p.lower()} to be captured next move")
     add("Lost Material to Combination", "Your move lost material after a short sequence")
     add("Captured With Wrong Piece", "You recaptured with the wrong piece")
+    # Exposed king — explicit labels (no Missed/Allowed prefix; reads as a positional state).
+    add("Exposed King", "Your move left your own king exposed")
+    add("Enemy King Exposed", "The enemy king was exposed and you didn't press the attack")
     # King safety predicates
     add("King in Center", "Your king stayed in the center too long")
     add("Lost Castling Rights", "Your move forfeited castling")
     add("Pawn Move Exposed King", "A pawn move weakened your king's shelter")
+    # Trapped piece — tagger names the piece ("Trapped Bishop") + a generic fallback ("Trapped Piece").
+    for p in ["Piece", "Pawn", "Knight", "Bishop", "Rook", "Queen"]:
+        add(f"Missed Trapped {p}", f"An enemy {p.lower() if p != 'Piece' else 'piece'} could be trapped (you didn't play it)")
+        add(f"Allowed Trapped {p}", f"Your move let the opponent trap your {p.lower() if p != 'Piece' else 'piece'}")
     # Positional predicates
     for s in ["Doubled", "Isolated", "Backward"]:
         add(f"Created {s} Pawn", f"Your move created a {s.lower()} pawn")
+    # Plan-execution positional detectors (2026-06-14)
+    add("Missed Pawn Break", "A thematic pawn break was available; you played a waiting move")
+    add("Missed Tempo Push", "A pawn push attacking an enemy piece (gaining tempo) was available")
+    add("Missed Open File", "A rook could occupy an open or half-open file")
+    add("Premature Trade", "You exchanged while ahead, relieving tension that favored you")
+    add("Missed Prophylaxis", "The opponent had a one-move threat you could have prevented")
+    add("Missed Piece Activation", "A passive piece could be repositioned to a more active square")
+    add("Wrong Pawn Race", "You went the wrong direction in a pawn race and lost a critical tempo")
+    add("Allowed Advanced Pawn", "Your move let the opponent advance a pawn dangerously")
+    add("Missed Advanced Pawn", "An advanced pawn push was the move")
     # Endgame types
     for t in ["Pawn", "Rook", "Queen", "Knight"]:
         add(f"{t} Endgame", f"A {t.lower()} endgame")

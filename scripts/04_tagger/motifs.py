@@ -318,7 +318,8 @@ def double_check_line(nodes, pov) -> bool:
     return False
 
 
-def trapped_piece_line(nodes, pov) -> bool:
+def trapped_piece_line(nodes, pov):
+    """Returns the trapped piece type (int) or False."""
     for node in U.pov_nodes(nodes, pov)[1:]:
         square = node.move.to_square
         captured = node.parent.board().piece_at(square)
@@ -330,7 +331,7 @@ def trapped_piece_line(nodes, pov) -> bool:
                 square = prev.move.from_square
             if isinstance(prev.parent, (ChildNode,)) or prev.parent is not None:
                 if U.is_trapped(prev.parent.board(), square):
-                    return True
+                    return captured.piece_type
     return False
 
 
@@ -917,8 +918,11 @@ def detect_line(start_board: chess.Board, ucis: List[str], pov: bool) -> dict:
     found = {}
     for key, fn in LINE_DETECTORS.items():
         try:
-            if fn(nodes, pov):
+            result = fn(nodes, pov)
+            if result:
                 found[key] = f"line={' '.join(ucis[:6])}"
+                if key == "trappedPiece" and isinstance(result, int):
+                    found[key] = f"piece={U.PIECE_NAME.get(result, 'Piece')} {found[key]}"
         except Exception:
             pass
     # depth annotation for fork: index among pov's moves where it fires (0 = available NOW).
