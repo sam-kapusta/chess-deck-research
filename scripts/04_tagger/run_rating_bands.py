@@ -6,15 +6,17 @@ Join: sweep_blunders_2000.json (band/fen/uci) × position_enrichment_cache.json 
 The cache stores lines as SAN with move numbers; we strip the numbers and parse to the fields the
 tagger's Mistake expects.
 """
-import json, re, sys, time
+import json, re, sys, time, os
 import chess
 sys.path.insert(0, "/home/ec2-user/SageMaker/tagger_run")
 from mistake import Mistake
 import tagger as T
 
-SWEEP = "/home/ec2-user/SageMaker/sweep_blunders_2000.json"
-CACHE = "/home/ec2-user/SageMaker/position_enrichment_cache.json"
-OUT   = "/home/ec2-user/SageMaker/rating_band_tag_stats.json"
+# Paths are env-overridable so the SAME script serves the original (Lichess-selected) sweep and the
+# depth-16 re-detected sweep. Defaults = original; set SWEEP_JSON/CACHE_JSON/OUT_JSON for d16.
+SWEEP = os.environ.get("SWEEP_JSON", "/home/ec2-user/SageMaker/sweep_blunders_2000.json")
+CACHE = os.environ.get("CACHE_JSON", "/home/ec2-user/SageMaker/position_enrichment_cache.json")
+OUT   = os.environ.get("OUT_JSON",   "/home/ec2-user/SageMaker/rating_band_tag_stats.json")
 
 DRILL = ["Hung Piece","Missed Capture","Missed Tactic","Missed Mate","Allowed Tactic",
          "Calculation","Trading","Position","King Safety","Endgame"]
