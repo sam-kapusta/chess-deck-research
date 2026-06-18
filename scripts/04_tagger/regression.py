@@ -149,21 +149,33 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
 
-    print("--- predicates: capture_or_exchange (equal-value gate — sac is not an exchange) ---")
-    # (name, fen, played_uci, best_uci, best_san, expected_label_or_None)
+    print("--- predicates: capture_or_exchange (equal-value gate + cp_loss MISS gate) ---")
+    # (name, fen, played_uci, best_uci, best_san, cp_loss, expected_label_or_None)
     exch_cases = [
         # MISFIRE Sam caught (ply 50): best Qxe4+ = queen takes a DEFENDED bishop (9 for 3). That sheds
         # material — a sacrifice, not an even trade. Must NOT tag "Missed Bishop Exchange" (sacrifice_line
         # names it). attacker(9) > victim(3)+0.5 & e4 defended by Qd5.
         ("Q-for-defended-B is not an exchange", "r4r2/1b4pk/p1n4p/1p1Q4/4BN2/4q1P1/PP5P/R4R1K b - - 3 25",
-         "h7h8", "e3e4", "Qxe4+", None),
-        # CONTROL: a genuine equal trade — knight takes a defended knight (3 for 3). Must still tag.
-        ("equal N-for-N still tags exchange", "3qk3/3p4/3p4/4n3/8/5N2/8/3QK3 w - - 0 1",
-         "e1e2", "f3e5", "Nxe5", "Missed Knight Exchange"),
+         "h7h8", "e3e4", "Qxe4+", 200, None),
+        # POSITIVE: a genuine equal trade the player missed (cp_loss 200) — must still tag.
+        ("equal N-for-N (real miss, cp200) tags exchange", "3qk3/3p4/3p4/4n3/8/5N2/8/3QK3 w - - 0 1",
+         "e1e2", "f3e5", "Nxe5", 200, "Missed Knight Exchange"),
+        # NEGATIVE (GH #27): SAME equal trade but cp_loss=20 — the played move was just as good, so it
+        # is NOT a "missed" exchange. Must NOT fire (the played==best / low-cp false-fire class, 30% of
+        # Exchange fires). This is the cp_loss<100 gate.
+        ("equal N-for-N (cp20, not a real miss) suppressed", "3qk3/3p4/3p4/4n3/8/5N2/8/3QK3 w - - 0 1",
+         "e1e2", "f3e5", "Nxe5", 20, None),
+        # GH #28: bishop takes a DEFENDED knight (even minor trade) must be "Bishop-Knight Exchange",
+        # NOT "Missed Knight Exchange" (the old victim-only naming mislabeled 64% of minor trades).
+        ("B-for-N mixed minor trade -> Bishop-Knight Exchange", "4k3/8/3p4/4n3/8/8/1B6/4K3 w - - 0 1",
+         "e1e2", "b2e5", "Bxe5", 200, "Missed Bishop-Knight Exchange"),
+        # CONTROL: true B-for-B still names "Bishop Exchange". Bb2xBe5, e5 defended by d6 pawn.
+        ("equal B-for-B still tags Bishop Exchange", "4k3/8/3p4/4b3/8/8/1B6/4K3 w - - 0 1",
+         "e1e2", "b2e5", "Bxe5", 200, "Missed Bishop Exchange"),
     ]
-    for name, fen, uci, best, bsan, want in exch_cases:
+    for name, fen, uci, best, bsan, cpl, want in exch_cases:
         b = chess.Board(fen)
-        m = Mistake(fen, uci, best, [], [], 0, 0, 200, b.turn, best_san=bsan)
+        m = Mistake(fen, uci, best, [], [], 0, 0, cpl, b.turn, best_san=bsan)
         res = PR.capture_or_exchange(m)
         got = res[0][0] if res else None
         passed = (got == want)
@@ -173,6 +185,32 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_exch = len(exch_cases)
+
+    print("--- predicates: pawn break / prophylaxis must not fire on material grabs (GH #28-class) ---")
+    # (name, fn, fen, played_uci, best_uci, best_san, refutation_san, cp_loss, expected_label_or_None)
+    grab_cases = [
+        # Pawn Break NEG: best exd5 captures a BISHOP — material grab, not a structural break. Must NOT fire.
+        ("pawn break NEG: pawn takes piece", PR.missed_pawn_break,
+         "4k3/8/8/3b4/4P3/8/8/4K3 w - - 0 1", "e1e2", "e4d5", "exd5", [], 300, None),
+        # Pawn Break POS: best exd5 captures a PAWN — a real break. Must still fire.
+        ("pawn break POS: pawn takes pawn", PR.missed_pawn_break,
+         "4k3/8/8/3p4/4P3/8/8/4K3 w - - 0 1", "e1e2", "e4d5", "exd5", [], 120, "Missed Pawn Break"),
+        # Prophylaxis NEG: best move is a capture (Bxd5) — winning material, not quiet prevention. Must NOT fire.
+        ("prophylaxis NEG: best is a capture", PR.missed_prophylaxis,
+         "r3k3/8/8/3n4/8/3B4/8/4K3 w - - 0 1", "e1e2", "d3d5", "Bxd5", ["d5e3"], 200, None),
+    ]
+    for name, fn, fen, uci, best, bsan, ref, cpl, want in grab_cases:
+        b = chess.Board(fen)
+        m = Mistake(fen, uci, best, [], ref, 0, 0, cpl, b.turn, best_san=bsan)
+        res = fn(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_grab = len(grab_cases)
 
     print("--- predicates: endgame detectors (king activity / opposition / passed pawn / rook-behind) ---")
     # (name, fen, played_uci, best_uci, best_san, predicate_fn, expected_label_or_None)
@@ -446,7 +484,7 @@ def run():
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + extra_exch + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
+             + len(hung_cases) + extra_exch + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases))
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))

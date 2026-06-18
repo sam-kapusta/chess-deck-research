@@ -81,6 +81,8 @@ def build_taxonomy():
         add(f"Missed Free {p}", f"A free or favorable {p.lower()} capture was available")
         if p != "Pawn":
             add(f"Missed {p} Exchange", f"An even {p.lower()} trade was the move")
+    # mixed minor trade (bishop for knight / knight for bishop) — its own decision (bishop pair). (GH #28)
+    add("Missed Bishop-Knight Exchange", "An even bishop-for-knight trade was the move")
     add("Missed Pawn Trade", "An even pawn trade was the move")
     add("Missed Capture (Pawn)", "An en-passant capture was available")
     add("Wrong Capture", "You captured the wrong target")

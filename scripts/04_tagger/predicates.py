@@ -88,6 +88,13 @@ def capture_or_exchange(m):
     pm = _played_move(m)
     if bm is None or not b.is_capture(bm):
         return []
+    # MISSED gate: a "missed" trade/capture is only a miss if the played move was meaningfully worse.
+    # Without this, the tag fired whenever the BEST move was a capture — even when the player PLAYED it
+    # (played==best, cp_loss 1-13). That was 30-41% of these fires (Missed Pawn Trade 41%, Exchange ~30%),
+    # firing on correct play as often as on blunders → flat discrimination. cp<100 = not a real miss.
+    # Matches bad_capture (cp<120) + the FAILED branch (cp>=100). (GH #27, sized: removes 96% of false fires.)
+    if m.cp_loss < 100:
+        return []
     # the played move itself being a capture of the same square is handled by captured_wrong_piece
     victim = b.piece_at(bm.to_square)
     if victim is None:  # en passant
@@ -113,6 +120,14 @@ def capture_or_exchange(m):
         return []
     if victim.piece_type == chess.PAWN:
         return [("Missed Pawn Trade", "missed", f"best {m.best_san} = even pawn trade")]
+    # Name the trade by BOTH pieces, not just the victim. The old "Missed {victim} Exchange" mislabeled
+    # bishop-takes-knight as "Missed Knight Exchange" — 64% of minor-exchange fires were attacker≠victim.
+    # A B-for-N (or N-for-B) is a distinct decision (bishop pair / good-vs-bad minor), so it gets its own
+    # label. NxN -> Knight Exchange, BxB -> Bishop Exchange, BxN/NxB -> Bishop-Knight Exchange. (GH #28, Sam.)
+    aname = PIECE_NAME[attacker.piece_type] if attacker else pname
+    if {attacker.piece_type, victim.piece_type} == {chess.KNIGHT, chess.BISHOP}:
+        return [("Missed Bishop-Knight Exchange", "missed",
+                 f"best {m.best_san} = trade {aname.lower()} for {pname.lower()}")]
     return [(f"Missed {pname} Exchange", "missed", f"best {m.best_san} = even trade of {pname.lower()}")]
 
 
@@ -535,9 +550,12 @@ def missed_pawn_break(m):
                 break
         if creates_tension:
             break
-    # also check: is it a capture (pawn takes pawn = break)
+    # A capture only counts as a pawn break if it's pawn-takes-PAWN (or en passant). pawn-takes-PIECE
+    # is winning material, not a structural break — it was 53% of capture-fires, mislabeling "grab the
+    # hanging bishop" as "Missed Pawn Break". Let capture_or_exchange name those. (GH #28-class fix, Sam.)
     if b.is_capture(bm):
-        creates_tension = True
+        if b.is_en_passant(bm) or (b.piece_at(bm.to_square) and b.piece_at(bm.to_square).piece_type == chess.PAWN):
+            creates_tension = True
     if not creates_tension:
         return []
     # determine the type of break
@@ -662,6 +680,11 @@ def missed_prophylaxis(m):
     if bm is None or pm is None or pm == bm:
         return []
     if m.cp_loss < 60:
+        return []
+    # Prophylaxis is QUIET prevention. If the best move is a capture, it's winning material / a tactic,
+    # not prophylaxis — that was 50% of fires (best move grabs a piece, mislabeled "Missed Prophylaxis").
+    # Let the material/tactic detectors name those. (GH #28-class fix, Sam.)
+    if b.is_capture(bm):
         return []
     if not m.refutation_san or len(m.refutation_san) < 1:
         return []

@@ -155,9 +155,14 @@ def _motif_tags(m):
     mover = m.mover
     opp = not mover
 
-    # MISSED: best line, pov = mover
+    # MISSED: best line, pov = mover.
+    # cp_loss gate: a motif in the best line is only a MISS if the played move was meaningfully worse.
+    # Without it, "Missed X" fired whenever the motif sat in the best line — even when the player PLAYED
+    # the best move (played==best, cp_loss ~1-13). That was ~29% of MISSED-family fires, firing on correct
+    # play → flat discrimination (drop_ratio ~1.0 on tags like Missed Zwischenzug/Deflection/Trade).
+    # cp>=100 mirrors the FAILED branch below + bad_capture. (GH #27, sized: removes 96% of false fires.)
     best_ucis = _best_line_ucis(m)
-    if len(best_ucis) >= 1:
+    if len(best_ucis) >= 1 and m.cp_loss >= 100:
         for key, ev in MO.detect_line(b, best_ucis, mover).items():
             lab = _motif_label(key, ev)
             out.append((_directional_label(key, lab, "missed"), "missed", ev))
