@@ -75,6 +75,27 @@ endgame-technique collapse, useful as the canonical "soft inaccuracy + losing en
 
 ## Architecture — what works (and why)
 
+### Seed STABILITY — instability is init-basin, fixed by data-driven init (2026-06-17) ⭐
+
+The big methods finding. SAE seed-instability (different seeds → different dictionaries; literature
+treats this as near-unsolved, cf. Fel et al. Archetypal SAE ICML 2025) is on our Maia blunder-diff data
+**almost entirely an INITIALIZATION-basin artifact**, and cheaply fixable:
+- random init, different seeds: MMCS 0.41, only ~6–9% of features reproduce (>0.7 cos).
+- shared (identical) init, different data order: MMCS **0.95** → instability is NOT data/objective, it's
+  which random basin init lands in.
+- **k-means init, SAME centroids, different seeds: MMCS 0.89** — BUT the bias test (Sam) showed this is
+  partly circular: **DIFFERENT centroids + different seeds → MMCS 0.63.** So data-driven init captures
+  real seed-independent structure (0.47→0.63 genuine), but ~half the 0.89 was shared-init, not
+  data-determination. NOT seed-independent "truths."
+- **Action:** for a reproducible production SAE, fix the centroids once and reuse → legitimately 0.89
+  ("features from this data + this fixed init"). Honest cross-independent-run number is ~0.63.
+- Archetypal SAE (the literature fix) only nudged it (0.41→~0.50) AND cost sparsity/reconstruction — not
+  worth it vs init.
+
+Full writeup + the 3 systematic-debugging root-causes (overcomplete L1-shrinkage collapse;
+threshold-can't-climb → stuck L0; per-seed candidate-set confound) + JumpReLU canonical impl notes:
+`docs/2026-06-17 SAE Stability — init-basin instability and the data-driven-init fix.md`.
+
 ### BatchTopK (SandstonePersonas pattern) — CURRENT
 
 - **BatchTopKSAE** from SandstonePersonas (`sae/model.py`): batch-level top-k (not per-position), unit-norm decoder enforced every step, AuxK dead-feature revival.
