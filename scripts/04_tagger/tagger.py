@@ -22,6 +22,9 @@ import predicates as PR
 # engine, which the product worker doesn't ship. Keeping the import lazy lets the tagger run with
 # with_maia=False in environments without the Maia model (e.g. the vendored copy in the ECS worker).
 
+# eval_to_cp maps #N to ±10000; anything above this threshold is treated as a forced mate.
+_MATE_SENTINEL = 9000
+
 # direction -> display prefix
 DIR_PREFIX = {"missed": "Missed", "allowed": "Allowed", "failed": "Failed",
               "hung": "", "played": "", "info": ""}
@@ -155,14 +158,13 @@ def _motif_tags(m):
     mover = m.mover
     opp = not mover
 
+    # NOTE: the win%-drop mistake gate is applied ONCE at the tagger entry (tag_mistake_full), not here.
+    # _motif_tags only runs on positions already established as real mistakes, so every branch below is
+    # unconditional. (GH #29 — was a per-branch cp_loss/win_drop check copy-pasted across detectors.)
+
     # MISSED: best line, pov = mover.
-    # cp_loss gate: a motif in the best line is only a MISS if the played move was meaningfully worse.
-    # Without it, "Missed X" fired whenever the motif sat in the best line — even when the player PLAYED
-    # the best move (played==best, cp_loss ~1-13). That was ~29% of MISSED-family fires, firing on correct
-    # play → flat discrimination (drop_ratio ~1.0 on tags like Missed Zwischenzug/Deflection/Trade).
-    # cp>=100 mirrors the FAILED branch below + bad_capture. (GH #27, sized: removes 96% of false fires.)
     best_ucis = _best_line_ucis(m)
-    if len(best_ucis) >= 1 and m.cp_loss >= 100:
+    if len(best_ucis) >= 1:
         for key, ev in MO.detect_line(b, best_ucis, mover).items():
             lab = _motif_label(key, ev)
             out.append((_directional_label(key, lab, "missed"), "missed", ev))
@@ -177,12 +179,27 @@ def _motif_tags(m):
     # FAILED: the played move itself was a (single-move) tactic that backfired
     try:
         played = chess.Move.from_uci(m.played_uci)
-        if played in b.legal_moves and m.cp_loss >= 100:
+        if played in b.legal_moves:
             for key, ev in MO.detect_move(b, played).items():
                 if key in FAILED_OK:
                     out.append((f"Failed {key}".strip(), "failed", ev))
     except Exception:
         pass
+
+    # EVAL-BASED MATE FALLBACK: Stockfish often truncates the PV when it sees #N, so
+    # mate_in_line() (which requires nodes[-1].is_checkmate()) misses many forced mates.
+    # If the eval says "mate" but the PV-based detectors didn't fire, inject the tag.
+    existing_labels = {lab for (lab, _, _) in out}
+    # Missed Mate: eval_before says mover had a forced mate (mover-POV positive mate)
+    if "Missed Mate" not in existing_labels and m.eval_before is not None:
+        eb_mover = m.eval_before if m.mover == chess.WHITE else -m.eval_before
+        if eb_mover >= _MATE_SENTINEL:
+            out.append(("Missed Mate", "missed", "eval: forced mate available (PV truncated)"))
+    # Allowed Mate: eval_after says opponent now has a forced mate (mover-POV negative mate)
+    if "Allowed Mate" not in existing_labels and m.eval_after is not None:
+        ea_mover = m.eval_after if m.mover == chess.WHITE else -m.eval_after
+        if ea_mover <= -_MATE_SENTINEL:
+            out.append(("Allowed Mate", "allowed", "eval: opponent has forced mate after played move"))
 
     return _suppress_lesser_under_mate(out)
 
@@ -247,10 +264,7 @@ def categorize(label, direction=None):
         return "Other"
     if l in ("winning", "losing", "equal") or l.startswith("blunder while"):
         return "Meta"
-    if any(w in l for w in ("only move", "multiple good", "wrong move order")):
-        # Wrong Move Order is a calculation/sequencing error, not Meta. Only-move is context.
-        if "move order" in l:
-            return "Calculation"
+    if any(w in l for w in ("only move", "multiple good")):
         return "Meta"
 
     # Mate vision is its own skill when MISSED; allowing mate is King Safety. Word-boundary so
@@ -262,7 +276,9 @@ def categorize(label, direction=None):
     # BEFORE king/pawn substring branches.
     if "endgame" in l or any(w in l for w in (
             "king activity", "opposition", "passed pawn", "passer", "behind passer",
-            "promotion", "pawn race", "en passant")):
+            "promotion", "pawn race", "en passant", "rook to 7th", "rook cut-off",
+            "active rook", "blockade", "connected passers", "simplif", "trade to simplify",
+            "king direction", "outside passer", "push to promote", "rook to open file")):
         return "Endgame"
 
     # Enemy king exposed but unexploited = a missed attacking chance (Missed Tactic), NOT your own
@@ -287,22 +303,36 @@ def categorize(label, direction=None):
     if "exchange" in l or l == "missed pawn trade" or l == "premature trade":
         return "Trading"
 
-    # Calculation (saw it, miscounted / wrong execution).
-    if l in ("captured with wrong piece", "bad capture", "wrong capture",
-             "lost material to combination") or l.startswith("failed "):
+    # Calculation (saw it, miscounted / wrong execution). Greedy Capture = grabbed material when a
+    # quiet move was better (a calculation/judgment error); Failed X = your own tactic backfired.
+    # Desperado = had a tactical resource (doomed piece) and didn't cash it in.
+    # Pawn Grab While Undeveloped = chose material over development (judgment/calculation error).
+    if l in ("greedy capture", "missed desperado", "pawn grab while undeveloped") or l.startswith("failed "):
         return "Calculation"
 
-    # Tactical motifs — split by direction.
-    if any(w in l for w in _TACTIC_WORDS):
+    # Threat awareness — you ignored or failed to address an opponent threat.
+    if l in ("ignored threat", "missed defensive resource"):
+        return "Allowed Tactic"
+
+    # Premature attack = positional judgment (attacked before developing).
+    if l == "premature attack":
+        return "Position"
+
+    # Tactical motifs — split by direction. Battery, Overloading, Doubled Rooks are tactical patterns.
+    if any(w in l for w in _TACTIC_WORDS) or any(w in l for w in ("battery", "overloading", "doubled rooks")):
         return "Missed Tactic" if direction == "missed" else "Allowed Tactic"
     if "capture of defender" in l:   # Allowed Capture of Defender = a tactic you allowed
         return "Allowed Tactic"
 
-    # Positional (plan execution + structure).
+    # Positional (plan execution + structure). Doubled Rooks is a positional setup.
     if any(w in l for w in ("advanced pawn", "isolated pawn", "doubled pawn", "backward pawn",
                             "outpost", "open file", "piece activation", "prophylaxis", "pawn break",
-                            "tempo push", "tempo", "development")):
+                            "tempo push", "tempo", "development", "doubled rooks")):
         return "Position"
+
+    # Missed Faster Mate = still in the mate category.
+    if l == "missed faster mate":
+        return "Missed Mate"
 
     return "Other"
 
@@ -310,10 +340,27 @@ def categorize(label, direction=None):
 def tag_mistake_full(m, with_maia=True):
     fine = []  # (label, direction, evidence, layer)
 
+    # ONE entry gate (GH #29): only EXPLAIN tags (mistake assertions) require a real win%-drop. This is
+    # a property of the POSITION, not of each predicate, so it lives here once instead of being copy-
+    # pasted into every detector. Matches prod, which only calls the tagger on moves already classified
+    # blunder/mistake/inaccuracy. INFO/orient tags (phase, game-state, endgame-TYPE) are NOT gated —
+    # they classify the position for drill-bucket filtering and should fire on any move.
+    # MATE EXEMPTION: missing a forced mate is ALWAYS a real mistake regardless of win_drop (which gets
+    # squished by the ±1200 clamp when going from mate→still-winning). Also applies to allowing mate.
+    has_mate_before = (m.eval_before is not None and
+                       (m.eval_before if m.mover == chess.WHITE else -m.eval_before) >= _MATE_SENTINEL)
+    has_mate_after = (m.eval_after is not None and
+                      (m.eval_after if m.mover == chess.WHITE else -m.eval_after) <= -_MATE_SENTINEL)
+    is_mistake = m.win_drop >= PR.WIN_DROP_MIN or has_mate_before or has_mate_after
+
     for (label, direction, ev) in _motif_tags(m):
+        if not is_mistake:                 # motifs are always explain tags
+            continue
         fine.append((label, direction, ev, "tactic"))
 
     for (label, direction, ev) in PR.tag_predicates(m):
+        if direction != "info" and not is_mistake:
+            continue                        # gate explain predicates; keep phase/state/endgame-type
         fine.append((label, direction, ev, "position"))
 
     # dedupe by display label, keep first

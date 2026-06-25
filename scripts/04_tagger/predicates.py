@@ -15,6 +15,16 @@ VAL = {chess.PAWN: 1, chess.KNIGHT: 3, chess.BISHOP: 3, chess.ROOK: 5, chess.QUE
 PIECE_NAME = {chess.PAWN: "Pawn", chess.KNIGHT: "Knight", chess.BISHOP: "Bishop",
               chess.ROOK: "Rook", chess.QUEEN: "Queen", chess.KING: "King"}
 
+# The single mistake-severity threshold, in win%-drop (mover POV). Applied ONCE at the tagger entry
+# (tagger.tag_mistake_full), NOT per-predicate — predicates are pure pattern detectors; this decides
+# whether the position is a real mistake at all. Replaces 8 magic cp_loss thresholds (40/50/60/80/
+# 100/120). Win%-drop is prod's native classification currency (classifyMoves.ts: INACCURACY=10,
+# MISTAKE=20 win-pts) AND the leak-metrics win%-lost metric — tagger, classifier, and drill metric
+# all agree on what "a mistake" is. (GH #29.)
+# PROVISIONAL: 10.0 = prod's INACCURACY band (≈108cp at even). Tune on the band corpus (issue #29
+# step 5) before shipping — the old gates spanned 3.7–10.9 win-pts, so positional tags need a re-measure.
+WIN_DROP_MIN = 10.0
+
 
 # ---------- helpers ----------
 def _material(board, color):
@@ -88,14 +98,9 @@ def capture_or_exchange(m):
     pm = _played_move(m)
     if bm is None or not b.is_capture(bm):
         return []
-    # MISSED gate: a "missed" trade/capture is only a miss if the played move was meaningfully worse.
-    # Without this, the tag fired whenever the BEST move was a capture — even when the player PLAYED it
-    # (played==best, cp_loss 1-13). That was 30-41% of these fires (Missed Pawn Trade 41%, Exchange ~30%),
-    # firing on correct play as often as on blunders → flat discrimination. cp<100 = not a real miss.
-    # Matches bad_capture (cp<120) + the FAILED branch (cp>=100). (GH #27, sized: removes 96% of false fires.)
-    if m.cp_loss < 100:
-        return []
-    # the played move itself being a capture of the same square is handled by captured_wrong_piece
+    # Pure detector: fires whenever best is a capture. The "is it actually a mistake" gate (win%-drop)
+    # is applied ONCE at the tagger entry (tag_mistake_full), so played==best equal trades never reach
+    # here. (GH #29 — removed the per-predicate cp_loss/win_drop copy-paste.)
     victim = b.piece_at(bm.to_square)
     if victim is None:  # en passant
         return [("Missed Capture (Pawn)", "missed", "best move = en passant")]
@@ -131,32 +136,28 @@ def capture_or_exchange(m):
     return [(f"Missed {pname} Exchange", "missed", f"best {m.best_san} = even trade of {pname.lower()}")]
 
 
-def capture_direction(m):
-    """Behavior-level capture mistake: best is a capture, played is a DIFFERENT capture
-      -> 'Wrong Capture' (you captured, but the wrong target).
-    The "played a quiet move instead of capturing" case is intentionally NOT tagged here: whenever
-    best is a capture, capture_or_exchange already emits the specific piece tag (Missed Free X /
-    Missed X Exchange / ...), so a generic "Missed Capture" was always a redundant duplicate of it.
-    (Removed per Sam — ply 17 fired both "Missed Free Pawn" and "Missed Capture".)"""
+def greedy_capture(m):
+    """The PLAYED move grabs material when the BEST move was QUIET (non-capture, non-check).
+
+    The one real, teachable idea mined from the deleted catch-alls (Bad/Wrong Capture, ply analysis):
+    "you took a pawn/piece when a quiet positional move was stronger." Usually a pawn grab (63% of
+    coherent fires). The grabbed piece goes in the EVIDENCE string, not the label — one unified tag,
+    same convention as the Bishop-Knight Exchange rename (GH #28). Replaces the 5 redundant outcome
+    catch-alls that were 86-100% co-fire duplicates and mislabeled missed tactics (GH #29).
+
+    Distinct from capture_or_exchange (best IS a capture you missed) — here best is quiet."""
     b = m.board_before
     bm = _best_move(m); pm = _played_move(m)
-    if bm is None or pm is None or not b.is_capture(bm):
+    if bm is None or pm is None:
         return []
-    # both captures — wrong one (different target square OR different piece on same square)
-    if b.is_capture(pm) and (pm.to_square != bm.to_square or pm.from_square != bm.from_square):
-        return [("Wrong Capture", "played", f"captured {m.played_san}; best capture was {m.best_san}")]
-    return []
-
-
-def bad_capture(m):
-    """The PLAYED move is a capture that backfires (eval crashed)."""
-    b = m.board_before
-    pm = _played_move(m)
-    if pm is None or not b.is_capture(pm) or m.cp_loss < 120:
+    if not b.is_capture(pm):                       # the played move must itself be a grab
+        return []
+    if b.is_capture(bm) or b.gives_check(bm):      # best must be QUIET (not a capture/check)
         return []
     victim = b.piece_at(pm.to_square)
-    pname = PIECE_NAME[victim.piece_type] if victim else "Pawn"
-    return [(f"Bad Capture", "played", f"played {m.played_san} (took {pname.lower()}) lost {m.cp_loss}cp")]
+    pname = PIECE_NAME[victim.piece_type].lower() if victim else "pawn"   # None = en passant -> pawn
+    return [("Greedy Capture", "played",
+             f"grabbed a {pname} ({m.played_san}); best was the quiet {m.best_san}")]
 
 
 def _material_diff(board, side):
@@ -214,8 +215,10 @@ def hung_material(m):
                      f"opponent's first reply captures your {pname.lower()} ({net_lost} net over line)")]
         return [("Hung Material", "hung",
                  f"opponent's first reply wins {immediate_lost} pts ({net_lost} net over line)")]
-    return [("Lost Material to Combination", "allowed",
-             f"refutation wins {net_lost} pts net over {len(diffs)-1} plies (delayed, not a 1-move hang)")]
+    # Delayed (non-immediate) material loss: the old "Lost Material to Combination" catch-all was
+    # 93% co-fire-redundant (GH #29) — the multi-move tactic that wins the material is already named
+    # by the motif "allowed" detectors (deflection/zwischenzug/...) in tagger.py. Don't double-tag.
+    return []
 
 
 # ---------- king safety ----------
@@ -258,7 +261,7 @@ def exposed_king_pawn(m):
     if ks is None:
         return []
     # pawn move within 1 file of the king and on the king's side of the board
-    if abs(chess.square_file(pm.from_square) - chess.square_file(ks)) <= 1 and m.cp_loss >= 80:
+    if abs(chess.square_file(pm.from_square) - chess.square_file(ks)) <= 1:
         # only if it's a structural advance near the king
         return [("Pawn Move Exposed King", "played", "pawn push near own king")]
     return []
@@ -273,77 +276,62 @@ def _pawn_files(board, color):
     return files
 
 
-def _doubled_isolated(files, board_files):
-    """Return (doubled_file, isolated_file) defects present in `files` (a _pawn_files map)."""
-    doubled = next((f for f, ranks in files.items() if len(ranks) >= 2), None)
-    return doubled
+def _doubled_files(files):
+    """Set of files holding >=2 friendly pawns (doubled), from a _pawn_files map."""
+    return {f for f, ranks in files.items() if len(ranks) >= 2}
+
+
+def _isolated_files(files):
+    """Set of files holding a friendly pawn with NO friendly pawn on either adjacent file."""
+    present = set(files)
+    return {f for f in present if (f - 1) not in present and (f + 1) not in present}
 
 
 def pawn_structure(m):
-    """A pawn move CREATED a structural weakness that the mistake caused. Two guards make this honest:
-      1. Skip CAPTURES — a recapture (gxf3 regaining a piece) that incidentally doubles a pawn is not
-         a voluntary structural concession. Only a quiet pawn push can "create" a weakness as the point.
-      2. Compare against the BEST line — if the best move leads to the SAME doubled/isolated pawn, the
-         defect isn't a consequence of the blunder, so don't tag it. (Caught by Sam on 13.gxf3, where
-         the doubled f-pawn appears in the best line too: ...bxc6 gxf3.)"""
+    """A pawn move that NEWLY CREATED a structural weakness (doubled or isolated pawn) the best move
+    would have avoided. Semantics (2026-06-23 rewrite — the old version had two bugs):
+      * A defect is tagged only if it is present AFTER the played move, ABSENT before it, AND absent
+        after the BEST move. This "newly created by the blunder, avoidable by the best move" rule is
+        what makes it honest — it replaces the old (broken) guards.
+      * Bug it fixes #1: doubled pawns are created by CAPTURES (exd5 doubles the d-file), but the old
+        code excluded all captures via guard 1 -> "Created Doubled Pawn" was UNREACHABLE (0 fires in
+        55k). We no longer blanket-skip captures; the before/after/best comparison handles recaptures
+        (if the best move recaptures the same way, the defect is in best_af too -> not tagged).
+      * Bug it fixes #2: the old isolated check fired whenever an isolated pawn EXISTED on the to-file
+        after the move — even if the pawn was already isolated and merely advanced (98.5% of fires).
+        Now we require the isolation to be ABSENT before the move (newly created)."""
     pm = _played_move(m)
     if pm is None or m.board_before.piece_type_at(pm.from_square) != chess.PAWN:
         return []
     before = m.board_before
-    if before.is_capture(pm):          # guard 1: recaptures don't "create" a structural concession
-        return []
     after = before.copy(); after.push(pm)
     bf = _pawn_files(before, m.mover); af = _pawn_files(after, m.mover)
+    before_dbl, after_dbl = _doubled_files(bf), _doubled_files(af)
+    before_iso, after_iso = _isolated_files(bf), _isolated_files(af)
 
-    # what the BEST move's resulting structure looks like (guard 2)
-    best_af = None
+    # best move's resulting structure — a defect the best move ALSO creates isn't blunder-caused
+    best_dbl = best_iso = set()
     bm = _best_move(m)
     if bm is not None:
-        ab = before.copy(); ab.push(bm)
-        best_af = _pawn_files(ab, m.mover)
+        try:
+            ab = before.copy(); ab.push(bm)
+            bff = _pawn_files(ab, m.mover)
+            best_dbl, best_iso = _doubled_files(bff), _isolated_files(bff)
+        except Exception:
+            pass
 
     out = []
-    # doubled: a file gained a 2nd+ pawn that the blunder caused AND the best move didn't also cause
-    for f, ranks in af.items():
-        if len(ranks) >= 2 and len(bf.get(f, [])) < len(ranks):
-            if best_af is not None and len(best_af.get(f, [])) >= 2:
-                continue   # best move also doubles this file -> not a consequence of the blunder
-            out.append(("Created Doubled Pawn", "played", f"file {chr(97+f)} doubled (not in best line)"))
-            break
-    # isolated: the moved pawn's file has no friendly pawn on adjacent files, and best move avoids it
-    tf = chess.square_file(pm.to_square)
-    if tf in af and (tf - 1) not in af and (tf + 1) not in af:
-        best_isolates = best_af is not None and tf in best_af and (tf - 1) not in best_af and (tf + 1) not in best_af
-        if not best_isolates:
-            out.append(("Created Isolated Pawn", "played", f"pawn on {chr(97+tf)} isolated (not in best line)"))
+    # NEW doubled file: doubled after, not before, and the best move doesn't also double it
+    new_dbl = (after_dbl - before_dbl) - best_dbl
+    if new_dbl:
+        f = sorted(new_dbl)[0]
+        out.append(("Created Doubled Pawn", "played", f"move doubled pawns on the {chr(97 + f)}-file (best move avoids it)"))
+    # NEW isolated file: isolated after, not before, and the best move doesn't also isolate it
+    new_iso = (after_iso - before_iso) - best_iso
+    if new_iso:
+        f = sorted(new_iso)[0]
+        out.append(("Created Isolated Pawn", "played", f"move left an isolated pawn on the {chr(97 + f)}-file (best move avoids it)"))
     return out
-
-
-# ---------- move quality meta ----------
-def wrong_move_order(m):
-    """Played move IS in Stockfish's best line, just not first — a transposition/timing error."""
-    if not m.best_line_san:
-        return []
-    b = m.board_before
-    try:
-        played_san = b.san(_played_move(m)) if _played_move(m) else m.played_san
-    except Exception:
-        played_san = m.played_san
-    # is the played move the same as a LATER move in the best line (not move 0)?
-    if played_san and played_san in m.best_line_san[1:]:
-        return [("Wrong Move Order", "played", f"{played_san} is in the best line, played too early")]
-    return []
-
-
-def captured_wrong_piece(m):
-    """Played and best move both capture the SAME square, with different pieces."""
-    b = m.board_before
-    pm = _played_move(m); bm = _best_move(m)
-    if pm is None or bm is None:
-        return []
-    if b.is_capture(pm) and b.is_capture(bm) and pm.to_square == bm.to_square and pm.from_square != bm.from_square:
-        return [("Captured With Wrong Piece", "played", f"played {m.played_san}, best {m.best_san} (same square)")]
-    return []
 
 
 # ---------- endgame type (board context, like phase — info tags) ----------
@@ -528,8 +516,6 @@ def missed_pawn_break(m):
         return []
     if b.piece_type_at(bm.from_square) != chess.PAWN:
         return []
-    if m.cp_loss < 50:
-        return []
     # the played move is also a pawn advance to a nearby file — player tried, just wrong pawn
     if pm and b.piece_type_at(pm.from_square) == chess.PAWN:
         if abs(chess.square_file(pm.to_square) - chess.square_file(bm.to_square)) <= 1:
@@ -581,8 +567,6 @@ def missed_tempo_push(m):
         return []
     if bm.promotion is not None:   # promotion: the new piece attacks, not the pawn — not a tempo push
         return []
-    if m.cp_loss < 40:
-        return []
     to_sq = bm.to_square
     after = b.copy(); after.push(bm)
     # the pushed pawn must survive (not a free pawn sac); allow if defended or undefended-but-unattacked
@@ -615,8 +599,6 @@ def missed_open_file(m):
         return []
     if b.piece_type_at(bm.from_square) != chess.ROOK:
         return []
-    if m.cp_loss < 40:
-        return []
     to_file = chess.square_file(bm.to_square)
     # check if the file is open (no pawns) or half-open (no friendly pawns)
     friendly_pawn_on_file = any(
@@ -644,8 +626,6 @@ def premature_trade(m):
     if bm is None or pm is None or pm == bm:
         return []
     if not b.is_capture(pm):
-        return []
-    if m.cp_loss < 50:
         return []
     # player must have been at least slightly better before the trade (mover POV)
     if m.eval_before is None:
@@ -678,8 +658,6 @@ def missed_prophylaxis(m):
     b = m.board_before
     bm = _best_move(m); pm = _played_move(m)
     if bm is None or pm is None or pm == bm:
-        return []
-    if m.cp_loss < 60:
         return []
     # Prophylaxis is QUIET prevention. If the best move is a capture, it's winning material / a tactic,
     # not prophylaxis — that was 50% of fires (best move grabs a piece, mislabeled "Missed Prophylaxis").
@@ -719,8 +697,6 @@ def missed_piece_activation(m):
         return []
     if b.is_capture(bm):
         return []  # captures are handled by capture predicates
-    if m.cp_loss < 50:
-        return []
     # the piece currently has low mobility (few legal destinations from its square)
     current_mobility = 0
     for sq in chess.SQUARES:
@@ -752,8 +728,6 @@ def wrong_pawn_race(m):
     bm = _best_move(m); pm = _played_move(m)
     if bm is None or pm is None or pm == bm:
         return []
-    if m.cp_loss < 80:
-        return []
     # both sides should have passed pawns or potential passers
     our_passers = [sq for sq, p in b.piece_map().items()
                    if p.piece_type == chess.PAWN and p.color == m.mover and U.is_passed_pawn(b, sq, m.mover)]
@@ -773,12 +747,792 @@ def wrong_pawn_race(m):
     return [("Wrong Pawn Race", "missed", f"best {m.best_san} wins the race; {m.played_san} loses a tempo")]
 
 
+# ---------- rook endgame technique ----------
+
+def _is_rook_endgame(board):
+    """K+R+P only (each side may have rook(s) and pawns, no other pieces)."""
+    for p in board.piece_map().values():
+        if p.piece_type not in (chess.KING, chess.ROOK, chess.PAWN):
+            return False
+    return any(p.piece_type == chess.ROOK for p in board.piece_map().values())
+
+
+def rook_to_seventh(m):
+    """Rook endgame: best move puts a rook on the 7th rank (2nd for Black), and the played didn't.
+    The 7th rank rook is one of the most powerful endgame concepts — it cuts the king off and
+    attacks pawns from behind."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    if not _is_rook_endgame(b):
+        return []
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.ROOK:
+        return []
+    seventh = 6 if m.mover == chess.WHITE else 1
+    if chess.square_rank(bm.to_square) != seventh:
+        return []
+    if chess.square_rank(bm.from_square) == seventh:
+        return []  # rook already on 7th, just sliding along it
+    return [("Missed Rook to 7th", "missed", f"best {m.best_san} brings the rook to the 7th rank")]
+
+
+def rook_cut_off_king(m):
+    """Rook endgame: best move places the rook on a file or rank between the enemy king and our
+    passed pawn / promotion square, cutting the king off."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    if not _is_rook_endgame(b):
+        return []
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.ROOK:
+        return []
+    ek = b.king(not m.mover)
+    if ek is None:
+        return []
+    ek_file = chess.square_file(ek)
+    ek_rank = chess.square_rank(ek)
+    to_file = chess.square_file(bm.to_square)
+    to_rank = chess.square_rank(bm.to_square)
+    our_passers = [sq for sq, p in b.piece_map().items()
+                   if p.piece_type == chess.PAWN and p.color == m.mover and U.is_passed_pawn(b, sq, m.mover)]
+    if not our_passers:
+        return []
+    for passer_sq in our_passers:
+        pf = chess.square_file(passer_sq)
+        # File cut-off: rook lands on a file strictly between king and passer
+        if (ek_file < to_file <= pf) or (pf <= to_file < ek_file):
+            return [("Missed Rook Cut-Off", "missed",
+                     f"best {m.best_san} cuts the enemy king off from the passed pawn")]
+        # Rank cut-off: rook on a rank between king and promotion square
+        promo_rank = 7 if m.mover == chess.WHITE else 0
+        if m.mover == chess.WHITE and ek_rank < to_rank:
+            return [("Missed Rook Cut-Off", "missed",
+                     f"best {m.best_san} cuts the enemy king off from the promotion square")]
+        if m.mover == chess.BLACK and to_rank < ek_rank:
+            return [("Missed Rook Cut-Off", "missed",
+                     f"best {m.best_san} cuts the enemy king off from the promotion square")]
+    return []
+
+
+def _rook_mobility(board, square, color):
+    """Count squares a rook on `square` attacks (regardless of whose turn it is)."""
+    return len(board.attacks(square))
+
+
+def missed_active_rook(m):
+    """Rook endgame: best move significantly improves rook activity (mobility increase ≥4 squares),
+    and the played move doesn't. Passive rook = endgame death."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    if not _is_rook_endgame(b):
+        return []
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.ROOK:
+        return []
+    before_mobility = _rook_mobility(b, bm.from_square, m.mover)
+    after = b.copy(); after.push(bm)
+    after_mobility = _rook_mobility(after, bm.to_square, m.mover)
+    gain = after_mobility - before_mobility
+    if gain < 4:
+        return []
+    return [("Missed Active Rook", "missed",
+             f"best {m.best_san} activates the rook ({before_mobility}→{after_mobility} squares)")]
+
+
+def rook_endgame_blockade(m):
+    """Rook endgame: best move places a piece (king or rook) directly in front of an enemy passed
+    pawn, blockading it. The played move doesn't."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    if not _is_rook_endgame(b):
+        return []
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return []
+    # Find enemy passed pawns
+    enemy = not m.mover
+    fwd = 1 if enemy == chess.WHITE else -1  # enemy's advance direction
+    for sq, p in b.piece_map().items():
+        if p.piece_type != chess.PAWN or p.color != enemy:
+            continue
+        if not U.is_passed_pawn(b, sq, enemy):
+            continue
+        # The square directly in front of this passer (from enemy's perspective)
+        block_sq = sq + 8 * fwd
+        if not (0 <= block_sq <= 63):
+            continue
+        if bm.to_square == block_sq:
+            piece_name = "king" if b.piece_type_at(bm.from_square) == chess.KING else "rook"
+            return [("Missed Blockade", "missed",
+                     f"best {m.best_san} blockades the enemy passer with the {piece_name}")]
+    return []
+
+
+def missed_connected_passers(m):
+    """Endgame: best move creates or maintains connected passed pawns (passers on adjacent files),
+    played move breaks the connection or doesn't create it."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.PAWN:
+        return []
+    after_best = b.copy(); after_best.push(bm)
+    # Count connected passers after best move
+    def connected_passers(board, color):
+        passers = sorted(sq for sq, p in board.piece_map().items()
+                         if p.piece_type == chess.PAWN and p.color == color
+                         and U.is_passed_pawn(board, sq, color))
+        connected = 0
+        for i in range(len(passers)):
+            for j in range(i + 1, len(passers)):
+                if abs(chess.square_file(passers[i]) - chess.square_file(passers[j])) == 1:
+                    connected += 1
+        return connected
+
+    best_connected = connected_passers(after_best, m.mover)
+    before_connected = connected_passers(b, m.mover)
+    if best_connected <= before_connected:
+        return []
+    # Check played doesn't achieve the same
+    after_played = b.copy(); after_played.push(pm)
+    played_connected = connected_passers(after_played, m.mover)
+    if played_connected >= best_connected:
+        return []
+    return [("Missed Connected Passers", "missed",
+             f"best {m.best_san} creates connected passed pawns")]
+
+
+# ---------- general endgame technique ----------
+
+def bad_simplification(m):
+    """Endgame: played move is a capture (simplifying) but the best move is NOT a capture.
+    The player traded when they shouldn't have — giving up winning chances or activity."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if not b.is_capture(pm):
+        return []
+    if b.is_capture(bm):
+        return []  # best is also a capture — this is about WHICH capture, not whether to capture
+    return [("Bad Simplification", "played",
+             f"{m.played_san} simplifies but best {m.best_san} keeps the tension")]
+
+
+def trade_to_simplify(m):
+    """Endgame: best move is a capture (simplifying to a won position) but the played move is not.
+    The player missed that trading down was winning."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if not b.is_capture(bm):
+        return []
+    if b.is_capture(pm):
+        return []  # player also captured — different tag territory
+    return [("Missed Trade to Simplify", "missed",
+             f"best {m.best_san} trades down to a simpler position")]
+
+
+def wrong_king_direction(m):
+    """Endgame: both the best and played moves are king moves but to significantly different squares.
+    The player moved the king the wrong way — critical in K+P and rook endgames."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.KING:
+        return []
+    if b.piece_type_at(pm.from_square) != chess.KING:
+        return []
+    # Must go to meaningfully different squares (not just one square apart)
+    if chess.square_distance(bm.to_square, pm.to_square) < 2:
+        return []
+    return [("Wrong King Direction", "missed",
+             f"best {m.best_san} but played {m.played_san} — king went the wrong way")]
+
+
+def outside_passer(m):
+    """Endgame: best move creates or advances a passed pawn on the a/b or g/h files (an outside
+    passer — the classic winning technique of drawing the enemy king away from the center)."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.PAWN:
+        return []
+    to_f = chess.square_file(bm.to_square)
+    if to_f not in (0, 1, 6, 7):  # a, b, g, h files only
+        return []
+    after = b.copy(); after.push(bm)
+    if not U.is_passed_pawn(after, bm.to_square, m.mover):
+        return []
+    # Exclude if it was already a passed pawn before the move (just advancing an existing one
+    # is covered by Missed Passed Pawn)
+    if U.is_passed_pawn(b, bm.from_square, m.mover):
+        return []
+    return [("Missed Outside Passer", "missed",
+             f"best {m.best_san} creates an outside passed pawn")]
+
+
+def rook_to_open_file_endgame(m):
+    """Endgame: best move puts a rook on a fully open file (no pawns of either color), and the
+    played move doesn't. Rook activity on open files dominates endgames."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    if not any(p.piece_type == chess.ROOK for p in b.piece_map().values()):
+        return []
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.ROOK:
+        return []
+    to_f = chess.square_file(bm.to_square)
+    from_f = chess.square_file(bm.from_square)
+    if to_f == from_f:
+        return []  # staying on same file — not "going to" an open file
+    # Check: destination file is fully open (no pawns)
+    for sq, p in b.piece_map().items():
+        if p.piece_type == chess.PAWN and chess.square_file(sq) == to_f:
+            return []
+    return [("Missed Rook to Open File", "missed",
+             f"best {m.best_san} puts the rook on the open {chr(97 + to_f)}-file")]
+
+
+def push_to_promote(m):
+    """Endgame: best move advances a pawn to the 6th rank or beyond (within 2 ranks of promotion),
+    and the played move doesn't advance that pawn. The approach move before queening."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.PAWN:
+        return []
+    to_r = chess.square_rank(bm.to_square)
+    if m.mover == chess.WHITE and to_r < 5:
+        return []  # not yet in the promotion zone (rank 6+)
+    if m.mover == chess.BLACK and to_r > 2:
+        return []
+    # Don't fire if it's an actual promotion (that's Missed Promotion)
+    if bm.promotion:
+        return []
+    return [("Missed Push to Promote", "missed",
+             f"best {m.best_san} advances the pawn toward promotion")]
+
+
+# ---------- opening/middlegame awareness ----------
+
+def _development_count(board, color):
+    """Count developed minor pieces (not on back rank) + castled king."""
+    back_rank = 0 if color == chess.WHITE else 7
+    developed = 0
+    for sq, p in board.piece_map().items():
+        if p.color != color:
+            continue
+        if p.piece_type in (chess.KNIGHT, chess.BISHOP):
+            if chess.square_rank(sq) != back_rank:
+                developed += 1
+    # Castled counts as +1 development
+    king_sq = board.king(color)
+    if king_sq is not None:
+        kf = chess.square_file(king_sq)
+        if color == chess.WHITE and chess.square_rank(king_sq) == 0 and kf in (1, 2, 6):
+            developed += 1
+        elif color == chess.BLACK and chess.square_rank(king_sq) == 7 and kf in (1, 2, 6):
+            developed += 1
+    return developed
+
+
+def pawn_grab_undeveloped(m):
+    """Opening/early middlegame: played move is a pawn capture while own pieces are undeveloped
+    (fewer than 4 minor pieces developed), and the best move is NOT a capture (i.e. best was
+    development/castling/center control). The classic beginner trap — grabbing a pawn while
+    the opponent develops with tempo."""
+    b = m.board_before
+    if b.fullmove_number > 15:
+        return []
+    pm = _played_move(m); bm = _best_move(m)
+    if pm is None or bm is None or pm == bm:
+        return []
+    if not b.is_capture(pm):
+        return []
+    # Must be capturing a pawn (not winning a piece — that's just good)
+    captured = b.piece_at(pm.to_square)
+    if captured and captured.piece_type != chess.PAWN:
+        return []
+    if b.is_capture(bm):
+        return []  # best is also a capture — not a "grab vs develop" choice
+    dev = _development_count(b, m.mover)
+    if dev >= 4:
+        return []  # already well developed
+    return [("Pawn Grab While Undeveloped", "played",
+             f"{m.played_san} grabs a pawn but only {dev} pieces developed; best was {m.best_san}")]
+
+
+def ignored_threat(m):
+    """The opponent already had a concrete threat BEFORE our move (an undefended piece under attack),
+    and the played move doesn't address it while the best move does. Only fires when the threat
+    PRE-EXISTED — not when our move creates a new vulnerability."""
+    b = m.board_before
+    pm = _played_move(m); bm = _best_move(m)
+    if pm is None or bm is None or pm == bm:
+        return []
+    opp = not m.mover
+    # Find pre-existing threats: our pieces that are attacked and undefended RIGHT NOW
+    pre_threats = []
+    for sq, p in b.piece_map().items():
+        if p.color == m.mover and p.piece_type in (chess.KNIGHT, chess.BISHOP, chess.ROOK, chess.QUEEN):
+            if b.is_attacked_by(opp, sq) and not b.is_attacked_by(m.mover, sq):
+                pre_threats.append(sq)
+    if not pre_threats:
+        return []
+    # Best move addresses the threat (moves the piece, captures attacker, or adds defender)
+    best_addresses = False
+    after_best = b.copy(); after_best.push(bm)
+    for sq in pre_threats:
+        if bm.from_square == sq:
+            best_addresses = True; break
+        if sq in b.attackers(opp, sq) and bm.to_square in b.attackers(opp, sq):
+            best_addresses = True; break
+        # After best, is the piece still hanging?
+        if sq in after_best.piece_map() and after_best.is_attacked_by(m.mover, sq):
+            best_addresses = True; break
+        if sq not in after_best.piece_map():
+            best_addresses = True; break  # piece moved or was traded
+    if not best_addresses:
+        return []
+    # Played move does NOT address the threat
+    after_played = b.copy(); after_played.push(pm)
+    for sq in pre_threats:
+        if pm.from_square == sq:
+            return []  # player moved the threatened piece — they noticed
+        if sq in after_played.piece_map() and after_played.is_attacked_by(m.mover, sq):
+            return []  # player added a defender
+    return [("Ignored Threat", "played",
+             f"{m.played_san} ignores the hanging piece; {m.best_san} addresses it")]
+
+
+def premature_attack(m):
+    """Opening: played move is an aggressive move (piece toward enemy king / pawn storm on kingside)
+    while own development is incomplete (<4 pieces out). The opponent punishes the overextension."""
+    b = m.board_before
+    if b.fullmove_number > 15:
+        return []
+    pm = _played_move(m); bm = _best_move(m)
+    if pm is None or bm is None or pm == bm:
+        return []
+    dev = _development_count(b, m.mover)
+    if dev >= 4:
+        return []
+    # Is the played move "attacking"? Piece moves toward enemy king half, or pawn storms
+    piece_type = b.piece_type_at(pm.from_square)
+    if piece_type == chess.KING:
+        return []  # king moves aren't "attacks"
+    enemy_king = b.king(not m.mover)
+    if enemy_king is None:
+        return []
+    ek_file = chess.square_file(enemy_king)
+    to_file = chess.square_file(pm.to_square)
+    to_rank = chess.square_rank(pm.to_square)
+    # Attack = moving toward enemy king's side of the board
+    enemy_half_rank = (4, 5, 6, 7) if m.mover == chess.WHITE else (0, 1, 2, 3)
+    if to_rank not in enemy_half_rank:
+        return []
+    # Pawn storms: pawn advancing on kingside when enemy king is kingside
+    if piece_type == chess.PAWN:
+        if abs(to_file - ek_file) > 2:
+            return []  # not near the king
+    # Best move should be developmental (back rank piece moving out, or castling)
+    best_piece = b.piece_type_at(bm.from_square)
+    is_dev_move = False
+    if best_piece in (chess.KNIGHT, chess.BISHOP) and chess.square_rank(bm.from_square) == (0 if m.mover == chess.WHITE else 7):
+        is_dev_move = True
+    if b.is_castling(bm):
+        is_dev_move = True
+    if not is_dev_move:
+        return []
+    return [("Premature Attack", "played",
+             f"{m.played_san} attacks with only {dev} pieces developed; better to develop with {m.best_san}")]
+
+
+def missed_defensive_resource(m):
+    """Position is under attack (opponent threatens material or mate), a defensive move exists
+    (the best move), but the player plays something that doesn't address the threat. Distinct from
+    'Ignored Threat' in that here the player IS trying to do something but picks the wrong defense."""
+    b = m.board_before
+    pm = _played_move(m); bm = _best_move(m)
+    if pm is None or bm is None or pm == bm:
+        return []
+    # Must be under threat: opponent attacks one of our pieces right now
+    opp = not m.mover
+    under_attack = []
+    for sq, p in b.piece_map().items():
+        if p.color == m.mover and p.piece_type != chess.PAWN and p.piece_type != chess.KING:
+            if b.is_attacked_by(opp, sq) and not b.is_attacked_by(m.mover, sq):
+                under_attack.append((sq, p))
+    if not under_attack and not b.is_check():
+        return []
+    # Best move is defensive: it moves the attacked piece, blocks, or captures the attacker
+    best_defends = False
+    if b.is_check():
+        best_defends = True  # any legal move in check is "defensive"
+    else:
+        for sq, p in under_attack:
+            if bm.from_square == sq:
+                best_defends = True  # moves the threatened piece
+                break
+            if bm.to_square in b.attackers(opp, sq):
+                best_defends = True  # captures an attacker
+                break
+            # Interposes or adds defender
+            if b.is_attacked_by(m.mover, sq) or bm.to_square == sq:
+                best_defends = True
+                break
+    if not best_defends:
+        return []
+    # Played move does NOT defend
+    played_defends = False
+    if b.is_check():
+        played_defends = True  # must address check
+    else:
+        for sq, p in under_attack:
+            if pm.from_square == sq:
+                played_defends = True
+                break
+    if played_defends:
+        return []  # player tried to defend, just picked wrong defense
+    return [("Missed Defensive Resource", "missed",
+             f"under attack; best {m.best_san} defends but played {m.played_san} ignores")]
+
+
+def missed_faster_mate(m):
+    """Had a forced mate (eval_before is mate) and played a move that's still winning but not
+    the fastest mate. Distinct from 'Missed Mate' which fires when you miss mate entirely."""
+    if m.eval_before is None or m.eval_after is None:
+        return []
+    eb_mover = m.eval_before if m.mover == chess.WHITE else -m.eval_before
+    ea_mover = m.eval_after if m.mover == chess.WHITE else -m.eval_after
+    # Must have mate before (mover has forced mate)
+    if eb_mover < 9000:
+        return []
+    # After played move, still winning big (but not necessarily mate, or longer mate)
+    # If eval_after is also mate for mover, it's a "slower mate" (still fine but suboptimal)
+    # If eval_after is just +big (not mate), player lost the mate
+    # Only fire if NOT already tagged "Missed Mate" (which fires when mate exists but you don't
+    # play toward it at all — we want the "played okay but not optimal" case)
+    if ea_mover < 500:
+        return []  # lost too much — this is "Missed Mate" territory, not "missed faster"
+    if ea_mover >= 9000:
+        return []  # still mate — just slower; too nitpicky to flag
+    # Had mate, played something still winning (+500 to +8999) but not mate
+    return [("Missed Faster Mate", "missed",
+             f"had forced mate but played {m.played_san} (still winning but slower)")]
+
+
+# ---------- tactical patterns ----------
+
+def missed_battery(m):
+    """Best move aligns two heavy/sliding pieces (Q+R on file, Q+B on diagonal, R+R on file)
+    creating a battery that ATTACKS an enemy piece or king. Battery pointing at nothing = no fire."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    mover_piece = b.piece_type_at(bm.from_square)
+    if mover_piece not in (chess.QUEEN, chess.ROOK, chess.BISHOP):
+        return []
+    after = b.copy(); after.push(bm)
+    to_sq = bm.to_square
+    to_f = chess.square_file(to_sq)
+    to_r = chess.square_rank(to_sq)
+    opp = not m.mover
+    for sq, p in after.piece_map().items():
+        if p.color != m.mover or sq == to_sq:
+            continue
+        if p.piece_type not in (chess.QUEEN, chess.ROOK, chess.BISHOP):
+            continue
+        sq_f = chess.square_file(sq)
+        sq_r = chess.square_rank(sq)
+        aligned = False
+        # Same file
+        if sq_f == to_f and p.piece_type in (chess.QUEEN, chess.ROOK) and mover_piece in (chess.QUEEN, chess.ROOK):
+            between = chess.SquareSet.between(sq, to_sq)
+            if not any(after.piece_at(s) for s in between):
+                aligned = True
+        # Same rank
+        elif sq_r == to_r and p.piece_type in (chess.QUEEN, chess.ROOK) and mover_piece in (chess.QUEEN, chess.ROOK):
+            between = chess.SquareSet.between(sq, to_sq)
+            if not any(after.piece_at(s) for s in between):
+                aligned = True
+        # Same diagonal
+        elif abs(sq_f - to_f) == abs(sq_r - to_r) and sq != to_sq:
+            if p.piece_type in (chess.QUEEN, chess.BISHOP) and mover_piece in (chess.QUEEN, chess.BISHOP):
+                between = chess.SquareSet.between(sq, to_sq)
+                if not any(after.piece_at(s) for s in between):
+                    aligned = True
+        if not aligned:
+            continue
+        # Battery exists — does it attack an enemy piece or king?
+        front_attacks = after.attacks(to_sq)
+        for target_sq in front_attacks:
+            target = after.piece_at(target_sq)
+            if target and target.color == opp and target.piece_type in (chess.KNIGHT, chess.BISHOP, chess.ROOK, chess.QUEEN, chess.KING):
+                return [("Missed Battery", "missed", f"best {m.best_san} creates a battery attacking the {chess.piece_name(target.piece_type)}")]
+    return []
+
+
+def missed_overloading(m):
+    """Best move attacks a piece that is the sole defender of another piece (overloading the
+    defender), and the played move doesn't exploit this. The defender can't protect both."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    opp = not m.mover
+    # After best move: does it attack an opponent piece that is defending another piece?
+    after = b.copy(); after.push(bm)
+    target_sq = bm.to_square
+    # What opponent pieces does the moved piece now attack?
+    moved_attacks = after.attacks(target_sq)
+    for victim_sq in moved_attacks:
+        victim = after.piece_at(victim_sq)
+        if not victim or victim.color != opp:
+            continue
+        if victim.piece_type == chess.PAWN:
+            continue
+        # Is this victim ALSO defending something else valuable?
+        victim_defends = after.attacks(victim_sq)  # squares the victim attacks (i.e. defends)
+        for defended_sq in victim_defends:
+            defended = after.piece_at(defended_sq)
+            if not defended or defended.color != opp or defended_sq == victim_sq:
+                continue
+            if defended.piece_type in (chess.PAWN, chess.KING):
+                continue
+            # Is the victim the SOLE defender of this piece?
+            defenders = after.attackers(opp, defended_sq)
+            if len(defenders) == 1 and victim_sq in defenders:
+                # The victim is overloaded: attacked by our piece AND sole defender of another
+                return [("Missed Overloading", "missed",
+                         f"best {m.best_san} overloads the defender")]
+    return []
+
+
+def missed_desperado(m):
+    """A piece is about to be captured (attacked and undefended or losing an exchange), and the
+    best move uses it to capture something first (desperado — cash in before you lose it).
+    The played move doesn't use the doomed piece."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    # Best move must be a capture by a piece that is currently under attack
+    if not b.is_capture(bm):
+        return []
+    from_sq = bm.from_square
+    mover_piece = b.piece_type_at(from_sq)
+    if mover_piece == chess.KING:
+        return []
+    opp = not m.mover
+    # Is the moving piece currently attacked by opponent?
+    if not b.is_attacked_by(opp, from_sq):
+        return []
+    # Is it undefended or would lose the exchange? (attacked by lower-value piece)
+    defenders = b.attackers(m.mover, from_sq)
+    attackers = b.attackers(opp, from_sq)
+    if not attackers:
+        return []
+    # Simple heuristic: piece is "doomed" if attacked and either undefended or attacked by lower-value
+    piece_val = VAL.get(mover_piece, 0)
+    min_attacker_val = min(VAL.get(b.piece_type_at(sq), 9) for sq in attackers)
+    undefended = len(defenders) == 0
+    losing_exchange = min_attacker_val < piece_val
+    if not (undefended or losing_exchange):
+        return []
+    # Played move must NOT be using this same piece (otherwise player saw the desperado, just chose wrong target)
+    if pm.from_square == from_sq:
+        return []
+    pname = PIECE_NAME.get(mover_piece, "piece")
+    return [("Missed Desperado", "missed",
+             f"best {m.best_san} cashes in the doomed {pname.lower()} before losing it")]
+
+
+def missed_doubled_rooks(m):
+    """Best move doubles rooks on a file (both rooks on the same open/semi-open file), and the
+    played move doesn't. Doubled rooks are a powerful battery for controlling files."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.ROOK:
+        return []
+    # After best move, are both rooks on the same file?
+    after = b.copy(); after.push(bm)
+    to_f = chess.square_file(bm.to_square)
+    rooks_on_file = [sq for sq, p in after.piece_map().items()
+                     if p.piece_type == chess.ROOK and p.color == m.mover and chess.square_file(sq) == to_f]
+    if len(rooks_on_file) < 2:
+        return []
+    # Were they already doubled before?
+    rooks_before = [sq for sq, p in b.piece_map().items()
+                    if p.piece_type == chess.ROOK and p.color == m.mover and chess.square_file(sq) == to_f]
+    if len(rooks_before) >= 2:
+        return []  # already doubled
+    return [("Missed Doubled Rooks", "missed",
+             f"best {m.best_san} doubles the rooks on the {chr(97+to_f)}-file")]
+
+
+def allowed_battery(m):
+    """Played move allows the opponent to create a battery (Q+R on file, Q+B on diagonal) in the
+    refutation that best move would have prevented."""
+    b = m.board_before
+    pm = _played_move(m); bm = _best_move(m)
+    if pm is None or bm is None or pm == bm:
+        return []
+    opp = not m.mover
+    after_played = b.copy(); after_played.push(pm)
+    # Check if opponent can now create a battery (two sliding pieces aligned with nothing between)
+    for mv in after_played.legal_moves:
+        piece_type = after_played.piece_type_at(mv.from_square)
+        if piece_type not in (chess.QUEEN, chess.ROOK, chess.BISHOP):
+            continue
+        # After opponent plays this move, do they have aligned pieces?
+        test = after_played.copy(); test.push(mv)
+        to_sq = mv.to_square
+        to_f = chess.square_file(to_sq)
+        to_r = chess.square_rank(to_sq)
+        for sq, p in test.piece_map().items():
+            if p.color != opp or sq == to_sq:
+                continue
+            if p.piece_type not in (chess.QUEEN, chess.ROOK, chess.BISHOP):
+                continue
+            sq_f = chess.square_file(sq)
+            sq_r = chess.square_rank(sq)
+            # Same file
+            if sq_f == to_f and p.piece_type in (chess.QUEEN, chess.ROOK) and piece_type in (chess.QUEEN, chess.ROOK):
+                between = chess.SquareSet.between(sq, to_sq)
+                if not any(test.piece_at(s) for s in between):
+                    # Was this battery possible before our move? If yes, not our fault.
+                    after_best = b.copy(); after_best.push(bm)
+                    if mv in after_best.legal_moves:
+                        continue  # opponent could do it regardless
+                    return [("Allowed Battery", "allowed", f"{m.played_san} allows opponent to build a battery")]
+            # Same diagonal
+            if abs(sq_f - to_f) == abs(sq_r - to_r) and sq != to_sq:
+                if p.piece_type in (chess.QUEEN, chess.BISHOP) and piece_type in (chess.QUEEN, chess.BISHOP):
+                    between = chess.SquareSet.between(sq, to_sq)
+                    if not any(test.piece_at(s) for s in between):
+                        after_best = b.copy(); after_best.push(bm)
+                        if mv in after_best.legal_moves:
+                            continue
+                        return [("Allowed Battery", "allowed", f"{m.played_san} allows opponent to build a battery")]
+    return []
+
+
+def allowed_overloading(m):
+    """Played move leaves one of our pieces overloaded (defending two things), and the opponent
+    can exploit it. Best move would have avoided this."""
+    b = m.board_before
+    pm = _played_move(m); bm = _best_move(m)
+    if pm is None or bm is None or pm == bm:
+        return []
+    opp = not m.mover
+    after_played = b.copy(); after_played.push(pm)
+    # Find our pieces that are now sole defenders of multiple things
+    for sq, p in after_played.piece_map().items():
+        if p.color != m.mover or p.piece_type in (chess.PAWN, chess.KING):
+            continue
+        # What does this piece defend?
+        defended_pieces = []
+        for d_sq in after_played.attacks(sq):
+            dp = after_played.piece_at(d_sq)
+            if dp and dp.color == m.mover and dp.piece_type not in (chess.PAWN, chess.KING):
+                # Is this piece the sole defender?
+                defenders = after_played.attackers(m.mover, d_sq)
+                if len(defenders) == 1 and sq in defenders:
+                    defended_pieces.append(d_sq)
+        if len(defended_pieces) < 2:
+            continue
+        # This piece defends 2+ things alone — is it also attacked?
+        if after_played.is_attacked_by(opp, sq):
+            # Check best move doesn't have this problem
+            after_best = b.copy(); after_best.push(bm)
+            best_defenders = after_best.attackers(m.mover, defended_pieces[0]) if defended_pieces[0] in after_best.piece_map() else chess.SquareSet()
+            if len(best_defenders) > 1:
+                return [("Allowed Overloading", "allowed",
+                         f"{m.played_san} leaves a piece overloaded (defending two targets)")]
+    return []
+
+
+def allowed_doubled_rooks(m):
+    """Played move allows the opponent to double their rooks on an open file that best move
+    would have prevented (e.g. by contesting the file first)."""
+    b = m.board_before
+    pm = _played_move(m); bm = _best_move(m)
+    if pm is None or bm is None or pm == bm:
+        return []
+    opp = not m.mover
+    after_played = b.copy(); after_played.push(pm)
+    # Does opponent now have (or can immediately achieve) doubled rooks on a file?
+    opp_rooks = [(sq, chess.square_file(sq)) for sq, p in after_played.piece_map().items()
+                 if p.piece_type == chess.ROOK and p.color == opp]
+    if len(opp_rooks) < 2:
+        return []
+    # Check if opponent can double on next move
+    for mv in after_played.legal_moves:
+        if after_played.piece_type_at(mv.from_square) != chess.ROOK:
+            continue
+        to_f = chess.square_file(mv.to_square)
+        # Would this put both rooks on the same file?
+        other_rook_on_file = any(f == to_f and sq != mv.from_square for sq, f in opp_rooks)
+        if not other_rook_on_file:
+            continue
+        # Was this possible before our move?
+        after_best = b.copy(); after_best.push(bm)
+        if mv in after_best.legal_moves:
+            continue  # could do it regardless
+        return [("Allowed Doubled Rooks", "allowed",
+                 f"{m.played_san} allows opponent to double rooks on the {chr(97+to_f)}-file")]
+    return []
+
+
 # ---------- registry ----------
 ALL_PREDICATES = [
-    phase, game_state, capture_or_exchange, capture_direction, bad_capture, hung_material,
+    phase, game_state, capture_or_exchange, greedy_capture, hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
-    wrong_move_order, captured_wrong_piece, endgame_type, backward_pawn,
+    endgame_type, backward_pawn,
     missed_king_activity, lost_opposition, missed_passed_pawn, rook_behind_passer,
+    rook_to_seventh, rook_cut_off_king, missed_active_rook, rook_endgame_blockade,
+    missed_connected_passers,
+    bad_simplification, trade_to_simplify, wrong_king_direction, outside_passer,
+    rook_to_open_file_endgame, push_to_promote,
+    pawn_grab_undeveloped, ignored_threat, premature_attack, missed_defensive_resource,
+    missed_faster_mate,
+    missed_battery, missed_overloading, missed_desperado, missed_doubled_rooks,
+    allowed_battery, allowed_overloading, allowed_doubled_rooks,
     missed_pawn_break, missed_tempo_push, missed_open_file, premature_trade, missed_prophylaxis,
     missed_piece_activation, wrong_pawn_race,
 ]

@@ -13,12 +13,55 @@ Two layers here:
     Empirically (verified): node.turn() is the color to move AFTER node.move, so a pov move's
     node has turn() == not pov. Hence pov_nodes == [n for n in nodes if n.turn() != pov].
 """
+import math
 import chess
 import chess.pgn
 from chess import square_rank, square_file, Color, Board, Square, Piece, square_distance
 from chess import KING, QUEEN, ROOK, BISHOP, KNIGHT, PAWN, WHITE, BLACK
 from chess.pgn import ChildNode, Game
 from typing import List, Tuple, Optional
+
+
+# ---------------- win% / win-drop (the tagger's mistake-severity currency, issue #29) ----------------
+# Lichess logistic (github.com/lichess-org/lila/pull/11148): the SAME currency prod uses to CLASSIFY
+# moves (classifyMoves.ts: INACCURACY=10, MISTAKE=20 win-points) and the leak-metrics win%-lost metric.
+# Gating predicates on win_drop instead of cp_loss makes one unit across classification, tagging, and
+# the drill metric — and is NONLINEAR in eval, so a slip made while already winning costs little win%.
+
+_WINPCT_MULTIPLIER = -0.00368208
+_MATE_CLAMP_CP = 1200  # a mate eval is treated as ±1200cp (leak-metrics convention)
+
+
+def winpct(cp: float) -> float:
+    """Side-to-move win probability as a 0-100 percentage for a centipawn eval (mover POV).
+    50 at even, monotonic, bounded. Mate should be passed pre-clamped to ±_MATE_CLAMP_CP."""
+    return 50.0 + 50.0 * (2.0 / (1.0 + math.exp(_WINPCT_MULTIPLIER * cp)) - 1.0)
+
+
+def win_drop(eval_before: Optional[int], eval_after: Optional[int], mover: Color,
+             cp_loss: Optional[int] = None) -> float:
+    """Win% the mover GAVE UP on this move, mover-POV, clamped >= 0. The taggable-mistake currency.
+
+    Real path (both evals present, e.g. prod + the band corpus that drives tuning): convert the
+    white-POV cp evals to mover POV, then winpct(before) - winpct(after). Nonlinear by construction.
+
+    Fallback (either eval is None — mate positions, and the cp-only SAE-feature analysis caches that
+    build Mistake with eval_before/after=None): approximate the drop as if from an even position,
+    winpct(0) - winpct(-cp_loss). Without evals AND without cp_loss there is nothing to gate on -> 0.
+    Returning 0 here (rather than a default-taggable) is deliberate: it never re-introduces the
+    played==best noise that #27's gate removed.
+    """
+    if eval_before is not None and eval_after is not None:
+        before = eval_before if mover == WHITE else -eval_before
+        after = eval_after if mover == WHITE else -eval_after
+        before = max(-_MATE_CLAMP_CP, min(_MATE_CLAMP_CP, before))
+        after = max(-_MATE_CLAMP_CP, min(_MATE_CLAMP_CP, after))
+        return max(0.0, winpct(before) - winpct(after))
+    if cp_loss:
+        loss = min(_MATE_CLAMP_CP, abs(int(cp_loss)))
+        return max(0.0, winpct(0) - winpct(-loss))
+    return 0.0
+
 
 values = {PAWN: 1, KNIGHT: 3, BISHOP: 3, ROOK: 5, QUEEN: 9}
 king_values = {PAWN: 1, KNIGHT: 3, BISHOP: 3, ROOK: 5, QUEEN: 9, KING: 99}
