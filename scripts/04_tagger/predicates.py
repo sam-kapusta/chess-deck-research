@@ -915,6 +915,94 @@ def missed_connected_passers(m):
              f"best {m.best_san} creates connected passed pawns")]
 
 
+# ---------- book-derived endgame technique (Dvoretsky / de la Villa) ----------
+
+def missed_protected_passer(m):
+    """Pawn endgame fundamental (Dvoretsky §"The Protected Passed Pawn"): best move is a pawn move
+    that creates a PROTECTED passed pawn — a passer defended by another friendly pawn — which the
+    played move doesn't. A protected passer is often decisive: the enemy king is tied to it forever."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.PAWN:
+        return []
+
+    def protected_passers(board, color):
+        out = 0
+        for sq, p in board.piece_map().items():
+            if p.piece_type != chess.PAWN or p.color != color:
+                continue
+            if not U.is_passed_pawn(board, sq, color):
+                continue
+            # Protected = a friendly pawn defends it (attacks its square)
+            f, r = chess.square_file(sq), chess.square_rank(sq)
+            back = -1 if color == chess.WHITE else 1
+            for df in (-1, 1):
+                df_f = f + df; df_r = r + back
+                if 0 <= df_f <= 7 and 0 <= df_r <= 7:
+                    d = board.piece_at(chess.square(df_f, df_r))
+                    if d and d.piece_type == chess.PAWN and d.color == color:
+                        out += 1; break
+        return out
+
+    after_best = b.copy(); after_best.push(bm)
+    after_played = b.copy(); after_played.push(pm)
+    before_n = protected_passers(b, m.mover)
+    best_n = protected_passers(after_best, m.mover)
+    played_n = protected_passers(after_played, m.mover)
+    if best_n > before_n and played_n < best_n:
+        return [("Missed Protected Passer", "missed",
+                 f"best {m.best_san} creates a protected passed pawn")]
+    return []
+
+
+def missed_square_rule(m):
+    """King-vs-passed-pawn fundamental (Dvoretsky §"The Rule of the Square"): in a position where the
+    DEFENDING king must catch an enemy passer, the best move is the king move that steps into the
+    pawn's "square" (can catch it) and the played move steps outside it (lets it queen). Easy to label:
+    only fires when the side to move has no pawns/pieces racing — a pure king-chases-pawn race."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.KING:
+        return []
+    if b.piece_type_at(pm.from_square) != chess.KING:
+        return []
+    # The mover is the DEFENDER chasing an enemy passed pawn: enemy has a passer, mover has no pawn
+    # on the passer's path. Find the most advanced enemy passer.
+    enemy = not m.mover
+    fwd = 1 if enemy == chess.WHITE else -1
+    promo_rank = 7 if enemy == chess.WHITE else 0
+    target = None
+    for sq, p in b.piece_map().items():
+        if p.piece_type == chess.PAWN and p.color == enemy and U.is_passed_pawn(b, sq, enemy):
+            if target is None or (enemy == chess.WHITE and chess.square_rank(sq) > chess.square_rank(target)) \
+                              or (enemy == chess.BLACK and chess.square_rank(sq) < chess.square_rank(target)):
+                target = sq
+    if target is None:
+        return []
+    pf, pr = chess.square_file(target), chess.square_rank(target)
+    promo_sq = chess.square(pf, promo_rank)
+    dist_to_promo = abs(promo_rank - pr)  # pawn's steps to promote
+
+    def king_catches(king_sq):
+        # Chebyshev distance from king to the promotion square <= pawn's steps (+1 if enemy not to move)
+        kd = chess.square_distance(king_sq, promo_sq)
+        # mover is to move, so mover's king effectively gets a tempo: catches if kd <= dist_to_promo
+        return kd <= dist_to_promo
+
+    if king_catches(bm.to_square) and not king_catches(pm.to_square):
+        return [("Missed Square Rule", "missed",
+                 f"best {m.best_san} steps into the pawn's square to catch the passer")]
+    return []
+
+
 # ---------- general endgame technique ----------
 
 def bad_simplification(m):
@@ -1526,7 +1614,7 @@ ALL_PREDICATES = [
     endgame_type, backward_pawn,
     missed_king_activity, lost_opposition, missed_passed_pawn, rook_behind_passer,
     rook_to_seventh, rook_cut_off_king, missed_active_rook, rook_endgame_blockade,
-    missed_connected_passers,
+    missed_connected_passers, missed_protected_passer, missed_square_rule,
     bad_simplification, trade_to_simplify, wrong_king_direction, outside_passer,
     rook_to_open_file_endgame, push_to_promote,
     pawn_grab_undeveloped, ignored_threat, premature_attack, missed_defensive_resource,

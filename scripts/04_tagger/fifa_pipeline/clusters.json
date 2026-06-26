@@ -320,61 +320,67 @@
    ]
   },
   {
-   "name": "King & Pawn Technique",
+   "name": "Pawn Endgames",
    "group": "Endgame",
-   "scoreable": true,
    "features": [
-    "Wrong Pawn Race",
     "Lost the Opposition",
+    "Wrong Pawn Race",
     "Missed King Activity",
+    "Missed Passed Pawn",
+    "Missed Connected Passers",
+    "Missed Outside Passer",
+    "Missed Protected Passer",
+    "Missed Square Rule",
     "Wrong King Direction",
     "Missed Blockade",
-    "Missed Connected Passers"
-   ]
-  },
-  {
-   "name": "Passed Pawns",
-   "group": "Endgame",
-   "scoreable": true,
-   "features": [
-    "Missed Passed Pawn",
-    "Rook Behind Passer",
-    "Missed Outside Passer"
-   ]
-  },
-  {
-   "name": "Promotion & En Passant",
-   "group": "Endgame",
-   "scoreable": true,
-   "features": [
-    "Allowed Promotion",
+    "Bad Simplification",
+    "Missed Trade to Simplify",
     "Missed Promotion",
-    "Allowed Underpromotion",
     "Missed Underpromotion",
+    "Missed Push to Promote",
     "Missed En Passant",
-    "Allowed En Passant",
-    "Missed Push to Promote"
-   ]
+    "Allowed Promotion",
+    "Allowed Underpromotion",
+    "Allowed En Passant"
+   ],
+   "scoreable": true
   },
   {
-   "name": "Rook Technique",
+   "name": "Rook Endgames",
    "group": "Endgame",
-   "scoreable": true,
    "features": [
     "Missed Rook to 7th",
     "Missed Rook Cut-Off",
     "Missed Active Rook",
-    "Missed Rook to Open File"
-   ]
+    "Missed Rook to Open File",
+    "Rook Behind Passer",
+    "Missed Doubled Rooks"
+   ],
+   "scoreable": true
   },
   {
-   "name": "Endgame Simplification",
+   "name": "Queen Endgames",
    "group": "Endgame",
-   "scoreable": true,
-   "features": [
-    "Bad Simplification",
-    "Missed Trade to Simplify"
-   ]
+   "features": [],
+   "scoreable": true
+  },
+  {
+   "name": "Minor-Piece Endgames",
+   "group": "Endgame",
+   "features": [],
+   "scoreable": true
+  },
+  {
+   "name": "Rook + Minor Endgames",
+   "group": "Endgame",
+   "features": [],
+   "scoreable": true
+  },
+  {
+   "name": "Heavy-Piece Endgames",
+   "group": "Endgame",
+   "features": [],
+   "scoreable": true
   }
  ]
 }
