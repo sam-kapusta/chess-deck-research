@@ -1003,6 +1003,52 @@ def missed_square_rule(m):
     return []
 
 
+def missed_breakthrough(m):
+    """Pawn-endgame breakthrough (Dvoretsky §"Breakthrough"): best move is a pawn ADVANCE or pawn
+    SAC into the enemy pawn mass that yields a passed pawn the opponent can't stop, which the played
+    move doesn't. Heuristic: best is a pawn push to a contact/sac square; after the best line's first
+    move + a plausible enemy capture, the mover gets a passed pawn that wasn't passed before."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.PAWN:
+        return []
+    # Mostly a pawn-ish endgame (few pieces) so "breakthrough" is the point, not tactics
+    nonpawn = sum(1 for p in b.piece_map().values() if p.piece_type not in (chess.PAWN, chess.KING))
+    if nonpawn > 2:
+        return []
+    to_f = chess.square_file(bm.to_square); to_r = chess.square_rank(bm.to_square)
+    # Best push must create contact with enemy pawns (adjacent enemy pawn) — the sac trigger
+    contact = False
+    for af in (to_f - 1, to_f, to_f + 1):
+        if not (0 <= af <= 7):
+            continue
+        for ar in (to_r - 1, to_r, to_r + 1):
+            if not (0 <= ar <= 7):
+                continue
+            pc = b.piece_at(chess.square(af, ar))
+            if pc and pc.piece_type == chess.PAWN and pc.color != m.mover:
+                contact = True
+    if not contact:
+        return []
+    # After best, mover has (or after a forced enemy capture, will have) a passed pawn that the
+    # played move's resulting position lacks. Compare passed-pawn count.
+    def passers(board):
+        return sum(1 for sq, p in board.piece_map().items()
+                   if p.piece_type == chess.PAWN and p.color == m.mover and U.is_passed_pawn(board, sq, m.mover))
+    after_best = b.copy(); after_best.push(bm)
+    after_played = b.copy(); after_played.push(pm)
+    if passers(after_best) > passers(b) and passers(after_played) <= passers(b):
+        return [("Missed Breakthrough", "missed",
+                 f"best {m.best_san} is a pawn breakthrough creating a passer")]
+    return []
+
+
+
+
 # ---------- general endgame technique ----------
 
 def bad_simplification(m):
@@ -1615,6 +1661,7 @@ ALL_PREDICATES = [
     missed_king_activity, lost_opposition, missed_passed_pawn, rook_behind_passer,
     rook_to_seventh, rook_cut_off_king, missed_active_rook, rook_endgame_blockade,
     missed_connected_passers, missed_protected_passer, missed_square_rule,
+    missed_breakthrough,
     bad_simplification, trade_to_simplify, wrong_king_direction, outside_passer,
     rook_to_open_file_endgame, push_to_promote,
     pawn_grab_undeveloped, ignored_threat, premature_attack, missed_defensive_resource,

@@ -341,7 +341,8 @@
     "Missed En Passant",
     "Allowed Promotion",
     "Allowed Underpromotion",
-    "Allowed En Passant"
+    "Allowed En Passant",
+    "Missed Breakthrough"
    ],
    "scoreable": true
   },

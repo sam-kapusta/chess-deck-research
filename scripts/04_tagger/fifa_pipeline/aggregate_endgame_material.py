@@ -20,7 +20,7 @@ TYPE_LABELS = {
     "Pawn": ("Pawn Endgames", [
         "Lost the Opposition", "Wrong Pawn Race", "Missed King Activity", "Missed Passed Pawn",
         "Missed Connected Passers", "Missed Outside Passer", "Missed Protected Passer",
-        "Missed Square Rule", "Missed Promotion", "Missed Underpromotion", "Missed Push to Promote",
+        "Missed Square Rule", "Missed Breakthrough", "Missed Promotion", "Missed Underpromotion", "Missed Push to Promote",
         "Missed En Passant", "Allowed Promotion", "Allowed Underpromotion", "Allowed En Passant",
     ]),
     "Rook": ("Rook Endgames", [

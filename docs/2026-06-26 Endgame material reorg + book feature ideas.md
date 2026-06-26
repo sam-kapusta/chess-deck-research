@@ -108,3 +108,19 @@ property that made the Openings groups clean.
 On chess-poc, `hf_hub_download` to the default `~/.cache/huggingface` (on `/home`) fails at the final
 blob rename ("No such file or directory: ...incomplete") — the `/home` fs nukes in-progress blobs.
 FIX: set `HF_HOME=/tmp/hfcache` (clean fs). All corpus pulls on chess-poc should use this.
+
+## Book detectors built + measured (186k blunder corpus)
+
+| Detector | Fires | Verdict |
+|----------|-------|---------|
+| Missed Square Rule | 284 | KEPT (Pawn Endgames feature) |
+| Missed Protected Passer | 228 | KEPT (Pawn Endgames feature) |
+| Missed Breakthrough | 148 | KEPT (Pawn Endgames feature) |
+| Missed Wrong-Bishop Draw | 7 | DROPPED — exact K+B+rook-pawn material almost never occurs in real rapid |
+| Missed Lucena Bridge | 4 | DROPPED — exact R+P-vs-R-king-in-front config too rare as a played blunder |
+
+Lesson: iconic *theoretical* endgames (Lucena, Wrong Bishop) are too RARE as real-game blunders to
+ship as features (4-7 fires in 186k) — they're great teaching positions but not real-game-frequency
+mistakes. Concept/technique detectors that arise across many positions (square rule, protected passer,
+breakthrough) clear the volume bar. Future iconic-position ideas should be served as curated DRILL
+POSITIONS, not corpus-scored features.
