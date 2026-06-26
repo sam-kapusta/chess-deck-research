@@ -141,3 +141,23 @@ Still featureless (scored, no drill detail — acceptable, better than misleadin
   denom like the rook tags, or an engine-based "your minor got dominated" detector. Deferred.
 - **Heavy-Piece Endgames** (Q+R) — really late-middlegame; concepts (centralization, perpetual on the
   heavy side) overlap tactics. Deferred.
+
+## CORRECTION: Bishop Activity is a real signal (eligible-denominator miss rate)
+
+Earlier I dropped Missed Bishop Activity as "rises with rating." That was a DENOMINATOR ERROR — I
+measured raw fires ÷ all-minor-endgame-moves, which is diluted by every non-bishop move and lets the
+"beginners reach minor endgames less" population effect dominate.
+
+The correct question (Sam): "WHEN the chance exists, do beginners miss it more?" Measured the
+eligible-denominator miss rate = misses ÷ positions where a >=4-mobility bishop move is available
+(pull_concept_miss_rates.py, ~1500 eligible/band):
+
+  Bishop Activity miss%:  13.8 → 11.2 → 11.2 → 10.0 → 8.7 → 7.5 → 7.1 → 6.6 → 5.3 → 6.2 → 3.8
+  Rook Activity   miss%:  11.3 → 12.3 → 11.2 → 9.3 → 9.0 → 7.3 → 7.9 → 7.1 → 5.7 → 4.3 → 3.1
+
+Both fall ~3-4x beginner→master (one tiny top-band wobble = small-sample noise). So beginners DO
+blunder these more when the opportunity is on the board → both are legitimate skill signals.
+
+RESULT: Missed Bishop Activity ADDED BACK to Minor-Piece Endgames. Lesson: for a "missed-X" drill
+feature, judge it on the ELIGIBLE denominator (positions where X is available), not raw count or the
+material-type denominator — otherwise the population effect masks the real miss-rate signal.

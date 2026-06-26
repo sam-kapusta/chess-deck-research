@@ -1655,6 +1655,39 @@ def allowed_doubled_rooks(m):
 
 # ---------- minor-piece / queen endgame technique (drill detail for those material clusters) ----------
 
+def _is_minor_endgame(board):
+    """K + pawns + only minor pieces (bishops/knights), at least one minor, no rooks/queens."""
+    has_minor = False
+    for p in board.piece_map().values():
+        if p.piece_type in (chess.ROOK, chess.QUEEN):
+            return False
+        if p.piece_type in (chess.BISHOP, chess.KNIGHT):
+            has_minor = True
+    return has_minor
+
+
+def missed_bishop_activity(m):
+    """Minor-piece endgame: best move significantly improves a bishop's scope (mobility +≥4 squares),
+    played doesn't. A passive bishop is a classic minor-endgame failing. Validated on the eligible
+    denominator (positions where a >=4-gain bishop move exists): miss-rate falls 13.8%→3.8% from
+    beginner to master, so it's a real skill signal (the earlier raw-count measure was misleading)."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    if not _is_minor_endgame(b):
+        return []
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.BISHOP:
+        return []
+    before = len(b.attacks(bm.from_square))
+    after = b.copy(); after.push(bm)
+    after_n = len(after.attacks(bm.to_square))
+    if after_n - before < 4:
+        return []
+    return [("Missed Bishop Activity", "missed",
+             f"best {m.best_san} activates the bishop ({before}→{after_n} squares)")]
 
 
 def missed_minor_rook_activity(m):
@@ -1746,7 +1779,7 @@ ALL_PREDICATES = [
     rook_to_open_file_endgame, push_to_promote,
     pawn_grab_undeveloped, ignored_threat, premature_attack, missed_defensive_resource,
     missed_faster_mate,
-    missed_minor_rook_activity, missed_perpetual,
+    missed_bishop_activity, missed_minor_rook_activity, missed_perpetual,
     missed_battery, missed_overloading, missed_desperado, missed_doubled_rooks,
     allowed_battery, allowed_overloading, allowed_doubled_rooks,
     missed_pawn_break, missed_tempo_push, missed_open_file, premature_trade, missed_prophylaxis,

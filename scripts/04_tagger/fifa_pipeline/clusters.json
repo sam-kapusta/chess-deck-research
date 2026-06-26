@@ -370,7 +370,9 @@
   {
    "name": "Minor-Piece Endgames",
    "group": "Endgame",
-   "features": [],
+   "features": [
+    "Missed Bishop Activity"
+   ],
    "scoreable": true
   },
   {
