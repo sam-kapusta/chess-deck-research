@@ -362,7 +362,9 @@
   {
    "name": "Queen Endgames",
    "group": "Endgame",
-   "features": [],
+   "features": [
+    "Missed Perpetual"
+   ],
    "scoreable": true
   },
   {
@@ -374,7 +376,9 @@
   {
    "name": "Rook + Minor Endgames",
    "group": "Endgame",
-   "features": [],
+   "features": [
+    "Missed Rook Activity (R+Minor)"
+   ],
    "scoreable": true
   },
   {

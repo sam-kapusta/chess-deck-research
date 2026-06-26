@@ -27,9 +27,9 @@ TYPE_LABELS = {
         "Missed Rook to 7th", "Missed Rook Cut-Off", "Missed Active Rook", "Missed Rook to Open File",
         "Rook Behind Passer", "Missed Doubled Rooks",
     ]),
-    "Queen": ("Queen Endgames", []),
+    "Queen": ("Queen Endgames", ["Missed Perpetual"]),
     "Minor": ("Minor-Piece Endgames", []),
-    "RookMinor": ("Rook + Minor Endgames", []),
+    "RookMinor": ("Rook + Minor Endgames", ["Missed Rook Activity (R+Minor)"]),
     "Heavy": ("Heavy-Piece Endgames", []),
 }
 

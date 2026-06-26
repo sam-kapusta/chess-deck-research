@@ -1653,6 +1653,86 @@ def allowed_doubled_rooks(m):
     return []
 
 
+# ---------- minor-piece / queen endgame technique (drill detail for those material clusters) ----------
+
+
+
+def missed_minor_rook_activity(m):
+    """Rook + minor endgame: best move activates the rook (mobility +≥4), played doesn't. The same
+    'active rook' principle as pure rook endgames, but in R+minor material (where the rook is still
+    the workhorse). Distinct cluster (Rook + Minor Endgames)."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    # R+minor material: at least one rook AND at least one minor, no queens
+    nr = nb = nn = nq = 0
+    for p in b.piece_map().values():
+        t = p.piece_type
+        if t == chess.ROOK: nr += 1
+        elif t == chess.BISHOP: nb += 1
+        elif t == chess.KNIGHT: nn += 1
+        elif t == chess.QUEEN: nq += 1
+    if nq > 0 or nr == 0 or (nb + nn) == 0:
+        return []
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) != chess.ROOK:
+        return []
+    before = len(b.attacks(bm.from_square))
+    after = b.copy(); after.push(bm)
+    after_n = len(after.attacks(bm.to_square))
+    if after_n - before < 4:
+        return []
+    return [("Missed Rook Activity (R+Minor)", "missed",
+             f"best {m.best_san} activates the rook ({before}→{after_n} squares)")]
+
+
+def missed_perpetual(m):
+    """Queen/heavy endgame defensive resource: the player was losing/worse and the BEST move starts a
+    perpetual check (a repeating check that forces a draw), which the played move missed. Detected via
+    the best line: first move is a check, and a check recurs later in the PV (a checking sequence).
+    Fires only when the mover is worse (a draw is a SAVE, not a concession)."""
+    b = m.board_before
+    if m.eval_before is None:
+        return []
+    # Mover must be worse/losing for a perpetual to be a gain (draw saves the game)
+    eb_mover = m.eval_before if m.mover == chess.WHITE else -m.eval_before
+    if eb_mover > -150:
+        return []
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    # Need queens on board (perpetual is overwhelmingly a queen resource)
+    if not any(p.piece_type == chess.QUEEN for p in b.piece_map().values()):
+        return []
+    # Best move must give check, and the best line must contain a second check (repeating).
+    after_best = b.copy()
+    try:
+        after_best.push(bm)
+    except Exception:
+        return []
+    if not b.gives_check(bm) and not after_best.is_check():
+        return []
+    # Walk the best line (SAN) and count checks by the mover.
+    checks = 1
+    line_board = after_best
+    if m.best_line_san:
+        try:
+            tmp = b.copy(); tmp.push(bm)
+            for san in m.best_line_san[1:8]:
+                mv = tmp.parse_san(san)
+                tmp.push(mv)
+                if tmp.is_check():
+                    checks += 1
+        except Exception:
+            pass
+    if checks < 2:
+        return []
+    return [("Missed Perpetual", "missed",
+             f"best {m.best_san} starts a perpetual check to save the draw")]
+
+
 # ---------- registry ----------
 ALL_PREDICATES = [
     phase, game_state, capture_or_exchange, greedy_capture, hung_material,
@@ -1666,6 +1746,7 @@ ALL_PREDICATES = [
     rook_to_open_file_endgame, push_to_promote,
     pawn_grab_undeveloped, ignored_threat, premature_attack, missed_defensive_resource,
     missed_faster_mate,
+    missed_minor_rook_activity, missed_perpetual,
     missed_battery, missed_overloading, missed_desperado, missed_doubled_rooks,
     allowed_battery, allowed_overloading, allowed_doubled_rooks,
     missed_pawn_break, missed_tempo_push, missed_open_file, premature_trade, missed_prophylaxis,

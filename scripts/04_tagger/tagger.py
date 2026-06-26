@@ -277,8 +277,9 @@ def categorize(label, direction=None):
     if "endgame" in l or any(w in l for w in (
             "king activity", "opposition", "passed pawn", "passer", "behind passer",
             "promotion", "pawn race", "en passant", "rook to 7th", "rook cut-off",
-            "active rook", "blockade", "connected passers", "simplif", "trade to simplify",
-            "king direction", "outside passer", "push to promote", "rook to open file")):
+            "active rook", "rook activity", "blockade", "connected passers", "simplif", "trade to simplify",
+            "king direction", "outside passer", "push to promote", "rook to open file",
+            "protected passer", "square rule", "breakthrough", "perpetual")):
         return "Endgame"
 
     # Enemy king exposed but unexploited = a missed attacking chance (Missed Tactic), NOT your own

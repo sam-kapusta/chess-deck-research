@@ -124,3 +124,20 @@ ship as features (4-7 fires in 186k) — they're great teaching positions but no
 mistakes. Concept/technique detectors that arise across many positions (square rule, protected passer,
 breakthrough) clear the volume bar. Future iconic-position ideas should be served as curated DRILL
 POSITIONS, not corpus-scored features.
+
+## Drill features for the empty material clusters (measured 186k corpus)
+
+The Queen/Minor/Rook+Minor/Heavy material clusters scored but had NO drill detail. Built + measured 3:
+
+| Detector | Fires | Trend | Verdict |
+|----------|-------|-------|---------|
+| Missed Perpetual (Queen) | 1575 | 429→48 clean monotonic | KEPT → Queen Endgames feature. Beginners miss perpetual-check draws constantly. |
+| Missed Rook Activity (R+Minor) | 484 | flat-ish, usable | KEPT → Rook + Minor Endgames feature |
+| Missed Bishop Activity (Minor) | 85 | 2→15 RISES with rating | DROPPED — backwards (stronger players reach clean minor endings more; population artifact, no clean denom fix even at lower thresholds). |
+
+Still featureless (scored, no drill detail — acceptable, better than misleading):
+- **Minor-Piece Endgames** — bishop/knight activity is the obvious concept but the "active minor"
+  signal rises with rating (you have to REACH the clean ending first). Would need a per-eligible
+  denom like the rook tags, or an engine-based "your minor got dominated" detector. Deferred.
+- **Heavy-Piece Endgames** (Q+R) — really late-middlegame; concepts (centralization, perpetual on the
+  heavy side) overlap tactics. Deferred.
