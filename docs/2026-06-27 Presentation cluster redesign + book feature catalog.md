@@ -240,3 +240,31 @@ SAIS notebook presigned-URL token expired; `sais -n chess-poc auth` fails with E
 even though base creds (default profile, acct 140023406996) are valid. Needs a Midway re-auth that
 can't be done headless. Eligible-miss-rate band test for the 4 new detectors is deferred to next
 interactive session. Everything else (volume, eyeball, cluster wiring, scheme) is done offline.
+
+## DISPLAY PREVIEW (draft scheme, spotlight cards sorted by spread /1000 moves)
+
+This is what the drill surface would show — named tactics, academic umbrellas gone, the big hidden
+tactics (Overload, Battery) surfaced. Matches Sam's "if I think of offense I think of Fork/Pin/Mate/
+Skewer" model. ·score-only· = feeds the group bar, not shown as a drill card.
+
+OFFENSIVE: Missed Mate 20.0 · Overload 16.5 · King Attack 8.0 · Pin 7.9 · Battery 7.1 · Sacrifice 6.7
+  · Fork 5.8 · Discovered 3.4 · [Other Combinations 2.7 score-only] · Trapped Piece 1.6 · Skewer 0.4
+DEFENSIVE: Allowed Battery 22.6 · Mate 22.2 · Threat Awareness 9.3 · Active Defense 8.8 · Fork 8.4
+  · Pin 8.1 · King Attack 6.5 · [Allowed Sacrifice 6.0 s-o] · Discovered 4.1 · [Other Combos 3.5 s-o]
+  · Trapped Piece 2.0 · Skewer 0.5
+CALCULATION: Hung Pieces 43.0 · Missed Free Material 22.3 · Greedy Captures 17.2 · Backfired 8.2
+  · Desperado 6.6 · Premature Trades 4.5
+POSITIONAL: King Safety 34.0 · Exchanges 12.3 · Prophylaxis 12.3 · Piece Activity 9.4 · Pawn Breaks 9.1
+  · Outposts 6.0 · Pawn Structure 5.9 · Open Files 4.5
+
+(Spreads do NOT yet include the 4 new detectors — they need the chess-poc band pull to get per-band
+rates. Their local volumes: Remove the Guard 2781, Unpinning 4286, Pin Exploitation 2035,
+Interposition 1993 — all will lift their clusters' anchors once measured.)
+
+## DECISION HELD FOR SAM (not shipped)
+The scheme rename/reorg is a presentation judgment Sam asked to optimize — NOT shipping to production
+fifaSkillRatings.json unilaterally while he's away. Ready to ship in one command
+(`recluster.py scheme_presentable.json <fifa.json>`) once he eyeballs the naming above. Open naming
+calls for him: "Missed Overload" vs "Missed Overloading", "Desperado" as a card name, "Piece Activity"
+merge, whether Skewer (0.4 spread) earns a card or folds into Discovered. Endgame "King & Pawn"
+rename also pending.
