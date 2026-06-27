@@ -1,6 +1,17 @@
 # Chess Encoder
 
-> **NOW (2026-06-08): the product direction is the RULE-BASED TAGGER, not the SAE.** The SAE is
+> **NOW (2026-06-27): FIFA skill-card cluster PRESENTATION redesign.** The tagger feeds a FIFA-style
+> skill card (6 groups, clusters, per-band anchors). Active work is making clusters PRESENTABLE:
+> display unit = named book-recognized tactic (Fork/Pin/Mate/Skewer/Overload/Battery), not academic
+> umbrellas; promote big+named to own cards, pool rare motifs into score-only "Other Combinations".
+> Full design, volume data, 4 new detectors (pin exploitation, unpinning, interposition, remove-the-
+> guard — all built/tested/eyeballed), and a ready-to-ship scheme: see
+> `docs/2026-06-27 Presentation cluster redesign + book feature catalog.md`.
+> **HELD FOR SAM:** scheme rename/reorg not shipped to prod fifaSkillRatings.json (presentation
+> judgment he wants to eyeball). Ship via `fifa_pipeline/recluster.py scheme_presentable.json <fifa>`.
+> **BLOCKED:** eligible-miss-rate band test for the 4 new detectors needs chess-poc (SAIS auth expired).
+
+> **(2026-06-08): the product direction is the RULE-BASED TAGGER, not the SAE.** The SAE is
 > polysemantic and won't crisply assign per-position labels; tagging blunders with a known coaching
 > vocabulary is supervised classification, so deterministic rules win. Built + validated in
 > `scripts/04_tagger/` (see its README + log.md 2026-06-07/08). 104 tags over 19,362 blunders,
