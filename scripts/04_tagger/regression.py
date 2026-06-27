@@ -218,6 +218,42 @@ def run():
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_greedy = len(greedy_cases)
 
+    print("--- predicates: pin exploitation / unpinning resource (book TOP-TIER, w5zuk548s) ---")
+    # missed_pin_exploitation: an enemy piece is pinned + HELD, best quietly piles a NEW attacker on it.
+    # missed_unpinning_resource: OUR piece is pinned, best breaks the pin, played sits in it.
+    pinx_cases = [
+        # POS pile-on: Black Na5 pinned to Ra8 by Ra1, defended by b6 pawn (held). Best b2-b4 adds a
+        # pawn attacker on a5; played is a quiet king move. Fires Missed Pin Exploitation.
+        ("pile a pawn onto a held pinned knight", "r7/8/1p6/n7/8/8/1P6/R3K1k1 w - - 0 1",
+         "e1e2", "b2b4", PR.missed_pin_exploitation, "Missed Pin Exploitation"),
+        # NEG: best move IS a capture of the pinned piece — that's Missed Pin/material, not the quiet
+        # pile-on prep. Must NOT fire pin-exploitation.
+        ("capturing the pinned piece is not pile-on", "r7/8/1p6/n7/8/8/1P6/R3K1k1 w - - 0 1",
+         "e1e2", "a1a5", PR.missed_pin_exploitation, None),
+        # POS unpin: Black Ne7 pinned to Ke8 by Re1 (absolute). Best Kf8 breaks it; played h6 sits in it.
+        ("king-step unpins; played sits in the pin", "4k3/4n2p/8/8/8/8/8/4R1K1 b - - 0 1",
+         "h7h6", "e8f8", PR.missed_unpinning_resource, "Missed Unpinning Resource"),
+        # NEG: no pin on the board at all -> unpinning can't fire.
+        ("no pin -> no unpinning resource", "4k3/4n2p/8/8/8/8/8/6K1 b - - 0 1",
+         "h7h6", "e7c6", PR.missed_unpinning_resource, None),
+    ]
+    for name, fen, uci, best, fn, want in pinx_cases:
+        b = chess.Board(fen)
+        try: bsan = b.san(chess.Move.from_uci(best))
+        except Exception: bsan = best
+        try: psan = b.san(chess.Move.from_uci(uci))
+        except Exception: psan = uci
+        m = Mistake(fen, uci, best, [bsan], [], None, None, 200, b.turn, played_san=psan, best_san=bsan)
+        res = fn(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_pinx = len(pinx_cases)
+
     print("--- tagger ENTRY GATE: win%-drop decides mistake-vs-not, ONCE (GH #29) ---")
     # The single mistake gate lives in tag_mistake_full, not in the detectors. Verify: (1) a real miss
     # (high win_drop) surfaces the explain tag; (2) the SAME position played==best (win_drop~0) suppresses
@@ -554,7 +590,7 @@ def run():
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + extra_exch + extra_greedy + extra_gate + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
+             + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases))
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))

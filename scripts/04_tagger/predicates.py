@@ -1539,6 +1539,103 @@ def missed_doubled_rooks(m):
              f"best {m.best_san} doubles the rooks on the {chr(97+to_f)}-file")]
 
 
+# ---------- pin exploitation / unpinning (book TOP-TIER, w5zuk548s) ----------
+def _ray_pin_on(board, color):
+    """Find enemy pieces of `not color` currently pinned (absolute OR relative) by a `color` ray
+    piece. Returns list of (pinned_sq, pinned_piece, shield_value). A pin = a `color` ray piece sees
+    an enemy piece with a MORE-valuable enemy piece (or king) directly behind it on the same ray, no
+    blockers between. Mirrors motifs._pin_target but scans the static board (no move needed)."""
+    enemy = not color
+    found = []
+    DIRS = {chess.ROOK: [(1,0),(-1,0),(0,1),(0,-1)],
+            chess.BISHOP: [(1,1),(1,-1),(-1,1),(-1,-1)],
+            chess.QUEEN: [(1,0),(-1,0),(0,1),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1)]}
+    for sq, p in board.piece_map().items():
+        if p.color != color or p.piece_type not in (chess.ROOK, chess.BISHOP, chess.QUEEN):
+            continue
+        fr, ff = chess.square_rank(sq), chess.square_file(sq)
+        for dr, df in DIRS[p.piece_type]:
+            first = None
+            r, f = fr + dr, ff + df
+            while 0 <= r <= 7 and 0 <= f <= 7:
+                s = chess.square(f, r); q = board.piece_at(s)
+                if q is not None:
+                    if first is None:
+                        if q.color == color or q.piece_type == chess.PAWN:
+                            break
+                        first = (s, q)
+                    else:
+                        if (q.color == enemy and
+                                U.king_values[q.piece_type] > U.king_values[first[1].piece_type]):
+                            found.append((first[0], first[1], U.king_values[q.piece_type]))
+                        break
+                r += dr; f += df
+    return found
+
+
+def missed_pin_exploitation(m):
+    """An enemy piece is pinned and currently HELD (defenders >= attackers, so you can't just take it).
+    The best move PILES ON — lands a new attacker (ideally a pawn, which the pinned piece can't trade
+    off) on the pinned piece so it falls next move — and the played move doesn't. Classic 'add a second
+    attacker to a pinned piece' from every tactics book."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if b.is_capture(bm):
+        return []  # a capture is "Missed Pin"/material, not the quiet pile-on prep
+    pins = _ray_pin_on(b, m.mover)
+    if not pins:
+        return []
+    opp = not m.mover
+    after = b.copy(); after.push(bm)
+    for psq, ppiece, _ in pins:
+        # held now: at least as many defenders as attackers (can't simply win it today)
+        atk = len(b.attackers(m.mover, psq)); dfd = len(b.attackers(opp, psq))
+        if atk > dfd:
+            continue
+        # the best move must ADD a new attacker onto the pinned square
+        if psq not in after.attacks(bm.to_square):
+            continue
+        if b.is_attacked_by(m.mover, psq) and bm.to_square in b.attackers(m.mover, psq):
+            continue  # the moved piece already attacked it (didn't add anything new)
+        # pin must still stand after the prep (the shield didn't move/get taken)
+        if not _ray_pin_on(after, m.mover):
+            continue
+        adder = b.piece_type_at(bm.from_square)
+        extra = " with a pawn" if adder == chess.PAWN else ""
+        return [("Missed Pin Exploitation", "missed",
+                 f"best {m.best_san} piles onto the pinned {chess.piece_name(ppiece.piece_type)}{extra}")]
+    return []
+
+
+def missed_unpinning_resource(m):
+    """One of the MOVER's pieces is pinned (absolute or relative) and the best move BREAKS the pin —
+    captures the pinner, steps the king/shield off the ray, interposes, or moves the rear piece — while
+    the played move leaves the pin standing. The 'get out of the pin' resource sub-master players sit in."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    pins_before = _ray_pin_on(b, not m.mover)   # enemy ray pieces pinning OUR pieces
+    if not pins_before:
+        return []
+    pinned_sqs = {psq for psq, _, _ in pins_before}
+    after_best = b.copy(); after_best.push(bm)
+    after_played = b.copy(); after_played.push(pm)
+    best_pins = {psq for psq, _, _ in _ray_pin_on(after_best, not m.mover)}
+    played_pins = {psq for psq, _, _ in _ray_pin_on(after_played, not m.mover)}
+    # best frees at least one piece that played leaves pinned
+    freed_by_best = pinned_sqs - best_pins
+    if not freed_by_best:
+        return []
+    still_pinned_after_played = pinned_sqs & played_pins
+    if not still_pinned_after_played:
+        return []  # the played move also happened to break it — no missed resource
+    return [("Missed Unpinning Resource", "missed",
+             f"best {m.best_san} breaks the pin; played {m.played_san} sits in it")]
+
+
 def allowed_battery(m):
     """Played move allows the opponent to create a battery (Q+R on file, Q+B on diagonal) in the
     refutation that best move would have prevented."""
@@ -1848,6 +1945,7 @@ ALL_PREDICATES = [
     missed_bishop_activity, missed_knight_activity, missed_minor_activity, missed_queen_activity,
     missed_minor_rook_activity, missed_perpetual,
     missed_battery, missed_overloading, missed_desperado, missed_doubled_rooks,
+    missed_pin_exploitation, missed_unpinning_resource,
     allowed_battery, allowed_overloading, allowed_doubled_rooks,
     missed_pawn_break, missed_tempo_push, missed_open_file, premature_trade, missed_prophylaxis,
     missed_piece_activation, wrong_pawn_race,

@@ -311,8 +311,12 @@ def categorize(label, direction=None):
     if l in ("greedy capture", "missed desperado", "pawn grab while undeveloped") or l.startswith("failed "):
         return "Calculation"
 
-    # Threat awareness — you ignored or failed to address an opponent threat.
-    if l in ("ignored threat", "missed defensive resource"):
+    # Threat awareness / Active Defense — you ignored a threat or failed to USE a defensive resource
+    # (unpin, interpose, remove the attacker, counter-sac, cross-check). These are the "missed defense"
+    # half of Defensive Tactics. Checked BEFORE the tactic-words branch so "Missed Unpinning Resource"
+    # routes here, not to Offensive via its "pin" substring.
+    if l in ("ignored threat", "missed defensive resource") or any(w in l for w in (
+            "unpinning", "interposition", "counter-sacrifice", "removing the attacker", "cross-check")):
         return "Allowed Tactic"
 
     # Premature attack = positional judgment (attacked before developing).
