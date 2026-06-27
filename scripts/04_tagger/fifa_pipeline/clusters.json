@@ -38,7 +38,8 @@
     "Missed Trapped Bishop",
     "Missed Trapped Queen",
     "Missed Overloading",
-    "Missed Battery"
+    "Missed Battery",
+    "Missed Doubled Rooks"
    ]
   },
   {
@@ -183,7 +184,8 @@
    "group": "Calculation",
    "scoreable": true,
    "features": [
-    "Greedy Capture"
+    "Greedy Capture",
+    "Pawn Grab While Undeveloped"
    ]
   },
   {
@@ -354,8 +356,7 @@
     "Missed Rook Cut-Off",
     "Missed Active Rook",
     "Missed Rook to Open File",
-    "Rook Behind Passer",
-    "Missed Doubled Rooks"
+    "Rook Behind Passer"
    ],
    "scoreable": true
   },

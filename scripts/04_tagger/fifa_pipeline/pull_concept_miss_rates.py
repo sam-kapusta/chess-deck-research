@@ -115,10 +115,68 @@ def rook_activation_taken(board, played_move):
     t = board.copy(stack=False); t.push(played_move)
     return len(t.attacks(played_move.to_square)) - before >= 4
 
+def _developed(board, color):
+    back = 0 if color == chess.WHITE else 7
+    n = 0
+    for sq, p in board.piece_map().items():
+        if p.color == color and p.piece_type in (chess.KNIGHT, chess.BISHOP) and chess.square_rank(sq) != back:
+            n += 1
+    return n
+
+def doubled_rooks_available(board, color):
+    """A legal rook move exists that puts two same-color rooks on one file (doubling). Opportunity."""
+    if board.turn != color:
+        return False
+    rook_files = [chess.square_file(sq) for sq, p in board.piece_map().items()
+                  if p.piece_type == chess.ROOK and p.color == color]
+    if len(rook_files) < 2:
+        return False
+    for mv in board.legal_moves:
+        if board.piece_type_at(mv.from_square) != chess.ROOK: continue
+        to_f = chess.square_file(mv.to_square)
+        # another rook (not the moving one) already on the destination file
+        if any(rf == to_f and rsq != mv.from_square for rsq, rf in
+               [(sq, chess.square_file(sq)) for sq, p in board.piece_map().items()
+                if p.piece_type == chess.ROOK and p.color == color]):
+            return True
+    return False
+
+def doubled_rooks_taken(board, played_move):
+    if board.piece_type_at(played_move.from_square) != chess.ROOK:
+        return False
+    to_f = chess.square_file(played_move.to_square)
+    return any(chess.square_file(sq) == to_f and sq != played_move.from_square
+               for sq, p in board.piece_map().items()
+               if p.piece_type == chess.ROOK and p.color == board.turn)
+
+def pawngrab_undev_position(board):
+    # opening-ish: full-ish board, before move 16
+    return board.fullmove_number <= 15
+
+def pawngrab_undev_available(board, color):
+    """A pawn capture of an enemy pawn is available while < 4 minors developed. Opportunity to err."""
+    if board.turn != color or _developed(board, color) >= 4:
+        return False
+    for mv in board.legal_moves:
+        if board.piece_type_at(mv.from_square) != chess.PAWN: continue
+        if not board.is_capture(mv): continue
+        victim = board.piece_at(mv.to_square)
+        if victim and victim.piece_type == chess.PAWN:
+            return True
+    return False
+
+def pawngrab_undev_taken(board, played_move):
+    if board.piece_type_at(played_move.from_square) != chess.PAWN: return False
+    if not board.is_capture(played_move): return False
+    victim = board.piece_at(played_move.to_square)
+    return bool(victim and victim.piece_type == chess.PAWN and _developed(board, board.turn) < 4)
+
 # concept -> (position_filter(board), available(board,color), taken(board,move))
 CONCEPTS = {
-    "BishopActivity": (is_minor_endgame, bishop_activation_available, bishop_activation_taken),
-    "RookActivity":   (is_rook_endgame, rook_activation_available, rook_activation_taken),
+    "BishopActivity":  (is_minor_endgame, bishop_activation_available, bishop_activation_taken),
+    "RookActivity":    (is_rook_endgame, rook_activation_available, rook_activation_taken),
+    "DoubledRooks":    (lambda b: True, doubled_rooks_available, doubled_rooks_taken),
+    "PawnGrabUndev":   (pawngrab_undev_position, pawngrab_undev_available, pawngrab_undev_taken),
 }
 
 def pe(c):
@@ -134,7 +192,7 @@ files = [f for f in list_repo_files(REPO, repo_type="dataset")
 files.sort(reverse=True)
 
 # stats[concept][band] = [eligible, miss, took]
-stats = {c: defaultdict(lambda: [0, 0, 0]) for c in CONCEPTS}
+stats = {c: defaultdict(lambda: [0, 0, 0, 0]) for c in CONCEPTS}  # [eligible, miss, took_good, took_bad]
 elig_count = {c: {b: 0 for b, _, _ in BANDS} for c in CONCEPTS}
 t0 = time.time(); ng = 0
 def done():
@@ -167,7 +225,9 @@ for fi, f in enumerate(files):
                     if elig_count[cname][bn] >= ELIGIBLE_TARGET:
                         continue
                     try:
-                        if is_endgame(board) and posf(board) and availf(board, mover):
+                        # posf() handles the phase/material filter per concept (endgame concepts gate
+                        # on their material; opening/middlegame concepts like DoubledRooks/PawnGrab don't).
+                        if posf(board) and availf(board, mover):
                             elig_count[cname][bn] += 1
                             cell = stats[cname][bn]
                             cell[0] += 1  # eligible
@@ -175,10 +235,13 @@ for fi, f in enumerate(files):
                             loss = None
                             if prev_eval is not None and cur_eval is not None:
                                 loss = (prev_eval - cur_eval) if mover == chess.WHITE else (cur_eval - prev_eval)
+                            blundered = loss is not None and loss >= MIN_LOSS
                             if took and (loss is None or loss <= GOOD_LOSS):
                                 cell[2] += 1  # took the chance well
-                            elif (not took) and loss is not None and loss >= MIN_LOSS:
-                                cell[1] += 1  # missed it AND blundered
+                            if (not took) and blundered:
+                                cell[1] += 1  # missed it AND blundered (missed-X concepts)
+                            if took and blundered:
+                                cell[3] += 1  # took it AND blundered (played-X-is-bad concepts)
                     except Exception:
                         pass
             prev_eval = cur_eval; board.push(node.move)
@@ -188,18 +251,24 @@ for fi, f in enumerate(files):
         print(f'shard {fi+1} | {ng}g {time.time()-t0:.0f}s | ' +
               ' '.join(f'{c}:{min(elig_count[c].values())}-{max(elig_count[c].values())}' for c in CONCEPTS), flush=True)
 
-out = {c: {b: {"eligible": stats[c][b][0], "miss": stats[c][b][1], "took": stats[c][b][2]}
+out = {c: {b: {"eligible": stats[c][b][0], "miss": stats[c][b][1],
+               "took_good": stats[c][b][2], "took_bad": stats[c][b][3]}
            for b in stats[c]} for c in CONCEPTS}
 json.dump(out, open("concept_miss_rates.json", "w"))
 print(f"=== DONE === {(time.time()-t0)/60:.1f}min", flush=True)
 BAND_ORDER = [b for b, _, _ in BANDS]
+# missed-X concepts → miss/eligible should FALL with rating. played-X-is-bad concepts (PawnGrabUndev)
+# → took_bad/eligible should FALL with rating (beginners err by doing it more when it's available).
+PLAYED_BAD = {"PawnGrabUndev"}
 for c in CONCEPTS:
-    print(f"\n{c}  — miss rate when the chance exists (miss / eligible), per band:")
+    metric = "took_bad" if c in PLAYED_BAD else "miss"
+    print(f"\n{c}  — {metric} rate when the chance exists ({metric}/eligible), per band:")
     rates = []
     for b in BAND_ORDER:
         cell = out[c].get(b)
-        rates.append(round(100*cell['miss']/cell['eligible'],1) if cell and cell['eligible'] else 0)
+        rates.append(round(100*cell[metric]/cell['eligible'],1) if cell and cell['eligible'] else 0)
     print(f"  eligible: {[out[c].get(b,{}).get('eligible',0) for b in BAND_ORDER]}")
-    print(f"  miss%:    {rates}")
-    mono = all(rates[i] >= rates[i+1] for i in range(len(rates)-1) if rates[i] and rates[i+1])
-    print(f"  monotonic (beginners miss more): {mono}")
+    print(f"  {metric}%: {rates}")
+    nz = [r for r in rates if r]
+    mono = all(nz[i] >= nz[i+1] for i in range(len(nz)-1))
+    print(f"  falls with rating (beginners err more): {mono}")

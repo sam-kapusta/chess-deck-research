@@ -161,3 +161,31 @@ blunder these more when the opportunity is on the board → both are legitimate 
 RESULT: Missed Bishop Activity ADDED BACK to Minor-Piece Endgames. Lesson: for a "missed-X" drill
 feature, judge it on the ELIGIBLE denominator (positions where X is available), not raw count or the
 material-type denominator — otherwise the population effect masks the real miss-rate signal.
+
+## Re-examined ALL enrichment-dropped features — 2 more were real signals
+
+After Bishop Activity, checked every feature dropped on the ENRICHMENT metric (fires-on-blunders vs
+good-moves) using the correct eligible-denominator miss-rate test (pull_concept_miss_rates.py):
+
+| Feature | Old verdict | Eligible miss-rate by band (600→2800) | Real? |
+|---------|-------------|----------------------------------------|-------|
+| Missed Doubled Rooks | dropped (0.8x enrich) | 19.9% → 3.4% (miss/eligible) | YES — ~6x fall. Re-added → Missed Combinative Motifs (Offensive). |
+| Pawn Grab While Undeveloped | dropped (0.4x enrich) | 2.6% → 0.1% (took_bad/eligible) | YES — ~26x fall. Re-added → Greedy Captures (Calculation). |
+| Bishop Activity | dropped (non-mono raw) | 13.8% → 3.8% | YES (already re-added) |
+| Rook Activity (R+Minor) | (kept) | 11.3% → 3.1% | confirms |
+
+Also fixed: Missed Doubled Rooks had been mis-swept into the Rook ENDGAMES cluster during the material
+reorg, but it categorizes as Missed Tactic (Offensive) and fires across all phases — moved to Missed
+Combinative Motifs.
+
+### THE LESSON (proven 3×)
+The **enrichment metric is the wrong test for a drill feature.** "Does this pattern fire more on
+blunders than good moves" conflates pattern-frequency with skill-differentiation. A pattern that's the
+best move equally often in good play and blunder positions (enrichment ~1) can STILL be something
+beginners miss far more — that's the skill signal. The correct test is the **eligible-denominator
+band miss-rate**: among positions where the concept is available, does the weaker player err more?
+Enrichment nearly cost Bishop Activity and DID cost Doubled Rooks + Pawn Grab. Going forward, judge
+every missed-X / played-bad-X feature on eligible miss-rate by band, not enrichment.
+
+The not-rescuable drops stay dropped: Wrong-Bishop (7 fires) and Lucena (4 fires) — rarity can't be
+denominator-fixed; serve those as curated drill positions instead.
