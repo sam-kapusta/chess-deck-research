@@ -18,7 +18,7 @@
   {"name": "Missed Trapped Piece", "group": "Offensive Tactics", "spotlight": true,
    "features": ["Missed Trapped Rook", "Missed Trapped Knight", "Missed Trapped Bishop", "Missed Trapped Queen"]},
   {"name": "Missed King Attack", "group": "Offensive Tactics", "spotlight": true,
-   "features": ["Enemy King Exposed", "Missed Kingside Attack", "Missed Queenside Attack", "Missed f2/f7 Attack"]},
+   "features": ["Enemy King Exposed", "Missed Kingside Attack", "Missed Queenside Attack", "Missed f2/f7 Attack", "Missed Remove the Guard"]},
   {"name": "Missed Sacrifice", "group": "Offensive Tactics", "spotlight": true,
    "features": ["Missed Sacrifice"]},
   {"name": "Other Combinations", "group": "Offensive Tactics", "spotlight": false,

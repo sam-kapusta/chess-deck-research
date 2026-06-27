@@ -1669,6 +1669,53 @@ def missed_interposition(m):
              f"in check; best {m.best_san} blocks but played {m.played_san} doesn't")]
 
 
+def _king_ring(board, color):
+    """The enemy king square + its 8 neighbours (the squares an attack must penetrate)."""
+    ksq = board.king(color)
+    if ksq is None:
+        return set()
+    return {ksq} | {s for s in chess.SQUARES if chess.square_distance(s, ksq) == 1}
+
+
+def missed_remove_the_guard(m):
+    """Best move captures (an EVEN trade — defended target) a piece that DEFENDS a square in the enemy
+    king's ring, stripping a defender off the king; the played move doesn't. The 'remove the defender
+    of the castled king' theme — distinct from a sacrifice (this is a trade, victim is defended) and
+    from generic king attack (the net-new slice is the even-trade removal of a king-zone guard)."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if not b.is_capture(bm):
+        return []
+    opp = not m.mover
+    victim_sq = bm.to_square
+    victim = b.piece_at(victim_sq)
+    if victim is None or victim.color != opp or victim.piece_type in (chess.PAWN, chess.KING):
+        return []
+    # even trade, not a sac: the victim is DEFENDED (so it's a real capture-of-a-guard, not a freebie)
+    if not b.is_attacked_by(opp, victim_sq):
+        return []
+    ring = _king_ring(b, opp)
+    if not ring:
+        return []
+    # the victim currently defends at least one king-ring square
+    guards = b.attacks(victim_sq) & chess.SquareSet(ring)
+    if not guards:
+        return []
+    # after the capture, that ring square is no longer defended by this piece (defender removed)
+    after = b.copy(); after.push(bm)
+    still_guarded = after.attacks(victim_sq) if after.piece_at(victim_sq) and after.piece_at(victim_sq).color == opp else chess.SquareSet(0)
+    newly_undefended = chess.SquareSet(guards) - still_guarded
+    if not newly_undefended:
+        return []
+    # played move did NOT remove this guard
+    if pm.to_square == victim_sq:
+        return []
+    return [("Missed Remove the Guard", "missed",
+             f"best {m.best_san} removes a defender of the enemy king")]
+
+
 def allowed_battery(m):
     """Played move allows the opponent to create a battery (Q+R on file, Q+B on diagonal) in the
     refutation that best move would have prevented."""
@@ -1979,6 +2026,7 @@ ALL_PREDICATES = [
     missed_minor_rook_activity, missed_perpetual,
     missed_battery, missed_overloading, missed_desperado, missed_doubled_rooks,
     missed_pin_exploitation, missed_unpinning_resource, missed_interposition,
+    missed_remove_the_guard,
     allowed_battery, allowed_overloading, allowed_doubled_rooks,
     missed_pawn_break, missed_tempo_push, missed_open_file, premature_trade, missed_prophylaxis,
     missed_piece_activation, wrong_pawn_race,

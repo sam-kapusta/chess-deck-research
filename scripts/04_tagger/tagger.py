@@ -282,9 +282,9 @@ def categorize(label, direction=None):
             "protected passer", "square rule", "breakthrough", "perpetual")):
         return "Endgame"
 
-    # Enemy king exposed but unexploited = a missed attacking chance (Missed Tactic), NOT your own
-    # king safety. Check BEFORE the King Safety branch (which would catch "king"/"exposed").
-    if l == "enemy king exposed":
+    # Enemy king exposed / removing the defender of the enemy king = a missed attacking chance
+    # (Missed Tactic), NOT your own king safety. Check BEFORE the King Safety branch (catches king/exposed).
+    if l == "enemy king exposed" or l == "missed remove the guard":
         return "Missed Tactic"
     # King safety (your king). "Exposed King" (your king exposed), castling, kingside/queenside attack.
     if any(w in l for w in ("exposed king", "kingside attack", "queenside attack", "castl",

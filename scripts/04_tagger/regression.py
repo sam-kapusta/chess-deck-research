@@ -243,6 +243,13 @@ def run():
         # NEG: knight check can't be blocked -> no interposition (here just: not in check).
         ("not in check -> no interposition", "1n2k3/8/8/8/8/8/8/4K3 b - - 0 1",
          "e8f8", "b8c6", PR.missed_interposition, None),
+        # POS remove-the-guard: Black Kg8 castled, Nf6 guards king-ring (g8/h7). White Bg5xf6 (even
+        # trade, f6 defended by g7) strips the guard; played a3 doesn't. Fires Missed Remove the Guard.
+        ("trade off the defender of the castled king", "r2q1rk1/ppp2ppp/5n2/6B1/8/8/PPP2PPP/R2Q1RK1 w - - 0 1",
+         "a2a3", "g5f6", PR.missed_remove_the_guard, "Missed Remove the Guard"),
+        # NEG: a capture far from the enemy king strips no king-guard -> must NOT fire.
+        ("capture away from king is not remove-the-guard", "r2q1rk1/ppp2ppp/8/3n4/3N4/8/PPP2PPP/R2Q1RK1 w - - 0 1",
+         "a2a3", "d4d5", PR.missed_remove_the_guard, None),
     ]
     for name, fen, uci, best, fn, want in pinx_cases:
         b = chess.Board(fen)
