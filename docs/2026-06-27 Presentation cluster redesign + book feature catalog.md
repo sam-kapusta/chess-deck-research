@@ -211,3 +211,32 @@ Tempo"→"Piece Activity", "Pawn Structure Weaknesses"→"Pawn Structure".
   filters spotlight=true). useSkillCard DISPLAY_ORDER + clusterLiveScore unaffected (score by cluster).
 - Endgame rename to "King & Pawn / Queen / Minor-Piece" book convention (separate, pending Sam OK).
 - This scheme is a DRAFT in scheme_presentable.json — NOT yet shipped to fifaSkillRatings.json.
+
+## NEW DETECTORS BUILT + MEASURED (2026-06-27, local 200k volume + eyeball)
+
+All four built, tested (83/83 regression), routed, and eyeballed on the 200k corpus. Volume (local):
+
+| Detector | Label | Cluster | Local fires | Eyeball |
+|---|---|---|---|---|
+| missed_pin_exploitation | Missed Pin Exploitation | Missed Pin (Off) | 2,035 | clean (Rbe3 piles on pinned N) |
+| missed_unpinning_resource | Missed Unpinning Resource | Active Defense (Def) | 4,286 | clean (Bf3 breaks pin, played sits) |
+| missed_interposition | Missed Interposition | Active Defense (Def) | 1,993 | clean (Ne6 blocks vs Ke7 flees) |
+| missed_remove_the_guard | Missed Remove the Guard | Missed King Attack (Off) | 2,781* | clean after tightening |
+
+*Remove the Guard: first build fired 10,349 — eyeball caught over-fire (queen grabs Qxd8+, opening
+trades pre-castle, endgame rook trades). TIGHTENED: minor-piece victim only, enemy king must be
+castled (g/h or a/c file + shelter pawn), no checks, not endgame → 10,349→2,781, all real Bxf6-type
+'remove the defender of the castled king'. Lesson reapplied: eyeball before trusting volume.
+
+All clear the corpus floor (~500). STILL PENDING: the eligible-denominator band miss-rate test
+(does the weaker band err more WHEN the chance exists) — needs chess-poc, which is AUTH-BLOCKED this
+session (SAIS presigned-URL token expired, won't refresh headless). When chess-poc is back: add these
+4 to pull_concept_miss_rates and confirm the beginner→master gradient before trusting their band
+anchors. Until then the detectors fire + cluster correctly but their FIFA band rates need the proper
+200k pull (they're not in the shipped per-feature by_band yet, so they contribute 0 to scheme rates).
+
+## BLOCKER (this session): chess-poc auth
+SAIS notebook presigned-URL token expired; `sais -n chess-poc auth` fails with ExpiredTokenException
+even though base creds (default profile, acct 140023406996) are valid. Needs a Midway re-auth that
+can't be done headless. Eligible-miss-rate band test for the 4 new detectors is deferred to next
+interactive session. Everything else (volume, eyeball, cluster wiring, scheme) is done offline.
