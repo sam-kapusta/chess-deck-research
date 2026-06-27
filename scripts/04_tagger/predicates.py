@@ -1677,11 +1677,37 @@ def _king_ring(board, color):
     return {ksq} | {s for s in chess.SQUARES if chess.square_distance(s, ksq) == 1}
 
 
+def _king_is_castled(board, color):
+    """The enemy king sits in a castled position (g/h or a/c file, on its back two ranks) with at
+    least one shelter pawn nearby — i.e. there is a real king to attack, not an opening/endgame king."""
+    ksq = board.king(color)
+    if ksq is None:
+        return False
+    kf, kr = chess.square_file(ksq), chess.square_rank(ksq)
+    home = 0 if color == chess.WHITE else 7
+    if abs(kr - home) > 1:
+        return False            # king has wandered up the board — not a castled-king attack
+    if kf not in (0, 1, 2, 5, 6, 7):
+        return False            # central king (incl. uncastled e-file) — not the theme
+    # at least one friendly pawn on the three files around the king (a shelter to attack through)
+    for f in (kf-1, kf, kf+1):
+        if 0 <= f <= 7:
+            for r in range(8):
+                p = board.piece_at(chess.square(f, r))
+                if p and p.color == color and p.piece_type == chess.PAWN:
+                    return True
+    return False
+
+
 def missed_remove_the_guard(m):
-    """Best move captures (an EVEN trade — defended target) a piece that DEFENDS a square in the enemy
-    king's ring, stripping a defender off the king; the played move doesn't. The 'remove the defender
-    of the castled king' theme — distinct from a sacrifice (this is a trade, victim is defended) and
-    from generic king attack (the net-new slice is the even-trade removal of a king-zone guard)."""
+    """Best move captures (an EVEN trade — defended target) a MINOR piece that DEFENDS the enemy
+    CASTLED king's ring, stripping a defender off the king; the played move doesn't. The classic
+    'remove the defender of the castled king' (e.g. Bxf6 taking the knight that guards h7/g8). Tightened
+    to avoid over-fire: minor-piece victim only (not queen/rook/random material), king must be castled
+    (not opening/endgame), and the capture must not be a check (those are forcing tactics, named
+    elsewhere)."""
+    if _is_endgame(m):
+        return []
     b = m.board_before
     bm = _best_move(m); pm = _played_move(m)
     if bm is None or pm is None or bm == pm:
@@ -1691,29 +1717,31 @@ def missed_remove_the_guard(m):
     opp = not m.mover
     victim_sq = bm.to_square
     victim = b.piece_at(victim_sq)
-    if victim is None or victim.color != opp or victim.piece_type in (chess.PAWN, chess.KING):
+    # minor-piece guard only — the textbook defenders (Nf6/Be7/Bg7), not queen/rook/pawn captures.
+    if victim is None or victim.color != opp or victim.piece_type not in (chess.KNIGHT, chess.BISHOP):
         return []
-    # even trade, not a sac: the victim is DEFENDED (so it's a real capture-of-a-guard, not a freebie)
+    # even trade, not a sac/freebie: the victim is DEFENDED.
     if not b.is_attacked_by(opp, victim_sq):
         return []
-    ring = _king_ring(b, opp)
-    if not ring:
+    # the enemy king must be a real castled king (there's something to attack).
+    if not _king_is_castled(b, opp):
         return []
-    # the victim currently defends at least one king-ring square
+    # checks are forcing tactics (named by mate/fork/etc.) — not the quiet 'remove the guard' theme.
+    after = b.copy(); after.push(bm)
+    if after.is_check():
+        return []
+    ring = _king_ring(b, opp)
     guards = b.attacks(victim_sq) & chess.SquareSet(ring)
     if not guards:
         return []
-    # after the capture, that ring square is no longer defended by this piece (defender removed)
-    after = b.copy(); after.push(bm)
-    still_guarded = after.attacks(victim_sq) if after.piece_at(victim_sq) and after.piece_at(victim_sq).color == opp else chess.SquareSet(0)
-    newly_undefended = chess.SquareSet(guards) - still_guarded
-    if not newly_undefended:
+    # after the capture, those ring squares lose this defender.
+    still_guarded = after.attacks(victim_sq) if (after.piece_at(victim_sq) and after.piece_at(victim_sq).color == opp) else chess.SquareSet(0)
+    if not (chess.SquareSet(guards) - still_guarded):
         return []
-    # played move did NOT remove this guard
     if pm.to_square == victim_sq:
         return []
     return [("Missed Remove the Guard", "missed",
-             f"best {m.best_san} removes a defender of the enemy king")]
+             f"best {m.best_san} removes a defender of the castled king")]
 
 
 def allowed_battery(m):
