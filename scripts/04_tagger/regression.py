@@ -236,6 +236,13 @@ def run():
         # NEG: no pin on the board at all -> unpinning can't fire.
         ("no pin -> no unpinning resource", "4k3/4n2p/8/8/8/8/8/6K1 b - - 0 1",
          "h7h6", "e7c6", PR.missed_unpinning_resource, None),
+        # POS interposition: Black Ke8 in check from White Bb5 (b5-c6-d7-e8 diag). Best Nb8-c6 blocks;
+        # played Kf8 runs. Fires Missed Interposition.
+        ("block the check vs running the king", "1n2k3/8/8/1B6/8/8/8/4K3 b - - 0 1",
+         "e8f8", "b8c6", PR.missed_interposition, "Missed Interposition"),
+        # NEG: knight check can't be blocked -> no interposition (here just: not in check).
+        ("not in check -> no interposition", "1n2k3/8/8/8/8/8/8/4K3 b - - 0 1",
+         "e8f8", "b8c6", PR.missed_interposition, None),
     ]
     for name, fen, uci, best, fn, want in pinx_cases:
         b = chess.Board(fen)

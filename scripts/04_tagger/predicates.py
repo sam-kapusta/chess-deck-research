@@ -1636,6 +1636,39 @@ def missed_unpinning_resource(m):
              f"best {m.best_san} breaks the pin; played {m.played_san} sits in it")]
 
 
+def missed_interposition(m):
+    """In check from a single sliding piece (so a block is geometrically possible), the best move
+    INTERPOSES a piece on a square between the checker and the king — and the played move runs the
+    king (or otherwise doesn't block) when blocking was the right call. The 'block beats flee'
+    defensive resource (Active Defense)."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if not b.is_check():
+        return []
+    checkers = list(b.checkers())
+    if len(checkers) != 1:
+        return []  # double check can only be answered by a king move — no interposition possible
+    csq = checkers[0]
+    if b.piece_type_at(csq) not in (chess.ROOK, chess.BISHOP, chess.QUEEN):
+        return []  # knight/pawn check can't be blocked
+    ksq = b.king(m.mover)
+    if ksq is None:
+        return []
+    between = chess.SquareSet.between(csq, ksq)
+    if not between:
+        return []  # checker is adjacent — nothing to interpose
+    # best move blocks: a non-king piece lands on a between-square (and it's not a capture of the checker)
+    if bm.from_square == ksq or bm.to_square not in between:
+        return []
+    # played move does NOT block (king move, or lands elsewhere)
+    if pm.to_square in between and pm.from_square != ksq:
+        return []  # played also interposed — no missed resource
+    return [("Missed Interposition", "missed",
+             f"in check; best {m.best_san} blocks but played {m.played_san} doesn't")]
+
+
 def allowed_battery(m):
     """Played move allows the opponent to create a battery (Q+R on file, Q+B on diagonal) in the
     refutation that best move would have prevented."""
@@ -1945,7 +1978,7 @@ ALL_PREDICATES = [
     missed_bishop_activity, missed_knight_activity, missed_minor_activity, missed_queen_activity,
     missed_minor_rook_activity, missed_perpetual,
     missed_battery, missed_overloading, missed_desperado, missed_doubled_rooks,
-    missed_pin_exploitation, missed_unpinning_resource,
+    missed_pin_exploitation, missed_unpinning_resource, missed_interposition,
     allowed_battery, allowed_overloading, allowed_doubled_rooks,
     missed_pawn_break, missed_tempo_push, missed_open_file, premature_trade, missed_prophylaxis,
     missed_piece_activation, wrong_pawn_race,
