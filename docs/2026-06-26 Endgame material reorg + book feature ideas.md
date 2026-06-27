@@ -212,3 +212,41 @@ every material cluster, not just Pawn. To build:
 - Minor Activity → Rook+Minor (pairs w/ Rook Activity)
 - Queen Activity → Queen + Heavy (Sam: queen mistakes in any queen endgame, not just Q+P)
 - King Activity → add to Rook / Minor / RookMinor / Heavy clusters (already in Pawn via missed_king_activity)
+
+## SHIPPED (2026-06-27): activity detectors + universal King Activity
+
+3 new pure detectors in predicates.py via `_activates_piece(m, ptype, gain=4)` (best move moves a
+piece of `ptype`, gains ≥4 attack squares, played differs):
+- `missed_knight_activity`  → "Missed Knight Activity"  → Minor-Piece cluster
+- `missed_minor_activity`   → "Missed Minor Activity"   → Rook+Minor cluster (bishop OR knight)
+- `missed_queen_activity`   → "Missed Queen Activity"   → Queen + Heavy clusters
+
+King Activity (`missed_king_activity`, already in Pawn) added to Rook/Minor/RookMinor/Heavy feature
+lists — universal endgame skill. categorize(): generalized to route any "activity" label → Endgame.
+Removed mis-placed "Missed Doubled Rooks" from Rook cluster (it's Offensive Tactics).
+All 6 material clusters re-aggregated, monotonic. Local volume (200k): Knight 98, Minor 269, Queen 871.
+Research 9aa5d2b, code cf6c5445.
+
+## Cross-group thin-cluster audit (2026-06-27) — the lesson generalizes
+
+Applied the round-2 "thin = under-built, not data-limited" check to ALL 6 scored groups. Single-feature
+clusters and their per-band spread (beginner_rate − master_rate, isotonic-smoothed, shipped anchors):
+
+| Group | Thin cluster (1 feat) | mono? | spread /k | verdict |
+|-------|----------------------|-------|-----------|---------|
+| Positional | Prophylaxis  | yes | 12.3 | strong — expand (Nimzowitsch My System) |
+| Positional | Pawn Breaks  | yes |  9.1 | strong — expand (minority attack, levers) |
+| Positional | Open Files   | yes |  4.5 | modest — expand cautiously (7th rank, file seizure) |
+| Offensive  | Missed Sacrifices | — | — | already pure router; sac is rare-by-nature |
+| Defensive  | Allowed Sacrifices | — | — | mirror of above |
+| Calculation| Premature Trades  | — | — | check next |
+| Calculation| Tactical Resources (Desperado) | — | — | rare-by-nature; likely drill-position not corpus |
+
+KEY: Positional is the most under-built scored group — 3 single-feature clusters all monotonic with
+real spread. Same conclusion as endgame: build more detectors, don't drop. Candidate detectors to
+build + measure on eligible-miss-rate (chess-poc):
+- Prophylaxis family: missed luft/escape-square, missed defensive trade, missed blockade (mid-game)
+- Pawn Breaks family: missed minority attack, missed pawn lever, missed central break (…d5/…e5/c5/f5)
+- Open Files family: missed rook-to-open-file (mid-game, not just endgame), missed 7th-rank seizure,
+  missed file-contest (doubling on a half-open file)
+Next: build these, measure eligible-miss-rate by band, keep the monotonic ones, attach to the cluster.
