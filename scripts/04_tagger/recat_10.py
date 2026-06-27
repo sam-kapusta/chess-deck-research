@@ -53,8 +53,10 @@ def categorize(label, direction):
         return "Trading"
 
     # --- Calculation (you saw it, miscounted / wrong execution) ---
-    if L in ("Wrong Move Order", "Captured With Wrong Piece", "Bad Capture", "Wrong Capture",
-             "Lost Material to Combination") or L.startswith("Failed "):
+    # "Greedy Capture" is the current label; the rest are legacy catch-alls (GH #29, removed from the
+    # live tagger) kept here so this script can still re-map OLD mistake_tags.json corpora.
+    if L in ("Greedy Capture", "Wrong Move Order", "Captured With Wrong Piece", "Bad Capture",
+             "Wrong Capture", "Lost Material to Combination") or L.startswith("Failed "):
         return "Calculation"
 
     # --- Positional ---

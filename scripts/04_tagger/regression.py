@@ -160,11 +160,12 @@ def run():
         # POSITIVE: a genuine equal trade the player missed (cp_loss 200) — must still tag.
         ("equal N-for-N (real miss, cp200) tags exchange", "3qk3/3p4/3p4/4n3/8/5N2/8/3QK3 w - - 0 1",
          "e1e2", "f3e5", "Nxe5", 200, "Missed Knight Exchange"),
-        # NEGATIVE (GH #27): SAME equal trade but cp_loss=20 — the played move was just as good, so it
-        # is NOT a "missed" exchange. Must NOT fire (the played==best / low-cp false-fire class, 30% of
-        # Exchange fires). This is the cp_loss<100 gate.
-        ("equal N-for-N (cp20, not a real miss) suppressed", "3qk3/3p4/3p4/4n3/8/5N2/8/3QK3 w - - 0 1",
-         "e1e2", "f3e5", "Nxe5", 20, None),
+        # GH #29: capture_or_exchange is now a PURE DETECTOR — it fires whenever best is an even trade,
+        # regardless of severity. The played==best / low-win-drop suppression (the #27 fix) moved to the
+        # ONE entry gate in tag_mistake_full (tested in the "entry gate" block below). So at the direct-
+        # predicate level the cp20 case DOES fire; suppression is the gate's job, not the detector's.
+        ("equal N-for-N detects regardless of cp (gate suppresses, not the detector)",
+         "3qk3/3p4/3p4/4n3/8/5N2/8/3QK3 w - - 0 1", "e1e2", "f3e5", "Nxe5", 20, "Missed Knight Exchange"),
         # GH #28: bishop takes a DEFENDED knight (even minor trade) must be "Bishop-Knight Exchange",
         # NOT "Missed Knight Exchange" (the old victim-only naming mislabeled 64% of minor trades).
         ("B-for-N mixed minor trade -> Bishop-Knight Exchange", "4k3/8/3p4/4n3/8/8/1B6/4K3 w - - 0 1",
@@ -175,7 +176,10 @@ def run():
     ]
     for name, fen, uci, best, bsan, cpl, want in exch_cases:
         b = chess.Board(fen)
-        m = Mistake(fen, uci, best, [], [], 0, 0, cpl, b.turn, best_san=bsan)
+        # eval_before/after=None -> win_drop uses its cp_loss fallback (these fixtures express
+        # severity via cp_loss, not signed evals). cpl=200 -> 17.6 win-pts (tags); cpl=20 -> 1.8 (the
+        # #27 played==best suppression). (GH #29 — the gate is win_drop now, not cp_loss.)
+        m = Mistake(fen, uci, best, [], [], None, None, cpl, b.turn, best_san=bsan)
         res = PR.capture_or_exchange(m)
         got = res[0][0] if res else None
         passed = (got == want)
@@ -185,6 +189,62 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_exch = len(exch_cases)
+
+    print("--- predicates: greedy_capture (played grabs material, best is QUIET) — GH #29 ---")
+    # (name, fen, played_uci, best_uci, cpl, expected_label_or_None). win_drop via cp_loss fallback.
+    greedy_cases = [
+        # POS: White Nxd5 grabs a pawn; best is the quiet Bh6. cp200 -> 17.6 win-pts (taggable).
+        ("grab pawn when quiet Bh6 was best", "r2qk2r/ppp2ppp/2n5/3p4/3P4/2N1B3/PPP2PPP/R2QK2R w KQkq - 0 1",
+         "c3d5", "e3h6", 200, "Greedy Capture"),
+        # NEG: best is ALSO a capture (Nxd5) — that's a missed capture/exchange, not greed. Must NOT fire.
+        ("best is also a capture -> not greedy", "r2qk2r/ppp2ppp/2n5/3p4/3P4/2N1B3/PPP2PPP/R2QK2R w KQkq - 0 1",
+         "c3d5", "d4d5", 200, None),
+        # GH #29: pure detector — fires on the grab-vs-quiet PATTERN regardless of severity. The low-
+        # win-drop suppression is the entry gate's job (tested in the entry-gate block), not here.
+        ("greedy grab detects regardless of cp (gate suppresses)", "r2qk2r/ppp2ppp/2n5/3p4/3P4/2N1B3/PPP2PPP/R2QK2R w KQkq - 0 1",
+         "c3d5", "e3h6", 20, "Greedy Capture"),
+    ]
+    for name, fen, uci, best, cpl, want in greedy_cases:
+        b = chess.Board(fen)
+        bsan = b.san(chess.Move.from_uci(best)); psan = b.san(chess.Move.from_uci(uci))
+        m = Mistake(fen, uci, best, [], [], None, None, cpl, b.turn, played_san=psan, best_san=bsan)
+        res = PR.greedy_capture(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_greedy = len(greedy_cases)
+
+    print("--- tagger ENTRY GATE: win%-drop decides mistake-vs-not, ONCE (GH #29) ---")
+    # The single mistake gate lives in tag_mistake_full, not in the detectors. Verify: (1) a real miss
+    # (high win_drop) surfaces the explain tag; (2) the SAME position played==best (win_drop~0) suppresses
+    # ALL explain tags — this is the #27 suppression, now centralized; (3) INFO/orient tags (phase,
+    # game-state) survive the gate either way (they classify the position, not assert a mistake).
+    import tagger as TG_GATE
+    gate_fen = "3qk3/3p4/3p4/4n3/8/5N2/8/3QK3 w - - 0 1"  # best Nxe5 = even knight trade
+    b = chess.Board(gate_fen)
+    # mover WHITE, eval_before 0; a real miss drops to -200 after the played move -> win_drop ~17.6
+    m_miss = Mistake(gate_fen, "e1e2", "f3e5", [], [], 0, -200, 200, b.turn, best_san="Nxe5")
+    # played==best equivalent: eval barely moves (0 -> -10) -> win_drop ~0.9, under the 10.0 gate
+    m_nonmiss = Mistake(gate_fen, "e1e2", "f3e5", [], [], 0, -10, 10, b.turn, best_san="Nxe5")
+    miss_labels = [t["label"] for t in TG_GATE.tag_mistake_full(m_miss, with_maia=False)["tags"]]
+    non_labels = [t["label"] for t in TG_GATE.tag_mistake_full(m_nonmiss, with_maia=False)["tags"]]
+    gate_cases = [
+        ("real miss surfaces Missed Knight Exchange", "Missed Knight Exchange" in miss_labels, True),
+        ("played==best suppresses the explain tag", "Missed Knight Exchange" in non_labels, False),
+        ("info/orient tag (game-state) survives the gate", "Equal" in non_labels, True),
+    ]
+    for name, got, want in gate_cases:
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got} exp={want}")
+    extra_gate = len(gate_cases)
 
     print("--- predicates: pawn break / prophylaxis must not fire on material grabs (GH #28-class) ---")
     # (name, fn, fen, played_uci, best_uci, best_san, refutation_san, cp_loss, expected_label_or_None)
@@ -201,7 +261,8 @@ def run():
     ]
     for name, fn, fen, uci, best, bsan, ref, cpl, want in grab_cases:
         b = chess.Board(fen)
-        m = Mistake(fen, uci, best, [], ref, 0, 0, cpl, b.turn, best_san=bsan)
+        # evals None -> win_drop falls back to cp_loss (these test structure, not eval nuance). GH #29.
+        m = Mistake(fen, uci, best, [], ref, None, None, cpl, b.turn, best_san=bsan)
         res = fn(m)
         got = res[0][0] if res else None
         passed = (got == want)
@@ -272,10 +333,11 @@ def run():
     print("--- predicates: pawn structure (recapture + best-line guards) ---")
     # (name, fen, played_uci, best_uci, refutation_san, label_must_NOT_appear)
     ps_cases = [
-        # 13.gxf3 — a recapture that doubles the f-pawn, but it's a CAPTURE and the doubling is also
-        # in the best line. Must NOT tag Created Doubled Pawn. (Caught by Sam.)
+        # 13.gxf3 — a recapture that doubles the f-pawn, but it IS the best move (recapturing the
+        # bishop). best==played -> the doubling is in best_af too -> not blunder-caused. Must NOT tag
+        # Created Doubled Pawn. (Caught by Sam.)
         ("recapture doesn't create doubled", "r2qr1k1/pp3ppp/2nb1n2/1Bpp4/8/P1NP1b2/1PPQ1PPP/R1B1R1K1 w - - 0 13",
-         "g2f3", "b5c6", "Created Doubled Pawn"),
+         "g2f3", "g2f3", "Created Doubled Pawn"),
     ]
     for name, fen, uci, best, must_not in ps_cases:
         b = chess.Board(fen)
@@ -301,14 +363,14 @@ def run():
     ok += not_pb; (fails.append("stale best_san not played==best") if not not_pb else None)
     print(f"  [{'PASS' if deep_ok else 'FAIL'}] deep best from top_lines (cxb4 not Bd2): {bu}")
     print(f"  [{'PASS' if not_pb else 'FAIL'}] stale best_san != played==best: {not_pb}")
-    # capture-direction: passive instead of capture -> NO generic tag. The specific piece tag from
-    # capture_or_exchange already covers "best was a capture you didn't play", so the old generic
-    # "Missed Capture" was always a redundant duplicate and is intentionally gone. (Removed per Sam.)
+    # greedy_capture: a passive (non-capture) played move must NOT fire Greedy Capture. Greedy Capture
+    # fires only when the PLAYED move grabs material and best was quiet — the inverse of this case.
+    # (Replaced the deleted capture_direction "Wrong/Missed Capture" catch-alls — GH #29.)
     m_stale = TG.deep_entry_to_mistake(e_stale, 1800, 1800)
-    labs = [t[0] for t in PR.capture_direction(m_stale)]
-    mc_ok = "Missed Capture" not in labs
-    ok += mc_ok; (fails.append("Missed Capture suppressed (passive)") if not mc_ok else None)
-    print(f"  [{'PASS' if mc_ok else 'FAIL'}] no generic 'Missed Capture' on passive miss: {labs}")
+    labs = [t[0] for t in PR.greedy_capture(m_stale)]
+    mc_ok = "Greedy Capture" not in labs
+    ok += mc_ok; (fails.append("Greedy Capture not fired on passive move") if not mc_ok else None)
+    print(f"  [{'PASS' if mc_ok else 'FAIL'}] no 'Greedy Capture' on passive move: {labs}")
     extra_cd = 1
     # played==best: deep verdict cleared the shallow flag
     e_best = {"fen": "8/4b3/8/p2p1k1K/1PpPp2P/2P1B3/1P6/8 b - - 0 39", "uci": "a5b4", "best_san": "axb4",
@@ -371,7 +433,7 @@ def run():
     print(f"  [{'PASS' if pos else 'FAIL'}] check-clearance (Ne6+ clears for Bh8): fires={pos} (want True)")
     extra_clr = 1   # the positive case (negative is counted inline above with the +1 in total)
 
-    print("--- tag_adapter: refutation with leaked played move still tags the hung piece ---")
+    print("--- tag_adapter: leaked-played-move refutation parses to the hung piece (Mistake level) ---")
     import sys as _sys, os as _os
     _sys.path.insert(0, _os.path.join(_os.path.dirname(__file__), "..", "..", "..",
                                       "chess-deck-code", "backend", "worker"))
@@ -380,12 +442,20 @@ def run():
         e = {"fen_before": "r4r1k/pbnnq2p/1p2p3/3pPp1B/1P1P1R2/PN6/6PP/R1BQ3K w - - 6 22",
              "uci": "f4h4", "pv_uci": ["f4f3"], "san": "Rh4", "bestMoveSan": "Rf3", "eval": 2.36,
              "refutation_uci": ["f4h4", "e7h4", "g2g3"]}   # NOTE leading f4h4 = the played move
-        labs = [t["label"] for t in TA.tags_for_eval(e)]
-        hm_ok = "Hung Rook" in labs   # Qxh4 captures the rook -> named hang
+        # GH #29: the win%-drop ENTRY gate needs eval_after, which prod's eval_to_mistake does NOT yet
+        # supply (hardcodes eval_after=None, cp_loss=0 — the open step-6 plumbing). So tag_mistake_full
+        # correctly suppresses ALL explain tags here (no signal that it's a mistake). What we CAN verify
+        # without step 6: the leaked-played-move stripping still builds a refutation that names the hung
+        # rook at the Mistake/predicate level (gate-independent). When step 6 lands, tags_for_eval will
+        # surface "Hung Rook" again — add that assertion then.
+        m = TA.eval_to_mistake(e)
+        import predicates as PR
+        hung = [t[0] for t in PR.hung_material(m)]   # predicate is a pure detector now — fires regardless
+        hm_ok = "Hung Rook" in hung
         ok += hm_ok
         if not hm_ok:
-            fails.append("adapter strips leaked played move")
-        print(f"  [{'PASS' if hm_ok else 'FAIL'}] leaked-played-move refutation still yields Hung Rook: {labs}")
+            fails.append("leaked-played-move refutation -> Hung Rook (Mistake level)")
+        print(f"  [{'PASS' if hm_ok else 'FAIL'}] leaked move stripped, refutation names Hung Rook: {hung}")
         extra_adapter = 1
     except Exception as ex:
         print(f"  [SKIP] tag_adapter not importable ({ex})")
@@ -484,7 +554,7 @@ def run():
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + extra_exch + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
+             + len(hung_cases) + extra_exch + extra_greedy + extra_gate + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases))
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))

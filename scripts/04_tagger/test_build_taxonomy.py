@@ -35,8 +35,7 @@ def test_known_categories():
     # Mate vision is its own skill when missed; allowing mate is king safety.
     assert tax["tags"]["Missed Mate"]["category"] == "Missed Mate"
     assert tax["tags"]["Allowed Back-Rank Mate"]["category"] == "King Safety"
-    # Calculation = saw-it-miscounted.
-    assert tax["tags"]["Lost Material to Combination"]["category"] == "Calculation"
-    assert tax["tags"]["Wrong Capture"]["category"] == "Calculation"
+    # Calculation = saw-it-miscounted. Greedy Capture replaced the 5 removed catch-alls (GH #29).
+    assert tax["tags"]["Greedy Capture"]["category"] == "Calculation"
     # Endgame-type context tags.
     assert tax["tags"]["Bishop Endgame (Same Color)"]["category"] == "Endgame"

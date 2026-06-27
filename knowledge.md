@@ -394,6 +394,7 @@ Need to rebuild `build_batch_input_maia3.py` to match the PROVEN format:
 | Doc | Date | What |
 |-----|------|------|
 | [`docs/knowledge/normalization.md`](docs/knowledge/normalization.md) | 2026-05-22 | SAE input normalization — why raw (no norm) beats Z-score and L2 for Maia 3 diff vectors. Sandstone comparison. |
+| [`docs/2026-06-19 FIFA corpus rebuild — rapid-only bands, HF pull, chess-poc gotchas.md`](docs/2026-06-19%20FIFA%20corpus%20rebuild%20—%20rapid-only%20bands%2C%20HF%20pull%2C%20chess-poc%20gotchas.md) | 2026-06-19 | Why the band corpus is being rebuilt (stale tagger + mixed-TC contamination), the 11-band rapid-only scheme (600-2800), the HF `Lichess/standard-chess-games` pull pipeline, and chess-poc operational gotchas (dead kernel→use term+screen; `datasets` needs `--only-binary`; `conda run` swallows tracebacks; HF streaming GIL-crashes→use per-shard download + HF_TOKEN). |
 
 ## Maia3 Layer-7 Representation Space (May 2026)
 
@@ -503,3 +504,15 @@ both what was played and what Maia would have played. Use z-score-only k=16 (btk
 
 **Method law:** a coherence probe on a feature defined over a DIFFERENCE must measure both sides.
 One-sided probing = guaranteed false negatives. This blind spot cost most of the 2026-06-01/02 session.
+
+## GOTCHA: mate-eval sign bug in evn() (2026-06-17)
+
+`compute_feature_see_stats.py:evn()` (and copies in winpct scripts) parsed mate evals as
+`-10000 if s.startswith('-') else 10000`. **Mate strings are `#+3` / `#-5` — sign AFTER the `#`**, so
+`startswith('-')` is ALWAYS False → every black-mates eval (`#-N`) was mis-signed as white-mating
+(+10000). 10,013 of 45,646 enriched positions have a `#` eval, so this silently corrupted
+mate-position trajectory/material stats and any win% computed from them (Missed Mate showed
+win_drop −29 — backwards; should be large positive). FIX: `-10000 if '-' in s else 10000`.
+Any `see_stats_*.json` produced before this date has wrong mate-position rows. Re-run if relied on.
+Lesson: verify the ACTUAL eval-string format from the cache before parsing sign (the docstring said
+`'#3'`, the data is `#+3`/`#-5`).

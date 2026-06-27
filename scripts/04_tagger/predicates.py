@@ -1690,6 +1690,72 @@ def missed_bishop_activity(m):
              f"best {m.best_san} activates the bishop ({before}→{after_n} squares)")]
 
 
+def _activates_piece(m, ptype, gain=4):
+    """Shared: best move is a `ptype` move gaining >=`gain` mobility, played didn't. Returns (before,
+    after) tuple if it fires, else None. Caller adds the material gate + label."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or bm == pm:
+        return None
+    if b.piece_type_at(bm.from_square) != ptype:
+        return None
+    before = len(b.attacks(bm.from_square))
+    after = b.copy(); after.push(bm)
+    after_n = len(after.attacks(bm.to_square))
+    if after_n - before < gain:
+        return None
+    return (before, after_n)
+
+
+def missed_knight_activity(m):
+    """Minor-piece endgame: best move activates a passive knight (mobility +≥4), played doesn't.
+    Pairs with Bishop Activity. Validated: eligible miss-rate 11.5%→4.3% beginner→master."""
+    if not _is_endgame(m) or not _is_minor_endgame(m.board_before):
+        return []
+    r = _activates_piece(m, chess.KNIGHT)
+    if r is None:
+        return []
+    return [("Missed Knight Activity", "missed",
+             f"best {m.best_san} activates the knight ({r[0]}→{r[1]} squares)")]
+
+
+def missed_minor_activity(m):
+    """Rook + minor endgame: best move activates the MINOR piece (bishop or knight, +≥4 mobility),
+    played didn't. Pairs with Rook Activity in the Rook+Minor cluster. Validated: 11.7%→2.4%."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    nr = nq = minors = 0
+    for p in b.piece_map().values():
+        if p.piece_type == chess.ROOK: nr += 1
+        elif p.piece_type == chess.QUEEN: nq += 1
+        elif p.piece_type in (chess.BISHOP, chess.KNIGHT): minors += 1
+    if nq > 0 or nr == 0 or minors == 0:
+        return []
+    for pt, name in ((chess.BISHOP, "bishop"), (chess.KNIGHT, "knight")):
+        r = _activates_piece(m, pt)
+        if r is not None:
+            return [("Missed Minor Activity", "missed",
+                     f"best {m.best_san} activates the {name} ({r[0]}→{r[1]} squares)")]
+    return []
+
+
+def missed_queen_activity(m):
+    """Any queen endgame (Q+P 'Queen' OR Q+pieces 'Heavy'): best move activates/centralizes the queen
+    (+≥4 mobility), played put it on a worse square. Captures queen-endgame misplacement broadly (Sam:
+    queen mistakes aren't only Q+P). Validated: eligible miss-rate 10.7%→5.7% beginner→master."""
+    if not _is_endgame(m):
+        return []
+    b = m.board_before
+    if not any(p.piece_type == chess.QUEEN for p in b.piece_map().values()):
+        return []
+    r = _activates_piece(m, chess.QUEEN)
+    if r is None:
+        return []
+    return [("Missed Queen Activity", "missed",
+             f"best {m.best_san} activates the queen ({r[0]}→{r[1]} squares)")]
+
+
 def missed_minor_rook_activity(m):
     """Rook + minor endgame: best move activates the rook (mobility +≥4), played doesn't. The same
     'active rook' principle as pure rook endgames, but in R+minor material (where the rook is still
@@ -1779,7 +1845,8 @@ ALL_PREDICATES = [
     rook_to_open_file_endgame, push_to_promote,
     pawn_grab_undeveloped, ignored_threat, premature_attack, missed_defensive_resource,
     missed_faster_mate,
-    missed_bishop_activity, missed_minor_rook_activity, missed_perpetual,
+    missed_bishop_activity, missed_knight_activity, missed_minor_activity, missed_queen_activity,
+    missed_minor_rook_activity, missed_perpetual,
     missed_battery, missed_overloading, missed_desperado, missed_doubled_rooks,
     allowed_battery, allowed_overloading, allowed_doubled_rooks,
     missed_pawn_break, missed_tempo_push, missed_open_file, premature_trade, missed_prophylaxis,

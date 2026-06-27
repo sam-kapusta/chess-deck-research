@@ -274,10 +274,10 @@ def categorize(label, direction=None):
 
     # Endgame technique + endgame-type context tags ("Rook Endgame", "Pawn Endgame", etc.).
     # BEFORE king/pawn substring branches.
-    if "endgame" in l or any(w in l for w in (
-            "king activity", "opposition", "passed pawn", "passer", "behind passer",
+    if "endgame" in l or "activity" in l or any(w in l for w in (
+            "opposition", "passed pawn", "passer", "behind passer",
             "promotion", "pawn race", "en passant", "rook to 7th", "rook cut-off",
-            "active rook", "rook activity", "bishop activity", "blockade", "connected passers", "simplif", "trade to simplify",
+            "active rook", "blockade", "connected passers", "simplif", "trade to simplify",
             "king direction", "outside passer", "push to promote", "rook to open file",
             "protected passer", "square rule", "breakthrough", "perpetual")):
         return "Endgame"

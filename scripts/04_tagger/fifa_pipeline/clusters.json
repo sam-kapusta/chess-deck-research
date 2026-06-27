@@ -356,7 +356,8 @@
     "Missed Rook Cut-Off",
     "Missed Active Rook",
     "Missed Rook to Open File",
-    "Rook Behind Passer"
+    "Rook Behind Passer",
+    "Missed King Activity"
    ],
    "scoreable": true
   },
@@ -364,7 +365,9 @@
    "name": "Queen Endgames",
    "group": "Endgame",
    "features": [
-    "Missed Perpetual"
+    "Missed Queen Activity",
+    "Missed Perpetual",
+    "Missed King Activity"
    ],
    "scoreable": true
   },
@@ -372,7 +375,9 @@
    "name": "Minor-Piece Endgames",
    "group": "Endgame",
    "features": [
-    "Missed Bishop Activity"
+    "Missed Bishop Activity",
+    "Missed Knight Activity",
+    "Missed King Activity"
    ],
    "scoreable": true
   },
@@ -380,14 +385,19 @@
    "name": "Rook + Minor Endgames",
    "group": "Endgame",
    "features": [
-    "Missed Rook Activity (R+Minor)"
+    "Missed Rook Activity (R+Minor)",
+    "Missed Minor Activity",
+    "Missed King Activity"
    ],
    "scoreable": true
   },
   {
    "name": "Heavy-Piece Endgames",
    "group": "Endgame",
-   "features": [],
+   "features": [
+    "Missed Queen Activity",
+    "Missed King Activity"
+   ],
    "scoreable": true
   }
  ]

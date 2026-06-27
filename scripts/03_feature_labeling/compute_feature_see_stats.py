@@ -44,11 +44,14 @@ def worst_hang(board, owner):
     return worst, (PIECE.get(wp) if wp else None)
 
 def evn(s):
-    """Eval already in CENTIPAWNS ('-504', '33', '#3'); mate -> +/-10000. From WHITE POV."""
+    """Eval already in CENTIPAWNS ('-504', '33', '#+3', '#-5'); mate -> +/-10000. From WHITE POV.
+    BUGFIX 2026-06-17: mate strings are '#+3' / '#-5' (sign AFTER the #), so startswith('-') was
+    ALWAYS False -> every black-mates eval ('#-N') was mis-signed as white-mating (+10000). Check for
+    '-' anywhere in the string. This silently corrupted mate-position stats (trajectory/material)."""
     if s is None: return None
     s = str(s).strip()
     if '#' in s:
-        return -10000 if s.startswith('-') else 10000
+        return -10000 if '-' in s else 10000
     try: return int(round(float(s)))   # already cp, NO *100
     except: return None
 

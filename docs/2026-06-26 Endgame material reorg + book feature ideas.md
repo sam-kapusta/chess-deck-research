@@ -189,3 +189,26 @@ every missed-X / played-bad-X feature on eligible miss-rate by band, not enrichm
 
 The not-rescuable drops stay dropped: Wrong-Bishop (7 fires) and Lucena (4 fires) — rarity can't be
 denominator-fixed; serve those as curated drill positions instead.
+
+## Round 2: thin clusters WERE under-built (eligible-miss-rate test)
+
+Sam asked "are the low clusters just under-built, not data-limited?" Measured 6 untested candidates
+(pull_concept_miss_rates2.py, eligible miss-rate by band). Answer: YES, under-built — 5/6 are real:
+
+| Candidate | miss% 600→2800 | Verdict |
+|-----------|----------------|---------|
+| Knight Activity (Minor) | 11.5 → 4.3 | real (~2.7x) |
+| King Activity (Minor)   | 12.9 → 4.7 | real |
+| King Activity (Rook)    | 11.0 → 3.6 | real (~3x) |
+| Minor Activity (R+Minor)| 11.7 → 2.4 | real (~5x) |
+| Queen Activity (Queen+Heavy) | 10.7 → 5.7 | real (~2x), weaker |
+| King Activity (Queen)   | 5.4 → 2.2 bumpy | weak/noisy — queen endgames low signal |
+
+("falls=False" flags are all the single thin-2600-band wobble; curves are clearly declining.)
+
+KEY INSIGHT: **King Activity is a UNIVERSAL endgame skill** (Shereshevsky's #1 principle) — belongs in
+every material cluster, not just Pawn. To build:
+- Knight Activity → Minor-Piece (pairs w/ Bishop Activity)
+- Minor Activity → Rook+Minor (pairs w/ Rook Activity)
+- Queen Activity → Queen + Heavy (Sam: queen mistakes in any queen endgame, not just Q+P)
+- King Activity → add to Rook / Minor / RookMinor / Heavy clusters (already in Pawn via missed_king_activity)

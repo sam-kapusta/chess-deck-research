@@ -14,6 +14,19 @@ OUT = os.path.join(os.path.dirname(__file__), "..", "..", "output", "mistakeTaxo
 CATEGORIES = ["Hung Piece", "Missed Capture", "Missed Tactic", "Missed Mate", "Allowed Tactic",
               "Calculation", "Trading", "Position", "King Safety", "Endgame", "Meta", "Other"]
 
+# Tags that should NOT feed the drill queue. These describe a structural STATE your move left behind
+# (king/pawn structure) — there's no single "find the best move" puzzle to re-solve, unlike "Missed
+# Fork" (find it) or "Hung Rook" (don't hang it). They still render as Review chips and count in the
+# skill card; they're just not drillable. (Sam, 2026-06-19. Meta/Other context tags are already
+# excluded upstream via direction=="info"; listed here too so the taxonomy is self-describing.)
+# These are all `played`-direction tags — the "resulting state" class, vs the "move to find" class.
+NON_DRILLABLE = {
+    # king-structure state
+    "Exposed King", "King in Center", "Lost Castling Rights", "Pawn Move Exposed King",
+    # pawn-structure state
+    "Created Doubled Pawn", "Created Isolated Pawn", "Created Backward Pawn",
+}
+
 # Directional motifs (Missed/Allowed). Pin and Fork are parametrized separately below.
 DIRECTIONAL = [
     "Skewer", "Discovered Attack", "Deflection", "Attraction", "Clearance", "Zwischenzug",
@@ -50,7 +63,11 @@ def build_taxonomy():
     tags = {}
 
     def add(label, blurb):
-        tags[label] = {"category": categorize(label), "blurb": blurb}
+        cat = categorize(label)
+        # drillable: has a concrete best move to re-solve. False for structural-state tags (NON_DRILLABLE)
+        # and for Meta/Other context tags (phase/game-state — never a puzzle).
+        drillable = label not in NON_DRILLABLE and cat not in ("Meta", "Other")
+        tags[label] = {"category": cat, "blurb": blurb, "drillable": drillable}
 
     # directional motifs
     for x in DIRECTIONAL:
@@ -85,13 +102,10 @@ def build_taxonomy():
     add("Missed Bishop-Knight Exchange", "An even bishop-for-knight trade was the move")
     add("Missed Pawn Trade", "An even pawn trade was the move")
     add("Missed Capture (Pawn)", "An en-passant capture was available")
-    add("Wrong Capture", "You captured the wrong target")
-    add("Bad Capture", "Your capture lost material/eval")
+    add("Greedy Capture", "You grabbed material when a quiet move was stronger")
     add("Hung Material", "Your move dropped material to a one-move capture")
     for p in ["Knight", "Bishop", "Rook", "Queen"]:
         add(f"Hung {p}", f"Your move left your {p.lower()} to be captured next move")
-    add("Lost Material to Combination", "Your move lost material after a short sequence")
-    add("Captured With Wrong Piece", "You recaptured with the wrong piece")
     # Exposed king — explicit labels (no Missed/Allowed prefix; reads as a positional state).
     add("Exposed King", "Your move left your own king exposed")
     add("Enemy King Exposed", "The enemy king was exposed and you didn't press the attack")
@@ -133,7 +147,6 @@ def build_taxonomy():
     add("Losing", "You were losing before this move")
     add("Equal", "The position was equal before this move")
     add("Only Move", "There was only one good move here")
-    add("Wrong Move Order", "Right idea, wrong move order")
     add("Best Move (deep analysis)", "Deep analysis confirms your move was best")
     for ph in ["Opening", "Middlegame", "Endgame"]:
         add(ph, f"{ph} phase")

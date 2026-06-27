@@ -25,12 +25,12 @@ TYPE_LABELS = {
     ]),
     "Rook": ("Rook Endgames", [
         "Missed Rook to 7th", "Missed Rook Cut-Off", "Missed Active Rook", "Missed Rook to Open File",
-        "Rook Behind Passer", "Missed Doubled Rooks",
+        "Rook Behind Passer", "Missed King Activity",
     ]),
-    "Queen": ("Queen Endgames", ["Missed Perpetual"]),
-    "Minor": ("Minor-Piece Endgames", ["Missed Bishop Activity"]),
-    "RookMinor": ("Rook + Minor Endgames", ["Missed Rook Activity (R+Minor)"]),
-    "Heavy": ("Heavy-Piece Endgames", []),
+    "Queen": ("Queen Endgames", ["Missed Queen Activity", "Missed Perpetual", "Missed King Activity"]),
+    "Minor": ("Minor-Piece Endgames", ["Missed Bishop Activity", "Missed Knight Activity", "Missed King Activity"]),
+    "RookMinor": ("Rook + Minor Endgames", ["Missed Rook Activity (R+Minor)", "Missed Minor Activity", "Missed King Activity"]),
+    "Heavy": ("Heavy-Piece Endgames", ["Missed Queen Activity", "Missed King Activity"]),
 }
 
 def isotonic_min(rates):
