@@ -2,7 +2,7 @@
  "_note": "Presentation-optimized cluster scheme (2026-06-27). Display unit = named, book-recognized tactic. Big + named tactics get their own card (even singletons); rare motifs pool into one honest rollup so scoring stays complete. Volumes are 200k-corpus total_fires from the shipped data. spotlight=false means score-only (feeds the group bar, not shown as a drill card). Endgame + Openings clusters are produced by their own aggregators and NOT listed here.",
  "clusters": [
   {"name": "Missed Mate", "group": "Offensive Tactics", "spotlight": true,
-   "features": ["Missed Mate", "Missed Faster Mate", "Missed Back-Rank Mate", "Missed Smothered Mate", "Missed Arabian Mate", "Missed Anastasia's Mate", "Missed Hook Mate", "Missed Dovetail Mate", "Missed Double Bishop Mate"]},
+   "features": ["Missed Mate", "Missed Faster Mate", "Missed Back-Rank Mate", "Missed Smothered Mate", "Missed Arabian Mate", "Missed Anastasia's Mate", "Missed Hook Mate", "Missed Dovetail Mate", "Missed Double Bishop Mate", "Missed Boden's Mate"]},
   {"name": "Missed Fork", "group": "Offensive Tactics", "spotlight": true,
    "features": ["Missed Fork", "Missed Combination → Fork"]},
   {"name": "Missed Pin", "group": "Offensive Tactics", "spotlight": true,
@@ -47,7 +47,7 @@
   {"name": "Threat Awareness", "group": "Defensive Tactics", "spotlight": true,
    "features": ["Ignored Threat"]},
   {"name": "Other Combinations Allowed", "group": "Defensive Tactics", "spotlight": false,
-   "features": ["Allowed Clearance", "Allowed Deflection", "Allowed Zwischenzug", "Allowed Interference", "Allowed Attraction", "Allowed Overloading"]},
+   "features": ["Allowed Clearance", "Allowed Deflection", "Allowed Zwischenzug", "Allowed Interference", "Allowed Attraction", "Allowed Overloading", "Allowed Capture of Defender"]},
 
   {"name": "Hung Pieces", "group": "Calculation", "spotlight": true,
    "features": ["Hung Knight", "Allowed Hanging Piece", "Hung Bishop", "Hung Rook", "Hung Queen", "Hung Material"]},
