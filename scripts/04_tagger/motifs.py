@@ -703,7 +703,22 @@ def clearance_line(nodes, pov) -> bool:
 
 
 def advanced_pawn_line(nodes, pov) -> bool:
-    return any(U.is_very_advanced_pawn_move(n) for n in U.pov_nodes(nodes, pov))
+    # A real "advanced pawn" skill moment is a PASSED pawn pushed deep into enemy territory (6th/7th
+    # rank) — the concrete push-the-passer / must-stop-the-passer decision players mishandle. The old
+    # version fired on ANY pawn reaching rank 6+ in the line (a board feature, not a skill: ~flat
+    # 2x band curve). Gate on passed-pawn + rank to make it a skill signal. (Sam, 2026-06-29.)
+    for n in U.pov_nodes(nodes, pov):
+        if not U.is_very_advanced_pawn_move(n):
+            continue
+        to_sq = n.move.to_square
+        board_after = n.board()
+        p = board_after.piece_at(to_sq)
+        # promotion already happened (piece is no longer a pawn) -> promotion_line owns that; or a real
+        # passed pawn sitting on the 6th/7th. Either way it's a genuine passed-pawn moment.
+        if n.move.promotion or (p is not None and p.piece_type == PAWN
+                                and U.is_passed_pawn(board_after, to_sq, pov)):
+            return True
+    return False
 
 
 def en_passant_line(nodes, pov) -> bool:

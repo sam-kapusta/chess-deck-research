@@ -190,6 +190,24 @@ def run():
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_exch = len(exch_cases)
 
+    print("--- predicates: squandered_winning (conversion — was winning, let it slip) ---")
+    # (name, eval_before, eval_after, mover, expected). Gated: winning (>=+200 mover-POV) -> <=+80, drop>=150.
+    sq_cases = [
+        ("white winning +400 -> +30 fires", 400, 30, chess.WHITE, "Squandered Winning Position"),
+        ("equal +50 -> -100 (not winning) suppressed", 50, -100, chess.WHITE, None),
+        ("white winning but still winning +400 -> +250 (kept it) suppressed", 400, 250, chess.WHITE, None),
+        ("black winning -400 -> -30 fires (POV flip)", -400, -30, chess.BLACK, "Squandered Winning Position"),
+    ]
+    for name, eb, ea, mover, want in sq_cases:
+        m = Mistake("8/8/8/8/8/8/8/K6k w - - 0 1", "a1a2", "a1b1", ["Kb1"], [], eb, ea, 0, mover,
+                    played_san="Ka2", best_san="Kb1")
+        res = PR.squandered_winning(m)
+        got = res[0][0] if res else None
+        passed = (got == want); ok += passed
+        if not passed: fails.append(name)
+        print(f"  [{'PASS' if passed else 'FAIL'}] {name}: got={got!r} exp={want!r}")
+    extra_sq = len(sq_cases)
+
     print("--- predicates: greedy_capture (played grabs material, best is QUIET) — GH #29 ---")
     # (name, fen, played_uci, best_uci, cpl, expected_label_or_None). win_drop via cp_loss fallback.
     greedy_cases = [
@@ -604,7 +622,7 @@ def run():
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
+             + len(hung_cases) + extra_exch + extra_sq + extra_greedy + extra_pinx + extra_gate + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases))
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
