@@ -17,7 +17,7 @@ MIN_BANDS_PRESENT = 9   # endgame top bands are scarce; allow a couple missing
 
 # Display name + which existing tagger feature-labels are the drill detail for each material type.
 TYPE_LABELS = {
-    "Pawn": ("Pawn Endgames", [
+    "Pawn": ("King & Pawn Endgames", [
         "Lost the Opposition", "Wrong Pawn Race", "Missed King Activity", "Missed Passed Pawn",
         "Missed Connected Passers", "Missed Outside Passer", "Missed Protected Passer",
         "Missed Square Rule", "Missed Breakthrough", "Missed Promotion", "Missed Underpromotion", "Missed Push to Promote",
@@ -29,7 +29,7 @@ TYPE_LABELS = {
     ]),
     "Queen": ("Queen Endgames", ["Missed Queen Activity", "Missed Perpetual", "Missed King Activity"]),
     "Minor": ("Minor-Piece Endgames", ["Missed Bishop Activity", "Missed Knight Activity", "Missed King Activity"]),
-    "RookMinor": ("Rook + Minor Endgames", ["Missed Rook Activity (R+Minor)", "Missed Minor Activity", "Missed King Activity"]),
+    "RookMinor": ("Rook & Minor Endgames", ["Missed Rook Activity (R+Minor)", "Missed Minor Activity", "Missed King Activity"]),
     "Heavy": ("Heavy-Piece Endgames", ["Missed Queen Activity", "Missed King Activity"]),
 }
 
