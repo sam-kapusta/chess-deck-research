@@ -53,22 +53,30 @@ def build_group(color_data, group_name):
                 if c:
                     other[b]["moves"] += c["moves"]; other[b]["blunders"] += c["blunders"]
             continue
-        clusters.append(_cluster(fam, group_name, rates))
+        clusters.append(_cluster(fam, group_name, rates, bands_dict))
     # "Other" pooled family (the long tail of rare openings)
     o_rates, o_bands, o_moves = family_rates(other)
     if o_moves >= MIN_TOTAL_MOVES and o_bands >= MIN_BANDS_PRESENT:
-        clusters.append(_cluster("Other", group_name, o_rates))
+        clusters.append(_cluster("Other", group_name, o_rates, other))
     return clusters
 
-def _cluster(name, group, rates):
+def _cluster(name, group, rates, bands_dict):
     smoothed = isotonic_min(rates)
     present = [r for r in smoothed if r is not None]
     beginner = max(present) if present else 0.0
     master = present[-1] if present else 0.0
+    # by_band: fires = games-in-this-family volume per band (NOT tag fires — opening families are
+    # game counts); rate = blunders/moves. Frontend sorts opening clusters by this volume. (issue #37.)
+    by_band = []
+    for b in BAND_ORDER:
+        c = bands_dict.get(b)
+        moves = c["moves"] if c else 0
+        rate = (c["blunders"] / moves) if (c and moves > 0) else None
+        by_band.append({"band": b, "fires": moves, "rate": (round(rate, 7) if rate is not None else None)})
     return {
         "name": name, "group": group, "score": 0, "features": [],
         "anchor": {"beginner_rate": round(beginner, 7), "master_rate": round(master, 7), "n": 0},
-        "smoothed_rates": smoothed,
+        "smoothed_rates": smoothed, "by_band": by_band,
     }
 
 def main():

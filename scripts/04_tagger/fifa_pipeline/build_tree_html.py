@@ -24,12 +24,11 @@ def main():
 
     # ---- assemble a nested model: group -> clusters -> features, each with per-band rates ----
     groups = {}
-    # group level rates from d['bands']
+    # 5 skill groups have group-level rates in d['bands']; Opening groups don't (their group rate is the
+    # volume-weighted mean of their families' per-band rates, filled in after clusters are attached).
     for g in d["_groups"]:
-        if g.startswith("Openings"):
-            continue
         grates = [d["bands"].get(b, {}).get(g) for b in BANDS]
-        groups[g] = {"name": g, "rates": grates, "clusters": []}
+        groups[g] = {"name": g, "rates": grates, "clusters": [], "opening": g.startswith("Openings")}
 
     for c in d["clusters"]:
         g = c["group"]
@@ -59,7 +58,18 @@ def main():
             "features": feat_rows,
         })
     for g in groups.values():
-        g["clusters"].sort(key=lambda c: -ratio(c["rates"]))
+        if g.get("opening"):
+            # group-level rate = volume-weighted mean of family rates per band (Σ blunders / Σ moves);
+            # fires = Σ moves. Sort families by volume (repertoire view, most-played first).
+            grates = []
+            for i in range(11):
+                num = sum((c["rates"][i] or 0) * (c["fires"][i] or 0) for c in g["clusters"])
+                den = sum((c["fires"][i] or 0) for c in g["clusters"])
+                grates.append((num / den) if den else None)
+            g["rates"] = grates
+            g["clusters"].sort(key=lambda c: -c["total"])
+        else:
+            g["clusters"].sort(key=lambda c: -ratio(c["rates"]))
 
     model = list(groups.values())
     payload = json.dumps(model)

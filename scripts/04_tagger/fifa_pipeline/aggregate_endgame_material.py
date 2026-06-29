@@ -52,14 +52,23 @@ def type_rates(bands_dict):
             rates.append(None)
     return rates, present, total
 
-def _cluster(name, features, rates):
+def _cluster(name, features, rates, bands_dict):
     smoothed = isotonic_min(rates)
     pres = [r for r in smoothed if r is not None]
     beginner = max(pres) if pres else 0.0
     master = pres[-1] if pres else 0.0
+    # by_band: fires = endgame-position volume of this material type per band (NOT tag fires — these
+    # are board states, like Openings games); rate = blunders/moves. Frontend sorts clusters by this
+    # volume (band_fires). (issue #37 — Endgame/Openings clusters lacked by_band.)
+    by_band = []
+    for b in BAND_ORDER:
+        c = bands_dict.get(b)
+        moves = c["moves"] if c else 0
+        rate = (c["blunders"] / moves) if (c and moves > 0) else None
+        by_band.append({"band": b, "fires": moves, "rate": (round(rate, 7) if rate is not None else None)})
     return {"name": name, "group": "Endgame", "score": 0, "features": features,
             "anchor": {"beginner_rate": round(beginner, 7), "master_rate": round(master, 7), "n": 0},
-            "smoothed_rates": smoothed}
+            "smoothed_rates": smoothed, "by_band": by_band}
 
 def main():
     in_path = sys.argv[1] if len(sys.argv) > 1 else "/tmp/endgame_material_rates.json"
@@ -74,7 +83,7 @@ def main():
         rates, present, total = type_rates(bd)
         if total < MIN_TOTAL_MOVES or present < MIN_BANDS_PRESENT:
             skipped.append((mtype, f"total={total} bands={present}")); continue
-        clusters.append(_cluster(name, features, rates))
+        clusters.append(_cluster(name, features, rates, bd))
 
     fifa = json.load(open(out_path))
     # Replace the old concept-based Endgame clusters with the material clusters.
