@@ -308,9 +308,7 @@ def categorize(label, direction=None):
     # quiet move was better (a calculation/judgment error); Failed X = your own tactic backfired.
     # Desperado = had a tactical resource (doomed piece) and didn't cash it in.
     # Pawn Grab While Undeveloped = chose material over development (judgment/calculation error).
-    # Squandered Winning = conversion/technique judgment error (was winning, let it slip) — Calculation.
-    if l in ("greedy capture", "missed desperado", "pawn grab while undeveloped",
-             "squandered winning position") or l.startswith("failed "):
+    if l in ("greedy capture", "missed desperado", "pawn grab while undeveloped") or l.startswith("failed "):
         return "Calculation"
 
     # Threat awareness / Active Defense — you ignored a threat or failed to USE a defensive resource

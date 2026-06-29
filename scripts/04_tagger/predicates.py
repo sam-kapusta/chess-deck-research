@@ -1085,25 +1085,6 @@ def trade_to_simplify(m):
              f"best {m.best_san} trades down to a simpler position")]
 
 
-def squandered_winning(m):
-    """CONVERSION error: the mover was CLEARLY WINNING (eval_before >= +WIN cp, mover POV) and the
-    played move threw away most of that advantage (eval_after drops to <= +KEEP cp). This is the
-    judgment/technique layer — 'you had it won and let it slip' — not the mechanism (a tactic/hang
-    detector names HOW). Gated on the winning state so it never fires in equal/losing positions, which
-    is what distinguishes a conversion error from an ordinary blunder. Needs both evals."""
-    if m.eval_before is None or m.eval_after is None:
-        return []
-    # mover-POV centipawns (white-POV evals flipped for Black)
-    eb = m.eval_before if m.mover == chess.WHITE else -m.eval_before
-    ea = m.eval_after if m.mover == chess.WHITE else -m.eval_after
-    WIN = 200    # "clearly winning" before the move
-    KEEP = 80    # below this after the move = advantage largely gone (drew it / made it murky)
-    DROP = 150   # must have actually shed this much (avoid firing on tiny slips inside a won game)
-    if eb >= WIN and ea <= KEEP and (eb - ea) >= DROP:
-        return [("Squandered Winning Position", "played",
-                 f"was winning ({eb:+d}cp) but {m.played_san} let it slip to {ea:+d}cp")]
-    return []
-
 
 def wrong_king_direction(m):
     """Endgame: both the best and played moves are king moves but to significantly different squares.
@@ -2066,7 +2047,7 @@ ALL_PREDICATES = [
     rook_to_seventh, rook_cut_off_king, missed_active_rook, rook_endgame_blockade,
     missed_connected_passers, missed_protected_passer, missed_square_rule,
     missed_breakthrough,
-    bad_simplification, trade_to_simplify, squandered_winning, wrong_king_direction, outside_passer,
+    bad_simplification, trade_to_simplify, wrong_king_direction, outside_passer,
     rook_to_open_file_endgame, push_to_promote,
     pawn_grab_undeveloped, ignored_threat, premature_attack, missed_defensive_resource,
     missed_faster_mate,
