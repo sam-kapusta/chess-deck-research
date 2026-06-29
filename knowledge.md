@@ -73,6 +73,114 @@ Artifacts: `output/game_v7_169764992210.json` (1518), `output/game_v7_2400_16976
 (2400), `output/game_v7_k4_169764992210.json` (k4). Game 169764992210 = cabbagelover White, an
 endgame-technique collapse, useful as the canonical "soft inaccuracy + losing endgame" probe game.
 
+## TAGGER + FIFA skill card (CURRENT PRODUCT DIRECTION, 2026-06-15 → 06-27)
+
+The product is the **rule-based tagger** (`scripts/04_tagger/`), not the SAE. Pure predicate functions
+detect named coaching mistakes on Stockfish-analyzed blunders; tags roll up into a FIFA-style skill
+card (6 groups → clusters → per-rating-band anchors). The SAE only seeded the vocabulary + is the
+regression set. **58 detectors as of 2026-06-27.** Full detail in two deep-dive docs (see table at
+bottom of this section); the durable decisions are here.
+
+### Architecture (the spine)
+- `predicates.py` — 58 pure detector functions `(Mistake) -> [(label, direction, evidence)]`. No I/O,
+  no eval thresholds inside (see win%-drop gate below). `direction ∈ {missed, allowed, hung, failed,
+  played, info}`.
+- `motifs.py` — the named tactical motifs (fork/pin/skewer/discoveredAttack/deflection/clearance/
+  attraction/interference/zwischenzug/trappedPiece/overloading/battery/xRay/doubleCheck) + 8 named
+  mates. `_pin_target` is the reusable ray-pin primitive (absolute + relative pins).
+- `tagger.py` — `tag_mistake_full(m)` runs all detectors behind ONE entry gate, then `categorize(label,
+  direction)` maps each label → an internal category → `to_group` → one of the 6 FIFA groups.
+- `regression.py` — the test harness (83/83 as of 06-27). NOT pytest; run `python regression.py`.
+- `fifa_pipeline/` — band-rate aggregation → `fifaSkillRatings.json` (shipped to the code package).
+
+### The 6 groups (LOCKED) + Openings
+Offensive Tactics · Defensive Tactics · Calculation · Positional · Endgame · (+ Openings-White /
+Openings-Black, which are per-player game-history, NOT tagger-based). "Piece Safety" was folded into
+Calculation. Groups must have COMPLETE label coverage so the group score is honest.
+
+### THE win%-drop entry gate (GH #29, load-bearing — 2026-06-17/18)
+Detectors are PURE — they fire on the geometric/material PATTERN regardless of severity. The single
+"is this actually a mistake" gate (`WIN_DROP_MIN`, win-percentage drop, not cp) lives ONCE in
+`tag_mistake_full`. Do NOT re-add per-detector cp_loss thresholds (that was the old 8-threshold mess).
+`win_drop` has a cp_loss fallback when evals are absent — load-bearing for mate positions + cp-only
+caches. Mate is exempt from the gate (eval-based `_MATE_SENTINEL=9000`).
+
+### THE eligible-denominator lesson (proven 3× — the most important methodology call)
+**To judge whether a "missed-X" feature is a real skill signal, measure the band miss-rate on the
+ELIGIBLE denominator: among positions where the concept is AVAILABLE (the best move fits the pattern),
+does the weaker rating band miss/err MORE?** That curve should fall beginner→master.
+- **Enrichment (fires-on-blunders vs good-moves) is the WRONG test** — it conflates pattern-frequency
+  with skill-differentiation. It nearly cost Bishop Activity and DID wrongly drop Doubled Rooks +
+  Pawn Grab; all three recovered when re-measured on eligible miss-rate (Doubled Rooks 19.9→3.4%, etc.).
+- **Raw-count-vs-all-moves is also wrong** — "beginners reach these positions less" is a different
+  thing from "beginners err more when they get there." Sam pushed on this repeatedly; he was right.
+- Pull scripts: `fifa_pipeline/pull_concept_miss_rates.py` + `pull_concept_miss_rates2.py` (run on
+  chess-poc, eligible miss/eligible by band). Round 2 proved the thin endgame clusters were
+  UNDER-BUILT, not data-limited (Knight/Minor/Queen/King Activity all fall cleanly with rating).
+
+### Endgame reorganized BY MATERIAL TYPE (2026-06-26) ⭐
+Endgame clusters = **Pawn / Rook / Queen / Minor / Rook+Minor / Heavy**, matching de la Villa "100
+Endgames" + Dvoretsky "Endgame Manual" chapter structure. Each material type is its OWN denominator
+(blunders-in-rook-endgames ÷ rook-endgame-moves) — which is what FIXED the endgame non-monotonicity
+(the old concept-based clusters mixed denominators). All 6 monotonic after the reorg. Material
+classifier (`endgame_material_type`) must match EXACTLY between research (`pull_endgame_material.py`)
+and the code worker (`backend/worker/endgame_material.py`) — it's a cross-stack contract.
+- **King Activity is UNIVERSAL** (Shereshevsky's #1 endgame principle) → belongs in every material
+  cluster, not just Pawn.
+- Iconic-but-rare theoretical endings (Lucena 4 fires, Wrong-Bishop 7) can't be denominator-fixed →
+  serve as CURATED drill positions, not corpus features.
+
+### Detectors added this session (2026-06-27) — all built, tested, eyeballed on 200k corpus
+Endgame piece-activity (via `_activates_piece`, best move gains ≥4 attack squares): **Missed Knight
+Activity** (98 local fires), **Missed Minor Activity** (269), **Missed Queen Activity** (871). Plus
+King Activity added to all material clusters.
+Tactical/defensive (from the book-mining workflow, see below): **Missed Pin Exploitation** (2,035 —
+pile a new attacker onto a held pinned piece), **Missed Unpinning Resource** (4,286 — your piece is
+pinned, best breaks it, played sits), **Missed Interposition** (1,993 — block the check vs flee),
+**Missed Remove the Guard** (2,781 after tightening — even-trade capture of a MINOR piece guarding the
+castled king; first build over-fired at 10,349 → tightened to minor-piece/castled-king/no-checks).
+**Eyeball before trusting volume** — the Remove-the-Guard over-fire (queen grabs, opening trades) was
+caught only by reading sample fires.
+
+### THE PRESENTATION PRINCIPLE (2026-06-27) — two layers, don't conflate
+1. **Scoring layer** (group bars): complete coverage, every label counts.
+2. **Display/drill layer**: the line item a player sees must be the **named, book-recognized concept**
+   (Fork, Pin, Mate, Skewer, Overload, Battery, Prophylaxis, King & Pawn endgame) — NOT an academic
+   umbrella ("Combinative Motifs", "Discovered Attacks & Skewers"). Sam's litmus: "if I think of
+   offense I think of Missed Fork, Missed Pin, Missed Mate, Missed Skewer."
+- **A cluster earns its own card iff: enough VOLUME + BOOK-NAMED + monotonic SPREAD.** Feature-COUNT
+  is irrelevant — a SINGLETON is fine if big + book-named (Prophylaxis = one Nimzowitsch chapter).
+- **Rare motifs POOL into one score-only "Other Combinations" rollup** (so they still count but don't
+  clutter) — never bury the common ones under an umbrella.
+- "Allowed X" (you let them) drills worse than "Missed Y" (you failed to do). The new **Active
+  Defense** cluster is the missed-half of defense (Unpinning / Interposition / Defensive Resource).
+- **Key volume finding:** "Combinative Motifs" was HIDING the two highest-volume tactics in the whole
+  system — Overloading (17,520 fires) and Battery (8,387 missed / 19,411 allowed), both bigger than
+  Fork/Pin/Mate. That's the bug the presentation redesign fixes.
+
+### The recluster engine (offline, no corpus re-pull)
+`fifa_pipeline/recluster.py` rebuilds the 4 tactical/positional groups from any cluster→features
+scheme, recomputing every band rate from the shipped per-feature `by_band` fires in
+`fifaSkillRatings.json` (it already holds per-feature band fires + the 200k/band denominators). So ANY
+re-grouping of existing labels is a pure offline recompute — do NOT re-run the 20-min full-corpus
+tagger for that. The draft scheme is `fifa_pipeline/scheme_presentable.json`; ship with
+`python recluster.py scheme_presentable.json <path>/fifaSkillRatings.json`. Endgame + Openings clusters
+are produced by their own aggregators and preserved untouched. A coverage check (every shipped label
+→ exactly one cluster, 0 orphans/dupes) is built into the recluster report.
+
+### chess-poc operational gotcha (recurring)
+The SAIS presigned-URL token expires and `sais -n chess-poc auth` fails with ExpiredTokenException
+even when base `default`-profile creds are valid — needs an interactive Midway re-auth; can't refresh
+headless. This blocks the eligible-miss-rate band pull. The 2600-2800 band is always the scarce one
+(cap MOVE_TARGET, use partial when the trend is conclusive). `HF_HOME=/tmp/hfcache` + nohup+disown
+for long pulls (the /home filesystem nukes in-progress HF blobs; terminal cleanup kills children).
+
+### Deep-dive docs (this work)
+| Doc | What |
+|-----|------|
+| [`docs/2026-06-26 Endgame material reorg + book feature ideas.md`](docs/2026-06-26%20Endgame%20material%20reorg%20+%20book%20feature%20ideas.md) | Material-type reorg decision, book features kept/dropped, the eligible-denominator lesson (3× proof), round-2 thin-cluster results, future feature backlog (Dvoretsky TOC). |
+| [`docs/2026-06-27 Presentation cluster redesign + book feature catalog.md`](docs/2026-06-27%20Presentation%20cluster%20redesign%20+%20book%20feature%20catalog.md) | The presentation principle, full volume data, the 4 new detectors + tightening, the recluster engine, the draft presentable scheme + display preview, and the full book-mining catalog (w5zuk548s: 243 concepts → top-tier/second-tier/sub-label/curated/drop tiers). |
+
 ## Architecture — what works (and why)
 
 ### Seed STABILITY — instability is init-basin, fixed by data-driven init (2026-06-17) ⭐
