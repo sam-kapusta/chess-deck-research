@@ -42,8 +42,8 @@ def family_rates(bands_dict):
     return rates, bands_present, total_moves
 
 def build_group(color_data, group_name):
-    """color_data: {family: {band: {moves, blunders}}} -> list of cluster dicts."""
-    other = {b: {"moves": 0, "blunders": 0} for b in BAND_ORDER}
+    """color_data: {family: {band: {moves, blunders, games, wins, draws, losses}}} -> cluster dicts."""
+    other = {b: {"moves": 0, "blunders": 0, "games": 0, "wins": 0, "draws": 0, "losses": 0} for b in BAND_ORDER}
     clusters = []
     for fam, bands_dict in color_data.items():
         rates, bands_present, total_moves = family_rates(bands_dict)
@@ -51,7 +51,8 @@ def build_group(color_data, group_name):
             for b in BAND_ORDER:
                 c = bands_dict.get(b)
                 if c:
-                    other[b]["moves"] += c["moves"]; other[b]["blunders"] += c["blunders"]
+                    for k in ("moves", "blunders", "games", "wins", "draws", "losses"):
+                        other[b][k] += c.get(k, 0)
             continue
         clusters.append(_cluster(fam, group_name, rates, bands_dict))
     # "Other" pooled family (the long tail of rare openings)
@@ -65,14 +66,20 @@ def _cluster(name, group, rates, bands_dict):
     present = [r for r in smoothed if r is not None]
     beginner = max(present) if present else 0.0
     master = present[-1] if present else 0.0
-    # by_band: fires = games-in-this-family volume per band (NOT tag fires — opening families are
-    # game counts); rate = blunders/moves. Frontend sorts opening clusters by this volume. (issue #37.)
+    # by_band per band: fires = games-in-family volume (frontend volume-sort, issue #37);
+    # rate = blunder-rate (blunders/moves); win_rate = (wins+0.5*draws)/games from this color's POV.
+    # Two metrics so the Openings page can show either per selected band.
     by_band = []
     for b in BAND_ORDER:
-        c = bands_dict.get(b)
-        moves = c["moves"] if c else 0
-        rate = (c["blunders"] / moves) if (c and moves > 0) else None
-        by_band.append({"band": b, "fires": moves, "rate": (round(rate, 7) if rate is not None else None)})
+        c = bands_dict.get(b) or {}
+        moves = c.get("moves", 0); blun = c.get("blunders", 0)
+        games = c.get("games", 0); wins = c.get("wins", 0); draws = c.get("draws", 0)
+        rate = (blun / moves) if moves > 0 else None
+        win_rate = ((wins + 0.5 * draws) / games) if games > 0 else None
+        by_band.append({"band": b, "fires": games or moves,
+                        "rate": (round(rate, 7) if rate is not None else None),
+                        "win_rate": (round(win_rate, 5) if win_rate is not None else None),
+                        "games": games})
     return {
         "name": name, "group": group, "score": 0, "features": [],
         "anchor": {"beginner_rate": round(beginner, 7), "master_rate": round(master, 7), "n": 0},
