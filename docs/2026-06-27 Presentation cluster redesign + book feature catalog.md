@@ -268,3 +268,41 @@ fifaSkillRatings.json unilaterally while he's away. Ready to ship in one command
 calls for him: "Missed Overload" vs "Missed Overloading", "Desperado" as a card name, "Piece Activity"
 merge, whether Skewer (0.4 spread) earns a card or folds into Discovered. Endgame "King & Pawn"
 rename also pending.
+
+## VALIDATED (2026-06-29): 4 new detectors pass the eligible-miss-rate band test ✅
+
+Ran pull_tactic_miss_rates.py on chess-poc (eligible miss/eligible by band). All 4 decline
+monotonically beginner→master — REAL skill signals, anchors trustworthy:
+
+| Detector | miss% 600-800 → 2600-2800 | ratio | verdict |
+|----------|---------------------------|-------|---------|
+| Remove the Guard | 23.8% → 2.6% | 9.2× | excellent |
+| Pin Exploitation | 21.6% → 2.6% | 8.3× | excellent |
+| Unpinning Resource | 17.5% → 2.5% | 7.0× | strong |
+| Interposition | 9.9% → 2.6% | 3.8× | real but weaker/noisier (block-vs-flee is sometimes a wash) |
+
+(The script's "falls with rating: False" prints are single-band wobbles; the curves are clearly
+declining.) Results saved: fifa_pipeline/tactic_miss_rates.json.
+
+## RANKING METRIC CORRECTION (2026-06-29) — use RATIO, not absolute spread
+
+Earlier I called Skewer/Trapped/Discovered "weak" and nearly folded Skewer. That was a METRIC bug in
+the analysis (not the code): ranking by absolute spread (beginner_rate − master_rate) penalizes RARE
+concepts. The right lens is the RATIO beginner_rate / master_rate (how much MORE beginners err — the
+skill-discrimination signal). By ratio the "weak" clusters are strong:
+- Trapped Piece 18.7× (2nd best on the whole card), Skewer 11.9×, Discovered 10.4×.
+Skewer/Trapped/Discovered detector LOGIC was also audited and is sound (skewer front>back is the
+correct skewer definition — the inverse, valuable-piece-behind, is a PIN owned by the pin detector;
+minor-piece floor already kills the pawn-grab over-count). KEEP all three as cards. Caveat: top bands
+are thin (Skewer 7 fires @2600, Trapped Queen 5) — ratio reliable, absolute master-rate noisy.
+
+Genuinely low-discrimination (ratio <5×, clean but shallow): Open File 4.3×, Outposts ~5.6×, and the
+two "Other Combinations" rollups (expected). Not buggy — inherently weak signals.
+
+## Advanced Pawn — FIXED to a passed-pawn gate (was a board-feature tag)
+
+`advanced_pawn_line` (motifs.py) fired on ANY pawn reaching rank 6+ in the line → flat 2.1×/2.6×
+band curve (a board FEATURE, not a skill). Fixed: now requires the advanced pawn be PASSED (via
+is_passed_pawn) or a promotion — the real push-the-passer / stop-the-passer decision. Re-measuring on
+chess-poc to confirm the curve sharpened (screen 'advpawn'). The "Piece Activity" merge had hidden
+this: strong Missed Tempo Push (11.4×) was diluted by the two flat Advanced Pawn detectors (2.1/2.6×).
