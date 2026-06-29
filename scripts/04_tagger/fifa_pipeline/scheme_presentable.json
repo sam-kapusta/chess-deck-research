@@ -73,7 +73,7 @@
   {"name": "Outposts", "group": "Positional", "spotlight": true,
    "features": ["Missed Outpost", "Allowed Outpost"]},
   {"name": "Piece Activity", "group": "Positional", "spotlight": true,
-   "features": ["Missed Tempo Push", "Allowed Advanced Pawn", "Missed Advanced Pawn", "Missed Piece Activation"]},
+   "features": ["Missed Tempo Push", "Missed Piece Activation"]},
   {"name": "Exchanges", "group": "Positional", "spotlight": true,
    "features": ["Missed Bishop-Knight Exchange", "Missed Pawn Trade", "Missed Knight Exchange", "Missed Queen Exchange", "Missed Bishop Exchange", "Missed Rook Exchange"]},
   {"name": "Pawn Structure", "group": "Positional", "spotlight": true,

@@ -306,3 +306,21 @@ band curve (a board FEATURE, not a skill). Fixed: now requires the advanced pawn
 is_passed_pawn) or a promotion — the real push-the-passer / stop-the-passer decision. Re-measuring on
 chess-poc to confirm the curve sharpened (screen 'advpawn'). The "Piece Activity" merge had hidden
 this: strong Missed Tempo Push (11.4×) was diluted by the two flat Advanced Pawn detectors (2.1/2.6×).
+
+## Advanced Pawn — UPDATE (2026-06-29): the passed-pawn fix INVERTED it; dropped from scoring
+
+The full-corpus band re-measure landed (2690s): the passed-pawn-gated advancedPawn rate/k went
+13.5 → 62.0 across bands — **ratio 0.2, INVERTED** (masters fire it 4.6× MORE). Root cause: gating on
+"passed pawn" turned a flat board-feature into a measure of *reaching* passed-pawn positions (a skill
+marker in itself), not of *erring* in them — the eligible-denominator trap again, raw-rate edition.
+Old "any pawn rank 6+" was flat 2.1×/2.6×; neither version is a skill signal.
+
+DECISION (Sam's "drop if convoluted"): advancedPawn is NOT a scored skill feature. Reverted the
+passed-pawn gate (detector kept as info/evidence only), removed Missed/Allowed Advanced Pawn from the
+Piece Activity cluster. Piece Activity is now Tempo Push (11.4×) + Piece Activation → cluster ratio
+4.8× → 6.9× (un-diluted). The two Advanced Pawn labels remain as tags (evidence/labeling) but feed no
+scored cluster.
+
+LESSON (reinforced): a clean-looking decline isn't enough — measure the RIGHT rate. Raw rate-per-
+blunder conflates position-reaching with mistake-skill. The eligible-denominator (miss WHEN the chance
+exists) is the only trustworthy test; absent that, watch for inversion.
