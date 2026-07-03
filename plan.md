@@ -1,15 +1,22 @@
 # Chess Encoder
 
-> **NOW (2026-06-27): FIFA skill-card cluster PRESENTATION redesign.** The tagger feeds a FIFA-style
-> skill card (6 groups, clusters, per-band anchors). Active work is making clusters PRESENTABLE:
-> display unit = named book-recognized tactic (Fork/Pin/Mate/Skewer/Overload/Battery), not academic
-> umbrellas; promote big+named to own cards, pool rare motifs into score-only "Other Combinations".
-> Full design, volume data, 4 new detectors (pin exploitation, unpinning, interposition, remove-the-
-> guard — all built/tested/eyeballed), and a ready-to-ship scheme: see
-> `docs/2026-06-27 Presentation cluster redesign + book feature catalog.md`.
-> **HELD FOR SAM:** scheme rename/reorg not shipped to prod fifaSkillRatings.json (presentation
-> judgment he wants to eyeball). Ship via `fifa_pipeline/recluster.py scheme_presentable.json <fifa>`.
-> **BLOCKED:** eligible-miss-rate band test for the 4 new detectors needs chess-poc (SAIS auth expired).
+> **NOW (2026-07-02): FIFA skill card — presentation scheme + endgame reorg SHIPPED; 4 new detectors
+> pending a corpus re-run.** The tagger feeds a FIFA-style skill card (6 groups, clusters, per-band
+> anchors). Two pieces are already LIVE in prod `fifaSkillRatings.json` (`production_2026-06-23b`),
+> verified 2026-07-02 by reclustering into a temp copy and diffing — content-identical, zero change:
+>   - **Presentable named-tactic scheme** (Fork/Pin/Mate/Skewer/Overload/Battery own cards, rare
+>     motifs pooled into score-only "Other Combinations"). `scheme_presentable.json` == what ships.
+>   - **Endgame reorg by material type** (King&Pawn / Rook / Queen / Minor / Rook&Minor / Heavy).
+>
+> **STILL UNSHIPPED — the 4 new detectors** (Pin Exploitation 8.3×, Unpinning 7.1×, Interposition
+> 3.8×, Remove the Guard 9.2× — all eligible-miss-rate VALIDATED, monotonic across 11 bands, see
+> `fifa_pipeline/tactic_miss_rates.json`). They are NOT in prod because the shipped per-feature
+> `by_band` block has no fires for them — validation used a separate eligible-denominator pass, not
+> the 200k/band corpus tagger run that produces `by_band`. `recluster.py` computes cluster rates from
+> shipped `by_band`, so it CANNOT add them offline (it silently skips missing features → zero fires).
+> **To ship them: re-run the tagger over the 200k/band corpus on chess-poc to backfill their `by_band`,
+> then recluster + re-ship.** That's the only remaining work — not a merge, not more validation.
+> Design + volume data: `docs/2026-06-27 Presentation cluster redesign + book feature catalog.md`.
 
 > **(2026-06-08): the product direction is the RULE-BASED TAGGER, not the SAE.** The SAE is
 > polysemantic and won't crisply assign per-position labels; tagging blunders with a known coaching
