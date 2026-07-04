@@ -11,13 +11,27 @@ from tagger import categorize, FAILED_OK
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "..", "output", "mistakeTaxonomy.json")
 
-CATEGORIES = ["Tactical", "Material", "King Safety", "Positional", "Endgame", "Meta", "Other"]
+CATEGORIES = ["Hung Piece", "Missed Capture", "Missed Tactic", "Missed Mate", "Allowed Tactic",
+              "Calculation", "Trading", "Position", "King Safety", "Endgame", "Meta", "Other"]
+
+# Tags that should NOT feed the drill queue. These describe a structural STATE your move left behind
+# (king/pawn structure) — there's no single "find the best move" puzzle to re-solve, unlike "Missed
+# Fork" (find it) or "Hung Rook" (don't hang it). They still render as Review chips and count in the
+# skill card; they're just not drillable. (Sam, 2026-06-19. Meta/Other context tags are already
+# excluded upstream via direction=="info"; listed here too so the taxonomy is self-describing.)
+# These are all `played`-direction tags — the "resulting state" class, vs the "move to find" class.
+NON_DRILLABLE = {
+    # king-structure state
+    "Exposed King", "King in Center", "Lost Castling Rights", "Pawn Move Exposed King",
+    # pawn-structure state
+    "Created Doubled Pawn", "Created Isolated Pawn", "Created Backward Pawn",
+}
 
 # Directional motifs (Missed/Allowed). Pin and Fork are parametrized separately below.
 DIRECTIONAL = [
     "Skewer", "Discovered Attack", "Deflection", "Attraction", "Clearance", "Zwischenzug",
     "Overload", "X-Ray", "Trapped Piece", "Sacrifice", "Capture of Defender", "Hanging Piece",
-    "Exposed King", "Kingside Attack", "Queenside Attack", "Promotion", "Underpromotion",
+    "Kingside Attack", "Queenside Attack", "Promotion", "Underpromotion",
     "En Passant", "Castling", "Double Check", "f2/f7 Attack", "Advanced Pawn", "Mate", "Outpost",
 ]
 NAMED_MATES = ["Anastasia's Mate", "Arabian Mate", "Boden's Mate", "Double Bishop Mate",
@@ -49,7 +63,11 @@ def build_taxonomy():
     tags = {}
 
     def add(label, blurb):
-        tags[label] = {"category": categorize(label), "blurb": blurb}
+        cat = categorize(label)
+        # drillable: has a concrete best move to re-solve. False for structural-state tags (NON_DRILLABLE)
+        # and for Meta/Other context tags (phase/game-state — never a puzzle).
+        drillable = label not in NON_DRILLABLE and cat not in ("Meta", "Other")
+        tags[label] = {"category": cat, "blurb": blurb, "drillable": drillable}
 
     # directional motifs
     for x in DIRECTIONAL:
@@ -80,22 +98,38 @@ def build_taxonomy():
         add(f"Missed Free {p}", f"A free or favorable {p.lower()} capture was available")
         if p != "Pawn":
             add(f"Missed {p} Exchange", f"An even {p.lower()} trade was the move")
+    # mixed minor trade (bishop for knight / knight for bishop) — its own decision (bishop pair). (GH #28)
+    add("Missed Bishop-Knight Exchange", "An even bishop-for-knight trade was the move")
     add("Missed Pawn Trade", "An even pawn trade was the move")
     add("Missed Capture (Pawn)", "An en-passant capture was available")
-    add("Wrong Capture", "You captured the wrong target")
-    add("Bad Capture", "Your capture lost material/eval")
+    add("Greedy Capture", "You grabbed material when a quiet move was stronger")
     add("Hung Material", "Your move dropped material to a one-move capture")
     for p in ["Knight", "Bishop", "Rook", "Queen"]:
         add(f"Hung {p}", f"Your move left your {p.lower()} to be captured next move")
-    add("Lost Material to Combination", "Your move lost material after a short sequence")
-    add("Captured With Wrong Piece", "You recaptured with the wrong piece")
+    # Exposed king — explicit labels (no Missed/Allowed prefix; reads as a positional state).
+    add("Exposed King", "Your move left your own king exposed")
+    add("Enemy King Exposed", "The enemy king was exposed and you didn't press the attack")
     # King safety predicates
     add("King in Center", "Your king stayed in the center too long")
     add("Lost Castling Rights", "Your move forfeited castling")
     add("Pawn Move Exposed King", "A pawn move weakened your king's shelter")
+    # Trapped piece — tagger names the piece ("Trapped Bishop") + a generic fallback ("Trapped Piece").
+    for p in ["Piece", "Pawn", "Knight", "Bishop", "Rook", "Queen"]:
+        add(f"Missed Trapped {p}", f"An enemy {p.lower() if p != 'Piece' else 'piece'} could be trapped (you didn't play it)")
+        add(f"Allowed Trapped {p}", f"Your move let the opponent trap your {p.lower() if p != 'Piece' else 'piece'}")
     # Positional predicates
     for s in ["Doubled", "Isolated", "Backward"]:
         add(f"Created {s} Pawn", f"Your move created a {s.lower()} pawn")
+    # Plan-execution positional detectors (2026-06-14)
+    add("Missed Pawn Break", "A thematic pawn break was available; you played a waiting move")
+    add("Missed Tempo Push", "A pawn push attacking an enemy piece (gaining tempo) was available")
+    add("Missed Open File", "A rook could occupy an open or half-open file")
+    add("Premature Trade", "You exchanged while ahead, relieving tension that favored you")
+    add("Missed Prophylaxis", "The opponent had a one-move threat you could have prevented")
+    add("Missed Piece Activation", "A passive piece could be repositioned to a more active square")
+    add("Wrong Pawn Race", "You went the wrong direction in a pawn race and lost a critical tempo")
+    add("Allowed Advanced Pawn", "Your move let the opponent advance a pawn dangerously")
+    add("Missed Advanced Pawn", "An advanced pawn push was the move")
     # Endgame types
     for t in ["Pawn", "Rook", "Queen", "Knight"]:
         add(f"{t} Endgame", f"A {t.lower()} endgame")
@@ -103,12 +137,16 @@ def build_taxonomy():
     add("Bishop Endgame", "A bishop endgame")
     add("Bishop Endgame (Same Color)", "A same-color-bishop endgame")
     add("Bishop Endgame (Opposite Color)", "An opposite-color-bishop endgame (often drawish)")
+    # Endgame mistakes (detectors, 2026-06-13)
+    add("Missed King Activity", "Your king should have activated toward the center or the pawns")
+    add("Lost the Opposition", "You gave up the opposition in a king-and-pawn endgame")
+    add("Missed Passed Pawn", "A move that made or advanced a passed pawn was best")
+    add("Rook Behind Passer", "The rook belonged behind the passed pawn")
     # Meta + phase + info
     add("Winning", "You were winning before this move")
     add("Losing", "You were losing before this move")
     add("Equal", "The position was equal before this move")
     add("Only Move", "There was only one good move here")
-    add("Wrong Move Order", "Right idea, wrong move order")
     add("Best Move (deep analysis)", "Deep analysis confirms your move was best")
     for ph in ["Opening", "Middlegame", "Endgame"]:
         add(ph, f"{ph} phase")

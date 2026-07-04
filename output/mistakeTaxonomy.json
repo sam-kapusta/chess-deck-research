@@ -1,493 +1,708 @@
 {
   "categories": {
-    "Tactical": {},
-    "Material": {},
+    "Hung Piece": {},
+    "Missed Capture": {},
+    "Missed Tactic": {},
+    "Missed Mate": {},
+    "Allowed Tactic": {},
+    "Calculation": {},
+    "Trading": {},
+    "Position": {},
     "King Safety": {},
-    "Positional": {},
     "Endgame": {},
     "Meta": {},
     "Other": {}
   },
   "tags": {
     "Missed Skewer": {
-      "category": "Tactical",
-      "blurb": "A skewer was available (you didn't play it)"
+      "category": "Missed Tactic",
+      "blurb": "A skewer was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Skewer": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent: a skewer was available"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent: a skewer was available",
+      "drillable": true
     },
     "Missed Discovered Attack": {
-      "category": "Tactical",
-      "blurb": "A discovered attack was available (you didn't play it)"
+      "category": "Missed Tactic",
+      "blurb": "A discovered attack was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Discovered Attack": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent: a discovered attack was available"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent: a discovered attack was available",
+      "drillable": true
     },
     "Missed Deflection": {
-      "category": "Tactical",
-      "blurb": "A deflection was available (you didn't play it)"
+      "category": "Missed Tactic",
+      "blurb": "A deflection was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Deflection": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent: a deflection was available"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent: a deflection was available",
+      "drillable": true
     },
     "Missed Attraction": {
-      "category": "Tactical",
-      "blurb": "An attraction was available (you didn't play it)"
+      "category": "Missed Tactic",
+      "blurb": "An attraction was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Attraction": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent: an attraction was available"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent: an attraction was available",
+      "drillable": true
     },
     "Missed Clearance": {
-      "category": "Tactical",
-      "blurb": "A clearance was available (you didn't play it)"
+      "category": "Missed Tactic",
+      "blurb": "A clearance was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Clearance": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent: a clearance was available"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent: a clearance was available",
+      "drillable": true
     },
     "Missed Zwischenzug": {
-      "category": "Tactical",
-      "blurb": "An in-between move was available (you didn't play it)"
+      "category": "Missed Tactic",
+      "blurb": "An in-between move was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Zwischenzug": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent: an in-between move was available"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent: an in-between move was available",
+      "drillable": true
     },
     "Missed Overload": {
-      "category": "Tactical",
-      "blurb": "An overloaded enemy piece could be exploited (you didn't play it)"
+      "category": "Missed Tactic",
+      "blurb": "An overloaded enemy piece could be exploited (you didn't play it)",
+      "drillable": true
     },
     "Allowed Overload": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent: an overloaded enemy piece could be exploited"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent: an overloaded enemy piece could be exploited",
+      "drillable": true
     },
     "Missed X-Ray": {
-      "category": "Tactical",
-      "blurb": "An x-ray was available (you didn't play it)"
+      "category": "Missed Tactic",
+      "blurb": "An x-ray was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed X-Ray": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent: an x-ray was available"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent: an x-ray was available",
+      "drillable": true
     },
     "Missed Trapped Piece": {
-      "category": "Tactical",
-      "blurb": "An enemy piece could be trapped (you didn't play it)"
+      "category": "Missed Tactic",
+      "blurb": "An enemy piece could be trapped (you didn't play it)",
+      "drillable": true
     },
     "Allowed Trapped Piece": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent: an enemy piece could be trapped"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent trap your piece",
+      "drillable": true
     },
     "Missed Sacrifice": {
-      "category": "Tactical",
-      "blurb": "A sound sacrifice was available (you didn't play it)"
+      "category": "Missed Tactic",
+      "blurb": "A sound sacrifice was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Sacrifice": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent: a sound sacrifice was available"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent: a sound sacrifice was available",
+      "drillable": true
     },
     "Missed Capture of Defender": {
-      "category": "Material",
-      "blurb": "Capturing the defender was available (you didn't play it)"
+      "category": "Missed Capture",
+      "blurb": "Capturing the defender was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Capture of Defender": {
-      "category": "Material",
-      "blurb": "Your move let the opponent: capturing the defender was available"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent: capturing the defender was available",
+      "drillable": true
     },
     "Missed Hanging Piece": {
-      "category": "Material",
-      "blurb": "A piece was hanging (you didn't play it)"
+      "category": "Missed Capture",
+      "blurb": "A piece was hanging (you didn't play it)",
+      "drillable": true
     },
     "Allowed Hanging Piece": {
-      "category": "Material",
-      "blurb": "Your move let the opponent: a piece was hanging"
-    },
-    "Missed Exposed King": {
-      "category": "King Safety",
-      "blurb": "The enemy king was exposed (you didn't play it)"
-    },
-    "Allowed Exposed King": {
-      "category": "King Safety",
-      "blurb": "Your move let the opponent: the enemy king was exposed"
+      "category": "Hung Piece",
+      "blurb": "Your move let the opponent: a piece was hanging",
+      "drillable": true
     },
     "Missed Kingside Attack": {
       "category": "King Safety",
-      "blurb": "A kingside attack was available (you didn't play it)"
+      "blurb": "A kingside attack was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Kingside Attack": {
       "category": "King Safety",
-      "blurb": "Your move let the opponent: a kingside attack was available"
+      "blurb": "Your move let the opponent: a kingside attack was available",
+      "drillable": true
     },
     "Missed Queenside Attack": {
       "category": "King Safety",
-      "blurb": "A queenside attack was available (you didn't play it)"
+      "blurb": "A queenside attack was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Queenside Attack": {
       "category": "King Safety",
-      "blurb": "Your move let the opponent: a queenside attack was available"
+      "blurb": "Your move let the opponent: a queenside attack was available",
+      "drillable": true
     },
     "Missed Promotion": {
       "category": "Endgame",
-      "blurb": "A promotion was available (you didn't play it)"
+      "blurb": "A promotion was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Promotion": {
       "category": "Endgame",
-      "blurb": "Your move let the opponent: a promotion was available"
+      "blurb": "Your move let the opponent: a promotion was available",
+      "drillable": true
     },
     "Missed Underpromotion": {
       "category": "Endgame",
-      "blurb": "An underpromotion was the move (you didn't play it)"
+      "blurb": "An underpromotion was the move (you didn't play it)",
+      "drillable": true
     },
     "Allowed Underpromotion": {
       "category": "Endgame",
-      "blurb": "Your move let the opponent: an underpromotion was the move"
+      "blurb": "Your move let the opponent: an underpromotion was the move",
+      "drillable": true
     },
     "Missed En Passant": {
-      "category": "Tactical",
-      "blurb": "En passant was the move (you didn't play it)"
+      "category": "Endgame",
+      "blurb": "En passant was the move (you didn't play it)",
+      "drillable": true
     },
     "Allowed En Passant": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent: en passant was the move"
+      "category": "Endgame",
+      "blurb": "Your move let the opponent: en passant was the move",
+      "drillable": true
     },
     "Missed Castling": {
       "category": "King Safety",
-      "blurb": "Castling was the move (you didn't play it)"
+      "blurb": "Castling was the move (you didn't play it)",
+      "drillable": true
     },
     "Allowed Castling": {
       "category": "King Safety",
-      "blurb": "Your move let the opponent: castling was the move"
+      "blurb": "Your move let the opponent: castling was the move",
+      "drillable": true
     },
     "Missed Double Check": {
-      "category": "Tactical",
-      "blurb": "A double check was available (you didn't play it)"
+      "category": "Missed Tactic",
+      "blurb": "A double check was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Double Check": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent: a double check was available"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent: a double check was available",
+      "drillable": true
     },
     "Missed f2/f7 Attack": {
-      "category": "Tactical",
-      "blurb": "An attack on the f2/f7 square was available (you didn't play it)"
+      "category": "King Safety",
+      "blurb": "An attack on the f2/f7 square was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed f2/f7 Attack": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent: an attack on the f2/f7 square was available"
+      "category": "King Safety",
+      "blurb": "Your move let the opponent: an attack on the f2/f7 square was available",
+      "drillable": true
     },
     "Missed Advanced Pawn": {
-      "category": "Positional",
-      "blurb": "An advanced pawn push was the move (you didn't play it)"
+      "category": "Position",
+      "blurb": "An advanced pawn push was the move",
+      "drillable": true
     },
     "Allowed Advanced Pawn": {
-      "category": "Positional",
-      "blurb": "Your move let the opponent: an advanced pawn push was the move"
+      "category": "Position",
+      "blurb": "Your move let the opponent advance a pawn dangerously",
+      "drillable": true
     },
     "Missed Mate": {
-      "category": "Tactical",
-      "blurb": "Forced mate was available (you didn't play it)"
+      "category": "Missed Mate",
+      "blurb": "Forced mate was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Mate": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent: forced mate was available"
+      "category": "King Safety",
+      "blurb": "Your move let the opponent: forced mate was available",
+      "drillable": true
     },
     "Missed Outpost": {
-      "category": "Positional",
-      "blurb": "A piece could take a permanent outpost (you didn't play it)"
+      "category": "Position",
+      "blurb": "A piece could take a permanent outpost (you didn't play it)",
+      "drillable": true
     },
     "Allowed Outpost": {
-      "category": "Positional",
-      "blurb": "Your move let the opponent: a piece could take a permanent outpost"
+      "category": "Position",
+      "blurb": "Your move let the opponent: a piece could take a permanent outpost",
+      "drillable": true
     },
     "Missed Fork": {
-      "category": "Tactical",
-      "blurb": "A fork was available (you didn't play it)"
+      "category": "Missed Tactic",
+      "blurb": "A fork was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Fork": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent execute fork"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent execute fork",
+      "drillable": true
     },
     "Missed Combination \u2192 Fork": {
-      "category": "Tactical",
-      "blurb": "A short combination ending in a fork was available (you didn't play it)"
+      "category": "Missed Tactic",
+      "blurb": "A short combination ending in a fork was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Combination \u2192 Fork": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent execute combination \u2192 fork"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent execute combination \u2192 fork",
+      "drillable": true
     },
     "Missed Pin (to King)": {
-      "category": "Tactical",
-      "blurb": "A pin against the king was available"
+      "category": "Missed Tactic",
+      "blurb": "A pin against the king was available",
+      "drillable": true
     },
     "Allowed Pin (to King)": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent pin a piece to your king"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent pin a piece to your king",
+      "drillable": true
     },
     "Missed Pin (to Queen)": {
-      "category": "Tactical",
-      "blurb": "A pin against the queen was available"
+      "category": "Missed Tactic",
+      "blurb": "A pin against the queen was available",
+      "drillable": true
     },
     "Allowed Pin (to Queen)": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent pin a piece to your queen"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent pin a piece to your queen",
+      "drillable": true
     },
     "Missed Pin (to Rook)": {
-      "category": "Tactical",
-      "blurb": "A pin against the rook was available"
+      "category": "Missed Tactic",
+      "blurb": "A pin against the rook was available",
+      "drillable": true
     },
     "Allowed Pin (to Rook)": {
-      "category": "Tactical",
-      "blurb": "Your move let the opponent pin a piece to your rook"
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent pin a piece to your rook",
+      "drillable": true
     },
     "Missed Anastasia's Mate": {
-      "category": "Tactical",
-      "blurb": "Anastasia's Mate was available (you didn't play it)"
+      "category": "Missed Mate",
+      "blurb": "Anastasia's Mate was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Anastasia's Mate": {
-      "category": "Tactical",
-      "blurb": "Your move allowed Anastasia's Mate"
+      "category": "King Safety",
+      "blurb": "Your move allowed Anastasia's Mate",
+      "drillable": true
     },
     "Missed Arabian Mate": {
-      "category": "Tactical",
-      "blurb": "Arabian Mate was available (you didn't play it)"
+      "category": "Missed Mate",
+      "blurb": "Arabian Mate was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Arabian Mate": {
-      "category": "Tactical",
-      "blurb": "Your move allowed Arabian Mate"
+      "category": "King Safety",
+      "blurb": "Your move allowed Arabian Mate",
+      "drillable": true
     },
     "Missed Boden's Mate": {
-      "category": "Tactical",
-      "blurb": "Boden's Mate was available (you didn't play it)"
+      "category": "Missed Mate",
+      "blurb": "Boden's Mate was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Boden's Mate": {
-      "category": "Tactical",
-      "blurb": "Your move allowed Boden's Mate"
+      "category": "King Safety",
+      "blurb": "Your move allowed Boden's Mate",
+      "drillable": true
     },
     "Missed Double Bishop Mate": {
-      "category": "Tactical",
-      "blurb": "Double Bishop Mate was available (you didn't play it)"
+      "category": "Missed Mate",
+      "blurb": "Double Bishop Mate was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Double Bishop Mate": {
-      "category": "Tactical",
-      "blurb": "Your move allowed Double Bishop Mate"
+      "category": "King Safety",
+      "blurb": "Your move allowed Double Bishop Mate",
+      "drillable": true
     },
     "Missed Smothered Mate": {
-      "category": "Tactical",
-      "blurb": "Smothered Mate was available (you didn't play it)"
+      "category": "Missed Mate",
+      "blurb": "Smothered Mate was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Smothered Mate": {
-      "category": "Tactical",
-      "blurb": "Your move allowed Smothered Mate"
+      "category": "King Safety",
+      "blurb": "Your move allowed Smothered Mate",
+      "drillable": true
     },
     "Missed Back-Rank Mate": {
-      "category": "Tactical",
-      "blurb": "Back-Rank Mate was available (you didn't play it)"
+      "category": "Missed Mate",
+      "blurb": "Back-Rank Mate was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Back-Rank Mate": {
-      "category": "Tactical",
-      "blurb": "Your move allowed Back-Rank Mate"
+      "category": "King Safety",
+      "blurb": "Your move allowed Back-Rank Mate",
+      "drillable": true
     },
     "Missed Hook Mate": {
-      "category": "Tactical",
-      "blurb": "Hook Mate was available (you didn't play it)"
+      "category": "Missed Mate",
+      "blurb": "Hook Mate was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Hook Mate": {
-      "category": "Tactical",
-      "blurb": "Your move allowed Hook Mate"
+      "category": "King Safety",
+      "blurb": "Your move allowed Hook Mate",
+      "drillable": true
     },
     "Missed Dovetail Mate": {
-      "category": "Tactical",
-      "blurb": "Dovetail Mate was available (you didn't play it)"
+      "category": "Missed Mate",
+      "blurb": "Dovetail Mate was available (you didn't play it)",
+      "drillable": true
     },
     "Allowed Dovetail Mate": {
-      "category": "Tactical",
-      "blurb": "Your move allowed Dovetail Mate"
+      "category": "King Safety",
+      "blurb": "Your move allowed Dovetail Mate",
+      "drillable": true
     },
     "Failed Discovered Attack": {
-      "category": "Tactical",
-      "blurb": "You tried a discovered attack but it backfired"
+      "category": "Calculation",
+      "blurb": "You tried a discovered attack but it backfired",
+      "drillable": true
     },
     "Failed Fork": {
-      "category": "Tactical",
-      "blurb": "You tried a fork but it backfired"
+      "category": "Calculation",
+      "blurb": "You tried a fork but it backfired",
+      "drillable": true
     },
     "Failed Pin": {
-      "category": "Tactical",
-      "blurb": "You tried a pin but it backfired"
+      "category": "Calculation",
+      "blurb": "You tried a pin but it backfired",
+      "drillable": true
     },
     "Missed Free Pawn": {
-      "category": "Material",
-      "blurb": "A free or favorable pawn capture was available"
+      "category": "Missed Capture",
+      "blurb": "A free or favorable pawn capture was available",
+      "drillable": true
     },
     "Missed Free Knight": {
-      "category": "Material",
-      "blurb": "A free or favorable knight capture was available"
+      "category": "Missed Capture",
+      "blurb": "A free or favorable knight capture was available",
+      "drillable": true
     },
     "Missed Knight Exchange": {
-      "category": "Material",
-      "blurb": "An even knight trade was the move"
+      "category": "Trading",
+      "blurb": "An even knight trade was the move",
+      "drillable": true
     },
     "Missed Free Bishop": {
-      "category": "Material",
-      "blurb": "A free or favorable bishop capture was available"
+      "category": "Missed Capture",
+      "blurb": "A free or favorable bishop capture was available",
+      "drillable": true
     },
     "Missed Bishop Exchange": {
-      "category": "Material",
-      "blurb": "An even bishop trade was the move"
+      "category": "Trading",
+      "blurb": "An even bishop trade was the move",
+      "drillable": true
     },
     "Missed Free Rook": {
-      "category": "Material",
-      "blurb": "A free or favorable rook capture was available"
+      "category": "Missed Capture",
+      "blurb": "A free or favorable rook capture was available",
+      "drillable": true
     },
     "Missed Rook Exchange": {
-      "category": "Material",
-      "blurb": "An even rook trade was the move"
+      "category": "Trading",
+      "blurb": "An even rook trade was the move",
+      "drillable": true
     },
     "Missed Free Queen": {
-      "category": "Material",
-      "blurb": "A free or favorable queen capture was available"
+      "category": "Missed Capture",
+      "blurb": "A free or favorable queen capture was available",
+      "drillable": true
     },
     "Missed Queen Exchange": {
-      "category": "Material",
-      "blurb": "An even queen trade was the move"
+      "category": "Trading",
+      "blurb": "An even queen trade was the move",
+      "drillable": true
+    },
+    "Missed Bishop-Knight Exchange": {
+      "category": "Trading",
+      "blurb": "An even bishop-for-knight trade was the move",
+      "drillable": true
     },
     "Missed Pawn Trade": {
-      "category": "Material",
-      "blurb": "An even pawn trade was the move"
+      "category": "Trading",
+      "blurb": "An even pawn trade was the move",
+      "drillable": true
     },
     "Missed Capture (Pawn)": {
-      "category": "Material",
-      "blurb": "An en-passant capture was available"
+      "category": "Missed Capture",
+      "blurb": "An en-passant capture was available",
+      "drillable": true
     },
-    "Wrong Capture": {
-      "category": "Material",
-      "blurb": "You captured the wrong target"
-    },
-    "Bad Capture": {
-      "category": "Material",
-      "blurb": "Your capture lost material/eval"
+    "Greedy Capture": {
+      "category": "Calculation",
+      "blurb": "You grabbed material when a quiet move was stronger",
+      "drillable": true
     },
     "Hung Material": {
-      "category": "Material",
-      "blurb": "Your move dropped material to a one-move capture"
+      "category": "Hung Piece",
+      "blurb": "Your move dropped material to a one-move capture",
+      "drillable": true
     },
     "Hung Knight": {
-      "category": "Material",
-      "blurb": "Your move left your knight to be captured next move"
+      "category": "Hung Piece",
+      "blurb": "Your move left your knight to be captured next move",
+      "drillable": true
     },
     "Hung Bishop": {
-      "category": "Material",
-      "blurb": "Your move left your bishop to be captured next move"
+      "category": "Hung Piece",
+      "blurb": "Your move left your bishop to be captured next move",
+      "drillable": true
     },
     "Hung Rook": {
-      "category": "Material",
-      "blurb": "Your move left your rook to be captured next move"
+      "category": "Hung Piece",
+      "blurb": "Your move left your rook to be captured next move",
+      "drillable": true
     },
     "Hung Queen": {
-      "category": "Material",
-      "blurb": "Your move left your queen to be captured next move"
+      "category": "Hung Piece",
+      "blurb": "Your move left your queen to be captured next move",
+      "drillable": true
     },
-    "Lost Material to Combination": {
-      "category": "Material",
-      "blurb": "Your move lost material after a short sequence"
+    "Exposed King": {
+      "category": "King Safety",
+      "blurb": "Your move left your own king exposed",
+      "drillable": false
     },
-    "Captured With Wrong Piece": {
-      "category": "Material",
-      "blurb": "You recaptured with the wrong piece"
+    "Enemy King Exposed": {
+      "category": "Missed Tactic",
+      "blurb": "The enemy king was exposed and you didn't press the attack",
+      "drillable": true
     },
     "King in Center": {
       "category": "King Safety",
-      "blurb": "Your king stayed in the center too long"
+      "blurb": "Your king stayed in the center too long",
+      "drillable": false
     },
     "Lost Castling Rights": {
       "category": "King Safety",
-      "blurb": "Your move forfeited castling"
+      "blurb": "Your move forfeited castling",
+      "drillable": false
     },
     "Pawn Move Exposed King": {
       "category": "King Safety",
-      "blurb": "A pawn move weakened your king's shelter"
+      "blurb": "A pawn move weakened your king's shelter",
+      "drillable": false
+    },
+    "Missed Trapped Pawn": {
+      "category": "Missed Tactic",
+      "blurb": "An enemy pawn could be trapped (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Trapped Pawn": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent trap your pawn",
+      "drillable": true
+    },
+    "Missed Trapped Knight": {
+      "category": "Missed Tactic",
+      "blurb": "An enemy knight could be trapped (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Trapped Knight": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent trap your knight",
+      "drillable": true
+    },
+    "Missed Trapped Bishop": {
+      "category": "Missed Tactic",
+      "blurb": "An enemy bishop could be trapped (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Trapped Bishop": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent trap your bishop",
+      "drillable": true
+    },
+    "Missed Trapped Rook": {
+      "category": "Missed Tactic",
+      "blurb": "An enemy rook could be trapped (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Trapped Rook": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent trap your rook",
+      "drillable": true
+    },
+    "Missed Trapped Queen": {
+      "category": "Missed Tactic",
+      "blurb": "An enemy queen could be trapped (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Trapped Queen": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent trap your queen",
+      "drillable": true
     },
     "Created Doubled Pawn": {
-      "category": "Positional",
-      "blurb": "Your move created a doubled pawn"
+      "category": "Position",
+      "blurb": "Your move created a doubled pawn",
+      "drillable": false
     },
     "Created Isolated Pawn": {
-      "category": "Positional",
-      "blurb": "Your move created a isolated pawn"
+      "category": "Position",
+      "blurb": "Your move created a isolated pawn",
+      "drillable": false
     },
     "Created Backward Pawn": {
-      "category": "Positional",
-      "blurb": "Your move created a backward pawn"
+      "category": "Position",
+      "blurb": "Your move created a backward pawn",
+      "drillable": false
+    },
+    "Missed Pawn Break": {
+      "category": "Position",
+      "blurb": "A thematic pawn break was available; you played a waiting move",
+      "drillable": true
+    },
+    "Missed Tempo Push": {
+      "category": "Position",
+      "blurb": "A pawn push attacking an enemy piece (gaining tempo) was available",
+      "drillable": true
+    },
+    "Missed Open File": {
+      "category": "Position",
+      "blurb": "A rook could occupy an open or half-open file",
+      "drillable": true
+    },
+    "Premature Trade": {
+      "category": "Trading",
+      "blurb": "You exchanged while ahead, relieving tension that favored you",
+      "drillable": true
+    },
+    "Missed Prophylaxis": {
+      "category": "Position",
+      "blurb": "The opponent had a one-move threat you could have prevented",
+      "drillable": true
+    },
+    "Missed Piece Activation": {
+      "category": "Position",
+      "blurb": "A passive piece could be repositioned to a more active square",
+      "drillable": true
+    },
+    "Wrong Pawn Race": {
+      "category": "Endgame",
+      "blurb": "You went the wrong direction in a pawn race and lost a critical tempo",
+      "drillable": true
     },
     "Pawn Endgame": {
       "category": "Endgame",
-      "blurb": "A pawn endgame"
+      "blurb": "A pawn endgame",
+      "drillable": true
     },
     "Rook Endgame": {
       "category": "Endgame",
-      "blurb": "A rook endgame"
+      "blurb": "A rook endgame",
+      "drillable": true
     },
     "Queen Endgame": {
       "category": "Endgame",
-      "blurb": "A queen endgame"
+      "blurb": "A queen endgame",
+      "drillable": true
     },
     "Knight Endgame": {
       "category": "Endgame",
-      "blurb": "A knight endgame"
+      "blurb": "A knight endgame",
+      "drillable": true
     },
     "Queen + Rook Endgame": {
       "category": "Endgame",
-      "blurb": "A queen-and-rook endgame"
+      "blurb": "A queen-and-rook endgame",
+      "drillable": true
     },
     "Bishop Endgame": {
       "category": "Endgame",
-      "blurb": "A bishop endgame"
+      "blurb": "A bishop endgame",
+      "drillable": true
     },
     "Bishop Endgame (Same Color)": {
       "category": "Endgame",
-      "blurb": "A same-color-bishop endgame"
+      "blurb": "A same-color-bishop endgame",
+      "drillable": true
     },
     "Bishop Endgame (Opposite Color)": {
       "category": "Endgame",
-      "blurb": "An opposite-color-bishop endgame (often drawish)"
+      "blurb": "An opposite-color-bishop endgame (often drawish)",
+      "drillable": true
+    },
+    "Missed King Activity": {
+      "category": "Endgame",
+      "blurb": "Your king should have activated toward the center or the pawns",
+      "drillable": true
+    },
+    "Lost the Opposition": {
+      "category": "Endgame",
+      "blurb": "You gave up the opposition in a king-and-pawn endgame",
+      "drillable": true
+    },
+    "Missed Passed Pawn": {
+      "category": "Endgame",
+      "blurb": "A move that made or advanced a passed pawn was best",
+      "drillable": true
+    },
+    "Rook Behind Passer": {
+      "category": "Endgame",
+      "blurb": "The rook belonged behind the passed pawn",
+      "drillable": true
     },
     "Winning": {
       "category": "Meta",
-      "blurb": "You were winning before this move"
+      "blurb": "You were winning before this move",
+      "drillable": false
     },
     "Losing": {
       "category": "Meta",
-      "blurb": "You were losing before this move"
+      "blurb": "You were losing before this move",
+      "drillable": false
     },
     "Equal": {
       "category": "Meta",
-      "blurb": "The position was equal before this move"
+      "blurb": "The position was equal before this move",
+      "drillable": false
     },
     "Only Move": {
       "category": "Meta",
-      "blurb": "There was only one good move here"
-    },
-    "Wrong Move Order": {
-      "category": "Meta",
-      "blurb": "Right idea, wrong move order"
+      "blurb": "There was only one good move here",
+      "drillable": false
     },
     "Best Move (deep analysis)": {
       "category": "Other",
-      "blurb": "Deep analysis confirms your move was best"
+      "blurb": "Deep analysis confirms your move was best",
+      "drillable": false
     },
     "Opening": {
       "category": "Other",
-      "blurb": "Opening phase"
+      "blurb": "Opening phase",
+      "drillable": false
     },
     "Middlegame": {
       "category": "Other",
-      "blurb": "Middlegame phase"
+      "blurb": "Middlegame phase",
+      "drillable": false
     },
     "Endgame": {
-      "category": "Endgame",
-      "blurb": "Endgame phase"
+      "category": "Other",
+      "blurb": "Endgame phase",
+      "drillable": false
     }
   }
 }

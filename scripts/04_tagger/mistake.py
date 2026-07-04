@@ -35,6 +35,14 @@ class Mistake:
         b.push(chess.Move.from_uci(self.played_uci))
         return b
 
+    @property
+    def win_drop(self) -> float:
+        """Win% the mover gave up (0-100, mover POV). The shared mistake-severity gate (issue #29),
+        replacing the 8 magic cp_loss thresholds. Nonlinear in eval; falls back to cp_loss when
+        signed evals are unavailable (mate, cp-only caches). Defined in chesslib_util.win_drop."""
+        from chesslib_util import win_drop
+        return win_drop(self.eval_before, self.eval_after, self.mover, self.cp_loss)
+
 
 def _eval_to_cp(s):
     """'+253' -> 253 ; '#+5'/'#-3'/'mate' -> None (mate, handled separately)."""

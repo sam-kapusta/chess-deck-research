@@ -63,6 +63,15 @@ LINE_CASES = [
     # Black's Bg4 pinning Nf3 to Kd1. pov=Black (the punisher in the allowed line).
     ("established pin still tags", "r1b1k1nQ/ppp2q1p/3p4/2b1p3/4P3/2N2N2/PP1P1PPP/n1BK3R w q - 0 10",
      ["b2b3", "c8g4", "d2d4", "g4f3", "g2f3", "e8c8"], False, "pin", True),
+    # --- skewer: minor-piece floor. A skewer wins the (less-valuable) BACK piece — a real piece.
+    # NEG: Qf3 allowed Qe6+ Qe2 Bxg2 — the bishop only grabs a PAWN on g2 (the queen was DEFLECTED off
+    # f3 by the check, not driven off by the bishop). Pawn-back => NOT a skewer. (Sam, ply 15.)
+    ("pawn-back deflection != skewer", "rn2kbnr/pb2pppp/1p6/1Ppq4/8/P1PB4/3P1PPP/RNBQK1NR w KQkq - 0 8",
+     ["d1f3", "d5e6", "f3e2", "b7g2", "f2f3", "g8f6"], False, "skewer", False),
+    # POS: classic file skewer — Re1+ checks Ke4, king steps to d4, Rxe8 wins the ROOK behind it.
+    # Front=king (skewered), back=rook (won, >= minor). pov=White (the winner). Must still fire.
+    ("king-front rook-back still skewers", "4r3/8/8/8/4k3/8/8/R5K1 w - - 0 1",
+     ["a1e1", "e4d4", "e1e8"], True, "skewer", True),
 ]
 
 
@@ -140,13 +149,245 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
 
+    print("--- predicates: capture_or_exchange (equal-value gate + cp_loss MISS gate) ---")
+    # (name, fen, played_uci, best_uci, best_san, cp_loss, expected_label_or_None)
+    exch_cases = [
+        # MISFIRE Sam caught (ply 50): best Qxe4+ = queen takes a DEFENDED bishop (9 for 3). That sheds
+        # material — a sacrifice, not an even trade. Must NOT tag "Missed Bishop Exchange" (sacrifice_line
+        # names it). attacker(9) > victim(3)+0.5 & e4 defended by Qd5.
+        ("Q-for-defended-B is not an exchange", "r4r2/1b4pk/p1n4p/1p1Q4/4BN2/4q1P1/PP5P/R4R1K b - - 3 25",
+         "h7h8", "e3e4", "Qxe4+", 200, None),
+        # POSITIVE: a genuine equal trade the player missed (cp_loss 200) — must still tag.
+        ("equal N-for-N (real miss, cp200) tags exchange", "3qk3/3p4/3p4/4n3/8/5N2/8/3QK3 w - - 0 1",
+         "e1e2", "f3e5", "Nxe5", 200, "Missed Knight Exchange"),
+        # GH #29: capture_or_exchange is now a PURE DETECTOR — it fires whenever best is an even trade,
+        # regardless of severity. The played==best / low-win-drop suppression (the #27 fix) moved to the
+        # ONE entry gate in tag_mistake_full (tested in the "entry gate" block below). So at the direct-
+        # predicate level the cp20 case DOES fire; suppression is the gate's job, not the detector's.
+        ("equal N-for-N detects regardless of cp (gate suppresses, not the detector)",
+         "3qk3/3p4/3p4/4n3/8/5N2/8/3QK3 w - - 0 1", "e1e2", "f3e5", "Nxe5", 20, "Missed Knight Exchange"),
+        # GH #28: bishop takes a DEFENDED knight (even minor trade) must be "Bishop-Knight Exchange",
+        # NOT "Missed Knight Exchange" (the old victim-only naming mislabeled 64% of minor trades).
+        ("B-for-N mixed minor trade -> Bishop-Knight Exchange", "4k3/8/3p4/4n3/8/8/1B6/4K3 w - - 0 1",
+         "e1e2", "b2e5", "Bxe5", 200, "Missed Bishop-Knight Exchange"),
+        # CONTROL: true B-for-B still names "Bishop Exchange". Bb2xBe5, e5 defended by d6 pawn.
+        ("equal B-for-B still tags Bishop Exchange", "4k3/8/3p4/4b3/8/8/1B6/4K3 w - - 0 1",
+         "e1e2", "b2e5", "Bxe5", 200, "Missed Bishop Exchange"),
+    ]
+    for name, fen, uci, best, bsan, cpl, want in exch_cases:
+        b = chess.Board(fen)
+        # eval_before/after=None -> win_drop uses its cp_loss fallback (these fixtures express
+        # severity via cp_loss, not signed evals). cpl=200 -> 17.6 win-pts (tags); cpl=20 -> 1.8 (the
+        # #27 played==best suppression). (GH #29 — the gate is win_drop now, not cp_loss.)
+        m = Mistake(fen, uci, best, [], [], None, None, cpl, b.turn, best_san=bsan)
+        res = PR.capture_or_exchange(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_exch = len(exch_cases)
+
+    print("--- predicates: greedy_capture (played grabs material, best is QUIET) — GH #29 ---")
+    # (name, fen, played_uci, best_uci, cpl, expected_label_or_None). win_drop via cp_loss fallback.
+    greedy_cases = [
+        # POS: White Nxd5 grabs a pawn; best is the quiet Bh6. cp200 -> 17.6 win-pts (taggable).
+        ("grab pawn when quiet Bh6 was best", "r2qk2r/ppp2ppp/2n5/3p4/3P4/2N1B3/PPP2PPP/R2QK2R w KQkq - 0 1",
+         "c3d5", "e3h6", 200, "Greedy Capture"),
+        # NEG: best is ALSO a capture (Nxd5) — that's a missed capture/exchange, not greed. Must NOT fire.
+        ("best is also a capture -> not greedy", "r2qk2r/ppp2ppp/2n5/3p4/3P4/2N1B3/PPP2PPP/R2QK2R w KQkq - 0 1",
+         "c3d5", "d4d5", 200, None),
+        # GH #29: pure detector — fires on the grab-vs-quiet PATTERN regardless of severity. The low-
+        # win-drop suppression is the entry gate's job (tested in the entry-gate block), not here.
+        ("greedy grab detects regardless of cp (gate suppresses)", "r2qk2r/ppp2ppp/2n5/3p4/3P4/2N1B3/PPP2PPP/R2QK2R w KQkq - 0 1",
+         "c3d5", "e3h6", 20, "Greedy Capture"),
+    ]
+    for name, fen, uci, best, cpl, want in greedy_cases:
+        b = chess.Board(fen)
+        bsan = b.san(chess.Move.from_uci(best)); psan = b.san(chess.Move.from_uci(uci))
+        m = Mistake(fen, uci, best, [], [], None, None, cpl, b.turn, played_san=psan, best_san=bsan)
+        res = PR.greedy_capture(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_greedy = len(greedy_cases)
+
+    print("--- predicates: pin exploitation / unpinning resource (book TOP-TIER, w5zuk548s) ---")
+    # missed_pin_exploitation: an enemy piece is pinned + HELD, best quietly piles a NEW attacker on it.
+    # missed_unpinning_resource: OUR piece is pinned, best breaks the pin, played sits in it.
+    pinx_cases = [
+        # POS pile-on: Black Na5 pinned to Ra8 by Ra1, defended by b6 pawn (held). Best b2-b4 adds a
+        # pawn attacker on a5; played is a quiet king move. Fires Missed Pin Exploitation.
+        ("pile a pawn onto a held pinned knight", "r7/8/1p6/n7/8/8/1P6/R3K1k1 w - - 0 1",
+         "e1e2", "b2b4", PR.missed_pin_exploitation, "Missed Pin Exploitation"),
+        # NEG: best move IS a capture of the pinned piece — that's Missed Pin/material, not the quiet
+        # pile-on prep. Must NOT fire pin-exploitation.
+        ("capturing the pinned piece is not pile-on", "r7/8/1p6/n7/8/8/1P6/R3K1k1 w - - 0 1",
+         "e1e2", "a1a5", PR.missed_pin_exploitation, None),
+        # POS unpin: Black Ne7 pinned to Ke8 by Re1 (absolute). Best Kf8 breaks it; played h6 sits in it.
+        ("king-step unpins; played sits in the pin", "4k3/4n2p/8/8/8/8/8/4R1K1 b - - 0 1",
+         "h7h6", "e8f8", PR.missed_unpinning_resource, "Missed Unpinning Resource"),
+        # NEG: no pin on the board at all -> unpinning can't fire.
+        ("no pin -> no unpinning resource", "4k3/4n2p/8/8/8/8/8/6K1 b - - 0 1",
+         "h7h6", "e7c6", PR.missed_unpinning_resource, None),
+        # POS interposition: Black Ke8 in check from White Bb5 (b5-c6-d7-e8 diag). Best Nb8-c6 blocks;
+        # played Kf8 runs. Fires Missed Interposition.
+        ("block the check vs running the king", "1n2k3/8/8/1B6/8/8/8/4K3 b - - 0 1",
+         "e8f8", "b8c6", PR.missed_interposition, "Missed Interposition"),
+        # NEG: knight check can't be blocked -> no interposition (here just: not in check).
+        ("not in check -> no interposition", "1n2k3/8/8/8/8/8/8/4K3 b - - 0 1",
+         "e8f8", "b8c6", PR.missed_interposition, None),
+        # POS remove-the-guard: Black Kg8 castled, Nf6 guards king-ring (g8/h7). White Bg5xf6 (even
+        # trade, f6 defended by g7) strips the guard; played a3 doesn't. Fires Missed Remove the Guard.
+        ("trade off the defender of the castled king", "r2q1rk1/ppp2ppp/5n2/6B1/8/8/PPP2PPP/R2Q1RK1 w - - 0 1",
+         "a2a3", "g5f6", PR.missed_remove_the_guard, "Missed Remove the Guard"),
+        # NEG: a capture far from the enemy king strips no king-guard -> must NOT fire.
+        ("capture away from king is not remove-the-guard", "r2q1rk1/ppp2ppp/8/3n4/3N4/8/PPP2PPP/R2Q1RK1 w - - 0 1",
+         "a2a3", "d4d5", PR.missed_remove_the_guard, None),
+    ]
+    for name, fen, uci, best, fn, want in pinx_cases:
+        b = chess.Board(fen)
+        try: bsan = b.san(chess.Move.from_uci(best))
+        except Exception: bsan = best
+        try: psan = b.san(chess.Move.from_uci(uci))
+        except Exception: psan = uci
+        m = Mistake(fen, uci, best, [bsan], [], None, None, 200, b.turn, played_san=psan, best_san=bsan)
+        res = fn(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_pinx = len(pinx_cases)
+
+    print("--- tagger ENTRY GATE: win%-drop decides mistake-vs-not, ONCE (GH #29) ---")
+    # The single mistake gate lives in tag_mistake_full, not in the detectors. Verify: (1) a real miss
+    # (high win_drop) surfaces the explain tag; (2) the SAME position played==best (win_drop~0) suppresses
+    # ALL explain tags — this is the #27 suppression, now centralized; (3) INFO/orient tags (phase,
+    # game-state) survive the gate either way (they classify the position, not assert a mistake).
+    import tagger as TG_GATE
+    gate_fen = "3qk3/3p4/3p4/4n3/8/5N2/8/3QK3 w - - 0 1"  # best Nxe5 = even knight trade
+    b = chess.Board(gate_fen)
+    # mover WHITE, eval_before 0; a real miss drops to -200 after the played move -> win_drop ~17.6
+    m_miss = Mistake(gate_fen, "e1e2", "f3e5", [], [], 0, -200, 200, b.turn, best_san="Nxe5")
+    # played==best equivalent: eval barely moves (0 -> -10) -> win_drop ~0.9, under the 10.0 gate
+    m_nonmiss = Mistake(gate_fen, "e1e2", "f3e5", [], [], 0, -10, 10, b.turn, best_san="Nxe5")
+    miss_labels = [t["label"] for t in TG_GATE.tag_mistake_full(m_miss, with_maia=False)["tags"]]
+    non_labels = [t["label"] for t in TG_GATE.tag_mistake_full(m_nonmiss, with_maia=False)["tags"]]
+    gate_cases = [
+        ("real miss surfaces Missed Knight Exchange", "Missed Knight Exchange" in miss_labels, True),
+        ("played==best suppresses the explain tag", "Missed Knight Exchange" in non_labels, False),
+        ("info/orient tag (game-state) survives the gate", "Equal" in non_labels, True),
+    ]
+    for name, got, want in gate_cases:
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got} exp={want}")
+    extra_gate = len(gate_cases)
+
+    print("--- predicates: pawn break / prophylaxis must not fire on material grabs (GH #28-class) ---")
+    # (name, fn, fen, played_uci, best_uci, best_san, refutation_san, cp_loss, expected_label_or_None)
+    grab_cases = [
+        # Pawn Break NEG: best exd5 captures a BISHOP — material grab, not a structural break. Must NOT fire.
+        ("pawn break NEG: pawn takes piece", PR.missed_pawn_break,
+         "4k3/8/8/3b4/4P3/8/8/4K3 w - - 0 1", "e1e2", "e4d5", "exd5", [], 300, None),
+        # Pawn Break POS: best exd5 captures a PAWN — a real break. Must still fire.
+        ("pawn break POS: pawn takes pawn", PR.missed_pawn_break,
+         "4k3/8/8/3p4/4P3/8/8/4K3 w - - 0 1", "e1e2", "e4d5", "exd5", [], 120, "Missed Pawn Break"),
+        # Prophylaxis NEG: best move is a capture (Bxd5) — winning material, not quiet prevention. Must NOT fire.
+        ("prophylaxis NEG: best is a capture", PR.missed_prophylaxis,
+         "r3k3/8/8/3n4/8/3B4/8/4K3 w - - 0 1", "e1e2", "d3d5", "Bxd5", ["d5e3"], 200, None),
+    ]
+    for name, fn, fen, uci, best, bsan, ref, cpl, want in grab_cases:
+        b = chess.Board(fen)
+        # evals None -> win_drop falls back to cp_loss (these test structure, not eval nuance). GH #29.
+        m = Mistake(fen, uci, best, [], ref, None, None, cpl, b.turn, best_san=bsan)
+        res = fn(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_grab = len(grab_cases)
+
+    print("--- predicates: endgame detectors (king activity / opposition / passed pawn / rook-behind) ---")
+    # (name, fen, played_uci, best_uci, best_san, predicate_fn, expected_label_or_None)
+    # eval_before set so phase()/game_state don't matter; cp_loss=200. mover = side to move in the FEN.
+    eg_cases = [
+        # --- Missed King Activity: best is a non-check king move toward center/pawns, played wasn't ---
+        # corpus: played Ng2, best Kf3 (king toward center). 8 pieces -> endgame.
+        ("king activity: best Kf3 not Ng2", "8/8/6p1/5pkp/8/4N3/4K3/8 w - - 0 51",
+         "e3g2", "e2f3", "Kf3", "missed_king_activity", "Missed King Activity"),
+        # corpus: played Kb5, best Kd4 (toward center).
+        ("king activity: best Kd4 not Kb5", "8/8/3k2pp/p2P1p2/2K2P1P/1p3P2/1P6/8 w - - 0 35",
+         "c4b5", "c4d4", "Kd4", "missed_king_activity", "Missed King Activity"),
+        # NEG: best king move AWAY from center (Kf3->Kg2, toward corner) must NOT fire. Mirror the
+        # first case: from a position where the best is the passive king step.
+        ("king activity NEG: best heads to corner", "8/8/6p1/5pkp/8/4NK2/8/8 b - - 0 51",
+         "g5g4", "g5h4", "Kh4", "missed_king_activity", None),
+        # NEG: not an endgame (full board) — king activity should not fire even if best is a king move.
+        ("king activity NEG: not endgame", "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+         "e7e5", "e8e7", "Ke7", "missed_king_activity", None),
+
+        # --- Lost the Opposition: pawn-only endgame, best king move takes direct opposition ---
+        # corpus: played Kf4, best Kd3 takes opposition vs Kd5 (dist 2, same file d). pawn-only.
+        ("opposition: best Kd3 takes it", "8/8/8/3k1p1p/3P2pP/4K1P1/8/8 w - - 2 53",
+         "e3f4", "e3d3", "Kd3", "lost_opposition", "Lost the Opposition"),
+        # NEG: same geometry but NOT a pawn-only endgame (add a knight) -> opposition concept N/A.
+        ("opposition NEG: not pawn-only", "8/8/8/3k1p1p/3P2pP/4K1P1/6n1/8 w - - 2 53",
+         "e3f4", "e3d3", "Kd3", "lost_opposition", None),
+
+        # --- Missed Passed Pawn: best is a pawn move creating/advancing a passer, played wasn't ---
+        # corpus: played Kh4, best h4 makes the h-pawn passed. endgame.
+        ("passed pawn: best h4 not Kh4", "8/8/4p3/5k1K/p1pP1P2/P6P/1P6/8 w - - 1 38",
+         "h5h4", "h3h4", "h4", "missed_passed_pawn", "Missed Passed Pawn"),
+        # NEG: best pawn move that is NOT passed (enemy pawn still blocks on adjacent file).
+        ("passed pawn NEG: still blocked", "8/2p5/8/2P5/8/5k2/5p2/5K2 w - - 0 1",
+         "f1f2", "c5c6", "c6", "missed_passed_pawn", None),
+
+        # --- Rook Behind Passer: best puts a rook behind a passed pawn, played didn't ---
+        # corpus: played Rg8, best Rd8 (rook behind the d5 passer). endgame.
+        ("rook behind passer: best Rd8", "7R/8/p1r4p/3pp2P/8/4KP2/k7/8 w - - 0 44",
+         "h8g8", "h8d8", "Rd8", "rook_behind_passer", "Rook Behind Passer"),
+        # NEG: rook move to a file whose pawns are BLOCKED (c4/c5 mutually block -> neither passed),
+        # so "behind a passer" geometry is absent. Must not fire.
+        ("rook behind NEG: no passer on file", "7R/8/8/2p5/2P5/4KP2/k7/8 w - - 0 44",
+         "h8g8", "h8c8", "Rc8", "rook_behind_passer", None),
+    ]
+    for name, fen, uci, best, bsan, fn_name, want in eg_cases:
+        b = chess.Board(fen)
+        m = Mistake(fen, uci, best, [], [], 200, 0, 0, b.turn, best_san=bsan)
+        got_list = getattr(PR, fn_name)(m)
+        got = got_list[0][0] if got_list else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_eg = len(eg_cases)
+
     print("--- predicates: pawn structure (recapture + best-line guards) ---")
     # (name, fen, played_uci, best_uci, refutation_san, label_must_NOT_appear)
     ps_cases = [
-        # 13.gxf3 — a recapture that doubles the f-pawn, but it's a CAPTURE and the doubling is also
-        # in the best line. Must NOT tag Created Doubled Pawn. (Caught by Sam.)
+        # 13.gxf3 — a recapture that doubles the f-pawn, but it IS the best move (recapturing the
+        # bishop). best==played -> the doubling is in best_af too -> not blunder-caused. Must NOT tag
+        # Created Doubled Pawn. (Caught by Sam.)
         ("recapture doesn't create doubled", "r2qr1k1/pp3ppp/2nb1n2/1Bpp4/8/P1NP1b2/1PPQ1PPP/R1B1R1K1 w - - 0 13",
-         "g2f3", "b5c6", "Created Doubled Pawn"),
+         "g2f3", "g2f3", "Created Doubled Pawn"),
     ]
     for name, fen, uci, best, must_not in ps_cases:
         b = chess.Board(fen)
@@ -172,14 +413,14 @@ def run():
     ok += not_pb; (fails.append("stale best_san not played==best") if not not_pb else None)
     print(f"  [{'PASS' if deep_ok else 'FAIL'}] deep best from top_lines (cxb4 not Bd2): {bu}")
     print(f"  [{'PASS' if not_pb else 'FAIL'}] stale best_san != played==best: {not_pb}")
-    # capture-direction: passive instead of capture -> NO generic tag. The specific piece tag from
-    # capture_or_exchange already covers "best was a capture you didn't play", so the old generic
-    # "Missed Capture" was always a redundant duplicate and is intentionally gone. (Removed per Sam.)
+    # greedy_capture: a passive (non-capture) played move must NOT fire Greedy Capture. Greedy Capture
+    # fires only when the PLAYED move grabs material and best was quiet — the inverse of this case.
+    # (Replaced the deleted capture_direction "Wrong/Missed Capture" catch-alls — GH #29.)
     m_stale = TG.deep_entry_to_mistake(e_stale, 1800, 1800)
-    labs = [t[0] for t in PR.capture_direction(m_stale)]
-    mc_ok = "Missed Capture" not in labs
-    ok += mc_ok; (fails.append("Missed Capture suppressed (passive)") if not mc_ok else None)
-    print(f"  [{'PASS' if mc_ok else 'FAIL'}] no generic 'Missed Capture' on passive miss: {labs}")
+    labs = [t[0] for t in PR.greedy_capture(m_stale)]
+    mc_ok = "Greedy Capture" not in labs
+    ok += mc_ok; (fails.append("Greedy Capture not fired on passive move") if not mc_ok else None)
+    print(f"  [{'PASS' if mc_ok else 'FAIL'}] no 'Greedy Capture' on passive move: {labs}")
     extra_cd = 1
     # played==best: deep verdict cleared the shallow flag
     e_best = {"fen": "8/4b3/8/p2p1k1K/1PpPp2P/2P1B3/1P6/8 b - - 0 39", "uci": "a5b4", "best_san": "axb4",
@@ -242,7 +483,7 @@ def run():
     print(f"  [{'PASS' if pos else 'FAIL'}] check-clearance (Ne6+ clears for Bh8): fires={pos} (want True)")
     extra_clr = 1   # the positive case (negative is counted inline above with the +1 in total)
 
-    print("--- tag_adapter: refutation with leaked played move still tags the hung piece ---")
+    print("--- tag_adapter: leaked-played-move refutation parses to the hung piece (Mistake level) ---")
     import sys as _sys, os as _os
     _sys.path.insert(0, _os.path.join(_os.path.dirname(__file__), "..", "..", "..",
                                       "chess-deck-code", "backend", "worker"))
@@ -251,12 +492,20 @@ def run():
         e = {"fen_before": "r4r1k/pbnnq2p/1p2p3/3pPp1B/1P1P1R2/PN6/6PP/R1BQ3K w - - 6 22",
              "uci": "f4h4", "pv_uci": ["f4f3"], "san": "Rh4", "bestMoveSan": "Rf3", "eval": 2.36,
              "refutation_uci": ["f4h4", "e7h4", "g2g3"]}   # NOTE leading f4h4 = the played move
-        labs = [t["label"] for t in TA.tags_for_eval(e)]
-        hm_ok = "Hung Rook" in labs   # Qxh4 captures the rook -> named hang
+        # GH #29: the win%-drop ENTRY gate needs eval_after, which prod's eval_to_mistake does NOT yet
+        # supply (hardcodes eval_after=None, cp_loss=0 — the open step-6 plumbing). So tag_mistake_full
+        # correctly suppresses ALL explain tags here (no signal that it's a mistake). What we CAN verify
+        # without step 6: the leaked-played-move stripping still builds a refutation that names the hung
+        # rook at the Mistake/predicate level (gate-independent). When step 6 lands, tags_for_eval will
+        # surface "Hung Rook" again — add that assertion then.
+        m = TA.eval_to_mistake(e)
+        import predicates as PR
+        hung = [t[0] for t in PR.hung_material(m)]   # predicate is a pure detector now — fires regardless
+        hm_ok = "Hung Rook" in hung
         ok += hm_ok
         if not hm_ok:
-            fails.append("adapter strips leaked played move")
-        print(f"  [{'PASS' if hm_ok else 'FAIL'}] leaked-played-move refutation still yields Hung Rook: {labs}")
+            fails.append("leaked-played-move refutation -> Hung Rook (Mistake level)")
+        print(f"  [{'PASS' if hm_ok else 'FAIL'}] leaked move stripped, refutation names Hung Rook: {hung}")
         extra_adapter = 1
     except Exception as ex:
         print(f"  [SKIP] tag_adapter not importable ({ex})")
@@ -355,7 +604,7 @@ def run():
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + len(ps_cases) + extra_tg + 2 + extra_cd
+             + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases))
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))

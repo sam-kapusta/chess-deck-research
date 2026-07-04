@@ -318,7 +318,8 @@ def double_check_line(nodes, pov) -> bool:
     return False
 
 
-def trapped_piece_line(nodes, pov) -> bool:
+def trapped_piece_line(nodes, pov):
+    """Returns the trapped piece type (int) or False."""
     for node in U.pov_nodes(nodes, pov)[1:]:
         square = node.move.to_square
         captured = node.parent.board().piece_at(square)
@@ -330,7 +331,7 @@ def trapped_piece_line(nodes, pov) -> bool:
                 square = prev.move.from_square
             if isinstance(prev.parent, (ChildNode,)) or prev.parent is not None:
                 if U.is_trapped(prev.parent.board(), square):
-                    return True
+                    return captured.piece_type
     return False
 
 
@@ -468,6 +469,14 @@ def skewer_line(nodes, pov) -> bool:
         if not isinstance(prev, ChildNode):
             continue
         capture = prev.board().piece_at(node.move.to_square)
+        # Minor-piece floor: a real skewer wins the (less-valuable) BACK piece — a real piece, not a
+        # pawn. Without this, any ray capture of a pawn on a square a major piece vacated along the ray
+        # reads as a "skewer" (e.g. Qe6+ deflects the queen off f3, Bxg2 grabs a pawn — geometry only).
+        # That degenerate pawn-grab is 37% of corpus skewer fires (105/286 reconstructable) and is
+        # better named by deflection / discovered-attack. Verified: ALL 105 removed fires capture a
+        # pawn; every fire that wins >= a minor (181) is kept. (Sam.)
+        if capture and capture.piece_type == PAWN:
+            continue
         if capture and U.moved_piece_type(node) in U.ray_piece_types and not node.board().is_checkmate():
             between = SquareSet.between(node.move.from_square, node.move.to_square)
             op_move = prev.move
@@ -694,6 +703,11 @@ def clearance_line(nodes, pov) -> bool:
 
 
 def advanced_pawn_line(nodes, pov) -> bool:
+    # NOT a scored skill feature — kept only as an info/context motif. Two measurements proved it can't
+    # be a corpus skill-signal: (1) raw "any pawn to rank 6+" is a board FEATURE, flat ~2x band curve;
+    # (2) gating on PASSED pawn INVERTS it (ratio 0.2 — masters reach passed-pawn pushes far more often,
+    # so it measures position-reaching, not mistake-skill). Dropped from the Piece Activity cluster
+    # (2026-06-29). Detector stays for evidence/labeling but feeds no scored cluster.
     return any(U.is_very_advanced_pawn_move(n) for n in U.pov_nodes(nodes, pov))
 
 
@@ -909,8 +923,11 @@ def detect_line(start_board: chess.Board, ucis: List[str], pov: bool) -> dict:
     found = {}
     for key, fn in LINE_DETECTORS.items():
         try:
-            if fn(nodes, pov):
+            result = fn(nodes, pov)
+            if result:
                 found[key] = f"line={' '.join(ucis[:6])}"
+                if key == "trappedPiece" and isinstance(result, int):
+                    found[key] = f"piece={U.PIECE_NAME.get(result, 'Piece')} {found[key]}"
         except Exception:
             pass
     # depth annotation for fork: index among pov's moves where it fires (0 = available NOW).
