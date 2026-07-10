@@ -342,21 +342,33 @@ def categorize(label, direction=None):
     return "Other"
 
 
-def tag_mistake_full(m, with_maia=True):
+# Move classifications that earn EXPLAIN tags when the caller supplies one. Inaccuracy is INCLUDED
+# here (so review cards can explain it) but the caller is responsible for keeping inaccuracies OUT of
+# stats/drills — those filter on classification downstream. mistake/blunder are the counting classes.
+_EXPLAIN_CLASSIFICATIONS = {"inaccuracy", "mistake", "blunder"}
+
+
+def tag_mistake_full(m, with_maia=True, classification=None):
     fine = []  # (label, direction, evidence, layer)
 
-    # ONE entry gate (GH #29): only EXPLAIN tags (mistake assertions) require a real win%-drop. This is
-    # a property of the POSITION, not of each predicate, so it lives here once instead of being copy-
-    # pasted into every detector. Matches prod, which only calls the tagger on moves already classified
-    # blunder/mistake/inaccuracy. INFO/orient tags (phase, game-state, endgame-TYPE) are NOT gated —
-    # they classify the position for drill-bucket filtering and should fire on any move.
-    # MATE EXEMPTION: missing a forced mate is ALWAYS a real mistake regardless of win_drop (which gets
-    # squished by the ±1200 clamp when going from mate→still-winning). Also applies to allowing mate.
+    # ONE entry gate (GH #29): only EXPLAIN tags (mistake assertions) are gated; INFO/orient tags
+    # (phase, game-state, endgame-TYPE) always fire so they can classify the position for drill-bucket
+    # filtering. Two ways to pass the gate:
+    #   1. classification given (prod knows it authoritatively): explain iff it's inaccuracy/mistake/
+    #      blunder. This is how the frontend gets inaccuracies EXPLAINED on review cards without
+    #      lowering the win_drop threshold globally. Explicit classification WINS over win_drop.
+    #   2. classification=None (research corpus, which never passes it): fall back to win_drop >=
+    #      WIN_DROP_MIN (=10 = the mistake/blunder boundary), so research stays mistake/blunder-only.
+    # MATE EXEMPTION (both paths): missing/allowing a forced mate is ALWAYS a real mistake regardless
+    # of win_drop (which gets squished by the ±1200 clamp when going from mate→still-winning).
     has_mate_before = (m.eval_before is not None and
                        (m.eval_before if m.mover == chess.WHITE else -m.eval_before) >= _MATE_SENTINEL)
     has_mate_after = (m.eval_after is not None and
                       (m.eval_after if m.mover == chess.WHITE else -m.eval_after) <= -_MATE_SENTINEL)
-    is_mistake = m.win_drop >= PR.WIN_DROP_MIN or has_mate_before or has_mate_after
+    if classification is not None:
+        is_mistake = classification in _EXPLAIN_CLASSIFICATIONS or has_mate_before or has_mate_after
+    else:
+        is_mistake = m.win_drop >= PR.WIN_DROP_MIN or has_mate_before or has_mate_after
 
     for (label, direction, ev) in _motif_tags(m):
         if not is_mistake:                 # motifs are always explain tags

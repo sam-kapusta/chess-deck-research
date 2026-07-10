@@ -296,6 +296,40 @@ def run():
         print(f"  [{mark}] {name}: got={got} exp={want}")
     extra_gate = len(gate_cases)
 
+    print("--- tagger ENTRY GATE: explicit classification overrides win_drop (inaccuracy display) ---")
+    # Product need: the frontend surfaces inaccuracies (5-10 win% drop) on review cards and wants them
+    # EXPLAINED, but they must NOT count toward stats/drills (filtered downstream by classification).
+    # So tag_mistake_full accepts an optional `classification`: when given, it — not win_drop — decides
+    # whether explain tags fire (inaccuracy/mistake/blunder = yes; anything else = no). When absent
+    # (research corpus, which never passes it), the win_drop>=10 fallback stands = mistake/blunder only.
+    import tagger as TG_CLS
+    cls_fen = "3qk3/3p4/3p4/4n3/8/5N2/8/3QK3 w - - 0 1"
+    bc = chess.Board(cls_fen)
+    # An INACCURACY-magnitude drop (0 -> -80 => win_drop ~7, UNDER the 10.0 win_drop gate).
+    m_inacc = Mistake(cls_fen, "e1e2", "f3e5", [], [], 0, -80, 80, bc.turn, best_san="Nxe5")
+    inacc_default = [t["label"] for t in TG_CLS.tag_mistake_full(m_inacc, with_maia=False)["tags"]]
+    inacc_tagged = [t["label"] for t in TG_CLS.tag_mistake_full(m_inacc, with_maia=False, classification="inaccuracy")["tags"]]
+    good_ignored = [t["label"] for t in TG_CLS.tag_mistake_full(m_inacc, with_maia=False, classification="good")["tags"]]
+    # A mistake-magnitude position passed classification="good" (contrived) must still be gated OUT —
+    # explicit classification wins over win_drop when supplied.
+    m_realmiss = Mistake(cls_fen, "e1e2", "f3e5", [], [], 0, -200, 200, bc.turn, best_san="Nxe5")
+    realmiss_forced_good = [t["label"] for t in TG_CLS.tag_mistake_full(m_realmiss, with_maia=False, classification="good")["tags"]]
+    cls_cases = [
+        ("inaccuracy: win_drop<10 gives NO explain tag by default", "Missed Knight Exchange" in inacc_default, False),
+        ("inaccuracy: classification='inaccuracy' surfaces the explain tag", "Missed Knight Exchange" in inacc_tagged, True),
+        ("classification='good' gates out an inaccuracy-magnitude move", "Missed Knight Exchange" in good_ignored, False),
+        ("classification='good' overrides a real win_drop (explicit wins)", "Missed Knight Exchange" in realmiss_forced_good, False),
+        ("info/orient tag survives regardless of classification", "Equal" in good_ignored, True),
+    ]
+    for name, got, want in cls_cases:
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got} exp={want}")
+    extra_cls = len(cls_cases)
+
     print("--- predicates: pawn break / prophylaxis must not fire on material grabs (GH #28-class) ---")
     # (name, fn, fen, played_uci, best_uci, best_san, refutation_san, cp_loss, expected_label_or_None)
     grab_cases = [
@@ -604,7 +638,7 @@ def run():
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
+             + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases))
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
