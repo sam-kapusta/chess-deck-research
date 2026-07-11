@@ -1,5 +1,27 @@
 # Chess Lab — Log
 
+## 2026-07-11 — JumpReLU sweep on the l7 best−blunder diff (Sam AFK, autonomous)
+
+Task: train the same/similar setup as the last labeled SAE (k6/v7 l7-diff) but with JumpReLU; sweep
+hyperparameters for good models with 1–5% per-feature fire rates.
+
+- Refreshed research creds (`ada`), re-authed chess-poc (SAIS token was expired — the recurring
+  gotcha). GPU idle, l7only cache present (168,132×1024). **Midway expired → couldn't read the
+  SandstonePersonas tanh-loss reference; used the proven canonical JumpReLU script on the notebook
+  instead of reconstructing the loss from memory.**
+- **Root-caused the tricky hyperparameters:** measured pre-act nonzero median = 0.565; θ can't travel
+  far during training (narrow straight-through kernel), so `init_threshold` is the DOMINANT knob —
+  `l0_coeff` (10× sweep) and `bandwidth` barely move anything. Sam's death config (θ=0.5, bw=0.001)
+  died from the tiny bandwidth freezing θ high, not θ=0.5.
+- Diagnostic matrix (bw×thr) → real sweep (thr{0.3,0.4,0.5}×l0{0.02,0.06}, bw=0.2, 60ep, dict=2048).
+  Monotone frontier, **0 dead across all configs.** Winner for the 1–5% target: **`jr_thr0.40_l00.02`**
+  — per-feature fire median 2.44%, IQR 1.9–3.6%, FVU 0.103, 232 blobs. thr0.5 sparser (median 1.79%),
+  thr0.3 best FVU (0.083, but p75 leaks >5%).
+- Weights: local `output/jumprelu_l7diff/` + chess-poc `~/SageMaker/jr_sweep_out/`. **S3 gotcha:** the
+  inventory's `chess-stage-a-140023406996` bucket doesn't exist from the notebook — backed up local.
+- Full detail: `docs/knowledge/2026-07-11_jumprelu_sweep_l7diff.md`. NEXT: label via tagger-vote on
+  top-firing positions (Sam's hint).
+
 ## 2026-06-05 — labeling v3→v7: debias, refutation, xhigh, peak+median (the over-specification fix)
 
 Long session iterating the d2048_k6 feature labeler through five versions, each fixing a defect
