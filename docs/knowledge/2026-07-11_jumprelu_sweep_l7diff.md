@@ -50,8 +50,22 @@ FVU 0.103, **0 dead**, all 2048 active, 232 blobs. Best specificity/reconstructi
 LOCAL `~/SageMaker/chess-stage-a/` dir, not S3. Weights backed up to local `output/jumprelu_l7diff/`
 instead. The inventory is stale re: the weights bucket — reconcile when convenient.
 
-## Next: labeling (Sam's hint — use the tagger as the starting point)
-Per-feature: pull top-firing positions from the cache, run `scripts/04_tagger/tagger.tag_mistake_full`
-on each, and name the feature by its DOMINANT tagger label (deterministic, free, grounded — replaces
-the old Opus-reads-20-boards pipeline for the labelable subset). Features with no dominant tag stay
-low-confidence (the mechanism-ceiling cases). Not yet run.
+## Labeling (Sam's hint — use the tagger as the starting point)
+`scripts/03_feature_labeling/label_via_tagger.py`: encode the cache through the SAE, per feature take
+the top-N (200) firing positions, run the rule tagger on each (fen + blunder_uci + best_uci → 1-ply
+`best_line_san`), name the feature by its DOMINANT non-info tagger label (≥25% of top-N). Features
+below that stay unlabeled (honest re: polysemantic ones).
+
+**⚠️ v1 pass was COMPROMISED — the notebook's `tagger_run/` was STALE** (predated the 2026-07-11
+tagger fixes). Result: "Allowed Battery" overfired onto **284 features** (it's the detector I fixed
+that day — target-check + missed/allowed twin-collapse), contaminating every vote; median confidence
+only 0.34, 759/2048 (37%) labeled. Pushed the fixed 5 tagger modules to `tagger_run/` and re-ran → v2
+(`feature_labels_jr_thr0.40_v2.json`). **Always verify the notebook tagger matches
+`scripts/04_tagger/` before a labeling run** — there's no auto-sync to the notebook.
+
+**PERF:** ~62 min/model (2048 feats × 200 positions × python-chess board construction, CPU-bound).
+Labeling all 3 candidates serially = ~3 hrs. Speedup for next time: cache `chess.Board(fen)` objects
+(built once per unique position, not per feature), or batch positions across features. Not done yet.
+
+Coverage caveat (unchanged): cache has `best_uci` (1 ply) not the full best-line PV, so multi-ply
+MOTIF tags (Missed Fork-in-3) can't fire — only 1-ply MISSED predicates + FAILED motifs.
