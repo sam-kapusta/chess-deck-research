@@ -684,10 +684,56 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
+    print("--- predicates: allowed_pawn_capture + allowed_battery refutation-line fix (2026-07-11) ---")
+    # Real game (cabbage): 17...Rb8 is a quiet mistake whose punishment is 18.Bxd5 grabbing the d5 pawn;
+    # best 17...Nxc6 trades off the bishop that takes d5, so Bxd5 is unavailable after best. Material
+    # nets back to 0 over the line (so hung_material correctly stays silent) — this is the gap: "you
+    # let the opponent grab a pawn" even when it recaptures later. And allowed_battery must NOT fire
+    # here (it used to, scanning all legal moves; now it walks only the refutation line, which builds
+    # no real battery). Lines reconstructed from the shipped dump's UCI PVs.
+    def _san_line(fen, ucis):
+        bb = chess.Board(fen); out = []
+        for u in ucis:
+            try: mv = chess.Move.from_uci(u); out.append(bb.san(mv)); bb.push(mv)
+            except Exception: break
+        return out
+    apc_fen = "r1bq2k1/p3rppp/1pBn4/n2pN3/Q2P4/P1P1B3/5PPP/2R1K2R b K - 7 17"
+    apc_after = chess.Board(apc_fen); apc_after.push(chess.Move.from_uci("a8b8"))
+    m_rb8 = Mistake(
+        apc_fen, "a8b8", "a5c6",
+        best_line_san=_san_line(apc_fen, ["a5c6", "a4c6", "c8b7", "c6a4", "f7f6", "e5d3"]),
+        refutation_san=_san_line(apc_after.fen(), ["c6d5", "c8a6", "c3c4", "b6b5", "a4c2", "b5c4"]),
+        eval_before=169, eval_after=18, cp_loss=151, mover=chess.BLACK,
+        played_san="Rb8", best_san="Nxc6",
+    )
+    # NEG for allowed_pawn_capture: the played move IS a capture (equal trade) — that's hung_material /
+    # greedy_capture's job, not "allowed pawn capture". A simple even bishop trade w/ recapture refutation.
+    neg_fen = "r1bqk2r/ppp2ppp/2n2n2/3p4/1b1P4/2N1BN2/PPP1BPPP/R2QK2R b KQkq - 0 1"
+    neg_after = chess.Board(neg_fen); neg_after.push(chess.Move.from_uci("b4c3"))  # Bxc3 (a capture)
+    m_neg = Mistake(
+        neg_fen, "b4c3", "e8g8",
+        best_line_san=["O-O"], refutation_san=_san_line(neg_after.fen(), ["b2c3"]),
+        eval_before=0, eval_after=-40, cp_loss=40, mover=chess.BLACK,
+        played_san="Bxc3", best_san="O-O",
+    )
+    apc_cases = [
+        ("allowed_pawn_capture fires on Rb8 (lets Bxd5)", PR.allowed_pawn_capture(m_rb8) and PR.allowed_pawn_capture(m_rb8)[0][0], "Allowed Pawn Capture"),
+        ("allowed_pawn_capture NEG: played is itself a capture", PR.allowed_pawn_capture(m_neg)[0][0] if PR.allowed_pawn_capture(m_neg) else None, None),
+        ("allowed_battery does NOT overfire on Rb8 (refutation-line only)", PR.allowed_battery(m_rb8)[0][0] if PR.allowed_battery(m_rb8) else None, None),
+    ]
+    for name, got, want in apc_cases:
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_apc = len(apc_cases)
+
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
              + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
-             + len(be_cases) + len(sac_cases) + len(supp_cases))
+             + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 

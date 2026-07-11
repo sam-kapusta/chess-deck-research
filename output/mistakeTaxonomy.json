@@ -604,6 +604,41 @@
       "blurb": "You went the wrong direction in a pawn race and lost a critical tempo",
       "drillable": true
     },
+    "Missed Battery": {
+      "category": "Missed Tactic",
+      "blurb": "Lining up two heavy pieces (a battery) against a target was available",
+      "drillable": true
+    },
+    "Allowed Battery": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent build a battery against your position",
+      "drillable": true
+    },
+    "Missed Overloading": {
+      "category": "Missed Tactic",
+      "blurb": "An enemy piece was overloaded and could be exploited",
+      "drillable": true
+    },
+    "Allowed Overloading": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move left one of your pieces overloaded for the opponent to exploit",
+      "drillable": true
+    },
+    "Missed Doubled Rooks": {
+      "category": "Missed Tactic",
+      "blurb": "Doubling rooks on a file was the move",
+      "drillable": true
+    },
+    "Allowed Doubled Rooks": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent double rooks on a file",
+      "drillable": true
+    },
+    "Allowed Pawn Capture": {
+      "category": "Allowed Tactic",
+      "blurb": "Your quiet move let the opponent grab a pawn the best move prevented",
+      "drillable": true
+    },
     "Pawn Endgame": {
       "category": "Endgame",
       "blurb": "A pawn endgame",

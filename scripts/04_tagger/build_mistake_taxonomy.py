@@ -130,6 +130,15 @@ def build_taxonomy():
     add("Wrong Pawn Race", "You went the wrong direction in a pawn race and lost a critical tempo")
     add("Allowed Advanced Pawn", "Your move let the opponent advance a pawn dangerously")
     add("Missed Advanced Pawn", "An advanced pawn push was the move")
+    # Battery / overloading / doubled-rooks detectors + the allowed-pawn-grab detector (these fire from
+    # predicates.py but were missing taxonomy entries → rendered neutral). Missed + Allowed both exist.
+    add("Missed Battery", "Lining up two heavy pieces (a battery) against a target was available")
+    add("Allowed Battery", "Your move let the opponent build a battery against your position")
+    add("Missed Overloading", "An enemy piece was overloaded and could be exploited")
+    add("Allowed Overloading", "Your move left one of your pieces overloaded for the opponent to exploit")
+    add("Missed Doubled Rooks", "Doubling rooks on a file was the move")
+    add("Allowed Doubled Rooks", "Your move let the opponent double rooks on a file")
+    add("Allowed Pawn Capture", "Your quiet move let the opponent grab a pawn the best move prevented")
     # Endgame types
     for t in ["Pawn", "Rook", "Queen", "Knight"]:
         add(f"{t} Endgame", f"A {t.lower()} endgame")

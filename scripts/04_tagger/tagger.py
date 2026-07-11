@@ -318,6 +318,11 @@ def categorize(label, direction=None):
     if l.startswith("hung ") or l == "allowed hanging piece":
         return "Hung Piece"
 
+    # Allowed a pawn grab (quiet move let the opponent snap a pawn the best move prevented). It's a
+    # material/tactical concession, not a dropped piece → Allowed Tactic (matches its allowed direction).
+    if l == "allowed pawn capture":
+        return "Allowed Tactic"
+
     # Missed free material (opponent gave you something).
     if l.startswith("missed free") or l.startswith("missed winning capture") \
        or l in ("missed hanging piece", "missed capture of defender", "missed capture (pawn)"):

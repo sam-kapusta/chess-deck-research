@@ -1758,25 +1758,38 @@ def missed_remove_the_guard(m):
 
 
 def allowed_battery(m):
-    """Played move allows the opponent to create a battery (Q+R on file, Q+B on diagonal) in the
-    refutation that best move would have prevented."""
+    """Played move allows the opponent to create a battery (Q+R on file, Q+B on diagonal) that
+    ATTACKS a real target, IN THE ACTUAL REFUTATION LINE, which the best move would have prevented.
+
+    2026-07-11 (round 2): previously scanned ALL opponent legal moves, so in almost any middlegame
+    *some* Q/R/B move aligns on *something* and it fired spuriously (e.g. Rb8 → "Allowed Battery" with
+    no real battery in the refutation). Now it only considers the opponent's OWN moves along the stored
+    refutation line — the README's "Allowed X = [played]+refutation" definition — so the battery has to
+    actually be what punishes the move. Falls back to [] when there's no refutation line."""
     b = m.board_before
     pm = _played_move(m); bm = _best_move(m)
     if pm is None or bm is None or pm == bm:
         return []
+    if not m.refutation_san:
+        return []
     opp = not m.mover
     after_played = b.copy(); after_played.push(pm)
     after_best = b.copy(); after_best.push(bm)
-    # Check if opponent can now create a battery (two sliding pieces aligned with nothing between)
-    # that ATTACKS a real target. A battery pointing at nothing (or only a pawn) is not a threat we
-    # "allowed" — mirror missed_battery's target check (2026-07-11: this fired on Qf3 hitting only a
-    # pawn, and doubled up with Missed Battery on the same move).
-    for mv in after_played.legal_moves:
-        piece_type = after_played.piece_type_at(mv.from_square)
-        if piece_type not in (chess.QUEEN, chess.ROOK, chess.BISHOP):
+    # Walk the refutation line; only test the OPPONENT's moves in it (a battery is the opponent's threat).
+    walk = after_played.copy()
+    for san in m.refutation_san:
+        try:
+            mv = walk.parse_san(san)
+        except Exception:
+            break
+        is_opp_move = (walk.turn == opp)
+        piece_type = walk.piece_type_at(mv.from_square)
+        if not (is_opp_move and piece_type in (chess.QUEEN, chess.ROOK, chess.BISHOP)):
+            walk.push(mv)
             continue
-        # After opponent plays this move, do they have aligned pieces?
-        test = after_played.copy(); test.push(mv)
+        # After the opponent plays this refutation move, do they have aligned pieces on a real target?
+        test = walk.copy(); test.push(mv)
+        walk.push(mv)  # advance the walk regardless, so later plies are reachable
         to_sq = mv.to_square
         to_f = chess.square_file(to_sq)
         to_r = chess.square_rank(to_sq)
@@ -1806,6 +1819,48 @@ def allowed_battery(m):
                 continue
             return [("Allowed Battery", "allowed", f"{m.played_san} allows opponent to build a battery")]
     return []
+
+
+def allowed_pawn_capture(m):
+    """The played move is QUIET (not a capture) but lets the opponent immediately grab a pawn — the
+    opponent's FIRST refutation reply is a pawn capture that the BEST move would have prevented.
+
+    The gap this fills: a quiet mistake whose punishment is "and now I just take your pawn" (e.g. Rb8
+    lets Bxd5, when Nxc6 would have traded off the bishop that takes d5). The eval cost is real even if
+    material later nets back — allowing the grab IS the concession. Deliberately narrow so it doesn't
+    mislabel:
+      - played must be quiet → equal trades / recaptures are hung_material/greedy_capture's job, not this.
+      - the pawn grab must be UNAVAILABLE after best (mirrors allowed_battery's `mv in after_best` guard)
+        → so it's genuinely *allowed by this move*, not a grab that existed regardless.
+      - a bigger net loss is a "Hung X" story; we only claim the pawn when nothing heavier is hung on the
+        first reply (VAL check), so we don't shout "pawn" over a real piece hang.
+    """
+    pm = _played_move(m); bm = _best_move(m)
+    if pm is None or bm is None or pm == bm:
+        return []
+    b = m.board_before
+    if b.is_capture(pm):            # only QUIET played moves (equal trades handled elsewhere)
+        return []
+    if not m.refutation_san:
+        return []
+    after_played = b.copy(); after_played.push(pm)
+    after_best = b.copy(); after_best.push(bm)
+    # Opponent's first refutation reply.
+    try:
+        first = after_played.parse_san(m.refutation_san[0])
+    except Exception:
+        return []
+    if not after_played.is_capture(first):
+        return []
+    victim = after_played.piece_at(first.to_square)   # None = en passant → a pawn
+    victim_type = victim.piece_type if victim is not None else chess.PAWN
+    if victim_type != chess.PAWN:                     # a heavier grab is a Hung X / motif story
+        return []
+    # Was this exact grab available after the best move too? If so, our move didn't allow it.
+    if first in after_best.legal_moves:
+        return []
+    return [("Allowed Pawn Capture", "allowed",
+             f"{m.played_san} lets the opponent grab a pawn ({m.refutation_san[0]}); best {m.best_san} prevents it")]
 
 
 def allowed_overloading(m):
@@ -2072,7 +2127,7 @@ ALL_PREDICATES = [
     missed_battery, missed_overloading, missed_desperado, missed_doubled_rooks,
     missed_pin_exploitation, missed_unpinning_resource, missed_interposition,
     missed_remove_the_guard,
-    allowed_battery, allowed_overloading, allowed_doubled_rooks,
+    allowed_battery, allowed_pawn_capture, allowed_overloading, allowed_doubled_rooks,
     missed_pawn_break, missed_tempo_push, missed_open_file, premature_trade, missed_prophylaxis,
     missed_piece_activation, wrong_pawn_race,
 ]
