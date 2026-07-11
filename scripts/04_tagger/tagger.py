@@ -231,6 +231,29 @@ def _suppress_lesser_under_mate(tags):
     return kept
 
 
+def _bare_motif(label):
+    """Strip a leading Missed/Allowed/Failed/Hung prefix + a trailing '(...)' qualifier → base motif.
+    'Missed Pin (to Queen)' → 'Pin', 'Allowed Battery' → 'Battery'."""
+    for pfx in ("Missed ", "Allowed ", "Failed ", "Hung "):
+        if label.startswith(pfx):
+            label = label[len(pfx):]
+            break
+    return label.split(" (", 1)[0].strip()
+
+
+def _collapse_missed_allowed_twins(tags):
+    """If the SAME base motif fired both 'Missed X' and 'Allowed X' on this one move, keep only the
+    MISSED one and drop the ALLOWED twin. A single move being tagged as both missing motif X and
+    allowing motif X is noise — the review is of the player's own move, so 'you missed X' is the honest
+    read; the 'allowed' twin double-counts the same geometry. (Sam, 2026-07-11 — the Battery double-fire
+    on ply 28.) Operates on (label, direction, evidence, layer) tuples; order preserved."""
+    missed_bases = {_bare_motif(t[0]) for t in tags if t[1] == "missed"}
+    if not missed_bases:
+        return tags
+    return [t for t in tags
+            if not (t[1] == "allowed" and _bare_motif(t[0]) in missed_bases)]
+
+
 # Tactical motif substrings — a tag containing one of these IS a tactic. Direction then splits it into
 # "Missed Tactic" (find it) vs "Allowed Tactic" (prevent it) — genuinely different drill skills.
 _TACTIC_WORDS = ("fork", "pin", "skewer", "discovered", "deflection", "attraction", "clearance",
@@ -347,6 +370,12 @@ def categorize(label, direction=None):
 # stats/drills — those filter on classification downstream. mistake/blunder are the counting classes.
 _EXPLAIN_CLASSIFICATIONS = {"inaccuracy", "mistake", "blunder"}
 
+# GOOD classifications never earn explain (mistake) tags — they're key moments worth SHOWING (a great
+# find), but there's nothing to explain as "wrong." A good move must not get Missed/Allowed X, and must
+# NOT be rescued by the mate exemption below (a brilliant move that keeps a forced mate allowed/missed
+# nothing). 2026-07-11: real-game review showed Missed Mate / Allowed Sacrifice on brilliant moves.
+_GOOD_CLASSIFICATIONS = {"brilliant", "great", "excellent", "good", "opening", "best", "book"}
+
 
 def tag_mistake_full(m, with_maia=True, classification=None):
     fine = []  # (label, direction, evidence, layer)
@@ -361,11 +390,21 @@ def tag_mistake_full(m, with_maia=True, classification=None):
     #      WIN_DROP_MIN (=10 = the mistake/blunder boundary), so research stays mistake/blunder-only.
     # MATE EXEMPTION (both paths): missing/allowing a forced mate is ALWAYS a real mistake regardless
     # of win_drop (which gets squished by the ±1200 clamp when going from mate→still-winning).
+    #
+    # GOOD-MOVE SUPPRESSION (hard override, wins over everything incl. the mate exemption): a good
+    # classification, OR a move that IS the engine's best move (played==best — you can't "miss" or
+    # "allow" anything by playing the top move), earns ZERO explain tags. Checked first so a brilliant
+    # move in a mating position doesn't get Missed Mate, and so Qh2# (played==best==the mate) is silent.
+    played_is_best = bool(m.best_uci) and m.played_uci == m.best_uci
+    is_good_move = (classification in _GOOD_CLASSIFICATIONS) or played_is_best
+
     has_mate_before = (m.eval_before is not None and
                        (m.eval_before if m.mover == chess.WHITE else -m.eval_before) >= _MATE_SENTINEL)
     has_mate_after = (m.eval_after is not None and
                       (m.eval_after if m.mover == chess.WHITE else -m.eval_after) <= -_MATE_SENTINEL)
-    if classification is not None:
+    if is_good_move:
+        is_mistake = False
+    elif classification is not None:
         is_mistake = classification in _EXPLAIN_CLASSIFICATIONS or has_mate_before or has_mate_after
     else:
         is_mistake = m.win_drop >= PR.WIN_DROP_MIN or has_mate_before or has_mate_after
@@ -386,6 +425,8 @@ def tag_mistake_full(m, with_maia=True, classification=None):
         if t[0] in seen:
             continue
         seen.add(t[0]); tags.append(t)
+
+    tags = _collapse_missed_allowed_twins(tags)
 
     cat_set = sorted({categorize(t[0], t[1]) for t in tags})
 

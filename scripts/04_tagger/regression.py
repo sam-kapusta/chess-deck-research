@@ -330,6 +330,53 @@ def run():
         print(f"  [{mark}] {name}: got={got} exp={want}")
     extra_cls = len(cls_cases)
 
+    print("--- tagger: GOOD moves + played==best earn NO explain tags (even in mating positions) ---")
+    # Bugs from a real game review (2026-07-11): the tagger emitted mistake tags on GOOD moves.
+    #  ply50 Qh2# (played==best==the mate) got "Missed Mate" — you can't miss a mate you just played.
+    #  ply48 Re2 (brilliant, keeps a forced mate) got Missed Mate + Allowed Sacrifice — the MATE
+    #        EXEMPTION punched through the classification gate for a good move.
+    # Rule: a good classification (brilliant/great/excellent/good/opening) OR played==best suppresses
+    # ALL explain tags — including the mate exemption. Info/orient tags still fire.
+    import tagger as TG_GM
+    # A real forced-mate-available position (mover WHITE has mate; eval_before = +sentinel).
+    gm_fen = "6k1/5ppp/8/8/8/8/5PPP/R5K1 w - - 0 1"
+    SENT = TG_GM._MATE_SENTINEL
+    # explain (mistake) tags = anything NOT direction=="info" (info/orient tags always fire + are
+    # stripped from chips downstream; the bug is about EXPLAIN tags on good moves).
+    def _explain(res): return [t["label"] for t in res["tags"] if t["direction"] != "info"]
+    # (a) played==best: the played move IS the best move -> nothing missed/allowed.
+    m_pb = Mistake(gm_fen, "a1a8", "a1a8", [], [], SENT, None, 0, chess.WHITE, best_san="Ra8#")
+    pb_explain = _explain(TG_GM.tag_mistake_full(m_pb, with_maia=False, classification="brilliant"))
+    # (b) good move (brilliant) in a mating position, played != best -> still no explain tags.
+    m_good = Mistake(gm_fen, "g1h1", "a1a8", [], [], SENT, None, 0, chess.WHITE, best_san="Ra8#")
+    good_explain = _explain(TG_GM.tag_mistake_full(m_good, with_maia=False, classification="brilliant"))
+    # (c) control: an actual BLUNDER that misses the mate -> Missed Mate SHOULD still fire.
+    m_miss_mate = Mistake(gm_fen, "g1h1", "a1a8", [], [], SENT, None, 0, chess.WHITE, best_san="Ra8#")
+    missmate_labels = [t["label"] for t in TG_GM.tag_mistake_full(m_miss_mate, with_maia=False, classification="blunder")["tags"]]
+    gm_cases = [
+        ("played==best (brilliant): no Missed Mate", "Missed Mate" in pb_explain, False),
+        ("played==best (brilliant): no explain tags at all", len(pb_explain) > 0, False),
+        ("good move in mating pos: no explain tags", len(good_explain) > 0, False),
+        ("BLUNDER that misses mate: Missed Mate still fires", "Missed Mate" in missmate_labels, True),
+    ]
+    # missed+allowed twin collapse: a single move must not carry both "Missed X" and "Allowed X".
+    twin_in = [("Missed Battery","missed","e","tactic"), ("Allowed Battery","allowed","e","tactic"),
+               ("Missed Fork","missed","e","tactic")]
+    twin_out = [t[0] for t in TG_GM._collapse_missed_allowed_twins(twin_in)]
+    gm_cases += [
+        ("twin collapse: Allowed Battery dropped when Missed Battery present", "Allowed Battery" in twin_out, False),
+        ("twin collapse: Missed Battery kept", "Missed Battery" in twin_out, True),
+        ("twin collapse: unrelated Missed Fork untouched", "Missed Fork" in twin_out, True),
+    ]
+    for name, got, want in gm_cases:
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got} exp={want}")
+    extra_gm = len(gm_cases)
+
     print("--- predicates: pawn break / prophylaxis must not fire on material grabs (GH #28-class) ---")
     # (name, fn, fen, played_uci, best_uci, best_san, refutation_san, cp_loss, expected_label_or_None)
     grab_cases = [
@@ -638,7 +685,7 @@ def run():
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
+             + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases))
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))

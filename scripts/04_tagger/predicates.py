@@ -1390,6 +1390,21 @@ def missed_faster_mate(m):
 
 # ---------- tactical patterns ----------
 
+# A battery is only a threat if its front piece attacks a real enemy target — a minor piece or better,
+# or the king. A pawn (or empty) aim doesn't count (that's just two aligned pieces). Shared by both the
+# missed and allowed battery detectors so their target definition can't drift.
+_BATTERY_TARGETS = (chess.KNIGHT, chess.BISHOP, chess.ROOK, chess.QUEEN, chess.KING)
+
+def _battery_hits_target(board, front_sq, battery_owner):
+    """True if the piece on front_sq attacks an enemy (not battery_owner) minor+/king."""
+    enemy = not battery_owner
+    for t in board.attacks(front_sq):
+        p = board.piece_at(t)
+        if p and p.color == enemy and p.piece_type in _BATTERY_TARGETS:
+            return True
+    return False
+
+
 def missed_battery(m):
     """Best move aligns two heavy/sliding pieces (Q+R on file, Q+B on diagonal, R+R on file)
     creating a battery that ATTACKS an enemy piece or king. Battery pointing at nothing = no fire."""
@@ -1431,12 +1446,9 @@ def missed_battery(m):
                     aligned = True
         if not aligned:
             continue
-        # Battery exists — does it attack an enemy piece or king?
-        front_attacks = after.attacks(to_sq)
-        for target_sq in front_attacks:
-            target = after.piece_at(target_sq)
-            if target and target.color == opp and target.piece_type in (chess.KNIGHT, chess.BISHOP, chess.ROOK, chess.QUEEN, chess.KING):
-                return [("Missed Battery", "missed", f"best {m.best_san} creates a battery attacking the {chess.piece_name(target.piece_type)}")]
+        # Battery exists — does it attack a real enemy target (minor+ or king)?
+        if _battery_hits_target(after, to_sq, m.mover):
+            return [("Missed Battery", "missed", f"best {m.best_san} creates a battery attacking a piece/king")]
     return []
 
 
@@ -1754,7 +1766,11 @@ def allowed_battery(m):
         return []
     opp = not m.mover
     after_played = b.copy(); after_played.push(pm)
+    after_best = b.copy(); after_best.push(bm)
     # Check if opponent can now create a battery (two sliding pieces aligned with nothing between)
+    # that ATTACKS a real target. A battery pointing at nothing (or only a pawn) is not a threat we
+    # "allowed" — mirror missed_battery's target check (2026-07-11: this fired on Qf3 hitting only a
+    # pawn, and doubled up with Missed Battery on the same move).
     for mv in after_played.legal_moves:
         piece_type = after_played.piece_type_at(mv.from_square)
         if piece_type not in (chess.QUEEN, chess.ROOK, chess.BISHOP):
@@ -1771,24 +1787,24 @@ def allowed_battery(m):
                 continue
             sq_f = chess.square_file(sq)
             sq_r = chess.square_rank(sq)
-            # Same file
-            if sq_f == to_f and p.piece_type in (chess.QUEEN, chess.ROOK) and piece_type in (chess.QUEEN, chess.ROOK):
-                between = chess.SquareSet.between(sq, to_sq)
-                if not any(test.piece_at(s) for s in between):
-                    # Was this battery possible before our move? If yes, not our fault.
-                    after_best = b.copy(); after_best.push(bm)
-                    if mv in after_best.legal_moves:
-                        continue  # opponent could do it regardless
-                    return [("Allowed Battery", "allowed", f"{m.played_san} allows opponent to build a battery")]
-            # Same diagonal
-            if abs(sq_f - to_f) == abs(sq_r - to_r) and sq != to_sq:
-                if p.piece_type in (chess.QUEEN, chess.BISHOP) and piece_type in (chess.QUEEN, chess.BISHOP):
-                    between = chess.SquareSet.between(sq, to_sq)
-                    if not any(test.piece_at(s) for s in between):
-                        after_best = b.copy(); after_best.push(bm)
-                        if mv in after_best.legal_moves:
-                            continue
-                        return [("Allowed Battery", "allowed", f"{m.played_san} allows opponent to build a battery")]
+            aligned = False
+            # Same file / same rank (Q/R only)
+            if (sq_f == to_f or sq_r == to_r) and p.piece_type in (chess.QUEEN, chess.ROOK) and piece_type in (chess.QUEEN, chess.ROOK):
+                if not any(test.piece_at(s) for s in chess.SquareSet.between(sq, to_sq)):
+                    aligned = True
+            # Same diagonal (Q/B only)
+            elif abs(sq_f - to_f) == abs(sq_r - to_r) and sq != to_sq and p.piece_type in (chess.QUEEN, chess.BISHOP) and piece_type in (chess.QUEEN, chess.BISHOP):
+                if not any(test.piece_at(s) for s in chess.SquareSet.between(sq, to_sq)):
+                    aligned = True
+            if not aligned:
+                continue
+            # Was this battery possible before our move? If yes, not our fault.
+            if mv in after_best.legal_moves:
+                continue
+            # Battery must attack a real target (minor+ or king) — a pawn/empty aim is not a threat.
+            if not _battery_hits_target(test, to_sq, m.mover):
+                continue
+            return [("Allowed Battery", "allowed", f"{m.played_san} allows opponent to build a battery")]
     return []
 
 
