@@ -1822,18 +1822,22 @@ def allowed_battery(m):
 
 
 def allowed_pawn_capture(m):
-    """The played move is QUIET (not a capture) but lets the opponent immediately grab a pawn — the
-    opponent's FIRST refutation reply is a pawn capture that the BEST move would have prevented.
+    """The played move is QUIET (not a capture) but causes a pawn loss — either immediately (opponent's
+    first refutation reply grabs a pawn) OR over the refutation line (net material loss = exactly 1
+    pawn). Two conditions, same coaching point: "your move loses a pawn that the best move held."
 
-    The gap this fills: a quiet mistake whose punishment is "and now I just take your pawn" (e.g. Rb8
-    lets Bxd5, when Nxc6 would have traded off the bishop that takes d5). The eval cost is real even if
-    material later nets back — allowing the grab IS the concession. Deliberately narrow so it doesn't
-    mislabel:
-      - played must be quiet → equal trades / recaptures are hung_material/greedy_capture's job, not this.
-      - the pawn grab must be UNAVAILABLE after best (mirrors allowed_battery's `mv in after_best` guard)
-        → so it's genuinely *allowed by this move*, not a grab that existed regardless.
-      - a bigger net loss is a "Hung X" story; we only claim the pawn when nothing heavier is hung on the
-        first reply (VAL check), so we don't shout "pawn" over a real piece hang.
+    Conditions (either triggers the tag):
+      A. IMMEDIATE: opponent's first refutation reply is a pawn capture unavailable after best (the
+         original detector — e.g. Rb8 lets Bxd5). Fires even if the line later recaptures (allowing the
+         grab IS the concession; material may net back to 0 over the full line).
+      B. DELAYED: net material loss over the FULL refutation = exactly 1 pawn (for a heavier net loss,
+         hung_material fires instead). And the best line does NOT lose the same material. Catches the case
+         where the pawn falls after a maneuver (e.g. Nd2 leads to Rxb5 at ply 4, netting -1).
+
+    Guards (apply to both paths):
+      - Played must be QUIET (not a capture). Equal trades are hung_material/greedy's job.
+      - Opponent's first reply capturing a PIECE (not pawn) → this is a Hung X story, not ours.
+      - If hung_material will also fire (net ≥ 2) on this move, we stay silent (it's the bigger story).
     """
     pm = _played_move(m); bm = _best_move(m)
     if pm is None or bm is None or pm == bm:
@@ -1845,22 +1849,62 @@ def allowed_pawn_capture(m):
         return []
     after_played = b.copy(); after_played.push(pm)
     after_best = b.copy(); after_best.push(bm)
-    # Opponent's first refutation reply.
+
+    # --- PATH A: immediate pawn capture on the first refutation reply ---
     try:
         first = after_played.parse_san(m.refutation_san[0])
+        if after_played.is_capture(first):
+            victim = after_played.piece_at(first.to_square)
+            victim_type = victim.piece_type if victim is not None else chess.PAWN
+            if victim_type == chess.PAWN and first not in after_best.legal_moves:
+                return [("Allowed Pawn Capture", "allowed",
+                         f"{m.played_san} lets the opponent grab a pawn ({m.refutation_san[0]}); best {m.best_san} prevents it")]
     except Exception:
-        return []
-    if not after_played.is_capture(first):
-        return []
-    victim = after_played.piece_at(first.to_square)   # None = en passant → a pawn
-    victim_type = victim.piece_type if victim is not None else chess.PAWN
-    if victim_type != chess.PAWN:                     # a heavier grab is a Hung X / motif story
-        return []
-    # Was this exact grab available after the best move too? If so, our move didn't allow it.
-    if first in after_best.legal_moves:
-        return []
-    return [("Allowed Pawn Capture", "allowed",
-             f"{m.played_san} lets the opponent grab a pawn ({m.refutation_san[0]}); best {m.best_san} prevents it")]
+        pass
+
+    # --- PATH B: delayed net-1-pawn loss over the full refutation line ---
+    mover = m.mover
+    start_diff = _material_diff(b, mover)   # before the played move
+    bb = after_played.copy()
+    for san in m.refutation_san:
+        try:
+            bb.push(bb.parse_san(san))
+        except Exception:
+            break
+    end_diff = _material_diff(bb, mover)
+    net_lost = start_diff - end_diff
+    if net_lost != 1:
+        return []   # 0 = no loss, ≥2 = hung_material's job
+    # Does the BEST line also lose a pawn? If so, it's not our move's fault.
+    bb_best = after_best.copy()
+    if m.best_line_san:
+        for san in m.best_line_san[1:]:  # skip best-move itself (already pushed into after_best)
+            try:
+                bb_best.push(bb_best.parse_san(san))
+            except Exception:
+                break
+    best_end_diff = _material_diff(bb_best, mover)
+    best_net_lost = start_diff - best_end_diff
+    if best_net_lost >= 1:
+        return []   # best line also loses material — the pawn was doomed regardless
+    # Name the capture that wins the pawn (first refutation capture of a pawn in the line)
+    bb2 = after_played.copy()
+    grab_san = None
+    for san in m.refutation_san:
+        try:
+            mv = bb2.parse_san(san)
+            if bb2.is_capture(mv):
+                vic = bb2.piece_at(mv.to_square)
+                if vic is None or vic.piece_type == chess.PAWN:
+                    grab_san = san; break
+            bb2.push(mv)
+        except Exception:
+            break
+    evidence = f"{m.played_san} loses a pawn by force"
+    if grab_san:
+        evidence += f" ({grab_san})"
+    evidence += f"; best {m.best_san} holds"
+    return [("Allowed Pawn Capture", "allowed", evidence)]
 
 
 def allowed_overloading(m):

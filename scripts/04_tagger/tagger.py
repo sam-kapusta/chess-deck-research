@@ -241,6 +241,37 @@ def _bare_motif(label):
     return label.split(" (", 1)[0].strip()
 
 
+# ---------------------------------------------------------------------------
+# PARENT → CHILD tag suppression (declarative).
+# A "parent" tag is a GENERIC label that a more SPECIFIC "child" tag subsumes. When both fire on one
+# move, the parent is noise (the child says the same thing but sharper — names the piece, the target,
+# the count). Drop the parent, keep the child. The parent still fires ALONE when no child matched (it
+# is then the only signal), so this is suppression-when-redundant, not deletion.
+#
+# Each row: (parent_label, child_predicate). child_predicate(other_label) -> True if that other tag on
+# the SAME move is a specific child of the parent. Add a row here to declare a new relationship — no
+# new function needed. Order-preserving; applied once in tag_mistake_full after the twin collapse.
+#
+# Rows (with the evidence that justifies each):
+#   • "Allowed Hanging Piece" → any "Hung <Piece>": same refutation-captures-your-piece fact, but Hung
+#     names the piece + net count. Corpus: co-fire ~79%; the ~21% AHP-alone cases (delayed/net-recovered
+#     losses hung_material skips) keep it. (Sam, 2026-07-12 — the Bxe7 card buried Greedy Capture.)
+_PARENT_CHILD = [
+    ("Allowed Hanging Piece", lambda l: l.startswith("Hung ")),
+]
+
+
+def _suppress_parents(tags):
+    """Drop any parent tag whose more-specific child also fired on this move (see _PARENT_CHILD).
+    Operates on (label, direction, evidence, layer) tuples; order preserved."""
+    labels = [t[0] for t in tags]
+    drop = set()
+    for parent, is_child in _PARENT_CHILD:
+        if parent in labels and any(is_child(l) for l in labels if l != parent):
+            drop.add(parent)
+    return [t for t in tags if t[0] not in drop] if drop else tags
+
+
 def _collapse_missed_allowed_twins(tags):
     """If the SAME base motif fired both 'Missed X' and 'Allowed X' on this one move, keep only the
     MISSED one and drop the ALLOWED twin. A single move being tagged as both missing motif X and
@@ -432,6 +463,10 @@ def tag_mistake_full(m, with_maia=True, classification=None):
         seen.add(t[0]); tags.append(t)
 
     tags = _collapse_missed_allowed_twins(tags)
+    # NOTE: _suppress_parents / _PARENT_CHILD exists but is NOT called here. Per the 2026-07-12 grill
+    # decision (Sam), parent→child suppression is a DISPLAY concern (the frontend's display_game flag),
+    # not a data concern — every tag keeps its own stats/drill counts. The function stays in the file
+    # for when the frontend display_game flag is wired; it's just not part of the tagging pipeline.
 
     cat_set = sorted({categorize(t[0], t[1]) for t in tags})
 

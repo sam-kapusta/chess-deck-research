@@ -374,6 +374,20 @@ def run():
         ("twin collapse: Missed Battery kept", "Missed Battery" in twin_out, True),
         ("twin collapse: unrelated Missed Fork untouched", "Missed Fork" in twin_out, True),
     ]
+    # parent->child suppression (_PARENT_CHILD table): a generic parent tag is dropped when its more
+    # specific child also fired. "Allowed Hanging Piece" (parent) dropped when any "Hung X" (child) is
+    # present; kept when it's the lone material signal.
+    ph_with_hung = [t[0] for t in TG_GM._suppress_parents(
+        [("Hung Rook", "hung", "e", "position"), ("Allowed Hanging Piece", "allowed", "e", "tactic"),
+         ("Allowed Skewer", "allowed", "e", "tactic")])]
+    ph_alone = [t[0] for t in TG_GM._suppress_parents(
+        [("Allowed Hanging Piece", "allowed", "e", "tactic"), ("Missed Free Pawn", "missed", "e", "position")])]
+    gm_cases += [
+        ("parent->child: Allowed Hanging Piece dropped when Hung Rook present", "Allowed Hanging Piece" in ph_with_hung, False),
+        ("parent->child: Hung Rook (child) kept", "Hung Rook" in ph_with_hung, True),
+        ("parent->child: unrelated Allowed Skewer untouched", "Allowed Skewer" in ph_with_hung, True),
+        ("parent->child: parent kept when no child present", "Allowed Hanging Piece" in ph_alone, True),
+    ]
     for name, got, want in gm_cases:
         passed = (got == want)
         ok += passed
@@ -722,8 +736,19 @@ def run():
         eval_before=0, eval_after=-40, cp_loss=40, mover=chess.BLACK,
         played_san="Bxc3", best_san="O-O",
     )
+    # POS path B: Nd2 (move 30) loses a pawn by force (Rxb5 at ply 4, net −1). Best Qd3 holds.
+    apc_nd2_fen = "1r4k1/2q2pp1/1rP1p2p/1P1p4/4n3/5N1P/2Q2PP1/1RR3K1 w - - 3 30"
+    apc_nd2_after = chess.Board(apc_nd2_fen); apc_nd2_after.push(chess.Move.from_uci("f3d2"))
+    m_nd2 = Mistake(
+        apc_nd2_fen, "f3d2", "c2d3",
+        best_line_san=["Qd3", "Nd6", "Rc5", "Ne4", "Rc2", "Nd6"],
+        refutation_san=_san_line(apc_nd2_after.fen(), ["e4d6", "d2f3", "b6b5", "b1b5", "b8b5", "f3d4"]),
+        eval_before=155, eval_after=-44, cp_loss=199, mover=chess.WHITE,
+        played_san="Nd2", best_san="Qd3",
+    )
     apc_cases = [
-        ("allowed_pawn_capture fires on Rb8 (lets Bxd5)", PR.allowed_pawn_capture(m_rb8) and PR.allowed_pawn_capture(m_rb8)[0][0], "Allowed Pawn Capture"),
+        ("allowed_pawn_capture fires on Rb8 path A (first-reply pawn grab)", PR.allowed_pawn_capture(m_rb8) and PR.allowed_pawn_capture(m_rb8)[0][0], "Allowed Pawn Capture"),
+        ("allowed_pawn_capture fires on Nd2 path B (delayed net-1 loss)", PR.allowed_pawn_capture(m_nd2) and PR.allowed_pawn_capture(m_nd2)[0][0], "Allowed Pawn Capture"),
         ("allowed_pawn_capture NEG: played is itself a capture", PR.allowed_pawn_capture(m_neg)[0][0] if PR.allowed_pawn_capture(m_neg) else None, None),
         ("allowed_battery does NOT overfire on Rb8 (refutation-line only)", PR.allowed_battery(m_rb8)[0][0] if PR.allowed_battery(m_rb8) else None, None),
     ]
