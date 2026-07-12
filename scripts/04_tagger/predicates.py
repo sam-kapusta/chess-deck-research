@@ -154,6 +154,11 @@ def greedy_capture(m):
         return []
     if b.is_capture(bm) or b.gives_check(bm):      # best must be QUIET (not a capture/check)
         return []
+    # #52: greed = grabbing material you KEEP. If SEE says the capture LOSES material (recaptured at a
+    # net loss), it's an unsound SACRIFICE, not a grab — do NOT tag Greedy Capture. (Greek-Gift Bxf7+ =
+    # bishop-for-pawn, SEE ~-2: sheds material. Was the #45 conflation — 11 confident-wrong SAE features.)
+    if U.static_exchange_eval(b, pm) < 0:
+        return []
     victim = b.piece_at(pm.to_square)
     pname = PIECE_NAME[victim.piece_type].lower() if victim else "pawn"   # None = en passant -> pawn
     return [("Greedy Capture", "played",
@@ -189,35 +194,50 @@ def hung_material(m):
         return []
     diffs = [_material_diff(bb, m.mover)]   # diffs[0] = right after the played move (opponent to move)
     first_victim = None                      # the piece the opponent CAPTURES on its first reply
+    # Track the WORST point in the line (peak loss) + the biggest piece the opponent captured up to it.
+    # A queen hung mid-line for partial compensation (net back to -1) reads as "-1 pawn" if you only look
+    # at the end — but the queen genuinely left the board. Peak-loss catches that; end_loss>=1 keeps a
+    # full-recovery slosh (equal trade, net 0) from firing. (Sam, 2026-07-12: move 18 Qd3, Ne2+ Rxe2
+    # Rxd3 hangs the queen, settles -1; hung_material was silent.)
+    peak_victim = None
     for i, san in enumerate(m.refutation_san):
         try:
             mv = bb.parse_san(san)
         except Exception:
             break
-        if i == 0 and bb.is_capture(mv):
-            vic = bb.piece_at(mv.to_square)   # capture target on the post-played board
-            if vic is not None:               # None = en passant (a pawn); leave unnamed
-                first_victim = vic.piece_type
+        cap_victim = None
+        if bb.is_capture(mv):
+            vic = bb.piece_at(mv.to_square)         # None = en passant (pawn)
+            cap_victim = vic.piece_type if vic is not None else chess.PAWN
+            if i == 0:
+                first_victim = cap_victim
         bb.push(mv)
-        diffs.append(_material_diff(bb, m.mover))
+        d = _material_diff(bb, m.mover)
+        diffs.append(d)
+        # A new worst point AND this ply was the opponent capturing one of our pieces → that piece is
+        # the peak victim (the thing we hung). Only count the opponent's captures (our own recaptures
+        # move the diff back up, not down).
+        if cap_victim is not None and d == min(diffs):
+            peak_victim = cap_victim
     end_diff = diffs[-1]
-    net_lost = start_diff - end_diff   # vs BEFORE the played move — equal trades net 0
-    if net_lost < 2:
+    net_lost = start_diff - end_diff        # end-of-line net — equal trades net 0
+    peak_lost = start_diff - min(diffs)     # worst point in the line — a mid-line hang shows here
+    # Fire when material is lost at the PEAK (>=2) AND is still down at the end (>=1). The end>=1 guard
+    # is what stops a full-recovery slosh (peak dips then nets back to 0) from over-claiming.
+    if peak_lost < 2 or net_lost < 1:
         return []
-    # how much is already gone after the opponent's first reply (ply 1 of the refutation)?
+    # how much is gone after the opponent's FIRST reply (immediate vs delayed).
     immediate_lost = start_diff - diffs[1] if len(diffs) > 1 else (start_diff - diffs[0])
-    if immediate_lost >= 2:
-        # Name the hung piece when the opponent's first reply is a clean capture AND that capture is
-        # the dominant loss (the named piece is worth ~the net loss). Else keep generic "Hung Material".
-        if first_victim is not None and VAL.get(first_victim, 0) >= net_lost - 1:
-            pname = PIECE_NAME[first_victim]
-            return [(f"Hung {pname}", "hung",
-                     f"opponent's first reply captures your {pname.lower()} ({net_lost} net over line)")]
+    # Name the hung piece: prefer the peak victim (the biggest piece the opponent won), else the first-
+    # reply victim, when that piece's value ~ the peak loss. Else generic "Hung Material".
+    named = peak_victim if peak_victim is not None else first_victim
+    if named is not None and VAL.get(named, 0) >= peak_lost - 1:
+        pname = PIECE_NAME[named]
+        return [(f"Hung {pname}", "hung",
+                 f"the refutation wins your {pname.lower()} ({peak_lost} pts at worst, {net_lost} net over line)")]
+    if immediate_lost >= 2 or peak_lost >= 2:
         return [("Hung Material", "hung",
-                 f"opponent's first reply wins {immediate_lost} pts ({net_lost} net over line)")]
-    # Delayed (non-immediate) material loss: the old "Lost Material to Combination" catch-all was
-    # 93% co-fire-redundant (GH #29) — the multi-move tactic that wins the material is already named
-    # by the motif "allowed" detectors (deflection/zwischenzug/...) in tagger.py. Don't double-tag.
+                 f"the refutation wins material ({peak_lost} pts at worst, {net_lost} net over line)")]
     return []
 
 

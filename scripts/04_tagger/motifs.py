@@ -112,9 +112,17 @@ def _pin_target(board: chess.Board, move: chess.Move):
                         break          # check + hanging front -> fork/check, not a pin on this ray
                     first = p           # candidate pinned enemy PIECE (knight/bishop/rook/queen)
                 else:
-                    # second piece along ray
+                    # second piece along ray = what `first` is pinned AGAINST.
                     if p.color != pov and U.king_values[p.piece_type] > U.king_values[first.piece_type]:
-                        return p.piece_type   # pinned `first` against more-valuable `p`
+                        # The PINNING piece must be worth <= the back piece (or the back piece is the
+                        # KING = absolute pin, always real). Else the pin is worthless: you'd never
+                        # capture along the ray (you're the most valuable thing on it), so the front
+                        # piece isn't actually stuck — it leaves with tempo and wins. (Sam, 2026-07-12:
+                        # Qd3 "pinning" Nd4→Rd8 fired Failed Pin, but a QUEEN pinning knight-to-rook is
+                        # not a pin — Ne2+ just unpins with a winning check. A BISHOP pinning N→R is.)
+                        if p.piece_type == chess.KING or U.king_values[pt] <= U.king_values[p.piece_type]:
+                            return p.piece_type   # pinned `first` against more-valuable `p`
+                    break
                     break
             r += dr; f += df
     return None

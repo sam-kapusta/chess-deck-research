@@ -30,10 +30,11 @@ SINGLE_MOVE_CASES = [
     # coincidental geometry. Here Black Qd4 lines up c3-knight (UNDEFENDED) in front of the a1-rook;
     # it's a fork (Qd4+ also checks g1), not a Pin to Rook. (Caught by Sam via Gemini, ply 23.)
     ("Qd4 hits hanging knight = not a pin", "2kr1b1r/pppq2p1/4pn2/4p3/1P2P3/2NP3P/P1P3P1/R1BQ1RK1 b - - 0 12", "d7d4", M.is_pin, False),
-    # control: same geometry but the front knight IS defended (d2 pawn guards c3, OFF the pinning
-    # diagonal so the ray to a1 stays clear) → a genuine relative pin to the rook. Distinguishes the
-    # fix from a blunt "never pin to rook".
-    ("Qd4 pins DEFENDED knight to rook", "2kr1b1r/pppq2p1/4pn2/4p3/4P3/2NP4/P2P2P1/R1BQ1RK1 b - - 0 12", "d7d4", M.is_pin, True),
+    # A QUEEN pinning a knight to a ROOK is NOT a real pin — the pinner (9) outvalues the back piece
+    # (rook 5), so you'd never capture along the ray; the "pinned" knight leaves with tempo. (Sam,
+    # 2026-07-12: Qd3→Nd4→Rd8 fired a phantom Failed Pin. The pinner's value must be ≤ the back piece,
+    # or the back piece is the KING = absolute pin.) Even a DEFENDED front doesn't make it a pin here.
+    ("Qd4 (queen) pinning knight to rook is NOT a pin", "2kr1b1r/pppq2p1/4pn2/4p3/4P3/2NP4/P2P2P1/R1BQ1RK1 b - - 0 12", "d7d4", M.is_pin, False),
     # QUIET move lining up an UNDEFENDED front piece in front of a heavier one IS a real pin — the
     # front piece can't move without dropping what it shields, and it's the opponent's move (pov isn't
     # "just taking"). Only a CHECK makes an undefended front a fork instead. Real game (cabbage) ply-52:
@@ -142,10 +143,19 @@ def run():
         # quiet move, opponent grabs a free bishop next move — immediate hang, NAMED by the victim piece
         ("free bishop = Hung Bishop", "3k4/8/8/3b4/8/8/3R4/4K3 b - - 0 1",
          "d8c8", ["Rxd5"], "Hung Bishop"),
+        # PEAK-LOSS: queen hung MID-line for partial compensation. move 18 Qd3, Ne2+ Rxe2 Rxd3 (queen
+        # gone, -6 at worst) Rxe8+ Kd7 Rae1 (rook back, nets -1). End-of-line saw only -1 (pawn) and
+        # stayed silent; peak-loss + end>=1 catches the real Hung Queen. (Sam, 2026-07-12.)
+        ("hung queen with partial recovery = Hung Queen",
+         "2krr3/ppp2ppp/8/2q5/3n4/2P2B1P/PPQ2PP1/R3R1K1 w - - 1 18",
+         "c2d3", ["Ne2+", "Rxe2", "Rxd3", "Rxe8+", "Kd7", "Rae1"], "Hung Queen"),
     ]
     for name, fen, uci, ref, want in hung_cases:
         b = chess.Board(fen)
-        m = Mistake(fen, uci, "", [], ref, 0, -300, 300, b.turn)
+        # the move-18 case supplies SAN refutation from the AFTER-played board; others too. eval None →
+        # win_drop falls back to cp_loss (these test material, not the gate).
+        ref_san = ref
+        m = Mistake(fen, uci, "", [], ref_san, 0, -300, 300, b.turn)
         res = PR.hung_material(m)
         got = res[0][0] if res else None
         passed = (got == want)
@@ -209,6 +219,13 @@ def run():
         # win-drop suppression is the entry gate's job (tested in the entry-gate block), not here.
         ("greedy grab detects regardless of cp (gate suppresses)", "r2qk2r/ppp2ppp/2n5/3p4/3P4/2N1B3/PPP2PPP/R2QK2R w KQkq - 0 1",
          "c3d5", "e3h6", 20, "Greedy Capture"),
+        # NEG (#52): an UNSOUND SACRIFICE is not greed. Bxf7+ = bishop (3) takes a pawn (1) and is
+        # immediately recaptured Kxf7 -> player is DOWN ~2 net. Greedy = grabbing material you keep;
+        # this SHEDS material. Must NOT fire Greedy Capture even though best (quiet Ng5) is non-capture.
+        ("Greek-Gift Bxf7+ sac is NOT greedy", "rnbqkb1r/pppp1ppp/5n2/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR w KQkq - 0 1",
+         "c4f7", "g1g5", 260, None),
+        # control: Bxf7+ where f7 is DEFENDED only by a piece the bishop is worth less than -> still a
+        # real grab (net gain) would fire; here we keep the sac NEG above as the #52 guard.
     ]
     for name, fen, uci, best, cpl, want in greedy_cases:
         b = chess.Board(fen)
