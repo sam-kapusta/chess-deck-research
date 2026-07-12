@@ -1,0 +1,2 @@
+{"tag": "jr512_k8_final", "dict_size": 512, "target_l0": 8.0, "minutes": 0.3, "fvu": 0.3025, "mean_L0": 9.26, "dead_pct": 0.6, "fire_lt1pct": 298, "fire_1_5pct": 172, "fire_5_10pct": 21, "fire_gt10pct": 15, "fire_median_pct": 0.58, "theta_median": 2.8857}
+{"tag": "jr256_k8_final", "dict_size": 256, "target_l0": 8.0, "minutes": 0.2, "fvu": 0.318, "mean_L0": 9.14, "dead_pct": 0.0, "fire_lt1pct": 129, "fire_1_5pct": 72, "fire_5_10pct": 31, "fire_gt10pct": 24, "fire_median_pct": 0.89, "theta_median": 3.1683}
