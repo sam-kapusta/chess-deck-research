@@ -69,6 +69,54 @@ ray_piece_types = [QUEEN, ROOK, BISHOP]
 PIECE_NAME = {PAWN: "Pawn", KNIGHT: "Knight", BISHOP: "Bishop", ROOK: "Rook", QUEEN: "Queen", KING: "King"}
 
 
+_SEE_VAL = {PAWN: 1, KNIGHT: 3, BISHOP: 3, ROOK: 5, QUEEN: 9, KING: 99}
+
+def static_exchange_eval(board: Board, move: chess.Move) -> int:
+    """Static Exchange Evaluation of a CAPTURE: net material (in pawns, mover POV) after the full
+    capture sequence on the target square is played out optimally. >0 = mover wins material (a real
+    'grab'); <0 = mover loses material (a SACRIFICE). Standard swap-off algorithm. Used to tell a
+    greedy capture (keep material) from an unsound sac (shed material) — #52.
+
+    Returns 0 for non-captures (nothing at stake)."""
+    to = move.to_square
+    victim = board.piece_at(to)
+    if victim is None:
+        # en passant captures a pawn on a different square
+        if board.is_en_passant(move):
+            gain0 = 1
+        else:
+            return 0
+    else:
+        gain0 = _SEE_VAL[victim.piece_type]
+    attacker = board.piece_at(move.from_square)
+    if attacker is None:
+        return 0
+    # Simulate: play the capture, then recapture with the least-valuable attacker, alternating.
+    b = board.copy(stack=False)
+    b.push(move)
+    gains = [gain0]
+    on_square_val = _SEE_VAL[attacker.piece_type]   # value of the piece now sitting on `to`
+    side = not board.turn                            # side to move (the recapturer)
+    while True:
+        # least-valuable attacker of `to` for `side`
+        atks = b.attackers(side, to)
+        if not atks:
+            break
+        lva_sq = min(atks, key=lambda s: _SEE_VAL[b.piece_at(s).piece_type])
+        cap = chess.Move(lva_sq, to)
+        if cap not in b.legal_moves:
+            # pinned/illegal recapture — stop the swap
+            break
+        gains.append(on_square_val - gains[-1])       # standard negamax swap accumulation
+        on_square_val = _SEE_VAL[b.piece_at(lva_sq).piece_type]
+        b.push(cap)
+        side = not side
+    # negamax fold-back: each side takes the better of "stand pat" vs "continue the exchange"
+    for i in range(len(gains) - 2, -1, -1):
+        gains[i] = -max(-gains[i], gains[i + 1])
+    return gains[0]
+
+
 def material_count(board: Board, side: Color) -> int:
     return sum(len(board.pieces(pt, side)) * v for pt, v in values.items())
 

@@ -209,23 +209,23 @@ def run():
     print("--- predicates: greedy_capture (played grabs material, best is QUIET) — GH #29 ---")
     # (name, fen, played_uci, best_uci, cpl, expected_label_or_None). win_drop via cp_loss fallback.
     greedy_cases = [
-        # POS: White Nxd5 grabs a pawn; best is the quiet Bh6. cp200 -> 17.6 win-pts (taggable).
-        ("grab pawn when quiet Bh6 was best", "r2qk2r/ppp2ppp/2n5/3p4/3P4/2N1B3/PPP2PPP/R2QK2R w KQkq - 0 1",
-         "c3d5", "e3h6", 200, "Greedy Capture"),
-        # NEG: best is ALSO a capture (Nxd5) — that's a missed capture/exchange, not greed. Must NOT fire.
-        ("best is also a capture -> not greedy", "r2qk2r/ppp2ppp/2n5/3p4/3P4/2N1B3/PPP2PPP/R2QK2R w KQkq - 0 1",
-         "c3d5", "d4d5", 200, None),
-        # GH #29: pure detector — fires on the grab-vs-quiet PATTERN regardless of severity. The low-
-        # win-drop suppression is the entry gate's job (tested in the entry-gate block), not here.
-        ("greedy grab detects regardless of cp (gate suppresses)", "r2qk2r/ppp2ppp/2n5/3p4/3P4/2N1B3/PPP2PPP/R2QK2R w KQkq - 0 1",
-         "c3d5", "e3h6", 20, "Greedy Capture"),
+        # POS: Rd2xd5 grabs an UNDEFENDED pawn (SEE +1 — a real grab you keep); best is the quiet Kf1.
+        # (Old FEN's Nxd5 grabbed a QUEEN-DEFENDED pawn = SEE -2, i.e. a losing sac, never real greed —
+        #  #52 SEE gate correctly stopped firing on it; the test position was mislabeled. Replaced.)
+        ("grab UNDEFENDED pawn when quiet move was best", "4k3/8/8/3p4/8/8/3R4/4K3 w - - 0 1",
+         "d2d5", "e1f1", 200, "Greedy Capture"),
+        # NEG: best is ALSO a capture (Bxd5, capturing the same pawn) — that's a missed capture/exchange
+        # decision, not greed. Must NOT fire. (Bc4 attacks d5; Bxd5 is the alt capture.)
+        ("best is also a capture -> not greedy", "4k3/8/8/3p4/8/8/3R2B1/4K3 w - - 0 1",
+         "d2d5", "g2d5", 200, None),
+        # GH #29: pure detector — fires on the grab-vs-quiet PATTERN regardless of severity.
+        ("greedy grab detects regardless of cp (gate suppresses)", "4k3/8/8/3p4/8/8/3R4/4K3 w - - 0 1",
+         "d2d5", "e1f1", 20, "Greedy Capture"),
         # NEG (#52): an UNSOUND SACRIFICE is not greed. Bxf7+ = bishop (3) takes a pawn (1) and is
-        # immediately recaptured Kxf7 -> player is DOWN ~2 net. Greedy = grabbing material you keep;
-        # this SHEDS material. Must NOT fire Greedy Capture even though best (quiet Ng5) is non-capture.
+        # immediately recaptured Kxf7 -> SEE ~-2. Greedy = grabbing material you keep; this SHEDS it.
+        # Must NOT fire even though best (quiet Ng5) is non-capture. (The #45/#52 conflation.)
         ("Greek-Gift Bxf7+ sac is NOT greedy", "rnbqkb1r/pppp1ppp/5n2/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR w KQkq - 0 1",
          "c4f7", "g1g5", 260, None),
-        # control: Bxf7+ where f7 is DEFENDED only by a piece the bishop is worth less than -> still a
-        # real grab (net gain) would fire; here we keep the sac NEG above as the #52 guard.
     ]
     for name, fen, uci, best, cpl, want in greedy_cases:
         b = chess.Board(fen)
