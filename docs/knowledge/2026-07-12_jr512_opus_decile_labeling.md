@@ -108,6 +108,36 @@ the RULE TAGGER can't name = missing detectors. Done end-to-end:
 Artifacts: `output/jumprelu_l7diff/retag_full.json` (per-feature full-tagger vote vs Opus verdict),
 `sf_lines_60k.jsonl` + `retag_full_postags.json` on chess-poc.
 
+## ⚠️ "Tagger fires" ≠ "tagger correct" — the board-grounded audit (2026-07-12, Sam's push)
+The "76% explained" number was MISLEADING — it counts whether the tagger FIRES, not whether the label
+is right or deep. Built a board-grounded Opus judge (`scripts/03_feature_labeling/judge_tagger.py`):
+per feature, show the judge the TOP-FIRING boards + SF best/refutation lines + per-position analysis +
+BOTH candidate labels, and rule accurate / shallow / wrong with its OWN concept (can reject both — Opus
+is NOT ground truth either). Validated on hand-checked cases before trusting it.
+
+**Result on the 112 confident (≥0.30) tagger fires on good SAE features:**
+- **33 accurate (29%)** · **39 shallow (35%)** · **40 wrong (36%)**, 2 direction-flips.
+- So only ~29% of the tagger's CONFIDENT fires are both right AND deep. This is the real audit signal,
+  not the fire-rate.
+- **Neither label source is ground truth:** on f38 the tagger was directionally RIGHT ("Allowed
+  [back-rank] Mate") and OPUS was WRONG ("Missed Back-Rank Mate" — flipped the direction). The judge
+  reading boards caught it; label-vs-label couldn't.
+
+**Failure patterns (→ filed #52 wrong, #53 shallow):**
+- `Greedy Capture` = worst offender, ~11 confident-wrong, conflates 4+ concepts: unsound sacrifices
+  (Greek Gifts, = #45), zwischenzug misses, losing exchanges into pawn endgames. Fires on
+  "capture + best-quiet" with no material-gain/sac/intermezzo test.
+- `Missed Trade to Simplify` (~5 wrong) fires on "missed free capture of a hanging piece" — the player
+  missed WINNING material, not a trade decision.
+- SHALLOW: "Missed Fork"→knight fork, "Advanced Pawn"→PASSED pawn, "Missed Mate"→back-rank,
+  "Missed Prophylaxis"→king-pawn opposition draw. Right direction, specific concept flattened.
+- **Tagger is reliable on DIRECT primitives** (Missed Mate, Hung Queen/Knight/Bishop, Missed Free
+  Queen) — accurate+deep there. The INFERENTIAL labels (Greedy, Trade-to-Simplify, Overloading,
+  Prophylaxis) are where it fires confidently-wrong.
+
+Deliverable: `output/jumprelu_l7diff/judge_tagger.json` (per-feature board-grounded verdicts).
+**The SAE's real value = auditing tagger CORRECTNESS/DEPTH, not just coverage.**
+
 ## Next (open)
 - **Dedup the hanging-piece cluster** to recover the true distinct-concept count.
 - Optionally label the 256 model + compare (leaner still).
