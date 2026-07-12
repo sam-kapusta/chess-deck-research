@@ -1,0 +1,7163 @@
+{
+ "0": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.325,
+  "tagger_covered_frac": 0.89,
+  "tagger_votes": {
+   "Missed Overloading": 65,
+   "Missed Mate": 48,
+   "Allowed Battery": 44,
+   "Missed Battery": 25,
+   "Pawn Move Exposed King": 21
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed King-Safety Tactic"
+ },
+ "1": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.755,
+  "tagger_covered_frac": 0.845,
+  "tagger_votes": {
+   "Missed Mate": 151,
+   "Missed Faster Mate": 70,
+   "Allowed Sacrifice": 46,
+   "Missed Kingside Attack": 43,
+   "Missed Battery": 42
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Forced Mate"
+ },
+ "2": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.22,
+  "tagger_covered_frac": 0.825,
+  "tagger_votes": {
+   "Greedy Capture": 44,
+   "Missed Open File": 36,
+   "Missed Pin (to Rook)": 30,
+   "Missed Pin (to Queen)": 21,
+   "Missed Battery": 21
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo Loss Blunder"
+ },
+ "3": {
+  "tagger_top": "Allowed Battery",
+  "tagger_conf": 0.125,
+  "tagger_covered_frac": 0.875,
+  "tagger_votes": {
+   "Allowed Battery": 25,
+   "Hung Knight": 22,
+   "Missed Free Queen": 20,
+   "Missed Prophylaxis": 18,
+   "Pawn Move Exposed King": 15
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Piece Left Undefended"
+ },
+ "4": {
+  "tagger_top": "Missed Open File",
+  "tagger_conf": 0.155,
+  "tagger_covered_frac": 0.525,
+  "tagger_votes": {
+   "Missed Open File": 31,
+   "Hung Rook": 20,
+   "Missed King Activity": 18,
+   "Allowed Mate": 16,
+   "Missed Trade to Simplify": 16
+  },
+  "opus_verdict": "good",
+  "opus_label": "Pointless Check Losing Tempo"
+ },
+ "5": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.107,
+  "tagger_covered_frac": 0.583,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 9,
+   "Pawn Move Exposed King": 8,
+   "Allowed Pawn Capture": 8,
+   "Missed Pawn Break": 7,
+   "Greedy Capture": 7
+  },
+  "opus_verdict": "good",
+  "opus_label": "Pawn Endgame Passer Mismanagement"
+ },
+ "6": {
+  "tagger_top": "Missed Free Rook",
+  "tagger_conf": 0.42,
+  "tagger_covered_frac": 0.935,
+  "tagger_votes": {
+   "Missed Free Rook": 84,
+   "Allowed Battery": 37,
+   "Missed Desperado": 28,
+   "Missed Defensive Resource": 25,
+   "Ignored Threat": 23
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Free Piece Capture"
+ },
+ "7": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.505,
+  "tagger_covered_frac": 0.905,
+  "tagger_votes": {
+   "Greedy Capture": 101,
+   "Pawn Grab While Undeveloped": 67,
+   "Premature Trade": 27,
+   "Premature Attack": 22,
+   "Hung Knight": 20
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Blunder"
+ },
+ "8": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.32,
+  "tagger_covered_frac": 0.925,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 64,
+   "Missed Pawn Break": 31,
+   "Missed Free Knight": 29,
+   "Missed Prophylaxis": 25,
+   "Allowed Fork": 22
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Material-Winning Tactic"
+ },
+ "9": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.118,
+  "tagger_covered_frac": 0.658,
+  "tagger_votes": {
+   "Missed Overloading": 9,
+   "Missed Trade to Simplify": 8,
+   "Greedy Capture": 8,
+   "Missed Prophylaxis": 8,
+   "Pawn Move Exposed King": 8
+  },
+  "opus_verdict": "noise",
+  "opus_label": "Mixed Blunder Types"
+ },
+ "10": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.15,
+  "tagger_covered_frac": 0.535,
+  "tagger_votes": {
+   "Allowed Mate": 30,
+   "Missed Trade to Simplify": 23,
+   "Hung Rook": 13,
+   "Wrong Pawn Race": 11,
+   "Missed Free Pawn": 10
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Exposed-King Move Tempo Loss"
+ },
+ "11": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.25,
+  "tagger_covered_frac": 0.75,
+  "tagger_votes": {
+   "Greedy Capture": 6,
+   "Missed Trade to Simplify": 4,
+   "Allowed Mate": 3,
+   "Premature Trade": 3,
+   "Missed Pawn Trade": 3
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Squandered Advantage / Tempo Loss"
+ },
+ "12": {
+  "tagger_top": "Missed Free Rook",
+  "tagger_conf": 0.158,
+  "tagger_covered_frac": 0.737,
+  "tagger_votes": {
+   "Missed Free Rook": 6,
+   "Missed Trade to Simplify": 6,
+   "Allowed Mate": 5,
+   "Greedy Capture": 5,
+   "Allowed Sacrifice": 5
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Endgame Conversion Error"
+ },
+ "13": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.315,
+  "tagger_covered_frac": 0.925,
+  "tagger_votes": {
+   "Greedy Capture": 63,
+   "Pawn Grab While Undeveloped": 56,
+   "Hung Queen": 36,
+   "Premature Trade": 36,
+   "Missed Pawn Break": 32
+  },
+  "opus_verdict": "good",
+  "opus_label": "Greedy Capture Hangs Piece"
+ },
+ "14": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.206,
+  "tagger_covered_frac": 0.825,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 13,
+   "Missed Pawn Break": 8,
+   "Missed Overloading": 7,
+   "Missed Trade to Simplify": 6,
+   "Hung Bishop": 5
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece / Won-Game Squander"
+ },
+ "15": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.45,
+  "tagger_covered_frac": 0.6,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 90,
+   "Missed Mate": 64,
+   "Missed Free Rook": 54,
+   "Missed Faster Mate": 43,
+   "Missed Advanced Pawn": 30
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Capture Of Hanging Piece"
+ },
+ "16": {
+  "tagger_top": "Missed Advanced Pawn",
+  "tagger_conf": 0.515,
+  "tagger_covered_frac": 0.665,
+  "tagger_votes": {
+   "Missed Advanced Pawn": 103,
+   "Missed Passed Pawn": 74,
+   "Missed Promotion": 68,
+   "Missed Push to Promote": 63,
+   "Wrong Pawn Race": 48
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Passed-Pawn Push"
+ },
+ "17": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.215,
+  "tagger_covered_frac": 0.83,
+  "tagger_votes": {
+   "Allowed Mate": 43,
+   "Allowed Battery": 41,
+   "Greedy Capture": 37,
+   "Missed Overloading": 26,
+   "Pawn Move Exposed King": 24
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Exposed King, Missed Tactic"
+ },
+ "18": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.175,
+  "tagger_covered_frac": 0.775,
+  "tagger_votes": {
+   "Greedy Capture": 35,
+   "Pawn Grab While Undeveloped": 27,
+   "Missed Trade to Simplify": 21,
+   "Hung Knight": 21,
+   "Missed Defensive Resource": 19
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Squandered Won Endgame Conversion"
+ },
+ "19": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.12,
+  "tagger_covered_frac": 0.8,
+  "tagger_votes": {
+   "Missed Pawn Break": 24,
+   "Missed Defensive Resource": 24,
+   "Missed Trade to Simplify": 22,
+   "Missed Prophylaxis": 19,
+   "Missed Desperado": 18
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo-Loss Blunder"
+ },
+ "20": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.185,
+  "tagger_covered_frac": 0.895,
+  "tagger_votes": {
+   "Missed Pawn Break": 37,
+   "Missed Overloading": 24,
+   "Missed Discovered Attack": 23,
+   "Missed Kingside Attack": 20,
+   "Allowed Castling": 18
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Forcing Tactic"
+ },
+ "21": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.81,
+  "tagger_covered_frac": 0.985,
+  "tagger_votes": {
+   "Greedy Capture": 162,
+   "Pawn Grab While Undeveloped": 154,
+   "Hung Bishop": 72,
+   "Hung Knight": 69,
+   "Premature Trade": 67
+  },
+  "opus_verdict": "good",
+  "opus_label": "Unsound Sacrifice, No Compensation"
+ },
+ "22": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.117,
+  "tagger_covered_frac": 0.564,
+  "tagger_votes": {
+   "Missed Overloading": 11,
+   "Pawn Move Exposed King": 9,
+   "Allowed Mate": 9,
+   "Missed Pawn Break": 9,
+   "Missed Prophylaxis": 7
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo Loss in Passed-Pawn Endgame"
+ },
+ "23": {
+  "tagger_top": "Missed Free Queen",
+  "tagger_conf": 0.176,
+  "tagger_covered_frac": 0.835,
+  "tagger_votes": {
+   "Missed Free Queen": 32,
+   "Missed Desperado": 29,
+   "Missed Mate": 25,
+   "Allowed Sacrifice": 23,
+   "Missed Overloading": 23
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece / Queen Left En Prise"
+ },
+ "24": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.16,
+  "tagger_covered_frac": 0.755,
+  "tagger_votes": {
+   "Missed Overloading": 32,
+   "Missed Mate": 21,
+   "Missed Free Pawn": 20,
+   "Greedy Capture": 20,
+   "Missed Prophylaxis": 17
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Tempo Loss / King Safety / Hanging Piece"
+ },
+ "25": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.31,
+  "tagger_covered_frac": 0.845,
+  "tagger_votes": {
+   "Missed Overloading": 62,
+   "Pawn Move Exposed King": 32,
+   "Allowed Battery": 23,
+   "Hung Bishop": 19,
+   "Pawn Grab While Undeveloped": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Queen Check On Exposed King"
+ },
+ "26": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.17,
+  "tagger_covered_frac": 0.795,
+  "tagger_votes": {
+   "Missed Mate": 34,
+   "Bad Simplification": 31,
+   "Greedy Capture": 26,
+   "Missed Free Rook": 25,
+   "Premature Trade": 23
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Winning Endgame Thrown Away"
+ },
+ "27": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.305,
+  "tagger_covered_frac": 0.905,
+  "tagger_votes": {
+   "Missed Overloading": 61,
+   "Pawn Move Exposed King": 32,
+   "Greedy Capture": 32,
+   "Hung Queen": 27,
+   "Premature Trade": 26
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed King-Attack Tactic"
+ },
+ "28": {
+  "tagger_top": "Missed Free Knight",
+  "tagger_conf": 0.175,
+  "tagger_covered_frac": 0.785,
+  "tagger_votes": {
+   "Missed Free Knight": 35,
+   "Missed Overloading": 27,
+   "Pawn Move Exposed King": 22,
+   "Greedy Capture": 20,
+   "Missed Pawn Break": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "29": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.221,
+  "tagger_covered_frac": 0.812,
+  "tagger_votes": {
+   "Greedy Capture": 34,
+   "Hung Knight": 25,
+   "Missed Pawn Break": 22,
+   "Pawn Grab While Undeveloped": 17,
+   "Missed Overloading": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "30": {
+  "tagger_top": "Missed Queen Exchange",
+  "tagger_conf": 0.245,
+  "tagger_covered_frac": 0.89,
+  "tagger_votes": {
+   "Missed Queen Exchange": 49,
+   "Missed Bishop-Knight Exchange": 34,
+   "Missed Desperado": 32,
+   "Allowed Battery": 28,
+   "Missed Overloading": 27
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "31": {
+  "tagger_top": "Missed Bishop-Knight Exchange",
+  "tagger_conf": 0.445,
+  "tagger_covered_frac": 0.945,
+  "tagger_votes": {
+   "Missed Bishop-Knight Exchange": 89,
+   "Missed Remove the Guard": 47,
+   "Missed Overloading": 37,
+   "Missed Pawn Break": 30,
+   "Missed Pin (to Queen)": 29
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "32": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.342,
+  "tagger_covered_frac": 0.802,
+  "tagger_votes": {
+   "Greedy Capture": 38,
+   "Premature Trade": 20,
+   "Pawn Move Exposed King": 12,
+   "Pawn Grab While Undeveloped": 10,
+   "Bad Simplification": 9
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Greedy Pawn Grab"
+ },
+ "33": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.16,
+  "tagger_covered_frac": 0.795,
+  "tagger_votes": {
+   "Missed Overloading": 32,
+   "Allowed Battery": 30,
+   "Pawn Move Exposed King": 18,
+   "Missed Remove the Guard": 18,
+   "Missed Pawn Break": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "34": {
+  "tagger_top": "Allowed Advanced Pawn",
+  "tagger_conf": 0.355,
+  "tagger_covered_frac": 0.675,
+  "tagger_votes": {
+   "Allowed Advanced Pawn": 71,
+   "Allowed Promotion": 52,
+   "Greedy Capture": 31,
+   "Missed Prophylaxis": 28,
+   "Wrong Pawn Race": 25
+  },
+  "opus_verdict": "good",
+  "opus_label": "Mishandled Passed Pawn Race"
+ },
+ "35": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.14,
+  "tagger_covered_frac": 0.72,
+  "tagger_votes": {
+   "Missed Pawn Break": 15,
+   "Greedy Capture": 14,
+   "Missed Trade to Simplify": 12,
+   "Missed Overloading": 12,
+   "Allowed Mate": 11
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Tactic / Tempo Loss"
+ },
+ "36": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.195,
+  "tagger_covered_frac": 0.91,
+  "tagger_votes": {
+   "Missed Overloading": 39,
+   "Missed Remove the Guard": 28,
+   "Allowed Battery": 28,
+   "Missed Bishop-Knight Exchange": 24,
+   "Missed Bishop Exchange": 24
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Tactic / Hanging Piece"
+ },
+ "37": {
+  "tagger_top": "Allowed Pawn Capture",
+  "tagger_conf": 0.175,
+  "tagger_covered_frac": 0.545,
+  "tagger_votes": {
+   "Allowed Pawn Capture": 35,
+   "Pawn Move Exposed King": 32,
+   "Bad Simplification": 29,
+   "Greedy Capture": 27,
+   "Wrong Pawn Race": 27
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed Pawn Endgame Error"
+ },
+ "38": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.815,
+  "tagger_covered_frac": 0.91,
+  "tagger_votes": {
+   "Allowed Mate": 163,
+   "Allowed Back-Rank Mate": 54,
+   "Greedy Capture": 50,
+   "Bad Simplification": 30,
+   "Missed Prophylaxis": 23
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Back-Rank Mate"
+ },
+ "39": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.55,
+  "tagger_covered_frac": 0.695,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 110,
+   "Missed Free Rook": 53,
+   "Missed Advanced Pawn": 30,
+   "Missed Desperado": 27,
+   "Pawn Move Exposed King": 26
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Capture Of Hanging Piece"
+ },
+ "40": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.16,
+  "tagger_covered_frac": 0.773,
+  "tagger_votes": {
+   "Greedy Capture": 29,
+   "Hung Bishop": 21,
+   "Missed Overloading": 19,
+   "Missed Desperado": 16,
+   "Missed Pawn Break": 16
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Blunder"
+ },
+ "41": {
+  "tagger_top": "Hung Bishop",
+  "tagger_conf": 0.17,
+  "tagger_covered_frac": 0.845,
+  "tagger_votes": {
+   "Hung Bishop": 34,
+   "Hung Knight": 28,
+   "Greedy Capture": 25,
+   "Missed Prophylaxis": 21,
+   "Missed Pawn Break": 21
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "42": {
+  "tagger_top": "Missed Free Bishop",
+  "tagger_conf": 0.29,
+  "tagger_covered_frac": 0.965,
+  "tagger_votes": {
+   "Missed Free Bishop": 58,
+   "Missed Free Knight": 28,
+   "Missed Castling": 28,
+   "Missed Free Pawn": 24,
+   "Allowed Battery": 23
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Capture Of Hanging Piece"
+ },
+ "43": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.2,
+  "tagger_covered_frac": 0.48,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 40,
+   "Allowed Mate": 30,
+   "Missed Pawn Break": 22,
+   "Allowed Advanced Pawn": 20,
+   "Missed Free Pawn": 19
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed Pawn Endgame Mishandling"
+ },
+ "44": {
+  "tagger_top": "Missed Bishop-Knight Exchange",
+  "tagger_conf": 0.31,
+  "tagger_covered_frac": 0.935,
+  "tagger_votes": {
+   "Missed Bishop-Knight Exchange": 62,
+   "Missed Bishop Exchange": 36,
+   "Missed Overloading": 36,
+   "Missed Remove the Guard": 31,
+   "Missed Desperado": 26
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Bishop Trapped After Missed Exchange"
+ },
+ "45": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.15,
+  "tagger_covered_frac": 0.8,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 30,
+   "Greedy Capture": 28,
+   "Missed Free Knight": 25,
+   "Premature Trade": 24,
+   "Missed Pawn Break": 23
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "46": {
+  "tagger_top": "Missed Advanced Pawn",
+  "tagger_conf": 0.238,
+  "tagger_covered_frac": 0.648,
+  "tagger_votes": {
+   "Missed Advanced Pawn": 29,
+   "Missed Passed Pawn": 28,
+   "Missed Promotion": 26,
+   "Missed Mate": 19,
+   "Missed Faster Mate": 12
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed Pawn Promotion Error"
+ },
+ "47": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.135,
+  "tagger_covered_frac": 0.8,
+  "tagger_votes": {
+   "Greedy Capture": 27,
+   "Allowed Mate": 20,
+   "Allowed Battery": 18,
+   "Missed Prophylaxis": 17,
+   "Missed Mate": 16
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Squandered Winning Advantage"
+ },
+ "48": {
+  "tagger_top": "Missed Tempo Push",
+  "tagger_conf": 0.435,
+  "tagger_covered_frac": 0.945,
+  "tagger_votes": {
+   "Missed Tempo Push": 87,
+   "Missed Pawn Break": 55,
+   "Missed Overloading": 31,
+   "Pawn Move Exposed King": 27,
+   "Missed Prophylaxis": 24
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Tempo-Gaining Move"
+ },
+ "49": {
+  "tagger_top": "Missed Free Bishop",
+  "tagger_conf": 0.39,
+  "tagger_covered_frac": 0.995,
+  "tagger_votes": {
+   "Missed Free Bishop": 78,
+   "Missed Free Knight": 63,
+   "Missed Desperado": 48,
+   "Missed Free Queen": 47,
+   "Pawn Move Exposed King": 36
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Hanging Piece Capture"
+ },
+ "50": {
+  "tagger_top": "Missed Discovered Attack",
+  "tagger_conf": 0.35,
+  "tagger_covered_frac": 0.875,
+  "tagger_votes": {
+   "Missed Discovered Attack": 70,
+   "Missed Overloading": 69,
+   "Missed Unpinning Resource": 51,
+   "Allowed Battery": 40,
+   "Missed Kingside Attack": 24
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Immediate Winning Tactic"
+ },
+ "51": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.306,
+  "tagger_covered_frac": 0.861,
+  "tagger_votes": {
+   "Greedy Capture": 11,
+   "Pawn Grab While Undeveloped": 6,
+   "Premature Trade": 5,
+   "Hung Knight": 5,
+   "Hung Queen": 4
+  },
+  "opus_verdict": "good",
+  "opus_label": "Piece Left En Prise"
+ },
+ "52": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.14,
+  "tagger_covered_frac": 0.789,
+  "tagger_votes": {
+   "Greedy Capture": 8,
+   "Missed Prophylaxis": 6,
+   "Missed Advanced Pawn": 6,
+   "Bad Simplification": 6,
+   "Missed Open File": 6
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Botched Passed-Pawn Promotion"
+ },
+ "53": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.299,
+  "tagger_covered_frac": 0.688,
+  "tagger_votes": {
+   "Greedy Capture": 43,
+   "Bad Simplification": 37,
+   "Premature Trade": 29,
+   "Hung Queen": 20,
+   "Missed Passed Pawn": 14
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed Pawn Endgame Conversion"
+ },
+ "54": {
+  "tagger_top": "Missed Desperado",
+  "tagger_conf": 0.13,
+  "tagger_covered_frac": 0.935,
+  "tagger_votes": {
+   "Missed Desperado": 26,
+   "Hung Queen": 26,
+   "Missed Defensive Resource": 25,
+   "Missed Free Knight": 25,
+   "Missed Free Bishop": 24
+  },
+  "opus_verdict": "good",
+  "opus_label": "Leaving A Piece Hanging"
+ },
+ "55": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.38,
+  "tagger_covered_frac": 0.7,
+  "tagger_votes": {
+   "Allowed Mate": 76,
+   "Missed Queen Exchange": 53,
+   "Missed Trade to Simplify": 43,
+   "Allowed Battery": 36,
+   "Missed Overloading": 25
+  },
+  "opus_verdict": "good",
+  "opus_label": "Exposed-King Safety Collapse"
+ },
+ "56": {
+  "tagger_top": "Allowed Battery",
+  "tagger_conf": 0.2,
+  "tagger_covered_frac": 0.6,
+  "tagger_votes": {
+   "Allowed Battery": 6,
+   "Missed Overloading": 6,
+   "Greedy Capture": 5,
+   "Allowed Mate": 4,
+   "Missed Fork": 3
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Premature Queen Trade / Tempo Loss"
+ },
+ "57": {
+  "tagger_top": "Hung Queen",
+  "tagger_conf": 0.665,
+  "tagger_covered_frac": 0.915,
+  "tagger_votes": {
+   "Hung Queen": 133,
+   "Allowed Hanging Piece": 73,
+   "Ignored Threat": 63,
+   "Missed Defensive Resource": 50,
+   "Missed Desperado": 45
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "58": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.19,
+  "tagger_covered_frac": 0.69,
+  "tagger_votes": {
+   "Greedy Capture": 38,
+   "Bad Simplification": 29,
+   "Pawn Move Exposed King": 23,
+   "Wrong Pawn Race": 22,
+   "Allowed Pawn Capture": 19
+  },
+  "opus_verdict": "good",
+  "opus_label": "Botched Winning Pawn Endgame"
+ },
+ "59": {
+  "tagger_top": "Missed Free Pawn",
+  "tagger_conf": 0.565,
+  "tagger_covered_frac": 0.89,
+  "tagger_votes": {
+   "Missed Free Pawn": 113,
+   "Missed Overloading": 69,
+   "Missed Trapped Rook": 58,
+   "Allowed Castling": 31,
+   "Pawn Move Exposed King": 22
+  },
+  "opus_verdict": "good",
+  "opus_label": "Left Piece Hanging En Prise"
+ },
+ "60": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.143,
+  "tagger_covered_frac": 0.727,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 11,
+   "Missed Mate": 9,
+   "Missed Battery": 9,
+   "Greedy Capture": 9,
+   "Bad Simplification": 7
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo Loss In Critical Position"
+ },
+ "61": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.145,
+  "tagger_covered_frac": 0.64,
+  "tagger_votes": {
+   "Allowed Mate": 29,
+   "Ignored Threat": 23,
+   "Greedy Capture": 22,
+   "Missed Desperado": 20,
+   "Allowed Hanging Piece": 18
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Wasted Tempo / King Move Error"
+ },
+ "62": {
+  "tagger_top": "Missed Defensive Resource",
+  "tagger_conf": 0.161,
+  "tagger_covered_frac": 0.808,
+  "tagger_votes": {
+   "Missed Defensive Resource": 31,
+   "Ignored Threat": 27,
+   "Missed Desperado": 26,
+   "Greedy Capture": 25,
+   "Hung Bishop": 22
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece Blunder"
+ },
+ "63": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.16,
+  "tagger_covered_frac": 0.775,
+  "tagger_votes": {
+   "Greedy Capture": 32,
+   "Missed Prophylaxis": 22,
+   "Pawn Move Exposed King": 20,
+   "Allowed Mate": 18,
+   "Missed Overloading": 17
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "King Safety Or Tempo Loss"
+ },
+ "64": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.214,
+  "tagger_covered_frac": 0.747,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 33,
+   "Missed Pawn Break": 16,
+   "Allowed Battery": 14,
+   "Missed Open File": 14,
+   "Failed Pin": 14
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece / Tempo Loss"
+ },
+ "65": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.29,
+  "tagger_covered_frac": 0.905,
+  "tagger_votes": {
+   "Missed Overloading": 58,
+   "Allowed Battery": 28,
+   "Missed Unpinning Resource": 28,
+   "Missed Bishop-Knight Exchange": 27,
+   "Missed Free Queen": 26
+  },
+  "opus_verdict": "good",
+  "opus_label": "Undefended Piece Left Hanging"
+ },
+ "66": {
+  "tagger_top": "Missed Open File",
+  "tagger_conf": 0.095,
+  "tagger_covered_frac": 0.665,
+  "tagger_votes": {
+   "Missed Open File": 19,
+   "Missed Free Rook": 14,
+   "Hung Rook": 12,
+   "Wrong King Direction": 11,
+   "Wrong Pawn Race": 11
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Free Capture / Hanging Piece"
+ },
+ "67": {
+  "tagger_top": "Allowed Advanced Pawn",
+  "tagger_conf": 0.154,
+  "tagger_covered_frac": 0.731,
+  "tagger_votes": {
+   "Allowed Advanced Pawn": 4,
+   "Missed King Activity": 3,
+   "Wrong Pawn Race": 3,
+   "Missed Free Pawn": 3,
+   "Missed Overloading": 3
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Premature Passed-Pawn Advance"
+ },
+ "68": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.135,
+  "tagger_covered_frac": 0.82,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 27,
+   "Greedy Capture": 25,
+   "Allowed Battery": 23,
+   "Missed Defensive Resource": 19,
+   "Missed Free Pawn": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "69": {
+  "tagger_top": "Missed Free Bishop",
+  "tagger_conf": 0.215,
+  "tagger_covered_frac": 0.845,
+  "tagger_votes": {
+   "Missed Free Bishop": 43,
+   "Allowed Battery": 32,
+   "Missed Overloading": 21,
+   "Missed Desperado": 21,
+   "Missed Queen Exchange": 19
+  },
+  "opus_verdict": "good",
+  "opus_label": "Leaving Piece En Prise"
+ },
+ "70": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.095,
+  "tagger_covered_frac": 0.43,
+  "tagger_votes": {
+   "Allowed Mate": 19,
+   "Missed Advanced Pawn": 18,
+   "Bad Simplification": 18,
+   "Greedy Capture": 18,
+   "Missed Promotion": 14
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed Pawn Promotion Error"
+ },
+ "71": {
+  "tagger_top": "Allowed Fork",
+  "tagger_conf": 0.214,
+  "tagger_covered_frac": 0.696,
+  "tagger_votes": {
+   "Allowed Fork": 12,
+   "Missed Pawn Break": 11,
+   "Greedy Capture": 10,
+   "Missed Pawn Trade": 9,
+   "Bad Simplification": 6
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Pawn Endgame Tempo Error"
+ },
+ "72": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.39,
+  "tagger_covered_frac": 0.945,
+  "tagger_votes": {
+   "Greedy Capture": 78,
+   "Pawn Grab While Undeveloped": 76,
+   "Hung Bishop": 71,
+   "Missed Pawn Break": 51,
+   "Premature Attack": 44
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "73": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.125,
+  "tagger_covered_frac": 0.609,
+  "tagger_votes": {
+   "Greedy Capture": 16,
+   "Missed Trade to Simplify": 15,
+   "Missed Open File": 12,
+   "Premature Trade": 11,
+   "Missed Free Pawn": 10
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed Pawn Endgame Conversion Error"
+ },
+ "74": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.147,
+  "tagger_covered_frac": 0.62,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 27,
+   "Allowed Mate": 20,
+   "Missed Overloading": 18,
+   "Missed Desperado": 12,
+   "Greedy Capture": 12
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Winning Conversion"
+ },
+ "75": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.11,
+  "tagger_covered_frac": 0.77,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 22,
+   "Missed Free Pawn": 20,
+   "Allowed Mate": 19,
+   "Missed Overloading": 18,
+   "Missed Prophylaxis": 16
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Tactic / Tempo Loss"
+ },
+ "76": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.174,
+  "tagger_covered_frac": 0.783,
+  "tagger_votes": {
+   "Greedy Capture": 12,
+   "Missed Prophylaxis": 11,
+   "Hung Queen": 8,
+   "Bad Simplification": 7,
+   "Ignored Threat": 7
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "77": {
+  "tagger_top": "Hung Bishop",
+  "tagger_conf": 0.153,
+  "tagger_covered_frac": 0.831,
+  "tagger_votes": {
+   "Hung Bishop": 27,
+   "Greedy Capture": 27,
+   "Missed Pawn Break": 23,
+   "Hung Knight": 17,
+   "Allowed Battery": 16
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "78": {
+  "tagger_top": "Missed Battery",
+  "tagger_conf": 0.25,
+  "tagger_covered_frac": 0.85,
+  "tagger_votes": {
+   "Missed Battery": 50,
+   "Missed Interposition": 38,
+   "Missed Overloading": 32,
+   "Allowed Mate": 27,
+   "Allowed Battery": 20
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Self-Weakening King Safety"
+ },
+ "79": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.15,
+  "tagger_covered_frac": 0.63,
+  "tagger_votes": {
+   "Allowed Mate": 30,
+   "Wrong Pawn Race": 21,
+   "Missed Tempo Push": 19,
+   "Missed Prophylaxis": 18,
+   "Missed King Activity": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "King Walks Into Danger"
+ },
+ "80": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.155,
+  "tagger_covered_frac": 0.69,
+  "tagger_votes": {
+   "Allowed Mate": 31,
+   "Pawn Move Exposed King": 22,
+   "Missed Trade to Simplify": 21,
+   "Allowed Battery": 19,
+   "Greedy Capture": 17
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Endgame King Misstep / Tempo Loss"
+ },
+ "81": {
+  "tagger_top": "Missed Fork",
+  "tagger_conf": 0.625,
+  "tagger_covered_frac": 0.9,
+  "tagger_votes": {
+   "Missed Fork": 125,
+   "Missed Overloading": 48,
+   "Missed Tempo Push": 30,
+   "Missed Pawn Break": 20,
+   "Missed Pin (to King)": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Knight Fork"
+ },
+ "82": {
+  "tagger_top": "Missed Rook to Open File",
+  "tagger_conf": 0.2,
+  "tagger_covered_frac": 0.8,
+  "tagger_votes": {
+   "Missed Rook to Open File": 1,
+   "Missed Open File": 1,
+   "Allowed Fork": 1,
+   "Missed Defensive Resource": 1,
+   "Missed Pin (to King)": 1
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Wrong Exchange Into Lost Endgame"
+ },
+ "83": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.195,
+  "tagger_covered_frac": 0.86,
+  "tagger_votes": {
+   "Greedy Capture": 39,
+   "Allowed Pawn Capture": 34,
+   "Pawn Move Exposed King": 26,
+   "Missed Prophylaxis": 20,
+   "Hung Knight": 20
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Hanging Piece Blunder"
+ },
+ "84": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.286,
+  "tagger_covered_frac": 0.686,
+  "tagger_votes": {
+   "Missed Pawn Break": 10,
+   "Allowed Battery": 6,
+   "Greedy Capture": 5,
+   "Premature Trade": 5,
+   "Missed Prophylaxis": 4
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Overlooked Hanging Piece"
+ },
+ "85": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.155,
+  "tagger_covered_frac": 0.585,
+  "tagger_votes": {
+   "Allowed Mate": 31,
+   "Missed Open File": 21,
+   "Allowed Battery": 20,
+   "Hung Queen": 20,
+   "Missed Trade to Simplify": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Pointless Tempo-Wasting Check"
+ },
+ "86": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.125,
+  "tagger_covered_frac": 0.805,
+  "tagger_votes": {
+   "Greedy Capture": 25,
+   "Missed Fork": 23,
+   "Missed Overloading": 22,
+   "Allowed Battery": 18,
+   "Allowed Mate": 16
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Forcing Knight Fork"
+ },
+ "87": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.244,
+  "tagger_covered_frac": 0.756,
+  "tagger_votes": {
+   "Greedy Capture": 11,
+   "Premature Trade": 10,
+   "Bad Simplification": 6,
+   "Pawn Move Exposed King": 5,
+   "Missed Prophylaxis": 5
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Squandered Winning Advantage"
+ },
+ "88": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.152,
+  "tagger_covered_frac": 0.859,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 14,
+   "Missed Pawn Break": 14,
+   "Missed Pawn Trade": 13,
+   "Greedy Capture": 12,
+   "Ignored Threat": 10
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "89": {
+  "tagger_top": "Missed Queen Exchange",
+  "tagger_conf": 0.7,
+  "tagger_covered_frac": 0.945,
+  "tagger_votes": {
+   "Missed Queen Exchange": 140,
+   "Missed Overloading": 50,
+   "Hung Queen": 47,
+   "Missed Defensive Resource": 39,
+   "Missed Desperado": 37
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Forced Queen Trade"
+ },
+ "90": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.77,
+  "tagger_covered_frac": 0.98,
+  "tagger_votes": {
+   "Greedy Capture": 154,
+   "Pawn Grab While Undeveloped": 143,
+   "Hung Bishop": 105,
+   "Premature Trade": 68,
+   "Premature Attack": 54
+  },
+  "opus_verdict": "good",
+  "opus_label": "Unsound Premature Sacrifice"
+ },
+ "91": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.215,
+  "tagger_covered_frac": 0.83,
+  "tagger_votes": {
+   "Missed Pawn Break": 43,
+   "Pawn Move Exposed King": 41,
+   "Missed Pawn Trade": 34,
+   "Missed Desperado": 30,
+   "Hung Queen": 25
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "92": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.155,
+  "tagger_covered_frac": 0.785,
+  "tagger_votes": {
+   "Missed Mate": 31,
+   "Allowed Battery": 26,
+   "Allowed Mate": 25,
+   "Missed Battery": 22,
+   "Missed Prophylaxis": 17
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Mating Attack"
+ },
+ "93": {
+  "tagger_top": "Hung Queen",
+  "tagger_conf": 0.765,
+  "tagger_covered_frac": 0.96,
+  "tagger_votes": {
+   "Hung Queen": 153,
+   "Greedy Capture": 66,
+   "Failed Discovered Attack": 37,
+   "Ignored Threat": 32,
+   "Missed Defensive Resource": 32
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Queen After Capture"
+ },
+ "94": {
+  "tagger_top": "Missed Trapped Rook",
+  "tagger_conf": 1.0,
+  "tagger_covered_frac": 1.0,
+  "tagger_votes": {
+   "Missed Trapped Rook": 1,
+   "Missed Overloading": 1
+  },
+  "opus_verdict": "noise",
+  "opus_label": "Insufficient Data"
+ },
+ "95": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.281,
+  "tagger_covered_frac": 0.789,
+  "tagger_votes": {
+   "Greedy Capture": 16,
+   "Premature Trade": 11,
+   "Bad Simplification": 10,
+   "Missed Mate": 6,
+   "Pawn Move Exposed King": 6
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Botched Passed-Pawn Promotion"
+ },
+ "96": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.25,
+  "tagger_covered_frac": 0.86,
+  "tagger_votes": {
+   "Missed Overloading": 50,
+   "Missed Free Pawn": 32,
+   "Greedy Capture": 29,
+   "Pawn Move Exposed King": 19,
+   "Missed Tempo Push": 17
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Tactic Hanging Piece"
+ },
+ "97": {
+  "tagger_top": "Missed Free Bishop",
+  "tagger_conf": 0.37,
+  "tagger_covered_frac": 0.875,
+  "tagger_votes": {
+   "Missed Free Bishop": 74,
+   "Missed Free Knight": 52,
+   "Missed Desperado": 32,
+   "Allowed Sacrifice": 25,
+   "Missed Defensive Resource": 25
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "98": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.42,
+  "tagger_covered_frac": 0.945,
+  "tagger_votes": {
+   "Greedy Capture": 84,
+   "Pawn Grab While Undeveloped": 75,
+   "Hung Knight": 72,
+   "Missed Castling": 28,
+   "Missed Pawn Break": 22
+  },
+  "opus_verdict": "good",
+  "opus_label": "Unsound Piece Sacrifice For Pawn"
+ },
+ "99": {
+  "tagger_top": "Missed Free Queen",
+  "tagger_conf": 0.465,
+  "tagger_covered_frac": 0.715,
+  "tagger_votes": {
+   "Missed Free Queen": 93,
+   "Missed Desperado": 46,
+   "Missed Trade to Simplify": 46,
+   "Missed Defensive Resource": 36,
+   "Ignored Threat": 32
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Free Queen Capture"
+ },
+ "100": {
+  "tagger_top": "Missed Tempo Push",
+  "tagger_conf": 0.705,
+  "tagger_covered_frac": 0.95,
+  "tagger_votes": {
+   "Missed Tempo Push": 141,
+   "Missed Pawn Break": 42,
+   "Greedy Capture": 34,
+   "Pawn Grab While Undeveloped": 26,
+   "Pawn Move Exposed King": 17
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo-Losing Passive Move"
+ },
+ "101": {
+  "tagger_top": "Missed Rook Exchange",
+  "tagger_conf": 0.5,
+  "tagger_covered_frac": 0.87,
+  "tagger_votes": {
+   "Missed Rook Exchange": 100,
+   "Missed Overloading": 44,
+   "Hung Rook": 34,
+   "Allowed Battery": 33,
+   "Missed Pin (to King)": 27
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Wrong Move Order Tempo Loss"
+ },
+ "102": {
+  "tagger_top": "Allowed Discovered Attack",
+  "tagger_conf": 0.44,
+  "tagger_covered_frac": 0.84,
+  "tagger_votes": {
+   "Allowed Discovered Attack": 88,
+   "Allowed Mate": 63,
+   "Missed Sacrifice": 32,
+   "Allowed Double Check": 29,
+   "Exposed King": 20
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Discovered Attack/Check"
+ },
+ "103": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.295,
+  "tagger_covered_frac": 0.535,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 59,
+   "Missed Free Queen": 54,
+   "Missed Mate": 54,
+   "Missed Faster Mate": 41,
+   "Missed Desperado": 34
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece / Queen Overlooked"
+ },
+ "104": {
+  "tagger_top": "Missed Open File",
+  "tagger_conf": 0.21,
+  "tagger_covered_frac": 0.71,
+  "tagger_votes": {
+   "Missed Open File": 42,
+   "Greedy Capture": 33,
+   "Bad Simplification": 25,
+   "Missed Prophylaxis": 22,
+   "Pawn Move Exposed King": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed-Pawn Tempo Loss"
+ },
+ "105": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.15,
+  "tagger_covered_frac": 0.75,
+  "tagger_votes": {
+   "Missed Overloading": 18,
+   "Missed Queen Exchange": 14,
+   "Premature Trade": 14,
+   "Hung Queen": 12,
+   "Missed Pawn Break": 11
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo-Losing Blunder"
+ },
+ "106": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.22,
+  "tagger_covered_frac": 0.805,
+  "tagger_votes": {
+   "Missed Pawn Break": 44,
+   "Hung Knight": 26,
+   "Missed Overloading": 21,
+   "Allowed Battery": 20,
+   "Missed Castling": 19
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "107": {
+  "tagger_top": "Missed Passed Pawn",
+  "tagger_conf": 0.135,
+  "tagger_covered_frac": 0.79,
+  "tagger_votes": {
+   "Missed Passed Pawn": 27,
+   "Missed Advanced Pawn": 25,
+   "Missed Trade to Simplify": 24,
+   "Missed Overloading": 24,
+   "Missed Promotion": 22
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Passed-Pawn Promotion Errors"
+ },
+ "108": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.185,
+  "tagger_covered_frac": 0.774,
+  "tagger_votes": {
+   "Greedy Capture": 23,
+   "Allowed Advanced Pawn": 16,
+   "Missed Prophylaxis": 14,
+   "Pawn Move Exposed King": 14,
+   "Created Doubled Pawn": 14
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Winning-Endgame Conversion Blunder"
+ },
+ "109": {
+  "tagger_top": "Missed Queen Exchange",
+  "tagger_conf": 0.2,
+  "tagger_covered_frac": 0.78,
+  "tagger_votes": {
+   "Missed Queen Exchange": 40,
+   "Missed Defensive Resource": 35,
+   "Ignored Threat": 31,
+   "Missed Overloading": 31,
+   "Missed Desperado": 28
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Leaving Piece Undefended"
+ },
+ "110": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.15,
+  "tagger_covered_frac": 0.84,
+  "tagger_votes": {
+   "Greedy Capture": 15,
+   "Missed Overloading": 11,
+   "Pawn Move Exposed King": 11,
+   "Bad Simplification": 10,
+   "Missed Prophylaxis": 10
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "111": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.12,
+  "tagger_covered_frac": 0.775,
+  "tagger_votes": {
+   "Allowed Mate": 24,
+   "Hung Queen": 23,
+   "Greedy Capture": 20,
+   "Allowed Battery": 19,
+   "Hung Rook": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "112": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.165,
+  "tagger_covered_frac": 0.65,
+  "tagger_votes": {
+   "Missed Pawn Break": 33,
+   "Allowed Mate": 30,
+   "Missed Trade to Simplify": 20,
+   "Greedy Capture": 17,
+   "Missed Prophylaxis": 15
+  },
+  "opus_verdict": "good",
+  "opus_label": "Mishandled Passed-Pawn Endgame"
+ },
+ "113": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.55,
+  "tagger_covered_frac": 0.935,
+  "tagger_votes": {
+   "Missed Pawn Break": 110,
+   "Missed Pawn Trade": 97,
+   "Allowed Pawn Capture": 70,
+   "Missed Free Pawn": 44,
+   "Pawn Move Exposed King": 24
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo Loss In Central Tension"
+ },
+ "114": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.245,
+  "tagger_covered_frac": 0.6,
+  "tagger_votes": {
+   "Greedy Capture": 49,
+   "Allowed Mate": 30,
+   "Bad Simplification": 26,
+   "Missed Open File": 15,
+   "Allowed Advanced Pawn": 15
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Mishandled Passed-Pawn Endgame"
+ },
+ "115": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.49,
+  "tagger_covered_frac": 0.77,
+  "tagger_votes": {
+   "Missed Mate": 98,
+   "Missed Faster Mate": 89,
+   "Premature Trade": 58,
+   "Missed Overloading": 53,
+   "Allowed Sacrifice": 51
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Mate on Exposed King"
+ },
+ "116": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.167,
+  "tagger_covered_frac": 0.742,
+  "tagger_votes": {
+   "Greedy Capture": 20,
+   "Missed Trade to Simplify": 18,
+   "Premature Trade": 13,
+   "Allowed Mate": 11,
+   "Missed Pawn Break": 10
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "King-Safety Collapse Blunder"
+ },
+ "117": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.153,
+  "tagger_covered_frac": 0.771,
+  "tagger_votes": {
+   "Greedy Capture": 22,
+   "Allowed Mate": 18,
+   "Missed Overloading": 17,
+   "Allowed Battery": 16,
+   "Missed Mate": 15
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "King-Safety / Tempo Blunder"
+ },
+ "118": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.375,
+  "tagger_covered_frac": 0.95,
+  "tagger_votes": {
+   "Missed Pawn Break": 75,
+   "Missed Pawn Trade": 62,
+   "Hung Bishop": 44,
+   "Missed Free Pawn": 35,
+   "Hung Knight": 34
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece To Pawn"
+ },
+ "119": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.325,
+  "tagger_covered_frac": 0.79,
+  "tagger_votes": {
+   "Greedy Capture": 65,
+   "Bad Simplification": 59,
+   "Premature Trade": 54,
+   "Hung Knight": 32,
+   "Hung Queen": 28
+  },
+  "opus_verdict": "good",
+  "opus_label": "Losing Pawn-Endgame Simplification"
+ },
+ "120": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.17,
+  "tagger_covered_frac": 0.845,
+  "tagger_votes": {
+   "Greedy Capture": 34,
+   "Missed Castling": 24,
+   "Missed Overloading": 21,
+   "Missed Pawn Break": 21,
+   "Allowed Battery": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "121": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.13,
+  "tagger_covered_frac": 0.625,
+  "tagger_votes": {
+   "Allowed Mate": 26,
+   "Greedy Capture": 23,
+   "Missed Open File": 17,
+   "Failed Fork": 14,
+   "Hung Queen": 14
+  },
+  "opus_verdict": "good",
+  "opus_label": "Tempo-Losing Pointless Check"
+ },
+ "122": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.193,
+  "tagger_covered_frac": 0.873,
+  "tagger_votes": {
+   "Missed Overloading": 38,
+   "Missed f2/f7 Attack": 31,
+   "Pawn Move Exposed King": 23,
+   "Allowed Battery": 21,
+   "Missed Discovered Attack": 20
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Bxf7+/Bxf2 Sacrifice"
+ },
+ "123": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.37,
+  "tagger_covered_frac": 0.965,
+  "tagger_votes": {
+   "Greedy Capture": 74,
+   "Pawn Grab While Undeveloped": 56,
+   "Hung Knight": 55,
+   "Pawn Move Exposed King": 35,
+   "Missed Pawn Break": 34
+  },
+  "opus_verdict": "good",
+  "opus_label": "Overlooked Hanging Piece"
+ },
+ "124": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.141,
+  "tagger_covered_frac": 0.792,
+  "tagger_votes": {
+   "Missed Pawn Break": 21,
+   "Pawn Move Exposed King": 18,
+   "Missed Trade to Simplify": 18,
+   "Greedy Capture": 15,
+   "Missed Overloading": 15
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece / Tempo Loss"
+ },
+ "125": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.086,
+  "tagger_covered_frac": 0.53,
+  "tagger_votes": {
+   "Greedy Capture": 13,
+   "Missed Prophylaxis": 13,
+   "Allowed Mate": 10,
+   "Bad Simplification": 10,
+   "Missed Open File": 9
+  },
+  "opus_verdict": "good",
+  "opus_label": "Endgame Tempo Loss in Promotion Race"
+ },
+ "126": {
+  "tagger_top": "Wrong Pawn Race",
+  "tagger_conf": 0.25,
+  "tagger_covered_frac": 0.59,
+  "tagger_votes": {
+   "Wrong Pawn Race": 50,
+   "Pawn Move Exposed King": 46,
+   "Missed Advanced Pawn": 31,
+   "Missed King Activity": 28,
+   "Missed Passed Pawn": 21
+  },
+  "opus_verdict": "good",
+  "opus_label": "Premature Passed Pawn Push"
+ },
+ "127": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.155,
+  "tagger_covered_frac": 0.84,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 31,
+   "Missed Free Bishop": 30,
+   "Missed Desperado": 28,
+   "Missed Pawn Break": 25,
+   "Missed Overloading": 21
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece / Promoted Queen Captured"
+ },
+ "128": {
+  "tagger_top": "Missed Defensive Resource",
+  "tagger_conf": 0.333,
+  "tagger_covered_frac": 0.867,
+  "tagger_votes": {
+   "Missed Defensive Resource": 5,
+   "Pawn Move Exposed King": 3,
+   "Missed Hanging Piece": 2,
+   "Missed Sacrifice": 2,
+   "Allowed Discovered Attack": 2
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Tactical Resource"
+ },
+ "129": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.105,
+  "tagger_covered_frac": 0.565,
+  "tagger_votes": {
+   "Allowed Mate": 21,
+   "Missed King Activity": 20,
+   "Missed Open File": 18,
+   "Missed Trade to Simplify": 17,
+   "Hung Rook": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Pointless Check Wasting Tempo"
+ },
+ "130": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.108,
+  "tagger_covered_frac": 0.773,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 20,
+   "Missed Overloading": 19,
+   "Greedy Capture": 19,
+   "Missed Desperado": 15,
+   "Allowed Battery": 15
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "131": {
+  "tagger_top": "Missed Bishop-Knight Exchange",
+  "tagger_conf": 0.56,
+  "tagger_covered_frac": 0.99,
+  "tagger_votes": {
+   "Missed Bishop-Knight Exchange": 112,
+   "Missed Overloading": 47,
+   "Missed Remove the Guard": 36,
+   "Failed Pin": 29,
+   "Pawn Move Exposed King": 25
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Piece Placed on Trapped Square"
+ },
+ "132": {
+  "tagger_top": "Missed Free Knight",
+  "tagger_conf": 0.32,
+  "tagger_covered_frac": 0.99,
+  "tagger_votes": {
+   "Missed Free Knight": 64,
+   "Missed Free Bishop": 54,
+   "Missed Desperado": 50,
+   "Pawn Move Exposed King": 44,
+   "Missed Pawn Break": 44
+  },
+  "opus_verdict": "good",
+  "opus_label": "Ignored Hanging Piece"
+ },
+ "133": {
+  "tagger_top": "Bad Simplification",
+  "tagger_conf": 0.385,
+  "tagger_covered_frac": 0.68,
+  "tagger_votes": {
+   "Bad Simplification": 77,
+   "Premature Trade": 58,
+   "Greedy Capture": 44,
+   "Missed Mate": 40,
+   "Hung Queen": 34
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Passed-Pawn Endgame Mishandling"
+ },
+ "134": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.155,
+  "tagger_covered_frac": 0.75,
+  "tagger_votes": {
+   "Greedy Capture": 31,
+   "Hung Queen": 29,
+   "Premature Trade": 24,
+   "Missed Overloading": 24,
+   "Missed Mate": 21
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "135": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.295,
+  "tagger_covered_frac": 0.86,
+  "tagger_votes": {
+   "Allowed Mate": 59,
+   "Greedy Capture": 40,
+   "Allowed Battery": 27,
+   "Missed Overloading": 17,
+   "Allowed Fork": 15
+  },
+  "opus_verdict": "good",
+  "opus_label": "Material Greed Over King Safety"
+ },
+ "136": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.78,
+  "tagger_covered_frac": 0.975,
+  "tagger_votes": {
+   "Missed Mate": 156,
+   "Missed Battery": 84,
+   "Allowed Sacrifice": 60,
+   "Missed Kingside Attack": 54,
+   "Missed Overloading": 54
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Forced Mate (Back Rank)"
+ },
+ "137": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.15,
+  "tagger_covered_frac": 0.76,
+  "tagger_votes": {
+   "Greedy Capture": 30,
+   "Missed Overloading": 23,
+   "Allowed Mate": 19,
+   "Pawn Move Exposed King": 18,
+   "Missed Pawn Break": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed Pawn Promotion Error"
+ },
+ "138": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.205,
+  "tagger_covered_frac": 0.815,
+  "tagger_votes": {
+   "Allowed Mate": 41,
+   "Allowed Battery": 33,
+   "Missed Overloading": 28,
+   "Greedy Capture": 24,
+   "Missed Tempo Push": 23
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "King Safety / Hanging Piece Blunder"
+ },
+ "139": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.17,
+  "tagger_covered_frac": 0.75,
+  "tagger_votes": {
+   "Greedy Capture": 34,
+   "Pawn Grab While Undeveloped": 26,
+   "Missed Pawn Break": 26,
+   "Pawn Move Exposed King": 23,
+   "Hung Knight": 17
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo Loss In Pawn Races"
+ },
+ "140": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.164,
+  "tagger_covered_frac": 0.815,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 24,
+   "Missed Pawn Break": 19,
+   "Greedy Capture": 18,
+   "Missed Overloading": 14,
+   "Missed Free Pawn": 13
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Move-Order / Tempo Loss"
+ },
+ "141": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.139,
+  "tagger_covered_frac": 0.906,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 25,
+   "Hung Bishop": 21,
+   "Missed Pawn Break": 19,
+   "Missed Pawn Trade": 17,
+   "Hung Knight": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging a Piece En Prise"
+ },
+ "142": {
+  "tagger_top": "Missed Defensive Resource",
+  "tagger_conf": 0.11,
+  "tagger_covered_frac": 0.785,
+  "tagger_votes": {
+   "Missed Defensive Resource": 22,
+   "Hung Bishop": 21,
+   "Ignored Threat": 21,
+   "Hung Queen": 21,
+   "Missed Trade to Simplify": 20
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece Blunder"
+ },
+ "143": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.195,
+  "tagger_covered_frac": 0.82,
+  "tagger_votes": {
+   "Greedy Capture": 39,
+   "Missed Discovered Attack": 27,
+   "Allowed Battery": 27,
+   "Premature Trade": 26,
+   "Missed Desperado": 24
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Forcing Attack on King"
+ },
+ "144": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.214,
+  "tagger_covered_frac": 0.786,
+  "tagger_votes": {
+   "Missed Mate": 9,
+   "Allowed Sacrifice": 7,
+   "Missed Faster Mate": 6,
+   "Enemy King Exposed": 5,
+   "Greedy Capture": 5
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Botched Winning Conversion"
+ },
+ "145": {
+  "tagger_top": "Wrong Pawn Race",
+  "tagger_conf": 0.14,
+  "tagger_covered_frac": 0.685,
+  "tagger_votes": {
+   "Wrong Pawn Race": 28,
+   "Missed Advanced Pawn": 22,
+   "Missed Prophylaxis": 21,
+   "Missed Trade to Simplify": 21,
+   "Pawn Move Exposed King": 19
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed-Pawn Endgame Tempo Loss"
+ },
+ "146": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.333,
+  "tagger_covered_frac": 0.708,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 24,
+   "Missed Free Queen": 9,
+   "Pawn Move Exposed King": 9,
+   "Allowed Advanced Pawn": 7,
+   "Allowed Promotion": 7
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Missed Capture Of Hanging Piece"
+ },
+ "147": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.165,
+  "tagger_covered_frac": 0.78,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 33,
+   "Hung Rook": 24,
+   "Missed Free Rook": 21,
+   "Missed Prophylaxis": 21,
+   "Ignored Threat": 20
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece Blunder"
+ },
+ "148": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.195,
+  "tagger_covered_frac": 0.737,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 26,
+   "Missed Free Queen": 18,
+   "Missed Defensive Resource": 13,
+   "Pawn Move Exposed King": 13,
+   "Hung Queen": 11
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "149": {
+  "tagger_top": "Missed Tempo Push",
+  "tagger_conf": 0.8,
+  "tagger_covered_frac": 0.97,
+  "tagger_votes": {
+   "Missed Tempo Push": 160,
+   "Missed Pawn Break": 49,
+   "Missed Fork": 44,
+   "Missed Trapped Bishop": 35,
+   "Greedy Capture": 31
+  },
+  "opus_verdict": "good",
+  "opus_label": "Tempo-Losing Passive Move"
+ },
+ "150": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.195,
+  "tagger_covered_frac": 0.77,
+  "tagger_votes": {
+   "Greedy Capture": 39,
+   "Missed Prophylaxis": 21,
+   "Allowed Battery": 17,
+   "Pawn Move Exposed King": 16,
+   "Missed Pin": 15
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Lost Attacking Tempo"
+ },
+ "151": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.163,
+  "tagger_covered_frac": 0.729,
+  "tagger_votes": {
+   "Allowed Mate": 21,
+   "Ignored Threat": 20,
+   "Greedy Capture": 19,
+   "Allowed Battery": 17,
+   "Missed Queen Exchange": 16
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Squandered Winning Advantage"
+ },
+ "152": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.285,
+  "tagger_covered_frac": 0.775,
+  "tagger_votes": {
+   "Missed Mate": 57,
+   "Missed Faster Mate": 24,
+   "Allowed Battery": 24,
+   "Missed Battery": 23,
+   "Allowed Sacrifice": 20
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Slow Move Squanders Winning Attack"
+ },
+ "153": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.235,
+  "tagger_covered_frac": 0.835,
+  "tagger_votes": {
+   "Missed Pawn Break": 47,
+   "Missed Pawn Trade": 43,
+   "Missed Overloading": 33,
+   "Pawn Move Exposed King": 30,
+   "Missed Desperado": 21
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed King-Safety Tactic"
+ },
+ "154": {
+  "tagger_top": "Premature Trade",
+  "tagger_conf": 0.805,
+  "tagger_covered_frac": 0.955,
+  "tagger_votes": {
+   "Premature Trade": 161,
+   "Greedy Capture": 110,
+   "Allowed Battery": 35,
+   "Failed Pin": 31,
+   "Missed Free Pawn": 27
+  },
+  "opus_verdict": "good",
+  "opus_label": "Premature Exchange Squanders Advantage"
+ },
+ "155": {
+  "tagger_top": "Hung Knight",
+  "tagger_conf": 0.5,
+  "tagger_covered_frac": 0.5,
+  "tagger_votes": {
+   "Hung Knight": 1
+  },
+  "opus_verdict": "noise",
+  "opus_label": "Unsound Checking Sacrifice"
+ },
+ "156": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.135,
+  "tagger_covered_frac": 0.715,
+  "tagger_votes": {
+   "Allowed Mate": 27,
+   "Pawn Move Exposed King": 26,
+   "Greedy Capture": 22,
+   "Missed Trade to Simplify": 19,
+   "Hung Queen": 18
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "157": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.167,
+  "tagger_covered_frac": 0.917,
+  "tagger_votes": {
+   "Allowed Mate": 4,
+   "Missed Defensive Resource": 3,
+   "Pawn Move Exposed King": 3,
+   "Missed Pawn Break": 3,
+   "Missed Queen Activity": 2
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Capture of Hanging Piece"
+ },
+ "158": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 1.0,
+  "tagger_covered_frac": 1.0,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 2,
+   "Allowed Fork": 1,
+   "Missed Prophylaxis": 1,
+   "Missed Queen Exchange": 1,
+   "Missed Trade to Simplify": 1
+  },
+  "opus_verdict": "noise",
+  "opus_label": "Pawn Shield Weakening"
+ },
+ "159": {
+  "tagger_top": "Missed Open File",
+  "tagger_conf": 0.235,
+  "tagger_covered_frac": 0.63,
+  "tagger_votes": {
+   "Missed Open File": 47,
+   "Missed Rook to Open File": 38,
+   "Allowed Mate": 33,
+   "Allowed Advanced Pawn": 29,
+   "Bad Simplification": 24
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Rook-Endgame Tempo Loss"
+ },
+ "160": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.125,
+  "tagger_covered_frac": 0.405,
+  "tagger_votes": {
+   "Allowed Mate": 25,
+   "Missed Open File": 23,
+   "Greedy Capture": 20,
+   "Hung Rook": 16,
+   "Bad Simplification": 13
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Hanging Piece vs Passed-Pawn Errors"
+ },
+ "161": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.135,
+  "tagger_covered_frac": 0.73,
+  "tagger_votes": {
+   "Greedy Capture": 27,
+   "Missed Trade to Simplify": 22,
+   "Wrong Pawn Race": 22,
+   "Allowed Advanced Pawn": 21,
+   "Allowed Mate": 20
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Passed-Pawn Race vs Hanging Piece"
+ },
+ "162": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.315,
+  "tagger_covered_frac": 0.83,
+  "tagger_votes": {
+   "Greedy Capture": 63,
+   "Pawn Grab While Undeveloped": 49,
+   "Premature Trade": 39,
+   "Missed Pawn Break": 33,
+   "Hung Knight": 32
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece After Capture"
+ },
+ "163": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.305,
+  "tagger_covered_frac": 0.895,
+  "tagger_votes": {
+   "Greedy Capture": 61,
+   "Pawn Grab While Undeveloped": 46,
+   "Missed Overloading": 23,
+   "Allowed Fork": 22,
+   "Premature Attack": 22
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Greedy Capture Hangs Piece"
+ },
+ "164": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.375,
+  "tagger_covered_frac": 0.565,
+  "tagger_votes": {
+   "Missed Pawn Break": 75,
+   "Wrong Pawn Race": 26,
+   "Pawn Move Exposed King": 18,
+   "Missed Trade to Simplify": 16,
+   "Missed Prophylaxis": 15
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed-Pawn Endgame Mismanagement"
+ },
+ "165": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.264,
+  "tagger_covered_frac": 0.679,
+  "tagger_votes": {
+   "Missed Pawn Break": 14,
+   "Greedy Capture": 8,
+   "Missed Overloading": 6,
+   "Missed Pawn Trade": 6,
+   "Missed Desperado": 5
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Winning Tactic"
+ },
+ "166": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.205,
+  "tagger_covered_frac": 0.795,
+  "tagger_votes": {
+   "Allowed Mate": 41,
+   "Greedy Capture": 36,
+   "Missed Desperado": 21,
+   "Hung Rook": 21,
+   "Premature Trade": 21
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece Blunder"
+ },
+ "167": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.28,
+  "tagger_covered_frac": 0.675,
+  "tagger_votes": {
+   "Greedy Capture": 56,
+   "Pawn Grab While Undeveloped": 38,
+   "Pawn Move Exposed King": 22,
+   "Premature Attack": 18,
+   "Allowed Mate": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "168": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.134,
+  "tagger_covered_frac": 0.716,
+  "tagger_votes": {
+   "Greedy Capture": 9,
+   "Allowed Mate": 7,
+   "Missed Trade to Simplify": 7,
+   "Missed Free Pawn": 6,
+   "Hung Rook": 6
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Undefended Piece/Pawn"
+ },
+ "169": {
+  "tagger_top": "Hung Queen",
+  "tagger_conf": 0.525,
+  "tagger_covered_frac": 0.78,
+  "tagger_votes": {
+   "Hung Queen": 105,
+   "Allowed Hanging Piece": 37,
+   "Greedy Capture": 36,
+   "Hung Rook": 35,
+   "Ignored Threat": 34
+  },
+  "opus_verdict": "good",
+  "opus_label": "Leaving Piece En Prise"
+ },
+ "170": {
+  "tagger_top": "Missed Prophylaxis",
+  "tagger_conf": 0.368,
+  "tagger_covered_frac": 0.789,
+  "tagger_votes": {
+   "Missed Prophylaxis": 7,
+   "Allowed Advanced Pawn": 5,
+   "Missed King Activity": 5,
+   "Lost the Opposition": 2,
+   "Missed Advanced Pawn": 2
+  },
+  "opus_verdict": "good",
+  "opus_label": "Pawn Endgame Opposition Blunder"
+ },
+ "171": {
+  "tagger_top": "Missed Free Queen",
+  "tagger_conf": 0.63,
+  "tagger_covered_frac": 0.975,
+  "tagger_votes": {
+   "Missed Free Queen": 126,
+   "Missed Trade to Simplify": 110,
+   "Missed Desperado": 62,
+   "Ignored Threat": 47,
+   "Missed Free Rook": 39
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Free Undefended Capture"
+ },
+ "172": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.145,
+  "tagger_covered_frac": 0.77,
+  "tagger_votes": {
+   "Greedy Capture": 29,
+   "Missed Pawn Break": 29,
+   "Hung Rook": 26,
+   "Bad Simplification": 20,
+   "Missed Open File": 19
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "173": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.161,
+  "tagger_covered_frac": 0.828,
+  "tagger_votes": {
+   "Missed Overloading": 14,
+   "Greedy Capture": 13,
+   "Pawn Move Exposed King": 12,
+   "Allowed Mate": 12,
+   "Allowed Battery": 11
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Exposed King vs Hanging Piece"
+ },
+ "174": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.165,
+  "tagger_covered_frac": 0.72,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 33,
+   "Missed Free Rook": 27,
+   "Missed Mate": 24,
+   "Missed Prophylaxis": 21,
+   "Missed Advanced Pawn": 21
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Passed-Pawn Promotion Conversion Error"
+ },
+ "175": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.21,
+  "tagger_covered_frac": 0.91,
+  "tagger_votes": {
+   "Missed Pawn Break": 42,
+   "Missed Tempo Push": 29,
+   "Missed Bishop-Knight Exchange": 29,
+   "Missed Overloading": 28,
+   "Allowed Castling": 22
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Tempo-Gaining Tactic"
+ },
+ "176": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.265,
+  "tagger_covered_frac": 0.645,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 53,
+   "Wrong Pawn Race": 39,
+   "Allowed Pawn Capture": 30,
+   "Missed Passed Pawn": 25,
+   "Missed Free Rook": 23
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Passed-Pawn Tempo vs Missed Capture"
+ },
+ "177": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.162,
+  "tagger_covered_frac": 0.757,
+  "tagger_votes": {
+   "Greedy Capture": 12,
+   "Missed Defensive Resource": 8,
+   "Premature Trade": 8,
+   "Ignored Threat": 7,
+   "Hung Knight": 7
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Capture of Hanging Piece"
+ },
+ "178": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.105,
+  "tagger_covered_frac": 0.845,
+  "tagger_votes": {
+   "Greedy Capture": 19,
+   "Missed Desperado": 18,
+   "Missed Free Bishop": 16,
+   "Missed Pawn Break": 15,
+   "Hung Queen": 14
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "179": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.59,
+  "tagger_covered_frac": 0.93,
+  "tagger_votes": {
+   "Missed Overloading": 118,
+   "Missed Mate": 45,
+   "Allowed Battery": 28,
+   "Pawn Move Exposed King": 27,
+   "Missed Prophylaxis": 27
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Queen-Check King Attack"
+ },
+ "180": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.395,
+  "tagger_covered_frac": 0.72,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 79,
+   "Missed Free Pawn": 25,
+   "Allowed Advanced Pawn": 22,
+   "Allowed Mate": 22,
+   "Missed Free Rook": 21
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Passed-Pawn Endgame Blunder"
+ },
+ "181": {
+  "tagger_top": "Failed Pin",
+  "tagger_conf": 0.17,
+  "tagger_covered_frac": 0.86,
+  "tagger_votes": {
+   "Failed Pin": 34,
+   "Missed Overloading": 28,
+   "Allowed Battery": 20,
+   "Missed Pawn Break": 17,
+   "Missed Tempo Push": 15
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Hanging Piece Blunder"
+ },
+ "182": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.2,
+  "tagger_covered_frac": 0.695,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 40,
+   "Pawn Move Exposed King": 23,
+   "Missed Free Pawn": 19,
+   "Allowed Advanced Pawn": 19,
+   "Premature Trade": 18
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece in Endgame"
+ },
+ "183": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.59,
+  "tagger_covered_frac": 0.71,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 118,
+   "Missed Free Rook": 69,
+   "Missed Mate": 51,
+   "Missed Advanced Pawn": 30,
+   "Missed Desperado": 29
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Uncaptured"
+ },
+ "184": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.165,
+  "tagger_covered_frac": 0.739,
+  "tagger_votes": {
+   "Greedy Capture": 19,
+   "Allowed Advanced Pawn": 15,
+   "Allowed Promotion": 14,
+   "Pawn Move Exposed King": 13,
+   "Missed Pawn Break": 11
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Passed-Pawn / Promotion Error"
+ },
+ "185": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.185,
+  "tagger_covered_frac": 0.815,
+  "tagger_votes": {
+   "Allowed Mate": 37,
+   "Allowed Battery": 30,
+   "Pawn Move Exposed King": 27,
+   "Greedy Capture": 22,
+   "Missed Battery": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "King-Safety Neglect Blunder"
+ },
+ "186": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.255,
+  "tagger_covered_frac": 0.78,
+  "tagger_votes": {
+   "Greedy Capture": 51,
+   "Pawn Grab While Undeveloped": 24,
+   "Allowed Battery": 21,
+   "Hung Bishop": 19,
+   "Missed Castling": 17
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece Overlooked"
+ },
+ "187": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.38,
+  "tagger_covered_frac": 0.93,
+  "tagger_votes": {
+   "Missed Overloading": 76,
+   "Allowed Castling": 34,
+   "Missed Combination \u2192 Fork": 29,
+   "Missed Prophylaxis": 26,
+   "Pawn Move Exposed King": 25
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Winning Tactical Shot"
+ },
+ "188": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.285,
+  "tagger_covered_frac": 0.845,
+  "tagger_votes": {
+   "Missed Pawn Break": 57,
+   "Missed Tempo Push": 30,
+   "Greedy Capture": 21,
+   "Missed Combination \u2192 Fork": 18,
+   "Pawn Move Exposed King": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Slow Move Squanders Tempo"
+ },
+ "189": {
+  "tagger_top": "Premature Trade",
+  "tagger_conf": 0.545,
+  "tagger_covered_frac": 0.91,
+  "tagger_votes": {
+   "Premature Trade": 109,
+   "Greedy Capture": 74,
+   "Missed Overloading": 40,
+   "Bad Simplification": 32,
+   "Missed Battery": 24
+  },
+  "opus_verdict": "good",
+  "opus_label": "Premature Queen Trade"
+ },
+ "190": {
+  "tagger_top": "Allowed Advanced Pawn",
+  "tagger_conf": 0.117,
+  "tagger_covered_frac": 0.7,
+  "tagger_votes": {
+   "Allowed Advanced Pawn": 7,
+   "Pawn Move Exposed King": 7,
+   "Missed Trade to Simplify": 6,
+   "Allowed Promotion": 5,
+   "Greedy Capture": 5
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo Loss In Won Endgames"
+ },
+ "191": {
+  "tagger_top": "Missed Prophylaxis",
+  "tagger_conf": 0.21,
+  "tagger_covered_frac": 0.615,
+  "tagger_votes": {
+   "Missed Prophylaxis": 42,
+   "Wrong Pawn Race": 35,
+   "Missed King Activity": 34,
+   "Allowed Pawn Capture": 24,
+   "Missed Trade to Simplify": 23
+  },
+  "opus_verdict": "good",
+  "opus_label": "Pawn Endgame Tempo Error"
+ },
+ "192": {
+  "tagger_top": "Missed Prophylaxis",
+  "tagger_conf": 0.19,
+  "tagger_covered_frac": 0.75,
+  "tagger_votes": {
+   "Missed Prophylaxis": 19,
+   "Missed Trade to Simplify": 16,
+   "Missed Advanced Pawn": 14,
+   "Wrong Pawn Race": 13,
+   "Allowed Mate": 12
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Pawn Endgame Conversion Error"
+ },
+ "193": {
+  "tagger_top": "Missed Open File",
+  "tagger_conf": 0.143,
+  "tagger_covered_frac": 0.816,
+  "tagger_votes": {
+   "Missed Open File": 7,
+   "Missed Overloading": 6,
+   "Hung Rook": 5,
+   "Premature Trade": 5,
+   "Missed Trade to Simplify": 5
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo-Losing Move Misses Tactic"
+ },
+ "194": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.132,
+  "tagger_covered_frac": 0.721,
+  "tagger_votes": {
+   "Greedy Capture": 9,
+   "Missed Overloading": 8,
+   "Hung Queen": 8,
+   "Hung Bishop": 7,
+   "Allowed Hanging Piece": 6
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece / Missed Capture"
+ },
+ "195": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.42,
+  "tagger_covered_frac": 0.895,
+  "tagger_votes": {
+   "Missed Mate": 84,
+   "Missed Battery": 46,
+   "Missed Faster Mate": 35,
+   "Missed Kingside Attack": 32,
+   "Missed Overloading": 32
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Forced Checkmate"
+ },
+ "196": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.194,
+  "tagger_covered_frac": 0.801,
+  "tagger_votes": {
+   "Missed Overloading": 37,
+   "Missed Free Pawn": 29,
+   "Greedy Capture": 27,
+   "Pawn Move Exposed King": 25,
+   "Missed Trapped Rook": 22
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Fianchetto Bishop Capture"
+ },
+ "197": {
+  "tagger_top": "Missed Castling",
+  "tagger_conf": 0.273,
+  "tagger_covered_frac": 0.727,
+  "tagger_votes": {
+   "Missed Castling": 3,
+   "Allowed Battery": 3,
+   "Wrong Pawn Race": 3,
+   "Missed Sacrifice": 2,
+   "Allowed Mate": 2
+  },
+  "opus_verdict": "good",
+  "opus_label": "Exposed King Punished"
+ },
+ "198": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.23,
+  "tagger_covered_frac": 0.81,
+  "tagger_votes": {
+   "Greedy Capture": 46,
+   "Missed Overloading": 33,
+   "Premature Trade": 29,
+   "Pawn Grab While Undeveloped": 28,
+   "Allowed Mate": 24
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Squandered Winning Tactic"
+ },
+ "199": {
+  "tagger_top": "Allowed Fork",
+  "tagger_conf": 0.655,
+  "tagger_covered_frac": 0.93,
+  "tagger_votes": {
+   "Allowed Fork": 131,
+   "Missed Prophylaxis": 45,
+   "Greedy Capture": 23,
+   "Allowed Pin (to King)": 22,
+   "Pawn Move Exposed King": 21
+  },
+  "opus_verdict": "good",
+  "opus_label": "Walked Into Knight Fork"
+ },
+ "200": {
+  "tagger_top": "Bad Simplification",
+  "tagger_conf": 0.266,
+  "tagger_covered_frac": 0.791,
+  "tagger_votes": {
+   "Bad Simplification": 37,
+   "Greedy Capture": 34,
+   "Premature Trade": 26,
+   "Missed Trade to Simplify": 22,
+   "Missed Open File": 20
+  },
+  "opus_verdict": "good",
+  "opus_label": "Bad Trade Into Lost Pawn Endgame"
+ },
+ "201": {
+  "tagger_top": "Missed Free Bishop",
+  "tagger_conf": 0.191,
+  "tagger_covered_frac": 0.78,
+  "tagger_votes": {
+   "Missed Free Bishop": 27,
+   "Missed Trade to Simplify": 25,
+   "Wrong Pawn Race": 17,
+   "Pawn Move Exposed King": 16,
+   "Missed Free Knight": 15
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Declined Free Capture"
+ },
+ "202": {
+  "tagger_top": "Hung Queen",
+  "tagger_conf": 0.28,
+  "tagger_covered_frac": 0.605,
+  "tagger_votes": {
+   "Hung Queen": 56,
+   "Greedy Capture": 34,
+   "Hung Rook": 28,
+   "Missed Trade to Simplify": 24,
+   "Allowed Battery": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Giving Away Hanging Piece"
+ },
+ "203": {
+  "tagger_top": "Missed Advanced Pawn",
+  "tagger_conf": 0.118,
+  "tagger_covered_frac": 0.691,
+  "tagger_votes": {
+   "Missed Advanced Pawn": 8,
+   "Greedy Capture": 7,
+   "Missed Promotion": 7,
+   "Missed Passed Pawn": 7,
+   "Missed Trade to Simplify": 6
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Tempo Loss Converting Endgame"
+ },
+ "204": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.303,
+  "tagger_covered_frac": 0.859,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 43,
+   "Missed Free Queen": 30,
+   "Hung Queen": 24,
+   "Ignored Threat": 24,
+   "Greedy Capture": 23
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "205": {
+  "tagger_top": "Missed Prophylaxis",
+  "tagger_conf": 0.156,
+  "tagger_covered_frac": 0.784,
+  "tagger_votes": {
+   "Missed Prophylaxis": 26,
+   "Missed Passed Pawn": 22,
+   "Missed Advanced Pawn": 18,
+   "Hung Knight": 18,
+   "Greedy Capture": 18
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Hanging Piece Or Missed Promotion"
+ },
+ "206": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.2,
+  "tagger_covered_frac": 0.765,
+  "tagger_votes": {
+   "Missed Mate": 40,
+   "Greedy Capture": 28,
+   "Missed Pawn Break": 27,
+   "Missed Overloading": 22,
+   "Missed Faster Mate": 20
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Material Greed Over Mating Attack"
+ },
+ "207": {
+  "tagger_top": "Allowed Battery",
+  "tagger_conf": 0.1,
+  "tagger_covered_frac": 0.73,
+  "tagger_votes": {
+   "Allowed Battery": 20,
+   "Missed Overloading": 19,
+   "Missed Free Knight": 14,
+   "Missed Open File": 12,
+   "Greedy Capture": 12
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Hanging Piece"
+ },
+ "208": {
+  "tagger_top": "Allowed Pawn Capture",
+  "tagger_conf": 0.19,
+  "tagger_covered_frac": 0.47,
+  "tagger_votes": {
+   "Allowed Pawn Capture": 38,
+   "Pawn Move Exposed King": 28,
+   "Greedy Capture": 26,
+   "Bad Simplification": 25,
+   "Wrong Pawn Race": 22
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed Pawn Endgame Error"
+ },
+ "209": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.13,
+  "tagger_covered_frac": 0.655,
+  "tagger_votes": {
+   "Missed Overloading": 26,
+   "Allowed Mate": 24,
+   "Missed Prophylaxis": 20,
+   "Missed Pawn Break": 18,
+   "Missed Sacrifice": 15
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Wasted Tempo / Passive Move"
+ },
+ "210": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.244,
+  "tagger_covered_frac": 0.794,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 44,
+   "Wrong Pawn Race": 29,
+   "Pawn Move Exposed King": 25,
+   "Missed Advanced Pawn": 24,
+   "Missed Passed Pawn": 20
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Capture Of Hanging Piece"
+ },
+ "211": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.17,
+  "tagger_covered_frac": 0.595,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 34,
+   "Wrong Pawn Race": 32,
+   "Missed Advanced Pawn": 24,
+   "Allowed Pawn Capture": 19,
+   "Missed Prophylaxis": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Mistimed Passed Pawn Race"
+ },
+ "212": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.45,
+  "tagger_covered_frac": 0.535,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 90,
+   "Missed Mate": 59,
+   "Missed Free Rook": 40,
+   "Missed Free Queen": 40,
+   "Missed Faster Mate": 35
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Capture Of Hanging Piece"
+ },
+ "213": {
+  "tagger_top": "Missed Passed Pawn",
+  "tagger_conf": 0.41,
+  "tagger_covered_frac": 0.665,
+  "tagger_votes": {
+   "Missed Passed Pawn": 82,
+   "Missed Push to Promote": 53,
+   "Wrong Pawn Race": 50,
+   "Missed Advanced Pawn": 42,
+   "Missed Pawn Break": 41
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed Pawn Tempo Loss"
+ },
+ "214": {
+  "tagger_top": "Allowed Advanced Pawn",
+  "tagger_conf": 0.164,
+  "tagger_covered_frac": 0.578,
+  "tagger_votes": {
+   "Allowed Advanced Pawn": 19,
+   "Allowed Promotion": 17,
+   "Missed Sacrifice": 14,
+   "Allowed Mate": 14,
+   "Hung Material": 12
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed Pawn Race Tempo Loss"
+ },
+ "215": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.147,
+  "tagger_covered_frac": 0.678,
+  "tagger_votes": {
+   "Missed Pawn Break": 26,
+   "Pawn Move Exposed King": 25,
+   "Missed Prophylaxis": 15,
+   "Missed Overloading": 14,
+   "Wrong Pawn Race": 13
+  },
+  "opus_verdict": "good",
+  "opus_label": "Lost Tempo in Pawn Endgame"
+ },
+ "216": {
+  "tagger_top": "Failed Fork",
+  "tagger_conf": 0.27,
+  "tagger_covered_frac": 0.855,
+  "tagger_votes": {
+   "Failed Fork": 54,
+   "Allowed Sacrifice": 34,
+   "Hung Knight": 27,
+   "Missed Overloading": 27,
+   "Pawn Move Exposed King": 21
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece / Missed Capture"
+ },
+ "217": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.355,
+  "tagger_covered_frac": 0.97,
+  "tagger_votes": {
+   "Missed Pawn Break": 71,
+   "Hung Bishop": 59,
+   "Missed Free Pawn": 56,
+   "Missed Pawn Trade": 48,
+   "Pawn Move Exposed King": 38
+  },
+  "opus_verdict": "good",
+  "opus_label": "Piece Left En Prise"
+ },
+ "218": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.137,
+  "tagger_covered_frac": 0.821,
+  "tagger_votes": {
+   "Greedy Capture": 23,
+   "Allowed Mate": 18,
+   "Missed Defensive Resource": 17,
+   "Missed Desperado": 16,
+   "Allowed Battery": 16
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "219": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.143,
+  "tagger_covered_frac": 0.714,
+  "tagger_votes": {
+   "Missed Overloading": 8,
+   "Missed Pawn Break": 6,
+   "Allowed Battery": 6,
+   "Missed Trade to Simplify": 5,
+   "Allowed Fork": 5
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Squandered Winning Position"
+ },
+ "220": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.395,
+  "tagger_covered_frac": 0.895,
+  "tagger_votes": {
+   "Greedy Capture": 79,
+   "Pawn Grab While Undeveloped": 37,
+   "Premature Trade": 36,
+   "Pawn Move Exposed King": 28,
+   "Hung Queen": 25
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "221": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.245,
+  "tagger_covered_frac": 0.673,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 12,
+   "Pawn Move Exposed King": 9,
+   "Missed Advanced Pawn": 8,
+   "Missed Free Rook": 7,
+   "Missed Free Bishop": 7
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Passed-Pawn Endgame Conversion"
+ },
+ "222": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.131,
+  "tagger_covered_frac": 0.575,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 20,
+   "Allowed Mate": 18,
+   "Allowed Battery": 16,
+   "Missed Prophylaxis": 15,
+   "Missed Queen Exchange": 13
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Pawn Endgame Tempo Error"
+ },
+ "223": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.45,
+  "tagger_covered_frac": 0.955,
+  "tagger_votes": {
+   "Missed Overloading": 90,
+   "Missed f2/f7 Attack": 59,
+   "Missed Fork": 41,
+   "Missed Kingside Attack": 35,
+   "Missed Free Pawn": 29
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Attack On Exposed King"
+ },
+ "224": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.245,
+  "tagger_covered_frac": 0.78,
+  "tagger_votes": {
+   "Allowed Mate": 49,
+   "Pawn Move Exposed King": 38,
+   "Allowed Battery": 36,
+   "Missed Overloading": 26,
+   "Missed Sacrifice": 24
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Ignored Threat To King"
+ },
+ "225": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.195,
+  "tagger_covered_frac": 0.865,
+  "tagger_votes": {
+   "Greedy Capture": 39,
+   "Allowed Mate": 26,
+   "Missed Overloading": 24,
+   "Missed Castling": 24,
+   "Pawn Move Exposed King": 21
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Exposed King Missed Tactic"
+ },
+ "226": {
+  "tagger_top": "Hung Knight",
+  "tagger_conf": 0.25,
+  "tagger_covered_frac": 0.975,
+  "tagger_votes": {
+   "Hung Knight": 50,
+   "Hung Bishop": 48,
+   "Pawn Move Exposed King": 36,
+   "Greedy Capture": 32,
+   "Pawn Grab While Undeveloped": 30
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "227": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.73,
+  "tagger_covered_frac": 0.865,
+  "tagger_votes": {
+   "Missed Mate": 146,
+   "Missed Faster Mate": 74,
+   "Missed Battery": 61,
+   "Allowed Sacrifice": 28,
+   "Missed Overloading": 27
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Forced Mate"
+ },
+ "228": {
+  "tagger_top": "Missed Free Queen",
+  "tagger_conf": 0.265,
+  "tagger_covered_frac": 0.72,
+  "tagger_votes": {
+   "Missed Free Queen": 53,
+   "Missed Trade to Simplify": 43,
+   "Missed Desperado": 41,
+   "Missed Mate": 40,
+   "Missed Defensive Resource": 32
+  },
+  "opus_verdict": "good",
+  "opus_label": "Piece Left Hanging En Prise"
+ },
+ "229": {
+  "tagger_top": "Hung Rook",
+  "tagger_conf": 0.129,
+  "tagger_covered_frac": 0.645,
+  "tagger_votes": {
+   "Hung Rook": 8,
+   "Allowed Mate": 8,
+   "Greedy Capture": 5,
+   "Allowed Advanced Pawn": 5,
+   "Allowed Battery": 5
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Mixed Hanging/Promotion/King Errors"
+ },
+ "230": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.13,
+  "tagger_covered_frac": 0.785,
+  "tagger_votes": {
+   "Greedy Capture": 26,
+   "Missed Overloading": 24,
+   "Pawn Move Exposed King": 24,
+   "Missed Pawn Break": 20,
+   "Missed Prophylaxis": 19
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Queen Abandons Defensive Duty"
+ },
+ "231": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.253,
+  "tagger_covered_frac": 0.793,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 38,
+   "Missed Free Queen": 27,
+   "Missed Free Rook": 24,
+   "Missed Desperado": 22,
+   "Pawn Move Exposed King": 20
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Capture Of Hanging Piece"
+ },
+ "232": {
+  "tagger_top": "Allowed Fork",
+  "tagger_conf": 0.645,
+  "tagger_covered_frac": 0.945,
+  "tagger_votes": {
+   "Allowed Fork": 129,
+   "Missed Pawn Break": 66,
+   "Missed Prophylaxis": 28,
+   "Allowed Trapped Bishop": 27,
+   "Missed Pawn Trade": 27
+  },
+  "opus_verdict": "good",
+  "opus_label": "Allowed Pawn Fork"
+ },
+ "233": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.116,
+  "tagger_covered_frac": 0.796,
+  "tagger_votes": {
+   "Missed Overloading": 17,
+   "Missed Open File": 16,
+   "Missed Trade to Simplify": 15,
+   "Greedy Capture": 15,
+   "Allowed Mate": 15
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Purposeless Tempo-Losing Move"
+ },
+ "234": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.122,
+  "tagger_covered_frac": 0.716,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 9,
+   "Missed Overloading": 9,
+   "Missed Pawn Break": 7,
+   "Allowed Battery": 7,
+   "Greedy Capture": 6
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Endgame Conversion Blunder"
+ },
+ "235": {
+  "tagger_top": "Hung Bishop",
+  "tagger_conf": 0.22,
+  "tagger_covered_frac": 0.895,
+  "tagger_votes": {
+   "Hung Bishop": 44,
+   "Greedy Capture": 32,
+   "Missed Pawn Break": 27,
+   "Premature Attack": 25,
+   "Pawn Grab While Undeveloped": 25
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "236": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.17,
+  "tagger_covered_frac": 0.845,
+  "tagger_votes": {
+   "Missed Overloading": 34,
+   "Missed Fork": 32,
+   "Allowed Mate": 29,
+   "Allowed Battery": 25,
+   "Missed Discovered Attack": 21
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Winning Tactic"
+ },
+ "237": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.201,
+  "tagger_covered_frac": 0.727,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 31,
+   "Allowed Mate": 16,
+   "Missed Advanced Pawn": 14,
+   "Missed Passed Pawn": 14,
+   "Missed Prophylaxis": 14
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed Pawn Promotion Race"
+ },
+ "238": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.435,
+  "tagger_covered_frac": 0.66,
+  "tagger_votes": {
+   "Allowed Mate": 87,
+   "Allowed Battery": 34,
+   "Missed Trade to Simplify": 34,
+   "Missed Desperado": 32,
+   "Ignored Threat": 26
+  },
+  "opus_verdict": "good",
+  "opus_label": "Exposed King Into Forced Mate"
+ },
+ "239": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.65,
+  "tagger_covered_frac": 0.96,
+  "tagger_votes": {
+   "Greedy Capture": 130,
+   "Premature Trade": 89,
+   "Allowed Battery": 35,
+   "Missed Castling": 25,
+   "Failed Pin": 24
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Damaging Exchange Or Capture"
+ },
+ "240": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.158,
+  "tagger_covered_frac": 0.792,
+  "tagger_votes": {
+   "Missed Overloading": 16,
+   "Missed Pawn Break": 13,
+   "Pawn Grab While Undeveloped": 13,
+   "Missed Trade to Simplify": 12,
+   "Greedy Capture": 12
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece Blunder"
+ },
+ "241": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.3,
+  "tagger_covered_frac": 0.835,
+  "tagger_votes": {
+   "Greedy Capture": 60,
+   "Pawn Grab While Undeveloped": 49,
+   "Hung Knight": 31,
+   "Premature Trade": 26,
+   "Missed Overloading": 24
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Unsound Piece Sacrifice"
+ },
+ "242": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.305,
+  "tagger_covered_frac": 0.745,
+  "tagger_votes": {
+   "Allowed Mate": 61,
+   "Missed Sacrifice": 33,
+   "Allowed Battery": 32,
+   "Missed Overloading": 19,
+   "Missed Prophylaxis": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Abandoned King Defense"
+ },
+ "243": {
+  "tagger_top": "Hung Knight",
+  "tagger_conf": 0.14,
+  "tagger_covered_frac": 0.895,
+  "tagger_votes": {
+   "Hung Knight": 28,
+   "Missed Castling": 26,
+   "Allowed Fork": 24,
+   "Allowed Battery": 23,
+   "Missed Overloading": 21
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Dropped"
+ },
+ "244": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.255,
+  "tagger_covered_frac": 0.87,
+  "tagger_votes": {
+   "Greedy Capture": 51,
+   "Allowed Mate": 42,
+   "Allowed Battery": 36,
+   "Missed Overloading": 34,
+   "Created Isolated Pawn": 26
+  },
+  "opus_verdict": "good",
+  "opus_label": "Walking Into King Attack"
+ },
+ "245": {
+  "tagger_top": "Premature Trade",
+  "tagger_conf": 0.108,
+  "tagger_covered_frac": 0.581,
+  "tagger_votes": {
+   "Premature Trade": 16,
+   "Greedy Capture": 15,
+   "Missed Mate": 13,
+   "Bad Simplification": 12,
+   "Allowed Mate": 10
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Passed Pawn Endgame Error"
+ },
+ "246": {
+  "tagger_top": "Bad Simplification",
+  "tagger_conf": 0.405,
+  "tagger_covered_frac": 0.565,
+  "tagger_votes": {
+   "Bad Simplification": 81,
+   "Greedy Capture": 73,
+   "Hung Rook": 37,
+   "Missed Open File": 28,
+   "Allowed Advanced Pawn": 23
+  },
+  "opus_verdict": "good",
+  "opus_label": "Trading Into Lost Pawn Endgame"
+ },
+ "247": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.12,
+  "tagger_covered_frac": 0.71,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 24,
+   "Allowed Battery": 20,
+   "Missed Advanced Pawn": 17,
+   "Wrong Pawn Race": 16,
+   "Missed Pawn Break": 16
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Free Capture (Endgame)"
+ },
+ "248": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.315,
+  "tagger_covered_frac": 0.79,
+  "tagger_votes": {
+   "Allowed Mate": 63,
+   "Missed Sacrifice": 57,
+   "Missed Interposition": 38,
+   "Allowed Battery": 27,
+   "Greedy Capture": 25
+  },
+  "opus_verdict": "good",
+  "opus_label": "King Exposed to Attack"
+ },
+ "249": {
+  "tagger_top": "Missed Free Bishop",
+  "tagger_conf": 0.335,
+  "tagger_covered_frac": 0.99,
+  "tagger_votes": {
+   "Missed Free Bishop": 67,
+   "Hung Queen": 67,
+   "Missed Desperado": 36,
+   "Pawn Move Exposed King": 36,
+   "Hung Bishop": 34
+  },
+  "opus_verdict": "good",
+  "opus_label": "Ignored Hanging Piece"
+ },
+ "250": {
+  "tagger_top": "Missed Free Pawn",
+  "tagger_conf": 0.42,
+  "tagger_covered_frac": 0.85,
+  "tagger_votes": {
+   "Missed Free Pawn": 84,
+   "Missed Overloading": 41,
+   "Allowed Castling": 28,
+   "Missed Fork": 21,
+   "Missed Pin": 17
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Passive Move Misses Tactic"
+ },
+ "251": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.15,
+  "tagger_covered_frac": 0.83,
+  "tagger_votes": {
+   "Missed Overloading": 30,
+   "Allowed Battery": 19,
+   "Hung Knight": 17,
+   "Missed Free Queen": 17,
+   "Hung Rook": 17
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Hanging-Piece Capture"
+ },
+ "252": {
+  "tagger_top": "Premature Trade",
+  "tagger_conf": 0.485,
+  "tagger_covered_frac": 0.86,
+  "tagger_votes": {
+   "Premature Trade": 97,
+   "Greedy Capture": 78,
+   "Bad Simplification": 57,
+   "Missed Overloading": 56,
+   "Missed Mate": 37
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Capture Into King Attack"
+ },
+ "253": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.27,
+  "tagger_covered_frac": 0.675,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 54,
+   "Missed Free Pawn": 29,
+   "Missed Passed Pawn": 28,
+   "Missed Advanced Pawn": 25,
+   "Missed Promotion": 23
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed Pawn Promotion Race"
+ },
+ "254": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.125,
+  "tagger_covered_frac": 0.725,
+  "tagger_votes": {
+   "Greedy Capture": 25,
+   "Missed Mate": 24,
+   "Allowed Mate": 20,
+   "Missed Faster Mate": 19,
+   "Missed Overloading": 17
+  },
+  "opus_verdict": "noise",
+  "opus_label": "Diffuse Tempo/Missed-Tactic Errors"
+ },
+ "255": {
+  "tagger_top": "Missed Free Rook",
+  "tagger_conf": 0.235,
+  "tagger_covered_frac": 0.65,
+  "tagger_votes": {
+   "Missed Free Rook": 47,
+   "Allowed Mate": 46,
+   "Missed Trade to Simplify": 29,
+   "Allowed Battery": 22,
+   "Allowed Doubled Rooks": 21
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Capture Of Hanging Piece"
+ },
+ "256": {
+  "tagger_top": "Premature Trade",
+  "tagger_conf": 0.49,
+  "tagger_covered_frac": 0.81,
+  "tagger_votes": {
+   "Premature Trade": 98,
+   "Bad Simplification": 90,
+   "Greedy Capture": 69,
+   "Missed Overloading": 50,
+   "Hung Queen": 32
+  },
+  "opus_verdict": "good",
+  "opus_label": "Losing Trade Into Pawn Endgame"
+ },
+ "257": {
+  "tagger_top": "Failed Pin",
+  "tagger_conf": 0.245,
+  "tagger_covered_frac": 0.785,
+  "tagger_votes": {
+   "Failed Pin": 49,
+   "Hung Rook": 34,
+   "Missed Trade to Simplify": 29,
+   "Allowed Battery": 28,
+   "Allowed Doubled Rooks": 26
+  },
+  "opus_verdict": "noise",
+  "opus_label": "Mixed Positional Blunder"
+ },
+ "258": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.235,
+  "tagger_covered_frac": 0.83,
+  "tagger_votes": {
+   "Allowed Mate": 47,
+   "Allowed Battery": 30,
+   "Greedy Capture": 19,
+   "Missed Trade to Simplify": 16,
+   "Missed Sacrifice": 14
+  },
+  "opus_verdict": "good",
+  "opus_label": "King Walks Into Mating Net"
+ },
+ "259": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.16,
+  "tagger_covered_frac": 0.82,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 32,
+   "Greedy Capture": 29,
+   "Allowed Battery": 26,
+   "Missed Overloading": 22,
+   "Allowed Mate": 20
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Hanging Piece Or King Safety"
+ },
+ "260": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.103,
+  "tagger_covered_frac": 0.68,
+  "tagger_votes": {
+   "Greedy Capture": 18,
+   "Missed Trade to Simplify": 16,
+   "Missed Overloading": 13,
+   "Premature Trade": 12,
+   "Allowed Mate": 12
+  },
+  "opus_verdict": "good",
+  "opus_label": "Pawn Endgame Tempo Error"
+ },
+ "261": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.198,
+  "tagger_covered_frac": 0.769,
+  "tagger_votes": {
+   "Missed Mate": 18,
+   "Bad Simplification": 16,
+   "Premature Trade": 15,
+   "Missed Overloading": 14,
+   "Hung Queen": 13
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Endgame Passed-Pawn Conversion Error"
+ },
+ "262": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.23,
+  "tagger_covered_frac": 0.695,
+  "tagger_votes": {
+   "Allowed Mate": 46,
+   "Greedy Capture": 29,
+   "Missed Prophylaxis": 26,
+   "Allowed Battery": 25,
+   "Pawn Move Exposed King": 20
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "King-Safety Collapse"
+ },
+ "263": {
+  "tagger_top": "Allowed Battery",
+  "tagger_conf": 0.185,
+  "tagger_covered_frac": 0.87,
+  "tagger_votes": {
+   "Allowed Battery": 10,
+   "Allowed Doubled Rooks": 8,
+   "Missed Overloading": 8,
+   "Premature Trade": 6,
+   "Missed Trade to Simplify": 5
+  },
+  "opus_verdict": "good",
+  "opus_label": "Queen Move Drops Defended Piece"
+ },
+ "264": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.148,
+  "tagger_covered_frac": 0.704,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 8,
+   "Greedy Capture": 7,
+   "Missed Pawn Break": 6,
+   "Wrong Pawn Race": 5,
+   "Missed King Activity": 4
+  },
+  "opus_verdict": "good",
+  "opus_label": "King Mismanaged vs Passed Pawn"
+ },
+ "265": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.265,
+  "tagger_covered_frac": 0.882,
+  "tagger_votes": {
+   "Missed Overloading": 9,
+   "Greedy Capture": 6,
+   "Bad Simplification": 5,
+   "Missed Pawn Break": 4,
+   "Missed Mate": 4
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Tactical Shot"
+ },
+ "266": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.13,
+  "tagger_covered_frac": 0.775,
+  "tagger_votes": {
+   "Missed Mate": 26,
+   "Allowed Mate": 25,
+   "Allowed Battery": 24,
+   "Missed Prophylaxis": 24,
+   "Missed Queen Activity": 21
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Squandered Attacking Initiative"
+ },
+ "267": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.13,
+  "tagger_covered_frac": 0.735,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 26,
+   "Allowed Mate": 23,
+   "Greedy Capture": 21,
+   "Ignored Threat": 17,
+   "Pawn Move Exposed King": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "268": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.265,
+  "tagger_covered_frac": 0.975,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 53,
+   "Missed Free Queen": 48,
+   "Missed Desperado": 46,
+   "Allowed Battery": 38,
+   "Missed Free Rook": 37
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Hanging-Piece Capture"
+ },
+ "269": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.288,
+  "tagger_covered_frac": 0.909,
+  "tagger_votes": {
+   "Greedy Capture": 38,
+   "Pawn Grab While Undeveloped": 30,
+   "Missed Tempo Push": 28,
+   "Missed Pawn Break": 19,
+   "Missed Battery": 12
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo-Losing Piece Misplacement"
+ },
+ "270": {
+  "tagger_top": "Wrong Pawn Race",
+  "tagger_conf": 0.19,
+  "tagger_covered_frac": 0.675,
+  "tagger_votes": {
+   "Wrong Pawn Race": 38,
+   "Missed Mate": 37,
+   "Missed Advanced Pawn": 28,
+   "Missed Passed Pawn": 28,
+   "Missed Prophylaxis": 25
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Squandered Passed-Pawn Endgame"
+ },
+ "271": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.18,
+  "tagger_covered_frac": 0.645,
+  "tagger_votes": {
+   "Greedy Capture": 36,
+   "Missed Trade to Simplify": 32,
+   "Allowed Battery": 20,
+   "Premature Trade": 19,
+   "Missed Defensive Resource": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed Pawn Promotion Tempo Loss"
+ },
+ "272": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.585,
+  "tagger_covered_frac": 0.62,
+  "tagger_votes": {
+   "Missed Mate": 117,
+   "Missed Faster Mate": 99,
+   "Missed Trade to Simplify": 23,
+   "Missed Overloading": 21,
+   "Missed Free Rook": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Slow Move Squanders Forced Mate"
+ },
+ "273": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.176,
+  "tagger_covered_frac": 0.882,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 9,
+   "Hung Bishop": 7,
+   "Missed Overloading": 7,
+   "Missed Defensive Resource": 6,
+   "Allowed Battery": 5
+  },
+  "opus_verdict": "good",
+  "opus_label": "Leaving A Piece Hanging"
+ },
+ "274": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.135,
+  "tagger_covered_frac": 0.795,
+  "tagger_votes": {
+   "Missed Overloading": 27,
+   "Missed Queen Exchange": 21,
+   "Allowed Battery": 17,
+   "Missed Prophylaxis": 14,
+   "Failed Pin": 12
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Material-Winning Tactic"
+ },
+ "275": {
+  "tagger_top": "Allowed Battery",
+  "tagger_conf": 0.12,
+  "tagger_covered_frac": 0.755,
+  "tagger_votes": {
+   "Allowed Battery": 24,
+   "Missed Overloading": 22,
+   "Missed Trade to Simplify": 20,
+   "Allowed Mate": 20,
+   "Missed Prophylaxis": 19
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Passed Pawn Promotion Errors"
+ },
+ "276": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.15,
+  "tagger_covered_frac": 0.82,
+  "tagger_votes": {
+   "Missed Overloading": 30,
+   "Missed Pawn Break": 26,
+   "Greedy Capture": 25,
+   "Missed Battery": 22,
+   "Allowed Battery": 21
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Tactical Shot"
+ },
+ "277": {
+  "tagger_top": "Allowed Advanced Pawn",
+  "tagger_conf": 0.208,
+  "tagger_covered_frac": 0.733,
+  "tagger_votes": {
+   "Allowed Advanced Pawn": 25,
+   "Greedy Capture": 23,
+   "Allowed Promotion": 19,
+   "Bad Simplification": 18,
+   "Premature Trade": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Botched Passed-Pawn Promotion"
+ },
+ "278": {
+  "tagger_top": "Allowed Battery",
+  "tagger_conf": 0.135,
+  "tagger_covered_frac": 0.725,
+  "tagger_votes": {
+   "Allowed Battery": 27,
+   "Allowed Mate": 27,
+   "Pawn Move Exposed King": 25,
+   "Missed Overloading": 18,
+   "Missed Sacrifice": 17
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Exposed-King Tactical Lapse"
+ },
+ "279": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.195,
+  "tagger_covered_frac": 0.735,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 39,
+   "Allowed Mate": 26,
+   "Missed Overloading": 26,
+   "Missed Sacrifice": 21,
+   "Allowed Battery": 17
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Purposeless Tempo-Losing Move"
+ },
+ "280": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.161,
+  "tagger_covered_frac": 0.862,
+  "tagger_votes": {
+   "Missed Overloading": 14,
+   "Allowed Battery": 14,
+   "Greedy Capture": 10,
+   "Missed Free Bishop": 9,
+   "Missed Trade to Simplify": 8
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo-Wasting Missed Tactic"
+ },
+ "281": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.35,
+  "tagger_covered_frac": 0.715,
+  "tagger_votes": {
+   "Allowed Mate": 70,
+   "Allowed Battery": 34,
+   "Missed Perpetual": 32,
+   "Missed Overloading": 28,
+   "Allowed Advanced Pawn": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "King Walks Into Mating Net"
+ },
+ "282": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.18,
+  "tagger_covered_frac": 0.86,
+  "tagger_votes": {
+   "Missed Pawn Break": 36,
+   "Missed Overloading": 35,
+   "Greedy Capture": 28,
+   "Missed Pawn Trade": 27,
+   "Missed Fork": 22
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed King-Safety Tactic"
+ },
+ "283": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.14,
+  "tagger_covered_frac": 0.705,
+  "tagger_votes": {
+   "Missed Pawn Break": 28,
+   "Missed Prophylaxis": 24,
+   "Greedy Capture": 24,
+   "Missed Passed Pawn": 22,
+   "Missed Advanced Pawn": 21
+  },
+  "opus_verdict": "good",
+  "opus_label": "Mistimed Passed-Pawn Promotion"
+ },
+ "284": {
+  "tagger_top": "Premature Trade",
+  "tagger_conf": 0.211,
+  "tagger_covered_frac": 0.789,
+  "tagger_votes": {
+   "Premature Trade": 8,
+   "Missed Free Pawn": 6,
+   "Greedy Capture": 6,
+   "Missed Overloading": 5,
+   "Ignored Threat": 5
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece / Missed Tactic"
+ },
+ "285": {
+  "tagger_top": "Missed Defensive Resource",
+  "tagger_conf": 0.16,
+  "tagger_covered_frac": 0.8,
+  "tagger_votes": {
+   "Missed Defensive Resource": 32,
+   "Greedy Capture": 28,
+   "Ignored Threat": 25,
+   "Missed Prophylaxis": 20,
+   "Hung Queen": 18
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Leaving Piece Undefended"
+ },
+ "286": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.46,
+  "tagger_covered_frac": 0.775,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 92,
+   "Allowed Mate": 75,
+   "Missed Free Queen": 71,
+   "Missed Desperado": 40,
+   "Allowed Battery": 37
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece / Missed Capture"
+ },
+ "287": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.19,
+  "tagger_covered_frac": 0.81,
+  "tagger_votes": {
+   "Missed Overloading": 38,
+   "Missed Discovered Attack": 28,
+   "Allowed Battery": 23,
+   "Missed Defensive Resource": 21,
+   "Missed Desperado": 21
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Squandered Tempo And Initiative"
+ },
+ "288": {
+  "tagger_top": "Missed Prophylaxis",
+  "tagger_conf": 0.2,
+  "tagger_covered_frac": 0.69,
+  "tagger_votes": {
+   "Missed Prophylaxis": 40,
+   "Wrong Pawn Race": 26,
+   "Greedy Capture": 25,
+   "Missed Advanced Pawn": 21,
+   "Missed Mate": 19
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed-Pawn Endgame Mistechnique"
+ },
+ "289": {
+  "tagger_top": "Allowed Pawn Capture",
+  "tagger_conf": 0.555,
+  "tagger_covered_frac": 0.93,
+  "tagger_votes": {
+   "Allowed Pawn Capture": 111,
+   "Pawn Move Exposed King": 76,
+   "Missed Pawn Break": 26,
+   "Missed Castling": 23,
+   "Missed Tempo Push": 18
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Premature Pawn Break Weakens Structure"
+ },
+ "290": {
+  "tagger_top": "Wrong Pawn Race",
+  "tagger_conf": 0.2,
+  "tagger_covered_frac": 0.7,
+  "tagger_votes": {
+   "Wrong Pawn Race": 2,
+   "Missed King Activity": 1,
+   "Allowed Hanging Piece": 1,
+   "Hung Queen": 1,
+   "Ignored Threat": 1
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo Loss In Endgames"
+ },
+ "291": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.225,
+  "tagger_covered_frac": 0.755,
+  "tagger_votes": {
+   "Missed Overloading": 45,
+   "Greedy Capture": 27,
+   "Bad Simplification": 25,
+   "Premature Trade": 19,
+   "Allowed Battery": 17
+  },
+  "opus_verdict": "noise",
+  "opus_label": "Missed Winning Tactic"
+ },
+ "292": {
+  "tagger_top": "Hung Knight",
+  "tagger_conf": 0.19,
+  "tagger_covered_frac": 0.835,
+  "tagger_votes": {
+   "Hung Knight": 38,
+   "Hung Queen": 37,
+   "Missed Pawn Break": 25,
+   "Missed Defensive Resource": 23,
+   "Hung Bishop": 22
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "293": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.163,
+  "tagger_covered_frac": 0.663,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 14,
+   "Missed Mate": 12,
+   "Hung Queen": 11,
+   "Ignored Threat": 11,
+   "Missed Free Queen": 9
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo-Losing Blunder"
+ },
+ "294": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.222,
+  "tagger_covered_frac": 0.806,
+  "tagger_votes": {
+   "Missed Overloading": 8,
+   "Greedy Capture": 8,
+   "Bad Simplification": 7,
+   "Premature Trade": 4,
+   "Allowed Mate": 4
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Trading Off Attacking Queen"
+ },
+ "295": {
+  "tagger_top": "Premature Trade",
+  "tagger_conf": 0.206,
+  "tagger_covered_frac": 0.789,
+  "tagger_votes": {
+   "Premature Trade": 36,
+   "Greedy Capture": 34,
+   "Hung Rook": 28,
+   "Bad Simplification": 27,
+   "Pawn Move Exposed King": 18
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Passed-Pawn / Promotion Race Error"
+ },
+ "296": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.101,
+  "tagger_covered_frac": 0.755,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 14,
+   "Bad Simplification": 14,
+   "Missed Overloading": 14,
+   "Missed Desperado": 13,
+   "Greedy Capture": 13
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece Blunder"
+ },
+ "297": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.13,
+  "tagger_covered_frac": 0.696,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 9,
+   "Allowed Battery": 9,
+   "Greedy Capture": 7,
+   "Missed Pawn Break": 7,
+   "Missed Tempo Push": 5
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Passed-Pawn Promotion Tempo Loss"
+ },
+ "298": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.16,
+  "tagger_covered_frac": 0.84,
+  "tagger_votes": {
+   "Missed Overloading": 32,
+   "Allowed Mate": 25,
+   "Pawn Move Exposed King": 24,
+   "Bad Simplification": 23,
+   "Premature Trade": 23
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Mixed Blunder Types"
+ },
+ "299": {
+  "tagger_top": "Missed Advanced Pawn",
+  "tagger_conf": 0.16,
+  "tagger_covered_frac": 0.73,
+  "tagger_votes": {
+   "Missed Advanced Pawn": 32,
+   "Pawn Move Exposed King": 31,
+   "Missed Promotion": 26,
+   "Allowed Mate": 25,
+   "Wrong Pawn Race": 23
+  },
+  "opus_verdict": "good",
+  "opus_label": "Premature Promotion Error"
+ },
+ "300": {
+  "tagger_top": "Allowed Battery",
+  "tagger_conf": 0.31,
+  "tagger_covered_frac": 0.825,
+  "tagger_votes": {
+   "Allowed Battery": 62,
+   "Allowed Mate": 59,
+   "Allowed Doubled Rooks": 44,
+   "Missed Free Rook": 40,
+   "Missed Free Queen": 25
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "King-Safety Collapse vs Hanging Piece"
+ },
+ "301": {
+  "tagger_top": "Missed Pin (to King)",
+  "tagger_conf": 0.19,
+  "tagger_covered_frac": 0.84,
+  "tagger_votes": {
+   "Missed Pin (to King)": 38,
+   "Missed Overloading": 37,
+   "Missed Battery": 34,
+   "Greedy Capture": 25,
+   "Pawn Move Exposed King": 18
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Tactical Resource"
+ },
+ "302": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.235,
+  "tagger_covered_frac": 0.76,
+  "tagger_votes": {
+   "Greedy Capture": 47,
+   "Bad Simplification": 40,
+   "Missed Prophylaxis": 37,
+   "Pawn Move Exposed King": 28,
+   "Allowed Pawn Capture": 28
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Greedy Capture Hangs Material"
+ },
+ "303": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.96,
+  "tagger_covered_frac": 0.995,
+  "tagger_votes": {
+   "Allowed Mate": 192,
+   "Greedy Capture": 79,
+   "Allowed Battery": 74,
+   "Allowed Kingside Attack": 43,
+   "Missed Overloading": 27
+  },
+  "opus_verdict": "good",
+  "opus_label": "Ignored Checkmate Threat"
+ },
+ "304": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.395,
+  "tagger_covered_frac": 0.845,
+  "tagger_votes": {
+   "Greedy Capture": 79,
+   "Allowed Battery": 30,
+   "Premature Trade": 27,
+   "Missed Overloading": 21,
+   "Pawn Grab While Undeveloped": 21
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Greedy Capture Vs King Safety"
+ },
+ "305": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.595,
+  "tagger_covered_frac": 0.715,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 119,
+   "Missed Free Rook": 114,
+   "Missed Mate": 22,
+   "Missed Advanced Pawn": 17,
+   "Wrong Pawn Race": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Free Capture Of Hanging Piece"
+ },
+ "306": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.2,
+  "tagger_covered_frac": 0.79,
+  "tagger_votes": {
+   "Greedy Capture": 40,
+   "Allowed Mate": 21,
+   "Allowed Battery": 19,
+   "Missed Outpost": 17,
+   "Pawn Move Exposed King": 17
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Hanging Piece Or King Danger"
+ },
+ "307": {
+  "tagger_top": "Allowed Battery",
+  "tagger_conf": 0.152,
+  "tagger_covered_frac": 0.821,
+  "tagger_votes": {
+   "Allowed Battery": 17,
+   "Missed Defensive Resource": 15,
+   "Greedy Capture": 13,
+   "Missed Desperado": 13,
+   "Missed Prophylaxis": 12
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "308": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.151,
+  "tagger_covered_frac": 0.642,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 8,
+   "Missed Pawn Break": 6,
+   "Missed Trade to Simplify": 4,
+   "Missed Advanced Pawn": 4,
+   "Missed Promotion": 4
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Endgame Tempo/Conversion Error"
+ },
+ "309": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.211,
+  "tagger_covered_frac": 0.729,
+  "tagger_votes": {
+   "Greedy Capture": 42,
+   "Pawn Move Exposed King": 28,
+   "Missed Overloading": 25,
+   "Hung Bishop": 19,
+   "Premature Trade": 18
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Move-Order Tempo Loss"
+ },
+ "310": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.75,
+  "tagger_covered_frac": 0.975,
+  "tagger_votes": {
+   "Greedy Capture": 150,
+   "Pawn Grab While Undeveloped": 128,
+   "Hung Bishop": 113,
+   "Premature Trade": 83,
+   "Premature Attack": 42
+  },
+  "opus_verdict": "good",
+  "opus_label": "Unsound Sacrificial Attack"
+ },
+ "311": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.72,
+  "tagger_covered_frac": 0.96,
+  "tagger_votes": {
+   "Missed Mate": 144,
+   "Allowed Sacrifice": 44,
+   "Missed Faster Mate": 41,
+   "Missed Battery": 38,
+   "Allowed Battery": 34
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Back-Rank / Mating Attack"
+ },
+ "312": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.15,
+  "tagger_covered_frac": 0.738,
+  "tagger_votes": {
+   "Greedy Capture": 24,
+   "Missed Overloading": 22,
+   "Missed Mate": 20,
+   "Premature Trade": 20,
+   "Bad Simplification": 16
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo Loss / Lost Initiative"
+ },
+ "313": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.273,
+  "tagger_covered_frac": 0.864,
+  "tagger_votes": {
+   "Missed Pawn Break": 6,
+   "Allowed Battery": 4,
+   "Allowed Castling": 3,
+   "Missed Pin (to King)": 3,
+   "Premature Trade": 3
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo-Losing Check / Weakening Move"
+ },
+ "314": {
+  "tagger_top": "Missed Free Queen",
+  "tagger_conf": 0.32,
+  "tagger_covered_frac": 0.82,
+  "tagger_votes": {
+   "Missed Free Queen": 64,
+   "Missed Free Bishop": 53,
+   "Missed Desperado": 52,
+   "Pawn Move Exposed King": 32,
+   "Missed Defensive Resource": 24
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Free Queen Capture"
+ },
+ "315": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.258,
+  "tagger_covered_frac": 0.803,
+  "tagger_votes": {
+   "Greedy Capture": 17,
+   "Pawn Grab While Undeveloped": 12,
+   "Hung Bishop": 9,
+   "Pawn Move Exposed King": 9,
+   "Hung Knight": 8
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "King-Safety Neglect"
+ },
+ "316": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.144,
+  "tagger_covered_frac": 0.799,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 20,
+   "Missed Pawn Break": 17,
+   "Missed Advanced Pawn": 14,
+   "Missed Prophylaxis": 13,
+   "Pawn Move Exposed King": 13
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "317": {
+  "tagger_top": "Missed Free Queen",
+  "tagger_conf": 0.245,
+  "tagger_covered_frac": 0.715,
+  "tagger_votes": {
+   "Missed Free Queen": 49,
+   "Missed Trade to Simplify": 38,
+   "Missed Desperado": 38,
+   "Missed Mate": 32,
+   "Missed Free Rook": 28
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Free Capture Of Hanging Piece"
+ },
+ "318": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.56,
+  "tagger_covered_frac": 0.99,
+  "tagger_votes": {
+   "Allowed Mate": 112,
+   "Allowed Battery": 83,
+   "Allowed Kingside Attack": 73,
+   "Allowed Pawn Capture": 58,
+   "Greedy Capture": 40
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed King-Safety Threat"
+ },
+ "319": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.215,
+  "tagger_covered_frac": 0.345,
+  "tagger_votes": {
+   "Missed Mate": 43,
+   "Missed Faster Mate": 38,
+   "Hung Queen": 16,
+   "Premature Trade": 14,
+   "Bad Simplification": 11
+  },
+  "opus_verdict": "good",
+  "opus_label": "Pointless Check Wasting Tempo"
+ },
+ "320": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.415,
+  "tagger_covered_frac": 0.66,
+  "tagger_votes": {
+   "Allowed Mate": 83,
+   "Greedy Capture": 64,
+   "Missed Sacrifice": 28,
+   "Allowed Battery": 27,
+   "Pawn Move Exposed King": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Capture Into Back-Rank Mate"
+ },
+ "321": {
+  "tagger_top": "Hung Knight",
+  "tagger_conf": 0.49,
+  "tagger_covered_frac": 0.97,
+  "tagger_votes": {
+   "Hung Knight": 98,
+   "Hung Bishop": 56,
+   "Pawn Move Exposed King": 55,
+   "Missed Pawn Break": 31,
+   "Missed Pawn Trade": 28
+  },
+  "opus_verdict": "good",
+  "opus_label": "Left Piece Hanging En Prise"
+ },
+ "322": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.185,
+  "tagger_covered_frac": 0.67,
+  "tagger_votes": {
+   "Allowed Mate": 37,
+   "Missed Trade to Simplify": 25,
+   "Missed Overloading": 18,
+   "Missed Free Rook": 15,
+   "Allowed Battery": 15
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Mixed Blunder Types"
+ },
+ "323": {
+  "tagger_top": "Missed Sacrifice",
+  "tagger_conf": 0.136,
+  "tagger_covered_frac": 0.682,
+  "tagger_votes": {
+   "Missed Sacrifice": 6,
+   "Missed Free Queen": 5,
+   "Pawn Move Exposed King": 5,
+   "Missed Desperado": 4,
+   "Allowed Battery": 4
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Tactic / Hanging Piece"
+ },
+ "324": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.231,
+  "tagger_covered_frac": 0.846,
+  "tagger_votes": {
+   "Allowed Mate": 6,
+   "Missed Trade to Simplify": 5,
+   "Greedy Capture": 5,
+   "Premature Attack": 4,
+   "Allowed Battery": 4
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "325": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.23,
+  "tagger_covered_frac": 0.76,
+  "tagger_votes": {
+   "Missed Overloading": 46,
+   "Missed Kingside Attack": 38,
+   "Missed Battery": 38,
+   "Missed Mate": 34,
+   "Allowed Battery": 24
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Slow Move Missing Tactic"
+ },
+ "326": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.125,
+  "tagger_covered_frac": 0.825,
+  "tagger_votes": {
+   "Missed Pawn Break": 25,
+   "Allowed Battery": 24,
+   "Pawn Move Exposed King": 22,
+   "Missed Free Bishop": 19,
+   "Premature Trade": 15
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo-Losing Missed Win"
+ },
+ "327": {
+  "tagger_top": "Allowed Advanced Pawn",
+  "tagger_conf": 0.265,
+  "tagger_covered_frac": 0.445,
+  "tagger_votes": {
+   "Allowed Advanced Pawn": 53,
+   "Allowed Promotion": 46,
+   "Allowed Mate": 39,
+   "Hung Material": 29,
+   "Missed Open File": 24
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed Pawn Blockade Failure"
+ },
+ "328": {
+  "tagger_top": "Hung Knight",
+  "tagger_conf": 0.259,
+  "tagger_covered_frac": 0.833,
+  "tagger_votes": {
+   "Hung Knight": 45,
+   "Pawn Move Exposed King": 36,
+   "Greedy Capture": 25,
+   "Hung Bishop": 19,
+   "Missed Defensive Resource": 19
+  },
+  "opus_verdict": "good",
+  "opus_label": "Piece Left Hanging"
+ },
+ "329": {
+  "tagger_top": "Missed Prophylaxis",
+  "tagger_conf": 0.14,
+  "tagger_covered_frac": 0.791,
+  "tagger_votes": {
+   "Missed Prophylaxis": 6,
+   "Missed Overloading": 6,
+   "Wrong Pawn Race": 5,
+   "Greedy Capture": 5,
+   "Pawn Move Exposed King": 4
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece / Won-Game Collapse"
+ },
+ "330": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.295,
+  "tagger_covered_frac": 0.805,
+  "tagger_votes": {
+   "Allowed Mate": 59,
+   "Allowed Battery": 32,
+   "Exposed King": 28,
+   "Missed Trade to Simplify": 25,
+   "Missed Free Queen": 24
+  },
+  "opus_verdict": "good",
+  "opus_label": "King Walk Into Mating Net"
+ },
+ "331": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.155,
+  "tagger_covered_frac": 0.805,
+  "tagger_votes": {
+   "Greedy Capture": 31,
+   "Missed Trade to Simplify": 23,
+   "Missed Overloading": 21,
+   "Hung Knight": 20,
+   "Pawn Grab While Undeveloped": 19
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Dropped"
+ },
+ "332": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.2,
+  "tagger_covered_frac": 0.88,
+  "tagger_votes": {
+   "Greedy Capture": 40,
+   "Pawn Move Exposed King": 27,
+   "Pawn Grab While Undeveloped": 26,
+   "Missed Pawn Break": 25,
+   "Hung Knight": 21
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece / Missed Capture"
+ },
+ "333": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.12,
+  "tagger_covered_frac": 0.76,
+  "tagger_votes": {
+   "Greedy Capture": 24,
+   "Missed Overloading": 20,
+   "Missed Desperado": 20,
+   "Ignored Threat": 19,
+   "Missed Defensive Resource": 19
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "334": {
+  "tagger_top": "Missed Open File",
+  "tagger_conf": 0.365,
+  "tagger_covered_frac": 0.855,
+  "tagger_votes": {
+   "Missed Open File": 73,
+   "Missed Battery": 67,
+   "Greedy Capture": 34,
+   "Missed Overloading": 32,
+   "Allowed Battery": 24
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo Loss / Missed Initiative"
+ },
+ "335": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.54,
+  "tagger_covered_frac": 0.815,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 108,
+   "Missed Queen Exchange": 64,
+   "Missed Rook Exchange": 44,
+   "Allowed Battery": 40,
+   "Allowed Mate": 32
+  },
+  "opus_verdict": "good",
+  "opus_label": "Abandoning a Defended Piece"
+ },
+ "336": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.133,
+  "tagger_covered_frac": 0.742,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 17,
+   "Missed Pawn Break": 16,
+   "Allowed Mate": 15,
+   "Greedy Capture": 15,
+   "Missed Free Queen": 11
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Free Capture / Hanging Piece"
+ },
+ "337": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.195,
+  "tagger_covered_frac": 0.795,
+  "tagger_votes": {
+   "Greedy Capture": 39,
+   "Missed Pawn Break": 29,
+   "Premature Trade": 18,
+   "Missed Trade to Simplify": 16,
+   "Missed Prophylaxis": 15
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece / Tempo Loss"
+ },
+ "338": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.12,
+  "tagger_covered_frac": 0.67,
+  "tagger_votes": {
+   "Missed Overloading": 12,
+   "Pawn Move Exposed King": 10,
+   "Missed Pawn Break": 10,
+   "Missed Advanced Pawn": 9,
+   "Wrong Pawn Race": 9
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Hanging Piece / Passed-Pawn Endgame"
+ },
+ "339": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.295,
+  "tagger_covered_frac": 0.84,
+  "tagger_votes": {
+   "Missed Overloading": 59,
+   "Allowed Battery": 48,
+   "Allowed Mate": 30,
+   "Missed Fork": 25,
+   "Pawn Move Exposed King": 22
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Attack On Exposed King"
+ },
+ "340": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.296,
+  "tagger_covered_frac": 0.709,
+  "tagger_votes": {
+   "Missed Mate": 56,
+   "Missed Faster Mate": 40,
+   "Allowed Sacrifice": 28,
+   "Greedy Capture": 21,
+   "Premature Trade": 16
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Mate on Exposed King"
+ },
+ "341": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.17,
+  "tagger_covered_frac": 0.63,
+  "tagger_votes": {
+   "Missed Overloading": 34,
+   "Missed Open File": 25,
+   "Allowed Advanced Pawn": 21,
+   "Missed Skewer": 20,
+   "Missed Fork": 20
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Squandered Winning Tempo"
+ },
+ "342": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.58,
+  "tagger_covered_frac": 0.895,
+  "tagger_votes": {
+   "Greedy Capture": 116,
+   "Premature Trade": 51,
+   "Pawn Grab While Undeveloped": 38,
+   "Hung Bishop": 23,
+   "Allowed Battery": 20
+  },
+  "opus_verdict": "good",
+  "opus_label": "Unsound Sacrifice Vs King"
+ },
+ "343": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.17,
+  "tagger_covered_frac": 0.872,
+  "tagger_votes": {
+   "Missed Overloading": 8,
+   "Greedy Capture": 6,
+   "Premature Trade": 6,
+   "Pawn Grab While Undeveloped": 5,
+   "Missed Prophylaxis": 5
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo Loss / Missed Tactic"
+ },
+ "344": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.185,
+  "tagger_covered_frac": 0.79,
+  "tagger_votes": {
+   "Greedy Capture": 37,
+   "Premature Trade": 34,
+   "Bad Simplification": 30,
+   "Allowed Battery": 29,
+   "Hung Queen": 23
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece Blunder"
+ },
+ "345": {
+  "tagger_top": "Allowed Discovered Attack",
+  "tagger_conf": 0.385,
+  "tagger_covered_frac": 0.815,
+  "tagger_votes": {
+   "Allowed Discovered Attack": 77,
+   "Allowed Mate": 66,
+   "Allowed Double Check": 29,
+   "Missed Sacrifice": 29,
+   "Missed Battery": 19
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Discovered Attack/Check"
+ },
+ "346": {
+  "tagger_top": "Hung Bishop",
+  "tagger_conf": 0.3,
+  "tagger_covered_frac": 0.91,
+  "tagger_votes": {
+   "Hung Bishop": 60,
+   "Premature Attack": 27,
+   "Missed Pawn Break": 21,
+   "Hung Knight": 19,
+   "Allowed Battery": 19
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "347": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.325,
+  "tagger_covered_frac": 0.87,
+  "tagger_votes": {
+   "Missed Overloading": 65,
+   "Missed Battery": 37,
+   "Allowed Mate": 29,
+   "Greedy Capture": 26,
+   "Allowed Battery": 25
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": null
+ },
+ "348": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.125,
+  "tagger_covered_frac": 0.7,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 25,
+   "Hung Queen": 17,
+   "Missed Free Pawn": 15,
+   "Greedy Capture": 15,
+   "Missed Mate": 15
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Endgame King-Move Tempo Error"
+ },
+ "349": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.24,
+  "tagger_covered_frac": 0.905,
+  "tagger_votes": {
+   "Greedy Capture": 48,
+   "Missed Defensive Resource": 46,
+   "Hung Knight": 45,
+   "Pawn Grab While Undeveloped": 39,
+   "Ignored Threat": 31
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "350": {
+  "tagger_top": "Allowed Discovered Attack",
+  "tagger_conf": 0.195,
+  "tagger_covered_frac": 0.84,
+  "tagger_votes": {
+   "Allowed Discovered Attack": 39,
+   "Greedy Capture": 32,
+   "Failed Pin": 22,
+   "Missed Castling": 18,
+   "Hung Queen": 15
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Queen Move Ignoring Tactic"
+ },
+ "351": {
+  "tagger_top": "Missed Free Bishop",
+  "tagger_conf": 0.155,
+  "tagger_covered_frac": 0.885,
+  "tagger_votes": {
+   "Missed Free Bishop": 31,
+   "Missed Free Knight": 23,
+   "Missed Defensive Resource": 23,
+   "Allowed Battery": 22,
+   "Missed Pawn Break": 21
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "352": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.26,
+  "tagger_covered_frac": 0.665,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 52,
+   "Missed Mate": 47,
+   "Missed Advanced Pawn": 45,
+   "Missed Free Rook": 31,
+   "Missed Faster Mate": 27
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "353": {
+  "tagger_top": "Bad Simplification",
+  "tagger_conf": 0.52,
+  "tagger_covered_frac": 0.6,
+  "tagger_votes": {
+   "Bad Simplification": 104,
+   "Greedy Capture": 73,
+   "Premature Trade": 37,
+   "Missed Open File": 36,
+   "Missed Overloading": 27
+  },
+  "opus_verdict": "good",
+  "opus_label": "Losing Simplification To Pawn Endgame"
+ },
+ "354": {
+  "tagger_top": "Missed Prophylaxis",
+  "tagger_conf": 0.175,
+  "tagger_covered_frac": 0.625,
+  "tagger_votes": {
+   "Missed Prophylaxis": 35,
+   "Missed Trade to Simplify": 33,
+   "Wrong Pawn Race": 32,
+   "Missed Advanced Pawn": 30,
+   "Missed Passed Pawn": 28
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed-Pawn Race Tempo Loss"
+ },
+ "355": {
+  "tagger_top": "Premature Trade",
+  "tagger_conf": 0.188,
+  "tagger_covered_frac": 0.719,
+  "tagger_votes": {
+   "Premature Trade": 6,
+   "Missed Advanced Pawn": 6,
+   "Greedy Capture": 5,
+   "Missed Passed Pawn": 5,
+   "Hung Queen": 4
+  },
+  "opus_verdict": "good",
+  "opus_label": "Botched Passed-Pawn Conversion"
+ },
+ "356": {
+  "tagger_top": "Missed Bishop-Knight Exchange",
+  "tagger_conf": 0.265,
+  "tagger_covered_frac": 0.935,
+  "tagger_votes": {
+   "Missed Bishop-Knight Exchange": 53,
+   "Missed Remove the Guard": 37,
+   "Missed Desperado": 37,
+   "Missed Defensive Resource": 29,
+   "Missed Knight Exchange": 27
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "357": {
+  "tagger_top": "Allowed Battery",
+  "tagger_conf": 0.115,
+  "tagger_covered_frac": 0.81,
+  "tagger_votes": {
+   "Allowed Battery": 23,
+   "Pawn Move Exposed King": 21,
+   "Missed Remove the Guard": 19,
+   "Premature Trade": 16,
+   "Allowed Castling": 15
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Forcing Tactic"
+ },
+ "358": {
+  "tagger_top": "Hung Queen",
+  "tagger_conf": 0.765,
+  "tagger_covered_frac": 0.9,
+  "tagger_votes": {
+   "Hung Queen": 153,
+   "Premature Trade": 53,
+   "Greedy Capture": 46,
+   "Allowed Hanging Piece": 34,
+   "Ignored Threat": 32
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Queen Left En Prise"
+ },
+ "359": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.261,
+  "tagger_covered_frac": 0.793,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 24,
+   "Pawn Move Exposed King": 11,
+   "Missed Free Queen": 10,
+   "Greedy Capture": 9,
+   "Hung Bishop": 9
+  },
+  "opus_verdict": "good",
+  "opus_label": "Overlooked Hanging Piece"
+ },
+ "360": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.18,
+  "tagger_covered_frac": 0.755,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 36,
+   "Greedy Capture": 36,
+   "Missed Prophylaxis": 32,
+   "Pawn Grab While Undeveloped": 19,
+   "Allowed Battery": 15
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "King Safety / Tempo Loss Mix"
+ },
+ "361": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.194,
+  "tagger_covered_frac": 0.806,
+  "tagger_votes": {
+   "Missed Pawn Break": 6,
+   "Greedy Capture": 5,
+   "Pawn Grab While Undeveloped": 5,
+   "Missed Overloading": 4,
+   "Missed Outpost": 4
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Exposed King Check Tactic"
+ },
+ "362": {
+  "tagger_top": "Hung Rook",
+  "tagger_conf": 0.36,
+  "tagger_covered_frac": 0.685,
+  "tagger_votes": {
+   "Hung Rook": 72,
+   "Bad Simplification": 38,
+   "Hung Queen": 35,
+   "Allowed Mate": 35,
+   "Greedy Capture": 31
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "363": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.245,
+  "tagger_covered_frac": 0.78,
+  "tagger_votes": {
+   "Missed Mate": 49,
+   "Missed Faster Mate": 25,
+   "Missed Trade to Simplify": 24,
+   "Missed Prophylaxis": 23,
+   "Bad Simplification": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Back-Rank Mate"
+ },
+ "364": {
+  "tagger_top": "Missed Bishop-Knight Exchange",
+  "tagger_conf": 0.25,
+  "tagger_covered_frac": 0.98,
+  "tagger_votes": {
+   "Missed Bishop-Knight Exchange": 50,
+   "Missed Knight Exchange": 47,
+   "Pawn Move Exposed King": 37,
+   "Allowed Hanging Piece": 33,
+   "Missed Desperado": 33
+  },
+  "opus_verdict": "good",
+  "opus_label": "Piece Left Hanging In Opening"
+ },
+ "365": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.207,
+  "tagger_covered_frac": 0.724,
+  "tagger_votes": {
+   "Missed Overloading": 6,
+   "Missed Mate": 4,
+   "Missed Faster Mate": 4,
+   "Missed Queen Exchange": 4,
+   "Missed Trade to Simplify": 4
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Mate / King Safety"
+ },
+ "366": {
+  "tagger_top": "Hung Queen",
+  "tagger_conf": 0.208,
+  "tagger_covered_frac": 0.854,
+  "tagger_votes": {
+   "Hung Queen": 30,
+   "Premature Trade": 24,
+   "Missed Overloading": 23,
+   "Pawn Move Exposed King": 19,
+   "Missed Desperado": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "367": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.4,
+  "tagger_covered_frac": 0.873,
+  "tagger_votes": {
+   "Greedy Capture": 44,
+   "Pawn Grab While Undeveloped": 38,
+   "Hung Knight": 33,
+   "Missed Pawn Break": 18,
+   "Premature Attack": 15
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Unsound Capture / Sacrifice"
+ },
+ "368": {
+  "tagger_top": "Hung Bishop",
+  "tagger_conf": 0.325,
+  "tagger_covered_frac": 0.885,
+  "tagger_votes": {
+   "Hung Bishop": 65,
+   "Allowed Hanging Piece": 59,
+   "Missed Defensive Resource": 40,
+   "Failed Discovered Attack": 40,
+   "Ignored Threat": 39
+  },
+  "opus_verdict": "good",
+  "opus_label": "Leaving Piece Undefended"
+ },
+ "369": {
+  "tagger_top": "Bad Simplification",
+  "tagger_conf": 0.161,
+  "tagger_covered_frac": 0.696,
+  "tagger_votes": {
+   "Bad Simplification": 9,
+   "Greedy Capture": 7,
+   "Allowed Mate": 6,
+   "Premature Trade": 5,
+   "Missed Open File": 5
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Passed-Pawn Endgame Misjudgment"
+ },
+ "370": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.5,
+  "tagger_covered_frac": 0.92,
+  "tagger_votes": {
+   "Missed Overloading": 100,
+   "Missed Free Pawn": 89,
+   "Missed Trapped Rook": 73,
+   "Pawn Move Exposed King": 27,
+   "Missed Fork": 25
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Capture Of Undefended Piece"
+ },
+ "371": {
+  "tagger_top": "Missed Free Queen",
+  "tagger_conf": 0.27,
+  "tagger_covered_frac": 0.76,
+  "tagger_votes": {
+   "Missed Free Queen": 54,
+   "Missed Desperado": 44,
+   "Missed Free Bishop": 28,
+   "Missed Defensive Resource": 25,
+   "Missed Free Knight": 23
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Free Hanging Piece"
+ },
+ "372": {
+  "tagger_top": "Premature Trade",
+  "tagger_conf": 0.188,
+  "tagger_covered_frac": 0.703,
+  "tagger_votes": {
+   "Premature Trade": 12,
+   "Bad Simplification": 10,
+   "Greedy Capture": 8,
+   "Hung Queen": 8,
+   "Missed Mate": 8
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Endgame King-Move Tempo Loss"
+ },
+ "373": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.285,
+  "tagger_covered_frac": 0.97,
+  "tagger_votes": {
+   "Missed Overloading": 57,
+   "Missed Mate": 55,
+   "Missed Free Rook": 54,
+   "Allowed Battery": 45,
+   "Missed Desperado": 36
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Undefended Piece Left Hanging"
+ },
+ "374": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.185,
+  "tagger_covered_frac": 0.86,
+  "tagger_votes": {
+   "Greedy Capture": 37,
+   "Premature Trade": 24,
+   "Allowed Battery": 22,
+   "Allowed Castling": 20,
+   "Pawn Grab While Undeveloped": 19
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Tempo-Losing Passive Move"
+ },
+ "375": {
+  "tagger_top": "Missed Free Rook",
+  "tagger_conf": 0.325,
+  "tagger_covered_frac": 0.78,
+  "tagger_votes": {
+   "Missed Free Rook": 65,
+   "Missed Trade to Simplify": 44,
+   "Allowed Battery": 26,
+   "Pawn Move Exposed King": 21,
+   "Missed Free Queen": 19
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Capture Of Hanging Piece"
+ },
+ "376": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.48,
+  "tagger_covered_frac": 0.785,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 96,
+   "Missed Free Queen": 91,
+   "Missed Mate": 64,
+   "Missed Desperado": 50,
+   "Missed Free Rook": 41
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "377": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.32,
+  "tagger_covered_frac": 0.945,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 64,
+   "Missed Overloading": 38,
+   "Missed Free Bishop": 34,
+   "Missed Unpinning Resource": 22,
+   "Allowed Pawn Capture": 20
+  },
+  "opus_verdict": "good",
+  "opus_label": "Quiet Move Misses Tactic"
+ },
+ "378": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.315,
+  "tagger_covered_frac": 0.77,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 63,
+   "Missed Free Rook": 35,
+   "Missed Free Queen": 25,
+   "Allowed Mate": 25,
+   "Pawn Move Exposed King": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Capture Of Hanging Piece"
+ },
+ "379": {
+  "tagger_top": "Bad Simplification",
+  "tagger_conf": 0.22,
+  "tagger_covered_frac": 0.685,
+  "tagger_votes": {
+   "Bad Simplification": 44,
+   "Allowed Advanced Pawn": 43,
+   "Greedy Capture": 39,
+   "Wrong Pawn Race": 38,
+   "Missed Advanced Pawn": 38
+  },
+  "opus_verdict": "good",
+  "opus_label": "Mishandled Passed Pawn Promotion"
+ },
+ "380": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.234,
+  "tagger_covered_frac": 0.872,
+  "tagger_votes": {
+   "Missed Pawn Break": 11,
+   "Missed Tempo Push": 7,
+   "Missed Overloading": 6,
+   "Allowed Castling": 4,
+   "Premature Trade": 4
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passive Move Missing Opening Tactic"
+ },
+ "381": {
+  "tagger_top": "Missed Battery",
+  "tagger_conf": 0.082,
+  "tagger_covered_frac": 0.616,
+  "tagger_votes": {
+   "Missed Battery": 6,
+   "Missed Prophylaxis": 6,
+   "Missed Open File": 6,
+   "Greedy Capture": 6,
+   "Allowed Battery": 5
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Slow Passive Move (Tempo Loss)"
+ },
+ "382": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.185,
+  "tagger_covered_frac": 0.795,
+  "tagger_votes": {
+   "Missed Mate": 37,
+   "Greedy Capture": 35,
+   "Missed Battery": 26,
+   "Missed Kingside Attack": 20,
+   "Missed Prophylaxis": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Material Over King Attack"
+ },
+ "383": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.53,
+  "tagger_covered_frac": 0.95,
+  "tagger_votes": {
+   "Missed Pawn Break": 106,
+   "Missed Free Knight": 91,
+   "Pawn Move Exposed King": 51,
+   "Missed Desperado": 32,
+   "Missed Free Bishop": 26
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left / Missed Free Capture"
+ },
+ "384": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.735,
+  "tagger_covered_frac": 0.97,
+  "tagger_votes": {
+   "Greedy Capture": 147,
+   "Pawn Grab While Undeveloped": 61,
+   "Premature Trade": 54,
+   "Hung Knight": 40,
+   "Hung Bishop": 34
+  },
+  "opus_verdict": "good",
+  "opus_label": "Unsound Greedy Capture"
+ },
+ "385": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.14,
+  "tagger_covered_frac": 0.71,
+  "tagger_votes": {
+   "Greedy Capture": 28,
+   "Allowed Advanced Pawn": 23,
+   "Allowed Mate": 18,
+   "Allowed Promotion": 16,
+   "Missed Desperado": 15
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Passed-Pawn Endgame Tempo Loss"
+ },
+ "386": {
+  "tagger_top": "Hung Knight",
+  "tagger_conf": 0.55,
+  "tagger_covered_frac": 0.955,
+  "tagger_votes": {
+   "Hung Knight": 110,
+   "Greedy Capture": 76,
+   "Pawn Grab While Undeveloped": 56,
+   "Allowed Hanging Piece": 43,
+   "Ignored Threat": 35
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "387": {
+  "tagger_top": "Missed Queen Exchange",
+  "tagger_conf": 0.375,
+  "tagger_covered_frac": 0.94,
+  "tagger_votes": {
+   "Missed Queen Exchange": 75,
+   "Missed Desperado": 47,
+   "Missed Overloading": 45,
+   "Missed Defensive Resource": 44,
+   "Ignored Threat": 40
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo-Loss Leaving Piece Hanging"
+ },
+ "388": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.194,
+  "tagger_covered_frac": 0.796,
+  "tagger_votes": {
+   "Greedy Capture": 20,
+   "Hung Knight": 13,
+   "Pawn Grab While Undeveloped": 11,
+   "Missed Pawn Break": 11,
+   "Missed Trade to Simplify": 10
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "389": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.29,
+  "tagger_covered_frac": 0.72,
+  "tagger_votes": {
+   "Allowed Mate": 58,
+   "Greedy Capture": 24,
+   "Hung Queen": 19,
+   "Allowed Battery": 18,
+   "Missed Sacrifice": 16
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Exposed-King Safety Lapse"
+ },
+ "390": {
+  "tagger_top": "Missed Pawn Trade",
+  "tagger_conf": 0.2,
+  "tagger_covered_frac": 0.815,
+  "tagger_votes": {
+   "Missed Pawn Trade": 40,
+   "Missed Pawn Break": 38,
+   "Pawn Move Exposed King": 18,
+   "Missed Overloading": 15,
+   "Missed Trade to Simplify": 14
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Tempo-Losing Move"
+ },
+ "391": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.155,
+  "tagger_covered_frac": 0.775,
+  "tagger_votes": {
+   "Greedy Capture": 31,
+   "Missed Prophylaxis": 24,
+   "Allowed Advanced Pawn": 22,
+   "Bad Simplification": 21,
+   "Missed Open File": 20
+  },
+  "opus_verdict": "good",
+  "opus_label": "Move-Order Tempo Loss"
+ },
+ "392": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.225,
+  "tagger_covered_frac": 0.94,
+  "tagger_votes": {
+   "Greedy Capture": 45,
+   "Hung Knight": 44,
+   "Pawn Grab While Undeveloped": 42,
+   "Missed Castling": 33,
+   "Premature Attack": 32
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "393": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.193,
+  "tagger_covered_frac": 0.738,
+  "tagger_votes": {
+   "Allowed Mate": 28,
+   "Missed Trade to Simplify": 19,
+   "Missed Overloading": 17,
+   "Greedy Capture": 12,
+   "Allowed Battery": 12
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Lost Pawn-Endgame Conversion"
+ },
+ "394": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.68,
+  "tagger_covered_frac": 0.945,
+  "tagger_votes": {
+   "Greedy Capture": 136,
+   "Premature Trade": 76,
+   "Allowed Battery": 33,
+   "Failed Pin": 23,
+   "Allowed Fork": 20
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Unfavorable Piece Trade"
+ },
+ "395": {
+  "tagger_top": "Missed Free Bishop",
+  "tagger_conf": 0.335,
+  "tagger_covered_frac": 0.765,
+  "tagger_votes": {
+   "Missed Free Bishop": 67,
+   "Missed Desperado": 20,
+   "Missed Free Pawn": 20,
+   "Pawn Move Exposed King": 19,
+   "Missed Free Knight": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Capture Of Hanging Piece"
+ },
+ "396": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.183,
+  "tagger_covered_frac": 0.722,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 31,
+   "Greedy Capture": 23,
+   "Missed Pawn Break": 20,
+   "Allowed Battery": 19,
+   "Allowed Mate": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Declining Free Piece Capture"
+ },
+ "397": {
+  "tagger_top": "Premature Attack",
+  "tagger_conf": 0.115,
+  "tagger_covered_frac": 0.82,
+  "tagger_votes": {
+   "Premature Attack": 23,
+   "Missed Overloading": 19,
+   "Missed Pawn Break": 18,
+   "Hung Queen": 18,
+   "Allowed Castling": 16
+  },
+  "opus_verdict": "good",
+  "opus_label": "Pointless Check Wasting Tempo"
+ },
+ "398": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.2,
+  "tagger_covered_frac": 0.894,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 17,
+   "Greedy Capture": 16,
+   "Missed Defensive Resource": 10,
+   "Hung Bishop": 9,
+   "Missed Prophylaxis": 9
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "399": {
+  "tagger_top": "Allowed Advanced Pawn",
+  "tagger_conf": 0.505,
+  "tagger_covered_frac": 0.64,
+  "tagger_votes": {
+   "Allowed Advanced Pawn": 101,
+   "Allowed Promotion": 94,
+   "Hung Material": 58,
+   "Allowed Mate": 36,
+   "Missed Prophylaxis": 29
+  },
+  "opus_verdict": "good",
+  "opus_label": "Ignored Passed-Pawn Promotion"
+ },
+ "400": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.12,
+  "tagger_covered_frac": 0.725,
+  "tagger_votes": {
+   "Greedy Capture": 24,
+   "Allowed Mate": 19,
+   "Missed Overloading": 18,
+   "Allowed Advanced Pawn": 17,
+   "Hung Queen": 17
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Passed-Pawn Promotion Tempo Loss"
+ },
+ "401": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.16,
+  "tagger_covered_frac": 0.71,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 32,
+   "Missed Overloading": 28,
+   "Missed Sacrifice": 20,
+   "Pawn Move Exposed King": 20,
+   "Allowed Mate": 16
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Winning Tactic"
+ },
+ "402": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.25,
+  "tagger_covered_frac": 0.665,
+  "tagger_votes": {
+   "Allowed Mate": 50,
+   "Missed Sacrifice": 41,
+   "Missed Unpinning Resource": 31,
+   "Missed Desperado": 24,
+   "Hung Material": 23
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "King Safety Vs Hanging Piece"
+ },
+ "403": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.13,
+  "tagger_covered_frac": 0.745,
+  "tagger_votes": {
+   "Allowed Mate": 24,
+   "Missed Prophylaxis": 21,
+   "Missed Open File": 21,
+   "Missed Trade to Simplify": 19,
+   "Pawn Move Exposed King": 18
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Endgame Passed-Pawn Promotion Error"
+ },
+ "404": {
+  "tagger_top": "Missed Free Knight",
+  "tagger_conf": 0.216,
+  "tagger_covered_frac": 0.902,
+  "tagger_votes": {
+   "Missed Free Knight": 11,
+   "Hung Knight": 9,
+   "Missed Defensive Resource": 7,
+   "Greedy Capture": 6,
+   "Allowed Castling": 5
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "405": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.208,
+  "tagger_covered_frac": 0.667,
+  "tagger_votes": {
+   "Greedy Capture": 10,
+   "Premature Trade": 6,
+   "Missed Pawn Break": 6,
+   "Allowed Fork": 6,
+   "Allowed Battery": 6
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Missed Material Capture"
+ },
+ "406": {
+  "tagger_top": "Missed Prophylaxis",
+  "tagger_conf": 0.135,
+  "tagger_covered_frac": 0.83,
+  "tagger_votes": {
+   "Missed Prophylaxis": 27,
+   "Missed Overloading": 26,
+   "Allowed Battery": 19,
+   "Missed Battery": 16,
+   "Missed Pawn Break": 16
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Premature Attack Move-Order Error"
+ },
+ "407": {
+  "tagger_top": "Allowed Fork",
+  "tagger_conf": 0.193,
+  "tagger_covered_frac": 0.875,
+  "tagger_votes": {
+   "Allowed Fork": 17,
+   "Missed Pawn Break": 16,
+   "Missed Tempo Push": 15,
+   "Pawn Move Exposed King": 14,
+   "Missed Overloading": 14
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Nxf7 Fork"
+ },
+ "408": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.25,
+  "tagger_covered_frac": 0.769,
+  "tagger_votes": {
+   "Greedy Capture": 13,
+   "Missed Trade to Simplify": 8,
+   "Pawn Grab While Undeveloped": 8,
+   "Pawn Move Exposed King": 8,
+   "Bad Simplification": 5
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Hanging-Piece Capture"
+ },
+ "409": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.135,
+  "tagger_covered_frac": 0.695,
+  "tagger_votes": {
+   "Missed Overloading": 27,
+   "Allowed Mate": 26,
+   "Missed Mate": 25,
+   "Allowed Battery": 23,
+   "Missed Faster Mate": 19
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Aimless Check Wasting Tempo"
+ },
+ "410": {
+  "tagger_top": "Missed Free Bishop",
+  "tagger_conf": 0.485,
+  "tagger_covered_frac": 0.92,
+  "tagger_votes": {
+   "Missed Free Bishop": 97,
+   "Allowed Battery": 44,
+   "Missed Bishop-Knight Exchange": 21,
+   "Missed Remove the Guard": 19,
+   "Missed Desperado": 19
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Free Piece Capture"
+ },
+ "411": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.24,
+  "tagger_covered_frac": 0.85,
+  "tagger_votes": {
+   "Missed Overloading": 48,
+   "Missed f2/f7 Attack": 42,
+   "Allowed Battery": 20,
+   "Hung Bishop": 18,
+   "Missed Discovered Attack": 16
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Bxf7+ Sacrifice"
+ },
+ "412": {
+  "tagger_top": "Missed Advanced Pawn",
+  "tagger_conf": 0.092,
+  "tagger_covered_frac": 0.592,
+  "tagger_votes": {
+   "Missed Advanced Pawn": 9,
+   "Missed Open File": 8,
+   "Allowed Mate": 8,
+   "Greedy Capture": 8,
+   "Allowed Sacrifice": 7
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Wasted Tempo in Passed-Pawn Endgame"
+ },
+ "413": {
+  "tagger_top": "Missed Prophylaxis",
+  "tagger_conf": 0.2,
+  "tagger_covered_frac": 0.787,
+  "tagger_votes": {
+   "Missed Prophylaxis": 15,
+   "Missed Advanced Pawn": 14,
+   "Missed Passed Pawn": 14,
+   "Missed Push to Promote": 13,
+   "Wrong Pawn Race": 11
+  },
+  "opus_verdict": "good",
+  "opus_label": "Botched Passed-Pawn Promotion"
+ },
+ "414": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.131,
+  "tagger_covered_frac": 0.679,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 11,
+   "Greedy Capture": 10,
+   "Missed Overloading": 10,
+   "Hung Rook": 9,
+   "Missed Free Queen": 8
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece / Missed Capture"
+ },
+ "415": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.245,
+  "tagger_covered_frac": 0.694,
+  "tagger_votes": {
+   "Allowed Mate": 24,
+   "Greedy Capture": 11,
+   "Allowed Battery": 11,
+   "Missed Overloading": 11,
+   "Pawn Move Exposed King": 10
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece / Missed Capture"
+ },
+ "416": {
+  "tagger_top": "Missed Fork",
+  "tagger_conf": 0.15,
+  "tagger_covered_frac": 0.45,
+  "tagger_votes": {
+   "Missed Fork": 30,
+   "Missed Overloading": 19,
+   "Missed Mate": 14,
+   "Bad Simplification": 14,
+   "Missed Faster Mate": 12
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Winning Fork"
+ },
+ "417": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.29,
+  "tagger_covered_frac": 0.91,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 58,
+   "Allowed Pawn Capture": 50,
+   "Allowed Battery": 23,
+   "Missed Pawn Break": 19,
+   "Greedy Capture": 18
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Premature Pawn Advance"
+ },
+ "418": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.735,
+  "tagger_covered_frac": 0.95,
+  "tagger_votes": {
+   "Greedy Capture": 147,
+   "Pawn Grab While Undeveloped": 139,
+   "Hung Bishop": 97,
+   "Premature Trade": 64,
+   "Premature Attack": 53
+  },
+  "opus_verdict": "good",
+  "opus_label": "Unsound Attacking Sacrifice"
+ },
+ "419": {
+  "tagger_top": "Missed Free Rook",
+  "tagger_conf": 0.21,
+  "tagger_covered_frac": 0.855,
+  "tagger_votes": {
+   "Missed Free Rook": 42,
+   "Allowed Battery": 29,
+   "Missed Pawn Break": 19,
+   "Missed Overloading": 16,
+   "Greedy Capture": 13
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Mixed Blunder Detector"
+ },
+ "420": {
+  "tagger_top": "Missed Queen Exchange",
+  "tagger_conf": 0.49,
+  "tagger_covered_frac": 0.83,
+  "tagger_votes": {
+   "Missed Queen Exchange": 98,
+   "Missed Trade to Simplify": 68,
+   "Ignored Threat": 35,
+   "Missed Rook Exchange": 33,
+   "Missed Desperado": 31
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Survival Queen Trade"
+ },
+ "421": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.165,
+  "tagger_covered_frac": 0.65,
+  "tagger_votes": {
+   "Allowed Mate": 33,
+   "Missed Trade to Simplify": 31,
+   "Missed Defensive Resource": 22,
+   "Ignored Threat": 21,
+   "Missed Desperado": 19
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Endgame Tempo vs Hanging Piece"
+ },
+ "422": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.53,
+  "tagger_covered_frac": 0.72,
+  "tagger_votes": {
+   "Allowed Mate": 106,
+   "Allowed Battery": 58,
+   "Missed Perpetual": 29,
+   "Missed Sacrifice": 29,
+   "Missed Overloading": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "King-Safety Collapse Into Mate"
+ },
+ "423": {
+  "tagger_top": "Hung Queen",
+  "tagger_conf": 0.136,
+  "tagger_covered_frac": 0.65,
+  "tagger_votes": {
+   "Hung Queen": 14,
+   "Greedy Capture": 12,
+   "Allowed Mate": 12,
+   "Missed Battery": 11,
+   "Allowed Battery": 11
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Queen on Open Line"
+ },
+ "424": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.143,
+  "tagger_covered_frac": 0.769,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 13,
+   "Wrong Pawn Race": 11,
+   "Allowed Mate": 9,
+   "Missed Advanced Pawn": 9,
+   "Pawn Move Exposed King": 8
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Winning Tactic"
+ },
+ "425": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.192,
+  "tagger_covered_frac": 0.747,
+  "tagger_votes": {
+   "Allowed Mate": 38,
+   "Allowed Battery": 28,
+   "Greedy Capture": 27,
+   "Missed Overloading": 23,
+   "Allowed Advanced Pawn": 18
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Mixed Catastrophic Blunder"
+ },
+ "426": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.505,
+  "tagger_covered_frac": 0.875,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 101,
+   "Missed Free Queen": 76,
+   "Missed Free Rook": 50,
+   "Missed Desperado": 40,
+   "Hung Queen": 29
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Capture Of Hanging Piece"
+ },
+ "427": {
+  "tagger_top": "Missed Castling",
+  "tagger_conf": 0.207,
+  "tagger_covered_frac": 0.966,
+  "tagger_votes": {
+   "Missed Castling": 6,
+   "Greedy Capture": 6,
+   "Allowed f2/f7 Attack": 4,
+   "Allowed Battery": 4,
+   "Missed Overloading": 4
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Undefended Piece Left En Prise"
+ },
+ "428": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.236,
+  "tagger_covered_frac": 0.764,
+  "tagger_votes": {
+   "Greedy Capture": 26,
+   "Missed Defensive Resource": 19,
+   "Ignored Threat": 14,
+   "Missed Prophylaxis": 14,
+   "Premature Trade": 14
+  },
+  "opus_verdict": "good",
+  "opus_label": "Capture Leaves Piece Hanging"
+ },
+ "429": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.191,
+  "tagger_covered_frac": 0.691,
+  "tagger_votes": {
+   "Greedy Capture": 26,
+   "Bad Simplification": 22,
+   "Pawn Move Exposed King": 13,
+   "Missed Open File": 13,
+   "Missed Prophylaxis": 12
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Losing Pawn-Endgame Trade"
+ },
+ "430": {
+  "tagger_top": "Missed Queen Exchange",
+  "tagger_conf": 0.55,
+  "tagger_covered_frac": 0.89,
+  "tagger_votes": {
+   "Missed Queen Exchange": 110,
+   "Missed Free Queen": 57,
+   "Missed Trade to Simplify": 53,
+   "Missed Desperado": 43,
+   "Ignored Threat": 40
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Hanging-Piece Capture"
+ },
+ "431": {
+  "tagger_top": "Missed Queen Exchange",
+  "tagger_conf": 0.23,
+  "tagger_covered_frac": 0.825,
+  "tagger_votes": {
+   "Missed Queen Exchange": 46,
+   "Missed Overloading": 33,
+   "Missed Desperado": 33,
+   "Missed Defensive Resource": 31,
+   "Ignored Threat": 27
+  },
+  "opus_verdict": "good",
+  "opus_label": "Leaving Piece Hanging"
+ },
+ "432": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.273,
+  "tagger_covered_frac": 0.75,
+  "tagger_votes": {
+   "Greedy Capture": 12,
+   "Pawn Grab While Undeveloped": 9,
+   "Premature Attack": 8,
+   "Premature Trade": 6,
+   "Pawn Move Exposed King": 6
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "King-Safety Collapse Blunder"
+ },
+ "433": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.152,
+  "tagger_covered_frac": 0.752,
+  "tagger_votes": {
+   "Greedy Capture": 19,
+   "Missed Open File": 15,
+   "Missed Prophylaxis": 12,
+   "Missed Trade to Simplify": 11,
+   "Hung Queen": 11
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Tempo Loss And Passed-Pawn Errors"
+ },
+ "434": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.755,
+  "tagger_covered_frac": 0.93,
+  "tagger_votes": {
+   "Missed Mate": 151,
+   "Missed Faster Mate": 64,
+   "Allowed Sacrifice": 38,
+   "Missed Prophylaxis": 31,
+   "Missed Overloading": 29
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Back-Rank Mate"
+ },
+ "435": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.21,
+  "tagger_covered_frac": 0.86,
+  "tagger_votes": {
+   "Missed Pawn Break": 42,
+   "Missed Pawn Trade": 41,
+   "Missed Queen Exchange": 29,
+   "Ignored Threat": 21,
+   "Missed Defensive Resource": 19
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Undefended Piece Left Hanging"
+ },
+ "436": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.205,
+  "tagger_covered_frac": 0.59,
+  "tagger_votes": {
+   "Missed Mate": 41,
+   "Missed Faster Mate": 38,
+   "Missed Prophylaxis": 21,
+   "Missed Open File": 20,
+   "Missed Overloading": 16
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Squandered Winning Advantage"
+ },
+ "437": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.255,
+  "tagger_covered_frac": 0.89,
+  "tagger_votes": {
+   "Missed Overloading": 51,
+   "Pawn Move Exposed King": 35,
+   "Allowed Battery": 30,
+   "Missed Defensive Resource": 22,
+   "Missed Hanging Piece": 21
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Tactic On Hanging Piece"
+ },
+ "438": {
+  "tagger_top": "Missed Bishop Exchange",
+  "tagger_conf": 0.465,
+  "tagger_covered_frac": 0.985,
+  "tagger_votes": {
+   "Missed Bishop Exchange": 93,
+   "Hung Bishop": 64,
+   "Missed Overloading": 61,
+   "Missed Desperado": 57,
+   "Missed Defensive Resource": 51
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "439": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.112,
+  "tagger_covered_frac": 0.824,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 14,
+   "Missed Overloading": 13,
+   "Allowed Battery": 12,
+   "Allowed Mate": 11,
+   "Missed Desperado": 8
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece Overlooked"
+ },
+ "440": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.575,
+  "tagger_covered_frac": 0.965,
+  "tagger_votes": {
+   "Missed Pawn Break": 115,
+   "Missed Pawn Trade": 110,
+   "Hung Bishop": 38,
+   "Missed Desperado": 32,
+   "Allowed Pawn Capture": 32
+  },
+  "opus_verdict": "good",
+  "opus_label": "Piece Hung to Pawn Capture"
+ },
+ "441": {
+  "tagger_top": "Allowed Advanced Pawn",
+  "tagger_conf": 0.205,
+  "tagger_covered_frac": 0.805,
+  "tagger_votes": {
+   "Allowed Advanced Pawn": 41,
+   "Allowed Promotion": 32,
+   "Missed Prophylaxis": 28,
+   "Missed Trade to Simplify": 27,
+   "Pawn Move Exposed King": 24
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed-Pawn Promotion Tempo Error"
+ },
+ "442": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.22,
+  "tagger_covered_frac": 0.915,
+  "tagger_votes": {
+   "Missed Pawn Break": 44,
+   "Greedy Capture": 43,
+   "Pawn Grab While Undeveloped": 36,
+   "Hung Knight": 29,
+   "Missed Overloading": 25
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Opening King-Safety Neglect"
+ },
+ "443": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.155,
+  "tagger_covered_frac": 0.745,
+  "tagger_votes": {
+   "Greedy Capture": 31,
+   "Allowed Battery": 23,
+   "Missed Defensive Resource": 22,
+   "Missed Prophylaxis": 21,
+   "Missed Trade to Simplify": 21
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Dropped"
+ },
+ "444": {
+  "tagger_top": "Allowed Fork",
+  "tagger_conf": 0.15,
+  "tagger_covered_frac": 0.65,
+  "tagger_votes": {
+   "Allowed Fork": 3,
+   "Missed Overloading": 3,
+   "Pawn Move Exposed King": 3,
+   "Allowed Deflection": 2,
+   "Missed Pawn Break": 2
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Premature Knight Sortie"
+ },
+ "445": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.298,
+  "tagger_covered_frac": 0.825,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 34,
+   "Missed Free Queen": 21,
+   "Missed Open File": 14,
+   "Missed Overloading": 14,
+   "Pawn Move Exposed King": 13
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece / Missed Free Capture"
+ },
+ "446": {
+  "tagger_top": "Hung Knight",
+  "tagger_conf": 0.302,
+  "tagger_covered_frac": 0.837,
+  "tagger_votes": {
+   "Hung Knight": 13,
+   "Pawn Move Exposed King": 8,
+   "Missed Pawn Break": 7,
+   "Hung Bishop": 5,
+   "Missed Pawn Trade": 4
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "447": {
+  "tagger_top": "Allowed Fork",
+  "tagger_conf": 0.205,
+  "tagger_covered_frac": 0.805,
+  "tagger_votes": {
+   "Allowed Fork": 41,
+   "Missed Prophylaxis": 29,
+   "Greedy Capture": 27,
+   "Pawn Move Exposed King": 21,
+   "Hung Rook": 19
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Knight Fork"
+ },
+ "448": {
+  "tagger_top": "Hung Queen",
+  "tagger_conf": 0.106,
+  "tagger_covered_frac": 0.832,
+  "tagger_votes": {
+   "Hung Queen": 12,
+   "Greedy Capture": 11,
+   "Missed Knight Exchange": 9,
+   "Allowed Battery": 9,
+   "Pawn Move Exposed King": 8
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "449": {
+  "tagger_top": "Missed Trapped Queen",
+  "tagger_conf": 0.16,
+  "tagger_covered_frac": 0.805,
+  "tagger_votes": {
+   "Missed Trapped Queen": 32,
+   "Allowed Battery": 30,
+   "Greedy Capture": 26,
+   "Missed Prophylaxis": 23,
+   "Missed Open File": 21
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Tactic In Sharp Position"
+ },
+ "450": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.115,
+  "tagger_covered_frac": 0.475,
+  "tagger_votes": {
+   "Missed Pawn Break": 23,
+   "Missed Prophylaxis": 19,
+   "Wrong Pawn Race": 19,
+   "Missed Trade to Simplify": 14,
+   "Missed Advanced Pawn": 13
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passed-Pawn Endgame Tempo Loss"
+ },
+ "451": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.146,
+  "tagger_covered_frac": 0.659,
+  "tagger_votes": {
+   "Greedy Capture": 6,
+   "Missed Prophylaxis": 4,
+   "Missed Rook to Open File": 4,
+   "Missed Open File": 4,
+   "Hung Rook": 4
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "452": {
+  "tagger_top": "Missed Fork",
+  "tagger_conf": 0.745,
+  "tagger_covered_frac": 0.81,
+  "tagger_votes": {
+   "Missed Fork": 149,
+   "Missed Overloading": 82,
+   "Allowed Battery": 21,
+   "Missed Free Pawn": 21,
+   "Bad Simplification": 13
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Knight Fork Winning Queen"
+ },
+ "453": {
+  "tagger_top": "Missed King Activity",
+  "tagger_conf": 0.085,
+  "tagger_covered_frac": 0.55,
+  "tagger_votes": {
+   "Missed King Activity": 17,
+   "Greedy Capture": 14,
+   "Missed Prophylaxis": 13,
+   "Missed Overloading": 12,
+   "Missed Trade to Simplify": 12
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Passed-Pawn Endgame Tempo Loss"
+ },
+ "454": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.17,
+  "tagger_covered_frac": 0.7,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 34,
+   "Premature Trade": 29,
+   "Missed Mate": 24,
+   "Greedy Capture": 22,
+   "Bad Simplification": 21
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Passed-Pawn / Hanging-Piece Errors"
+ },
+ "455": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.19,
+  "tagger_covered_frac": 0.77,
+  "tagger_votes": {
+   "Greedy Capture": 24,
+   "Pawn Grab While Undeveloped": 18,
+   "Missed Pawn Break": 16,
+   "Hung Bishop": 15,
+   "Hung Knight": 13
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Unsound Sacrifice Dropping Material"
+ },
+ "456": {
+  "tagger_top": "Allowed Advanced Pawn",
+  "tagger_conf": 0.133,
+  "tagger_covered_frac": 0.6,
+  "tagger_votes": {
+   "Allowed Advanced Pawn": 6,
+   "Allowed Mate": 5,
+   "Missed Overloading": 4,
+   "Bad Simplification": 4,
+   "Allowed Promotion": 4
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Passed-Pawn Conversion Tempo Loss"
+ },
+ "457": {
+  "tagger_top": "Allowed Advanced Pawn",
+  "tagger_conf": 0.155,
+  "tagger_covered_frac": 0.645,
+  "tagger_votes": {
+   "Allowed Advanced Pawn": 31,
+   "Missed Trade to Simplify": 31,
+   "Allowed Promotion": 22,
+   "Allowed Mate": 22,
+   "Pawn Move Exposed King": 20
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Hanging Piece Vs Passed-Pawn Blunder"
+ },
+ "458": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.265,
+  "tagger_covered_frac": 0.51,
+  "tagger_votes": {
+   "Missed Mate": 53,
+   "Missed Faster Mate": 41,
+   "Missed Trade to Simplify": 18,
+   "Missed Prophylaxis": 15,
+   "Allowed Advanced Pawn": 14
+  },
+  "opus_verdict": "good",
+  "opus_label": "Slow Move Squanders Winning Position"
+ },
+ "459": {
+  "tagger_top": "Missed Pin (to King)",
+  "tagger_conf": 0.405,
+  "tagger_covered_frac": 0.815,
+  "tagger_votes": {
+   "Missed Pin (to King)": 81,
+   "Missed Overloading": 60,
+   "Allowed Battery": 35,
+   "Missed Battery": 33,
+   "Greedy Capture": 25
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Pin-Winning Tactic"
+ },
+ "460": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.47,
+  "tagger_covered_frac": 0.915,
+  "tagger_votes": {
+   "Missed Pawn Break": 94,
+   "Missed Tempo Push": 86,
+   "Missed Overloading": 38,
+   "Missed Passed Pawn": 27,
+   "Missed Pawn Trade": 25
+  },
+  "opus_verdict": "good",
+  "opus_label": "Wasted Tempo, Lost Initiative"
+ },
+ "461": {
+  "tagger_top": "Allowed Sacrifice",
+  "tagger_conf": 0.295,
+  "tagger_covered_frac": 0.92,
+  "tagger_votes": {
+   "Allowed Sacrifice": 59,
+   "Missed Overloading": 56,
+   "Missed Desperado": 54,
+   "Allowed Hanging Piece": 45,
+   "Missed Defensive Resource": 43
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece via Move-Order"
+ },
+ "462": {
+  "tagger_top": "Allowed Battery",
+  "tagger_conf": 0.205,
+  "tagger_covered_frac": 0.815,
+  "tagger_votes": {
+   "Allowed Battery": 41,
+   "Allowed Mate": 28,
+   "Missed Mate": 23,
+   "Missed Overloading": 21,
+   "Missed Prophylaxis": 20
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Forcing Check"
+ },
+ "463": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.266,
+  "tagger_covered_frac": 0.768,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 47,
+   "Missed Free Rook": 24,
+   "Missed Free Bishop": 16,
+   "Allowed Battery": 16,
+   "Pawn Move Exposed King": 15
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Capture of Hanging Piece"
+ },
+ "464": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.168,
+  "tagger_covered_frac": 0.752,
+  "tagger_votes": {
+   "Greedy Capture": 17,
+   "Pawn Move Exposed King": 11,
+   "Allowed Mate": 10,
+   "Missed Overloading": 10,
+   "Missed Advanced Pawn": 9
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Undefended Piece / Tempo Loss"
+ },
+ "465": {
+  "tagger_top": "Bad Simplification",
+  "tagger_conf": 0.25,
+  "tagger_covered_frac": 0.665,
+  "tagger_votes": {
+   "Bad Simplification": 50,
+   "Missed Open File": 41,
+   "Greedy Capture": 39,
+   "Missed Rook to Open File": 23,
+   "Hung Rook": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Trading Into Lost Pawn Endgame"
+ },
+ "466": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.193,
+  "tagger_covered_frac": 0.86,
+  "tagger_votes": {
+   "Greedy Capture": 11,
+   "Missed Pawn Break": 10,
+   "Hung Bishop": 7,
+   "Premature Trade": 7,
+   "Missed Overloading": 6
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "467": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.52,
+  "tagger_covered_frac": 0.93,
+  "tagger_votes": {
+   "Greedy Capture": 104,
+   "Allowed Hanging Piece": 50,
+   "Hung Queen": 46,
+   "Failed Discovered Attack": 43,
+   "Missed Defensive Resource": 35
+  },
+  "opus_verdict": "good",
+  "opus_label": "Capture Leaves Queen Hanging"
+ },
+ "468": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.214,
+  "tagger_covered_frac": 0.845,
+  "tagger_votes": {
+   "Greedy Capture": 18,
+   "Missed Overloading": 10,
+   "Allowed Sacrifice": 9,
+   "Allowed Battery": 9,
+   "Missed Prophylaxis": 8
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Opening File Exposes King/Rook"
+ },
+ "469": {
+  "tagger_top": "Pawn Move Exposed King",
+  "tagger_conf": 0.128,
+  "tagger_covered_frac": 0.66,
+  "tagger_votes": {
+   "Pawn Move Exposed King": 18,
+   "Missed Pawn Break": 15,
+   "Missed Mate": 14,
+   "Greedy Capture": 14,
+   "Missed Prophylaxis": 14
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Endgame Tempo / Conversion Error"
+ },
+ "470": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.3,
+  "tagger_covered_frac": 0.75,
+  "tagger_votes": {
+   "Missed Overloading": 60,
+   "Missed Open File": 27,
+   "Missed Deflection": 22,
+   "Missed Battery": 21,
+   "Allowed Battery": 20
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Passive Retreat Losing Tempo"
+ },
+ "471": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.32,
+  "tagger_covered_frac": 0.875,
+  "tagger_votes": {
+   "Allowed Mate": 64,
+   "Greedy Capture": 36,
+   "Allowed Battery": 30,
+   "Pawn Move Exposed King": 25,
+   "Missed Overloading": 25
+  },
+  "opus_verdict": "good",
+  "opus_label": "King-Safety Collapse / Missed Mating Attack"
+ },
+ "472": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.37,
+  "tagger_covered_frac": 0.96,
+  "tagger_votes": {
+   "Missed Pawn Break": 74,
+   "Missed Tempo Push": 49,
+   "Missed Fork": 38,
+   "Missed Pawn Trade": 29,
+   "Hung Bishop": 26
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Passive Move Hangs Material"
+ },
+ "473": {
+  "tagger_top": "Missed Tempo Push",
+  "tagger_conf": 0.225,
+  "tagger_covered_frac": 0.885,
+  "tagger_votes": {
+   "Missed Tempo Push": 45,
+   "Missed Overloading": 44,
+   "Greedy Capture": 39,
+   "Missed Open File": 34,
+   "Missed Battery": 33
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Tempo-Losing Positional Blunder"
+ },
+ "474": {
+  "tagger_top": "Missed Tempo Push",
+  "tagger_conf": 0.67,
+  "tagger_covered_frac": 0.99,
+  "tagger_votes": {
+   "Missed Tempo Push": 134,
+   "Missed Pawn Break": 50,
+   "Greedy Capture": 29,
+   "Pawn Move Exposed King": 23,
+   "Hung Knight": 19
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Opening Tempo/Development Error"
+ },
+ "475": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.585,
+  "tagger_covered_frac": 0.975,
+  "tagger_votes": {
+   "Greedy Capture": 117,
+   "Premature Trade": 90,
+   "Allowed Battery": 44,
+   "Missed Overloading": 33,
+   "Missed Tempo Push": 24
+  },
+  "opus_verdict": "good",
+  "opus_label": "Premature Capture Hangs Piece"
+ },
+ "476": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.178,
+  "tagger_covered_frac": 0.811,
+  "tagger_votes": {
+   "Greedy Capture": 16,
+   "Missed Overloading": 13,
+   "Ignored Threat": 13,
+   "Missed Defensive Resource": 13,
+   "Pawn Grab While Undeveloped": 11
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "477": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.15,
+  "tagger_covered_frac": 0.765,
+  "tagger_votes": {
+   "Missed Pawn Break": 30,
+   "Missed Prophylaxis": 25,
+   "Wrong Pawn Race": 23,
+   "Pawn Move Exposed King": 20,
+   "Missed Trade to Simplify": 20
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Endgame Tempo Loss With Passed Pawn"
+ },
+ "478": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.38,
+  "tagger_covered_frac": 0.96,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 76,
+   "Hung Rook": 47,
+   "Allowed Hanging Piece": 42,
+   "Ignored Threat": 42,
+   "Missed Free Rook": 40
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "479": {
+  "tagger_top": "Hung Bishop",
+  "tagger_conf": 0.545,
+  "tagger_covered_frac": 0.995,
+  "tagger_votes": {
+   "Hung Bishop": 109,
+   "Greedy Capture": 87,
+   "Pawn Grab While Undeveloped": 72,
+   "Hung Knight": 41,
+   "Premature Trade": 29
+  },
+  "opus_verdict": "good",
+  "opus_label": "Piece Left En Prise"
+ },
+ "480": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.17,
+  "tagger_covered_frac": 0.775,
+  "tagger_votes": {
+   "Missed Overloading": 34,
+   "Missed Trade to Simplify": 22,
+   "Missed Pawn Break": 22,
+   "Missed Mate": 21,
+   "Missed Faster Mate": 20
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece Blunder"
+ },
+ "481": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.45,
+  "tagger_covered_frac": 0.975,
+  "tagger_votes": {
+   "Greedy Capture": 90,
+   "Pawn Grab While Undeveloped": 66,
+   "Hung Bishop": 59,
+   "Premature Attack": 37,
+   "Missed Castling": 34
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "482": {
+  "tagger_top": "Missed Knight Exchange",
+  "tagger_conf": 0.295,
+  "tagger_covered_frac": 0.935,
+  "tagger_votes": {
+   "Missed Knight Exchange": 59,
+   "Missed Bishop-Knight Exchange": 35,
+   "Missed Pawn Break": 28,
+   "Pawn Move Exposed King": 21,
+   "Allowed Fork": 18
+  },
+  "opus_verdict": "too_broad",
+  "opus_label": "Missed Tactic Losing Tempo"
+ },
+ "483": {
+  "tagger_top": "Missed Pawn Break",
+  "tagger_conf": 0.149,
+  "tagger_covered_frac": 0.746,
+  "tagger_votes": {
+   "Missed Pawn Break": 17,
+   "Greedy Capture": 16,
+   "Bad Simplification": 14,
+   "Missed Tempo Push": 13,
+   "Allowed Mate": 13
+  },
+  "opus_verdict": "polysemantic",
+  "opus_label": "Mixed Blunder Themes"
+ },
+ "484": {
+  "tagger_top": "Missed Queen Exchange",
+  "tagger_conf": 0.415,
+  "tagger_covered_frac": 0.82,
+  "tagger_votes": {
+   "Missed Queen Exchange": 83,
+   "Allowed Battery": 40,
+   "Allowed Mate": 32,
+   "Missed Overloading": 27,
+   "Ignored Threat": 26
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Queen Abandons Defensive Post"
+ },
+ "485": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.178,
+  "tagger_covered_frac": 0.85,
+  "tagger_votes": {
+   "Greedy Capture": 19,
+   "Missed Trade to Simplify": 18,
+   "Missed Pawn Break": 16,
+   "Pawn Move Exposed King": 14,
+   "Missed Free Queen": 10
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece Left Undefended"
+ },
+ "486": {
+  "tagger_top": "Missed Free Bishop",
+  "tagger_conf": 0.265,
+  "tagger_covered_frac": 0.868,
+  "tagger_votes": {
+   "Missed Free Bishop": 40,
+   "Greedy Capture": 34,
+   "Pawn Move Exposed King": 25,
+   "Pawn Grab While Undeveloped": 22,
+   "Hung Bishop": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Ignored Hanging Piece"
+ },
+ "487": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.133,
+  "tagger_covered_frac": 0.622,
+  "tagger_votes": {
+   "Missed Overloading": 6,
+   "Missed Free Queen": 5,
+   "Allowed Battery": 5,
+   "Missed Prophylaxis": 5,
+   "Bad Simplification": 4
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Passed-Pawn Promotion"
+ },
+ "488": {
+  "tagger_top": "Missed Trade to Simplify",
+  "tagger_conf": 0.195,
+  "tagger_covered_frac": 0.855,
+  "tagger_votes": {
+   "Missed Trade to Simplify": 39,
+   "Greedy Capture": 31,
+   "Ignored Threat": 27,
+   "Missed Defensive Resource": 27,
+   "Hung Queen": 27
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "489": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.51,
+  "tagger_covered_frac": 0.925,
+  "tagger_votes": {
+   "Missed Overloading": 102,
+   "Missed Fork": 56,
+   "Allowed Castling": 52,
+   "Allowed Battery": 31,
+   "Pawn Move Exposed King": 21
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Tactic Losing Tempo"
+ },
+ "490": {
+  "tagger_top": "Missed Free Bishop",
+  "tagger_conf": 0.485,
+  "tagger_covered_frac": 0.99,
+  "tagger_votes": {
+   "Missed Free Bishop": 97,
+   "Pawn Move Exposed King": 43,
+   "Missed Free Knight": 39,
+   "Missed Pawn Break": 35,
+   "Missed Desperado": 34
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Hanging-Piece Capture"
+ },
+ "491": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.215,
+  "tagger_covered_frac": 0.735,
+  "tagger_votes": {
+   "Greedy Capture": 43,
+   "Premature Trade": 37,
+   "Missed Mate": 24,
+   "Missed Overloading": 21,
+   "Missed Faster Mate": 20
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Tactic / King Safety"
+ },
+ "492": {
+  "tagger_top": "Allowed Trapped Bishop",
+  "tagger_conf": 0.159,
+  "tagger_covered_frac": 0.738,
+  "tagger_votes": {
+   "Allowed Trapped Bishop": 20,
+   "Missed Pawn Break": 19,
+   "Greedy Capture": 16,
+   "Pawn Move Exposed King": 14,
+   "Premature Trade": 10
+  },
+  "opus_verdict": "good",
+  "opus_label": "Passive Move Loses Tempo/Trapped Piece"
+ },
+ "493": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.225,
+  "tagger_covered_frac": 0.625,
+  "tagger_votes": {
+   "Greedy Capture": 45,
+   "Bad Simplification": 39,
+   "Premature Trade": 31,
+   "Missed Overloading": 21,
+   "Hung Rook": 21
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Simplifying Into Lost Endgame"
+ },
+ "494": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.295,
+  "tagger_covered_frac": 0.885,
+  "tagger_votes": {
+   "Missed Overloading": 59,
+   "Missed f2/f7 Attack": 43,
+   "Missed Trade to Simplify": 31,
+   "Allowed Battery": 27,
+   "Missed Kingside Attack": 27
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Missed Kingside Sacrifice Attack"
+ },
+ "495": {
+  "tagger_top": "Premature Trade",
+  "tagger_conf": 0.216,
+  "tagger_covered_frac": 0.742,
+  "tagger_votes": {
+   "Premature Trade": 21,
+   "Missed Mate": 13,
+   "Greedy Capture": 13,
+   "Missed Faster Mate": 12,
+   "Missed Advanced Pawn": 10
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Botched Winning Conversion"
+ },
+ "496": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.16,
+  "tagger_covered_frac": 0.755,
+  "tagger_votes": {
+   "Allowed Mate": 32,
+   "Missed Overloading": 20,
+   "Greedy Capture": 19,
+   "Hung Queen": 16,
+   "Missed Desperado": 16
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece Blunder"
+ },
+ "497": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.21,
+  "tagger_covered_frac": 0.58,
+  "tagger_votes": {
+   "Allowed Mate": 42,
+   "Missed Free Bishop": 27,
+   "Allowed Battery": 23,
+   "Missed Prophylaxis": 22,
+   "Ignored Threat": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Left En Prise"
+ },
+ "498": {
+  "tagger_top": "Missed Overloading",
+  "tagger_conf": 0.195,
+  "tagger_covered_frac": 0.885,
+  "tagger_votes": {
+   "Missed Overloading": 39,
+   "Greedy Capture": 31,
+   "Pawn Move Exposed King": 26,
+   "Hung Knight": 25,
+   "Allowed Battery": 23
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "499": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.135,
+  "tagger_covered_frac": 0.735,
+  "tagger_votes": {
+   "Missed Mate": 27,
+   "Allowed Sacrifice": 25,
+   "Hung Queen": 20,
+   "Premature Trade": 17,
+   "Missed Overloading": 17
+  },
+  "opus_verdict": "good",
+  "opus_label": "Pointless Premature Check"
+ },
+ "500": {
+  "tagger_top": "Missed Bishop Exchange",
+  "tagger_conf": 0.26,
+  "tagger_covered_frac": 0.875,
+  "tagger_votes": {
+   "Missed Bishop Exchange": 52,
+   "Hung Bishop": 37,
+   "Missed Defensive Resource": 36,
+   "Allowed Hanging Piece": 32,
+   "Missed Overloading": 31
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Undefended Piece"
+ },
+ "501": {
+  "tagger_top": "Missed Fork",
+  "tagger_conf": 0.69,
+  "tagger_covered_frac": 0.94,
+  "tagger_votes": {
+   "Missed Fork": 138,
+   "Missed Overloading": 122,
+   "Allowed Castling": 44,
+   "Pawn Move Exposed King": 39,
+   "Missed Prophylaxis": 32
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Queen Fork/Check Winning Piece"
+ },
+ "502": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.195,
+  "tagger_covered_frac": 0.495,
+  "tagger_votes": {
+   "Allowed Mate": 39,
+   "Missed Sacrifice": 37,
+   "Allowed Advanced Pawn": 21,
+   "Allowed Promotion": 20,
+   "Allowed Battery": 16
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Passed-Pawn Tempo Error"
+ },
+ "503": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.12,
+  "tagger_covered_frac": 0.745,
+  "tagger_votes": {
+   "Greedy Capture": 24,
+   "Allowed Mate": 22,
+   "Missed Pawn Break": 19,
+   "Missed Trade to Simplify": 17,
+   "Pawn Move Exposed King": 16
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Hanging Piece / Lost Tempo"
+ },
+ "504": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.305,
+  "tagger_covered_frac": 0.755,
+  "tagger_votes": {
+   "Allowed Mate": 61,
+   "Greedy Capture": 49,
+   "Missed Sacrifice": 44,
+   "Hung Material": 30,
+   "Missed Desperado": 30
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Greedy Capture Ignoring Threat"
+ },
+ "505": {
+  "tagger_top": "Premature Trade",
+  "tagger_conf": 0.275,
+  "tagger_covered_frac": 0.725,
+  "tagger_votes": {
+   "Premature Trade": 55,
+   "Greedy Capture": 44,
+   "Hung Queen": 24,
+   "Missed Mate": 23,
+   "Failed Fork": 21
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Premature Capture Squanders Win"
+ },
+ "506": {
+  "tagger_top": "Missed Pawn Trade",
+  "tagger_conf": 0.725,
+  "tagger_covered_frac": 0.98,
+  "tagger_votes": {
+   "Missed Pawn Trade": 145,
+   "Missed Pawn Break": 125,
+   "Allowed Pawn Capture": 41,
+   "Pawn Move Exposed King": 37,
+   "Missed Desperado": 33
+  },
+  "opus_verdict": "diffuse",
+  "opus_label": "Neglected Central Tension"
+ },
+ "507": {
+  "tagger_top": "Premature Trade",
+  "tagger_conf": 0.42,
+  "tagger_covered_frac": 0.795,
+  "tagger_votes": {
+   "Premature Trade": 84,
+   "Missed Mate": 82,
+   "Missed Faster Mate": 72,
+   "Bad Simplification": 58,
+   "Missed Overloading": 56
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Mate / King Attack"
+ },
+ "508": {
+  "tagger_top": "Missed Mate",
+  "tagger_conf": 0.51,
+  "tagger_covered_frac": 0.885,
+  "tagger_votes": {
+   "Missed Mate": 102,
+   "Missed Overloading": 45,
+   "Allowed Sacrifice": 42,
+   "Missed Battery": 36,
+   "Allowed Battery": 34
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Forced Checkmate"
+ },
+ "509": {
+  "tagger_top": "Allowed Mate",
+  "tagger_conf": 0.515,
+  "tagger_covered_frac": 0.55,
+  "tagger_votes": {
+   "Allowed Mate": 103,
+   "Allowed Battery": 28,
+   "Missed Overloading": 15,
+   "Missed Open File": 15,
+   "Missed Trade to Simplify": 15
+  },
+  "opus_verdict": "good",
+  "opus_label": "King Walk Into Mating Attack"
+ },
+ "510": {
+  "tagger_top": "Missed Free Pawn",
+  "tagger_conf": 0.54,
+  "tagger_covered_frac": 0.955,
+  "tagger_votes": {
+   "Missed Free Pawn": 108,
+   "Pawn Move Exposed King": 25,
+   "Allowed Castling": 24,
+   "Missed Overloading": 24,
+   "Allowed Battery": 21
+  },
+  "opus_verdict": "good",
+  "opus_label": "Missed Free Capture"
+ },
+ "511": {
+  "tagger_top": "Greedy Capture",
+  "tagger_conf": 0.3,
+  "tagger_covered_frac": 0.755,
+  "tagger_votes": {
+   "Greedy Capture": 60,
+   "Pawn Grab While Undeveloped": 45,
+   "Hung Knight": 30,
+   "Hung Bishop": 20,
+   "Premature Attack": 18
+  },
+  "opus_verdict": "good",
+  "opus_label": "Hanging Piece Blunder"
+ }
+}

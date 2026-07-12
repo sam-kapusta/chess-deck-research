@@ -78,6 +78,36 @@ surface (a capture the engine dislikes). Fix: require the played capture to be a
 Sacrifice" detector (doesn't exist yet). Filed as a tagger issue. **Verdict: Opus CORRECTS the tagger
 here — not complementary.**
 
+## SAE-as-tagger-audit: full Stockfish + missing-detector discovery (2026-07-12)
+The whole point of the SAE for the product: cluster positions by mistake concept, then find concepts
+the RULE TAGGER can't name = missing detectors. Done end-to-end:
+- **Why the earlier tagger-vote was capped at 1-ply:** the SAE cache only stores `best_uci` (the diff
+  vector needs just the two board states, not the PV). NOT a tagger limitation — it was fed a
+  PV-stripped cache. The product's `/tag-moments` DOES get full MultiPV lines.
+- **Fix:** ran full Stockfish (depth 16 = prod worker's depth) on all ~60k analyzed positions,
+  48 workers, ~10min → `sf_lines_60k.jsonl` (pv_uci + refutation_uci + eval_before/after). Box has
+  SF16.1 compiled locally at `~/SageMaker/stockfish_compiled` (glibc 2.26 too old for official bins).
+  Scripts: `scripts/sae/sf_batch_60k.py`, `scripts/03_feature_labeling/retag_and_gaps.py` (parallelize
+  the tagging — 40-worker Pool; single-threaded was 30min+, parallel ~3min).
+- **Result: with full lines the tagger explains 76% of positions** (up from ~35% on best_uci). So most
+  of the earlier "gap" was the cache, not the tagger.
+
+### The missing detectors (25 / 252 good features the FULL tagger still can't name) — 3 families:
+1. **Passed-pawn / pawn-endgame tempo & conversion (~10, the biggest gap).** Opus: "Passed Pawn
+   Endgame Conversion Error", "Mistimed Passed-Pawn Promotion", "King Mismanaged vs Passed Pawn",
+   "Lost Tempo in Pawn Endgame". Tagger guesses garbage at ~10% conf (Greedy Capture, Wrong Pawn Race).
+   **No detector for pushing/converting a passer at the wrong moment or king-in-pawn-race technique.**
+   Word-freq of the gaps confirms it: pawn/tempo/endgame/passed/promotion dominate → endgame technique
+   is the tagger's weakest area (it's tactics-first). Filed chess-coach#46.
+2. **Pointless / premature checks that waste tempo (~5).** Opus: "Pointless Check Wasting Tempo" (×3+).
+   Tagger mislabels Allowed Mate / Premature Attack. **No "aimless check" detector.** Filed chess-coach#47.
+3. **Residual hanging-piece (~10)** — likely NOT true gaps: tagger fires low-conf Greedy Capture /
+   Missed Trade to Simplify where Opus says "Hanging Piece En Prise" — the same greedy_capture
+   conflation from #45, i.e. wrong-label not no-label. Covered by #45.
+
+Artifacts: `output/jumprelu_l7diff/retag_full.json` (per-feature full-tagger vote vs Opus verdict),
+`sf_lines_60k.jsonl` + `retag_full_postags.json` on chess-poc.
+
 ## Next (open)
 - **Dedup the hanging-piece cluster** to recover the true distinct-concept count.
 - Optionally label the 256 model + compare (leaner still).
