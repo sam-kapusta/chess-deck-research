@@ -54,6 +54,30 @@ near-duplicates of the single concept the l7-diff representation captures most s
 - Scripts (committed): `scripts/sae/train_jr_canonical.py`, `scripts/03_feature_labeling/label_features_decile_opus.py`.
 - Also on chess-poc `~/SageMaker/jr_canon_out/`.
 
+## Cross-check: Opus labels vs tagger-vote labels (on the 252 good features)
+Compared the two label sources head-to-head (`labels_decile_jr512.json` vs `labels_jr512_k8.json`):
+- **Q1 — 101/252 (40%) good features have NO tagger label.** Opus named a concept the tagger abstained
+  on — mostly tempo/endgame-technique ("Pointless Check Losing Tempo", "Passed Pawn Endgame Conversion
+  Error") that need multi-ply reading the tagger can't do from `best_uci` alone. Clear Opus win on breadth.
+- **Q2 — 80/252 the tagger's concept words appear nowhere in Opus's label+desc.** Grouped by tagger
+  label, 3 systematic patterns: Greedy Capture (25×), Missed Trade to Simplify (20×), Missed
+  Overloading (15×). Trade-to-Simplify + Overloading are genuinely COMPLEMENTARY (tagger names the
+  primitive Opus's prose glosses) → keep both.
+
+### ⚠️ Tagger bug found via the cross-check: `greedy_capture` conflates greed with unsound sacrifice
+The 25 "Greedy Capture" divergences were the tell. Pulled the actual boards for f21/f90/f310/f342/f418:
+**every top-firing position is a Greek-Gift-style sacrifice — `Bxf7+` / `Bxh7+` / `Bxh3`, bishop for a
+single pawn to expose the king with no follow-up.** Opus labels them correctly ("Unsound Sacrifice, No
+Compensation" / "premature attack, unlike the sound Ng5"). The tagger calls them "Greedy Capture."
+**Root cause:** `predicates.greedy_capture` fires on *played-is-a-capture + best-is-quiet* with **no
+test for whether the capture GAINS or SHEDS material.** A B-for-P Greek Gift satisfies the predicate
+(it captures a pawn; the sound move is quiet Ng5) but it's the OPPOSITE mistake — shedding material for
+a failed attack, not greedily grabbing it. So `greedy_capture` merges two opposite errors that share a
+surface (a capture the engine dislikes). Fix: require the played capture to be a net material GAIN
+(SEE-positive, or victim > attacker), which excludes the sacrifices → they'd fall to an "Unsound
+Sacrifice" detector (doesn't exist yet). Filed as a tagger issue. **Verdict: Opus CORRECTS the tagger
+here — not complementary.**
+
 ## Next (open)
 - **Dedup the hanging-piece cluster** to recover the true distinct-concept count.
 - Optionally label the 256 model + compare (leaner still).
