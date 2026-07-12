@@ -123,7 +123,6 @@ def _pin_target(board: chess.Board, move: chess.Move):
                         if p.piece_type == chess.KING or U.king_values[pt] <= U.king_values[p.piece_type]:
                             return p.piece_type   # pinned `first` against more-valuable `p`
                     break
-                    break
             r += dr; f += df
     return None
 
@@ -214,6 +213,18 @@ def fork_line(nodes, pov) -> bool:
 def fork_depth(nodes, pov):
     """Depth (index among pov's moves) of the first fork, or None. 0 = fork is the move to play now."""
     return _first_fire_index(nodes, pov, is_fork)
+
+
+def fork_piece(nodes, pov):
+    """The piece TYPE that delivers the first fork (for 'Knight Fork' vs 'Queen Fork' — #53). The
+    forking piece is the one MOVED at the firing node. Returns a PIECE_NAME string or None."""
+    for node in U.pov_nodes(nodes, pov)[:-1]:
+        if U.moved_piece_type(node) is KING:
+            continue
+        if is_fork(node.parent.board(), node.move):
+            pt = node.parent.board().piece_type_at(node.move.from_square)
+            return U.PIECE_NAME.get(pt)
+    return None
 
 
 def outpost_line(nodes, pov) -> bool:
@@ -949,6 +960,13 @@ def detect_line(start_board: chess.Board, ucis: List[str], pov: bool) -> dict:
             depth = fork_depth(nodes, pov)
             if depth is not None:
                 found["fork"] = f"depth={depth} {found['fork']}"
+        except Exception:
+            pass
+        # #53: name the forking piece so the label is "Knight Fork" not generic "Fork".
+        try:
+            fp = fork_piece(nodes, pov)
+            if fp:
+                found["fork"] = f"forkpiece={fp} {found['fork']}"
         except Exception:
             pass
     # pin target annotation: what the pin is AGAINST (king/queen/rook), for naming "Pin (to Queen)".

@@ -115,13 +115,18 @@ def _allowed_line_ucis(m):
 def _motif_label(key, ev):
     """Map a motif key + evidence to its display label, applying the DEPTH SPLIT for fork:
     depth=0 -> the tactic is the move to play now ('Fork'); depth>0 -> it comes after a setup
-    sequence ('Combination → Fork'). Depth is parsed from the 'depth=N ' prefix detect_line adds."""
-    if key == "fork" and ev.startswith("depth="):
-        try:
-            depth = int(ev.split("depth=", 1)[1].split()[0])
-        except Exception:
-            depth = 0
-        return "Fork" if depth == 0 else "Combination → Fork"
+    sequence ('Combination → Fork'). Also names the forking PIECE ('Knight Fork') from the
+    'forkpiece=X' prefix detect_line adds (#53). Both prefixes may appear, in any order."""
+    if key == "fork":
+        depth = 0
+        if "depth=" in ev:
+            try: depth = int(ev.split("depth=", 1)[1].split()[0])
+            except Exception: depth = 0
+        piece = ""
+        if "forkpiece=" in ev:
+            piece = ev.split("forkpiece=", 1)[1].split()[0]
+        noun = f"{piece} Fork".strip() if piece else "Fork"   # "Knight Fork" / "Fork"
+        return noun if depth == 0 else f"Combination → {noun}"
     # pin: name what it's against — "Pin (to Queen)" / "Pin (to King)". detect_line prefixes "target=X".
     if key == "pin" and ev.startswith("target="):
         tgt = ev.split("target=", 1)[1].split()[0]
@@ -223,9 +228,10 @@ def _suppress_lesser_under_mate(tags):
         if d in mate_dirs:
             # strip the "Missed "/"Allowed "/"Failed " prefix to get the bare motif name
             bare = lab.split(" ", 1)[1] if " " in lab else lab
-            # match exact OR parametrized labels like "Pin (to Queen)" -> "Pin"
+            # match exact, parametrized "Pin (to Queen)" -> "Pin", or piece-prefixed "Knight Fork" -> "Fork"
             base = bare.split(" (", 1)[0]
-            if bare in _MATE_OUTRANKS or base in _MATE_OUTRANKS:
+            tail = base.rsplit(" ", 1)[-1] if " " in base else base   # "Knight Fork" -> "Fork"
+            if bare in _MATE_OUTRANKS or base in _MATE_OUTRANKS or tail in _MATE_OUTRANKS:
                 continue
         kept.append((lab, d, ev))
     return kept

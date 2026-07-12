@@ -122,6 +122,10 @@ def run():
         ("depth1 -> Combination", "fork", "depth=1 line=...", "Combination → Fork"),
         ("depth2 -> Combination", "fork", "depth=2 line=...", "Combination → Fork"),
         ("no depth prefix -> Fork", "fork", "line=...", "Fork"),
+        # #53: name the forking piece. forkpiece= prefix -> "Knight Fork"; with depth -> combination form.
+        ("forkpiece Knight depth0 -> Knight Fork", "fork", "forkpiece=Knight depth=0 line=...", "Knight Fork"),
+        ("forkpiece Queen depth1 -> Combination Queen Fork", "fork", "depth=1 forkpiece=Queen line=...", "Combination → Queen Fork"),
+        ("forkpiece only (no depth) -> Bishop Fork", "fork", "forkpiece=Bishop line=...", "Bishop Fork"),
     ]
     for name, key, ev, want in split_cases:
         got = T._motif_label(key, ev)
