@@ -165,6 +165,32 @@ def greedy_capture(m):
              f"grabbed a {pname} ({m.played_san}); best was the quiet {m.best_san}")]
 
 
+def unsound_sacrifice(m):
+    """The PLAYED move is a material-SHEDDING capture (SEE < 0) into the enemy KING's zone — an
+    unsound sacrifice (classic Greek-Gift Bxf7+/Bxh7+, or Bxh3/Bxg6 type). #52b.
+
+    The complement of greedy_capture: greedy = SEE>=0 capture you KEEP; this = SEE<0 capture you SHED
+    for an attack that (per the win_drop entry gate) doesn't work. Data-derived from the SAE 'unsound
+    sac' feature cluster: 97% of the shedding captures land within 2 squares of the enemy king — the
+    king proximity is what separates a real (failed) SACRIFICE from a plain hung piece / bad trade.
+    'Unsound' is supplied by the entry gate (a SOUND sac keeps the eval up, so it's not a flagged
+    mistake and never reaches here). Fires INSTEAD of the generic 'Hung <piece>' on these (a deeper,
+    teachable concept); see _suppress_hung_under_sacrifice in tagger.py."""
+    b = m.board_before
+    pm = _played_move(m)
+    if pm is None or not b.is_capture(pm):
+        return []
+    if U.static_exchange_eval(b, pm) >= 0:          # must SHED material — else it's a grab/trade
+        return []
+    ks = b.king(not m.mover)                          # enemy king square
+    if ks is None or chess.square_distance(pm.to_square, ks) > 2:
+        return []                                     # not aimed at the king -> plain hung piece, not a sac
+    attacker = b.piece_at(pm.from_square)
+    aname = PIECE_NAME[attacker.piece_type] if attacker else "piece"
+    return [("Unsound Sacrifice", "played",
+             f"sacrificed a {aname.lower()} ({m.played_san}) at the enemy king with no compensation")]
+
+
 def _material_diff(board, side):
     return _material(board, side) - _material(board, not side)
 
@@ -2175,7 +2201,7 @@ def missed_perpetual(m):
 
 # ---------- registry ----------
 ALL_PREDICATES = [
-    phase, game_state, capture_or_exchange, greedy_capture, hung_material,
+    phase, game_state, capture_or_exchange, greedy_capture, unsound_sacrifice, hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
     endgame_type, backward_pawn,
     missed_king_activity, lost_opposition, missed_passed_pawn, rook_behind_passer,

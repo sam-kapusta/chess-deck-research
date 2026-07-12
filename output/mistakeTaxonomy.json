@@ -246,7 +246,7 @@
     },
     "Missed Fork": {
       "category": "Missed Tactic",
-      "blurb": "A fork was available (you didn't play it)",
+      "blurb": "a fork was available (you didn't play it)",
       "drillable": true
     },
     "Allowed Fork": {
@@ -256,12 +256,132 @@
     },
     "Missed Combination \u2192 Fork": {
       "category": "Missed Tactic",
-      "blurb": "A short combination ending in a fork was available (you didn't play it)",
+      "blurb": "a short combination ending in a fork was available (you didn't play it)",
       "drillable": true
     },
     "Allowed Combination \u2192 Fork": {
       "category": "Allowed Tactic",
       "blurb": "Your move let the opponent execute combination \u2192 fork",
+      "drillable": true
+    },
+    "Missed Knight Fork": {
+      "category": "Missed Tactic",
+      "blurb": "a fork was available (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Knight Fork": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent execute knight fork",
+      "drillable": true
+    },
+    "Missed Combination \u2192 Knight Fork": {
+      "category": "Missed Tactic",
+      "blurb": "a short combination ending in a fork was available (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Combination \u2192 Knight Fork": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent execute combination \u2192 knight fork",
+      "drillable": true
+    },
+    "Missed Bishop Fork": {
+      "category": "Missed Tactic",
+      "blurb": "a fork was available (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Bishop Fork": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent execute bishop fork",
+      "drillable": true
+    },
+    "Missed Combination \u2192 Bishop Fork": {
+      "category": "Missed Tactic",
+      "blurb": "a short combination ending in a fork was available (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Combination \u2192 Bishop Fork": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent execute combination \u2192 bishop fork",
+      "drillable": true
+    },
+    "Missed Rook Fork": {
+      "category": "Missed Tactic",
+      "blurb": "a fork was available (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Rook Fork": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent execute rook fork",
+      "drillable": true
+    },
+    "Missed Combination \u2192 Rook Fork": {
+      "category": "Missed Tactic",
+      "blurb": "a short combination ending in a fork was available (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Combination \u2192 Rook Fork": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent execute combination \u2192 rook fork",
+      "drillable": true
+    },
+    "Missed Queen Fork": {
+      "category": "Missed Tactic",
+      "blurb": "a fork was available (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Queen Fork": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent execute queen fork",
+      "drillable": true
+    },
+    "Missed Combination \u2192 Queen Fork": {
+      "category": "Missed Tactic",
+      "blurb": "a short combination ending in a fork was available (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Combination \u2192 Queen Fork": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent execute combination \u2192 queen fork",
+      "drillable": true
+    },
+    "Missed Pawn Fork": {
+      "category": "Missed Tactic",
+      "blurb": "a fork was available (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Pawn Fork": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent execute pawn fork",
+      "drillable": true
+    },
+    "Missed Combination \u2192 Pawn Fork": {
+      "category": "Missed Tactic",
+      "blurb": "a short combination ending in a fork was available (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Combination \u2192 Pawn Fork": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent execute combination \u2192 pawn fork",
+      "drillable": true
+    },
+    "Missed King Fork": {
+      "category": "Missed Tactic",
+      "blurb": "a fork was available (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed King Fork": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent execute king fork",
+      "drillable": true
+    },
+    "Missed Combination \u2192 King Fork": {
+      "category": "Missed Tactic",
+      "blurb": "a short combination ending in a fork was available (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Combination \u2192 King Fork": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent execute combination \u2192 king fork",
       "drillable": true
     },
     "Missed Pin (to King)": {
@@ -452,6 +572,11 @@
     "Greedy Capture": {
       "category": "Calculation",
       "blurb": "You grabbed material when a quiet move was stronger",
+      "drillable": true
+    },
+    "Unsound Sacrifice": {
+      "category": "Calculation",
+      "blurb": "You sacrificed material at the enemy king with no real compensation",
       "drillable": true
     },
     "Hung Material": {

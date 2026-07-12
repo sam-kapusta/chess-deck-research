@@ -74,9 +74,15 @@ def build_taxonomy():
         b = BLURB.get(x, x)
         add(f"Missed {x}", f"{b} (you didn't play it)")
         add(f"Allowed {x}", f"Your move let the opponent: {b[0].lower() + b[1:]}")
-    # fork + its combination split
-    for x in ["Fork", "Combination → Fork"]:
-        add(f"Missed {x}", f"{BLURB[x]} (you didn't play it)")
+    # fork + its combination split, and the by-PIECE variants (#53): _motif_label emits "Knight Fork",
+    # "Combination → Queen Fork", etc. Enumerate all so they get a category/blurb (else they fall back
+    # to Other in the frontend). Generic "Fork" stays for lines where the forking piece isn't resolved.
+    fork_forms = ["Fork", "Combination → Fork"]
+    for pc in ["Knight", "Bishop", "Rook", "Queen", "Pawn", "King"]:
+        fork_forms += [f"{pc} Fork", f"Combination → {pc} Fork"]
+    for x in fork_forms:
+        base = "a fork" if x.endswith("Fork") and "→" not in x else "a short combination ending in a fork"
+        add(f"Missed {x}", f"{base} was available (you didn't play it)")
         add(f"Allowed {x}", f"Your move let the opponent execute {x.lower()}")
     # pins, parametrized by target
     for tgt in ["King", "Queen", "Rook"]:
@@ -103,6 +109,7 @@ def build_taxonomy():
     add("Missed Pawn Trade", "An even pawn trade was the move")
     add("Missed Capture (Pawn)", "An en-passant capture was available")
     add("Greedy Capture", "You grabbed material when a quiet move was stronger")
+    add("Unsound Sacrifice", "You sacrificed material at the enemy king with no real compensation")
     add("Hung Material", "Your move dropped material to a one-move capture")
     for p in ["Knight", "Bishop", "Rook", "Queen"]:
         add(f"Hung {p}", f"Your move left your {p.lower()} to be captured next move")

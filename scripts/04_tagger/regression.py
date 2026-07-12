@@ -245,6 +245,37 @@ def run():
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_greedy = len(greedy_cases)
 
+    print("--- predicates: unsound_sacrifice (played SEE<0 capture near enemy king) — #52b ---")
+    # SAE-derived pattern: 97% of the 'unsound sac' cluster = a material-SHEDDING capture (SEE<0)
+    # within 2 squares of the enemy king. The win_drop gate supplies 'unsound' (a sound sac isn't a
+    # flagged mistake). (name, fen, played_uci, best_uci, expected)
+    usac_cases = [
+        # POS: Greek-Gift Bxf7+ — bishop for a pawn (SEE -2), lands next to Black's e8 king. Unsound sac.
+        ("Greek-Gift Bxf7+ -> Unsound Sacrifice", "rnbqkb1r/pppp1ppp/5n2/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR w KQkq - 0 1",
+         "c4f7", "g1g5", "Unsound Sacrifice"),
+        # NEG: a SEE<0 capture NOT near the enemy king = a plain hung piece / bad trade, not a king sac.
+        # Rd2xd5 into a queen-defended pawn far from the e8 king -> must NOT fire unsound_sacrifice.
+        ("SEE<0 capture far from king is NOT unsound sac", "3qk3/8/8/3p4/8/8/3R4/4K3 w - - 0 1",
+         "d2d5", "e1f1", None),
+        # NEG: a real GRAB (SEE>=0) near the king is not a sac (you keep the material). Rxc7 takes an
+        # undefended pawn 2 sq from the a8 king; the king can't recapture -> SEE +1, a grab not a sac.
+        ("SEE>=0 capture near king is NOT a sac", "k7/2p5/8/8/8/8/2R5/4K3 w - - 0 1",
+         "c2c7", "e1e2", None),
+    ]
+    for name, fen, uci, best, want in usac_cases:
+        b = chess.Board(fen)
+        psan = b.san(chess.Move.from_uci(uci)); bsan = b.san(chess.Move.from_uci(best))
+        m = Mistake(fen, uci, best, [], [], None, None, 300, b.turn, played_san=psan, best_san=bsan)
+        res = PR.unsound_sacrifice(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_usac = len(usac_cases)
+
     print("--- predicates: pin exploitation / unpinning resource (book TOP-TIER, w5zuk548s) ---")
     # missed_pin_exploitation: an enemy piece is pinned + HELD, best quietly piles a NEW attacker on it.
     # missed_unpinning_resource: OUR piece is pinned, best breaks the pin, played sits in it.
@@ -785,7 +816,7 @@ def run():
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
              + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
-             + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc)
+             + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 
