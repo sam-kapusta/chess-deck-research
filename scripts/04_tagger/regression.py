@@ -34,6 +34,12 @@ SINGLE_MOVE_CASES = [
     # diagonal so the ray to a1 stays clear) → a genuine relative pin to the rook. Distinguishes the
     # fix from a blunt "never pin to rook".
     ("Qd4 pins DEFENDED knight to rook", "2kr1b1r/pppq2p1/4pn2/4p3/4P3/2NP4/P2P2P1/R1BQ1RK1 b - - 0 12", "d7d4", M.is_pin, True),
+    # QUIET move lining up an UNDEFENDED front piece in front of a heavier one IS a real pin — the
+    # front piece can't move without dropping what it shields, and it's the opponent's move (pov isn't
+    # "just taking"). Only a CHECK makes an undefended front a fork instead. Real game (cabbage) ply-52:
+    # Ba6 pins the undefended d3-knight to the f1-rook. Distinguishes the guard from "undefended = never
+    # a pin". (Refined with Sam, 2026-07-12.)
+    ("Ba6 pins UNDEFENDED knight to rook (quiet move)", "2r1r2k/pb4pp/1p3p2/n5n1/3P4/P1PN1PB1/B5PP/2R2RK1 b - - 2 26", "b7a6", M.is_pin, True),
     # --- skewer: KNOWN TODO (geometry needs work; rare 0.6% of corpus). No case asserted yet. ---
 ]
 

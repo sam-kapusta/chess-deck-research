@@ -99,13 +99,17 @@ def _pin_target(board: chess.Board, move: chess.Move):
                     if p.piece_type == PAWN:
                         break          # a pinned PAWN is not a real pin worth naming (it's blocked
                                        # along the file/diagonal anyway, nothing is won) -> skip ray
-                    # The front piece must be DEFENDED. If it's hanging, there's nothing to "pin" —
-                    # pov just captures it; whatever valuable piece sits behind it on the ray is
-                    # coincidental geometry (and the move is usually a fork/check instead). Without
-                    # this, Qd4 lining up an UNDEFENDED c3-knight in front of the a1-rook fired a
-                    # phantom "Pin (to Rook)". (Caught by Sam via Gemini, ply 23.)
-                    if not b.is_attacked_by(b.turn, sq):
-                        break          # hanging front piece -> not a pin on this ray
+                    # An undefended front piece is only NOT a pin when the pinning move gives CHECK —
+                    # then it's a fork/check and pov just wins the loose piece next move; the heavier
+                    # piece behind it is coincidental geometry (ply-23: Qd4+ lines up an undefended
+                    # c3-knight in front of the a1-rook → a fork, not a pin). But a QUIET move that
+                    # lines an undefended piece in front of a heavier one IS a real pin — the front
+                    # piece still can't move without dropping what it shields, and it's the opponent's
+                    # move, so pov isn't "just taking" anything (ply-52: Ba6 pins the d3-knight to the
+                    # f1-rook; correct pin even though the knight is undefended). So: reject an
+                    # undefended front ONLY on a checking move. (Refined with Sam, 2026-07-12.)
+                    if b.is_check() and not b.is_attacked_by(b.turn, sq):
+                        break          # check + hanging front -> fork/check, not a pin on this ray
                     first = p           # candidate pinned enemy PIECE (knight/bishop/rook/queen)
                 else:
                     # second piece along ray
