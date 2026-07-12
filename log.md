@@ -21,6 +21,12 @@ hyperparameters for good models with 1–5% per-feature fire rates.
   inventory's `chess-stage-a-140023406996` bucket doesn't exist from the notebook — backed up local.
 - Full detail: `docs/knowledge/2026-07-11_jumprelu_sweep_l7diff.md`. NEXT: label via tagger-vote on
   top-firing positions (Sam's hint).
+- **Labeling (tagger-vote):** encode cache through winner → per-feature top-200 firings → dominant
+  tagger tag. Took 3 passes: v1/v2 compromised by a stale-tagger import (two copies on the notebook,
+  sys.path shadowing; "Allowed Battery" overfired 284 feats). v3 (fixed tagger, verified pre-run):
+  **570/2048 labeled, 135 at ≥0.5 conf.** Median conf 0.34 = features genuinely polysemantic (the
+  mechanism-ceiling); tagger abstains on ~72%. Labels: `output/jumprelu_l7diff/feature_labels_jr_thr0.40.json`.
+  PERF: ~62min/model, CPU-bound (python-chess board build) — cache Board objects to speed up.
 
 ## 2026-06-05 — labeling v3→v7: debias, refutation, xhigh, peak+median (the over-specification fix)
 

@@ -56,12 +56,24 @@ the top-N (200) firing positions, run the rule tagger on each (fen + blunder_uci
 `best_line_san`), name the feature by its DOMINANT non-info tagger label (≥25% of top-N). Features
 below that stay unlabeled (honest re: polysemantic ones).
 
-**⚠️ v1 pass was COMPROMISED — the notebook's `tagger_run/` was STALE** (predated the 2026-07-11
-tagger fixes). Result: "Allowed Battery" overfired onto **284 features** (it's the detector I fixed
-that day — target-check + missed/allowed twin-collapse), contaminating every vote; median confidence
-only 0.34, 759/2048 (37%) labeled. Pushed the fixed 5 tagger modules to `tagger_run/` and re-ran → v2
-(`feature_labels_jr_thr0.40_v2.json`). **Always verify the notebook tagger matches
-`scripts/04_tagger/` before a labeling run** — there's no auto-sync to the notebook.
+**⚠️ Took THREE passes — two were compromised by a stale-tagger import.** The notebook has TWO
+tagger copies (`~/SageMaker/tagger.py` AND `~/SageMaker/tagger_run/tagger.py`), both STALE (predated
+the 2026-07-11 fixes). v1 ran on the stale tagger → "Allowed Battery" overfired onto **284 features**
+(the detector fixed that day). v2: I pushed fixes to `tagger_run/` but the script's `sys.path` does
+`insert(0, tagger_run)` THEN `insert(0, SageMaker)` — second insert wins, so it STILL imported the
+stale ROOT `tagger.py`. Identical bad result. **Lesson: verify the fix takes effect BEFORE the 62-min
+run** — for v3 I pushed fixes to the ROOT copy and confirmed on a 300-position sample (Allowed Battery
+284→0) before launching. **Always check which tagger.py actually imports** (`print(tagger.__file__)`);
+there's no auto-sync to the notebook and duplicate copies shadow each other by sys.path order.
+
+**v3 result (canonical, `feature_labels_jr_thr0.40.json`):** 570/2048 labeled (28%), **135 at ≥0.5
+confidence** (the trustworthy single-label set). Clean distribution: Greedy Capture 128, Missed Trade
+to Simplify 115, Missed Overloading 77, Missed Free Queen 34, Missed Pawn Break 23, Missed Queen
+Exchange 19… Top features are crisp (f280/f1378 "Missed Queen Exchange" @0.99, f1005 "Missed Castling"
+@0.99). **Median confidence 0.34** — even clean, most features are genuinely POLYSEMANTIC on this
+representation (their top-200 positions vote a mix). This is the same mechanism-ceiling k6/v7 hit; the
+tagger correctly ABSTAINS on ~72% rather than force a label. So: strong labels for ~135–570 features,
+honest silence on the rest.
 
 **PERF:** ~62 min/model (2048 feats × 200 positions × python-chess board construction, CPU-bound).
 Labeling all 3 candidates serially = ~3 hrs. Speedup for next time: cache `chess.Board(fen)` objects
