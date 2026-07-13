@@ -163,6 +163,12 @@ def run():
         # over-suppress genuine captures).
         ("real rook capture still hangs", "6k1/8/8/8/8/8/r7/R3K3 w - - 0 1",
          "e1f1", ["Rxa1+"], "Hung Rook"),
+        # SACRIFICE guard (Sam 2026-07-13): played move is a SEE<0 capture (Bxf7+ bishop-for-pawn), the
+        # player CHOSE to shed material = unsound sacrifice, NOT a hang. Greek Gift; refutation Kxf7.
+        # Must NOT fire Hung Material (unsound_sacrifice owns it).
+        ("SEE<0 played capture = sacrifice, not hung",
+         "rnbqk2r/pppp1ppp/5n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 1",
+         "c4f7", ["Kxf7"], None),
     ]
     for name, fen, uci, ref, want in hung_cases:
         b = chess.Board(fen)

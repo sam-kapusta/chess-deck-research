@@ -238,11 +238,20 @@ def hung_material(m):
     Combination" — you allowed a tactic that wins material a few moves deep). Verified clean ~48/52."""
     if not m.refutation_san:
         return []
+    b0 = m.board_before
+    pm = _played_move(m)
+    # SACRIFICE guard: if the PLAYED move is itself a material-SHEDDING capture (SEE < 0), the player
+    # CHOSE to give material — that's a sacrifice / bad grab (owned by unsound_sacrifice / greedy_capture),
+    # NOT a hang. "Hung" means you left a piece to be taken by a quiet move, not that you initiated a
+    # losing exchange. Without this, hung_material out-votes the sac/greed tags and mislabels the concept.
+    # (Sam, 2026-07-13: measured 85% of the sac/greed SAE features' hung fires were SEE<0 played captures;
+    # only 4% of genuine-hang features were. SEE cleanly separates "I sacrificed" from "I hung".)
+    if pm is not None and b0.is_capture(pm) and U.static_exchange_eval(b0, pm) < 0:
+        return []
     # Reference point MUST be board_BEFORE the played move, so that if the played move is itself a
     # capture, the player's own gain is netted in. Measuring from board_after (post-capture) made an
     # EQUAL trade (e.g. Bxc6 bxc6, 3-for-3) read as a 3-pt hang — it counted the recapture loss but
     # not the capture gain. Now an equal trade nets 0 and does NOT fire. (Caught by Sam.)
-    b0 = m.board_before
     start_diff = _material_diff(b0, m.mover)
     bb = chess.Board(b0.fen())
     try:
