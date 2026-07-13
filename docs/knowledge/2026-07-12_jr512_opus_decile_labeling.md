@@ -235,3 +235,43 @@ technique → chess-coach#50 (updated with the 29 feature-id regression set). If
 are wanted, that's a substrate change (multi-layer activations, or positions beyond blunder-diff), not
 a bigger dict. Artifacts on chess-poc: `jr_canon_out/jr2048_k8.pt`, `retag_2048.json`,
 `labels_decile_jr2048_blind.json`.
+
+## Fixing the endgame blind spot (2026-07-13) — fragmented concept, not missing detector
+
+Sam: "can we fix the gaps we do have." Took the #1 blind spot (29 pawn-endgame features from the 2048
+pass). **Root-caused before coding** (instrumented existing detectors on the 29 features' real boards):
+
+- 36% of the real-mistake positions have best = a KING move; `missed_king_activity` fires on only ~7-12%.
+  Its `toward_center OR toward_pawns` heuristic KILLS 72/163 king-move cases — the right endgame king
+  move is *lateral* (opposition / key square), neither central nor toward pawns.
+- The tagger ALREADY fires the right fragments on these positions (Wrong Pawn Race / Missed Prophylaxis
+  / Bad Simplification / Missed King Activity / Lost Opposition) — it just SCATTERS them across 6-8 tags
+  so none dominates. **This is fragmentation (family_of's job), not a missing detector.**
+
+**Fixes (commit ce408a9 research, 8b426113 code):**
+1. `_opposition_kind` + generalized `lost_opposition`: direct + distant + **diagonal** opposition (was
+   direct-only; the SAE misses were ALL diagonal). Kept K+P-only — opposition is only decisive/teachable
+   in a pawn ending; with pieces on, 2-sq king spacing is coincidence (rejected the naked-rate loosen).
+2. **Position-gated `family_of(label, board=None)`**: new `Pawn Endgame Technique` family rolls the
+   fragments up ONLY in a K+P (≤2 heavy) ending. Middlegame prophylaxis/simplification stay separate;
+   static/label-only callers (taxonomy) never trigger it. retag passes the board per position.
+
+**Result: 18/29 endgame features now have Pawn Endgame Technique as dominant family (was 0)**, confidence
+often doubling (f851 .20→.46, f922 .23→.49, f1709 .14→.42). 118/118 regression. E2E-verified through
+the worker adapter. Remaining 11 = ~5 rook endgames (Missed Open File — separate concept, #50 kept open)
++ ~6 genuinely-mixed hanging-piece near-endings (correct to leave).
+
+**Method lesson (the important one):** a low-tagger-confidence SAE feature is NOT automatically a missing
+detector. Two distinct causes: (a) **fragmentation** — right tags fire, scattered → fix with a family
+rollup; (b) **genuine gap** — no right tag exists → add a detector. Diagnose which BEFORE coding by
+instrumenting the existing predicates on the feature's real boards. The endgame gap was (a). The
+generalized opposition was a small real (b). Chasing (b) when it's (a) wastes effort (I nearly built 3
+new detectors; the fix was one family + one geometry generalization).
+
+## The tempo-loss cluster is a DIFFERENT shape → chess-coach#55 (not fixed here)
+The other ~14 coherent blind features Opus calls "Slow Move Missing a Forcing Tactic." Unlike the endgame
+cluster, these scatter across genuinely DIFFERENT tactics (Missed Overloading/Mate/Battery/Pin/Fork) —
+the only shared thing is "a forcing move existed, a quiet one was played." NOT a family (would merge
+distinct tactics); a naive "Missed Forcing Move" tag is near-naked-rate. Likely a motif PV-reading
+problem (#52/#53): the specific tactic tags fire WEAKLY because the tagger can't see the multi-ply
+forcing line. Filed #55, deferred.
