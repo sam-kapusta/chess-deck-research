@@ -203,3 +203,35 @@ Artifacts: `judge_multi.json` (piece-level), `judge_multi_family.json` (family v
 - Optionally label the 256 model + compare (leaner still).
 - The 62,956 Opus analyses cover only 35% of the l7 cache — a top-up batch would deepen low-decile
   reach signal, but Sam chose to use what exists.
+
+## 2048 as a blind-spot discovery pass (2026-07-13) — does more features find NEW tagger gaps?
+
+Sam reframed the SAE's purpose: **it's a discovery tool for tagger blind spots**, not a size-selection
+exercise. A feature the tagger scatter-fires on (no dominant tag) = a concept the tagger can't name.
+More features = more chances to surface a gap. So: does 2048 expose gaps 512 didn't?
+
+**Method (the trustworthy one — decoder cosine is meaningless here, Sam):**
+1. Trained `jr2048_k8` matched to jr512 (same maia3-L7-blunderdiff cache, JumpReLU, target_l0=8; ONLY
+   dict differs). FVU 0.276 (vs jr512 0.30), 2034 live features. `jr_canon_out/jr2048_k8.pt`.
+2. Tagged all 2034 with the rule tagger (`retag_and_gaps.py --weights jr2048_k8.pt`).
+3. Blind-spot candidates = `tagger_family_conf < 0.25` AND `tagger_covered_frac > 0.5` (tagger firing
+   but no dominant concept = confused, not silent). → **183 candidates.**
+4. Ran the **Opus decile pass** on those 183 (`label_features_decile_opus.py --only <ids>`). This is
+   the only filter that separates a COHERENT gap (good/excellent → add a tag) from a DIFFUSE mess
+   (no tag will help). Verdicts: **54 good, 24 too_broad, 6 polysemantic, 98 diffuse, 1 noise.**
+
+**Result — the 54 coherent blind spots collapse to 2 clusters:**
+- **~29 features = pawn/passed-pawn endgame technique** (promotion race, conversion, king+passer, tempo-in-race).
+- **~14 features = tempo-loss / slow passive move** (murkier — overlaps missed_tempo_push/prophylaxis, some overfire-adjacent).
+
+**Verdict: 2048 surfaced NO new concepts vs 512 — the SAME endgame gap, with ~5× more features
+pointing at it (29 vs ~6 on jr512).** The concept ceiling is the SUBSTRATE (L7 best−blunder-diff mostly
+encodes "material changed hands" + coarse endgame/tempo), not dict size. Going 512→2048 buys resolution
+WITHIN concepts (which piece/square) and LOUDER ranking of the real gap, not new coaching concepts.
+Also: 2048's redundancy is WORSE — Hung Material family = 72% of features vs 64% at 512.
+
+**Actions:** keep 512 as the shipped size. The one blind spot worth closing = pawn/passed-pawn endgame
+technique → chess-coach#50 (updated with the 29 feature-id regression set). If genuinely MORE concepts
+are wanted, that's a substrate change (multi-layer activations, or positions beyond blunder-diff), not
+a bigger dict. Artifacts on chess-poc: `jr_canon_out/jr2048_k8.pt`, `retag_2048.json`,
+`labels_decile_jr2048_blind.json`.
