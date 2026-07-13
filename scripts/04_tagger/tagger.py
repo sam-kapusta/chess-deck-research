@@ -443,11 +443,47 @@ _FAMILY = [
     ("Allowed Fork",         lambda l: l.startswith("allowed ") and _is_fork(l)),
 ]
 
+# POSITION-GATED family: the pawn/king endgame technique concept. Unlike the families above (which
+# roll SAME-direction piece variants of ONE skill), this groups DIFFERENT tags that are each fragments
+# of "mishandled a king-and-pawn endgame" — Wrong Pawn Race, Lost the Opposition, Bad Simplification,
+# Missed Prophylaxis, Missed King Activity, etc. They fragment the concept so no single one dominates
+# a feature (SAE audit: 29 features Opus-labeled "Pawn Endgame Tempo/Conversion Error" scattered these
+# across 6-8 tags, #50). We ONLY roll them up when the POSITION is a K+P (or K+P + at most one heavy
+# piece) endgame — because Missed Prophylaxis / Bad Simplification also fire in middlegames, where they
+# are NOT this concept. So this family needs the board; static/label-only callers never trigger it
+# (correct — it's a position-dependent grouping, not an intrinsic property of the label).
+_PAWN_ENDGAME_FRAGMENTS = {
+    "wrong pawn race", "lost the opposition", "bad simplification", "missed king activity",
+    "wrong king direction", "missed prophylaxis", "missed push to promote", "missed passed pawn",
+    "missed advanced pawn", "allowed advanced pawn",
+}
 
-def family_of(label):
+
+def _is_pawn_endgame_board(board):
+    """K+P endgame, tolerating at most ONE heavy piece per side (covers the near-pawn-endings the SAE
+    grouped — e.g. a lone rook that's about to trade). Pure K+P is the core; the one-piece slack keeps
+    'pawn endgame technique' from splitting off the rook-endgame conversions it clearly clusters with."""
+    import chess as _c
+    heavy = 0
+    for p in board.piece_map().values():
+        if p.piece_type in (_c.KING, _c.PAWN):
+            continue
+        heavy += 1
+        if heavy > 2:  # >1 per side on average — no longer a pawn ending
+            return False
+    return True
+
+
+def family_of(label, board=None):
     """Roll a specific tag up to its concept parent for aggregation/matching (see _FAMILY).
-    Returns the label itself if it heads no family. NOT used to pick the displayed chip."""
+    Returns the label itself if it heads no family. NOT used to pick the displayed chip.
+
+    `board` (optional): when supplied AND the position is a pawn endgame, the pawn-endgame technique
+    fragments roll up to 'Pawn Endgame Technique'. Omitted → that family never fires (the static
+    families are unchanged)."""
     l = label.lower()
+    if board is not None and l in _PAWN_ENDGAME_FRAGMENTS and _is_pawn_endgame_board(board):
+        return "Pawn Endgame Technique"
     for parent, is_member in _FAMILY:
         try:
             if is_member(l):

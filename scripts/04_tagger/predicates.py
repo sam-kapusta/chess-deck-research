@@ -521,9 +521,30 @@ def missed_king_activity(m):
     return [("Missed King Activity", "missed", f"best {m.best_san} activates the king toward {where}")]
 
 
+def _opposition_kind(king_sq, enemy_king_sq):
+    """Return 'direct' | 'distant' | 'diagonal' if the two kings stand in OPPOSITION, else None.
+
+    Opposition = kings on the same file, rank, OR diagonal with an ODD number of squares between them
+    (i.e. an EVEN square-distance of 2/4/6). Direct = adjacent-line distance 2; distant = 4 or 6 on a
+    file/rank; diagonal = equal file/rank offset of 2/4/6. The side NOT to move holds it — so when the
+    engine's king move REACHES this geometry (and the played move didn't), the mover took the
+    opposition. (Generalizes the old direct-only check: SAE endgame features surfaced diagonal cases
+    the old code missed. #50.)"""
+    fd = abs(chess.square_file(king_sq) - chess.square_file(enemy_king_sq))
+    rd = abs(chess.square_rank(king_sq) - chess.square_rank(enemy_king_sq))
+    if (fd == 0 or rd == 0) and (fd + rd) in (2, 4, 6):
+        return "direct" if fd + rd == 2 else "distant"
+    if fd == rd and fd in (2, 4, 6):
+        return "diagonal"
+    return None
+
+
 def lost_opposition(m):
-    """King-and-pawn endgame: best move is a king move that takes DIRECT opposition (kings 2 squares
-    apart on the same file or rank), and the played move didn't."""
+    """King-and-pawn endgame: best move is a king move that takes the OPPOSITION (direct, distant, or
+    diagonal — see _opposition_kind), and the played move didn't. K+P-only: opposition is a decisive,
+    teachable concept precisely because zugzwang rules the pawn ending; with pieces on the board a
+    2-square king spacing is coincidence, not a lesson (so we keep the pawn-only gate — deliberately
+    NOT loosened; that path is naked-rate, #50 discussion)."""
     b = m.board_before
     if not U.is_pawn_only_endgame(b):
         return []
@@ -535,11 +556,15 @@ def lost_opposition(m):
     ek = b.king(not m.mover)
     if ek is None:
         return []
-    same_line = (chess.square_file(bm.to_square) == chess.square_file(ek)
-                 or chess.square_rank(bm.to_square) == chess.square_rank(ek))
-    if chess.square_distance(bm.to_square, ek) == 2 and same_line:
-        return [("Lost the Opposition", "missed", f"best {m.best_san} takes the opposition")]
-    return []
+    kind = _opposition_kind(bm.to_square, ek)
+    if kind is None:
+        return []
+    # the played move must NOT already hold the same opposition (else it's not a "lost" opposition —
+    # both moves achieve it and the distinction is elsewhere).
+    if pm is not None and b.piece_type_at(pm.from_square) == chess.KING and _opposition_kind(pm.to_square, ek):
+        return []
+    label = "takes the opposition" if kind == "direct" else f"takes the {kind} opposition"
+    return [("Lost the Opposition", "missed", f"best {m.best_san} {label}")]
 
 
 def missed_passed_pawn(m):

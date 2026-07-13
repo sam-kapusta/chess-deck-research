@@ -123,12 +123,18 @@ def main():
         for idx in top:
             tags=pos_tags.get(keys[idx],[])
             if tags: covered+=1
+            # board for this position — lets family_of activate the position-gated Pawn Endgame
+            # Technique family (fragments only roll up in a K+P ending, #50).
+            try:
+                pos_board=chess.Board(keys[idx].split("|")[0])
+            except Exception:
+                pos_board=None
             # per-position: a label and its family each count once (dedupe within the position so a
             # single move firing Missed Free Rook + Missed Free Pawn contributes ONE to the family).
             fams_here=set()
             for t in tags:
                 votes[t]+=1
-                fams_here.add(family_of(t))
+                fams_here.add(family_of(t, pos_board))
             for fam in fams_here: fam_votes[fam]+=1
         top_lab=votes.most_common(1)[0] if votes else (None,0)
         top_fam=fam_votes.most_common(1)[0] if fam_votes else (None,0)

@@ -530,6 +530,18 @@ def run():
         # NEG: same geometry but NOT a pawn-only endgame (add a knight) -> opposition concept N/A.
         ("opposition NEG: not pawn-only", "8/8/8/3k1p1p/3P2pP/4K1P1/6n1/8 w - - 2 53",
          "e3f4", "e3d3", "Kd3", "lost_opposition", None),
+        # DIAGONAL opposition (#50): corpus board, Black Kc4 vs White Kd1. best Kb3 -> b3/d1 = file&rank
+        # diff 2 = diagonal opposition; played b5 (a pawn move) doesn't. pawn-only. Old code missed this.
+        ("opposition: diagonal Kb3 takes it", "8/8/1p6/8/2k5/8/8/3K4 b - - 3 62",
+         "b6b5", "c4b3", "Kb3", "lost_opposition", "Lost the Opposition"),
+        # DIAGONAL opposition, second corpus board: White Kc4 vs Black Ke6, best Kd6? no — verified
+        # geometry: 8/6p1/2p1k3/2P2p1p/1K3P1P/6P1/8/8 w, best Kc4->? use the Ka5->Kc4 case (Kc4 vs e6).
+        ("opposition: diagonal Kc4 takes it", "8/6p1/2p1k3/2P2p1p/1K3P1P/6P1/8/8 w - - 4 38",
+         "b4a5", "b4c4", "Kc4", "lost_opposition", "Lost the Opposition"),
+        # NEG: played move ALSO takes opposition (both king moves reach it) -> not a "lost" opposition.
+        # Direct case, but played Kd3 and best Kf3 BOTH sit dist-2 same-rank from an e5 enemy king.
+        ("opposition NEG: played also holds it", "8/8/8/4k3/8/4K3/8/8 w - - 0 1",
+         "e3d3", "e3f3", "Kf3", "lost_opposition", None),
 
         # --- Missed Passed Pawn: best is a pawn move creating/advancing a passer, played wasn't ---
         # corpus: played Kh4, best h4 makes the h-pawn passed. endgame.
