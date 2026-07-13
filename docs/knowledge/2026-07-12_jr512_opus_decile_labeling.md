@@ -340,3 +340,32 @@ their true concept. commits 5aaf049 (research) / 0b4879a8 (code). 121/121 regres
 (promotion=+8, played-SEE<0=sacrifice) and guarding THAT — not by relabeling on the Opus concept
 (which would demote genuine cases sharing the same mechanics). When no mechanism separates the residual
 from the true positives, STOP; the remaining error is a different problem (motif accuracy), not this tag.
+
+## King Safety as a multi-tag CO-concept (2026-07-13) — "it can be both"
+
+Sam, on the 7 king-safety features left in Hung Material: keeping Hung Queen is right (material IS
+lost), but a king-safety concept should ALSO fire — "it's not Hung Queen OR King Attack, it can be
+both." This is the multi-tag principle: a feature is a COMBO; the retag's `tagger_family_votes`
+distribution already records 2+ co-concepts (not just the argmax `tagger_top_family`).
+
+Measured: king-safety tags DO fire on these features, scattered across ~8 own-king tags (Exposed King,
+Allowed Kingside/Queenside/f2f7 Attack, Allowed Double Check, Lost Castling Rights, Allowed Pin-to-King)
+so none dominated — SAME fragmentation as pawn-endgame. Added a **King Safety family** (label-based,
+direction-scoped to OWN king endangered; Enemy King Exposed / Missed Kingside Attack excluded as the
+opposite skill; Allowed Mate kept its own concept — Sam's call).
+
+**Overfire caught mid-fix (the important part):** 'Pawn Move Exposed King' fires on ANY pawn move near a
+king. Including it inflated King Safety to 40-51/200 on ~29 plain HANGING-PIECE features. Decomposed the
+family vote member-by-member: real king features hold 14-40 WITHOUT Pawn Move Exposed King; noise
+features collapse 40 -> 2-18. Dropped it from the family (still its own chip). **Strong-KS precision
+(features with KS>=40 that are actually Opus king/mate/exposure) 34% -> 83%.**
+
+Result: 6/7 target features dual-concept (Hung Material + King Safety both top of family_votes).
+Families now: Missed Free Material, Hung Material, Missed Exchange, Missed/Allowed Fork, Pawn Endgame
+Technique, King Safety. commits c208a1f (research) / e200ed7f (code).
+
+**Method lesson (adds to the catch-all one above):** when building a FAMILY, validate each member
+against ground truth, not just the family aggregate. A single trigger-happy member (Pawn Move Exposed
+King) can make the whole family look like it fires broadly when the real signal is narrow. Decompose the
+family vote by member on both a REAL set and a NOISE set; keep only members that stay strong on real and
+collapse on noise.
