@@ -275,3 +275,39 @@ the only shared thing is "a forcing move existed, a quiet one was played." NOT a
 distinct tactics); a naive "Missed Forcing Move" tag is near-naked-rate. Likely a motif PV-reading
 problem (#52/#53): the specific tactic tags fire WEAKLY because the tagger can't see the multi-ply
 forcing line. Filed #55, deferred.
+
+## Are the tags EXACT or catch-alls? Validate against Opus ground truth (2026-07-13)
+
+Sam's test (from #54): a tag on many features carries little info about WHICH feature. Applied it
+properly — for each tag, pull the OPUS good_labels of the features it dominates (ground truth, not
+position-overlap which can't tell same-concept-different-board from truly-distinct) and count distinct
+concepts under it:
+
+| tag / family | #feats dominated | distinct Opus concepts | verdict |
+|---|---|---|---|
+| **Pawn Endgame Technique** (new) | 30 | 1 (all "passed-pawn endgame") | **EXACT** |
+| **Pointless Check** (new) | 6 | 1 ("check") | **EXACT** |
+| Missed Fork | 4 | 1 | EXACT |
+| Missed Free Material | 40 | ~1 (85% hang) | EXACT |
+| **Hung Material** (pre-existing) | 134 | **15** (57% hang) | **CATCH-ALL** |
+
+**The tags I added are exact, not catch-alls** — "Pawn Endgame Technique" looks big only because the
+SAE made ~30 near-duplicate features of one concept; one faithful label beats 30 scattered fragments.
+That's the RIGHT behavior for a redundant SAE.
+
+**The real catch-all is the pre-existing `hung_material`** — it fires on ANY net material loss, so it
+absorbed 28 passed-pawn features (a promoted enemy queen = +8 material = "you hung material") plus
+king-safety-into-mate ("lost material to the attack"). 15 distinct Opus concepts under one tag.
+
+**Fix (Sam: "allowed the pawn to promote != hung material"):** `hung_material` subtracts the opponent's
+PROMOTION gain from net/peak loss — a queening passer is a lost PAWN RACE, tagged by the endgame
+fragments, not "Hung Material". Only fires on pieces the opponent CAPTURED.
+- passed-pawn features labeled Pawn Endgame Technique: **0 → 30**
+- passed-pawn features mislabeled Hung Material: **28 → 11**
+- Hung Material catch-all: **134 → 115 features**
+
+**Method (the durable lesson):** to judge if a tag is a catch-all, measure it against the INDEPENDENT
+ground truth (Opus per-feature labels), not against itself or geometry. A tag is a catch-all iff the
+features it dominates span multiple Opus concepts. By that test, adding a coarse-LOOKING tag is fine if
+the underlying features are genuinely one concept (SAE redundancy); the sin is a tag spanning DIFFERENT
+concepts (Hung Material). Next target: Hung Material still mixes hang + mate-attack + endgame at 115.
