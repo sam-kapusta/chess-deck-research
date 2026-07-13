@@ -605,6 +605,15 @@ def run():
         # so "behind a passer" geometry is absent. Must not fire.
         ("rook behind NEG: no passer on file", "7R/8/8/2p5/2P5/4KP2/k7/8 w - - 0 44",
          "h8g8", "h8c8", "Rc8", "rook_behind_passer", None),
+
+        # --- Trade to Simplify: best is an EVEN trade (SEE~0), NOT a free/winning grab (#52) ---
+        # POS: Rxd5 is R-for-R, Black Kd6 recaptures (SEE 0) -> a real simplifying trade. played Ke2.
+        ("trade: even Rxd5 = Missed Trade to Simplify", "8/8/3k4/3r4/8/8/8/3RK3 w - - 0 1",
+         "e1e2", "d1d5", "Rxd5", "trade_to_simplify", "Missed Trade to Simplify"),
+        # NEG (#52 bug): best Rxd5 grabs an UNDEFENDED rook (SEE +5) -> that's WINNING material
+        # (Missed Free Rook), not a trade. trade_to_simplify must NOT fire (capture_or_exchange owns it).
+        ("trade NEG: free rook grab is not a trade", "8/8/8/3r4/8/8/8/3RK1k1 w - - 0 1",
+         "e1e2", "d1d5", "Rxd5", "trade_to_simplify", None),
     ]
     for name, fen, uci, best, bsan, fn_name, want in eg_cases:
         b = chess.Board(fen)

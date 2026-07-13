@@ -1212,8 +1212,14 @@ def bad_simplification(m):
 
 
 def trade_to_simplify(m):
-    """Endgame: best move is a capture (simplifying to a won position) but the played move is not.
-    The player missed that trading down was winning."""
+    """Endgame: best move is an EVEN trade (a capture where you give ~what you get) that simplifies to a
+    won position, but the played move is not. The player missed that trading down was winning.
+
+    Must be an EVEN exchange, NOT a free/winning grab: SEE gate (#52). trade_to_simplify was firing on
+    'best captures a HANGING piece' — that's winning material (Missed Free X, owned by capture_or_exchange),
+    not a simplifying trade. 95% of the confidently-wrong fires had the best capture at SEE>=2 (undefended
+    or net-winning target). A trade means SEE~=0: material comes off both sides evenly and the point is the
+    RESULTING simpler position, not the material. (Sam, board-grounded SAE audit.)"""
     if not _is_endgame(m):
         return []
     b = m.board_before
@@ -1224,6 +1230,8 @@ def trade_to_simplify(m):
         return []
     if b.is_capture(pm):
         return []  # player also captured — different tag territory
+    if U.static_exchange_eval(b, bm) >= 2:
+        return []  # best capture WINS material -> Missed Free X, not a trade (capture_or_exchange owns it)
     return [("Missed Trade to Simplify", "missed",
              f"best {m.best_san} trades down to a simpler position")]
 
