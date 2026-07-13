@@ -369,3 +369,18 @@ against ground truth, not just the family aggregate. A single trigger-happy memb
 King) can make the whole family look like it fires broadly when the real signal is narrow. Decompose the
 family vote by member on both a REAL set and a NOISE set; keep only members that stay strong on real and
 collapse on noise.
+
+## Making exposed_king_pawn a real detector (2026-07-13)
+
+Sam: "can we make Pawn Move Exposed King better?" (it was the King Safety family's noise source). It
+fired on ANY pawn within 1 file of the king anywhere -> 9.8% of corpus. Failure modes measured: 34%
+king in CENTRE (no shelter), 16% uncastled, 6% captures, 35% legit.
+
+Tightened to the concept: (1) king CASTLED (reuse `_king_is_castled`), (2) NON-capture push, (3) pawn
+in the shelter zone (<=1 file, <=2 ranks from king) ADVANCING toward the enemy. **9.8% -> 3.8%**;
+surviving fires are exactly castled-king shelter pushes. +4 regression (125/125).
+
+**Kept OUT of the King Safety family even after tightening** — re-measured: adding it back drops family
+precision 83% -> 62% (2 non-king features join, no new king ones). Two independent questions, both
+validated: "is the tag accurate as a standalone chip" (yes now) vs "is it good enough to define a
+family aggregate" (still no). A tag can pass the first and fail the second. commits 74592da / 728410ab.
