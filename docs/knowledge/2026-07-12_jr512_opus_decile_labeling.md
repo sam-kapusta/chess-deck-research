@@ -407,3 +407,26 @@ move existed' drift direction — a substrate limit, not a missing detector; a t
 
 **Coherence after all fixes (jr512 v7): 76% top-match / 86% multi-tag** on the 252 good features. The
 remaining ~14% is substrate-bound (diffuse features + L7-blunderdiff ceiling), not addressable by more tags.
+
+## Precedence (material vs specific) — measured, REJECTED (2026-07-13)
+
+Sam asked for a precedence scheme so specific concepts (fork/mate/king-safety) lead over the generic
+material tag when both fire, + "is hanging/free-material over-firing?" Measured both before building:
+
+**Material tags are NOT over-firing — they're real co-occurrences.** Per-position, on Opus's own motif:
+hanging_piece 72% material-fire (correct), fork 54%, pin 52%, king_safety 32% — but tempo_loss 18%,
+pawn_endgame 11%. The tagger fires material when material genuinely changes hands, which correlates with
+tactics (a fork WINS the forked piece). Not a blind slap; a true co-concept.
+
+**Precedence simulation (promote highest specific-tier family >=T votes over material) — HURTS at every T:**
+baseline top-match 75%; @>=30 → 62%, @>=40 → 70%, @>=50 → 74%, @>=60 → 75% (ties). It breaks more
+genuinely-material features than it fixes king-safety/mate ones (the ~24 mislabels are outnumbered by
+~130 genuine hangs a low threshold flips). REJECTED — the measurement killed it.
+
+**Conclusion:** the material-vs-specific "mislabel" is not a rule-fixable bug. On a "king attack that wins
+a queen" feature BOTH Hung Queen and King Safety are true; which leads is a judgment votes can't capture.
+The right resolution is the one from the whole session — features are COMBOS; `tagger_family_votes`
+already carries the co-tags (King Safety, Missed Mate fire beneath the material top). The "mislabel" only
+exists if you collapse to a single argmax. Product should surface the distribution, not force one top tag.
+Lesson: measure a precedence/weighting scheme against ground truth BEFORE building — a plausible reweight
+usually trades one error class for a bigger one.
