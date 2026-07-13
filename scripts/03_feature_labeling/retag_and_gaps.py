@@ -20,7 +20,7 @@ sys.path.insert(0, "/home/ec2-user/SageMaker")
 sys.path.insert(0, "/home/ec2-user/SageMaker/tagger_run")
 import chess
 from mistake import Mistake
-from tagger import tag_mistake_full, categorize
+from tagger import tag_mistake_full, categorize, family_of
 from train_jr_canonical import JumpReLUSAEAuxK, load_data
 
 BASE = "/home/ec2-user/SageMaker"
@@ -117,16 +117,28 @@ def main():
         col=acts[f]; nz=int((col>0).sum())
         if nz==0: continue
         top=torch.topk(col,min(args.topn,nz)).indices.tolist()
-        votes=Counter()
+        votes=Counter()          # raw piece-specific labels (what the product shows as chips)
+        fam_votes=Counter()      # rolled up to concept parents (Missed Free Material, Hung Material, Fork, ...)
         covered=0
         for idx in top:
             tags=pos_tags.get(keys[idx],[])
             if tags: covered+=1
-            for t in tags: votes[t]+=1
+            # per-position: a label and its family each count once (dedupe within the position so a
+            # single move firing Missed Free Rook + Missed Free Pawn contributes ONE to the family).
+            fams_here=set()
+            for t in tags:
+                votes[t]+=1
+                fams_here.add(family_of(t))
+            for fam in fams_here: fam_votes[fam]+=1
         top_lab=votes.most_common(1)[0] if votes else (None,0)
+        top_fam=fam_votes.most_common(1)[0] if fam_votes else (None,0)
         out[f]={"tagger_top":top_lab[0],"tagger_conf":round(top_lab[1]/len(top),3),
                 "tagger_covered_frac":round(covered/len(top),3),
                 "tagger_votes":dict(votes.most_common(5)),
+                # family rollup: the honest "what concept does this feature encode" signal —
+                # piece-specific variants no longer fragment the dominant concept below the top-5.
+                "tagger_top_family":top_fam[0],"tagger_family_conf":round(top_fam[1]/len(top),3),
+                "tagger_family_votes":dict(fam_votes.most_common(6)),
                 "opus_verdict":opus.get(f,{}).get("verdict"),
                 "opus_label":opus.get(f,{}).get("good_label")}
     json.dump(out, open(args.out,"w"), indent=1)

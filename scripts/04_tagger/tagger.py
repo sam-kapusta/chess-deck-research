@@ -409,6 +409,43 @@ def categorize(label, direction=None):
     return "Other"
 
 
+# ---------------------------------------------------------------------------
+# FAMILY roll-up (declarative). Distinct from categorize(): categorize maps a tag to one of the 10
+# DRILL SKILLS ("Missed Capture"); family_of maps a tag to its CONCEPT PARENT — the coarser concept the
+# piece-specific variants are instances of ("Missed Free Material"). Why both: the product shows the
+# SPECIFIC chip ("Missed Free Rook") because that's what teaches; but for AGGREGATION (SAE-feature
+# matching, coverage measurement, vote-dilution fixes) the piece split is noise — 5 variants that each
+# look minor actually are ONE dominant concept. family_of collapses them so the concept's true weight
+# is visible. (Sam, 2026-07-12: the "not_covered" SAE features were firing Missed Free {Q,R,B,N,P} on
+# 30-60% of their top positions, but no single piece variant cracked the judge's top-5 view, so the
+# concept looked absent. It wasn't — it was fragmented.)
+#
+# family_of(label) returns the parent concept, or the label unchanged if it heads no family (it IS its
+# own concept). The parent is NOT itself an emitted chip — it exists for grouping only.
+_FAMILY = [
+    # (parent, predicate on the lowercased label)
+    ("Missed Free Material", lambda l: l.startswith("missed free ") or l in (
+        "missed capture (pawn)", "missed hanging piece", "missed capture of defender")
+        or l.startswith("missed winning capture")),
+    ("Hung Material",        lambda l: l.startswith("hung ")),   # Hung Material is also emitted directly
+    ("Missed Exchange",      lambda l: "exchange" in l or l == "missed pawn trade"),
+    ("Fork",                 lambda l: l.endswith(" fork") or "→ " in l and l.split("→ ")[-1].strip().endswith("fork")),
+]
+
+
+def family_of(label):
+    """Roll a specific tag up to its concept parent for aggregation/matching (see _FAMILY).
+    Returns the label itself if it heads no family. NOT used to pick the displayed chip."""
+    l = label.lower()
+    for parent, is_member in _FAMILY:
+        try:
+            if is_member(l):
+                return parent
+        except Exception:
+            continue
+    return label
+
+
 # Move classifications that earn EXPLAIN tags when the caller supplies one. Inaccuracy is INCLUDED
 # here (so review cards can explain it) but the caller is responsible for keeping inaccuracies OUT of
 # stats/drills — those filter on classification downstream. mistake/blunder are the counting classes.
