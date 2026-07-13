@@ -311,3 +311,32 @@ ground truth (Opus per-feature labels), not against itself or geometry. A tag is
 features it dominates span multiple Opus concepts. By that test, adding a coarse-LOOKING tag is fine if
 the underlying features are genuinely one concept (SAE redundancy); the sin is a tag spanning DIFFERENT
 concepts (Hung Material). Next target: Hung Material still mixes hang + mate-attack + endgame at 115.
+
+## Targeting the Hung Material catch-all (2026-07-13) — 134 → 87 features, 57% → 76% pure
+
+Sam: "lets target hung material." Broke down its 115 (then-current) features by Opus ground truth:
+77 genuine hangs, 38 mislabeled (11 pawn-endgame, 10 king-safety/mate, 6 sac/greed, rest scattered).
+`hung_material` fires on ANY net material loss, so it absorbs anything that ends in lost material.
+
+Fixed the two CLEAN, root-cause mechanisms (both = "the player didn't HANG a piece, something else
+happened that nets as material loss"):
+1. **Promotion** (already done above): opponent's queening passer = +8 → subtract the promotion gain.
+2. **Played sacrifice** (SEE guard): 85% of the sac/greed cluster's hung-fires were a **SEE<0 PLAYED
+   capture** — the player CHOSE to shed material (unsound_sacrifice/greedy_capture own it), hung_material
+   was out-voting them. Genuine-hang features: only 4% SEE<0. `hung_material` now returns [] on a SEE<0
+   played capture. ("Hung" = left a piece to a quiet capture, NOT initiated a losing exchange.)
+
+**Cumulative: Hung Material 134 → 87 features, 57% → 76% genuine-hang purity.** 28 features moved to
+their true concept. commits 5aaf049 (research) / 0b4879a8 (code). 121/121 regression, shipped.
+
+**Stopped at 76% — the residual 21 have NO clean mechanism; pushing would break real hangs:**
+- 7 king-safety/mate: material genuinely captured (real Hung Queen, 5% actual mate). Opus reads the
+  CAUSE; mechanically it's a hang. Demoting these = breaking correct tags on a judgment call. Leave.
+- 3 fork ("Walked Into Knight Fork"): fork wins material → nets as hung. That's motif-accuracy (#52/#53
+  — make the fork motif read the PV), not a hung_material guard.
+- 2 MISSED sacrifices (best WAS the sac); ~5 scattered.
+
+**Method reinforced:** fix a catch-all by finding the mechanical reason the wrong features land there
+(promotion=+8, played-SEE<0=sacrifice) and guarding THAT — not by relabeling on the Opus concept
+(which would demote genuine cases sharing the same mechanics). When no mechanism separates the residual
+from the true positives, STOP; the remaining error is a different problem (motif accuracy), not this tag.
