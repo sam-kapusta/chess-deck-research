@@ -191,6 +191,37 @@ def unsound_sacrifice(m):
              f"sacrificed a {aname.lower()} ({m.played_san}) at the enemy king with no compensation")]
 
 
+def pointless_check(m):
+    """The PLAYED move is a CHECK, the BEST move is QUIET (non-check), and the check was a mistake
+    (win_drop entry gate) — an aimless "hope check" that just chases the enemy king to a better square
+    (or drops the checking piece) while a quiet improving move existed. #47.
+
+    Data-derived: the SAE surfaced 5 features (f4/f85/f121/f129/f499) that share exactly this — Rc8+ /
+    Qb1+ / Qf1+ / Qa8+ where the engine's move is a quiet king/rook/pawn move. The check gains nothing
+    (no fork, no material, no mate — those keep the eval up and don't reach here past the gate); it just
+    loses a tempo or walks the piece into trouble. Distinct from greedy_capture (played = a grab) and
+    unsound_sacrifice (played = a shedding capture at the king). Here the played move is a NON-CAPTURE
+    check — a capture that also gives check is a material decision, handled by the capture predicates.
+
+    Excludes: played move that is itself a capture (let the material predicates own it), and any line
+    where the best move is also a check (then it's a which-check-is-better calculation, not 'no check
+    was called for')."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None:
+        return []
+    if not b.gives_check(pm):                          # played move must BE a check
+        return []
+    if b.is_capture(pm):                               # capturing-check = material decision, not a hope check
+        return []
+    if b.gives_check(bm):                              # best is also a check -> a check WAS called for
+        return []
+    piece = b.piece_at(pm.from_square)
+    pname = PIECE_NAME[piece.piece_type].lower() if piece else "piece"
+    return [("Pointless Check", "played",
+             f"the check {m.played_san} ({pname}) achieves nothing; best was the quiet {m.best_san}")]
+
+
 def _material_diff(board, side):
     return _material(board, side) - _material(board, not side)
 
@@ -2201,7 +2232,8 @@ def missed_perpetual(m):
 
 # ---------- registry ----------
 ALL_PREDICATES = [
-    phase, game_state, capture_or_exchange, greedy_capture, unsound_sacrifice, hung_material,
+    phase, game_state, capture_or_exchange, greedy_capture, unsound_sacrifice, pointless_check,
+    hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
     endgame_type, backward_pawn,
     missed_king_activity, lost_opposition, missed_passed_pawn, rook_behind_passer,

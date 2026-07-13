@@ -276,6 +276,34 @@ def run():
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_usac = len(usac_cases)
 
+    print("--- predicates: pointless_check (played = aimless check, best = quiet) — #47 ---")
+    # SAE-derived (f4/f85/f121/f129/f499): the PLAYED move is a NON-CAPTURE check, the BEST move is
+    # quiet, and it's a mistake. (name, fen, played_uci, best_uci, expected)
+    pchk_cases = [
+        # POS: Black king g8; White Qd1 -> Qd8+ is a non-capture check; best is the quiet h2-h3.
+        ("Qd8+ non-capture check, best quiet -> Pointless Check",
+         "6k1/5ppp/8/8/8/8/5PPP/3Q2K1 w - - 0 1", "d1d8", "h2h3", "Pointless Check"),
+        # NEG: best move is ALSO a check (Re1-e8+) -> a check WAS called for, not a pointless one.
+        ("best is also a check -> NOT pointless",
+         "4r1k1/5ppp/8/8/8/8/5PPP/4R1K1 w - - 0 1", "e1e8", "e1e8", None),
+        # NEG: played check is a CAPTURE (Qxd8+ takes the rook) -> material decision, not a hope check.
+        ("capturing check -> NOT pointless",
+         "3r2k1/5ppp/8/8/8/8/5PPP/3Q2K1 w - - 0 1", "d1d8", "h2h3", None),
+    ]
+    for name, fen, uci, best, want in pchk_cases:
+        b = chess.Board(fen)
+        psan = b.san(chess.Move.from_uci(uci)); bsan = b.san(chess.Move.from_uci(best))
+        m = Mistake(fen, uci, best, [], [], None, None, 300, b.turn, played_san=psan, best_san=bsan)
+        res = PR.pointless_check(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_pchk = len(pchk_cases)
+
     print("--- predicates: pin exploitation / unpinning resource (book TOP-TIER, w5zuk548s) ---")
     # missed_pin_exploitation: an enemy piece is pinned + HELD, best quietly piles a NEW attacker on it.
     # missed_unpinning_resource: OUR piece is pinned, best breaks the pin, played sits in it.
@@ -816,7 +844,7 @@ def run():
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
              + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
-             + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac)
+             + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 

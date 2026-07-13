@@ -375,7 +375,8 @@ def categorize(label, direction=None):
     # Pawn Grab While Undeveloped = chose material over development (judgment/calculation error).
     # Unsound Sacrifice = threw material at the king with no compensation (a played-move miscalc). Must
     # be checked BEFORE the tactic-words branch below, or its "sacrifice" substring routes to Allowed Tactic.
-    if l in ("greedy capture", "missed desperado", "pawn grab while undeveloped", "unsound sacrifice") or l.startswith("failed "):
+    if l in ("greedy capture", "missed desperado", "pawn grab while undeveloped", "unsound sacrifice",
+             "pointless check") or l.startswith("failed "):
         return "Calculation"
 
     # Threat awareness / Active Defense — you ignored a threat or failed to USE a defensive resource
