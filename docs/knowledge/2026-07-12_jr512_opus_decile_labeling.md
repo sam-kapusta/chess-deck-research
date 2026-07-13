@@ -138,7 +138,46 @@ is NOT ground truth either). Validated on hand-checked cases before trusting it.
 Deliverable: `output/jumprelu_l7diff/judge_tagger.json` (per-feature board-grounded verdicts).
 **The SAE's real value = auditing tagger CORRECTNESS/DEPTH, not just coverage.**
 
+## ⚠️ Single-tag was a lossy frame — the honest coverage is MULTI-TAG + FAMILY (2026-07-12, Sam)
+Two corrections to everything above (the single-top-tag numbers UNDERSTATE the tagger; supersede §"⚠️
+Tagger fires ≠ correct" and the §"missing detectors" #3 hanging-piece claim).
+
+**Correction 1 — score coverage by RECALL, not top-1 match.** Positions are multi-mistake and the
+tagger emits multiple tags; collapsing to one top tag per feature threw away right answers. Re-judged
+with a multi-tag judge (`judge_multi.py`): "is the true concept named by ANY of the feature's tags?"
+→ **66.5% covered / 17.6% shallow / 15.9% not_covered** (vs the single-tag ~37%). And **36% of features
+had a NON-top tag be the correct one** — direct proof the single-tag collapse was lossy.
+
+**Correction 2 — piece-specific tags FRAGMENT one concept below the top-5 view.** `Missed Free
+{Q,R,B,N,P}` and `Hung {Q,R,B,N}` split a single dominant concept across 5 chips, so none cracked the
+judge's top-5 even when the FAMILY fired on 30-60% of a feature's top positions. Sam's fix: **parent
+"family" tags for aggregation, keep the specific piece as the chip.** Added `tagger.family_of()` (single
+source of truth, DIRECTION-PRESERVING — Missed Fork ≠ Allowed Fork) + a `families` map in
+`build_mistake_taxonomy.py`. Re-tagged 60k with family votes (`retag_and_gaps.py` now emits
+`tagger_top_family` / `tagger_family_votes`), re-judged with the family distribution:
+
+| measurement | covered | shallow | not_covered |
+|---|---|---|---|
+| multi-tag, piece-level | 66.5% | 17.6% | 15.9% |
+| **multi-tag + family rollup** | **84.3%** | 7.0% | **8.7%** |
+
+Also moved median top-concept vote share **0.27 → 0.45** and "features <35%" **165 → 70** (of 252).
+**The #3 "residual hanging-piece" claim above was WRONG** — those features fire Hung Material on 35-48%
+of positions; they were fragmented, not un-detected. Sam called this ("I thought we had a lot of missed
+free/winning/hung") and was right; I'd trusted the judge's top-5 input without checking tagger output.
+
+### The 21 genuinely not_covered (8.7%) — real missing detectors, now tight
+- **7 endgame technique** (king activity / opposition / promotion-race tempo) — chess-coach#46, still open.
+- **5 pointless / tempo-losing check** — chess-coach#47, still open.
+- 3 missed forcing check/mate sequence; 6 scattered (bad queen trade, zwischenzug-before-recapture,
+  exposed-king-punished, squandered-won-endgame).
+
+Artifacts: `judge_multi.json` (piece-level), `judge_multi_family.json` (family view) on chess-poc
+`~/SageMaker/jr_canon_out/`. Scripts: `judge_multi.py`, `judge_multi_family.py`.
+
 ## Next (open)
+- **Build the 2 real detectors:** pointless-check predicate (played is check, best isn't, eval drops) +
+  endgame king-activity/opposition (K+P-specific). Covers 12 of the 21 gaps.
 - **Dedup the hanging-piece cluster** to recover the true distinct-concept count.
 - Optionally label the 256 model + compare (leaner still).
 - The 62,956 Opus analyses cover only 35% of the l7 cache — a top-up batch would deepen low-decile
