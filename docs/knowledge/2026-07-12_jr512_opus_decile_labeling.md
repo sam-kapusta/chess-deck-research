@@ -167,10 +167,31 @@ of positions; they were fragmented, not un-detected. Sam called this ("I thought
 free/winning/hung") and was right; I'd trusted the judge's top-5 input without checking tagger output.
 
 ### The 21 genuinely not_covered (8.7%) — real missing detectors, now tight
-- **7 endgame technique** (king activity / opposition / promotion-race tempo) — chess-coach#46, still open.
-- **5 pointless / tempo-losing check** — chess-coach#47, still open.
+- **7 endgame technique** (king activity / opposition / promotion-race tempo) — chess-coach#50, still open.
+- **5 pointless / tempo-losing check** — chess-coach#51, **DONE** (see below).
 - 3 missed forcing check/mate sequence; 6 scattered (bad queen trade, zwischenzug-before-recapture,
   exposed-king-punished, squandered-won-endgame).
+
+### pointless_check detector shipped (#51) → coverage 84.3% → 86.1% (2026-07-12)
+Built `predicates.pointless_check`: played move is a NON-CAPTURE check, best is quiet, it's a mistake.
+Mirror of greedy_capture / unsound_sacrifice (all played-direction). Fires 47–62% on the 5 target
+features (f4/f85/f121/f129/f499) — **all 5 flipped not_covered → covered**. Corpus fire rate 2.28% of
+the mistake-gated 60k. +3 regression cases (115/115). Full-tagger explained 76% → 78% of positions.
+
+**Final coverage (multi-tag + family + pointless_check): covered 86.1% / shallow 7.4% / not_covered 6.6%.**
+
+### The remaining 16 not_covered — two real follow-ups, NOT quick predicates
+1. **Endgame technique (f43/f73/f125/f215/f267/f271, 6)** — best is a KING move but no tag dominates
+   (missed_king_activity fires only 7–12%). The right move is distant/diagonal opposition, key squares,
+   shouldering — position-specific technique. A generic "Missed King Move" would be a naked-rate
+   catch-all (rejected on tag-value). Needs real detectors: generalize `lost_opposition` beyond direct
+   same-line, key-square occupation, K+P shouldering, rook-endgame Lucena/Philidor. Filed on #50.
+2. **Missed winning queen-check (f25/f27/f153/f179, 4)** — best is a check (f179: 78/80 queen checks)
+   the player missed, currently MISLABELED `Missed Overloading` (confidently wrong). NOT a naked
+   "Missed Check" predicate (that's naked-rate) — the fix is making the existing FORK/tactic motifs
+   read the best-line PV so they catch the material-win/fork that follows the check. This is motif
+   accuracy = #52/#53 territory, not a new predicate.
+- Scattered: f111 bad queen trade, f143/f331 forcing sequences, f187/f380 missed tactics.
 
 Artifacts: `judge_multi.json` (piece-level), `judge_multi_family.json` (family view) on chess-poc
 `~/SageMaker/jr_canon_out/`. Scripts: `judge_multi.py`, `judge_multi_family.py`.
