@@ -320,6 +320,36 @@ def run():
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_pchk = len(pchk_cases)
 
+    print("--- predicates: missed_attacking_check (best is a forcing check you missed) — SAE jr2048 ---")
+    # Mirror of pointless_check. (name, fen, played_uci, best_uci, expected)
+    mac_cases = [
+        # POS: f508 real board — best Qh5+ (non-capture check on the exposed e8 king), played Be2.
+        ("Qh5+ attacking check = Missed Attacking Check",
+         "r1bqkbnr/pppp2pp/8/4p3/4P3/8/PPP2PPP/RNBQKB1R w KQkq - 0 6", "f1e2", "d1h5", "Missed Attacking Check"),
+        # POS: f2000 real board — best Qh4+, played Nf6.
+        ("Qh4+ attacking check = Missed Attacking Check",
+         "rnbqkbnr/ppp2ppp/3p4/4pP2/4P3/8/PPPP2PP/RNBQKBNR b KQkq - 0 3", "g8f6", "d8h4", "Missed Attacking Check"),
+        # NEG: best is a QUIET move (not a check) -> not this tag.
+        ("quiet best -> NOT attacking check",
+         "6k1/8/8/8/8/8/8/Q5K1 w - - 0 1", "g1f1", "a1a4", None),
+        # NEG: best check is MATE -> Missed Mate owns it, not this.
+        ("best is mate -> NOT attacking check",
+         "6rk/6pp/8/8/8/8/8/6KQ w - - 0 1", "g1f1", "h1h7", None),
+    ]
+    for name, fen, uci, best, want in mac_cases:
+        b = chess.Board(fen)
+        psan = b.san(chess.Move.from_uci(uci)); bsan = b.san(chess.Move.from_uci(best))
+        m = Mistake(fen, uci, best, [], [], None, None, 300, b.turn, played_san=psan, best_san=bsan)
+        res = PR.missed_attacking_check(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_mac = len(mac_cases)
+
     print("--- predicates: exposed_king_pawn (castled king shelter push only) — #50 ---")
     # Tightened from 'any pawn near king' (9.8% corpus) to castled + non-capture + shelter-pawn advance
     # (3.8%). (name, fen, played_uci, expected)
@@ -912,7 +942,7 @@ def run():
              + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk
-             + extra_ekp)
+             + extra_ekp + extra_mac)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 

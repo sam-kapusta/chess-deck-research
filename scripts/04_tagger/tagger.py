@@ -379,6 +379,10 @@ def categorize(label, direction=None):
              "pointless check") or l.startswith("failed "):
         return "Calculation"
 
+    # Missed Attacking Check = a forcing check on the enemy king you didn't play (offensive tactic).
+    if l == "missed attacking check":
+        return "Missed Tactic"
+
     # Threat awareness / Active Defense — you ignored a threat or failed to USE a defensive resource
     # (unpin, interpose, remove the attacker, counter-sac, cross-check). These are the "missed defense"
     # half of Defensive Tactics. Checked BEFORE the tactic-words branch so "Missed Unpinning Resource"

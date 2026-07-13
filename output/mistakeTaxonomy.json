@@ -584,6 +584,11 @@
       "blurb": "You gave an aimless check when a quiet improving move was stronger",
       "drillable": true
     },
+    "Missed Attacking Check": {
+      "category": "Missed Tactic",
+      "blurb": "A forcing check on the exposed enemy king was the strong move",
+      "drillable": true
+    },
     "Hung Material": {
       "category": "Hung Piece",
       "blurb": "Your move dropped material to a one-move capture",

@@ -222,6 +222,54 @@ def pointless_check(m):
              f"the check {m.played_san} ({pname}) achieves nothing; best was the quiet {m.best_san}")]
 
 
+def missed_attacking_check(m):
+    """The BEST move is a forcing CHECK (non-mate) the player MISSED — an attacking check that wins
+    material or launches a decisive attack on the exposed king. The mirror of pointless_check (there
+    the PLAYED move is an aimless check; here the BEST move is a strong check the player didn't play).
+
+    Data-derived: the SAE (jr2048) surfaced ~7 features Opus labels 'Missed Queen Check on Exposed King'
+    / 'Missed Forcing Check' (f136/508/704/1034/1530/1831/2019), 83% of whose top positions have best =
+    a check. The tagger had NO detector for a missed WINNING check, so it mislabeled them Missed
+    Overloading. Classic case: an early Qh4+/Qh5+ hitting the weakened e1-h4 / f7 diagonal.
+
+    Teachable, not naked-rate: it only reaches here past the win_drop entry gate, so the check the
+    player missed was worth a mistake-sized swing — it genuinely wins something (material or a decisive
+    attack), not a routine check. Guards:
+      - best is a CHECK; played is NOT that check.
+      - best is NOT mate (Missed Mate owns forced mate) and NOT a capture (Missed Free X / capture_or_
+        exchange owns a winning capture-check — this tag is for the QUIET forcing check, the thing no
+        material tag sees).
+      - best is NOT also matched by the player (bm != pm)."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if not b.gives_check(bm):                          # best must BE a check
+        return []
+    if b.gives_check(pm):                              # player also checked -> which-check calc, not a miss
+        return []
+    if b.is_capture(bm):                               # capture-check = material decision (capture_or_exchange)
+        return []
+    # This is a CO-TAG on the MECHANISM (a forcing quiet check you didn't play). A missed FORKING check
+    # or a check that wins material is BOTH that specific tactic AND a missed check — we do NOT suppress
+    # on fork/material; those co-fire and (by vote count) usually lead, but the check was still missed.
+    # (Sam, 2026-07-13: "it doesn't mean a check wasn't missed.") The ONE exclusion: a check that
+    # DELIVERS MATE is a mate, not an "attacking check" — Missed Mate owns it. (If Missed Mate under-
+    # fires on mate-in-N, that's a separate label bug; a mate-in-N first move here is still a missed
+    # check and correctly co-fires.)
+    after = b.copy()
+    try:
+        after.push(bm)
+    except Exception:
+        return []
+    if after.is_checkmate():                            # the check IS mate -> Missed Mate, not this
+        return []
+    piece = b.piece_at(bm.from_square)
+    pname = PIECE_NAME[piece.piece_type].lower() if piece else "piece"
+    return [("Missed Attacking Check", "missed",
+             f"best {m.best_san} is a forcing {pname} check; you played {m.played_san}")]
+
+
 def _material_diff(board, side):
     return _material(board, side) - _material(board, not side)
 
@@ -2307,7 +2355,7 @@ def missed_perpetual(m):
 # ---------- registry ----------
 ALL_PREDICATES = [
     phase, game_state, capture_or_exchange, greedy_capture, unsound_sacrifice, pointless_check,
-    hung_material,
+    missed_attacking_check, hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
     endgame_type, backward_pawn,
     missed_king_activity, lost_opposition, missed_passed_pawn, rook_behind_passer,
