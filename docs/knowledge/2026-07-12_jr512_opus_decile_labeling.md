@@ -384,3 +384,26 @@ surviving fires are exactly castled-king shelter pushes. +4 regression (125/125)
 precision 83% -> 62% (2 non-king features join, no new king ones). Two independent questions, both
 validated: "is the tag accurate as a standalone chip" (yes now) vs "is it good enough to define a
 family aggregate" (still no). A tag can pass the first and fail the second. commits 74592da / 728410ab.
+
+## #52 / #53 / #55 resolution (2026-07-13)
+
+**#52 — trade_to_simplify SEE gate (FIXED, commit 2868f3a).** 'Missed Trade to Simplify' was a catch-all
+on 32 good features; on f305/183/39/426/376 the best move captures a HANGING piece (winning material),
+mislabeled as a simplifying trade. 95% of wrong fires had best-capture SEE>=2. Gate: fire only on an EVEN
+exchange (SEE<2); a winning grab is Missed Free X. All 5 flip to Missed Free Rook/Queen; catch-all 32 -> 2.
+(Greedy->Unsound-Sacrifice half was already fixed by the earlier SEE gate.) +2 regression.
+
+**#53 — shallow labels (SUBSTANTIALLY ADDRESSED, closed).** knight-fork already fixed (fork-by-piece);
+passed-vs-advanced now owned by the Pawn Endgame Technique family (#50); back-rank mate fires as a co-tag
+(f38: Allowed Back-Rank Mate 54 votes) but only 2/40 mate features are nameable, so not promoted over the
+reliable eval-Mate. Specific concept is dominant-tag / dominant-family / present-co-tag respectively.
+
+**#55 — forcing-move oversight (WON'T-FIX, closed).** The premise is half-wrong: across the 14 features,
+best move is quiet 50% of the time (check 30%, capture 18%), so a forcing-move gate mislabels half. Tags
+are maximally scattered (every feature a different top tactic at 7-12/40) — no concept to promote via
+PV-reading. Opus reach median D6.5 (diffuse). And ~70% of the cluster is ALREADY covered by pointless_check
+(#51) + Pawn Endgame family (#50) + missed_tempo_push. The residual is the SAE's diffuse 'slow move, better
+move existed' drift direction — a substrate limit, not a missing detector; a tag would be naked-rate.
+
+**Coherence after all fixes (jr512 v7): 76% top-match / 86% multi-tag** on the 252 good features. The
+remaining ~14% is substrate-bound (diffuse features + L7-blunderdiff ceiling), not addressable by more tags.
