@@ -456,6 +456,9 @@ _PAWN_ENDGAME_FRAGMENTS = {
     "wrong pawn race", "lost the opposition", "bad simplification", "missed king activity",
     "wrong king direction", "missed prophylaxis", "missed push to promote", "missed passed pawn",
     "missed advanced pawn", "allowed advanced pawn",
+    # promotion-race subset (SAE ground-truth: 20 more jr512 features Opus-labeled "passed-pawn
+    # endgame" were dominated by these + swallowed by Hung Material — f327/f399/f441/f277, #50).
+    "allowed promotion", "missed promotion", "allowed passed pawn",
 }
 
 

@@ -153,6 +153,16 @@ def run():
         ("hung queen with partial recovery = Hung Queen",
          "2krr3/ppp2ppp/8/2q5/3n4/2P2B1P/PPQ2PP1/R3R1K1 w - - 1 18",
          "c2d3", ["Ne2+", "Rxe2", "Rxd3", "Rxe8+", "Kd7", "Rae1"], "Hung Queen"),
+        # PROMOTION RACE != hung material (Sam, 2026-07-13). Opponent's passer queens in the refutation;
+        # the +8 swing is a LOST PAWN RACE (endgame technique), NOT a hung piece. Must NOT fire —
+        # the pawn-endgame fragments own it. (Was mislabeled Hung Material / even Hung Queen, swallowing
+        # ~17 passed-pawn SAE features.)
+        ("promotion race != hung material", "8/1p6/8/8/8/1k6/1p6/1K6 w - - 0 1",
+         "b1c1", ["b1q"], None),
+        # CONTROL: opponent CAPTURES a real rook (no promotion) -> still Hung Rook (guard must not
+        # over-suppress genuine captures).
+        ("real rook capture still hangs", "6k1/8/8/8/8/8/r7/R3K3 w - - 0 1",
+         "e1f1", ["Rxa1+"], "Hung Rook"),
     ]
     for name, fen, uci, ref, want in hung_cases:
         b = chess.Board(fen)

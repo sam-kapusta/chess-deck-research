@@ -257,6 +257,8 @@ def hung_material(m):
     # full-recovery slosh (equal trade, net 0) from firing. (Sam, 2026-07-12: move 18 Qd3, Ne2+ Rxe2
     # Rxd3 hangs the queen, settles -1; hung_material was silent.)
     peak_victim = None
+    opp_promo_gain = 0                       # material the OPPONENT gains by PROMOTING in the line
+    opp = not m.mover
     for i, san in enumerate(m.refutation_san):
         try:
             mv = bb.parse_san(san)
@@ -268,6 +270,12 @@ def hung_material(m):
             cap_victim = vic.piece_type if vic is not None else chess.PAWN
             if i == 0:
                 first_victim = cap_victim
+        # A promotion by the OPPONENT inflates material_diff by (promoted piece − pawn) without you
+        # having HUNG anything — you lost a PAWN RACE. Track that gain so we can tell "hung a piece"
+        # (a capture of your material) apart from "let a passer queen" (a different, endgame lesson).
+        # (Sam, 2026-07-13: promotion features were mislabeled Hung Material / even Hung Queen.)
+        if mv.promotion and bb.turn == opp:
+            opp_promo_gain += VAL.get(mv.promotion, 9) - VAL[chess.PAWN]
         bb.push(mv)
         d = _material_diff(bb, m.mover)
         diffs.append(d)
@@ -279,6 +287,14 @@ def hung_material(m):
     end_diff = diffs[-1]
     net_lost = start_diff - end_diff        # end-of-line net — equal trades net 0
     peak_lost = start_diff - min(diffs)     # worst point in the line — a mid-line hang shows here
+    # PROMOTION-RACE guard: if the opponent's promotion in the line accounts for most of the material
+    # swing, this is NOT a hung piece — it's a lost pawn race / botched passed-pawn defense (an ENDGAME
+    # technique lesson, tagged by the pawn-endgame fragments, NOT "Hung Material"/"Hung Queen"). Subtract
+    # the promotion gain; only fire on what's left, i.e. actual pieces the opponent CAPTURED. (Sam,
+    # 2026-07-13: passed-pawn features were being swallowed by Hung Material because a promoted queen
+    # reads as +8 material.)
+    net_lost -= opp_promo_gain
+    peak_lost -= opp_promo_gain
     # Fire when material is lost at the PEAK (>=2) AND is still down at the end (>=1). The end>=1 guard
     # is what stops a full-recovery slosh (peak dips then nets back to 0) from over-claiming.
     if peak_lost < 2 or net_lost < 1:
