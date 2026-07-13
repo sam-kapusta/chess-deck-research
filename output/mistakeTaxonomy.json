@@ -864,5 +864,76 @@
       "blurb": "Endgame phase",
       "drillable": false
     }
+  },
+  "families": {
+    "Missed Free Material": {
+      "members": [
+        "Missed Capture of Defender",
+        "Missed Hanging Piece",
+        "Missed Free Pawn",
+        "Missed Free Knight",
+        "Missed Free Bishop",
+        "Missed Free Rook",
+        "Missed Free Queen",
+        "Missed Capture (Pawn)"
+      ],
+      "blurb": "You could have won free or favorable material"
+    },
+    "Missed Fork": {
+      "members": [
+        "Missed Combination \u2192 Fork",
+        "Missed Knight Fork",
+        "Missed Combination \u2192 Knight Fork",
+        "Missed Bishop Fork",
+        "Missed Combination \u2192 Bishop Fork",
+        "Missed Rook Fork",
+        "Missed Combination \u2192 Rook Fork",
+        "Missed Queen Fork",
+        "Missed Combination \u2192 Queen Fork",
+        "Missed Pawn Fork",
+        "Missed Combination \u2192 Pawn Fork",
+        "Missed King Fork",
+        "Missed Combination \u2192 King Fork"
+      ],
+      "blurb": "Missed Fork"
+    },
+    "Allowed Fork": {
+      "members": [
+        "Allowed Combination \u2192 Fork",
+        "Allowed Knight Fork",
+        "Allowed Combination \u2192 Knight Fork",
+        "Allowed Bishop Fork",
+        "Allowed Combination \u2192 Bishop Fork",
+        "Allowed Rook Fork",
+        "Allowed Combination \u2192 Rook Fork",
+        "Allowed Queen Fork",
+        "Allowed Combination \u2192 Queen Fork",
+        "Allowed Pawn Fork",
+        "Allowed Combination \u2192 Pawn Fork",
+        "Allowed King Fork",
+        "Allowed Combination \u2192 King Fork"
+      ],
+      "blurb": "Allowed Fork"
+    },
+    "Missed Exchange": {
+      "members": [
+        "Missed Knight Exchange",
+        "Missed Bishop Exchange",
+        "Missed Rook Exchange",
+        "Missed Queen Exchange",
+        "Missed Bishop-Knight Exchange",
+        "Missed Pawn Trade"
+      ],
+      "blurb": "A favorable or even trade was the move"
+    },
+    "Hung Material": {
+      "members": [
+        "Hung Knight",
+        "Hung Bishop",
+        "Hung Rook",
+        "Hung Queen"
+      ],
+      "blurb": "Your move left material to be captured"
+    }
   }
 }

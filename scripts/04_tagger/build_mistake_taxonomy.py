@@ -7,7 +7,15 @@ Regenerate after any tag rename/addition:  python3 scripts/04_tagger/build_mista
 """
 import sys, os, json
 sys.path.insert(0, os.path.dirname(__file__))
-from tagger import categorize, FAILED_OK
+from tagger import categorize, family_of, FAILED_OK
+
+# One coaching blurb per FAMILY parent (the concept the piece-specific chips roll up to).
+_FAMILY_BLURB = {
+    "Missed Free Material": "You could have won free or favorable material",
+    "Hung Material": "Your move left material to be captured",
+    "Missed Exchange": "A favorable or even trade was the move",
+    "Fork": "A fork was available",
+}
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "..", "output", "mistakeTaxonomy.json")
 
@@ -167,7 +175,19 @@ def build_taxonomy():
     for ph in ["Opening", "Middlegame", "Endgame"]:
         add(ph, f"{ph} phase")
 
-    return {"categories": {c: {} for c in CATEGORIES}, "tags": tags}
+    # FAMILY roll-up (grouping only — NOT emitted chips). Piece-specific tags roll up to a concept
+    # parent via tagger.family_of(). Consumers that want to GROUP (SAE-matching, analytics, "how often
+    # does this player hang material" across all piece types) read `families`; the product still shows
+    # the specific chip. Derive the member lists by asking family_of() over the concrete tags we built,
+    # so this stays in sync with the tagger's single source of truth automatically. (Sam, 2026-07-12.)
+    families = {}
+    for label in tags:
+        parent = family_of(label)
+        if parent != label:                     # label is a MEMBER of a coarser family
+            families.setdefault(parent, {"members": [], "blurb": _FAMILY_BLURB.get(parent, parent)})
+            families[parent]["members"].append(label)
+
+    return {"categories": {c: {} for c in CATEGORIES}, "tags": tags, "families": families}
 
 
 def main():
@@ -175,7 +195,10 @@ def main():
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w") as f:
         json.dump(tax, f, indent=2)
-    print(f"wrote {len(tax['tags'])} tags across {len(tax['categories'])} categories -> {OUT}")
+    print(f"wrote {len(tax['tags'])} tags across {len(tax['categories'])} categories, "
+          f"{len(tax['families'])} families -> {OUT}")
+    for fam, d in tax["families"].items():
+        print(f"    family {fam}: {len(d['members'])} members")
 
 
 if __name__ == "__main__":

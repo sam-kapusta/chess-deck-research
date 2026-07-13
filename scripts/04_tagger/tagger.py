@@ -422,6 +422,15 @@ def categorize(label, direction=None):
 #
 # family_of(label) returns the parent concept, or the label unchanged if it heads no family (it IS its
 # own concept). The parent is NOT itself an emitted chip — it exists for grouping only.
+#
+# DIRECTION IS PRESERVED. "Missed X" and "Allowed X" are opposite SKILLS (tactic vision vs defense), so
+# they never roll into a common parent. Fork variants roll to the *directional* generic (Missed Knight
+# Fork -> Missed Fork; Allowed Queen Fork -> Allowed Fork) which already exists as an emitted label.
+# Missed Free Material / Hung Material / Missed Exchange are single-direction concepts by construction.
+def _is_fork(l):
+    tail = l.split("→")[-1].strip() if "→" in l else l
+    return tail.endswith(" fork") or tail == "fork"
+
 _FAMILY = [
     # (parent, predicate on the lowercased label)
     ("Missed Free Material", lambda l: l.startswith("missed free ") or l in (
@@ -429,7 +438,8 @@ _FAMILY = [
         or l.startswith("missed winning capture")),
     ("Hung Material",        lambda l: l.startswith("hung ")),   # Hung Material is also emitted directly
     ("Missed Exchange",      lambda l: "exchange" in l or l == "missed pawn trade"),
-    ("Fork",                 lambda l: l.endswith(" fork") or "→ " in l and l.split("→ ")[-1].strip().endswith("fork")),
+    ("Missed Fork",          lambda l: l.startswith("missed ") and _is_fork(l)),
+    ("Allowed Fork",         lambda l: l.startswith("allowed ") and _is_fork(l)),
 ]
 
 
