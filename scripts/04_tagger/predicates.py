@@ -354,19 +354,35 @@ def lost_castling(m):
 
 
 def exposed_king_pawn(m):
-    """Played move is a pawn move in front of own king's shelter."""
+    """The PLAYED move ADVANCES a shelter pawn away from your own CASTLED king, weakening the shelter.
+
+    Old version fired on ANY pawn within 1 file of the king anywhere — 9.8% of the corpus, 34% with the
+    king in the CENTRE (no shelter to expose) and 6% captures. Tightened to the real concept (Sam, #50):
+      1. King is CASTLED (g/h or a/b/c file, back two ranks, with a shelter pawn) — reuse
+         _king_is_castled. A central/uncastled king has no shelter to break.
+      2. The move is a NON-CAPTURE pawn PUSH (a capture is a material decision, not a structural weaken).
+      3. The pawn starts in the king's shelter (within 1 file, within 2 ranks of the king) and the push
+         ADVANCES it toward the enemy (off the back where it was guarding) — i.e. it opens the shelter,
+         not a pawn already far up the board nudging further.
+    This is a played-direction STATE tag (the resulting weakness), not a "find the move" puzzle."""
     b = m.board_before
     pm = _played_move(m)
     if pm is None or b.piece_type_at(pm.from_square) != chess.PAWN:
         return []
-    ks = b.king(m.mover)
-    if ks is None:
+    if b.is_capture(pm):                                   # (2) captures aren't shelter pushes
         return []
-    # pawn move within 1 file of the king and on the king's side of the board
-    if abs(chess.square_file(pm.from_square) - chess.square_file(ks)) <= 1:
-        # only if it's a structural advance near the king
-        return [("Pawn Move Exposed King", "played", "pawn push near own king")]
-    return []
+    if not _king_is_castled(b, m.mover):                   # (1) no castled king -> no shelter to expose
+        return []
+    ks = b.king(m.mover)
+    kf, kr = chess.square_file(ks), chess.square_rank(ks)
+    pf = chess.square_file(pm.from_square)
+    pr_from, pr_to = chess.square_rank(pm.from_square), chess.square_rank(pm.to_square)
+    if abs(pf - kf) > 1 or abs(pr_from - kr) > 2:          # (3a) pawn must be in the king's shelter zone
+        return []
+    advancing = (pr_to > pr_from) if m.mover == chess.WHITE else (pr_to < pr_from)
+    if not advancing:                                       # (3b) must push forward, off its guarding square
+        return []
+    return [("Pawn Move Exposed King", "played", f"the pawn push {m.played_san} weakens your castled king's shelter")]
 
 
 # ---------- pawn structure deltas ----------

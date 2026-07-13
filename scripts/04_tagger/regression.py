@@ -320,6 +320,36 @@ def run():
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_pchk = len(pchk_cases)
 
+    print("--- predicates: exposed_king_pawn (castled king shelter push only) — #50 ---")
+    # Tightened from 'any pawn near king' (9.8% corpus) to castled + non-capture + shelter-pawn advance
+    # (3.8%). (name, fen, played_uci, expected)
+    ekp_cases = [
+        # POS: castled Kg1, g2-g4 pushes a shelter pawn forward -> weakens the shelter.
+        ("castled Kg1 g2-g4 = Pawn Move Exposed King",
+         "6k1/pppp1ppp/8/8/8/8/PPPP1PPP/5RK1 w - - 0 1", "g2g4", "Pawn Move Exposed King"),
+        # NEG: uncastled king in the center -> no shelter to expose.
+        ("uncastled center king -> no fire",
+         "r3k2r/pppp1ppp/8/8/8/8/PPPP1PPP/R3K2R w KQkq - 0 1", "f2f4", None),
+        # NEG: capture near the castled king -> material decision, not a shelter push.
+        ("capture near castled king -> no fire",
+         "6k1/ppp2ppp/8/3p4/4P3/8/PPP2PPP/5RK1 w - - 0 1", "e4d5", None),
+        # NEG: pawn far from the king (a-file, king on g1) -> not shelter.
+        ("far pawn -> no fire",
+         "6k1/pppp1ppp/8/8/8/P7/1PPP1PPP/5RK1 w - - 0 1", "a3a4", None),
+    ]
+    for name, fen, uci, want in ekp_cases:
+        b = chess.Board(fen)
+        m = Mistake(fen, uci, "", [], [], None, None, 0, b.turn, played_san=b.san(chess.Move.from_uci(uci)))
+        res = PR.exposed_king_pawn(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_ekp = len(ekp_cases)
+
     print("--- predicates: pin exploitation / unpinning resource (book TOP-TIER, w5zuk548s) ---")
     # missed_pin_exploitation: an enemy piece is pinned + HELD, best quietly piles a NEW attacker on it.
     # missed_unpinning_resource: OUR piece is pinned, best breaks the pin, played sits in it.
@@ -872,7 +902,8 @@ def run():
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
              + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
-             + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk)
+             + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk
+             + extra_ekp)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 
