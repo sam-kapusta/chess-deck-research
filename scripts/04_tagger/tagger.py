@@ -441,7 +441,28 @@ _FAMILY = [
     ("Missed Exchange",      lambda l: "exchange" in l or l == "missed pawn trade"),
     ("Missed Fork",          lambda l: l.startswith("missed ") and _is_fork(l)),
     ("Allowed Fork",         lambda l: l.startswith("allowed ") and _is_fork(l)),
+    # King Safety = YOUR move endangered YOUR OWN king (exposed it / let the opponent attack it). A
+    # SECOND concept that co-fires with material tags — the SAE surfaced 7 features Opus calls "King
+    # Walks Into Danger / King Exposed to Attack" that ALSO hang a piece; each is BOTH "Hung Queen"
+    # (material) AND "King Safety" (the attack), fragmented across ~8 own-king tags so neither the
+    # material nor the safety concept dominated alone (#50, Sam's multi-tag point). DIRECTION MATTERS:
+    # only ALLOWED / self-exposing tags belong — "Enemy King Exposed" and "Missed Kingside Attack" are
+    # the OPPOSITE skill (attacking) and must NOT roll in. "Allowed Mate" stays its own concept (a
+    # forced-mate lesson, not general king exposure — Sam's call).
+    ("King Safety",          lambda l: l in _KING_SAFETY_FRAGMENTS),
 ]
+
+# Own-king-endangered fragments (see the King Safety family above). Allowed Mate deliberately excluded.
+# "Pawn Move Exposed King" is ALSO excluded — it's too trigger-happy (fires on ANY pawn move near a
+# king) and was the noise source: on the 7 real king-safety SAE features the family holds at 14-40/200
+# WITHOUT it (driven by Exposed King / Allowed Kingside Attack / Allowed Pin-to-King), but on ~13 plain
+# HANGING-PIECE features it inflated King Safety to 40-51 that COLLAPSE to 2-18 without it. So it stays
+# its own chip but does not define the family. (Sam, 2026-07-13 — validated by decomposing the vote.)
+_KING_SAFETY_FRAGMENTS = {
+    "exposed king", "king in center", "lost castling rights",
+    "allowed kingside attack", "allowed queenside attack", "allowed f2/f7 attack",
+    "allowed double check", "allowed pin (to king)",
+}
 
 # POSITION-GATED family: the pawn/king endgame technique concept. Unlike the families above (which
 # roll SAME-direction piece variants of ONE skill), this groups DIFFERENT tags that are each fragments

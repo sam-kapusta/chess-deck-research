@@ -884,6 +884,19 @@
       ],
       "blurb": "You could have won free or favorable material"
     },
+    "King Safety": {
+      "members": [
+        "Allowed Kingside Attack",
+        "Allowed Queenside Attack",
+        "Allowed Double Check",
+        "Allowed f2/f7 Attack",
+        "Allowed Pin (to King)",
+        "Exposed King",
+        "King in Center",
+        "Lost Castling Rights"
+      ],
+      "blurb": "King Safety"
+    },
     "Missed Fork": {
       "members": [
         "Missed Combination \u2192 Fork",
