@@ -736,7 +736,7 @@
     },
     "Missed Prophylaxis": {
       "category": "Position",
-      "blurb": "The opponent had a one-move threat you could have prevented",
+      "blurb": "You let the opponent carry out a plan a quiet move would have stopped",
       "drillable": true
     },
     "Missed Piece Activation": {

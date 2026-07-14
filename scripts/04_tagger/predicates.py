@@ -1024,16 +1024,23 @@ def missed_prophylaxis(m):
     # positions — real prophylaxis prevents a PLAN, not a capture of loose material.)
     if after_played.is_capture(threat):
         return []
+    # The BEST move must itself be QUIET (non-check). A checking best move (Qc4+, Bf2+) is a forcing
+    # tactic that only COINCIDENTALLY controls the threat square — not prevention. Prophylaxis is a
+    # quiet preventive move. (16% of fires were checking-best; excluding = real prophylaxis only. Sam.)
+    if b.gives_check(bm):
+        return []
     threat_sq = threat.to_square
-    # does the best move directly address the threat square? (moves to it, controls it, or blocks it)
+    # Coaching message names the CONCRETE prevented plan (the opponent's move), not the jargon — the
+    # player should learn "you let them play ...X", playable without knowing the word 'prophylaxis'.
+    threat_san = m.refutation_san[0]
     if bm.to_square == threat_sq:
         return [("Missed Prophylaxis", "missed",
-                 f"best {m.best_san} prevents opponent's {m.refutation_san[0]}")]
+                 f"{m.best_san} stops the opponent's {threat_san}; instead you allowed it")]
     # best move controls the threat square
     after_best = b.copy(); after_best.push(bm)
     if after_best.is_attacked_by(m.mover, threat_sq) and not b.is_attacked_by(m.mover, threat_sq):
         return [("Missed Prophylaxis", "missed",
-                 f"best {m.best_san} controls the square opponent wants ({m.refutation_san[0]})")]
+                 f"{m.best_san} covers {chess.square_name(threat_sq)}, preventing the opponent's {threat_san}")]
     return []
 
 

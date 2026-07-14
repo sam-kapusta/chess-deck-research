@@ -145,7 +145,7 @@ def build_taxonomy():
     add("Missed Tempo Push", "A pawn push attacking an enemy piece (gaining tempo) was available")
     add("Missed Open File", "A rook could occupy an open or half-open file")
     add("Premature Trade", "You exchanged while ahead, relieving tension that favored you")
-    add("Missed Prophylaxis", "The opponent had a one-move threat you could have prevented")
+    add("Missed Prophylaxis", "You let the opponent carry out a plan a quiet move would have stopped")
     add("Missed Piece Activation", "A passive piece could be repositioned to a more active square")
     add("Wrong Pawn Race", "You went the wrong direction in a pawn race and lost a critical tempo")
     add("Allowed Advanced Pawn", "Your move let the opponent advance a pawn dangerously")
