@@ -120,6 +120,7 @@ def build_taxonomy():
     add("Unsound Sacrifice", "You sacrificed material at the enemy king with no real compensation")
     add("Pointless Check", "You gave an aimless check when a quiet improving move was stronger")
     add("Missed Attacking Check", "A forcing check on the exposed enemy king was the strong move")
+    add("Missed Zwischenzug", "An in-between move (check) should come before your recapture")
     add("Hung Material", "Your move dropped material to a one-move capture")
     for p in ["Knight", "Bishop", "Rook", "Queen"]:
         add(f"Hung {p}", f"Your move left your {p.lower()} to be captured next move")

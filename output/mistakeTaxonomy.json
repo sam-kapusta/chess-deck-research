@@ -65,8 +65,8 @@
       "drillable": true
     },
     "Missed Zwischenzug": {
-      "category": "Missed Tactic",
-      "blurb": "An in-between move was available (you didn't play it)",
+      "category": "Calculation",
+      "blurb": "An in-between move (check) should come before your recapture",
       "drillable": true
     },
     "Allowed Zwischenzug": {

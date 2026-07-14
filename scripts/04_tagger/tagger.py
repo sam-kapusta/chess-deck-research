@@ -382,6 +382,9 @@ def categorize(label, direction=None):
     # Missed Attacking Check = a forcing check on the enemy king you didn't play (offensive tactic).
     if l == "missed attacking check":
         return "Missed Tactic"
+    # Missed Zwischenzug = right capture, wrong order (a calculation/move-order error).
+    if l == "missed zwischenzug":
+        return "Calculation"
 
     # Threat awareness / Active Defense — you ignored a threat or failed to USE a defensive resource
     # (unpin, interpose, remove the attacker, counter-sac, cross-check). These are the "missed defense"

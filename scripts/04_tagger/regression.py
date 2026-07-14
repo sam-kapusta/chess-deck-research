@@ -350,6 +350,45 @@ def run():
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_mac = len(mac_cases)
 
+    print("--- predicates: missed_zwischenzug (right capture, wrong order) — SAE jr2048 ---")
+    # (name, fen, played_uci, pv_uci_line, expected). Detector reads best_line_san, so we build it.
+    def _line(fen, ucis):
+        b = chess.Board(fen); out = []
+        for u in ucis:
+            mv = chess.Move.from_uci(u)
+            if mv not in b.legal_moves: break
+            out.append(b.san(mv)); b.push(mv)
+        return out
+    zz_cases = [
+        # POS: real corpus board. Played bxa6 immediately; best inserts Qxf2+ (check), Kxf2, THEN bxa6
+        # (same a6 target at ply 3) = zwischenzug.
+        ("bxa6 rushed; best Qxf2+ first -> Missed Zwischenzug",
+         "2k5/1p5r/R3p2p/3p1p2/2pP2rq/2P1P3/5QPP/5RK1 b - - 0 31", "b7a6",
+         ["h4f2", "g1f2", "b7a6", "f1a1"], "Missed Zwischenzug"),
+        # NEG: best line's first move is NOT a check (quiet), even though target recurs -> not zwischenzug.
+        ("no check inserted -> NOT zwischenzug",
+         "2k5/1p5r/R3p2p/3p1p2/2pP2rq/2P1P3/5QPP/5RK1 b - - 0 31", "b7a6",
+         ["h6h5", "g1h1", "b7a6", "f1a1"], None),
+        # NEG: played move is NOT a capture -> detector requires a played capture.
+        ("played non-capture -> NOT zwischenzug",
+         "2k5/1p5r/R3p2p/3p1p2/2pP2rq/2P1P3/5QPP/5RK1 b - - 0 31", "c8b8",
+         ["h4f2", "g1f2", "b7a6", "f1a1"], None),
+    ]
+    for name, fen, uci, pv, want in zz_cases:
+        b = chess.Board(fen)
+        bl = _line(fen, pv)
+        m = Mistake(fen, uci, pv[0], bl, [], 300, -100, 0, b.turn,
+                    played_san=b.san(chess.Move.from_uci(uci)), best_san=(bl[0] if bl else ""))
+        res = PR.missed_zwischenzug(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_zz = len(zz_cases)
+
     print("--- predicates: exposed_king_pawn (castled king shelter push only) — #50 ---")
     # Tightened from 'any pawn near king' (9.8% corpus) to castled + non-capture + shelter-pawn advance
     # (3.8%). (name, fen, played_uci, expected)
@@ -942,7 +981,7 @@ def run():
              + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk
-             + extra_ekp + extra_mac)
+             + extra_ekp + extra_mac + extra_zz)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 

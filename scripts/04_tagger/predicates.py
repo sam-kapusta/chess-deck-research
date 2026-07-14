@@ -270,6 +270,48 @@ def missed_attacking_check(m):
              f"best {m.best_san} is a forcing {pname} check; you played {m.played_san}")]
 
 
+def missed_zwischenzug(m):
+    """The PLAYED move is a capture, but the BEST line inserts a forcing CHECK first and captures the
+    SAME target a move later — a zwischenzug (in-between move) the player skipped by capturing
+    immediately. The capture was right; the ORDER was wrong (insert the check, THEN recapture).
+
+    Data-derived (SAE jr2048 f23/f198/f1007/f1959, Opus 'move-order / zwischenzug error'). The tagger
+    had no move-order detector — these were mislabeled Hung Material / Missed Desperado. Signature that
+    cleanly separated them from plain hangs (f675/f1800 at 1/40): best line ply-1 is a CHECK (not the
+    played move), and the played capture's TARGET square is captured later in the best line. Distinct
+    from missed_attacking_check (there best is a QUIET/positional check; here the check is a prelude to
+    the same capture the player rushed)."""
+    b = m.board_before
+    pm = _played_move(m)
+    if pm is None or not b.is_capture(pm):        # player made a capture
+        return []
+    if not m.best_line_san or len(m.best_line_san) < 3:
+        return []
+    tgt = pm.to_square
+    bb = chess.Board(b.fen())
+    first = None
+    for j, san in enumerate(m.best_line_san[:6]):
+        try:
+            mv = bb.parse_san(san)
+        except Exception:
+            return []
+        if j == 0:
+            first = mv
+            if not bb.gives_check(mv):             # best must INSERT a check first
+                return []
+            if mv.from_square == pm.from_square and mv.to_square == pm.to_square:
+                return []                          # best IS the played move — no zwischenzug
+        # the played capture's target gets taken later in the best line (same square, still a capture)
+        if j >= 1 and mv.to_square == tgt and bb.is_capture(mv):
+            piece = b.piece_at(first.from_square)
+            pname = PIECE_NAME[piece.piece_type].lower() if piece else "piece"
+            return [("Missed Zwischenzug", "missed",
+                     f"insert the in-between {pname} check {m.best_san} first, THEN recapture "
+                     f"(you played the immediate {m.played_san})")]
+        bb.push(mv)
+    return []
+
+
 def _material_diff(board, side):
     return _material(board, side) - _material(board, not side)
 
@@ -2355,7 +2397,7 @@ def missed_perpetual(m):
 # ---------- registry ----------
 ALL_PREDICATES = [
     phase, game_state, capture_or_exchange, greedy_capture, unsound_sacrifice, pointless_check,
-    missed_attacking_check, hung_material,
+    missed_attacking_check, missed_zwischenzug, hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
     endgame_type, backward_pawn,
     missed_king_activity, lost_opposition, missed_passed_pawn, rook_behind_passer,
