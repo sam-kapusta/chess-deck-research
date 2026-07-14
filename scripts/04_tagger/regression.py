@@ -420,6 +420,39 @@ def run():
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_gg = len(gg_cases)
 
+    print("--- predicates: recapture_exposes_king (pawn recapture opens line to own king) — SAE jr2048 ---")
+    # (name, fen, played_uci, best_uci, expected)
+    rek_cases = [
+        # POS: f24 real board — hxg4 (h3 shelter pawn captures g4, opening the h-file to Kg1); best is
+        # the quiet d4. Castled king g1.
+        ("hxg4 opens h-file to Kg1 = Recapture Exposed King",
+         "r1bqkb1r/ppp2pp1/2np4/1B2p2p/4P1n1/2N2N1P/PPPP1PP1/R1BQ1RK1 w kq - 0 7", "h3g4", "d2d4",
+         "Recapture Exposed King"),
+        # NEG: the best move IS the recapture (then recapturing was correct, not the error).
+        ("best is the recapture -> no fire",
+         "r1bqkb1r/ppp2pp1/2np4/1B2p2p/4P1n1/2N2N1P/PPPP1PP1/R1BQ1RK1 w kq - 0 7", "h3g4", "h3g4", None),
+        # NEG: uncastled king -> no castled shelter to open.
+        ("uncastled king -> no fire",
+         "r3k2r/ppp2pp1/2np4/4p2p/4P1n1/2N2N1P/PPPP1PP1/R1BQKB1R w KQkq - 0 7", "h3g4", "d2d4", None),
+    ]
+    for name, fen, uci, best, want in rek_cases:
+        b = chess.Board(fen)
+        try:
+            bsan = b.san(chess.Move.from_uci(best))
+        except Exception:
+            bsan = ""
+        m = Mistake(fen, uci, best, [], [], 300, 0, 0, b.turn,
+                    played_san=b.san(chess.Move.from_uci(uci)), best_san=bsan)
+        res = PR.recapture_exposes_king(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_rek = len(rek_cases)
+
     print("--- predicates: exposed_king_pawn (castled king shelter push only) — #50 ---")
     # Tightened from 'any pawn near king' (9.8% corpus) to castled + non-capture + shelter-pawn advance
     # (3.8%). (name, fen, played_uci, expected)
@@ -1012,7 +1045,7 @@ def run():
              + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk
-             + extra_ekp + extra_mac + extra_zz + extra_gg)
+             + extra_ekp + extra_mac + extra_zz + extra_gg + extra_rek)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 

@@ -497,7 +497,7 @@ _FAMILY = [
 _KING_SAFETY_FRAGMENTS = {
     "exposed king", "king in center", "lost castling rights",
     "allowed kingside attack", "allowed queenside attack", "allowed f2/f7 attack",
-    "allowed double check", "allowed pin (to king)",
+    "allowed double check", "allowed pin (to king)", "recapture exposed king",
 }
 
 # POSITION-GATED family: the pawn/king endgame technique concept. Unlike the families above (which

@@ -503,6 +503,35 @@ def exposed_king_pawn(m):
     return [("Pawn Move Exposed King", "played", f"the pawn push {m.played_san} weakens your castled king's shelter")]
 
 
+def recapture_exposes_king(m):
+    """The PLAYED move is a pawn CAPTURE by a shelter pawn in front of your own CASTLED king, opening a
+    file/diagonal onto your king — and the best move was NOT that capture (a different recapture or a
+    quiet move kept the shelter intact). The classic 'recaptured toward my own king' error, e.g. hxg4 /
+    hxg5 with the king on g1/g8 opening the h/g-file.
+
+    Data-derived (SAE jr2048 f24/f896, Opus 'Opening Lines to Own King' / 'Damaging Own King Shelter').
+    Distinct from exposed_king_pawn (a PUSH that weakens the shelter) — here it's a CAPTURE that opens a
+    line. A played-direction structural-state tag (the resulting weakness), like exposed_king_pawn."""
+    b = m.board_before
+    pm = _played_move(m)
+    if pm is None or b.piece_type_at(pm.from_square) != chess.PAWN:
+        return []
+    if not b.is_capture(pm):                           # must be a CAPTURE (opens a line), not a push
+        return []
+    if not _king_is_castled(b, m.mover):               # need a real castled king to expose
+        return []
+    ks = b.king(m.mover)
+    kf, kr = chess.square_file(ks), chess.square_rank(ks)
+    # the capturing pawn must be a SHELTER pawn (within 1 file, within 2 ranks of the king)
+    if abs(chess.square_file(pm.from_square) - kf) > 1 or abs(chess.square_rank(pm.from_square) - kr) > 2:
+        return []
+    bm = _best_move(m)
+    if bm is not None and bm.from_square == pm.from_square and bm.to_square == pm.to_square:
+        return []                                      # best IS the recapture — then it wasn't the error
+    return [("Recapture Exposed King", "played",
+             f"the pawn recapture {m.played_san} opens a line onto your own king; best was {m.best_san}")]
+
+
 # ---------- pawn structure deltas ----------
 def _pawn_files(board, color):
     files = {}
@@ -2425,7 +2454,7 @@ def missed_perpetual(m):
 # ---------- registry ----------
 ALL_PREDICATES = [
     phase, game_state, capture_or_exchange, greedy_capture, unsound_sacrifice, pointless_check,
-    missed_attacking_check, missed_greek_gift, missed_zwischenzug, hung_material,
+    missed_attacking_check, missed_greek_gift, missed_zwischenzug, recapture_exposes_king, hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
     endgame_type, backward_pawn,
     missed_king_activity, lost_opposition, missed_passed_pawn, rook_behind_passer,

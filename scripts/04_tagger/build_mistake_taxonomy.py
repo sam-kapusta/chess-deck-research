@@ -132,6 +132,7 @@ def build_taxonomy():
     add("King in Center", "Your king stayed in the center too long")
     add("Lost Castling Rights", "Your move forfeited castling")
     add("Pawn Move Exposed King", "A pawn move weakened your king's shelter")
+    add("Recapture Exposed King", "Your pawn recapture opened a line onto your own king")
     # Trapped piece — tagger names the piece ("Trapped Bishop") + a generic fallback ("Trapped Piece").
     for p in ["Piece", "Pawn", "Knight", "Bishop", "Rook", "Queen"]:
         add(f"Missed Trapped {p}", f"An enemy {p.lower() if p != 'Piece' else 'piece'} could be trapped (you didn't play it)")

@@ -644,6 +644,11 @@
       "blurb": "A pawn move weakened your king's shelter",
       "drillable": false
     },
+    "Recapture Exposed King": {
+      "category": "King Safety",
+      "blurb": "Your pawn recapture opened a line onto your own king",
+      "drillable": true
+    },
     "Missed Trapped Pawn": {
       "category": "Missed Tactic",
       "blurb": "An enemy pawn could be trapped (you didn't play it)",
@@ -903,7 +908,8 @@
         "Allowed Pin (to King)",
         "Exposed King",
         "King in Center",
-        "Lost Castling Rights"
+        "Lost Castling Rights",
+        "Recapture Exposed King"
       ],
       "blurb": "King Safety"
     },
