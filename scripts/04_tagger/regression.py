@@ -798,6 +798,19 @@ def run():
          "r5k1/p6p/2p2br1/2P5/5BqP/P2P1pP1/1P3P2/R2Q2KR b - - 0 28", "a7a6", "g4f4", "Qxf4", [], 150, "Missed Free Bishop"),
         ("cap SEE NEG: queen for defended bishop (SEE<0) stays silent", PR.capture_or_exchange,
          "4k3/8/2p5/3b4/8/8/8/3QK3 w - - 0 1", "e1e2", "d1d5", "Qxd5", [], 150, None),
+        # Wrong Check (2026-07-14): player DID check, but a DIFFERENT check was stronger. Third case of the
+        # check family (pointless=checked-should-have-been-quiet; missed_attacking=should-have-checked).
+        # POS: real corpus positions where both best and played give check on different squares. NEG-mate:
+        # best check IS mate (Missed Mate owns it). NEG-quiet: played move isn't a check (that's
+        # missed_attacking_check, not this).
+        ("wrong check POS: Re8+ was stronger than played Ra8+", PR.wrong_check,
+         "6k1/R4p2/p5p1/1p3bP1/5P2/P2p4/1Pr5/3KR3 w - - 0 33", "a7a8", "e1e8", "Re8+", [], 150, "Wrong Check"),
+        ("wrong check POS: Rh7+ was stronger than played Qg7+", PR.wrong_check,
+         "8/ppk5/2p4R/3n2p1/3Qp3/3n2P1/4K1P1/1q6 w - - 4 43", "d4g7", "h6h7", "Rh7+", [], 150, "Wrong Check"),
+        ("wrong check NEG: best check delivers mate (Missed Mate owns it)", PR.wrong_check,
+         "6k1/5ppp/8/8/8/8/7R/R5K1 w - - 0 1", "h2h8", "a1a8", "Ra8#", [], 150, None),
+        ("wrong check NEG: played move is not a check", PR.wrong_check,
+         "6k1/R4p2/p5p1/1p3bP1/5P2/P2p4/1Pr5/3KR3 w - - 0 33", "d1d2", "e1e8", "Re8+", [], 150, None),
     ]
     for name, fn, fen, uci, best, bsan, ref, cpl, want in grab_cases:
         b = chess.Board(fen)

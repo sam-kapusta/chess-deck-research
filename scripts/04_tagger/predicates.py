@@ -346,6 +346,44 @@ def missed_attacking_check(m):
              f"best {m.best_san} is a forcing {pname} check; you played {m.played_san}")]
 
 
+def wrong_check(m):
+    """The player DID check, but a DIFFERENT check was stronger. The third case of the check family:
+      • pointless_check       — you checked; a QUIET move was better (shouldn't have checked at all)
+      • missed_attacking_check — you DIDN'T check; a check was best (should have checked)
+      • wrong_check (this)    — you checked; a DIFFERENT check was best (right idea, wrong check)
+
+    The teachable point: calculate ALL your candidate checks, don't fire the first one. It reaches here
+    only past the win_drop entry gate, so the played check genuinely lost a mistake-sized swing (≥10%
+    win%); it is never engine-splitting-hairs. missed_attacking_check deliberately excludes the
+    played-also-check case (its `if b.gives_check(pm): return []` guard) — this detector owns it.
+
+    Guards (mirror missed_attacking_check, plus 'played is also a check'):
+      • BOTH best and played give check, on different moves (bm != pm).
+      • best is NOT a capture (a capture-check is a material decision — capture_or_exchange owns it) and
+        NOT mate (Missed Mate owns it). Keeps this the QUIET-forcing-check lesson, matching the family.
+      • the PLAYED check is not itself a capture (a capturing check is a material decision, not an aimless
+        one) — keeps the coaching honest ("you had a stronger check", not "you grabbed with check")."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if not (b.gives_check(bm) and b.gives_check(pm)):      # BOTH must be checks (else it's a different case)
+        return []
+    if b.is_capture(bm) or b.is_capture(pm):               # capture-checks are material decisions
+        return []
+    after = b.copy()
+    try:
+        after.push(bm)
+    except Exception:
+        return []
+    if after.is_checkmate():                                # best check IS mate -> Missed Mate owns it
+        return []
+    piece = b.piece_at(bm.from_square)
+    pname = PIECE_NAME[piece.piece_type].lower() if piece else "piece"
+    return [("Wrong Check", "played",
+             f"you checked with {m.played_san}, but the {pname} check {m.best_san} was stronger")]
+
+
 def missed_greek_gift(m):
     """The BEST move is a BISHOP sacrifice with CHECK on a square next to the enemy castled king
     (classic Greek Gift Bxh7+/Bxf7+ and the Bxh2+/Bxf2+ mirror) that the player MISSED. The mirror of
@@ -2573,7 +2611,7 @@ def missed_perpetual(m):
 # ---------- registry ----------
 ALL_PREDICATES = [
     phase, game_state, conversion_outcome, blunder_severity, move_difficulty, capture_or_exchange, greedy_capture, unsound_sacrifice, pointless_check,
-    missed_attacking_check, missed_greek_gift, missed_zwischenzug, recapture_exposes_king, hung_material,
+    missed_attacking_check, wrong_check, missed_greek_gift, missed_zwischenzug, recapture_exposes_king, hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
     endgame_type, backward_pawn,
     missed_king_activity, lost_opposition, missed_passed_pawn, rook_behind_passer,

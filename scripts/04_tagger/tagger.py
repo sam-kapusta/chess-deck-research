@@ -408,7 +408,7 @@ def categorize(label, direction=None):
     # Unsound Sacrifice = threw material at the king with no compensation (a played-move miscalc). Must
     # be checked BEFORE the tactic-words branch below, or its "sacrifice" substring routes to Allowed Tactic.
     if l in ("greedy capture", "missed desperado", "pawn grab while undeveloped", "unsound sacrifice",
-             "pointless check") or l.startswith("failed "):
+             "pointless check", "wrong check") or l.startswith("failed "):
         return "Calculation"
 
     # Missed Attacking Check = a forcing check on the enemy king you didn't play (offensive tactic).

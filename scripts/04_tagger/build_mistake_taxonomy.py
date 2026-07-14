@@ -120,6 +120,7 @@ def build_taxonomy():
     add("Unsound Sacrifice", "You sacrificed material at the enemy king with no real compensation")
     add("Pointless Check", "You gave an aimless check when a quiet improving move was stronger")
     add("Missed Attacking Check", "A forcing check on the exposed enemy king was the strong move")
+    add("Wrong Check", "You checked, but a different check was stronger — calculate all your candidate checks")
     add("Missed Zwischenzug", "An in-between move (check) should come before your recapture")
     add("Missed Greek Gift", "A bishop sacrifice on the castled king (Greek Gift) was winning")
     add("Hung Material", "Your move dropped material to a one-move capture")
