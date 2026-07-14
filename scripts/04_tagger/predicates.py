@@ -1685,47 +1685,12 @@ def pawn_grab_undeveloped(m):
              f"{m.played_san} grabs a pawn but only {dev} pieces developed; best was {m.best_san}")]
 
 
-def ignored_threat(m):
-    """The opponent already had a concrete threat BEFORE our move (an undefended piece under attack),
-    and the played move doesn't address it while the best move does. Only fires when the threat
-    PRE-EXISTED — not when our move creates a new vulnerability."""
-    b = m.board_before
-    pm = _played_move(m); bm = _best_move(m)
-    if pm is None or bm is None or pm == bm:
-        return []
-    opp = not m.mover
-    # Find pre-existing threats: our pieces that are attacked and undefended RIGHT NOW
-    pre_threats = []
-    for sq, p in b.piece_map().items():
-        if p.color == m.mover and p.piece_type in (chess.KNIGHT, chess.BISHOP, chess.ROOK, chess.QUEEN):
-            if b.is_attacked_by(opp, sq) and not b.is_attacked_by(m.mover, sq):
-                pre_threats.append(sq)
-    if not pre_threats:
-        return []
-    # Best move addresses the threat (moves the piece, captures attacker, or adds defender)
-    best_addresses = False
-    after_best = b.copy(); after_best.push(bm)
-    for sq in pre_threats:
-        if bm.from_square == sq:
-            best_addresses = True; break
-        if sq in b.attackers(opp, sq) and bm.to_square in b.attackers(opp, sq):
-            best_addresses = True; break
-        # After best, is the piece still hanging?
-        if sq in after_best.piece_map() and after_best.is_attacked_by(m.mover, sq):
-            best_addresses = True; break
-        if sq not in after_best.piece_map():
-            best_addresses = True; break  # piece moved or was traded
-    if not best_addresses:
-        return []
-    # Played move does NOT address the threat
-    after_played = b.copy(); after_played.push(pm)
-    for sq in pre_threats:
-        if pm.from_square == sq:
-            return []  # player moved the threatened piece — they noticed
-        if sq in after_played.piece_map() and after_played.is_attacked_by(m.mover, sq):
-            return []  # player added a defender
-    return [("Ignored Threat", "played",
-             f"{m.played_san} ignores the hanging piece; {m.best_san} addresses it")]
+# ignored_threat REMOVED 2026-07-14 (Sam's catch). It was a vaguely-defined synonym for the real
+# hierarchy Hung <Piece> → Allowed Hanging Piece: 92% of its fires co-fired a sharper material/hang/mate
+# tag that named the same thing better, and where it was the SOLE material signal (162 cases) only 19%
+# actually lost the "threatened" piece — the crude is_attacked_by/undefended test flagged phantom threats
+# (defended tactically, attacker pinned, or capture loses material for the opponent). Redundant when
+# right, wrong when unique. Deleting it orphaned exactly 1 corpus position. See tagger_feature_ledger.md.
 
 
 def premature_attack(m):
@@ -1773,8 +1738,8 @@ def premature_attack(m):
 
 def missed_defensive_resource(m):
     """Position is under attack (opponent threatens material or mate), a defensive move exists
-    (the best move), but the player plays something that doesn't address the threat. Distinct from
-    'Ignored Threat' in that here the player IS trying to do something but picks the wrong defense."""
+    (the best move), but the player plays something that doesn't address the threat. (Was distinguished
+    from the now-deleted 'Ignored Threat'; this is the surviving defensive-miss detector.)"""
     b = m.board_before
     pm = _played_move(m); bm = _best_move(m)
     if pm is None or bm is None or pm == bm:
@@ -2620,7 +2585,7 @@ ALL_PREDICATES = [
     missed_breakthrough,
     bad_simplification, trade_to_simplify, wrong_king_direction, outside_passer,
     rook_to_open_file_endgame, push_to_promote,
-    pawn_grab_undeveloped, ignored_threat, premature_attack, missed_defensive_resource,
+    pawn_grab_undeveloped, premature_attack, missed_defensive_resource,
     missed_faster_mate,
     missed_bishop_activity, missed_knight_activity, missed_minor_activity, missed_queen_activity,
     missed_minor_rook_activity, missed_perpetual,

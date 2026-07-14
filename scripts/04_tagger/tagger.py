@@ -435,7 +435,7 @@ def categorize(label, direction=None):
     # (unpin, interpose, remove the attacker, counter-sac, cross-check). These are the "missed defense"
     # half of Defensive Tactics. Checked BEFORE the tactic-words branch so "Missed Unpinning Resource"
     # routes here, not to Offensive via its "pin" substring.
-    if l in ("ignored threat", "missed defensive resource") or any(w in l for w in (
+    if l == "missed defensive resource" or any(w in l for w in (
             "unpinning", "interposition", "counter-sacrifice", "removing the attacker", "cross-check")):
         return "Allowed Tactic"
 
