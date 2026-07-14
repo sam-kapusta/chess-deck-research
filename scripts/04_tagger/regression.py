@@ -853,6 +853,29 @@ def run():
         print(f"  [{'PASS' if passed else 'FAIL'}] {name}: '{label}' present={got} exp={should_fire}")
     extra_castle = len(castle_cases)
 
+    # Missed Stalemate (2026-07-14): from a LOSING position, best move forces stalemate = a draw save.
+    # Synthetic anchor — board is K+Q vs lone K (Qg6 mechanically stalemates the boxed king); eval_before
+    # is set to exercise the losing-side gate (a genuine losing-side-forces-stalemate FEN is hard to
+    # hand-build + ~absent from the 60k middlegame corpus, so ~0 real fires — built for correctness).
+    print("--- predicates: missed_stalemate (losing + best move forces stalemate) ---")
+    sm_fen = "7k/5K2/8/6Q1/8/8/8/8 w - - 0 1"
+    sm_cases = [
+        # POS: mover losing (eval_before -600, mover=White) + Qg6 forces stalemate -> fires.
+        ("stalemate POS: losing, Qg6 forces stalemate", -600, "Missed Stalemate"),
+        # NEG: mover winning (eval_before +900) -> stalemate is a blunder, not a save -> silent.
+        ("stalemate NEG: winning mover, not a save", 900, None),
+    ]
+    for name, eb, want in sm_cases:
+        m = Mistake(sm_fen, "g5h5", "g5g6", [], [], eb, 0, 600, chess.WHITE, best_san="Qg6", played_san="Qh5")
+        res = PR.missed_stalemate(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        if not passed:
+            fails.append(name)
+        print(f"  [{'PASS' if passed else 'FAIL'}] {name}: got={got!r} exp={want!r}")
+    extra_sm = len(sm_cases)
+
     print("--- predicates: endgame detectors (king activity / opposition / passed pawn / rook-behind) ---")
     # (name, fen, played_uci, best_uci, best_san, predicate_fn, expected_label_or_None)
     # eval_before set so phase()/game_state don't matter; cp_loss=200. mover = side to move in the FEN.
@@ -1210,7 +1233,7 @@ def run():
     extra_apc = len(apc_cases)
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_castle + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
+             + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_castle + extra_sm + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk
              + extra_ekp + extra_mac + extra_zz + extra_gg + extra_rek + extra_ovl + extra_conv + extra_sev + extra_md)

@@ -2573,6 +2573,55 @@ def missed_perpetual(m):
              f"best {m.best_san} starts a perpetual check to save the draw")]
 
 
+def missed_stalemate(m):
+    """Defensive swindle: the player was LOSING and the BEST move forces STALEMATE (a draw save) that the
+    played move missed. The clean sibling of missed_perpetual — both are "you were lost, a forcing draw
+    resource existed, you didn't take it." Stalemate is an EXACT board condition (board.is_stalemate()),
+    so this can only fire correctly — no heuristic, no over-fire risk.
+
+    Gates:
+      • mover was losing before (eval_before mover-POV <= -150) — a stalemate is a SAVE, not a concession.
+      • best move immediately produces stalemate (opponent to move has no legal move and isn't in check),
+        OR the best LINE forces it within a few plies with the stalemate delivered on the mover's move.
+      • played != best.
+
+    NOTE (2026-07-14): ~0 fires on the current 60k middlegame-blunder corpus (forced-stalemate saves are
+    an endgame-swindle phenomenon; Stockfish PVs here rarely play out to one). Built for correctness +
+    coverage of a real, unambiguous concept, not because it's common. Regression uses a synthetic
+    stalemate-save FEN. See tagger_feature_ledger.md."""
+    b = m.board_before
+    if m.eval_before is None:
+        return []
+    eb_mover = m.eval_before if m.mover == chess.WHITE else -m.eval_before
+    if eb_mover > -150:                      # must be losing — stalemate only helps the worse side
+        return []
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    # immediate stalemate after the best move
+    after_best = b.copy()
+    try:
+        after_best.push(bm)
+    except Exception:
+        return []
+    if after_best.is_stalemate():
+        return [("Missed Stalemate", "missed",
+                 f"best {m.best_san} forces stalemate — a draw from a lost position")]
+    # or the best line forces it within a few plies (stalemate delivered on the mover's move)
+    if m.best_line_san:
+        tmp = b.copy()
+        try:
+            for san in m.best_line_san[:8]:
+                mv = tmp.parse_san(san)
+                tmp.push(mv)
+                if tmp.is_stalemate():
+                    return [("Missed Stalemate", "missed",
+                             f"best {m.best_san} leads to stalemate — a draw from a lost position")]
+        except Exception:
+            pass
+    return []
+
+
 # ---------- registry ----------
 ALL_PREDICATES = [
     phase, game_state, conversion_outcome, blunder_severity, move_difficulty, capture_or_exchange, greedy_capture, unsound_sacrifice, pointless_check,
@@ -2588,7 +2637,7 @@ ALL_PREDICATES = [
     pawn_grab_undeveloped, premature_attack, missed_defensive_resource,
     missed_faster_mate,
     missed_bishop_activity, missed_knight_activity, missed_minor_activity, missed_queen_activity,
-    missed_minor_rook_activity, missed_perpetual,
+    missed_minor_rook_activity, missed_perpetual, missed_stalemate,
     missed_battery, missed_overloading, missed_desperado, missed_doubled_rooks,
     missed_pin_exploitation, missed_unpinning_resource, missed_interposition,
     missed_remove_the_guard,

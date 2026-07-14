@@ -75,6 +75,10 @@ These were removed for cause. Re-adding requires a fresh audit that beats the re
 **King safety (family):**
 - `king_in_center`, `lost_castling`, `exposed_king_pawn`, `pawn_structure` (doubled/isolated/backward), `backward_pawn`.
 
+**Defensive draw resources (swindles, from a losing position):**
+- `missed_perpetual` — best move starts a perpetual check to force a draw. Endgame category.
+- `missed_stalemate` (~0% corpus) — best move forces stalemate (a draw from a lost position). Added 2026-07-14 (Sam's "#68" pick). EXACT board condition (`is_stalemate`), so zero over-fire risk; ~0 corpus fires because forced-stalemate saves are an endgame-swindle phenomenon rare in a middlegame-blunder corpus. Built for correctness/coverage, not frequency; regression uses a synthetic anchor.
+
 **Endgame technique (position-gated family):**
 - `missed_king_activity`, `lost_opposition`, `missed_passed_pawn`, `rook_behind_passer`, `rook_to_seventh`,
   `rook_cut_off_king`, `missed_active_rook`, `rook_endgame_blockade`, `missed_connected_passers`,

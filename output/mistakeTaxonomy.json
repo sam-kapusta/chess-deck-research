@@ -839,6 +839,16 @@
       "blurb": "The rook belonged behind the passed pawn",
       "drillable": true
     },
+    "Missed Perpetual": {
+      "category": "Endgame",
+      "blurb": "From a losing position, a perpetual check would have forced a draw",
+      "drillable": true
+    },
+    "Missed Stalemate": {
+      "category": "Endgame",
+      "blurb": "From a losing position, a move that forces stalemate would have saved a draw",
+      "drillable": true
+    },
     "Winning": {
       "category": "Meta",
       "blurb": "You were winning before this move",

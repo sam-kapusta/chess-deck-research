@@ -381,7 +381,7 @@ def categorize(label, direction=None):
             "promotion", "pawn race", "en passant", "rook to 7th", "rook cut-off",
             "active rook", "blockade", "connected passers", "simplif", "trade to simplify",
             "king direction", "outside passer", "push to promote", "rook to open file",
-            "protected passer", "square rule", "breakthrough", "perpetual")):
+            "protected passer", "square rule", "breakthrough", "perpetual", "stalemate")):
         return "Endgame"
 
     # Enemy king exposed / removing the defender of the enemy king = a missed attacking chance

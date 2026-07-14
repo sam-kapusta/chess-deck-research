@@ -178,6 +178,10 @@ def build_taxonomy():
     add("Lost the Opposition", "You gave up the opposition in a king-and-pawn endgame")
     add("Missed Passed Pawn", "A move that made or advanced a passed pawn was best")
     add("Rook Behind Passer", "The rook belonged behind the passed pawn")
+    # Defensive draw resources from a lost position (swindles). Perpetual was missing a taxonomy entry
+    # (rendered neutral); added alongside Stalemate 2026-07-14.
+    add("Missed Perpetual", "From a losing position, a perpetual check would have forced a draw")
+    add("Missed Stalemate", "From a losing position, a move that forces stalemate would have saved a draw")
     # Meta + phase + info
     add("Winning", "You were winning before this move")
     add("Losing", "You were losing before this move")
