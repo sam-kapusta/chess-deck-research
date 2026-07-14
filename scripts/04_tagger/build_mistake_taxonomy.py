@@ -42,6 +42,10 @@ DIRECTIONAL = [
     "Kingside Attack", "Queenside Attack", "Promotion", "Underpromotion",
     "En Passant", "Castling", "Double Check", "f2/f7 Attack", "Advanced Pawn", "Mate", "Outpost",
 ]
+# Motifs that emit ONLY the "Missed" label — the "Allowed" twin isn't a teachable mistake and the tagger
+# never emits it (tagger._MISSED_ONLY_MOTIFS). Keep in sync with that set. (2026-07-14: Castling — letting
+# the opponent castle is normal chess; see the feature ledger.)
+MISSED_ONLY = {"Castling"}
 NAMED_MATES = ["Anastasia's Mate", "Arabian Mate", "Boden's Mate", "Double Bishop Mate",
                "Smothered Mate", "Back-Rank Mate", "Hook Mate", "Dovetail Mate"]
 PIECES = ["Pawn", "Knight", "Bishop", "Rook", "Queen"]
@@ -81,7 +85,8 @@ def build_taxonomy():
     for x in DIRECTIONAL:
         b = BLURB.get(x, x)
         add(f"Missed {x}", f"{b} (you didn't play it)")
-        add(f"Allowed {x}", f"Your move let the opponent: {b[0].lower() + b[1:]}")
+        if x not in MISSED_ONLY:
+            add(f"Allowed {x}", f"Your move let the opponent: {b[0].lower() + b[1:]}")
     # fork + its combination split, and the by-PIECE variants (#53): _motif_label emits "Knight Fork",
     # "Combination → Queen Fork", etc. Enumerate all so they get a category/blurb (else they fall back
     # to Other in the frontend). Generic "Fork" stays for lines where the forking piece isn't resolved.

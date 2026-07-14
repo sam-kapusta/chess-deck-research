@@ -826,6 +826,33 @@ def run():
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_grab = len(grab_cases)
 
+    # Castling motif gate (2026-07-14): Missed Castling fires ONLY when the best MOVE is castling (first
+    # pov move of the best line), not when castling appears anywhere later. Allowed Castling is deleted
+    # (no teachable "you let them castle" lesson). Uses the full tagger (motif system), not a predicate.
+    print("--- motifs: castling gated to first-move-is-castle; no Allowed Castling ---")
+    castle_cases = [
+        # POS: best move IS O-O -> Missed Castling.
+        ("castling POS: best move is O-O", "r2qr1k1/pp2bppp/5n2/4pb2/2Pp4/PP1P1N2/1BQ1BPPP/R3K2R w KQ - 4 14",
+         "e1e2", ["O-O", "Bf8", "b4"], [], "Missed Castling", True),
+        # NEG: best is Bxf3, castling only at ply 4 -> NO Missed Castling.
+        ("castling NEG: castle only later in line", "rn1qk1nr/p4p1p/1ppp4/3bp1p1/2P3Pb/3P1N2/PP1BPPB1/RN2QRK1 b kq - 1 13",
+         "a7a6", ["Bxf3", "exf3", "Ne7", "Nc3", "O-O"], [], "Missed Castling", False),
+        # NEG: opponent castles in the refutation -> Allowed Castling must NOT exist.
+        ("castling NEG: no Allowed Castling twin", "1k1r3r/pppq1ppp/2nbb3/4p3/P3P3/1P3PP1/1BP1N1BP/R2QK2R b KQ - 0 13",
+         "d7h3", ["Bb4+"], ["O-O", "Be6", "Qe1", "h5"], "Allowed Castling", False),
+    ]
+    for name, fen, uci, bl_san, rf_san, label, should_fire in castle_cases:
+        b = chess.Board(fen)
+        m = Mistake(fen, uci, None, bl_san, rf_san, None, None, 150, b.turn)
+        labels = [t["label"] for t in TG_GM.tag_mistake_full(m, with_maia=False)["tags"]]
+        got = label in labels
+        passed = (got == should_fire)
+        ok += passed
+        if not passed:
+            fails.append(name)
+        print(f"  [{'PASS' if passed else 'FAIL'}] {name}: '{label}' present={got} exp={should_fire}")
+    extra_castle = len(castle_cases)
+
     print("--- predicates: endgame detectors (king activity / opposition / passed pawn / rook-behind) ---")
     # (name, fen, played_uci, best_uci, best_san, predicate_fn, expected_label_or_None)
     # eval_before set so phase()/game_state don't matter; cp_loss=200. mover = side to move in the FEN.
@@ -1183,7 +1210,7 @@ def run():
     extra_apc = len(apc_cases)
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
+             + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_castle + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk
              + extra_ekp + extra_mac + extra_zz + extra_gg + extra_rek + extra_ovl + extra_conv + extra_sev + extra_md)

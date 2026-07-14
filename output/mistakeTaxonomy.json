@@ -189,11 +189,6 @@
       "blurb": "Castling was the move (you didn't play it)",
       "drillable": true
     },
-    "Allowed Castling": {
-      "category": "King Safety",
-      "blurb": "Your move let the opponent: castling was the move",
-      "drillable": true
-    },
     "Missed Double Check": {
       "category": "Missed Tactic",
       "blurb": "A double check was available (you didn't play it)",

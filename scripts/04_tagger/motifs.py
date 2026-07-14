@@ -744,7 +744,17 @@ def en_passant_line(nodes, pov) -> bool:
 
 
 def castling_line(nodes, pov) -> bool:
-    return any(U.is_castling(n) for n in U.pov_nodes(nodes, pov))
+    """Fire ONLY when pov's FIRST move in the line is castling — i.e. the move being recommended IS
+    to castle. (2026-07-14 audit: the old `any(... pov moves)` fired whenever castling appeared ANYWHERE
+    in the continuation — 73% of Missed Castling fires had the best MOVE be something else, e.g.
+    `Qxd5 Bf5 O-O`, with O-O a routine follow-up 2-4 plies deep. That's not a 'you should have castled'
+    lesson; the real lesson was the first move. Gating to the first pov move keeps only the genuine
+    king-safety case.) Note: `castling` is also MISSED-ONLY (see _MISSED_ONLY_MOTIFS in tagger.py) —
+    'Allowed Castling' (opponent castled in the refutation) was deleted: letting the opponent castle is
+    normal chess, never the teachable mistake — the real error was always something concrete the sharper
+    tags name."""
+    povn = U.pov_nodes(nodes, pov)
+    return bool(povn) and U.is_castling(povn[0])
 
 
 def promotion_line(nodes, pov) -> bool:

@@ -146,6 +146,14 @@ LABEL_OVERRIDE = {
     "exposedKing": {"missed": "Enemy King Exposed", "allowed": "Exposed King"},
 }
 
+# Motifs that only make sense in the MISSED direction — the ALLOWED twin is not a teachable mistake, so
+# we never emit it. `castling`: "Allowed Castling" (the opponent castled in the refutation line) fires on
+# normal chess — 78% of its cases had the opponent castle 2-4 plies deep, and reading the first-reply
+# cases showed the real mistake was always something concrete (hung a piece, missed a tactic) with the
+# opponent routinely castling as their reply. Deleted 2026-07-14 (same reasoning as allowed_battery: the
+# "allowed" direction of a motif that's only meaningful as your own move). See the feature ledger doc.
+_MISSED_ONLY_MOTIFS = {"castling"}
+
 
 def _directional_label(key, lab, direction):
     """Apply the Missed/Allowed prefix, unless the motif has an explicit override for this direction."""
@@ -178,6 +186,8 @@ def _motif_tags(m):
     allowed_ucis = _allowed_line_ucis(m)
     if len(allowed_ucis) >= 2:   # need the played move + at least one punishment ply
         for key, ev in MO.detect_line(b, allowed_ucis, opp).items():
+            if key in _MISSED_ONLY_MOTIFS:      # e.g. castling — no teachable "Allowed" twin
+                continue
             lab = _motif_label(key, ev)
             out.append((_directional_label(key, lab, "allowed"), "allowed", ev))
 
