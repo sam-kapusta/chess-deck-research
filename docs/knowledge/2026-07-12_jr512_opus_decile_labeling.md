@@ -430,3 +430,33 @@ already carries the co-tags (King Safety, Missed Mate fire beneath the material 
 exists if you collapse to a single argmax. Product should surface the distribution, not force one top tag.
 Lesson: measure a precedence/weighting scheme against ground truth BEFORE building — a plausible reweight
 usually trades one error class for a bigger one.
+
+## Full jr2048 labeling + board-grounded gap audit → 3 new detectors (2026-07-13/14)
+
+Sam: "the point is to see what SAE features we couldn't quantify or where our tags are right/wrong."
+Did the full pass properly this time:
+
+1. **Labeled ALL 2048 jr2048 features** with the Opus decile method (independent of the tagger):
+   909 good / 796 diffuse / 201 too_broad / 103 poly / 39 noise. (`labels_decile_jr2048.json`)
+2. **Board-grounded multi-tag judge** on all 909 good features (`judge_multi_family.py`, Opus reads
+   boards + the tagger's full tag distribution, rules covered/shallow/not_covered — independent of my
+   regex concept-map, which had a `mate`/`material` bug earlier): **91% covered / 5% shallow / 3% not_covered.**
+3. **Clustered the residual** (`judge_2048_full.json`) into a prioritized plan (#57).
+
+**Built the 3 clean, teachable gaps (Tier 1):**
+- `missed_zwischenzug` — right capture, wrong order (best inserts a forcing check, takes same target
+  later). 0.80% corpus. Routes Calculation.
+- `missed_greek_gift` — missed bishop SAC-check (SEE<0) next to the castled king. 0.31% corpus (mirror
+  of unsound_sacrifice). Routes Missed Tactic.
+- Missed/Allowed Mate **PV-depth fallback** (#56) — fire from best-line/refutation checkmate, not just
+  the eval sentinel.
+
+**Did NOT build (measured, below the bar):**
+- Perpetual/draw-defense — already covered by Missed Attacking Check; the cluster was partly mislabeled.
+- Recapture-opens-own-king — 2-3 niche features, overlaps exposed_king_pawn.
+- Tempo/slow-move (~10), trapped-queen (2) — diffuse / too few, substrate-bound.
+
+**Method that worked:** independent Opus labels (verdict + board-judge) as ground truth; cluster the
+not_covered/shallow; build ONLY the clusters that are (a) coherent, (b) teachable, (c) big enough. Every
+detector: real-board TDD + corpus-overfire check before shipping. The judge is the deliverable — it says
+exactly which SAE features we can't quantify and which we mislabel.
