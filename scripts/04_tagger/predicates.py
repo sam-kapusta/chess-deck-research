@@ -181,20 +181,24 @@ def capture_or_exchange(m):
     pname = PIECE_NAME[victim.piece_type]
     if not defended:
         return [(f"Missed Free {pname}", "missed", f"best {m.best_san} takes undefended {pname.lower()}")]
-    # defended but you still win material (attacker worth less than victim). Displayed as the same
-    # "Missed Free X" tag as the undefended case (Sam: collapse free/winning into one coaching tag);
-    # the distinction survives in the evidence string ("wins X for less" vs "takes undefended X").
+    # DEFENDED capture — decide by STATIC EXCHANGE EVAL over the whole recapture sequence, NOT by raw
+    # attacker-vs-victim piece values. (2026-07-14: the old value heuristic mislabeled combination-
+    # initiating captures. E.g. Qxf6 winning a defended knight where the recapturer is itself re-won
+    # nets +3 by SEE, but queen(9)>knight(3) made the value gate call it a "sacrifice" and stay SILENT —
+    # 95 corpus positions where the player missed a material-winning capture had NO tag. Root cause: the
+    # gate used piece values, which can't see the follow-up recapture. SEE can.)
     attacker = b.piece_at(bm.from_square)
-    if attacker and VAL[victim.piece_type] > VAL[attacker.piece_type] + 0.5:
-        return [(f"Missed Free {pname}", "missed", f"best {m.best_san} wins {pname.lower()} for less")]
-    # Equal-value gate: an "exchange/trade" means like-for-like value. If the attacker is worth MORE
-    # than the (defended) victim, capturing it sheds material — that's a SACRIFICE, not an even trade,
-    # and sacrifice_line already names it ("Missed Sacrifice"). Without this gate, Q-takes-defended-B
-    # mislabels as "Missed Bishop Exchange" — 24% of Exchange fires (310/1274), 207 of which ALSO carry
-    # "Missed Sacrifice" (a direct contradiction). Drop the bogus exchange label and let the sac stand.
-    # (Sam, ply 50: best Qxe4+ = queen for a defended bishop was tagged "Missed Bishop Exchange".)
-    if attacker and VAL[attacker.piece_type] > VAL[victim.piece_type] + 0.5:
+    see = U.static_exchange_eval(b, bm)
+    if see < 0:
+        # capturing sheds material over the sequence — a SACRIFICE, not a missed win/trade. sacrifice_line
+        # / missed_greek_gift own it. (Protects the original case: Qxe4+ = queen for a defended bishop,
+        # SEE hugely negative → correctly excluded, no bogus "Missed Bishop Exchange".)
         return []
+    if see >= 1:
+        # wins material over the full sequence — same "Missed Free X" coaching tag as the undefended case
+        # (Sam: collapse free/winning into one tag); evidence distinguishes it.
+        return [(f"Missed Free {pname}", "missed", f"best {m.best_san} wins material (nets +{see})")]
+    # SEE == 0 → a genuine even trade.
     if victim.piece_type == chess.PAWN:
         return [("Missed Pawn Trade", "missed", f"best {m.best_san} = even pawn trade")]
     # Name the trade by BOTH pieces, not just the victim. The old "Missed {victim} Exchange" mislabeled

@@ -789,6 +789,15 @@ def run():
          "5r1k/p3q2p/3p4/3Q2PR/1R2p3/N2P4/2P2P2/4K3 w - - 1 27", "d3e4", "b4e4", "Rxe4", [], 150, None),
         ("battery NEG: lone rook to open file (no stacked back piece)", PR.missed_battery,
          "1k6/1p3ppp/p3p3/3pP3/5P1P/8/2r4r/K6R w - - 3 33", "h1e1", "h1d1", "Rd1", [], 150, None),
+        # capture_or_exchange SEE gate (2026-07-14): a DEFENDED capture that WINS material over the
+        # recapture sequence must fire "Missed Free X", even when the attacker outvalues the victim.
+        # POS: Qxf4 wins a defended bishop, SEE +3 (recapturer is re-won) — the old piece-value gate wrongly
+        # called it a sacrifice and stayed silent (95-position gap). NEG: Qxd5 = queen for a defended
+        # bishop, SEE -6 = a real sacrifice, must STAY excluded (the case the gate originally protected).
+        ("cap SEE POS: defended capture that nets material fires Missed Free", PR.capture_or_exchange,
+         "r5k1/p6p/2p2br1/2P5/5BqP/P2P1pP1/1P3P2/R2Q2KR b - - 0 28", "a7a6", "g4f4", "Qxf4", [], 150, "Missed Free Bishop"),
+        ("cap SEE NEG: queen for defended bishop (SEE<0) stays silent", PR.capture_or_exchange,
+         "4k3/8/2p5/3b4/8/8/8/3QK3 w - - 0 1", "e1e2", "d1d5", "Qxd5", [], 150, None),
     ]
     for name, fn, fen, uci, best, bsan, ref, cpl, want in grab_cases:
         b = chess.Board(fen)
