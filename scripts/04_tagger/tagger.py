@@ -200,11 +200,37 @@ def _motif_tags(m):
         eb_mover = m.eval_before if m.mover == chess.WHITE else -m.eval_before
         if eb_mover >= _MATE_SENTINEL:
             out.append(("Missed Mate", "missed", "eval: forced mate available (PV truncated)"))
+    # PV-DEPTH fallback (#56): the eval sentinel misses mate-in-N when Stockfish reported a large-but-
+    # sub-sentinel score or the cache lost the mate flag. If the BEST line itself reaches checkmate,
+    # the player missed a forced mate — fire it. (SAE jr2048: many 'Missed Mate on Exposed King'
+    # features had best-move-is-check on 90%+ but Missed Mate fired on <half via the sentinel alone.)
+    if "Missed Mate" not in {lab for (lab, _, _) in out} and m.best_line_san:
+        try:
+            bb = chess.Board(m.fen_before)
+            for san in m.best_line_san:
+                bb.push(bb.parse_san(san))
+                if bb.is_checkmate():
+                    out.append(("Missed Mate", "missed", "best line forces checkmate"))
+                    break
+        except Exception:
+            pass
     # Allowed Mate: eval_after says opponent now has a forced mate (mover-POV negative mate)
     if "Allowed Mate" not in existing_labels and m.eval_after is not None:
         ea_mover = m.eval_after if m.mover == chess.WHITE else -m.eval_after
         if ea_mover <= -_MATE_SENTINEL:
             out.append(("Allowed Mate", "allowed", "eval: opponent has forced mate after played move"))
+    # PV-DEPTH fallback for Allowed Mate (#56): if the REFUTATION line (opponent's punishment of the
+    # played move, from the board AFTER the played move) reaches checkmate, the player allowed a mate.
+    if "Allowed Mate" not in {lab for (lab, _, _) in out} and m.refutation_san:
+        try:
+            bb = m.board_after()
+            for san in m.refutation_san:
+                bb.push(bb.parse_san(san))
+                if bb.is_checkmate():
+                    out.append(("Allowed Mate", "allowed", "refutation line forces checkmate"))
+                    break
+        except Exception:
+            pass
 
     return _suppress_lesser_under_mate(out)
 
