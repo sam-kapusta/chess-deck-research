@@ -43,6 +43,29 @@ gate is wrong — so this was a straight delete (matches "prefer removing over a
 chess concept; this CORPUS just never presents it as the primary lesson (when a best move genuinely forms a
 decisive battery it's already winning material / mating, and the sharper tag catches it).
 
+## "Are we replacing battery?" — checked from BOTH directions, answer is no (2026-07-14)
+Sam pushed on whether deletion left a coverage hole. Verified instead of asserted:
+
+1. **Sole-explain gap (bottom-up).** Reconstructed the deleted detectors, found the fires where battery was
+   the ONLY explain tag: 1,475 total, but **1,061 sub-threshold (wd<10%)**; only **414 real mistakes** now
+   untagged. Read them — clustered by the missed (best) move: **75% "missed a quiet positional improvement"**,
+   ~19% missed check, ~14% missed capture. **None are battery lessons** — battery had been labeling
+   missed-quiet-move / missed-tactic positions with the wrong name. Deletion didn't lose coverage; it stopped
+   MIS-coaching. (The 75% quiet-improvement bucket is the substrate ceiling, not a battery hole.)
+2. **Tight battery finder (bottom-up, the strict test).** Quiet best move + converging under-defended
+   Q+R/R+R/Q+B battery on a real target: **only 20 positions in all 60k.** 15 already carry a sharper tag
+   (the attack/piece the battery wins); the 5 battery-only ones are ALL sub-threshold (wd 4-9%). Zero
+   genuine battery-only mistakes clear the 10% line.
+3. **SAE labels (top-down, the discovery instrument).** Grepped all **7,635 Opus-authored** feature labels
+   across jr2048 + jr512: **"battery" appears 0 times** (also "doubled rooks" 0). Opus named the neighbors
+   (Open File, File Control, Hanging Queen on Open File) but never a battery direction. If the concept lived
+   in the activations, the discovery tool would have surfaced it.
+
+**Why no residue:** a battery is a MULTI-MOVE buildup (stack now, break through later). Our signal is a
+single-position best−blunder diff — it encodes the tactic a battery ENABLES, not the slow setup. Same
+substrate ceiling as strategic/positional plans (`sae_feature_audit_playbook.md` §ceiling). A "battery v2"
+detector would only re-catch the 20 and re-mislabel the 414 — strictly worse than no tag. **Not replacing it.**
+
 ## What changed
 - `predicates.py`: removed `missed_battery`, `allowed_battery`, `_battery_hits_target`, `_BATTERY_TARGETS`;
   dropped both from `ALL_PREDICATES`. Left a removal note above `missed_overloading`.
