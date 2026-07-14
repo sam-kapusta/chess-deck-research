@@ -78,8 +78,13 @@ endgame-technique collapse, useful as the canonical "soft inaccuracy + losing en
 The product is the **rule-based tagger** (`scripts/04_tagger/`), not the SAE. Pure predicate functions
 detect named coaching mistakes on Stockfish-analyzed blunders; tags roll up into a FIFA-style skill
 card (6 groups → clusters → per-rating-band anchors). The SAE only seeded the vocabulary + is the
-regression set. **58 detectors as of 2026-06-27.** Full detail in two deep-dive docs (see table at
-bottom of this section); the durable decisions are here.
+regression set. **68 predicates + 25 motif detectors as of 2026-07-14.** Full detail in two deep-dive
+docs (see table at bottom of this section); the durable decisions are here.
+
+**Per-detector index → [`knowledge/tagger_feature_ledger.md`](knowledge/tagger_feature_ledger.md).**
+One line per tag: what it detects, corpus fire rate, and — for anything gated or deleted — *why*. Read it
+before re-adding a removed detector (e.g. Allowed Battery, Allowed Castling) or re-litigating a gate. The
+audit method that produces those decisions is [`knowledge/sae_feature_audit_playbook.md`](knowledge/sae_feature_audit_playbook.md).
 
 ### Architecture (the spine)
 - `predicates.py` — 58 pure detector functions `(Mistake) -> [(label, direction, evidence)]`. No I/O,
