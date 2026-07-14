@@ -883,6 +883,14 @@ def missed_pawn_break(m):
     if pm and b.piece_type_at(pm.from_square) == chess.PAWN:
         if abs(chess.square_file(pm.to_square) - chess.square_file(bm.to_square)) <= 1:
             return []
+    # A pawn move that CAPTURES A PIECE is winning material, not a structural break — bail before the
+    # tension scan (which would otherwise fire on hxg4-takes-knight just because an enemy pawn is near
+    # g4). Only pawn-takes-pawn / en passant is a real break; capture_or_exchange owns piece grabs.
+    # (Sam, 2026-07-14: reading the FENs, 8% of fires were best=pawn-takes-piece.)
+    if b.is_capture(bm) and not b.is_en_passant(bm):
+        vic = b.piece_at(bm.to_square)
+        if vic and vic.piece_type != chess.PAWN:
+            return []
     # check: does the pawn advance create tension (enemy pawn adjacent)?
     to_f = chess.square_file(bm.to_square)
     to_r = chess.square_rank(bm.to_square)
@@ -1046,6 +1054,16 @@ def missed_prophylaxis(m):
     # tactic that only COINCIDENTALLY controls the threat square — not prevention. Prophylaxis is a
     # quiet preventive move. (16% of fires were checking-best; excluding = real prophylaxis only. Sam.)
     if b.gives_check(bm):
+        return []
+    # A KING move is king-safety/escape, not prophylaxis — a real prophylactic move is a piece/pawn
+    # taking control of a square. (Reading FENs, 19% of fires were king moves dodging a check. Sam.)
+    if b.piece_type_at(bm.from_square) == chess.KING:
+        return []
+    # The PREVENTED threat must not be a CHECK. Preventing/parrying a check is DEFENSE, not prophylaxis
+    # (prophylaxis stops a positional PLAN — a break, an outpost, an infiltration). 29% of fires
+    # prevented a check (dodged mate / stopped Rd1+); those are king-safety/defense, mislabeled. (Sam,
+    # 2026-07-14: judged on the actual boards, not Opus summaries.)
+    if after_played.gives_check(threat):
         return []
     threat_sq = threat.to_square
     # Coaching message names the CONCRETE prevented plan (the opponent's move), not the jargon — the
