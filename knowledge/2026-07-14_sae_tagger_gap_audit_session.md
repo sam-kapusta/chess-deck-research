@@ -158,3 +158,36 @@ Prophylaxis 8.18%→4.08%, Pawn Break 7.29%→4.47%. commit 3f26fc9.
 - `conversion_outcome` — result-band transition (Winning→Losing etc). Names sharp single-move conversions.
 - `blunder_severity` — Sharp Blunder (win-drop>=30%) vs Slow Bleed (<15% AND balanced). Saturation-guarded.
 - `n_good_moves` (MultiPV job, GOOD_CP=100, running) → "Only Move Missed" vs "Careless Blunder" axis. TODO.
+
+## Descriptive axes for CHARACTERIZING features (2026-07-14, Sam's idea)
+
+Beyond concept-tags, added 3 DESCRIPTIVE info tags so we can say "what is this feature" even when it's
+not a coaching lesson. All Meta-category, direction=info:
+1. **conversion_outcome** — result-band transition (Winning→Losing / Winning→Drawn / Even→Losing …).
+   Names SHARP single-move conversions. (Multi-move slow-bleed conversions need a trajectory metric.)
+2. **blunder_severity** — Sharp Blunder (win-drop≥30%) vs Slow Bleed (<15% AND balanced |win%-50|<25).
+   Saturation-guarded (a missed mate while +M5 is a tiny drop but NOT a bleed).
+3. **move_difficulty** — Only Good Move Missed (n_good_moves≤1) vs Careless Blunder (≥4). From a MultiPV
+   re-analysis: `n_good_moves.json` (SF depth-14 MultiPV=6, moves within 100cp of best). Corpus: 34%
+   only-move, 38% many-options. `Mistake` gained an optional `n_good_moves` field.
+
+**Feature catalog** (`output/sae_labels/feature_descriptor_catalog.json`, 909 good features): dominant
+severity/conversion/difficulty per feature over its top-100. Findings:
+- **Severity: 903 of the dominant-severity features are Sharp Blunder, 6 Slow Bleed.** Coherent SAE
+  features = sharp one-move errors; slow-bleed doesn't form coherent features (= the diffuse blob).
+- **Difficulty: 543 Only-Good-Move-Missed vs 366 Careless.** A real new axis — "hard forced-only miss"
+  vs "careless blunder w/ easy alternatives." Pairs with severity: 'how bad × how hard'.
+
+Compute artifacts: `n_good_moves.json` backed up to s3://chess-sae-weights-140023406996/sae/. Catalog +
+labels in git output/sae_labels/.
+
+## Prophylaxis — made it a REAL, teachable mistake (2026-07-14)
+Sam: "what does Missed Prophylaxis actually tell the player?" Two fixes from reading the fires:
+1. non-capture-threat gate (the prevented move must be a plan, not grabbing a hung piece — killed the
+   hanging-piece hijack, motif 22%→4%).
+2. quiet-best gate (best move must be non-check; a checking best = a tactic coincidentally covering the
+   square, not prevention — 16% of fires).
+Message rewritten from jargon to the CONCRETE plan: "Rd1 covers d4, preventing the opponent's d4."
+Blurb: "You let the opponent carry out a plan a quiet move would have stopped." 8.18%→5.53%.
+Pawn Break: reverted the arbitrary rate gate — reading its fires, it hits genuine breaks (c5/d4/e5); 8%
+is real, not over-fire.
