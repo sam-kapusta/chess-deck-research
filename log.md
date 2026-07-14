@@ -8,8 +8,16 @@ summaries). Three outcomes, all committed:
 - **Deleted both battery detectors** (`missed_battery` 4%, `allowed_battery` 9%) — naked-rate catch-alls.
   Allowed Battery TOPPED 118 SAE features across **81 distinct Opus concepts** (Hanging Piece, Missed
   Tactic — never "battery") and appeared in 44% of vote tallies; 74-76% co-fired a sharper tag; only 4-5%
-  had battery as the sole explain tag, and those FENs were diffuse drift. No residue to gate → delete.
-  184→182 taxonomy tags. Corpus verified 0 battery fires.
+  had battery as the sole explain tag, and those FENs were diffuse drift. 184→182 taxonomy tags.
+  **CORRECTION (later same day):** deleting `missed_battery` was partly wrong. Sam gave a counterexample
+  (`...Qb6` builds Bc5+Qb6 on f2) and my "no battery exists" proof used a BROKEN finder — it required the
+  battery's back piece to DIRECTLY attack the target, impossible by definition (front piece blocks the
+  line), so it never matched a real stacked battery. **Rebuilt `missed_battery`** with correct XRAY
+  geometry + quiet-move + defended-target gates: fires **1.0%** of corpus (real-tactic band), 57 verified
+  sole-lesson positions, 53/57 defended-target, 48/57 pure positional pressure. `allowed_battery` stays
+  deleted (it was the genuine 9% catch-all). Taxonomy back to 183. Lessons recorded in the knowledge doc
+  (validate a finder against a known positive before trusting emptiness; SAE-can't-see-it ≠ tagger-can't-
+  detect-it; one hand-verified FEN beats a mis-instrumented 60k scan).
 - **Gated Missed Open File** (6.4%→4.9%) — a REAL positional concept (tops only 19 features, 7% of votes),
   but ~23% of fires were tactics that just landed a rook on an open file: captures (Rxc1 wins material)
   and endgame checks (Rd5+). Concept gate: best move must be neither a capture nor a check. Dropped ~867
@@ -18,9 +26,10 @@ summaries). Three outcomes, all committed:
   Hung\* is a net-material-loss-over-line detector (multi-move hangs expected); ~92% clean on the hardest
   bucket. Filed **issue #58** for a rare peak-victim naming edge (even rook trade → "Hung Rook").
 
-Regression 156→159 (battery cases retired, 3 open-file cases added), all green. Knowledge:
-`knowledge/2026-07-14_battery_catchall_deletion.md` (the delete/gate/leave scorecard + method). Commits
-`b390302` (battery delete), `61544b6` (open-file gate). Not pushed. Not yet shipped to prod.
+Regression 156→**163** (3 open-file + 4 battery cases; battery twin fixture retargeted to Doubled Rooks),
+all green. Knowledge: `knowledge/2026-07-14_battery_catchall_deletion.md` (delete/gate/leave scorecard +
+the battery error + rebuild + lessons). Commits `b390302` (battery delete), `61544b6` (open-file gate),
++ battery rebuild commit. Not pushed. Not yet shipped to prod.
 
 ## 2026-07-11 — JumpReLU sweep on the l7 best−blunder diff (Sam AFK, autonomous)
 

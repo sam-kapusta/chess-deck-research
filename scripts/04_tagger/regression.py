@@ -776,6 +776,19 @@ def run():
          "5r1k/p3q2p/3p4/3Q2PR/1R2p3/N2P4/2P2P2/4K3 w - - 1 27", "d3e4", "b4e4", "Rxe4", [], 150, None),
         ("open file NEG: best is a rook check", PR.missed_open_file,
          "2r5/p2k2pp/5p2/1PR5/4PK2/7P/8/8 w - - 1 32", "c5c8", "c5d5", "Rd5+", [], 150, None),
+        # Missed Battery — rebuilt 2026-07-14 (Sam's Bc5+Qb6-on-f2 example). A battery = two sliders stacked
+        # on ONE line, front directly attacks a DEFENDED target, back xrays through it. POS1: best Qb6 stacks
+        # behind Bc5 on the b6-f2 diagonal (bears through f2 onto the defended g1 knight). POS2: best Qd5
+        # stacks behind Bc4 on the c4-f7 diagonal (defended f7 pawn). NEG-capture: best Rxe4 is a material
+        # tactic. NEG-lone-rook: quiet rook to an open file but NO back piece stacked = not a battery.
+        ("battery POS1: Qb6 stacks behind Bc5 on f2/g1", PR.missed_battery,
+         "rnbqk1nr/pp3ppp/2p5/2bpP3/4P3/3B1P2/PPP3PP/RNBQK1NR b KQkq - 2 5", "a7a6", "d8b6", "Qb6", [], 150, "Missed Battery"),
+        ("battery POS2: Qd5 stacks behind Bc4 on f7", PR.missed_battery,
+         "r1bqkb1r/pppp1pp1/2n4p/4P3/2B1n3/5N2/PPP2PPP/RNBQK2R w KQkq - 0 6", "a2a3", "d1d5", "Qd5", [], 150, "Missed Battery"),
+        ("battery NEG: best move is a capture", PR.missed_battery,
+         "5r1k/p3q2p/3p4/3Q2PR/1R2p3/N2P4/2P2P2/4K3 w - - 1 27", "d3e4", "b4e4", "Rxe4", [], 150, None),
+        ("battery NEG: lone rook to open file (no stacked back piece)", PR.missed_battery,
+         "1k6/1p3ppp/p3p3/3pP3/5P1P/8/2r4r/K6R w - - 3 33", "h1e1", "h1d1", "Rd1", [], 150, None),
     ]
     for name, fn, fen, uci, best, bsan, ref, cpl, want in grab_cases:
         b = chess.Board(fen)

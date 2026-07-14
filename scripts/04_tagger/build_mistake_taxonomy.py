@@ -152,7 +152,9 @@ def build_taxonomy():
     add("Missed Advanced Pawn", "An advanced pawn push was the move")
     # Overloading / doubled-rooks detectors + the allowed-pawn-grab detector (these fire from
     # predicates.py but were missing taxonomy entries → rendered neutral). Missed + Allowed both exist.
-    # (Battery detectors removed 2026-07-14 — naked-rate catch-alls; see knowledge doc.)
+    # Missed Battery rebuilt 2026-07-14 (xray geometry + quiet move + defended target); allowed_battery
+    # stayed deleted (the catch-all direction). See knowledge/2026-07-14_battery_catchall_deletion.md.
+    add("Missed Battery", "Doubling two pieces on one line (a battery) piled winning pressure on a defended target")
     add("Missed Overloading", "An enemy piece was overloaded and could be exploited")
     add("Allowed Overloading", "Your move left one of your pieces overloaded for the opponent to exploit")
     add("Missed Doubled Rooks", "Doubling rooks on a file was the move")

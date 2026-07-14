@@ -1805,15 +1805,109 @@ def missed_faster_mate(m):
 
 # ---------- tactical patterns ----------
 
-# NOTE: missed_battery / allowed_battery were REMOVED 2026-07-14. Audit (wide SAE-tagger pass) found both
-# were naked-rate catch-alls: "two heavy/sliding pieces aligned on an enemy piece" is a geometric
-# coincidence present in nearly every middlegame line. Allowed Battery fired on 9% of the mistake corpus
-# and TOPPED 118 SAE features spanning 81 distinct Opus concepts (Hanging Piece, Missed Tactic, King
-# attack — never "battery"); Missed Battery 4% / 13 features / 13 concepts. 74-76% co-fired a SHARPER tag
-# (Allowed/Missed Mate, Missed Free X, Hung X) that was the real lesson; only 4-5% had battery as the sole
-# explain tag, and reading those FENs showed diffuse drift, not a battery lesson. Nothing to gate down to
-# (unlike prophylaxis, which kept real positions), so the detectors were deleted rather than gated.
-# See knowledge/2026-07-14_battery_catchall_deletion.md.
+# BATTERY (rebuilt 2026-07-14 after Sam caught a bug). A battery = two of the mover's sliding pieces
+# stacked on ONE line (Q+R/R+R straight, Q+B diagonal) bearing on a common enemy target, where the FRONT
+# piece directly attacks the target and the BACK piece attacks it THROUGH the front (xray). The first
+# deletion used a finder that (wrongly) required the back piece to DIRECTLY attack the target — impossible
+# by definition (the front piece blocks its line), so it skipped every real battery and I concluded "no
+# battery exists." With correct xray geometry: 740 corpus positions build a battery on a best move; 57 are
+# a real mistake (wd>=10%) with battery as the SOLE lesson, and 53/57 target a DEFENDED piece/pawn (the
+# battery adds the decisive 2nd attacker) with 48/57 pure positional pressure (best line never even
+# captures the target). THAT is the concept. See knowledge/2026-07-14_battery_catchall_deletion.md.
+
+# Battery targets INCLUDE pawns: the canonical battery aims at a defended kingside pawn (h7/g7/f7, h2/f2)
+# — doubling on h7 is the textbook case, and in the corpus most real battery targets are pawns. King is
+# NOT a target (a battery "on the king" = check, and the quiet-move gate already excludes checks).
+_BATTERY_TARGETS = (chess.PAWN, chess.KNIGHT, chess.BISHOP, chess.ROOK, chess.QUEEN)
+
+
+def _sign(n):
+    return (n > 0) - (n < 0)
+
+
+def _find_battery(board, target, color):
+    """Return (front_sq, back_sq) if `color` has a stacked battery aimed at `target`: a front slider that
+    directly attacks target, and a back slider of a compatible type on the SAME line, attacking through it
+    (xray). Straight lines need Q/R for both; diagonals need Q/B for both. Else None."""
+    tf, tr = chess.square_file(target), chess.square_rank(target)
+    for f in board.attackers(color, target):
+        fp = board.piece_at(f)
+        if fp.piece_type not in (chess.QUEEN, chess.ROOK, chess.BISHOP):
+            continue
+        ff, fr = chess.square_file(f), chess.square_rank(f)
+        # unit step from target toward (and past) the front piece
+        sdf, sdr = _sign(ff - tf), _sign(fr - tr)
+        straight = (sdf == 0 or sdr == 0)
+        ok_types = (chess.QUEEN, chess.ROOK) if straight else (chess.QUEEN, chess.BISHOP)
+        if fp.piece_type not in ok_types:
+            continue
+        cf, cr = ff + sdf, fr + sdr
+        while 0 <= cf < 8 and 0 <= cr < 8:
+            sq = chess.square(cf, cr)
+            bp = board.piece_at(sq)
+            if bp is not None:
+                if bp.color == color and bp.piece_type in ok_types:
+                    return (f, sq)
+                break                       # first piece behind front is not a compatible slider
+            cf += sdf; cr += sdr
+    return None
+
+
+def _new_battery_from_move(board, mover, mv):
+    """After `mover` plays `mv`, is there a battery (aimed at an enemy piece) that did NOT exist before,
+    and that the moved piece is part of (front or back)? Return (target_sq, front, back, victim_pt) or None.
+    Requires the target to be DEFENDED — an undefended target is a plain hanging-piece win, not the battery
+    lesson (the battery matters precisely when one attacker isn't enough)."""
+    before = board
+    after = board.copy(); after.push(mv)
+    enemy = not mover
+    best = None
+    for t, p in after.piece_map().items():
+        if p.color != enemy or p.piece_type not in _BATTERY_TARGETS:
+            continue
+        r = _find_battery(after, t, mover)
+        if r is None:
+            continue
+        if mv.to_square not in r:                       # move must be part of the battery, not incidental
+            continue
+        if _find_battery(before, t, mover) is not None:  # battery already existed → not "created" by move
+            continue
+        # DEFENDED target only (concept gate): the 2nd attacker is what tips a defended point.
+        if not after.attackers(enemy, t):
+            continue
+        # prefer the most valuable target
+        if best is None or VAL[p.piece_type] > VAL[after.piece_at(best[0]).piece_type]:
+            best = (t, r[0], r[1], p.piece_type)
+    return best
+
+
+def missed_battery(m):
+    """Best move QUIETLY builds a stacked battery (front+back on one line, xray) against a DEFENDED enemy
+    piece, and the played move doesn't. The battery adds the decisive second attacker to a point the
+    opponent can currently hold — the teachable "double your pressure" lesson.
+
+    GATES (all concept-based, from reading the 57 sole-lesson corpus fires, 2026-07-14):
+      • best move is QUIET — not a capture, not a check (battery = pressure buildup, not a tactic that
+        merely coincides with two pieces lining up). This is what killed the old catch-all's noise.
+      • correct XRAY geometry: back piece attacks the target through the front piece (see _find_battery).
+      • target is DEFENDED (else it's a plain hanging piece; _new_battery_from_move enforces this)."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if b.piece_type_at(bm.from_square) not in (chess.QUEEN, chess.ROOK, chess.BISHOP):
+        return []
+    if b.is_capture(bm):
+        return []
+    after = b.copy(); after.push(bm)
+    if after.is_check():
+        return []
+    nb = _new_battery_from_move(b, m.mover, bm)
+    if nb is None:
+        return []
+    tsq = chess.square_name(nb[0])
+    return [("Missed Battery", "missed",
+             f"best {m.best_san} builds a battery on {tsq}, doubling pressure the opponent can't meet")]
 
 
 def missed_overloading(m):
@@ -2488,7 +2582,7 @@ ALL_PREDICATES = [
     missed_faster_mate,
     missed_bishop_activity, missed_knight_activity, missed_minor_activity, missed_queen_activity,
     missed_minor_rook_activity, missed_perpetual,
-    missed_overloading, missed_desperado, missed_doubled_rooks,
+    missed_battery, missed_overloading, missed_desperado, missed_doubled_rooks,
     missed_pin_exploitation, missed_unpinning_resource, missed_interposition,
     missed_remove_the_guard,
     allowed_pawn_capture, allowed_overloading, allowed_doubled_rooks,

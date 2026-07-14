@@ -749,6 +749,11 @@
       "blurb": "You went the wrong direction in a pawn race and lost a critical tempo",
       "drillable": true
     },
+    "Missed Battery": {
+      "category": "Missed Tactic",
+      "blurb": "Doubling two pieces on one line (a battery) piled winning pressure on a defended target",
+      "drillable": true
+    },
     "Missed Overloading": {
       "category": "Missed Tactic",
       "blurb": "An enemy piece was overloaded and could be exploited",

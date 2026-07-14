@@ -1,8 +1,18 @@
-# Battery detectors deleted — naked-rate catch-alls (2026-07-14)
+# Battery: deleted as a catch-all, then REBUILT correctly (2026-07-14)
 
-**What this is:** the audit + decision that removed `missed_battery` and `allowed_battery` from the rule
-tagger. First "delete" outcome of the wide SAE-tagger audit (`sae_feature_audit_playbook.md`). A worked
-example of lesson 3 (catch-all) + lesson 5 (gate on concept, or delete if there's no concept residue).
+> **OUTCOME (read this first):** `allowed_battery` stays **deleted** (it was a real 9%-corpus catch-all).
+> `missed_battery` was deleted too — but that was **partly wrong**, and Sam caught it. My "battery isn't a
+> real concept" proof used a **broken finder** (it required the battery's back piece to *directly* attack
+> the target, which is impossible by definition — the front piece blocks the line). With correct **xray**
+> geometry, battery IS a real, detectable concept: `missed_battery` was **rebuilt** (xray + quiet-move +
+> defended-target gates), fires **1.0%** of the corpus (real-tactic band), 163/163 regression. The
+> narrative below documents both the original (correct) catch-all finding AND the error + rebuild. See
+> the "REBUILD" section at the bottom for the corrected detector; **the lessons from the mistake are the
+> most valuable part of this doc.**
+
+**What this is:** the audit that removed both battery detectors, plus the correction. A worked example of
+lesson 3 (catch-all) + lesson 5 (gate/delete) — AND a cautionary tale about proving a negative with a
+finder you didn't validate.
 
 ## The claim they made
 A "battery" = two heavy/sliding pieces aligned on a file/diagonal (Q+R, Q+B, R+R) attacking a real target.
@@ -134,3 +144,68 @@ logic is correct for genuinely-hung-with-partial-compensation pieces; the fix mu
 
 Three outcomes seen: **delete** (no concept residue), **gate** (real concept + incidental bugs),
 **leave** (loud but correct). Next: continue the playbook over mid-rate tags + the `not_covered` gap list.
+
+---
+
+# REBUILD — `missed_battery` restored with correct geometry (2026-07-14, same day)
+
+Sam gave a concrete counterexample: `rnbqk1nr/pp3ppp/2p5/2bpP3/4P3/3B1P2/PPP3PP/RNBQK1NR b` — "I know this
+allows a battery." After `...Qb6` Black has Bc5 (front) + Qb6 (back) stacked on the b6→f2 diagonal. That is
+a textbook Q+B battery, and my "no real battery exists in the data" conclusion couldn't explain it.
+
+## The error (this is the lesson)
+My "tight battery finder" (the one that returned "20 in 60k, all junk") had this filter: *the back piece
+must ALSO directly attack the target.* **That is impossible for a battery by definition** — the front
+piece sits between the back piece and the target, blocking the back piece's line. A battery's whole point
+is the *latent* second attacker (revealed only when the front piece moves/captures). So my finder silently
+matched only **convergence** (two pieces hitting a square via different lines), never a real **stacked
+battery**, and I used its empty result to "prove" battery isn't a concept. **I proved a negative with an
+instrument that was structurally incapable of finding positives, and didn't validate it against a known-
+positive first.**
+
+## The fix — correct XRAY geometry
+`_find_battery(board, target, color)`: find a front slider that directly attacks the target, then step
+along the SAME line PAST the front piece; the first piece behind it, if a compatible slider (Q/R on
+straight lines, Q/B on diagonals), is the back piece. That's the battery. `_new_battery_from_move` requires
+the battery to be NEW (not pre-existing), the moved piece to be part of it, and the **target to be DEFENDED**
+(an undefended target = plain hanging piece, not the battery lesson).
+
+## Why it's a real detector now (not the old catch-all)
+- **Corpus fire rate 1.0%** (was 9%). Squarely in the real-tactic band (0.3–3%, lesson 4).
+- Characterized the 57 sole-lesson fires BEFORE writing the gate (lesson 1/2): **53/57 target a DEFENDED
+  piece/pawn**, **48/57 are pure positional pressure** (best line never even captures the target). That is
+  the concept: double a slider behind another onto a point the opponent defends only once.
+- Read 12 fresh sole-lesson fires by hand: all genuine (Qb1→h7 Q+B battery, Qf6→f2, Qd5→f7, Bd6→h2). ✓
+- Targets INCLUDE pawns (h7/g7/f7, h2/f2) — the canonical battery aims at a defended kingside pawn. I
+  first over-restricted to pieces-only and it missed the Qd5→f7 case; added pawns back. King is excluded
+  (a battery "on the king" is a check — the quiet-move gate already handles that).
+- Gates (all concept-based): best move QUIET (no capture, no check), correct xray, defended target.
+- `allowed_battery` stayed DELETED — the old refutation-line scan was the genuine 9% catch-all; no
+  characterization pass has shown a real "opponent builds a battery against you" residue. Don't re-add on
+  reflex. `missed_battery` re-added to `ALL_PREDICATES`, `categorize()`, taxonomy (183 tags). Regression
+  163/163 (POS1 Bc5+Qb6, POS2 Bc4+Qd5, NEG capture, NEG lone-rook-no-back-piece).
+
+## LESSONS (the durable takeaways — Sam asked to store these)
+1. **Validate a finder against a known positive before trusting its emptiness.** A negative result only
+   means something if the instrument can produce positives. I never fed my "tight finder" a position I
+   KNEW was a battery — if I had, it would have returned nothing and exposed the bug immediately. **When
+   proving "X doesn't exist in the data," first confirm your detector fires on a hand-picked X.**
+2. **Know the concept's geometry before coding it.** A battery is a latent/xray stack, NOT two pieces both
+   attacking a square. I coded the wrong mental model (convergence) and it looked plausible. Re-derive the
+   definition from a real example, not from intuition.
+3. **The SAE "no battery label" was a true fact used for a false conclusion.** Opus really never labels a
+   battery feature — but that's because a battery is a MULTI-MOVE plan the single-position substrate can't
+   encode (confirmed: the engine wants Nc3–Ne2–f4 buildup in Sam's POS2). "The SAE can't see it" ≠ "the
+   rule tagger can't detect it." The tagger works on explicit geometry and CAN catch what the SAE misses.
+   Don't let a substrate-ceiling result veto a geometry-based detector.
+4. **"Prefer removing over adding" is right, but deletion still needs the same proof burden as a gate.** I
+   was correct to delete the CATCH-ALL, but I over-generalized to "the concept is empty" without the
+   evidence that claim required. Delete the broken detector; don't delete the concept unless you've looked
+   for it correctly.
+5. **Sam's counterexample > my corpus statistic.** One concrete FEN ("I know this is a battery") beat a
+   60k-position scan, because the scan was instrumented wrong. A single hand-verified example is a
+   powerful check on an automated finding — take it seriously, don't defend the aggregate.
+
+## Scorecard correction
+The row `Missed Battery | 4% | catch-all | deleted` above is **superseded**: Missed Battery is REBUILT at
+1.0% (real). Only `Allowed Battery` remains deleted.
