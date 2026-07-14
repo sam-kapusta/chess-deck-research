@@ -1793,66 +1793,15 @@ def missed_faster_mate(m):
 
 # ---------- tactical patterns ----------
 
-# A battery is only a threat if its front piece attacks a real enemy target — a minor piece or better,
-# or the king. A pawn (or empty) aim doesn't count (that's just two aligned pieces). Shared by both the
-# missed and allowed battery detectors so their target definition can't drift.
-_BATTERY_TARGETS = (chess.KNIGHT, chess.BISHOP, chess.ROOK, chess.QUEEN, chess.KING)
-
-def _battery_hits_target(board, front_sq, battery_owner):
-    """True if the piece on front_sq attacks an enemy (not battery_owner) minor+/king."""
-    enemy = not battery_owner
-    for t in board.attacks(front_sq):
-        p = board.piece_at(t)
-        if p and p.color == enemy and p.piece_type in _BATTERY_TARGETS:
-            return True
-    return False
-
-
-def missed_battery(m):
-    """Best move aligns two heavy/sliding pieces (Q+R on file, Q+B on diagonal, R+R on file)
-    creating a battery that ATTACKS an enemy piece or king. Battery pointing at nothing = no fire."""
-    b = m.board_before
-    bm = _best_move(m); pm = _played_move(m)
-    if bm is None or pm is None or bm == pm:
-        return []
-    mover_piece = b.piece_type_at(bm.from_square)
-    if mover_piece not in (chess.QUEEN, chess.ROOK, chess.BISHOP):
-        return []
-    after = b.copy(); after.push(bm)
-    to_sq = bm.to_square
-    to_f = chess.square_file(to_sq)
-    to_r = chess.square_rank(to_sq)
-    opp = not m.mover
-    for sq, p in after.piece_map().items():
-        if p.color != m.mover or sq == to_sq:
-            continue
-        if p.piece_type not in (chess.QUEEN, chess.ROOK, chess.BISHOP):
-            continue
-        sq_f = chess.square_file(sq)
-        sq_r = chess.square_rank(sq)
-        aligned = False
-        # Same file
-        if sq_f == to_f and p.piece_type in (chess.QUEEN, chess.ROOK) and mover_piece in (chess.QUEEN, chess.ROOK):
-            between = chess.SquareSet.between(sq, to_sq)
-            if not any(after.piece_at(s) for s in between):
-                aligned = True
-        # Same rank
-        elif sq_r == to_r and p.piece_type in (chess.QUEEN, chess.ROOK) and mover_piece in (chess.QUEEN, chess.ROOK):
-            between = chess.SquareSet.between(sq, to_sq)
-            if not any(after.piece_at(s) for s in between):
-                aligned = True
-        # Same diagonal
-        elif abs(sq_f - to_f) == abs(sq_r - to_r) and sq != to_sq:
-            if p.piece_type in (chess.QUEEN, chess.BISHOP) and mover_piece in (chess.QUEEN, chess.BISHOP):
-                between = chess.SquareSet.between(sq, to_sq)
-                if not any(after.piece_at(s) for s in between):
-                    aligned = True
-        if not aligned:
-            continue
-        # Battery exists — does it attack a real enemy target (minor+ or king)?
-        if _battery_hits_target(after, to_sq, m.mover):
-            return [("Missed Battery", "missed", f"best {m.best_san} creates a battery attacking a piece/king")]
-    return []
+# NOTE: missed_battery / allowed_battery were REMOVED 2026-07-14. Audit (wide SAE-tagger pass) found both
+# were naked-rate catch-alls: "two heavy/sliding pieces aligned on an enemy piece" is a geometric
+# coincidence present in nearly every middlegame line. Allowed Battery fired on 9% of the mistake corpus
+# and TOPPED 118 SAE features spanning 81 distinct Opus concepts (Hanging Piece, Missed Tactic, King
+# attack — never "battery"); Missed Battery 4% / 13 features / 13 concepts. 74-76% co-fired a SHARPER tag
+# (Allowed/Missed Mate, Missed Free X, Hung X) that was the real lesson; only 4-5% had battery as the sole
+# explain tag, and reading those FENs showed diffuse drift, not a battery lesson. Nothing to gate down to
+# (unlike prophylaxis, which kept real positions), so the detectors were deleted rather than gated.
+# See knowledge/2026-07-14_battery_catchall_deletion.md.
 
 
 def missed_overloading(m):
@@ -2175,68 +2124,8 @@ def missed_remove_the_guard(m):
              f"best {m.best_san} removes a defender of the castled king")]
 
 
-def allowed_battery(m):
-    """Played move allows the opponent to create a battery (Q+R on file, Q+B on diagonal) that
-    ATTACKS a real target, IN THE ACTUAL REFUTATION LINE, which the best move would have prevented.
-
-    2026-07-11 (round 2): previously scanned ALL opponent legal moves, so in almost any middlegame
-    *some* Q/R/B move aligns on *something* and it fired spuriously (e.g. Rb8 → "Allowed Battery" with
-    no real battery in the refutation). Now it only considers the opponent's OWN moves along the stored
-    refutation line — the README's "Allowed X = [played]+refutation" definition — so the battery has to
-    actually be what punishes the move. Falls back to [] when there's no refutation line."""
-    b = m.board_before
-    pm = _played_move(m); bm = _best_move(m)
-    if pm is None or bm is None or pm == bm:
-        return []
-    if not m.refutation_san:
-        return []
-    opp = not m.mover
-    after_played = b.copy(); after_played.push(pm)
-    after_best = b.copy(); after_best.push(bm)
-    # Walk the refutation line; only test the OPPONENT's moves in it (a battery is the opponent's threat).
-    walk = after_played.copy()
-    for san in m.refutation_san:
-        try:
-            mv = walk.parse_san(san)
-        except Exception:
-            break
-        is_opp_move = (walk.turn == opp)
-        piece_type = walk.piece_type_at(mv.from_square)
-        if not (is_opp_move and piece_type in (chess.QUEEN, chess.ROOK, chess.BISHOP)):
-            walk.push(mv)
-            continue
-        # After the opponent plays this refutation move, do they have aligned pieces on a real target?
-        test = walk.copy(); test.push(mv)
-        walk.push(mv)  # advance the walk regardless, so later plies are reachable
-        to_sq = mv.to_square
-        to_f = chess.square_file(to_sq)
-        to_r = chess.square_rank(to_sq)
-        for sq, p in test.piece_map().items():
-            if p.color != opp or sq == to_sq:
-                continue
-            if p.piece_type not in (chess.QUEEN, chess.ROOK, chess.BISHOP):
-                continue
-            sq_f = chess.square_file(sq)
-            sq_r = chess.square_rank(sq)
-            aligned = False
-            # Same file / same rank (Q/R only)
-            if (sq_f == to_f or sq_r == to_r) and p.piece_type in (chess.QUEEN, chess.ROOK) and piece_type in (chess.QUEEN, chess.ROOK):
-                if not any(test.piece_at(s) for s in chess.SquareSet.between(sq, to_sq)):
-                    aligned = True
-            # Same diagonal (Q/B only)
-            elif abs(sq_f - to_f) == abs(sq_r - to_r) and sq != to_sq and p.piece_type in (chess.QUEEN, chess.BISHOP) and piece_type in (chess.QUEEN, chess.BISHOP):
-                if not any(test.piece_at(s) for s in chess.SquareSet.between(sq, to_sq)):
-                    aligned = True
-            if not aligned:
-                continue
-            # Was this battery possible before our move? If yes, not our fault.
-            if mv in after_best.legal_moves:
-                continue
-            # Battery must attack a real target (minor+ or king) — a pawn/empty aim is not a threat.
-            if not _battery_hits_target(test, to_sq, m.mover):
-                continue
-            return [("Allowed Battery", "allowed", f"{m.played_san} allows opponent to build a battery")]
-    return []
+# allowed_battery removed 2026-07-14 — see the note above missed_overloading and
+# knowledge/2026-07-14_battery_catchall_deletion.md.
 
 
 def allowed_pawn_capture(m):
@@ -2587,10 +2476,10 @@ ALL_PREDICATES = [
     missed_faster_mate,
     missed_bishop_activity, missed_knight_activity, missed_minor_activity, missed_queen_activity,
     missed_minor_rook_activity, missed_perpetual,
-    missed_battery, missed_overloading, missed_desperado, missed_doubled_rooks,
+    missed_overloading, missed_desperado, missed_doubled_rooks,
     missed_pin_exploitation, missed_unpinning_resource, missed_interposition,
     missed_remove_the_guard,
-    allowed_battery, allowed_pawn_capture, allowed_overloading, allowed_doubled_rooks,
+    allowed_pawn_capture, allowed_overloading, allowed_doubled_rooks,
     missed_pawn_break, missed_tempo_push, missed_open_file, premature_trade, missed_prophylaxis,
     missed_piece_activation, wrong_pawn_race,
 ]

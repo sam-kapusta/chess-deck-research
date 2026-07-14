@@ -265,7 +265,7 @@ def _suppress_lesser_under_mate(tags):
 
 def _bare_motif(label):
     """Strip a leading Missed/Allowed/Failed/Hung prefix + a trailing '(...)' qualifier → base motif.
-    'Missed Pin (to Queen)' → 'Pin', 'Allowed Battery' → 'Battery'."""
+    'Missed Pin (to Queen)' → 'Pin', 'Allowed Doubled Rooks' → 'Doubled Rooks'."""
     for pfx in ("Missed ", "Allowed ", "Failed ", "Hung "):
         if label.startswith(pfx):
             label = label[len(pfx):]
@@ -433,8 +433,8 @@ def categorize(label, direction=None):
     if l == "premature attack":
         return "Position"
 
-    # Tactical motifs — split by direction. Battery, Overloading, Doubled Rooks are tactical patterns.
-    if any(w in l for w in _TACTIC_WORDS) or any(w in l for w in ("battery", "overloading", "doubled rooks")):
+    # Tactical motifs — split by direction. Overloading, Doubled Rooks are tactical patterns.
+    if any(w in l for w in _TACTIC_WORDS) or any(w in l for w in ("overloading", "doubled rooks")):
         return "Missed Tactic" if direction == "missed" else "Allowed Tactic"
     if "capture of defender" in l:   # Allowed Capture of Defender = a tactic you allowed
         return "Allowed Tactic"

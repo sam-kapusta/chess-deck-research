@@ -722,12 +722,13 @@ def run():
         ("BLUNDER that misses mate: Missed Mate still fires", "Missed Mate" in missmate_labels, True),
     ]
     # missed+allowed twin collapse: a single move must not carry both "Missed X" and "Allowed X".
-    twin_in = [("Missed Battery","missed","e","tactic"), ("Allowed Battery","allowed","e","tactic"),
+    # (Fixture uses Doubled Rooks — any Missed/Allowed twin works; Battery was removed 2026-07-14.)
+    twin_in = [("Missed Doubled Rooks","missed","e","tactic"), ("Allowed Doubled Rooks","allowed","e","tactic"),
                ("Missed Fork","missed","e","tactic")]
     twin_out = [t[0] for t in TG_GM._collapse_missed_allowed_twins(twin_in)]
     gm_cases += [
-        ("twin collapse: Allowed Battery dropped when Missed Battery present", "Allowed Battery" in twin_out, False),
-        ("twin collapse: Missed Battery kept", "Missed Battery" in twin_out, True),
+        ("twin collapse: Allowed Doubled Rooks dropped when Missed twin present", "Allowed Doubled Rooks" in twin_out, False),
+        ("twin collapse: Missed Doubled Rooks kept", "Missed Doubled Rooks" in twin_out, True),
         ("twin collapse: unrelated Missed Fork untouched", "Missed Fork" in twin_out, True),
     ]
     # parent->child suppression (_PARENT_CHILD table): a generic parent tag is dropped when its more
@@ -1081,13 +1082,12 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {name}: {label} kept={got} exp={should_keep}")
 
-    print("--- predicates: allowed_pawn_capture + allowed_battery refutation-line fix (2026-07-11) ---")
+    print("--- predicates: allowed_pawn_capture refutation-line fix (2026-07-11) ---")
     # Real game (cabbage): 17...Rb8 is a quiet mistake whose punishment is 18.Bxd5 grabbing the d5 pawn;
     # best 17...Nxc6 trades off the bishop that takes d5, so Bxd5 is unavailable after best. Material
     # nets back to 0 over the line (so hung_material correctly stays silent) — this is the gap: "you
-    # let the opponent grab a pawn" even when it recaptures later. And allowed_battery must NOT fire
-    # here (it used to, scanning all legal moves; now it walks only the refutation line, which builds
-    # no real battery). Lines reconstructed from the shipped dump's UCI PVs.
+    # let the opponent grab a pawn" even when it recaptures later. Lines reconstructed from the shipped
+    # dump's UCI PVs.
     def _san_line(fen, ucis):
         bb = chess.Board(fen); out = []
         for u in ucis:
@@ -1127,7 +1127,6 @@ def run():
         ("allowed_pawn_capture fires on Rb8 path A (first-reply pawn grab)", PR.allowed_pawn_capture(m_rb8) and PR.allowed_pawn_capture(m_rb8)[0][0], "Allowed Pawn Capture"),
         ("allowed_pawn_capture fires on Nd2 path B (delayed net-1 loss)", PR.allowed_pawn_capture(m_nd2) and PR.allowed_pawn_capture(m_nd2)[0][0], "Allowed Pawn Capture"),
         ("allowed_pawn_capture NEG: played is itself a capture", PR.allowed_pawn_capture(m_neg)[0][0] if PR.allowed_pawn_capture(m_neg) else None, None),
-        ("allowed_battery does NOT overfire on Rb8 (refutation-line only)", PR.allowed_battery(m_rb8)[0][0] if PR.allowed_battery(m_rb8) else None, None),
     ]
     for name, got, want in apc_cases:
         passed = (got == want)
