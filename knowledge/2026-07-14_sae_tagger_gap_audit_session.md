@@ -108,3 +108,26 @@ deliberately EXCLUDED — too trigger-happy, dropped family precision 83%→62%)
 - Regression: `scripts/04_tagger/regression.py` (142 cases). Taxonomy build: `build_mistake_taxonomy.py` (174 tags).
 - Labeling: `scripts/03_feature_labeling/label_features_decile_opus.py`, `retag_and_gaps.py`, `judge_multi_family.py`.
 - Ship to product: `../chess-deck-code/backend/scripts/ship_tagger.py` (vendors to worker + tag_moments Lambda + frontend taxonomy).
+
+## Diffuse features = outcome-clusters, not hidden concepts (grill, 2026-07-14)
+
+Grilled "are real lessons hiding in the diffuse features, or diffuse-because-diffuse?" Answer from the
+raw tip boards (read directly, not via the aggregate-motif labeler):
+- **575/796 diffuse features are diffuse even at the TIP** (`good_until_decile=None`) — no concept.
+- The 221 with tip structure, on reading, cluster by **OUTCOME/severity, not mistake type**: e.g. f120's
+  top-6 = Nxb7/Rxh7/Nxf4/Kg6/Rxh4/Kf1, six unrelated moves whose only tie is "squandered a won position."
+- The SAE (on L7 best−blunder-diff) groups by **how bad the move was / won→lost**, because the substrate
+  encodes "material/eval changed hands." That's real but NOT a teachable move-tag.
+- **Nothing new hides here.** The non-good features (1,100) are the same ~6 concepts we tag, smeared, +
+  a big tempo/drift blob + this outcome-clustering. The ONE conspicuously-absent class is
+  **strategic/positional** (~7 features total) — and that's inherently MULTI-MOVE (wrong plan across a
+  game), not encodable from a single blunder position by ANY SAE substrate variant.
+
+**Decisions:**
+- **#2 (SAE dedup) = discriminativeness only, cannot discover** (merges duplicates on the same substrate).
+- **#3 (richer substrate) discovers little new** — the wasted capacity is smeared-known + diffuse-drift +
+  outcome-clusters. Real strategy gap needs a game-trajectory signal, not a position SAE.
+- **Built `conversion_outcome`** (descriptive info tag, result-band transitions) to NAME the outcome
+  features. Names SHARP single-move conversions (34.7k corpus). Does NOT fully name the diffuse
+  squander-features (multi-move slow-bleed → 'None' plurality). Fully naming them = a game-level
+  conversion metric off the win% trajectory (already computed in classifyMoves), NOT a per-move tag.
