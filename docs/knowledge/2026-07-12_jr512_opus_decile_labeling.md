@@ -460,3 +460,23 @@ Did the full pass properly this time:
 not_covered/shallow; build ONLY the clusters that are (a) coherent, (b) teachable, (c) big enough. Every
 detector: real-board TDD + corpus-overfire check before shipping. The judge is the deliverable — it says
 exactly which SAE features we can't quantify and which we mislabel.
+
+## Final coverage after the 5 detectors (2026-07-14)
+
+Re-judged all 909 good jr2048 features with every new detector in place:
+- **covered 91.3% → 91.7%, not_covered 3.3% → 2.8%** (n≈876, judge `_err` run-to-run noise ±8 features).
+- **15 features improved to covered** individually.
+
+The aggregate barely moves because the new concepts are RARE and SPECIFIC (zwischenzug 0.8% corpus,
+greek gift 0.3%, recapture-exposed-king 0.63%) — each covers a handful of features, and the judge's
+per-run `_err` variance (~4%) is larger than the delta. The value isn't the aggregate %; it's that
+specific, teachable, previously-unnameable concepts (Greek Gift, zwischenzug, recapture-into-own-king)
+now get their correct chip instead of being mislabeled Hung Material / Missed Overloading.
+
+**Detectors added this session (all TDD'd + corpus-overfire-checked + shipped):**
+Missed Attacking Check, Missed Zwischenzug, Missed Greek Gift, Missed/Allowed Mate PV-depth fallback,
+Recapture Exposed King. Plus earlier: Pointless Check, generalized opposition, Pawn Endgame Technique +
+King Safety families, promotion/sacrifice guards on Hung Material.
+
+**The ~2.8% still not_covered is substrate-bound** (diffuse tempo/slow-move #55, unnameable perpetual
+clusters) — not addressable by more rules. Ceiling reached for this SAE substrate (L7 blunder-diff).
