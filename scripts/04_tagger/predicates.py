@@ -963,13 +963,25 @@ def missed_tempo_push(m):
 
 
 def missed_open_file(m):
-    """Best move places a rook on an open or half-open file, and the played move doesn't."""
+    """Best move QUIETLY places a rook on an open or half-open file, and the played move doesn't.
+
+    CONCEPT GATE (2026-07-14 audit): "Missed Open File" is a POSITIONAL file-occupation lesson. The best
+    move must be quiet — NOT a capture and NOT a check. Without this, 23% of fires were tactics that merely
+    happened to land a rook on an open file: captures (Rxc1 wins material — that's a material tag) and
+    endgame checks (Rd5+, Rg8+ — the board is full of open files, so nearly any rook check qualified). In
+    both cases "open file" is incidental and a sharper tag already names the real move. See
+    knowledge/2026-07-14_battery_catchall_deletion.md (same audit, gate-not-delete outcome)."""
     b = m.board_before
     bm = _best_move(m); pm = _played_move(m)
     if bm is None or bm == pm:
         return []
     if b.piece_type_at(bm.from_square) != chess.ROOK:
         return []
+    if b.is_capture(bm):
+        return []  # capturing rook = a material tactic, not file occupation
+    after_best = b.copy(); after_best.push(bm)
+    if after_best.is_check():
+        return []  # rook check = a forcing tactic; the lesson is the check, not the file
     to_file = chess.square_file(bm.to_square)
     # check if the file is open (no pawns) or half-open (no friendly pawns)
     friendly_pawn_on_file = any(

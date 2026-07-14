@@ -766,6 +766,16 @@ def run():
         # Prophylaxis NEG: best move is a capture (Bxd5) — winning material, not quiet prevention. Must NOT fire.
         ("prophylaxis NEG: best is a capture", PR.missed_prophylaxis,
          "r3k3/8/8/3n4/8/3B4/8/4K3 w - - 0 1", "e1e2", "d3d5", "Bxd5", ["d5e3"], 200, None),
+        # Open File is a QUIET positional lesson (2026-07-14 audit gate). POS: best Rd1 quietly occupies the
+        # half-open d-file (played Re1). NEG-capture: best Rxe4 wins material — a tactic, file incidental.
+        # NEG-check: best Rd5+ is a forcing check — the lesson is the check, not the file (endgames are
+        # full of open files). Corpus FENs.
+        ("open file POS: quiet rook to half-open file", PR.missed_open_file,
+         "1k6/1p3ppp/p3p3/3pP3/5P1P/8/2r4r/K6R w - - 3 33", "h1e1", "h1d1", "Rd1", [], 150, "Missed Open File"),
+        ("open file NEG: best is a rook capture", PR.missed_open_file,
+         "5r1k/p3q2p/3p4/3Q2PR/1R2p3/N2P4/2P2P2/4K3 w - - 1 27", "d3e4", "b4e4", "Rxe4", [], 150, None),
+        ("open file NEG: best is a rook check", PR.missed_open_file,
+         "2r5/p2k2pp/5p2/1PR5/4PK2/7P/8/8 w - - 1 32", "c5c8", "c5d5", "Rd5+", [], 150, None),
     ]
     for name, fn, fen, uci, best, bsan, ref, cpl, want in grab_cases:
         b = chess.Board(fen)

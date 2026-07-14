@@ -54,7 +54,31 @@ decisive battery it's already winning material / mating, and the sharper tag cat
 - Verified on chess-poc: functions absent, **0 Battery fires** in the corpus, loud board now tops out at
   Allowed Pawn Capture 11% (SOLID, separately audited).
 
+---
+
+# Missed Open File — GATED, not deleted (2026-07-14, same audit)
+
+The contrast case that shows why battery was a delete and this is a gate.
+
+**SAE picture (NOT a catch-all):** tops only **19 features** (vs battery's 118) and appears in the vote
+tally on **7% of features** (vs battery's 44%). It's a real positional concept with two incidental-fire
+bugs bolted on — not a formless catch-all.
+
+**FEN read (lesson 1), bucketed by what the best move actually IS:**
+- **CAPTURE (~11%)**: best move is `Rxc1` / `Rxe4` — a material tactic that happens to land the rook on an
+  open file. "Open file" incidental; a material tag is the real lesson.
+- **CHECK (~11%)**: best move is `Rd5+` / `Rg8+` — a forcing check. Endgames are full of open files, so
+  nearly any rook check qualified. The lesson is the check, not the file.
+- **QUIET (~77%)**: the genuine file-occupation concept (Rd1, Rfe8 to activate/pressure).
+
+**The gate (lesson 5 — name the chess reason):** Missed Open File is a QUIET file-occupation lesson → the
+best move must be neither a capture nor a check. Two lines in `missed_open_file`:
+`if b.is_capture(bm): return []` and `if after_best.is_check(): return []`.
+
+**Result:** raw **6.4% → 4.9%** (dropped ~867 incidental capture/check fires); the 4.9% residue is all
+genuine quiet rook-to-open-file. Regression `159/159` (added POS quiet + NEG-capture + NEG-check, corpus
+FENs). This is a GATE because there IS a real residue to keep — the exact judgment battery failed.
+
 ## Follow-on
-Next unaudited loud tag: **Missed Open File (4%)** — same suspicion (does the rook move actually seize a
-useful open file, or is "open file" incidental?). Then spot-check Allowed Mate (7%) + Hung* (4-6%) are
-legit-loud not buggy.
+Next: spot-check **Allowed Mate (7%)** + **Hung Rook/Queen/Knight/Bishop/Material (4-6%)** — are they
+legit-loud (real, just common) or buggy? Then continue the playbook wide over the rest.
