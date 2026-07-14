@@ -24,6 +24,7 @@ class Mistake:
     oppo_elo: int = 1500
     played_san: str = ""
     best_san: str = ""
+    n_good_moves: Optional[int] = None   # # moves within ~100cp of best at fen_before (MultiPV). None = unknown.
 
     @property
     def board_before(self) -> chess.Board:

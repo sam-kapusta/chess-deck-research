@@ -189,6 +189,9 @@ def build_taxonomy():
     # Blunder severity (descriptive: how the eval was lost, not what the mistake was).
     add("Sharp Blunder", "One move decisively swung the result")
     add("Slow Bleed", "You gave up a small edge from a balanced position")
+    # Move difficulty (how hard the mistake was to avoid, from n_good_moves).
+    add("Only Good Move Missed", "There was exactly one good move and you missed it")
+    add("Careless Blunder", "Several good moves were available but you chose a losing one")
     add("Only Move", "There was only one good move here")
     add("Best Move (deep analysis)", "Deep analysis confirms your move was best")
     for ph in ["Opening", "Middlegame", "Endgame"]:

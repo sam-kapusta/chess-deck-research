@@ -899,6 +899,16 @@
       "blurb": "You gave up a small edge from a balanced position",
       "drillable": false
     },
+    "Only Good Move Missed": {
+      "category": "Meta",
+      "blurb": "There was exactly one good move and you missed it",
+      "drillable": false
+    },
+    "Careless Blunder": {
+      "category": "Meta",
+      "blurb": "Several good moves were available but you chose a losing one",
+      "drillable": false
+    },
     "Only Move": {
       "category": "Meta",
       "blurb": "There was only one good move here",

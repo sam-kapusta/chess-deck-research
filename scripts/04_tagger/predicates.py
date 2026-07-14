@@ -143,6 +143,24 @@ def blunder_severity(m):
     return []
 
 
+def move_difficulty(m):
+    """DESCRIPTIVE info tag: how HARD was the mistake to avoid? From n_good_moves (moves within ~100cp
+    of best at the position, via MultiPV):
+      - ONLY move (exactly 1 good move existed, player missed it) -> "Only Good Move Missed": the
+        position DEMANDED precision; a forgivable miss.
+      - MANY options (>=4 good moves, player still blundered) -> "Careless Blunder": easy alternatives
+        were available; a careless error, not a hard one.
+    2-3 good moves = neither extreme, no tag. Requires n_good_moves (MultiPV cache / prod analysis);
+    absent -> no tag. Pairs with blunder_severity ('how bad') to give 'how bad × how hard'."""
+    if m.n_good_moves is None:
+        return []
+    if m.n_good_moves <= 1:
+        return [("Only Good Move Missed", "info", "exactly one move held; the position demanded precision")]
+    if m.n_good_moves >= 4:
+        return [("Careless Blunder", "info", f"{m.n_good_moves}+ good moves were available; you picked a losing one")]
+    return []
+
+
 # ---------- material: capture vs exchange, by piece ----------
 def capture_or_exchange(m):
     """Best move is a capture: free (undefended) -> Missed Free <Piece> (e.g. "Missed Free Pawn");
@@ -2537,7 +2555,7 @@ def missed_perpetual(m):
 
 # ---------- registry ----------
 ALL_PREDICATES = [
-    phase, game_state, conversion_outcome, blunder_severity, capture_or_exchange, greedy_capture, unsound_sacrifice, pointless_check,
+    phase, game_state, conversion_outcome, blunder_severity, move_difficulty, capture_or_exchange, greedy_capture, unsound_sacrifice, pointless_check,
     missed_attacking_check, missed_greek_gift, missed_zwischenzug, recapture_exposes_king, hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
     endgame_type, backward_pawn,

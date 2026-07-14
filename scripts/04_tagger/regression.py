@@ -180,6 +180,26 @@ def run():
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_sev = len(sev_cases)
 
+    print("--- predicates: move_difficulty (only-move vs careless, from n_good_moves) ---")
+    md_cases = [
+        ("1 good move = Only Good Move Missed", 1, "Only Good Move Missed"),
+        ("2 good = neither", 2, None),
+        ("3 good = neither", 3, None),
+        ("4 good = Careless Blunder", 4, "Careless Blunder"),
+        ("None (no MultiPV) = no fire", None, None),
+    ]
+    for name, ngm, want in md_cases:
+        m = Mistake("8/8/8/8/8/8/8/K6k w - - 0 1", "a1a2", "", [], [], 0, 0, 0, chess.WHITE, n_good_moves=ngm)
+        res = PR.move_difficulty(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_md = len(md_cases)
+
     print("--- predicates: hung material (equal trades excluded, immediate vs delayed) ---")
     # (name, fen, played_uci, refutation_san, expected_label_or_None)
     hung_cases = [
@@ -1122,7 +1142,7 @@ def run():
              + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk
-             + extra_ekp + extra_mac + extra_zz + extra_gg + extra_rek + extra_ovl + extra_conv + extra_sev)
+             + extra_ekp + extra_mac + extra_zz + extra_gg + extra_rek + extra_ovl + extra_conv + extra_sev + extra_md)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 
