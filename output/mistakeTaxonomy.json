@@ -889,6 +889,16 @@
       "blurb": "You turned a losing position into a win",
       "drillable": false
     },
+    "Sharp Blunder": {
+      "category": "Meta",
+      "blurb": "One move decisively swung the result",
+      "drillable": false
+    },
+    "Slow Bleed": {
+      "category": "Meta",
+      "blurb": "You gave up a small edge from a balanced position",
+      "drillable": false
+    },
     "Only Move": {
       "category": "Meta",
       "blurb": "There was only one good move here",

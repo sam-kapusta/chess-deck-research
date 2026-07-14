@@ -186,6 +186,9 @@ def build_taxonomy():
         ("Losing", "Winning", "You turned a losing position into a win"),
     ]:
         add(f"{_b} → {_a}", _blurb)
+    # Blunder severity (descriptive: how the eval was lost, not what the mistake was).
+    add("Sharp Blunder", "One move decisively swung the result")
+    add("Slow Bleed", "You gave up a small edge from a balanced position")
     add("Only Move", "There was only one good move here")
     add("Best Move (deep analysis)", "Deep analysis confirms your move was best")
     for ph in ["Opening", "Middlegame", "Endgame"]:

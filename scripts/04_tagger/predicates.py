@@ -121,6 +121,28 @@ def conversion_outcome(m):
     return [(f"{b} → {a_word}", "info", f"result swing {before_cp:+d}→{after_cp:+d}cp (mover POV)")]
 
 
+def blunder_severity(m):
+    """DESCRIPTIVE info tag: was this a SHARP blunder (one move decisively swings the result) or a
+    SLOW BLEED (a small edge given up in a live, balanced position)? The axis the SAE's features
+    actually split on (measured: 168 features are mostly big single-move drops, 217 mostly small).
+
+    win%-drop currency (mover POV, same as win_drop). CRITICAL guard (Sam, 2026-07-14): a small
+    win%-drop does NOT mean slow bleed — it also happens when the eval is SATURATED (you're +M5 and
+    miss the mate: 99%→95% is a tiny drop but a big error). So 'Slow Bleed' requires the position to be
+    roughly BALANCED before the move (|win% − 50| < 25); a small drop from a saturated eval is neither
+    sharp nor bleed (it's 'inaccuracy while winning/losing' — no severity label)."""
+    if m.eval_before is None or m.eval_after is None:
+        return []
+    drop = U.win_drop(m.eval_before, m.eval_after, m.mover)     # mover-POV win% given up, >=0
+    before_cp = m.eval_before if m.mover == chess.WHITE else -m.eval_before
+    wp_before = U.winpct(max(-1200, min(1200, before_cp)))
+    if drop >= 30:
+        return [("Sharp Blunder", "info", f"one move gave up {drop:.0f}% win chance")]
+    if drop < 15 and abs(wp_before - 50) < 25:                  # small drop AND not saturated
+        return [("Slow Bleed", "info", f"gave up {drop:.0f}% from a balanced position")]
+    return []
+
+
 # ---------- material: capture vs exchange, by piece ----------
 def capture_or_exchange(m):
     """Best move is a capture: free (undefended) -> Missed Free <Piece> (e.g. "Missed Free Pawn");
@@ -2500,7 +2522,7 @@ def missed_perpetual(m):
 
 # ---------- registry ----------
 ALL_PREDICATES = [
-    phase, game_state, conversion_outcome, capture_or_exchange, greedy_capture, unsound_sacrifice, pointless_check,
+    phase, game_state, conversion_outcome, blunder_severity, capture_or_exchange, greedy_capture, unsound_sacrifice, pointless_check,
     missed_attacking_check, missed_greek_gift, missed_zwischenzug, recapture_exposes_king, hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
     endgame_type, backward_pawn,

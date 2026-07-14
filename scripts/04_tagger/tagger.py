@@ -352,6 +352,8 @@ def categorize(label, direction=None):
         return "Meta"
     if "→" in l and any(w in l for w in ("winning", "losing", "drawn", "even")):
         return "Meta"                     # conversion_outcome result-band tags (e.g. "Winning → Losing")
+    if l in ("sharp blunder", "slow bleed"):
+        return "Meta"                     # blunder_severity descriptors
     if any(w in l for w in ("only move", "multiple good")):
         return "Meta"
 
