@@ -741,6 +741,23 @@ def _is_endgame(m):
     return phase(m)[0][0] == "Endgame"
 
 
+def _live_positional(m):
+    """True when the position is a genuine POSITIONAL-decision context: roughly balanced (not already
+    won/lost) AND the mistake is not a big tactical swing. Positional plan-tags (prophylaxis, pawn
+    break) are lessons for LIVE, playable positions — they were firing at 7-8% of the corpus, ~45%
+    in saturated positions and ~23% on >=30% win-drops, where 'the engine wanted a different quiet
+    move' is noise or where a sharper tactical concept owns the position. (#57 precision pass, Sam.)
+    Requires evals; if absent, be permissive (return True) so cp-only callers aren't silently gated."""
+    if m.eval_before is None or m.eval_after is None:
+        return True
+    bcp = m.eval_before if m.mover == chess.WHITE else -m.eval_before
+    if abs(U.winpct(max(-1200, min(1200, bcp))) - 50) >= 25:      # saturated (already won/lost)
+        return False
+    if U.win_drop(m.eval_before, m.eval_after, m.mover) >= 30:    # big tactical swing -> sharper tag owns it
+        return False
+    return True
+
+
 def missed_king_activity(m):
     """Endgame: best move is a non-check king move toward the center OR the enemy pawns, and the played
     move wasn't that. Escaping a check is defense, not activity — excluded."""
@@ -854,6 +871,8 @@ def missed_pawn_break(m):
     """Best move is a pawn advance that creates tension (adjacent to an enemy pawn or opens a file),
     and the played move isn't a pawn advance toward the same goal. Covers central breaks, kingside
     storms, and minority attacks."""
+    if not _live_positional(m):        # positional break is a live-position lesson, not a saturated/tactical one
+        return []
     b = m.board_before
     bm = _best_move(m); pm = _played_move(m)
     if bm is None or bm == pm:
@@ -999,6 +1018,8 @@ def missed_prophylaxis(m):
     """The opponent's first move in the refutation line is a strong positional threat (pawn break,
     piece to outpost, or attack) that the best move would have prevented. Fires when best move
     directly contests or blocks the threat square."""
+    if not _live_positional(m):        # prophylaxis is a live-position lesson, not saturated/tactical
+        return []
     b = m.board_before
     bm = _best_move(m); pm = _played_move(m)
     if bm is None or pm is None or pm == bm:
