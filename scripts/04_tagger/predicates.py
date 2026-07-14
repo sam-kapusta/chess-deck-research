@@ -1751,38 +1751,53 @@ def missed_battery(m):
 
 
 def missed_overloading(m):
-    """Best move attacks a piece that is the sole defender of another piece (overloading the
-    defender), and the played move doesn't exploit this. The defender can't protect both."""
+    """Best move attacks a piece that is the SOLE defender of another valuable piece (overloading the
+    defender), and the played move doesn't exploit it. The defender can't protect both, so the mover
+    wins material.
+
+    TIGHTENED (#57 masker audit): the old geometry-only version fired on ANY best move that happened to
+    attack a piece defending something — 9.96% of the corpus, an impossible rate for a real tactic, and
+    it MASKED 11 sharper concepts (Hung Material / Missed Attacking Check / fork). A real overload must
+    (a) actually WIN material — capturing the overloaded defender must be net-favorable (SEE>=0 on that
+    capture), so taking it wins the defended piece; and (b) the defended piece must be worth >= a minor
+    (else there's nothing to win). Geometry alone is not an overload."""
     b = m.board_before
     bm = _best_move(m); pm = _played_move(m)
     if bm is None or pm is None or bm == pm:
         return []
+    # (a) the overload must actually WIN material — verify the best LINE nets >= 2 pawns for the mover.
+    # Geometry ("best move attacks a piece that defends something") alone fired on 9.96% of the corpus
+    # and masked hung-piece/check features. A real overload converts to material; if the engine's line
+    # doesn't win >=2, it's not the overload being exploited. (#57 masker audit.)
+    if not m.best_line_san:
+        return []
+    bb = chess.Board(b.fen()); start = _material_diff(bb, m.mover)
+    try:
+        for san in m.best_line_san[:6]:
+            bb.push(bb.parse_san(san))
+    except Exception:
+        return []
+    if _material_diff(bb, m.mover) - start < 2:
+        return []
     opp = not m.mover
-    # After best move: does it attack an opponent piece that is defending another piece?
     after = b.copy(); after.push(bm)
     target_sq = bm.to_square
-    # What opponent pieces does the moved piece now attack?
-    moved_attacks = after.attacks(target_sq)
-    for victim_sq in moved_attacks:
+    for victim_sq in after.attacks(target_sq):
         victim = after.piece_at(victim_sq)
-        if not victim or victim.color != opp:
+        if not victim or victim.color != opp or victim.piece_type == chess.PAWN:
             continue
-        if victim.piece_type == chess.PAWN:
-            continue
-        # Is this victim ALSO defending something else valuable?
-        victim_defends = after.attacks(victim_sq)  # squares the victim attacks (i.e. defends)
-        for defended_sq in victim_defends:
+        for defended_sq in after.attacks(victim_sq):
             defended = after.piece_at(defended_sq)
             if not defended or defended.color != opp or defended_sq == victim_sq:
                 continue
             if defended.piece_type in (chess.PAWN, chess.KING):
                 continue
-            # Is the victim the SOLE defender of this piece?
+            if VAL.get(defended.piece_type, 0) < 3:          # (b) defended piece must be >= a minor
+                continue
             defenders = after.attackers(opp, defended_sq)
-            if len(defenders) == 1 and victim_sq in defenders:
-                # The victim is overloaded: attacked by our piece AND sole defender of another
+            if len(defenders) == 1 and victim_sq in defenders:   # victim is the SOLE defender
                 return [("Missed Overloading", "missed",
-                         f"best {m.best_san} overloads the defender")]
+                         f"best {m.best_san} overloads the defender of a {PIECE_NAME[defended.piece_type].lower()}")]
     return []
 
 

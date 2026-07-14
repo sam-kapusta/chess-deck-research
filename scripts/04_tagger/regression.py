@@ -350,6 +350,41 @@ def run():
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_mac = len(mac_cases)
 
+    print("--- predicates: missed_overloading (must WIN material, not just geometry) — #57 masker ---")
+    # Tightened from geometry-only (9.96% corpus, masked 11 features) to require the best LINE nets >=2.
+    def _ln(fen, ucis):
+        b = chess.Board(fen); out = []
+        for u in ucis:
+            mv = chess.Move.from_uci(u)
+            if mv not in b.legal_moves: break
+            out.append(b.san(mv)); b.push(mv)
+        return out
+    ovl_cases = [
+        # POS: real corpus overload — Bg4 attacks the sole defender; the 6-ply line wins a piece (net>=2).
+        ("Bg4 overload wins material = Missed Overloading",
+         "r4rk1/ppqb1ppp/5n2/2Np4/3P4/2PB4/PP4Pb/R2Q1R1K b - - 1 18",
+         "h2d6", ["d7g4","d3h7","g8h8","d1g4","f6g4","h7f5"], "Missed Overloading"),
+        # NEG: same overload geometry but the line wins NOTHING (truncated, net 0) -> must NOT fire
+        # (geometry alone was the 9.96% over-fire class).
+        ("overload geometry but no material win -> no fire",
+         "r4rk1/ppqb1ppp/5n2/2Np4/3P4/2PB4/PP4Pb/R2Q1R1K b - - 1 18",
+         "h2d6", ["d7g4"], None),
+    ]
+    for name, fen, uci, pv, want in ovl_cases:
+        b = chess.Board(fen)
+        bl = _ln(fen, pv)
+        m = Mistake(fen, uci, pv[0], bl, [], 300, -100, 0, b.turn,
+                    played_san=b.san(chess.Move.from_uci(uci)), best_san=(bl[0] if bl else ""))
+        res = PR.missed_overloading(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_ovl = len(ovl_cases)
+
     print("--- predicates: missed_zwischenzug (right capture, wrong order) — SAE jr2048 ---")
     # (name, fen, played_uci, pv_uci_line, expected). Detector reads best_line_san, so we build it.
     def _line(fen, ucis):
@@ -1045,7 +1080,7 @@ def run():
              + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk
-             + extra_ekp + extra_mac + extra_zz + extra_gg + extra_rek)
+             + extra_ekp + extra_mac + extra_zz + extra_gg + extra_rek + extra_ovl)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 
