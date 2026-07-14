@@ -480,3 +480,23 @@ King Safety families, promotion/sacrifice guards on Hung Material.
 
 **The ~2.8% still not_covered is substrate-bound** (diffuse tempo/slow-move #55, unnameable perpetual
 clusters) — not addressable by more rules. Ceiling reached for this SAE substrate (L7 blunder-diff).
+
+## Maskers (top tag != concept) — one real bug fixed, rest is argmax (2026-07-14)
+
+Investigated the 51 covered features where the top tag isn't the concept Opus named (judge alt_better=True).
+Three groups:
+- **11 Missed Overloading = a real OVER-FIRE BUG.** Fired on 9.96% of the corpus on geometry alone ("best
+  move attacks a piece that defends something"). Fix: require the best LINE to net >=2 pawns (a real
+  overload converts to material). **9.96% → 3.26%; 6 features now lead with their true concept.** commit
+  b501d98 / fe3c4900, 142/142 regression. This was crisp because overloading HAS a material test.
+- **11 Allowed Mate "masking" King Safety = NOT a bug.** Both true (walked into mate AND exposed king).
+- **~26 across ~8 generic positional/defensive tags** (Prophylaxis 8.2%, Pawn Break 7.3%, Defensive
+  Resource, Bad Simplification) each at 3-8%. Whack-a-mole: tightening one promotes the next to the argmax
+  (verified — Defensive Resource inherited 5 leads after the overloading fix). No crisp gate like
+  material-win; "over-fire vs legit" is fuzzy for positional concepts.
+
+**Lesson:** a masker is only a *fixable bug* when the over-firing tag has a crisp correctness test the
+top-spot is violating (overloading → wins material?). When it doesn't (positional/defensive tags), the
+masker is really the argmax picking among true-but-competing co-tags — a ranking/display problem, not a
+detector bug. Prophylaxis/Pawn-Break's 7-8% rate is worth its own precision pass, but framed as "tighten
+this tag," not "fix maskers."
