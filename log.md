@@ -31,6 +31,23 @@ all green. Knowledge: `knowledge/2026-07-14_battery_catchall_deletion.md` (delet
 the battery error + rebuild + lessons). Commits `b390302` (battery delete), `61544b6` (open-file gate),
 + battery rebuild commit. Not pushed. Not yet shipped to prod.
 
+## 2026-07-14 (cont.) — missed-forcing-move gap: 237→6 (two fixes)
+
+Continued the audit into the "missed a check/winning-capture, no tag fired" gap. Re-derived from scratch
+(didn't trust an earlier rough estimate) — 237 positions, splitting into two concepts:
+- **Fix 1 (`7a6ef1c`):** `capture_or_exchange` now gates the defended-capture "sacrifice" exclusion on
+  SEE, not piece values. A queen taking a defended knight that nets +3 over the recapture was wrongly
+  called a sac and silenced (95 positions). SEE<0=sac (excluded), ≥1=Missed Free X, ==0=Exchange. +1420
+  firing, 0 silenced; 109 capture-mates all co-fire Mate.
+- **Fix 2 (`a9fb690`):** new `wrong_check` detector — you checked, but a DIFFERENT check was best (the
+  missing third case beside pointless_check / missed_attacking_check). 1.42% fire, 79 sole-explain,
+  Calculation category. Message names the better check.
+- Verified the quiet-check half was already covered by missed_attacking_check (0 residual). Gap 237→6;
+  residual 6 = negligible edge cases, noted not chased.
+
+regression 161→**169**. Knowledge: `knowledge/2026-07-14_missed_forcing_move_gap.md`. Both fixes applied
+the battery lesson (re-derive, read FENs, root-cause each detector before editing). Not pushed.
+
 ## 2026-07-11 — JumpReLU sweep on the l7 best−blunder diff (Sam AFK, autonomous)
 
 Task: train the same/similar setup as the last labeled SAE (k6/v7 l7-diff) but with JumpReLU; sweep
