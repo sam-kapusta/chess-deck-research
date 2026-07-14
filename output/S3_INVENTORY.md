@@ -3,6 +3,15 @@
 Bucket: `s3://chess-stage-a-140023406996/` · Account 140023406996 (research, `default` profile)
 **Last reconciled to ground truth (`aws s3 ls --recursive`): 2026-05-31**
 
+> ⚠️ **2026-07-14: `chess-stage-a-140023406996` NO LONGER EXISTS** (`aws s3 ls` → NoSuchBucket).
+> Most entries below are historical. Current canonical SAE line (jr512/jr2048 JumpReLU on
+> maia3_l7only) is backed up as of 2026-07-14:
+> - **Weights** → `s3://chess-sae-weights-140023406996/sae/weights/` : `jr512_k8_final.pt`, `jr2048_k8.pt`
+> - **Labels/judge/retag** → **git** `output/sae_labels/` : `labels_decile_jr512.json`,
+>   `labels_decile_jr2048.json`, `judge_2048_final.json`, `retag_full_v7.json`, `retag_2048_m2.json`
+> - **Everything else** (caches, intermediate retags, sf_lines_60k) still ONLY on chess-poc `jr_canon_out/`.
+> See `knowledge/2026-07-14_sae_tagger_gap_audit_session.md`.
+
 **How to read:** organized by *what the asset is*, not when it was added. Every entry is
 tagged with where it actually lives: `[S3]` = in this bucket · `[notebook]` = chess-poc
 local disk only (NOT in S3) · `[git]` = chess-deck-research repo. If S3 has an object this
