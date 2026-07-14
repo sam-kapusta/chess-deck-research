@@ -131,3 +131,30 @@ raw tip boards (read directly, not via the aggregate-motif labeler):
   features. Names SHARP single-move conversions (34.7k corpus). Does NOT fully name the diffuse
   squander-features (multi-move slow-bleed → 'None' plurality). Fully naming them = a game-level
   conversion metric off the win% trajectory (already computed in classifyMoves), NOT a per-move tag.
+
+## Passive/tempo tag — investigated 4 ways, WON'T-BUILD (2026-07-14)
+
+Sam pushed on whether the diffuse features are really "passive move / lost tempo" and whether we should
+tag that. Checked 4 ways, all say no crisp tag exists:
+1. Concept (#55): the better move differs every time (tactic/break/activation) — no shared concept.
+2. Severity: these features are mostly "neither" sharp nor slow-bleed (small drops in SATURATED positions).
+3. Conversion: not band-crossing either.
+4. **Raw tip boards (definitive):** played moves are a grab-bag (a6/h6/Nbd2/Qc7/Re8/Ke3 — pawn/develop/
+   retreat/shuffle, retreat only ~40%); best moves equally varied (d5/Nxe5/Qh4+/even forced-mate-in-3).
+   The unifying thread is the ABSENCE of purpose ("did nothing while the position demanded action") — no
+   positive signature. The SAE groups them because a do-nothing move has a characteristic flat L7
+   activation regardless of what the right move was = a SUBSTRATE artifact, not a chess concept.
+
+We have the crisp sub-cases already: Missed Tempo Push (pawn push w/ tempo), Missed Piece Activation
+(reposition passive piece), Missed Attacking Check / Missed Zwischenzug (the "missed forcing move"
+subset). A general "Passive Move" coaching tag would be naked-rate (fires from missed-mate to a slightly
+slow developing move). Decided: NO passive/tempo tag.
+
+## Prophylaxis + Pawn Break precision (2026-07-14)
+Both fired 7-8% (naked-rate). `_live_positional(m)` gate (not saturated |win%-50|<25 AND win-drop<30%):
+Prophylaxis 8.18%→4.08%, Pawn Break 7.29%→4.47%. commit 3f26fc9.
+
+## New descriptive axes (Sam's, to CHARACTERIZE features not coach)
+- `conversion_outcome` — result-band transition (Winning→Losing etc). Names sharp single-move conversions.
+- `blunder_severity` — Sharp Blunder (win-drop>=30%) vs Slow Bleed (<15% AND balanced). Saturation-guarded.
+- `n_good_moves` (MultiPV job, GOOD_CP=100, running) → "Only Move Missed" vs "Careless Blunder" axis. TODO.
