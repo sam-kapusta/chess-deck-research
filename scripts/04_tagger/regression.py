@@ -389,6 +389,37 @@ def run():
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_zz = len(zz_cases)
 
+    print("--- predicates: missed_greek_gift (missed bishop sac on castled king) — SAE jr2048 ---")
+    # (name, fen, played_uci, best_uci, expected)
+    gg_cases = [
+        # POS: f623 real board — Bxh7+ (bishop sac, SEE<0, next to g8 king), played O-O.
+        ("Bxh7+ sac = Missed Greek Gift",
+         "r1bq1rk1/pp1nnppp/2p1p3/b2pP3/3P1P2/2PB1N2/PP4PP/RNBQK2R w KQ - 5 9", "e1g1", "d3h7", "Missed Greek Gift"),
+        # NEG: bishop capture-check that is NOT a sacrifice (takes a hanging piece, SEE>=0) -> not GG.
+        ("bishop capture-check but not a sac -> NOT Greek Gift",
+         "4k3/8/8/8/8/5n2/8/2B1K3 w - - 0 1", "e1e2", "c1f4", None),
+        # NEG: best is a bishop sac-check NOT next to the king -> not GG geometry.
+        ("bishop sac-check far from king -> NOT Greek Gift",
+         "4k3/8/8/8/1b6/8/1p6/1B2K3 w - - 0 1", "e1e2", "b1e4", None),
+    ]
+    for name, fen, uci, best, want in gg_cases:
+        b = chess.Board(fen)
+        try:
+            bsan = b.san(chess.Move.from_uci(best))
+        except Exception:
+            bsan = ""
+        m = Mistake(fen, uci, best, [], [], 300, 0, 0, b.turn,
+                    played_san=b.san(chess.Move.from_uci(uci)), best_san=bsan)
+        res = PR.missed_greek_gift(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_gg = len(gg_cases)
+
     print("--- predicates: exposed_king_pawn (castled king shelter push only) — #50 ---")
     # Tightened from 'any pawn near king' (9.8% corpus) to castled + non-capture + shelter-pawn advance
     # (3.8%). (name, fen, played_uci, expected)
@@ -981,7 +1012,7 @@ def run():
              + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk
-             + extra_ekp + extra_mac + extra_zz)
+             + extra_ekp + extra_mac + extra_zz + extra_gg)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 

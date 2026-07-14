@@ -270,6 +270,34 @@ def missed_attacking_check(m):
              f"best {m.best_san} is a forcing {pname} check; you played {m.played_san}")]
 
 
+def missed_greek_gift(m):
+    """The BEST move is a BISHOP sacrifice with CHECK on a square next to the enemy castled king
+    (classic Greek Gift Bxh7+/Bxf7+ and the Bxh2+/Bxf2+ mirror) that the player MISSED. The mirror of
+    unsound_sacrifice (the PLAYED bad sac); here it's the missed SOUND sac — it reaches the tagger past
+    the win_drop gate, so the sac genuinely works (a bad one wouldn't be the engine's best by a
+    mistake-sized margin).
+
+    Data-derived (SAE jr2048 f58/f623/f1786, Opus 'Missed Greek Gift Sacrifice'): best move is a bishop
+    CAPTURE giving CHECK, SEE<0 (bishop-for-pawn = a sac), landing adjacent to the enemy king. Follows
+    with Ng5+/Ne5 + queen — but we only need the sac signature; the follow-up is implied by the eval."""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    pc = b.piece_at(bm.from_square)
+    if not pc or pc.piece_type != chess.BISHOP:
+        return []
+    if not b.is_capture(bm) or not b.gives_check(bm):
+        return []
+    if U.static_exchange_eval(b, bm) >= 0:            # must SHED material (a sacrifice)
+        return []
+    ek = b.king(not m.mover)
+    if ek is None or chess.square_distance(bm.to_square, ek) > 1:
+        return []                                      # bishop must land NEXT to the enemy king
+    return [("Missed Greek Gift", "missed",
+             f"the bishop sacrifice {m.best_san} cracks the king; you played {m.played_san}")]
+
+
 def missed_zwischenzug(m):
     """The PLAYED move is a capture, but the BEST line inserts a forcing CHECK first and captures the
     SAME target a move later — a zwischenzug (in-between move) the player skipped by capturing
@@ -2397,7 +2425,7 @@ def missed_perpetual(m):
 # ---------- registry ----------
 ALL_PREDICATES = [
     phase, game_state, capture_or_exchange, greedy_capture, unsound_sacrifice, pointless_check,
-    missed_attacking_check, missed_zwischenzug, hung_material,
+    missed_attacking_check, missed_greek_gift, missed_zwischenzug, hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
     endgame_type, backward_pawn,
     missed_king_activity, lost_opposition, missed_passed_pawn, rook_behind_passer,

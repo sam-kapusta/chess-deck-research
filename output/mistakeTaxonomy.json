@@ -589,6 +589,11 @@
       "blurb": "A forcing check on the exposed enemy king was the strong move",
       "drillable": true
     },
+    "Missed Greek Gift": {
+      "category": "Missed Tactic",
+      "blurb": "A bishop sacrifice on the castled king (Greek Gift) was winning",
+      "drillable": true
+    },
     "Hung Material": {
       "category": "Hung Piece",
       "blurb": "Your move dropped material to a one-move capture",
