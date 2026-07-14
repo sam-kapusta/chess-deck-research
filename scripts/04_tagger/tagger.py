@@ -350,6 +350,8 @@ def categorize(label, direction=None):
         return "Other"
     if l in ("winning", "losing", "equal") or l.startswith("blunder while"):
         return "Meta"
+    if "→" in l and any(w in l for w in ("winning", "losing", "drawn", "even")):
+        return "Meta"                     # conversion_outcome result-band tags (e.g. "Winning → Losing")
     if any(w in l for w in ("only move", "multiple good")):
         return "Meta"
 

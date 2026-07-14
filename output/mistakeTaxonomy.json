@@ -859,6 +859,36 @@
       "blurb": "The position was equal before this move",
       "drillable": false
     },
+    "Winning \u2192 Losing": {
+      "category": "Meta",
+      "blurb": "You went from winning to losing in one move",
+      "drillable": false
+    },
+    "Winning \u2192 Drawn": {
+      "category": "Meta",
+      "blurb": "You let a winning position slip to a draw",
+      "drillable": false
+    },
+    "Even \u2192 Losing": {
+      "category": "Meta",
+      "blurb": "You went from equal to losing",
+      "drillable": false
+    },
+    "Even \u2192 Winning": {
+      "category": "Meta",
+      "blurb": "Your move swung an equal position to winning",
+      "drillable": false
+    },
+    "Losing \u2192 Drawn": {
+      "category": "Meta",
+      "blurb": "You salvaged a draw from a losing position",
+      "drillable": false
+    },
+    "Losing \u2192 Winning": {
+      "category": "Meta",
+      "blurb": "You turned a losing position into a win",
+      "drillable": false
+    },
     "Only Move": {
       "category": "Meta",
       "blurb": "There was only one good move here",

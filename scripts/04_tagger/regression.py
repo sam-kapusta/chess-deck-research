@@ -136,9 +136,31 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {name}: label={got!r} exp={want!r}")
 
-    print("--- predicates: hung material (equal trades excluded, immediate vs delayed) ---")
     import predicates as PR
     from mistake import Mistake
+
+    print("--- predicates: conversion_outcome (result-band transition, descriptive) ---")
+    # (name, eval_before, eval_after, mover, expected). White-POV cp evals.
+    conv_cases = [
+        ("W winning -> losing", 400, -400, chess.WHITE, "Winning → Losing"),
+        ("W winning -> drawn", 400, 20, chess.WHITE, "Winning → Drawn"),
+        ("B winning -> drawn (POV)", -400, 20, chess.BLACK, "Winning → Drawn"),
+        ("no band change -> no fire", 400, 350, chess.WHITE, None),
+        ("even -> losing", 50, -400, chess.WHITE, "Even → Losing"),
+    ]
+    for name, eb, ea, mv, want in conv_cases:
+        m = Mistake("8/8/8/8/8/8/8/K6k w - - 0 1", "a1a2", "", [], [], eb, ea, 0, mv)
+        res = PR.conversion_outcome(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
+    extra_conv = len(conv_cases)
+
+    print("--- predicates: hung material (equal trades excluded, immediate vs delayed) ---")
     # (name, fen, played_uci, refutation_san, expected_label_or_None)
     hung_cases = [
         # dead-equal trade Bxc6 bxc6 (bishop-for-knight, 3-for-3) — must NOT fire (the bug Sam caught)
@@ -1080,7 +1102,7 @@ def run():
              + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk
-             + extra_ekp + extra_mac + extra_zz + extra_gg + extra_rek + extra_ovl)
+             + extra_ekp + extra_mac + extra_zz + extra_gg + extra_rek + extra_ovl + extra_conv)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 

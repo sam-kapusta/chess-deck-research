@@ -89,6 +89,38 @@ def game_state(m):
     return [(s, "info", f"{cp:+d}cp before (mover POV)")]
 
 
+def _outcome_band(winpct_val):
+    """Coarse mover-POV band from a win% (0-100). Winning >=65, Losing <=35, else Even."""
+    if winpct_val >= 65:
+        return "Winning"
+    if winpct_val <= 35:
+        return "Losing"
+    return "Even"
+
+
+def conversion_outcome(m):
+    """DESCRIPTIVE info tag naming the before->after RESULT band of the move (mover POV): e.g.
+    "Winning → Losing", "Winning → Drawn", "Even → Losing". NOT a coaching lesson — it's what the
+    SAE's diffuse features actually cluster on (OUTCOME / severity of the swing, not mistake type).
+    Lets us NAME those features ("this feature = threw away a won game") even when there's no per-move
+    concept to teach. (Sam, 2026-07-14: the ~575 genuinely-diffuse SAE features group by outcome, incl.
+    a real 'conversion / squandered a win' theme — capture it descriptively, direction=info.)
+
+    Bands from winpct() (mover POV, ±1200 mate clamp), same currency as win_drop. Only fires when the
+    band actually CHANGES (a within-band wobble isn't a conversion event)."""
+    if m.eval_before is None or m.eval_after is None:
+        return []
+    before_cp = m.eval_before if m.mover == chess.WHITE else -m.eval_before
+    after_cp = m.eval_after if m.mover == chess.WHITE else -m.eval_after
+    b = _outcome_band(U.winpct(max(-1200, min(1200, before_cp))))
+    a = _outcome_band(U.winpct(max(-1200, min(1200, after_cp))))
+    if b == a:
+        return []                                  # no band change -> not a conversion event
+    # "Even" as an endpoint reads as "Drawn" when you LAND there (result), "Even" when you start there.
+    a_word = "Drawn" if a == "Even" else a
+    return [(f"{b} → {a_word}", "info", f"result swing {before_cp:+d}→{after_cp:+d}cp (mover POV)")]
+
+
 # ---------- material: capture vs exchange, by piece ----------
 def capture_or_exchange(m):
     """Best move is a capture: free (undefended) -> Missed Free <Piece> (e.g. "Missed Free Pawn");
@@ -2468,7 +2500,7 @@ def missed_perpetual(m):
 
 # ---------- registry ----------
 ALL_PREDICATES = [
-    phase, game_state, capture_or_exchange, greedy_capture, unsound_sacrifice, pointless_check,
+    phase, game_state, conversion_outcome, capture_or_exchange, greedy_capture, unsound_sacrifice, pointless_check,
     missed_attacking_check, missed_greek_gift, missed_zwischenzug, recapture_exposes_king, hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
     endgame_type, backward_pawn,

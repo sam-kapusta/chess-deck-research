@@ -175,6 +175,17 @@ def build_taxonomy():
     add("Winning", "You were winning before this move")
     add("Losing", "You were losing before this move")
     add("Equal", "The position was equal before this move")
+    # Conversion outcome (result-band transition, descriptive info — names what a move DID to the
+    # result, esp. squandering a win). Enumerate the meaningful band changes.
+    for _b, _a, _blurb in [
+        ("Winning", "Losing", "You went from winning to losing in one move"),
+        ("Winning", "Drawn", "You let a winning position slip to a draw"),
+        ("Even", "Losing", "You went from equal to losing"),
+        ("Even", "Winning", "Your move swung an equal position to winning"),
+        ("Losing", "Drawn", "You salvaged a draw from a losing position"),
+        ("Losing", "Winning", "You turned a losing position into a win"),
+    ]:
+        add(f"{_b} → {_a}", _blurb)
     add("Only Move", "There was only one good move here")
     add("Best Move (deep analysis)", "Deep analysis confirms your move was best")
     for ph in ["Opening", "Middlegame", "Endgame"]:
