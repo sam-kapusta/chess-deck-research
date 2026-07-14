@@ -1,5 +1,27 @@
 # Chess Lab — Log
 
+## 2026-07-14 — wide SAE-tagger audit: loudest tags (delete / gate / leave)
+
+Ran the SAE-feature-audit playbook wide over the loudest tagger fires, reading actual FENs (not Opus
+summaries). Three outcomes, all committed:
+
+- **Deleted both battery detectors** (`missed_battery` 4%, `allowed_battery` 9%) — naked-rate catch-alls.
+  Allowed Battery TOPPED 118 SAE features across **81 distinct Opus concepts** (Hanging Piece, Missed
+  Tactic — never "battery") and appeared in 44% of vote tallies; 74-76% co-fired a sharper tag; only 4-5%
+  had battery as the sole explain tag, and those FENs were diffuse drift. No residue to gate → delete.
+  184→182 taxonomy tags. Corpus verified 0 battery fires.
+- **Gated Missed Open File** (6.4%→4.9%) — a REAL positional concept (tops only 19 features, 7% of votes),
+  but ~23% of fires were tactics that just landed a rook on an open file: captures (Rxc1 wins material)
+  and endgame checks (Rd5+). Concept gate: best move must be neither a capture nor a check. Dropped ~867
+  incidental fires; residue is genuine quiet file-occupation.
+- **Left Allowed Mate + Hung\* alone** — loud but correct. Allowed Mate (7%) verified **0% NO_MATE**.
+  Hung\* is a net-material-loss-over-line detector (multi-move hangs expected); ~92% clean on the hardest
+  bucket. Filed **issue #58** for a rare peak-victim naming edge (even rook trade → "Hung Rook").
+
+Regression 156→159 (battery cases retired, 3 open-file cases added), all green. Knowledge:
+`knowledge/2026-07-14_battery_catchall_deletion.md` (the delete/gate/leave scorecard + method). Commits
+`b390302` (battery delete), `61544b6` (open-file gate). Not pushed. Not yet shipped to prod.
+
 ## 2026-07-11 — JumpReLU sweep on the l7 best−blunder diff (Sam AFK, autonomous)
 
 Task: train the same/similar setup as the last labeled SAE (k6/v7 l7-diff) but with JumpReLU; sweep

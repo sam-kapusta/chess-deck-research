@@ -79,6 +79,35 @@ best move must be neither a capture nor a check. Two lines in `missed_open_file`
 genuine quiet rook-to-open-file. Regression `159/159` (added POS quiet + NEG-capture + NEG-check, corpus
 FENs). This is a GATE because there IS a real residue to keep — the exact judgment battery failed.
 
-## Follow-on
-Next: spot-check **Allowed Mate (7%)** + **Hung Rook/Queen/Knight/Bishop/Material (4-6%)** — are they
-legit-loud (real, just common) or buggy? Then continue the playbook wide over the rest.
+---
+
+# Allowed Mate + Hung* — legit-loud, NOT buggy (2026-07-14, same audit)
+
+The other outcome besides delete/gate: **loud but correct.** A high fire rate is a *smell*, not a verdict
+(lesson 4) — some tags are loud because the mistake is genuinely common at 1800.
+
+**Allowed Mate (7%, 4752 fires):** verified every fire either reaches checkmate in the refutation PV or has
+a mate-score `eval_after`. **0% NO_MATE.** No hidden false-fire class. Ship as-is.
+
+**Hung\* (Rook/Queen/Knight/Bishop/Material, ~15-17k fires across the family):** `hung_material` is by
+design a **net-material-loss-over-the-refutation-line** detector (handles DELAYED hangs = loss realized a
+few moves deep). So a 1-move SEE is the WRONG yardstick — 37% "no free 1-move capture" is expected because
+many hangs are multi-move (`Qc8+ Qe8 Qxe8+` forces the queen). Reading the hardest bucket (the 37%) by
+hand: ~11/12 were genuine multi-move hangs. Confirmed legit-loud (matches the detector's own "~48/52 clean"
+note). Filed **issue #58** for the one edge: `peak_victim` naming can call an even rook trade "Hung Rook"
+when the true net loss is a pawn (transient peak from a recaptured piece). Rare, low-priority — the peak
+logic is correct for genuinely-hung-with-partial-compensation pieces; the fix must not break that.
+
+## Wide-audit scorecard so far (loudest tags, mistake corpus N=59598)
+| Tag | Rate | Verdict | Action |
+|---|---|---|---|
+| Allowed Pawn Capture | 11% | SOLID | none |
+| Allowed Battery | 9% | catch-all | **deleted** |
+| Allowed Mate | 7% | legit-loud | none |
+| Missed Pawn Break | 6% | (prior session: gated) | — |
+| Hung Rook/Q/N/B/Material | 4-6% | legit-loud | edge #58 filed |
+| Missed Open File | 6.4→4.9% | real + 2 bugs | **gated** (no capture/check) |
+| Missed Battery | 4% | catch-all | **deleted** |
+
+Three outcomes seen: **delete** (no concept residue), **gate** (real concept + incidental bugs),
+**leave** (loud but correct). Next: continue the playbook over mid-rate tags + the `not_covered` gap list.
