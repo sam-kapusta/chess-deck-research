@@ -228,8 +228,23 @@ def fork_piece(nodes, pov):
 
 
 def outpost_line(nodes, pov) -> bool:
-    """pov establishes an outpost in this line (a knight/bishop move to an unchallengeable square)."""
-    return _first_fire_index(nodes, pov, is_outpost_move) is not None
+    """pov's FIRST move establishes an outpost, and that move is QUIET (not a capture).
+
+    (2026-07-14 audit: the old `_first_fire_index is not None` fired whenever an outpost appeared ANYWHERE
+    in the line — 51% of Missed Outpost fires had the outpost knight land 2-4 plies deep with the best MOVE
+    being something else (Bxc4, b5, Re5+); another chunk were outpost-BY-CAPTURE where a material tag is the
+    real story. Gating to 'best move IS the outpost move AND it's quiet' keeps the genuine positional lesson
+    — 'you missed a strong Ne5/Nd5' — the 49% real residue.)"""
+    povn = U.pov_nodes(nodes, pov)
+    if not povn:
+        return False
+    first = povn[0]
+    if U.moved_piece_type(first) is KING:
+        return False
+    # first pov move must be QUIET (a capture landing on an outpost square is a material move)
+    if first.parent.board().is_capture(first.move):
+        return False
+    return U.is_outpost(first.board(), first.move.to_square, pov)
 
 
 def hanging_piece_line(nodes, pov) -> bool:

@@ -840,6 +840,14 @@ def run():
         # NEG: opponent castles in the refutation -> Allowed Castling must NOT exist.
         ("castling NEG: no Allowed Castling twin", "1k1r3r/pppq1ppp/2nbb3/4p3/P3P3/1P3PP1/1BP1N1BP/R2QK2R b KQ - 0 13",
          "d7h3", ["Bb4+"], ["O-O", "Be6", "Qe1", "h5"], "Allowed Castling", False),
+        # Outpost gate (2026-07-14): Missed Outpost fires only when the best MOVE quietly establishes the
+        # outpost (first pov move, non-capture), not when an outpost appears later or via a capture.
+        # POS: best Ne5 is a quiet outpost move (d4 defends e5, no black pawn can challenge). NEG: best is
+        # a capture that lands on an outpost square -> material move, outpost incidental.
+        ("outpost POS: best move is a quiet Ne5 outpost", "r1bqk2r/pp1n1ppp/2p1pn2/8/2BP4/2N2N2/PP3PPP/R1BQK2R w KQkq - 0 8",
+         "d1e2", ["Ne5"], [], "Missed Outpost", True),
+        ("outpost NEG: outpost only later in line (capture first)", "2rqkb1r/3b1ppp/p3pn2/1p6/2nP4/2NBPN2/PP1B1PPP/R2QK2R w KQk - 4 15",
+         "a2a3", ["Bxc4", "bxc4", "Ne5"], [], "Missed Outpost", False),
     ]
     for name, fen, uci, bl_san, rf_san, label, should_fire in castle_cases:
         b = chess.Board(fen)

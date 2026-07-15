@@ -39,6 +39,7 @@ These were removed for cause. Re-adding requires a fresh audit that beats the re
 | **Missed Prophylaxis** | 8.2% → ~3% | Best is a quiet non-king move preventing a NON-capture, NON-check plan; excludes check-threats + king moves (those are king-safety, not prophylaxis). |
 | **Missed Pawn Break** | (piece-grab bug removed) | Excludes pawn-takes-piece (a material grab, not a structural break). |
 | **hung_material** | (promotion + SEE guards) | Subtract opponent-promotion gain (that's a pawn race, not a hang); SEE<0 played-capture = sacrifice not hang. |
+| **Missed / Allowed Outpost** | 2.6%→1.15% / 2.3%→1.06% | Fire only if the FIRST pov move quietly establishes the outpost — not if an outpost appears later in the line (51% did) or via a capture (material move, outpost incidental). `motifs.outpost_line`. Both directions kept (allowing the opponent an unchallengeable knight IS a real concession). |
 | **missed_overloading** | 9.96% → 3.26% | Best line must net ≥2 material (geometry-only overload was the over-fire). |
 | **capture_or_exchange** | (defended-capture branch) | Gate the "sacrifice" exclusion on SEE, not piece values — a defended capture that nets material over the recapture sequence fires Missed Free X even if attacker outvalues victim. |
 
