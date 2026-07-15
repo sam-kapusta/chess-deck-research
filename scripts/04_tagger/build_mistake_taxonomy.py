@@ -152,6 +152,7 @@ def build_taxonomy():
     add("Premature Trade", "You exchanged while ahead, relieving tension that favored you")
     add("Missed Prophylaxis", "You let the opponent carry out a plan a quiet move would have stopped")
     add("Missed Piece Activation", "A passive piece could be repositioned to a more active square")
+    add("Missed Development", "A piece was still on its home square — develop it instead of a pawn or queen move")
     add("Wrong Pawn Race", "You went the wrong direction in a pawn race and lost a critical tempo")
     add("Allowed Advanced Pawn", "Your move let the opponent advance a pawn dangerously")
     add("Missed Advanced Pawn", "An advanced pawn push was the move")

@@ -1695,6 +1695,57 @@ def pawn_grab_undeveloped(m):
              f"{m.played_san} grabs a pawn but only {dev} pieces developed; best was {m.best_san}")]
 
 
+def missed_development(m):
+    """Opening / early middlegame: the BEST move develops a minor piece off its home (back-rank) square,
+    the player was BEHIND in development, and the played move did NOT develop a piece (a pawn move, a queen
+    sortie, or moving an already-developed piece). The classic 1800 error — a pointless a3/h6/f4 while a
+    knight or bishop still sits at home.
+
+    Data-derived (2026-07-15 coverage audit): the single biggest UNCOVERED cluster of real mistakes
+    (wd>=10%, no explain tag) was quiet best-moves; 349 had the best move developing a home-square minor and
+    280 of those the player didn't develop at all. Crisp/exact (home-square = a real board fact, no fuzzy
+    heuristic). See tagger_feature_ledger.md.
+
+    Gates:
+      • opening/early middlegame (fullmove <= 15) — development is only a lesson while pieces are still home.
+      • best move: a KNIGHT/BISHOP leaving its back-rank home square, quiet (not a capture, not a check).
+      • player is behind: >= 2 of their minors still on home squares (not "you developed the last one").
+      • played move is NON-developing: it does NOT bring a home-square minor out (pawn move, queen move,
+        recapture, or shuffling a developed piece). If the player developed a DIFFERENT minor, that's a
+        which-piece nuance, not a development failure — stay silent."""
+    b = m.board_before
+    if b.fullmove_number > 15:
+        return []
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    back_rank = 0 if m.mover == chess.WHITE else 7
+    # best move develops a home-square minor, quietly
+    if b.piece_type_at(bm.from_square) not in (chess.KNIGHT, chess.BISHOP):
+        return []
+    if chess.square_rank(bm.from_square) != back_rank:
+        return []                                          # best piece isn't on its home rank -> not development
+    if b.is_capture(bm):
+        return []
+    after_best = b.copy(); after_best.push(bm)
+    if after_best.is_check():
+        return []                                          # a developing check is a tactic, not the dev lesson
+    # count mover's undeveloped minors (on the back rank)
+    undev = sum(1 for sq, p in b.piece_map().items()
+                if p.color == m.mover and p.piece_type in (chess.KNIGHT, chess.BISHOP)
+                and chess.square_rank(sq) == back_rank)
+    if undev < 2:
+        return []                                          # only the last piece home -> not "behind in development"
+    # played move must be NON-developing (does not bring a home-rank minor out)
+    played_develops = (b.piece_type_at(pm.from_square) in (chess.KNIGHT, chess.BISHOP)
+                       and chess.square_rank(pm.from_square) == back_rank)
+    if played_develops:
+        return []                                          # developed a different piece -> which-piece nuance, not a miss
+    pname = PIECE_NAME[b.piece_type_at(bm.from_square)].lower()
+    return [("Missed Development", "missed",
+             f"best {m.best_san} develops a {pname}; you played the non-developing {m.played_san} with {undev} minors still home")]
+
+
 # ignored_threat REMOVED 2026-07-14 (Sam's catch). It was a vaguely-defined synonym for the real
 # hierarchy Hung <Piece> → Allowed Hanging Piece: 92% of its fires co-fired a sharper material/hang/mate
 # tag that named the same thing better, and where it was the SOLE material signal (162 cases) only 19%
@@ -2573,7 +2624,7 @@ ALL_PREDICATES = [
     missed_breakthrough,
     bad_simplification, trade_to_simplify, wrong_king_direction, outside_passer,
     rook_to_open_file_endgame, push_to_promote,
-    pawn_grab_undeveloped, premature_attack,
+    pawn_grab_undeveloped, missed_development, premature_attack,
     missed_faster_mate,
     missed_bishop_activity, missed_knight_activity, missed_minor_activity, missed_queen_activity,
     missed_minor_rook_activity, missed_perpetual, missed_stalemate,

@@ -709,6 +709,11 @@
       "blurb": "A passive piece could be repositioned to a more active square",
       "drillable": true
     },
+    "Missed Development": {
+      "category": "Position",
+      "blurb": "A piece was still on its home square \u2014 develop it instead of a pawn or queen move",
+      "drillable": true
+    },
     "Wrong Pawn Race": {
       "category": "Endgame",
       "blurb": "You went the wrong direction in a pawn race and lost a critical tempo",

@@ -907,6 +907,33 @@ def run():
         print(f"  [{'PASS' if passed else 'FAIL'}] {name}: got={got!r} exp={want!r}")
     extra_pt = len(pt_cases)
 
+    # Missed Development (2026-07-15, coverage-gap fill): best move develops a home-square minor, player was
+    # behind (>=2 minors home) and played a NON-developing move. (name, fen, played_uci, best_uci, want)
+    print("--- predicates: missed_development (develop a home-square minor) ---")
+    md_fen = "r1bqkbnr/p4ppp/1pn1p3/2pp4/3P1B2/2P1P1P1/PP3P1P/RN1QKBNR w KQkq - 1 6"
+    md_cases = [
+        # POS: best Nf3 (develops g1 knight), played a3 (pawn move), 3 minors home -> fires.
+        ("missed dev POS: a3 while Nf3 develops, 3 home", md_fen, "a2a3", "g1f3", "Missed Development"),
+        # NEG: played Nc3 also develops a minor -> which-piece nuance, not a dev failure -> silent.
+        ("missed dev NEG: developed a different minor", md_fen, "b1c3", "g1f3", None),
+        # NEG: best move is a capture (Bxc7), not development -> silent.
+        ("missed dev NEG: best is a capture", md_fen, "a2a3", "f4c7", None),
+        # NEG: only the last minor home (well-developed side) -> not 'behind in development' -> silent.
+        ("missed dev NEG: only last minor home", "r2qkb1r/pppb1ppp/2n1pn2/8/3P4/2N1BN2/PPP1BPPP/R2QK2R w KQkq - 0 8",
+         "a2a3", "e2f1", None),
+    ]
+    for name, fen, uci, best, want in md_cases:
+        b = chess.Board(fen)
+        m = Mistake(fen, uci, best, [], [], None, None, 150, b.turn, best_san="?", played_san="?")
+        res = PR.missed_development(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        if not passed:
+            fails.append(name)
+        print(f"  [{'PASS' if passed else 'FAIL'}] {name}: got={got!r} exp={want!r}")
+    extra_md = len(md_cases)
+
     print("--- predicates: endgame detectors (king activity / opposition / passed pawn / rook-behind) ---")
     # (name, fen, played_uci, best_uci, best_san, predicate_fn, expected_label_or_None)
     # eval_before set so phase()/game_state don't matter; cp_loss=200. mover = side to move in the FEN.
@@ -1264,7 +1291,7 @@ def run():
     extra_apc = len(apc_cases)
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_castle + extra_sm + extra_pt + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
+             + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_castle + extra_sm + extra_pt + extra_md + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk
              + extra_ekp + extra_mac + extra_zz + extra_gg + extra_rek + extra_ovl + extra_conv + extra_sev + extra_md)

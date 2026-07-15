@@ -109,6 +109,13 @@ These were removed for cause. Re-adding requires a fresh audit that beats the re
   `missed_piece_activation`, `wrong_pawn_race`, `missed_outpost` (via motif).
 - `missed_{bishop,knight,minor,queen,minor_rook}_activity` — a passive piece could be repositioned.
 
+**Opening / positional judgment:**
+- `missed_development` (1.9%, 13% sole) — ADDED 2026-07-15. Best move develops a home-square minor, player
+  was behind (≥2 minors home) and played a NON-developing move (pawn/queen/recapture). Filled the biggest
+  coverage gap: 6% of real mistakes were uncovered, ~91% quiet best-moves, and development was the cleanest
+  nameable cluster (349 uncovered had best = develop a home minor). Crisp/exact (home-square is a board
+  fact). Category: Position. Sample: Nf3 vs a3, Nc6 vs d6, Ne7 vs b6 at moves 3-13.
+
 **Calculation / judgment:**
 - `pawn_grab_undeveloped`, `premature_attack`, `missed_faster_mate`,
   `missed_pin_exploitation`, `missed_unpinning_resource`, `missed_interposition`, `missed_remove_the_guard`.

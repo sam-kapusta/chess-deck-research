@@ -434,8 +434,8 @@ def categorize(label, direction=None):
             "unpinning", "interposition", "counter-sacrifice", "removing the attacker", "cross-check")):
         return "Allowed Tactic"
 
-    # Premature attack = positional judgment (attacked before developing).
-    if l == "premature attack":
+    # Premature attack / missed development = positional judgment (piece placement in the opening).
+    if l in ("premature attack", "missed development"):
         return "Position"
 
     # Tactical motifs — split by direction. Battery, Overloading, Doubled Rooks are tactical patterns.
