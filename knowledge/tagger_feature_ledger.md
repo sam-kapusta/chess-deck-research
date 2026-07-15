@@ -45,6 +45,19 @@ These were removed for cause. Re-adding requires a fresh audit that beats the re
 | **Missed / Allowed Outpost** | 2.6%→1.15% / 2.3%→1.06% | Fire only if the FIRST pov move quietly establishes the outpost — not if an outpost appears later in the line (51% did) or via a capture (material move, outpost incidental). `motifs.outpost_line`. Both directions kept (allowing the opponent an unchallengeable knight IS a real concession). |
 | **missed_overloading** | 9.96% → 3.26% | Best line must net ≥2 material (geometry-only overload was the over-fire). |
 | **capture_or_exchange** | (defended-capture branch) | Gate the "sacrifice" exclusion on SEE, not piece values — a defended capture that nets material over the recapture sequence fires Missed Free X even if attacker outvalues victim. |
+| **Premature Trade** | 3.7% → 2.5% | Played capture's SEE must be ≥0 — the lesson is "relieved USEFUL tension while ahead", NOT "made a bad trade". A material-losing trade (SEE<0) is owned by greedy_capture / unsound_sacrifice; "traded into a worse position" by bad_simplification. Dropped 730 material-losing fires. |
+
+## Audited KEEP (2026-07-15, mid-rate tier — verified legit, no change)
+| Tag | Rate / sole | Why kept |
+|---|---|---|
+| **Allowed Sacrifice** | 3.2% / 4% sole | 81% (87/88 sole) have the opponent genuinely investing material in the punishment line — accurate "you walked into a sacrifice". Precise, not fuzzy. |
+| **Allowed Discovered Attack** | 2.4% / 5% sole | Precise geometric motif in the real refutation. Co-fires Hung X (the result) but the discovery is a distinct teachable mechanism. Kept (Sam). |
+| **Allowed Pin (to King)** | 2.2% / 7% sole | Same — precise pin geometry, decent unique coverage. Kept (Sam). |
+| **Allowed Advanced Pawn** | 2.8% / 4% sole | The non-promotion cases (a dangerous passer you allowed); Allowed Promotion co-fires when it queens but the advance itself is real. Kept (Sam). |
+| **Pawn Move Exposed King** | 3.2% / 8% sole | Already tightened (#50: castled king + non-capture shelter push). Reads as genuine shelter-weakening pushes; 8% sole is real. Kept (Sam). |
+| **Missed Tempo Push** | 3.8% / 11% sole | Well-gated (best move IS a pawn push kicking a previously-unattacked piece). Sole cases all genuine. Kept. |
+
+**The discriminant that emerged:** a tag is a catch-all worth deleting when it's a FUZZY heuristic (side-of-board proximity, is_attacked_by-without-SEE) AND ≤2% sole-explain. It's KEPT when it's a PRECISE motif (real pin/discovery/sacrifice geometry in the actual line) even if it co-fires a sharper result tag — because multi-tag is native and the mechanism is a distinct lesson. 4-8% sole-explain is real unique coverage; ≤2% is not.
 
 ---
 

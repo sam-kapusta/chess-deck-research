@@ -884,6 +884,29 @@ def run():
         print(f"  [{'PASS' if passed else 'FAIL'}] {name}: got={got!r} exp={want!r}")
     extra_sm = len(sm_cases)
 
+    # Premature Trade SEE gate (2026-07-15): fires only on an EVEN/favorable capture-trade while ahead;
+    # a material-LOSING trade (SEE<0) is a bad trade owned by greedy/unsound_sacrifice, not "premature".
+    print("--- predicates: premature_trade gated to SEE>=0 (even trade while ahead) ---")
+    pt_cases = [
+        # POS: even NxN (SEE 0) while +120, best keeps tension -> fires.
+        ("prem trade POS: even NxN while ahead", "r1bqk2r/pppp1ppp/5n2/3N4/8/8/PPPP1PPP/R1BQK2R w KQkq - 0 1",
+         "d5f6", "a2a3", ["gxf6"], 120, "Premature Trade"),
+        # NEG: Qxd5 loses the queen (SEE -6) -> a bad trade, not premature; must stay silent.
+        ("prem trade NEG: material-losing trade (SEE<0)", "r1bqk2r/pppp1ppp/4p3/3n4/8/8/PPP1PPPP/R1BQK2R w KQkq - 0 1",
+         "d1d5", "a2a3", ["e6d5"], 120, None),
+    ]
+    for name, fen, uci, best, ref, eb, want in pt_cases:
+        b = chess.Board(fen)
+        m = Mistake(fen, uci, best, [], ref, eb, 0, 120, b.turn, best_san="a3", played_san="?")
+        res = PR.premature_trade(m)
+        got = res[0][0] if res else None
+        passed = (got == want)
+        ok += passed
+        if not passed:
+            fails.append(name)
+        print(f"  [{'PASS' if passed else 'FAIL'}] {name}: got={got!r} exp={want!r}")
+    extra_pt = len(pt_cases)
+
     print("--- predicates: endgame detectors (king activity / opposition / passed pawn / rook-behind) ---")
     # (name, fen, played_uci, best_uci, best_san, predicate_fn, expected_label_or_None)
     # eval_before set so phase()/game_state don't matter; cp_loss=200. mover = side to move in the FEN.
@@ -1241,7 +1264,7 @@ def run():
     extra_apc = len(apc_cases)
 
     total = (len(SINGLE_MOVE_CASES) + len(LINE_CASES) + len(split_cases)
-             + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_castle + extra_sm + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
+             + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_castle + extra_sm + extra_pt + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk
              + extra_ekp + extra_mac + extra_zz + extra_gg + extra_rek + extra_ovl + extra_conv + extra_sev + extra_md)

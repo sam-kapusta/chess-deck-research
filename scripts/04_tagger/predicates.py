@@ -1044,14 +1044,24 @@ def missed_open_file(m):
 
 
 def premature_trade(m):
-    """Played move is a capture that leads to a trade (opponent recaptures), but the engine preferred
-    maintaining tension. Only fires when the player had an eval advantage before the trade."""
+    """Played move is an EVEN/favorable capture that leads to a trade (opponent recaptures), but the engine
+    preferred maintaining tension. Fires only when the player was already ahead AND the trade doesn't itself
+    lose material.
+
+    CONCEPT GATE (2026-07-15 audit): the lesson is "you relieved USEFUL tension while ahead" — NOT "you
+    made a bad trade." Without the SEE>=0 gate, it co-fired Greedy Capture (695) / Unsound Sacrifice (453)
+    on trades that actually LOSE material — a direct contradiction of "while ahead". Requiring the played
+    capture's SEE>=0 keeps it to genuine even-or-favorable simplifications; a material-losing trade is owned
+    by greedy_capture / unsound_sacrifice / hung_material, and 'traded into a worse position' by
+    bad_simplification."""
     b = m.board_before
     bm = _best_move(m); pm = _played_move(m)
     if bm is None or pm is None or pm == bm:
         return []
     if not b.is_capture(pm):
         return []
+    if U.static_exchange_eval(b, pm) < 0:
+        return []  # a material-LOSING trade is a bad trade, not a premature-but-even one (greedy/sac own it)
     # player must have been at least slightly better before the trade (mover POV)
     if m.eval_before is None:
         return []
