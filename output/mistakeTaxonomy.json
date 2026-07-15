@@ -489,21 +489,6 @@
       "blurb": "Your move allowed Dovetail Mate",
       "drillable": true
     },
-    "Failed Discovered Attack": {
-      "category": "Calculation",
-      "blurb": "You tried a discovered attack but it backfired",
-      "drillable": true
-    },
-    "Failed Fork": {
-      "category": "Calculation",
-      "blurb": "You tried a fork but it backfired",
-      "drillable": true
-    },
-    "Failed Pin": {
-      "category": "Calculation",
-      "blurb": "You tried a pin but it backfired",
-      "drillable": true
-    },
     "Missed Free Pawn": {
       "category": "Missed Capture",
       "blurb": "A free or favorable pawn capture was available",

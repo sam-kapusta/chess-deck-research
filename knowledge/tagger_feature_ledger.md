@@ -25,6 +25,7 @@ These were removed for cause. Re-adding requires a fresh audit that beats the re
 | **Missed Battery (v1)** | DELETED → REBUILT | 4% | v1 used a broken finder (required the back piece to *directly* attack the target — impossible for a battery). Deleting the concept was wrong; **rebuilt** with correct xray geometry (see ACTIVE table). Lesson: validate a finder on a known-positive before proving absence. |
 | **Allowed Castling** | DELETED (2026-07-14) | 2.3% | Letting the opponent castle is normal chess, never the teachable mistake. 78% had the opponent castle 2-4 plies deep; first-reply cases all had a concrete real error (hung piece / missed tactic) with castling as routine reply. `tagger._MISSED_ONLY_MOTIFS`. |
 | **Ignored Threat** | DELETED (2026-07-14) | 3.6% | Vaguely-defined synonym for the real hierarchy Hung <Piece> → Allowed Hanging Piece. 92% of fires co-fired a sharper material/hang/mate tag that named it better; where it was the sole material signal (162 cases) only 19% actually lost the "threatened" piece — crude is_attacked_by/undefended flagged phantom threats. Redundant when right, wrong when unique. Deleting orphaned 1 corpus position. (Was never in the taxonomy → rendered neutral in prod anyway.) |
+| **Failed Pin / Failed Fork / Failed Discovered Attack** | DELETED (2026-07-14) | 2.2% / 1.0% / 2.7% | The whole FAILED direction (`FAILED_OK=set()`). `detect_move` saw the played move's PATTERN, not whether the player attempted the tactic or it backfired because of it. Only 20-27% of fires had the moved piece even recaptured; in the most-favorable subset (capture + recapture) 69% co-fired a material tag that named the real loss, 7/324 sole-explain. Geometry ≠ intent+causation. Deleting left 4% untagged (whose only tag was a false "you failed a tactic" — worse than silence). |
 | (5 outcome catch-alls) | DELETED (GH #29) | — | "Bad/Wrong Capture" etc. were 86-100% co-fire duplicates that mislabeled missed tactics. Replaced by `greedy_capture` (the one real idea mined from them). |
 
 ---
@@ -101,8 +102,9 @@ These were removed for cause. Re-adding requires a fresh audit that beats the re
 `fork, hangingPiece, sacrifice, xRayAttack, discoveredAttack, doubleCheck, trappedPiece, attraction,
 deflection, intermezzo, interference, skewer, pin, capturingDefender, exposedKing, attackingF2F7,
 kingsideAttack, queensideAttack, clearance, advancedPawn, enPassant, castling*, promotion, underPromotion,
-outpost`. Each fires in a direction: MISSED (best line, pov=mover), ALLOWED ([played]+refutation, pov=opp),
-FAILED (played move was a single-move tactic that backfired — `Failed X`). `castling` is MISSED-ONLY.
+outpost`. Each fires in a direction: MISSED (best line, pov=mover), ALLOWED ([played]+refutation, pov=opp).
+The FAILED direction (`Failed X` = played move that geometrically made a tactic) is DELETED
+(`FAILED_OK=set()`, 2026-07-14 — it was a geometry catch-all; see deleted table). `castling` is MISSED-ONLY.
 `exposedKing` uses explicit labels (Enemy King Exposed / Exposed King). Mate outranks lesser motifs in the
 same direction (`_suppress_lesser_under_mate`).
 

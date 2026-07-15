@@ -47,12 +47,16 @@ MOTIF_LABEL = {
     "Pin": "Pin", "Discovered Attack": "Discovered Attack",
 }
 
-# Motifs where the FAILED direction (played move itself was the tactic, and it backfired) is sensible.
-# Single-move detectors only — sequence motifs need the opponent's cooperation so "failed X" is noise.
-# NB "Hanging Piece" is NOT here: capturing a free piece (is_hanging_piece) can't "fail" — you won
-# material. It fired "Failed Hanging Piece" on a recapture that was simply sub-optimal (gxf3 took a
-# free bishop but Bxc6 first was better). A category error; only real attacking tactics can backfire.
-FAILED_OK = {"Fork", "Pin", "Discovered Attack"}
+# The FAILED direction (played move geometrically creates a fork/pin/discovered-attack pattern) was
+# DELETED 2026-07-14. It was a catch-all: `detect_move` sees the PATTERN, not whether the player attempted
+# the tactic or it backfired BECAUSE of that pattern. Audit of the 60k corpus: only 20-27% of Failed X
+# fires had the moved piece even recaptured; in the most-favorable subset (played a capture AND piece
+# recaptured), 69% co-fired a material tag (Hung/Sacrifice/Greedy/Missed Free) that named the real loss
+# and only 7/324 were sole-explain. "Failed" asserts intent+causation from pure geometry it can't verify;
+# when the move truly loses, a material/sacrifice tag already names it. Deleting left 4% of Failed X fires
+# untagged — positions whose only tag was a false "you failed a tactic", worse than silence. Empty set
+# keeps the plumbing inert (no branch fires). See tagger_feature_ledger.md.
+FAILED_OK = set()
 
 # Mates render with their distance; keep the mate distance string off the label but in evidence.
 def _mate_label(key, evidence):
@@ -191,15 +195,7 @@ def _motif_tags(m):
             lab = _motif_label(key, ev)
             out.append((_directional_label(key, lab, "allowed"), "allowed", ev))
 
-    # FAILED: the played move itself was a (single-move) tactic that backfired
-    try:
-        played = chess.Move.from_uci(m.played_uci)
-        if played in b.legal_moves:
-            for key, ev in MO.detect_move(b, played).items():
-                if key in FAILED_OK:
-                    out.append((f"Failed {key}".strip(), "failed", ev))
-    except Exception:
-        pass
+    # (FAILED direction deleted 2026-07-14 — see FAILED_OK note. It was a geometry catch-all.)
 
     # EVAL-BASED MATE FALLBACK: Stockfish often truncates the PV when it sees #N, so
     # mate_in_line() (which requires nodes[-1].is_checkmate()) misses many forced mates.
