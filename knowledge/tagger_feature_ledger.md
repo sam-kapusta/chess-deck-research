@@ -26,6 +26,7 @@ These were removed for cause. Re-adding requires a fresh audit that beats the re
 | **Allowed Castling** | DELETED (2026-07-14) | 2.3% | Letting the opponent castle is normal chess, never the teachable mistake. 78% had the opponent castle 2-4 plies deep; first-reply cases all had a concrete real error (hung piece / missed tactic) with castling as routine reply. `tagger._MISSED_ONLY_MOTIFS`. |
 | **Ignored Threat** | DELETED (2026-07-14) | 3.6% | Vaguely-defined synonym for the real hierarchy Hung <Piece> → Allowed Hanging Piece. 92% of fires co-fired a sharper material/hang/mate tag that named it better; where it was the sole material signal (162 cases) only 19% actually lost the "threatened" piece — crude is_attacked_by/undefended flagged phantom threats. Redundant when right, wrong when unique. Deleting orphaned 1 corpus position. (Was never in the taxonomy → rendered neutral in prod anyway.) |
 | **Missed Desperado** | DELETED (2026-07-15) | 3.1% | Fired when the best move was a capture BY an attacked piece ("cash in a doomed piece"). 90% had best-capture SEE>=0 = a plain WINNING capture, not a salvage — mislabeled. 78% co-fired a sharper tag (Missed Free X / Missed Sacrifice / Mate / Hung); only 15% sole-explain. The genuine SEE<0 salvage cases (~9%) overlap Missed Sacrifice, which names them right. Redundant when right, mislabel when SEE>=0. (Never in taxonomy → neutral in prod.) |
+| **Kingside/Queenside Attack** (all 4: Missed/Allowed × K/Q) | DELETED (2026-07-15) | 2.6% + 1.5% + 0.7% + 0.4% | The `_side_attack` heuristic (pov moves cluster near the enemy king's corner + a check in the line) fired on essentially any sharp attacking line. ALL 4 directions at **2% sole-explain** — 98% co-fire a sharper tag; sole cases were concrete sacs/forks/mates (Rxh2+ Kxh2 Rh8+, Bxh3 gxh3 Qxh3+) those tags own. **SAE check (Sam's question):** the SAE DOES have king-attack features (54 across jr2048), but ALL 54 are covered by a sharper tag (Mate / Attacking Check / Greek Gift / Sacrifice / Discovered / Fork) in their vote distributions — 0 gap. The concept "attack the king" is real and SAE-visible, but it resolves to those sharper tags, NOT to a side-of-board heuristic. Removed `_side_attack`, `kingside_attack_line`, `queenside_attack_line` from `LINE_DETECTORS`. Taxonomy 182→178. |
 | **Failed Pin / Failed Fork / Failed Discovered Attack** | DELETED (2026-07-14) | 2.2% / 1.0% / 2.7% | The whole FAILED direction (`FAILED_OK=set()`). `detect_move` saw the played move's PATTERN, not whether the player attempted the tactic or it backfired because of it. Only 20-27% of fires had the moved piece even recaptured; in the most-favorable subset (capture + recapture) 69% co-fired a material tag that named the real loss, 7/324 sole-explain. Geometry ≠ intent+causation. Deleting left 4% untagged (whose only tag was a false "you failed a tactic" — worse than silence). |
 | (5 outcome catch-alls) | DELETED (GH #29) | — | "Bad/Wrong Capture" etc. were 86-100% co-fire duplicates that mislabeled missed tactics. Replaced by `greedy_capture` (the one real idea mined from them). |
 
@@ -104,11 +105,12 @@ These were removed for cause. Re-adding requires a fresh audit that beats the re
   move wins material cleanly it's Missed Free X; when it's a real SEE<0 sac it's Missed Sacrifice. Lesson:
   audit the tag against the SHARPER tag that already names the move, not just its own internal validity.
 
-## Motif detectors (`LINE_DETECTORS`, 25 → Missed/Allowed twins)
+## Motif detectors (`LINE_DETECTORS`, 23 → Missed/Allowed twins)
 `fork, hangingPiece, sacrifice, xRayAttack, discoveredAttack, doubleCheck, trappedPiece, attraction,
 deflection, intermezzo, interference, skewer, pin, capturingDefender, exposedKing, attackingF2F7,
-kingsideAttack, queensideAttack, clearance, advancedPawn, enPassant, castling*, promotion, underPromotion,
-outpost`. Each fires in a direction: MISSED (best line, pov=mover), ALLOWED ([played]+refutation, pov=opp).
+clearance, advancedPawn, enPassant, castling*, promotion, underPromotion,
+outpost`. (kingsideAttack/queensideAttack DELETED 2026-07-15 — see deleted table.) Each fires in a
+direction: MISSED (best line, pov=mover), ALLOWED ([played]+refutation, pov=opp).
 The FAILED direction (`Failed X` = played move that geometrically made a tactic) is DELETED
 (`FAILED_OK=set()`, 2026-07-14 — it was a geometry catch-all; see deleted table). `castling` is MISSED-ONLY.
 `exposedKing` uses explicit labels (Enemy King Exposed / Exposed King). Mate outranks lesser motifs in the

@@ -39,7 +39,7 @@ NON_DRILLABLE = {
 DIRECTIONAL = [
     "Skewer", "Discovered Attack", "Deflection", "Attraction", "Clearance", "Zwischenzug",
     "Overload", "X-Ray", "Trapped Piece", "Sacrifice", "Capture of Defender", "Hanging Piece",
-    "Kingside Attack", "Queenside Attack", "Promotion", "Underpromotion",
+    "Promotion", "Underpromotion",
     "En Passant", "Castling", "Double Check", "f2/f7 Attack", "Advanced Pawn", "Mate", "Outpost",
 ]
 # Motifs that emit ONLY the "Missed" label — the "Allowed" twin isn't a teachable mistake and the tagger
@@ -60,8 +60,7 @@ BLURB = {
     "Overload": "An overloaded enemy piece could be exploited", "X-Ray": "An x-ray was available",
     "Trapped Piece": "An enemy piece could be trapped", "Sacrifice": "A sound sacrifice was available",
     "Capture of Defender": "Capturing the defender was available", "Hanging Piece": "A piece was hanging",
-    "Exposed King": "The enemy king was exposed", "Kingside Attack": "A kingside attack was available",
-    "Queenside Attack": "A queenside attack was available", "Promotion": "A promotion was available",
+    "Exposed King": "The enemy king was exposed", "Promotion": "A promotion was available",
     "Underpromotion": "An underpromotion was the move", "En Passant": "En passant was the move",
     "Castling": "Castling was the move", "Double Check": "A double check was available",
     "f2/f7 Attack": "An attack on the f2/f7 square was available",

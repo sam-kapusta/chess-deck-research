@@ -134,26 +134,6 @@
       "blurb": "Your move let the opponent: a piece was hanging",
       "drillable": true
     },
-    "Missed Kingside Attack": {
-      "category": "King Safety",
-      "blurb": "A kingside attack was available (you didn't play it)",
-      "drillable": true
-    },
-    "Allowed Kingside Attack": {
-      "category": "King Safety",
-      "blurb": "Your move let the opponent: a kingside attack was available",
-      "drillable": true
-    },
-    "Missed Queenside Attack": {
-      "category": "King Safety",
-      "blurb": "A queenside attack was available (you didn't play it)",
-      "drillable": true
-    },
-    "Allowed Queenside Attack": {
-      "category": "King Safety",
-      "blurb": "Your move let the opponent: a queenside attack was available",
-      "drillable": true
-    },
     "Missed Promotion": {
       "category": "Endgame",
       "blurb": "A promotion was available (you didn't play it)",
@@ -941,8 +921,6 @@
     },
     "King Safety": {
       "members": [
-        "Allowed Kingside Attack",
-        "Allowed Queenside Attack",
         "Allowed Double Check",
         "Allowed f2/f7 Attack",
         "Allowed Pin (to King)",

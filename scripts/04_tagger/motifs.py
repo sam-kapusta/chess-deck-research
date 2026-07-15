@@ -676,36 +676,13 @@ def attacking_f2_f7_line(nodes, pov) -> bool:
     return False
 
 
-def _side_attack(nodes, pov, corner_file, king_files, nb_pieces) -> bool:
-    start = _start_board(nodes)
-    if start is None:
-        return False
-    back_rank = 7 if pov else 0
-    king_square = start.king(not pov)
-    if (not king_square or square_rank(king_square) != back_rank
-            or square_file(king_square) not in king_files
-            or len(start.piece_map()) < nb_pieces
-            or not any(n.board().is_check() for n in U.pov_nodes(nodes, pov))):
-        return False
-    score = 0
-    corner = chess.square(corner_file, back_rank)
-    for node in U.pov_nodes(nodes, pov):
-        corner_dist = square_distance(corner, node.move.to_square)
-        if node.board().is_check():
-            score += 1
-        if U.is_capture(node) and corner_dist <= 3:
-            score += 1
-        elif corner_dist >= 5:
-            score -= 1
-    return score >= 2
-
-
-def kingside_attack_line(nodes, pov) -> bool:
-    return _side_attack(nodes, pov, 7, [6, 7], 20)
-
-
-def queenside_attack_line(nodes, pov) -> bool:
-    return _side_attack(nodes, pov, 0, [0, 1, 2], 18)
+# kingside/queenside_attack + _side_attack REMOVED 2026-07-15. The `_side_attack` heuristic (pov's moves
+# cluster near the enemy king's corner + a check somewhere in the line) fired on essentially ANY sharp
+# attacking line. Audit of all 4 directions (Missed/Allowed × Kingside/Queenside, ~2.6k fires): every one
+# sat at 2% sole-explain — 98% co-fired a sharper tag (Allowed Mate, Missed Sacrifice, Hung X, Missed
+# Fork), and reading the sole cases showed concrete sacs/forks/mates (Rxh2+ Kxh2 Rh8+, Bxh3 gxh3 Qxh3+)
+# those tags already own. "Kingside Attack" is ambient description of a sharp position, not a distinct
+# teachable mistake. Same signature as battery/desperado. See tagger_feature_ledger.md.
 
 
 def clearance_line(nodes, pov) -> bool:
@@ -955,8 +932,7 @@ LINE_DETECTORS = {
     "trappedPiece": trapped_piece_line, "attraction": attraction_line, "deflection": deflection_line,
     "intermezzo": intermezzo_line, "interference": interference_line, "skewer": skewer_line,
     "pin": pin_line, "capturingDefender": capturing_defender_line, "exposedKing": exposed_king_line,
-    "attackingF2F7": attacking_f2_f7_line, "kingsideAttack": kingside_attack_line,
-    "queensideAttack": queenside_attack_line, "clearance": clearance_line,
+    "attackingF2F7": attacking_f2_f7_line, "clearance": clearance_line,
     "advancedPawn": advanced_pawn_line, "enPassant": en_passant_line, "castling": castling_line,
     "promotion": promotion_line, "underPromotion": under_promotion_line, "outpost": outpost_line,
 }
