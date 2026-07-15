@@ -1736,54 +1736,13 @@ def premature_attack(m):
              f"{m.played_san} attacks with only {dev} pieces developed; better to develop with {m.best_san}")]
 
 
-def missed_defensive_resource(m):
-    """Position is under attack (opponent threatens material or mate), a defensive move exists
-    (the best move), but the player plays something that doesn't address the threat. (Was distinguished
-    from the now-deleted 'Ignored Threat'; this is the surviving defensive-miss detector.)"""
-    b = m.board_before
-    pm = _played_move(m); bm = _best_move(m)
-    if pm is None or bm is None or pm == bm:
-        return []
-    # Must be under threat: opponent attacks one of our pieces right now
-    opp = not m.mover
-    under_attack = []
-    for sq, p in b.piece_map().items():
-        if p.color == m.mover and p.piece_type != chess.PAWN and p.piece_type != chess.KING:
-            if b.is_attacked_by(opp, sq) and not b.is_attacked_by(m.mover, sq):
-                under_attack.append((sq, p))
-    if not under_attack and not b.is_check():
-        return []
-    # Best move is defensive: it moves the attacked piece, blocks, or captures the attacker
-    best_defends = False
-    if b.is_check():
-        best_defends = True  # any legal move in check is "defensive"
-    else:
-        for sq, p in under_attack:
-            if bm.from_square == sq:
-                best_defends = True  # moves the threatened piece
-                break
-            if bm.to_square in b.attackers(opp, sq):
-                best_defends = True  # captures an attacker
-                break
-            # Interposes or adds defender
-            if b.is_attacked_by(m.mover, sq) or bm.to_square == sq:
-                best_defends = True
-                break
-    if not best_defends:
-        return []
-    # Played move does NOT defend
-    played_defends = False
-    if b.is_check():
-        played_defends = True  # must address check
-    else:
-        for sq, p in under_attack:
-            if pm.from_square == sq:
-                played_defends = True
-                break
-    if played_defends:
-        return []  # player tried to defend, just picked wrong defense
-    return [("Missed Defensive Resource", "missed",
-             f"under attack; best {m.best_san} defends but played {m.played_san} ignores")]
+# missed_defensive_resource REMOVED 2026-07-15. The missed-direction TWIN of the deleted ignored_threat —
+# same crude is_attacked_by + undefended test ("a piece is attacked, best move defends, played move
+# doesn't"). Audit (2248 fires): 1% sole-explain, and of those sole cases only ~44% had the opponent
+# actually capture (rest = phantom threats the geometric test flagged). 45% co-fired Allowed Hanging Piece,
+# hundreds more Hung X — those name "you left a piece hanging" sharper. The in-check branch fired 0 times.
+# The concept survives via the real hierarchy Hung <Piece> → Allowed Hanging Piece; this was a redundant
+# synonym. See tagger_feature_ledger.md.
 
 
 def missed_faster_mate(m):
@@ -2604,7 +2563,7 @@ ALL_PREDICATES = [
     missed_breakthrough,
     bad_simplification, trade_to_simplify, wrong_king_direction, outside_passer,
     rook_to_open_file_endgame, push_to_promote,
-    pawn_grab_undeveloped, premature_attack, missed_defensive_resource,
+    pawn_grab_undeveloped, premature_attack,
     missed_faster_mate,
     missed_bishop_activity, missed_knight_activity, missed_minor_activity, missed_queen_activity,
     missed_minor_rook_activity, missed_perpetual, missed_stalemate,
