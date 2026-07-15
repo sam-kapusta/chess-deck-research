@@ -93,10 +93,15 @@ These were removed for cause. Re-adding requires a fresh audit that beats the re
 - `missed_{bishop,knight,minor,queen,minor_rook}_activity` — a passive piece could be repositioned.
 
 **Calculation / judgment:**
-- `pawn_grab_undeveloped`, `ignored_threat` (3.6%, AUDIT NEXT — vague-name catch-all candidate),
-  `premature_attack`, `missed_defensive_resource`, `missed_faster_mate`,
-  `missed_desperado` (3.1%, AUDIT NEXT), `missed_pin_exploitation`, `missed_unpinning_resource`,
+- `pawn_grab_undeveloped`, `premature_attack`, `missed_defensive_resource`, `missed_faster_mate`,
+  `missed_desperado` (3.1%, AUDITED KEEP), `missed_pin_exploitation`, `missed_unpinning_resource`,
   `missed_interposition`, `missed_remove_the_guard`.
+- `missed_desperado` — audit outcome **LEAVE** (2026-07-14): mechanically sound (proper null-move+SEE test:
+  89% of "doomed" pieces really lose material if the opponent moves), 335/2199 sole-explain (real unique
+  coverage), teaches a distinct concept ("cash in the doomed piece first"). 3.1% is legit-loud, not a
+  catch-all. Co-tags (Allowed Hanging Piece / Missed Free X) legitimately co-occur — multi-tag is native.
+  (My first probe reported 0% doom — a BUG: SEE was computed on the mover's turn so the opponent couldn't
+  capture. Lesson: don't judge on a metric you haven't sanity-checked.)
 
 ## Motif detectors (`LINE_DETECTORS`, 25 → Missed/Allowed twins)
 `fork, hangingPiece, sacrifice, xRayAttack, discoveredAttack, doubleCheck, trappedPiece, attraction,
