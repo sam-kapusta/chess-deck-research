@@ -1968,43 +1968,13 @@ def missed_overloading(m):
     return []
 
 
-def missed_desperado(m):
-    """A piece is about to be captured (attacked and undefended or losing an exchange), and the
-    best move uses it to capture something first (desperado — cash in before you lose it).
-    The played move doesn't use the doomed piece."""
-    b = m.board_before
-    bm = _best_move(m); pm = _played_move(m)
-    if bm is None or pm is None or bm == pm:
-        return []
-    # Best move must be a capture by a piece that is currently under attack
-    if not b.is_capture(bm):
-        return []
-    from_sq = bm.from_square
-    mover_piece = b.piece_type_at(from_sq)
-    if mover_piece == chess.KING:
-        return []
-    opp = not m.mover
-    # Is the moving piece currently attacked by opponent?
-    if not b.is_attacked_by(opp, from_sq):
-        return []
-    # Is it undefended or would lose the exchange? (attacked by lower-value piece)
-    defenders = b.attackers(m.mover, from_sq)
-    attackers = b.attackers(opp, from_sq)
-    if not attackers:
-        return []
-    # Simple heuristic: piece is "doomed" if attacked and either undefended or attacked by lower-value
-    piece_val = VAL.get(mover_piece, 0)
-    min_attacker_val = min(VAL.get(b.piece_type_at(sq), 9) for sq in attackers)
-    undefended = len(defenders) == 0
-    losing_exchange = min_attacker_val < piece_val
-    if not (undefended or losing_exchange):
-        return []
-    # Played move must NOT be using this same piece (otherwise player saw the desperado, just chose wrong target)
-    if pm.from_square == from_sq:
-        return []
-    pname = PIECE_NAME.get(mover_piece, "piece")
-    return [("Missed Desperado", "missed",
-             f"best {m.best_san} cashes in the doomed {pname.lower()} before losing it")]
+# missed_desperado REMOVED 2026-07-14. It fired when the best move was a capture BY an attacked piece,
+# theory being "cash in a doomed piece before you lose it." Audit (2199 fires): 90% had the best capture at
+# SEE>=0 — i.e. a plain WINNING capture, not a doomed-piece salvage — mislabeled as a desperado. 78% already
+# co-fired a sharper tag (Missed Free X / Missed Sacrifice / Mate / Hung) that named the real move; only 15%
+# were sole-explain, and the genuine give-up-doomed-piece cases (SEE<0, ~9%) overlap Missed Sacrifice, which
+# names them correctly. Redundant when right, mislabel when SEE>=0. Missed Sacrifice owns the real concept.
+# See tagger_feature_ledger.md.
 
 
 def missed_doubled_rooks(m):
@@ -2638,7 +2608,7 @@ ALL_PREDICATES = [
     missed_faster_mate,
     missed_bishop_activity, missed_knight_activity, missed_minor_activity, missed_queen_activity,
     missed_minor_rook_activity, missed_perpetual, missed_stalemate,
-    missed_battery, missed_overloading, missed_desperado, missed_doubled_rooks,
+    missed_battery, missed_overloading, missed_doubled_rooks,
     missed_pin_exploitation, missed_unpinning_resource, missed_interposition,
     missed_remove_the_guard,
     allowed_pawn_capture, allowed_overloading, allowed_doubled_rooks,

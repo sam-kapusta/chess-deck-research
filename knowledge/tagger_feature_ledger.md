@@ -25,6 +25,7 @@ These were removed for cause. Re-adding requires a fresh audit that beats the re
 | **Missed Battery (v1)** | DELETED → REBUILT | 4% | v1 used a broken finder (required the back piece to *directly* attack the target — impossible for a battery). Deleting the concept was wrong; **rebuilt** with correct xray geometry (see ACTIVE table). Lesson: validate a finder on a known-positive before proving absence. |
 | **Allowed Castling** | DELETED (2026-07-14) | 2.3% | Letting the opponent castle is normal chess, never the teachable mistake. 78% had the opponent castle 2-4 plies deep; first-reply cases all had a concrete real error (hung piece / missed tactic) with castling as routine reply. `tagger._MISSED_ONLY_MOTIFS`. |
 | **Ignored Threat** | DELETED (2026-07-14) | 3.6% | Vaguely-defined synonym for the real hierarchy Hung <Piece> → Allowed Hanging Piece. 92% of fires co-fired a sharper material/hang/mate tag that named it better; where it was the sole material signal (162 cases) only 19% actually lost the "threatened" piece — crude is_attacked_by/undefended flagged phantom threats. Redundant when right, wrong when unique. Deleting orphaned 1 corpus position. (Was never in the taxonomy → rendered neutral in prod anyway.) |
+| **Missed Desperado** | DELETED (2026-07-15) | 3.1% | Fired when the best move was a capture BY an attacked piece ("cash in a doomed piece"). 90% had best-capture SEE>=0 = a plain WINNING capture, not a salvage — mislabeled. 78% co-fired a sharper tag (Missed Free X / Missed Sacrifice / Mate / Hung); only 15% sole-explain. The genuine SEE<0 salvage cases (~9%) overlap Missed Sacrifice, which names them right. Redundant when right, mislabel when SEE>=0. (Never in taxonomy → neutral in prod.) |
 | **Failed Pin / Failed Fork / Failed Discovered Attack** | DELETED (2026-07-14) | 2.2% / 1.0% / 2.7% | The whole FAILED direction (`FAILED_OK=set()`). `detect_move` saw the played move's PATTERN, not whether the player attempted the tactic or it backfired because of it. Only 20-27% of fires had the moved piece even recaptured; in the most-favorable subset (capture + recapture) 69% co-fired a material tag that named the real loss, 7/324 sole-explain. Geometry ≠ intent+causation. Deleting left 4% untagged (whose only tag was a false "you failed a tactic" — worse than silence). |
 | (5 outcome catch-alls) | DELETED (GH #29) | — | "Bad/Wrong Capture" etc. were 86-100% co-fire duplicates that mislabeled missed tactics. Replaced by `greedy_capture` (the one real idea mined from them). |
 
@@ -95,14 +96,13 @@ These were removed for cause. Re-adding requires a fresh audit that beats the re
 
 **Calculation / judgment:**
 - `pawn_grab_undeveloped`, `premature_attack`, `missed_defensive_resource`, `missed_faster_mate`,
-  `missed_desperado` (3.1%, AUDITED KEEP), `missed_pin_exploitation`, `missed_unpinning_resource`,
-  `missed_interposition`, `missed_remove_the_guard`.
-- `missed_desperado` — audit outcome **LEAVE** (2026-07-14): mechanically sound (proper null-move+SEE test:
-  89% of "doomed" pieces really lose material if the opponent moves), 335/2199 sole-explain (real unique
-  coverage), teaches a distinct concept ("cash in the doomed piece first"). 3.1% is legit-loud, not a
-  catch-all. Co-tags (Allowed Hanging Piece / Missed Free X) legitimately co-occur — multi-tag is native.
-  (My first probe reported 0% doom — a BUG: SEE was computed on the mover's turn so the opponent couldn't
-  capture. Lesson: don't judge on a metric you haven't sanity-checked.)
+  `missed_pin_exploitation`, `missed_unpinning_resource`, `missed_interposition`, `missed_remove_the_guard`.
+- `missed_desperado` — **DELETED 2026-07-15** (see deleted table). NOTE: a shallower 2026-07-14 pass had
+  marked this LEAVE (the piece really is doomed 89% of the time). The reversal came from auditing the BEST
+  CAPTURE's SEE, not the doomed-ness: 90% of fires have best-capture SEE>=0 = a plain winning capture (not a
+  salvage), and 78% co-fire a sharper tag. "Piece is doomed" ≠ "the lesson is desperado" — when the best
+  move wins material cleanly it's Missed Free X; when it's a real SEE<0 sac it's Missed Sacrifice. Lesson:
+  audit the tag against the SHARPER tag that already names the move, not just its own internal validity.
 
 ## Motif detectors (`LINE_DETECTORS`, 25 → Missed/Allowed twins)
 `fork, hangingPiece, sacrifice, xRayAttack, discoveredAttack, doubleCheck, trappedPiece, attraction,
