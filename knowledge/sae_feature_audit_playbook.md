@@ -107,6 +107,63 @@ Run `python3 scripts/04_tagger/regression.py` (must stay green). Measure the cor
 "Missed Prophylaxis: had a one-move threat" → useless. "Rd1 covers d4, preventing the opponent's d4" →
 the player learns the actual plan. Evidence strings should name the concrete move/square/plan.
 
+### 10. The delete-vs-gate-vs-keep discriminant (2026-07-15 audit — the single most useful rule).
+Rank a tag's fires by **sole-explain %** (how often it's the ONLY explain tag on a move) and judge by
+*mechanism type*:
+- **DELETE** a FUZZY heuristic at **≤2% sole-explain.** Fuzzy = side-of-board proximity (`_side_attack`),
+  `is_attacked_by`-without-SEE (ignored_threat, missed_defensive_resource), "moving piece is attacked"
+  (desperado). At ≤2% sole it's redundant when right (a sharper tag names it) and wrong when unique
+  (phantom: reading the sole cases, the opponent doesn't actually win the flagged thing). Killed this way:
+  Allowed Battery, Kingside/Queenside Attack (×4), Ignored Threat, Missed Defensive Resource, Missed
+  Desperado.
+- **KEEP** a PRECISE motif even at **4-8% sole-explain**, even if it co-fires a sharper result tag. Precise
+  = real pin/discovery/sacrifice/tempo-push geometry in the ACTUAL line. Multi-tag is native; the mechanism
+  is a distinct lesson (Allowed Discovered Attack co-fires Hung Queen, but "you allowed a discovery" teaches
+  something Hung Queen doesn't). Kept: Allowed Sacrifice (81% real material investment), Allowed Discovered
+  Attack, Allowed Pin, Missed Tempo Push (11% sole), Pawn Move Exposed King (8% sole).
+- **GATE** when a real concept has an incidental-fire class: name the chess reason, never a rate cap.
+  Castling → best MOVE is the castle (not castling appearing later in the line). Open File → best move is
+  a QUIET rook move (capture/check that lands on an open file is a tactic). Premature Trade → played
+  capture SEE≥0 (a material-losing trade is greedy/sac's job). Outpost → first pov move quietly makes it.
+
+### 11. "Best move IS a capture" ≠ "the lesson is material" — use SEE over the whole recapture line, not piece values.
+`capture_or_exchange` mislabeled combination-initiating captures: Q takes a defended knight where the
+recapturer is itself re-won nets +3 by SEE, but queen(9)>knight(3) made the value-heuristic call it a
+"sacrifice" and stay silent (95 corpus positions with NO tag). Piece-value comparison can't see the
+follow-up recapture; SEE can. Rule: SEE<0 = sacrifice, SEE≥1 = wins material (Missed Free X), SEE==0 =
+even trade. Same lesson killed `missed_desperado`: 90% of its fires were SEE≥0 (plain winning captures,
+not doomed-piece salvage). **Judge a material tag by SEE-over-the-line, not raw piece values.**
+
+### 12. "First pov move IS the motif" gates the whole class of "motif appears somewhere in the line" catch-alls.
+The motif detectors (`detect_line`) fired if the motif appeared ANYWHERE in the best/refutation line.
+For a *positional* motif (castling, outpost) that means it fired on any line that eventually castles —
+73% of Missed Castling had the best MOVE be something else, castling 2-4 plies deep. Gate: `povn[0]` (the
+first pov move) IS the motif. Killed the incidental 73%/51% while keeping the real "you should have
+castled/outposted NOW" residue. (Tactical motifs like fork/sac are fine deep — they ARE the punishment.)
+
+### 13. "The SAE has a feature for X" ≠ "this detector is the right way to tag X." Verify against the corpus, not the labels.
+Sam asked "aren't there kingside-attack SAE features?" — yes, 54. But all 54 were **covered by a sharper
+tag** (Mate / Attacking Check / Greek Gift / Sacrifice) in their vote distributions. The concept was real
+and SAE-visible, but it resolved to those sharper tags, not to a side-of-board heuristic. Deleting the
+coarse motif lost no SAE-validated concept. Corollary: low per-feature `tagger_covered_frac` on a THEME
+(passed-pawn/endgame-tempo, 22 low-covered features) looked like a gap, but running those endgames against
+the corpus showed 95% coverage — the low SAE coverage was the hard multi-move TAIL, not an unnamed concept.
+**A single hand-picked counterexample (or a direct corpus check) beats a feature-label impression.**
+
+### 14. Validate a finder against a known-positive before trusting its emptiness. ← the battery lesson.
+I "proved" battery isn't a real concept with a finder that required the battery's back piece to DIRECTLY
+attack the target — impossible by definition (the front piece blocks the line). It matched 0 real batteries,
+and I read that as "no batteries exist." Sam gave one FEN and it collapsed. Rebuilt with correct xray
+geometry → 1.0% corpus, a genuine detector. **When proving "X isn't in the data," first confirm the
+detector fires on a hand-picked X.** (See `feedback_validate_finder_before_proving_absence` in memory.)
+
+### 15. Coverage is good (94%); the uncovered 6% is the ceiling, not a to-do list.
+The "what are we missing" audit: 6% of real mistakes get no explain tag, ~91% are quiet best-moves. The ONE
+nameable cluster was **development** (opening) → built `missed_development` (349 uncovered → real tag, 1.9%,
+13% sole). Everything else uncovered is multi-move king/pawn tempo + diffuse middlegame subtlety — no static
+single-position gate (why `missed_stalemate` has ~0 corpus residue; the eval knows, no rule can name it
+without a tablebase/search). Don't manufacture tags for formless mass — describe it (info axes) or leave it.
+
 ---
 
 ## Descriptive axes (characterize a feature even when it's not a coaching lesson)

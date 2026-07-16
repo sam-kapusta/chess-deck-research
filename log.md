@@ -1,5 +1,37 @@
 # Chess Lab — Log
 
+## 2026-07-15 — tagger audit finished (mid-rate + coverage) + shipped to prod
+
+Continued the wide audit into the mid-rate tier, ran a coverage-gap audit, shipped the whole batch.
+
+**Deleted (catch-alls / redundant synonyms):** Missed Desperado (90% SEE≥0 = plain winning captures, not
+salvage; Missed Sacrifice owns the real ones), Kingside/Queenside Attack ×4 (the `_side_attack` heuristic
+fires on any sharp line; 2% sole-explain; 54 SAE king-attack features ALL covered by sharper tags),
+Missed Defensive Resource (twin of ignored_threat — 1% sole, half phantom).
+
+**Gated:** Premature Trade → SEE≥0 (was co-firing greedy/unsound-sac on material-losing trades). Prior
+session: Castling/Open File/Outpost.
+
+**Added:** Missed Stalemate (defensive swindle, ~0 corpus but crisp/exact — Sam's #68 pick) and
+**Missed Development** — the biggest real coverage gap. Coverage audit: only 6% of mistakes uncovered,
+~91% quiet best-moves; development (played a pawn/queen move with a minor still home) was the one
+nameable cluster (349 uncovered). 1.9% corpus, 13% sole. Everything else uncovered = substrate ceiling
+(multi-move king/pawn tempo, no static gate).
+
+**Audited KEEP:** Allowed Sacrifice (81% real material investment), Allowed Discovered Attack, Allowed
+Pin, Allowed Advanced Pawn, Pawn Move Exposed King, Missed Tempo Push — precise motifs, real residue.
+
+**Shipped:** re-vendored via `ship_tagger.py`, `cdk deploy ChessCoachStack` → tag_moments Lambda LIVE
+(verified: Missed Development returns, Kingside Attack gone). ECS worker image NOT rebuilt (GH #42).
+Also fixed a product bug: Review opening name now uses the PGN `[Opening]` header (was recomputing a
+shallower name via detectOpening, mismatching the /openings page).
+
+**Method lessons** distilled into `knowledge/sae_feature_audit_playbook.md` lessons 10-15 (the
+delete/gate/keep discriminant by sole-explain% × fuzzy-vs-precise; SEE-over-the-line not piece values;
+first-pov-move gate; SAE-feature-exists ≠ this-detector-is-right; validate-finder-before-proving-absence;
+coverage is the ceiling not a to-do). Per-detector status in `knowledge/tagger_feature_ledger.md`.
+Tagger now ~66 predicates + 21 motifs, regression 182, all committed.
+
 ## 2026-07-14 — wide SAE-tagger audit: loudest tags (delete / gate / leave)
 
 Ran the SAE-feature-audit playbook wide over the loudest tagger fires, reading actual FENs (not Opus
