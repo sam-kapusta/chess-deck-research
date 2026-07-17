@@ -235,6 +235,18 @@ def greedy_capture(m):
     # bishop-for-pawn, SEE ~-2: sheds material. Was the #45 conflation — 11 confident-wrong SAE features.)
     if U.static_exchange_eval(b, pm) < 0:
         return []
+    # Greed = grabbing material you KEEP (poisoned-pawn style). If the opponent recaptures on the same
+    # square (i.e., it's a TRADE), that's premature_trade's job, not ours. Check: does the refutation's
+    # first move land on the same square we captured on? (Sam, 2026-07-17: "greedy is more like poisoned
+    # pawn — capturing for free. dxc5 bxc5 is a trade, not greed.")
+    if m.refutation_san and len(m.refutation_san) >= 1:
+        after = b.copy(); after.push(pm)
+        try:
+            reply = after.parse_san(m.refutation_san[0])
+            if reply.to_square == pm.to_square:
+                return []  # opponent recaptures → trade, not a grab
+        except Exception:
+            pass
     victim = b.piece_at(pm.to_square)
     pname = PIECE_NAME[victim.piece_type].lower() if victim else "pawn"   # None = en passant -> pawn
     return [("Greedy Capture", "played",
