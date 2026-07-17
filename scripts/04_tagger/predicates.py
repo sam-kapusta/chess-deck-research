@@ -981,9 +981,19 @@ def missed_passed_pawn(m):
     if b.piece_type_at(bm.from_square) != chess.PAWN:
         return []
     after = b.copy(); after.push(bm)
-    if U.is_passed_pawn(after, bm.to_square, m.mover):
-        return [("Missed Passed Pawn", "missed", f"best {m.best_san} makes/advances a passed pawn")]
-    return []
+    if not U.is_passed_pawn(after, bm.to_square, m.mover):
+        return []
+    # The passer must SURVIVE: if the opponent's reply in the best line immediately captures it
+    # (e.g. bxa5 Rxa5 — the a5 "passer" lives for one ply), there is no passed pawn to miss.
+    # (Sam, 2026-07-17 #65: move 26 bxa5 tagged Missed Passed Pawn but the pawn is recaptured at once.)
+    if len(m.best_line_san) >= 2:
+        try:
+            reply = after.parse_san(m.best_line_san[1])
+            if reply.to_square == bm.to_square and after.is_capture(reply):
+                return []
+        except Exception:
+            pass
+    return [("Missed Passed Pawn", "missed", f"best {m.best_san} makes/advances a passed pawn")]
 
 
 def rook_behind_passer(m):
