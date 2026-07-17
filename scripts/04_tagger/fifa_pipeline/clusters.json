@@ -1,404 +1,393 @@
 {
- "_note": "Mid-level clusters. 6 groups, 35 clusters, ~140 features. Locked groups: Off/Def/Calc/Pos/Openings/Endgame. Openings is dynamic (per-player game history), not tagger-based.",
- "clusters": [
-  {
-   "name": "Missed Pins",
-   "group": "Offensive Tactics",
-   "scoreable": true,
-   "features": [
-    "Missed Pin (to King)",
-    "Missed Pin",
-    "Missed Pin (to Queen)",
-    "Missed Pin (to Rook)"
-   ]
-  },
-  {
-   "name": "Missed King Attacks",
-   "group": "Offensive Tactics",
-   "scoreable": true,
-   "features": [
-    "Enemy King Exposed",
-    "Missed Kingside Attack",
-    "Missed Queenside Attack",
-    "Missed f2/f7 Attack"
-   ]
-  },
-  {
-   "name": "Missed Combinative Motifs",
-   "group": "Offensive Tactics",
-   "scoreable": true,
-   "features": [
-    "Missed Deflection",
-    "Missed Clearance",
-    "Missed Attraction",
-    "Missed Interference",
-    "Missed Zwischenzug",
-    "Missed Trapped Rook",
-    "Missed Trapped Knight",
-    "Missed Trapped Bishop",
-    "Missed Trapped Queen",
-    "Missed Overloading",
-    "Missed Battery",
-    "Missed Doubled Rooks"
-   ]
-  },
-  {
-   "name": "Missed Forks",
-   "group": "Offensive Tactics",
-   "scoreable": true,
-   "features": [
-    "Missed Fork",
-    "Missed Combination \u2192 Fork"
-   ]
-  },
-  {
-   "name": "Missed Sacrifices",
-   "group": "Offensive Tactics",
-   "scoreable": true,
-   "features": [
-    "Missed Sacrifice"
-   ]
-  },
-  {
-   "name": "Missed Discovered Attacks & Skewers",
-   "group": "Offensive Tactics",
-   "scoreable": true,
-   "features": [
-    "Missed Discovered Attack",
-    "Missed Double Check",
-    "Missed Skewer",
-    "Missed X-Ray"
-   ]
-  },
-  {
-   "name": "Missed Forced Mates",
-   "group": "Offensive Tactics",
-   "scoreable": true,
-   "features": [
-    "Missed Mate",
-    "Missed Back-Rank Mate",
-    "Missed Arabian Mate",
-    "Missed Anastasia's Mate",
-    "Missed Hook Mate",
-    "Missed Smothered Mate",
-    "Missed Dovetail Mate",
-    "Missed Double Bishop Mate",
-    "Missed Faster Mate"
-   ]
-  },
-  {
-   "name": "Allowed Pins",
-   "group": "Defensive Tactics",
-   "scoreable": true,
-   "features": [
-    "Allowed Pin",
-    "Allowed Pin (to King)",
-    "Allowed Pin (to Queen)",
-    "Allowed Pin (to Rook)"
-   ]
-  },
-  {
-   "name": "Allowed Combinative Motifs",
-   "group": "Defensive Tactics",
-   "scoreable": true,
-   "features": [
-    "Allowed Deflection",
-    "Allowed Clearance",
-    "Allowed Attraction",
-    "Allowed Interference",
-    "Allowed Zwischenzug",
-    "Allowed Trapped Rook",
-    "Allowed Trapped Knight",
-    "Allowed Trapped Bishop",
-    "Allowed Trapped Queen",
-    "Allowed Battery",
-    "Allowed Overloading"
-   ]
-  },
-  {
-   "name": "Allowed Forks",
-   "group": "Defensive Tactics",
-   "scoreable": true,
-   "features": [
-    "Allowed Fork",
-    "Allowed Combination \u2192 Fork"
-   ]
-  },
-  {
-   "name": "Allowed Mates",
-   "group": "Defensive Tactics",
-   "scoreable": true,
-   "features": [
-    "Allowed Mate",
-    "Allowed Back-Rank Mate",
-    "Allowed Arabian Mate",
-    "Allowed Hook Mate",
-    "Allowed Anastasia's Mate",
-    "Allowed Smothered Mate",
-    "Allowed Dovetail Mate",
-    "Allowed Double Bishop Mate",
-    "Allowed Boden's Mate"
-   ]
-  },
-  {
-   "name": "Allowed King Attacks",
-   "group": "Defensive Tactics",
-   "scoreable": true,
-   "features": [
-    "Allowed Kingside Attack",
-    "Allowed Queenside Attack",
-    "Allowed f2/f7 Attack"
-   ]
-  },
-  {
-   "name": "Allowed Discovered Attacks & Skewers",
-   "group": "Defensive Tactics",
-   "scoreable": true,
-   "features": [
-    "Allowed Discovered Attack",
-    "Allowed Double Check",
-    "Allowed Skewer",
-    "Allowed X-Ray",
-    "Allowed Doubled Rooks"
-   ]
-  },
-  {
-   "name": "Allowed Sacrifices",
-   "group": "Defensive Tactics",
-   "scoreable": true,
-   "features": [
-    "Allowed Sacrifice"
-   ]
-  },
-  {
-   "name": "Threat Awareness",
-   "group": "Defensive Tactics",
-   "scoreable": true,
-   "features": [
-    "Ignored Threat",
-    "Missed Defensive Resource"
-   ]
-  },
-  {
-   "name": "Greedy Captures",
-   "group": "Calculation",
-   "scoreable": true,
-   "features": [
-    "Greedy Capture",
-    "Pawn Grab While Undeveloped"
-   ]
-  },
-  {
-   "name": "Backfired Tactics",
-   "group": "Calculation",
-   "scoreable": true,
-   "features": [
-    "Failed Discovered Attack",
-    "Failed Pin",
-    "Failed Fork"
-   ]
-  },
-  {
-   "name": "Hung Pieces",
-   "group": "Calculation",
-   "scoreable": true,
-   "features": [
-    "Hung Knight",
-    "Hung Bishop",
-    "Hung Queen",
-    "Hung Rook",
-    "Hung Material",
-    "Allowed Hanging Piece"
-   ]
-  },
-  {
-   "name": "Missed Free Material",
-   "group": "Calculation",
-   "scoreable": true,
-   "features": [
-    "Missed Free Pawn",
-    "Missed Free Knight",
-    "Missed Free Bishop",
-    "Missed Free Rook",
-    "Missed Free Queen",
-    "Missed Hanging Piece",
-    "Missed Capture of Defender",
-    "Missed Capture (Pawn)"
-   ]
-  },
-  {
-   "name": "Premature Trades",
-   "group": "Calculation",
-   "scoreable": true,
-   "features": [
-    "Premature Trade"
-   ]
-  },
-  {
-   "name": "Tactical Resources",
-   "group": "Calculation",
-   "scoreable": true,
-   "features": [
-    "Missed Desperado"
-   ]
-  },
-  {
-   "name": "King Safety & Castling",
-   "group": "Positional",
-   "scoreable": true,
-   "features": [
-    "Pawn Move Exposed King",
-    "Exposed King",
-    "Lost Castling Rights",
-    "Missed Castling",
-    "Allowed Castling",
-    "Premature Attack"
-   ]
-  },
-  {
-   "name": "Pawn Advances & Tempo",
-   "group": "Positional",
-   "scoreable": true,
-   "features": [
-    "Missed Tempo Push",
-    "Missed Advanced Pawn",
-    "Allowed Advanced Pawn"
-   ]
-  },
-  {
-   "name": "Exchanges",
-   "group": "Positional",
-   "scoreable": true,
-   "features": [
-    "Missed Bishop-Knight Exchange",
-    "Missed Pawn Trade",
-    "Missed Knight Exchange",
-    "Missed Bishop Exchange",
-    "Missed Queen Exchange",
-    "Missed Rook Exchange"
-   ]
-  },
-  {
-   "name": "Prophylaxis",
-   "group": "Positional",
-   "scoreable": true,
-   "features": [
-    "Missed Prophylaxis"
-   ]
-  },
-  {
-   "name": "Pawn Breaks",
-   "group": "Positional",
-   "scoreable": true,
-   "features": [
-    "Missed Pawn Break"
-   ]
-  },
-  {
-   "name": "Outposts",
-   "group": "Positional",
-   "scoreable": true,
-   "features": [
-    "Missed Outpost",
-    "Allowed Outpost"
-   ]
-  },
-  {
-   "name": "Open Files",
-   "group": "Positional",
-   "scoreable": true,
-   "features": [
-    "Missed Open File"
-   ]
-  },
-  {
-   "name": "Pawn Structure Weaknesses",
-   "group": "Positional",
-   "scoreable": true,
-   "features": [
-    "Created Backward Pawn",
-    "Created Isolated Pawn",
-    "Created Doubled Pawn"
-   ]
-  },
-  {
-   "name": "King & Pawn Endgames",
-   "group": "Endgame",
-   "features": [
-    "Lost the Opposition",
-    "Wrong Pawn Race",
-    "Missed King Activity",
-    "Missed Passed Pawn",
-    "Missed Connected Passers",
-    "Missed Outside Passer",
-    "Missed Protected Passer",
-    "Missed Square Rule",
-    "Wrong King Direction",
-    "Missed Blockade",
-    "Bad Simplification",
-    "Missed Trade to Simplify",
-    "Missed Promotion",
-    "Missed Underpromotion",
-    "Missed Push to Promote",
-    "Missed En Passant",
-    "Allowed Promotion",
-    "Allowed Underpromotion",
-    "Allowed En Passant",
-    "Missed Breakthrough"
-   ],
-   "scoreable": true
-  },
-  {
-   "name": "Rook Endgames",
-   "group": "Endgame",
-   "features": [
-    "Missed Rook to 7th",
-    "Missed Rook Cut-Off",
-    "Missed Active Rook",
-    "Missed Rook to Open File",
-    "Rook Behind Passer",
-    "Missed King Activity"
-   ],
-   "scoreable": true
-  },
-  {
-   "name": "Queen Endgames",
-   "group": "Endgame",
-   "features": [
-    "Missed Queen Activity",
-    "Missed Perpetual",
-    "Missed King Activity"
-   ],
-   "scoreable": true
-  },
-  {
-   "name": "Minor-Piece Endgames",
-   "group": "Endgame",
-   "features": [
-    "Missed Bishop Activity",
-    "Missed Knight Activity",
-    "Missed King Activity"
-   ],
-   "scoreable": true
-  },
-  {
-   "name": "Rook & Minor Endgames",
-   "group": "Endgame",
-   "features": [
-    "Missed Rook Activity (R+Minor)",
-    "Missed Minor Activity",
-    "Missed King Activity"
-   ],
-   "scoreable": true
-  },
-  {
-   "name": "Heavy-Piece Endgames",
-   "group": "Endgame",
-   "features": [
-    "Missed Queen Activity",
-    "Missed King Activity"
-   ],
-   "scoreable": true
-  }
- ]
+  "_note": "Mid-level clusters. 6 groups, 35 clusters, ~140 features. Locked groups: Off/Def/Calc/Pos/Openings/Endgame. Openings is dynamic (per-player game history), not tagger-based.",
+  "clusters": [
+    {
+      "name": "Missed Pins",
+      "group": "Offensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Missed Pin (to King)",
+        "Missed Pin",
+        "Missed Pin (to Queen)",
+        "Missed Pin (to Rook)"
+      ]
+    },
+    {
+      "name": "Missed King Attacks",
+      "group": "Offensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Enemy King Exposed",
+        "Missed f2/f7 Attack",
+        "Missed Attacking Check",
+        "Missed Greek Gift"
+      ]
+    },
+    {
+      "name": "Missed Combinative Motifs",
+      "group": "Offensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Missed Deflection",
+        "Missed Clearance",
+        "Missed Attraction",
+        "Missed Interference",
+        "Missed Zwischenzug",
+        "Missed Trapped Rook",
+        "Missed Trapped Knight",
+        "Missed Trapped Bishop",
+        "Missed Trapped Queen",
+        "Missed Overloading",
+        "Missed Doubled Rooks",
+        "Missed Battery"
+      ]
+    },
+    {
+      "name": "Missed Forks",
+      "group": "Offensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Missed Fork",
+        "Missed Combination \u2192 Fork"
+      ]
+    },
+    {
+      "name": "Missed Sacrifices",
+      "group": "Offensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Missed Sacrifice"
+      ]
+    },
+    {
+      "name": "Missed Discovered Attacks & Skewers",
+      "group": "Offensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Missed Discovered Attack",
+        "Missed Double Check",
+        "Missed Skewer",
+        "Missed X-Ray"
+      ]
+    },
+    {
+      "name": "Missed Forced Mates",
+      "group": "Offensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Missed Mate",
+        "Missed Back-Rank Mate",
+        "Missed Arabian Mate",
+        "Missed Anastasia's Mate",
+        "Missed Hook Mate",
+        "Missed Smothered Mate",
+        "Missed Dovetail Mate",
+        "Missed Double Bishop Mate",
+        "Missed Faster Mate"
+      ]
+    },
+    {
+      "name": "Allowed Pins",
+      "group": "Defensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Allowed Pin",
+        "Allowed Pin (to King)",
+        "Allowed Pin (to Queen)",
+        "Allowed Pin (to Rook)"
+      ]
+    },
+    {
+      "name": "Allowed Combinative Motifs",
+      "group": "Defensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Allowed Deflection",
+        "Allowed Clearance",
+        "Allowed Attraction",
+        "Allowed Interference",
+        "Allowed Zwischenzug",
+        "Allowed Trapped Rook",
+        "Allowed Trapped Knight",
+        "Allowed Trapped Bishop",
+        "Allowed Trapped Queen",
+        "Allowed Overloading"
+      ]
+    },
+    {
+      "name": "Allowed Forks",
+      "group": "Defensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Allowed Fork",
+        "Allowed Combination \u2192 Fork"
+      ]
+    },
+    {
+      "name": "Allowed Mates",
+      "group": "Defensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Allowed Mate",
+        "Allowed Back-Rank Mate",
+        "Allowed Arabian Mate",
+        "Allowed Hook Mate",
+        "Allowed Anastasia's Mate",
+        "Allowed Smothered Mate",
+        "Allowed Dovetail Mate",
+        "Allowed Double Bishop Mate",
+        "Allowed Boden's Mate"
+      ]
+    },
+    {
+      "name": "Allowed King Attacks",
+      "group": "Defensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Allowed f2/f7 Attack"
+      ]
+    },
+    {
+      "name": "Allowed Discovered Attacks & Skewers",
+      "group": "Defensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Allowed Discovered Attack",
+        "Allowed Double Check",
+        "Allowed Skewer",
+        "Allowed X-Ray",
+        "Allowed Doubled Rooks"
+      ]
+    },
+    {
+      "name": "Allowed Sacrifices",
+      "group": "Defensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Allowed Sacrifice"
+      ]
+    },
+    {
+      "name": "Greedy Captures",
+      "group": "Calculation",
+      "scoreable": true,
+      "features": [
+        "Greedy Capture"
+      ]
+    },
+    {
+      "name": "Hung Pieces",
+      "group": "Calculation",
+      "scoreable": true,
+      "features": [
+        "Hung Knight",
+        "Hung Bishop",
+        "Hung Queen",
+        "Hung Rook",
+        "Hung Material",
+        "Allowed Hanging Piece"
+      ]
+    },
+    {
+      "name": "Missed Free Material",
+      "group": "Calculation",
+      "scoreable": true,
+      "features": [
+        "Missed Free Pawn",
+        "Missed Free Knight",
+        "Missed Free Bishop",
+        "Missed Free Rook",
+        "Missed Free Queen",
+        "Missed Hanging Piece",
+        "Missed Capture of Defender",
+        "Missed Capture (Pawn)"
+      ]
+    },
+    {
+      "name": "Premature Trades",
+      "group": "Calculation",
+      "scoreable": true,
+      "features": [
+        "Premature Trade"
+      ]
+    },
+    {
+      "name": "King Safety & Castling",
+      "group": "Positional",
+      "scoreable": true,
+      "features": [
+        "Pawn Move Exposed King",
+        "Exposed King",
+        "Lost Castling Rights",
+        "Missed Castling",
+        "Premature Attack",
+        "Recapture Exposed King"
+      ]
+    },
+    {
+      "name": "Pawn Advances & Tempo",
+      "group": "Positional",
+      "scoreable": true,
+      "features": [
+        "Missed Tempo Push",
+        "Missed Advanced Pawn",
+        "Allowed Advanced Pawn"
+      ]
+    },
+    {
+      "name": "Exchanges",
+      "group": "Positional",
+      "scoreable": true,
+      "features": [
+        "Missed Bishop-Knight Exchange",
+        "Missed Pawn Trade",
+        "Missed Knight Exchange",
+        "Missed Bishop Exchange",
+        "Missed Queen Exchange",
+        "Missed Rook Exchange"
+      ]
+    },
+    {
+      "name": "Prophylaxis",
+      "group": "Positional",
+      "scoreable": true,
+      "features": [
+        "Missed Prophylaxis"
+      ]
+    },
+    {
+      "name": "Pawn Breaks",
+      "group": "Positional",
+      "scoreable": true,
+      "features": [
+        "Missed Pawn Break"
+      ]
+    },
+    {
+      "name": "Outposts",
+      "group": "Positional",
+      "scoreable": true,
+      "features": [
+        "Missed Outpost",
+        "Allowed Outpost"
+      ]
+    },
+    {
+      "name": "Open Files",
+      "group": "Positional",
+      "scoreable": true,
+      "features": [
+        "Missed Open File"
+      ]
+    },
+    {
+      "name": "Pawn Structure Weaknesses",
+      "group": "Positional",
+      "scoreable": true,
+      "features": [
+        "Created Backward Pawn",
+        "Created Isolated Pawn",
+        "Created Doubled Pawn"
+      ]
+    },
+    {
+      "name": "King & Pawn Endgames",
+      "group": "Endgame",
+      "features": [
+        "Lost the Opposition",
+        "Wrong Pawn Race",
+        "Missed King Activity",
+        "Missed Passed Pawn",
+        "Missed Connected Passers",
+        "Missed Outside Passer",
+        "Missed Protected Passer",
+        "Missed Square Rule",
+        "Wrong King Direction",
+        "Missed Blockade",
+        "Bad Simplification",
+        "Missed Trade to Simplify",
+        "Missed Promotion",
+        "Missed Underpromotion",
+        "Missed Push to Promote",
+        "Missed En Passant",
+        "Allowed Promotion",
+        "Allowed Underpromotion",
+        "Allowed En Passant",
+        "Missed Breakthrough",
+        "Missed Stalemate"
+      ],
+      "scoreable": true
+    },
+    {
+      "name": "Rook Endgames",
+      "group": "Endgame",
+      "features": [
+        "Missed Rook to 7th",
+        "Missed Rook Cut-Off",
+        "Missed Active Rook",
+        "Missed Rook to Open File",
+        "Rook Behind Passer",
+        "Missed King Activity"
+      ],
+      "scoreable": true
+    },
+    {
+      "name": "Queen Endgames",
+      "group": "Endgame",
+      "features": [
+        "Missed Queen Activity",
+        "Missed Perpetual",
+        "Missed King Activity"
+      ],
+      "scoreable": true
+    },
+    {
+      "name": "Minor-Piece Endgames",
+      "group": "Endgame",
+      "features": [
+        "Missed Bishop Activity",
+        "Missed Knight Activity",
+        "Missed King Activity"
+      ],
+      "scoreable": true
+    },
+    {
+      "name": "Rook & Minor Endgames",
+      "group": "Endgame",
+      "features": [
+        "Missed Rook Activity (R+Minor)",
+        "Missed Minor Activity",
+        "Missed King Activity"
+      ],
+      "scoreable": true
+    },
+    {
+      "name": "Heavy-Piece Endgames",
+      "group": "Endgame",
+      "features": [
+        "Missed Queen Activity",
+        "Missed King Activity"
+      ],
+      "scoreable": true
+    },
+    {
+      "name": "Backfired Tactics",
+      "group": "Calculation",
+      "scoreable": true,
+      "features": [
+        "Wrong Check",
+        "Pointless Check",
+        "Unsound Sacrifice"
+      ]
+    },
+    {
+      "name": "Development",
+      "group": "Positional",
+      "scoreable": true,
+      "features": [
+        "Missed Development",
+        "Pawn Grab While Undeveloped"
+      ]
+    }
+  ]
 }
