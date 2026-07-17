@@ -333,9 +333,17 @@ def x_ray_line(nodes, pov) -> bool:
     return False
 
 
+def discovered_check_line(nodes, pov) -> bool:
+    """The discovered attack IS a check — a piece moves and REVEALS a check from a piece behind it.
+    Sharper than a plain discovered attack (the revealed line hits the KING), so it gets its own label.
+    (Sam, 2026-07-17: c5+ discovers the Qb3 check on the g8 king.)"""
+    return _discovered_check(nodes, pov)
+
+
 def discovered_attack_line(nodes, pov) -> bool:
+    # A discovered CHECK is its own (sharper) motif — don't also fire the generic discovered-attack tag.
     if _discovered_check(nodes, pov):
-        return True
+        return False
     for node in U.pov_nodes(nodes, pov)[1:]:
         if U.is_capture(node):
             between = SquareSet.between(node.move.from_square, node.move.to_square)
@@ -941,7 +949,8 @@ def named_mate_line(nodes, pov) -> Optional[str]:
 # motif key -> line detector
 LINE_DETECTORS = {
     "fork": fork_line, "hangingPiece": hanging_piece_line, "sacrifice": sacrifice_line,
-    "xRayAttack": x_ray_line, "discoveredAttack": discovered_attack_line, "doubleCheck": double_check_line,
+    "xRayAttack": x_ray_line, "discoveredAttack": discovered_attack_line,
+    "discoveredCheck": discovered_check_line, "doubleCheck": double_check_line,
     "trappedPiece": trapped_piece_line, "attraction": attraction_line, "deflection": deflection_line,
     "intermezzo": intermezzo_line, "interference": interference_line, "skewer": skewer_line,
     "pin": pin_line, "capturingDefender": capturing_defender_line, "exposedKing": exposed_king_line,

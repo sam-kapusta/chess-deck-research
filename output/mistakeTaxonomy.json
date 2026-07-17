@@ -34,6 +34,16 @@
       "blurb": "Your move let the opponent: a discovered attack was available",
       "drillable": true
     },
+    "Missed Discovered Check": {
+      "category": "Missed Tactic",
+      "blurb": "A discovered check was available (you didn't play it)",
+      "drillable": true
+    },
+    "Allowed Discovered Check": {
+      "category": "Allowed Tactic",
+      "blurb": "Your move let the opponent: a discovered check was available",
+      "drillable": true
+    },
     "Missed Deflection": {
       "category": "Missed Tactic",
       "blurb": "A deflection was available (you didn't play it)",

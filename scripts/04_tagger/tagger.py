@@ -32,6 +32,7 @@ DIR_PREFIX = {"missed": "Missed", "allowed": "Allowed", "failed": "Failed",
 # motif key -> human label (combined with the direction prefix)
 MOTIF_LABEL = {
     "fork": "Fork", "pin": "Pin", "skewer": "Skewer", "discoveredAttack": "Discovered Attack",
+    "discoveredCheck": "Discovered Check",
     "deflection": "Deflection", "attraction": "Attraction", "clearance": "Clearance",
     "interference": "Interference", "intermezzo": "Zwischenzug", "overloading": "Overload",
     "xRayAttack": "X-Ray", "trappedPiece": "Trapped Piece", "sacrifice": "Sacrifice",
@@ -244,9 +245,9 @@ def _motif_tags(m):
 # "you missed mate in 3", not "you missed a fork" — the fork is just a step inside the mating net.
 # We keep Mate + named mates + Exposed King / attacks (they describe the mating attack), and we never
 # touch the OTHER direction or position/material tags.
-_MATE_OUTRANKS = {"Fork", "Combination → Fork", "Pin", "Skewer", "Discovered Attack", "Deflection",
-                  "Attraction", "Clearance", "Interference", "Zwischenzug", "Overload", "X-Ray",
-                  "Capture of Defender", "Hanging Piece", "Sacrifice", "Trapped Piece"}
+_MATE_OUTRANKS = {"Fork", "Combination → Fork", "Pin", "Skewer", "Discovered Attack", "Discovered Check",
+                  "Deflection", "Attraction", "Clearance", "Interference", "Zwischenzug", "Overload",
+                  "X-Ray", "Capture of Defender", "Hanging Piece", "Sacrifice", "Trapped Piece"}
 
 def _suppress_lesser_under_mate(tags):
     """If a direction produced 'Missed/Allowed Mate', drop the lesser tactical motifs in that

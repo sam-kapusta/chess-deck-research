@@ -37,7 +37,7 @@ NON_DRILLABLE = {
 
 # Directional motifs (Missed/Allowed). Pin and Fork are parametrized separately below.
 DIRECTIONAL = [
-    "Skewer", "Discovered Attack", "Deflection", "Attraction", "Clearance", "Zwischenzug",
+    "Skewer", "Discovered Attack", "Discovered Check", "Deflection", "Attraction", "Clearance", "Zwischenzug",
     "Overload", "X-Ray", "Trapped Piece", "Sacrifice", "Capture of Defender", "Hanging Piece",
     "Promotion", "Underpromotion",
     "En Passant", "Castling", "Double Check", "f2/f7 Attack", "Advanced Pawn", "Mate", "Outpost",
@@ -55,6 +55,7 @@ BLURB = {
     "Fork": "A fork was available",
     "Combination → Fork": "A short combination ending in a fork was available",
     "Skewer": "A skewer was available", "Discovered Attack": "A discovered attack was available",
+    "Discovered Check": "A discovered check was available",
     "Deflection": "A deflection was available", "Attraction": "An attraction was available",
     "Clearance": "A clearance was available", "Zwischenzug": "An in-between move was available",
     "Overload": "An overloaded enemy piece could be exploited", "X-Ray": "An x-ray was available",
