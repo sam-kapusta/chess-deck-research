@@ -127,6 +127,7 @@ def build_taxonomy():
     add("Wrong Check", "You checked, but a different check was stronger — calculate all your candidate checks")
     add("Missed Zwischenzug", "An in-between move (check) should come before your recapture")
     add("Missed Greek Gift", "A bishop sacrifice on the castled king (Greek Gift) was winning")
+    add("Missed Sacrifice", "A piece sacrifice near the king opens a winning attack")
     add("Hung Material", "Your move dropped material to a one-move capture")
     for p in ["Knight", "Bishop", "Rook", "Queen"]:
         add(f"Hung {p}", f"Your move left your {p.lower()} to be captured next move")

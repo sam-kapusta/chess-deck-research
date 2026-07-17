@@ -425,6 +425,9 @@ def categorize(label, direction=None):
     # Missed Greek Gift = a missed bishop sacrifice cracking the king (offensive tactic).
     if l == "missed greek gift":
         return "Missed Tactic"
+    # Missed Sacrifice = a broader king-zone sac the player missed (also offensive tactic).
+    if l == "missed sacrifice":
+        return "Missed Tactic"
 
     # Threat awareness / Active Defense — you ignored a threat or failed to USE a defensive resource
     # (unpin, interpose, remove the attacker, counter-sac, cross-check). These are the "missed defense"

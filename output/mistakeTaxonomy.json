@@ -106,7 +106,7 @@
     },
     "Missed Sacrifice": {
       "category": "Missed Tactic",
-      "blurb": "A sound sacrifice was available (you didn't play it)",
+      "blurb": "A piece sacrifice near the king opens a winning attack",
       "drillable": true
     },
     "Allowed Sacrifice": {

@@ -424,6 +424,34 @@ def missed_greek_gift(m):
              f"the bishop sacrifice {m.best_san} cracks the king; you played {m.played_san}")]
 
 
+def missed_sacrifice(m):
+    """The BEST move is a capture with negative SEE (a material sacrifice) that the player missed.
+    Any piece sacrifice that the engine says is winning — attack sacs, exchange sacs, positional sacs.
+
+    Gate: best is a capture, SEE < 0 (genuinely sheds material on the square). The tagger's global
+    win_drop entry gate ensures the sac is SOUND (the engine says it's best by a mistake-sized margin).
+    Does NOT fire when missed_greek_gift already covers it (bishop + check + adjacent to king).
+
+    (Sam, 2026-07-17: "does it have to be near king?" — no. A sacrifice is a sacrifice regardless of
+    where it lands. Exchange sacs, positional sacs, attacking sacs all count.)"""
+    b = m.board_before
+    bm = _best_move(m); pm = _played_move(m)
+    if bm is None or pm is None or bm == pm:
+        return []
+    if not b.is_capture(bm):
+        return []
+    if U.static_exchange_eval(b, bm) >= 0:        # must shed material — otherwise it's just a good capture
+        return []
+    # Don't fire if missed_greek_gift already covers this (bishop + check + adjacent to king)
+    pc = b.piece_at(bm.from_square)
+    ek = b.king(not m.mover)
+    if pc and pc.piece_type == chess.BISHOP and b.gives_check(bm) and ek is not None and chess.square_distance(bm.to_square, ek) <= 1:
+        return []  # greek gift owns it
+    pname = PIECE_NAME[pc.piece_type].lower() if pc else "piece"
+    return [("Missed Sacrifice", "missed",
+             f"the {pname} sacrifice {m.best_san} was winning; you played {m.played_san}")]
+
+
 def missed_zwischenzug(m):
     """The PLAYED move is a capture, but the BEST line inserts a forcing CHECK first and captures the
     SAME target a move later — a zwischenzug (in-between move) the player skipped by capturing
@@ -2670,7 +2698,7 @@ def missed_stalemate(m):
 # ---------- registry ----------
 ALL_PREDICATES = [
     phase, game_state, conversion_outcome, blunder_severity, move_difficulty, capture_or_exchange, greedy_capture, unsound_sacrifice, pointless_check,
-    missed_attacking_check, wrong_check, missed_greek_gift, missed_zwischenzug, recapture_exposes_king, hung_material,
+    missed_attacking_check, wrong_check, missed_greek_gift, missed_sacrifice, missed_zwischenzug, recapture_exposes_king, hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
     endgame_type, backward_pawn,
     missed_king_activity, lost_opposition, missed_passed_pawn, rook_behind_passer,
