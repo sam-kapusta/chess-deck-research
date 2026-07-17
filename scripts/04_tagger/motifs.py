@@ -547,10 +547,29 @@ def skewer_line(nodes, pov) -> bool:
     return False
 
 
+def _fresh_pin_index(nodes, pov):
+    """Like _first_fire_index(is_pin) but rejects a pin whose PINNING piece is captured on the very next
+    ply — that's a trade artifact, not an exploitable pin (e.g. Qxc1 momentarily pins the e1 rook to g1,
+    but Rxc1 removes the queen). (Sam, 2026-07-17: move 20 f6 got a phantom Missed Pin off a first-rank
+    alignment during a forced queen trade.)"""
+    povn = U.pov_nodes(nodes, pov)
+    for i, node in enumerate(povn[:-1]):
+        if U.moved_piece_type(node) is KING:
+            continue
+        if is_pin(node.parent.board(), node.move):
+            # node.move.to_square is where the pinning piece now sits. If the opponent's reply captures
+            # it, the pin dissolves — skip.
+            child = node.variations[0] if node.variations else None
+            if child is not None and child.move.to_square == node.move.to_square:
+                continue
+            return i
+    return None
+
+
 def pin_line(nodes, pov) -> bool:
     # cook's pin-prevents-attack/escape (king-pin tactics) OR a fresh relative/absolute pin move
     return (_pin_prevents_attack(nodes, pov) or _pin_prevents_escape(nodes, pov)
-            or _first_fire_index(nodes, pov, is_pin) is not None)
+            or _fresh_pin_index(nodes, pov) is not None)
 
 
 def pin_target(nodes, pov):
@@ -588,6 +607,22 @@ def _preexisting_pins(nodes, pov):
     return pinned
 
 
+def _pinner_captured_next_ply(node, pinned_sq, pov) -> bool:
+    """True if the pov piece delivering the pin on `pinned_sq` gets captured on the very next ply.
+    Such a "pin" is an artifact of a capture/trade sequence (e.g. Qxc1 momentarily pins the e1 rook to
+    g1, but Rxc1 removes the queen next move) — not an exploitable pin. (Sam, 2026-07-17: move 20 f6
+    tagged a phantom Missed Pin off a first-rank alignment during a forced queen trade.)"""
+    board = node.board()
+    pinners = [s for s in board.attackers(pov, pinned_sq)
+               if board.piece_at(s) and board.piece_at(s).piece_type in (chess.BISHOP, chess.ROOK, chess.QUEEN)]
+    if not pinners:
+        return False
+    child = node.variations[0] if node.variations else None
+    if child is None:
+        return False
+    return child.move.to_square in pinners   # the opponent's reply captures the pinning piece
+
+
 def _pin_prevents_attack(nodes, pov) -> bool:
     preexisting = _preexisting_pins(nodes, pov)
     for node in U.pov_nodes(nodes, pov):
@@ -603,6 +638,8 @@ def _pin_prevents_attack(nodes, pov) -> bool:
                 if (attacked and attacked.color == pov and attack not in pin_dir
                     and (U.values[attacked.piece_type] > U.values[piece.piece_type]
                          or U.is_hanging(board, attacked, attack))):
+                    if _pinner_captured_next_ply(node, square, pov):
+                        continue   # pin dissolves next move — a trade artifact, not exploitable
                     return True
     return False
 
