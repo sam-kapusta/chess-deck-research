@@ -777,7 +777,20 @@ def clearance_line(nodes, pov) -> bool:
                         # on ANY quiet line-opening move (a safe Rf4-f3 that incidentally vacates a
                         # diagonal a bishop later uses). Dropped; require sacrifice-or-check instead.
                         if U.is_in_bad_spot(prev.board(), prev_move.to_square) or prev.board().is_check():
-                            return True
+                            # RE-OCCUPATION guard: when the follower merely LANDS ON the square the
+                            # clearer vacated (Rxe6 then Rd8-e8 back to e8), that's the natural follow-up
+                            # to a sac — not a clearance tactic — UNLESS the lander creates a threat from
+                            # there (check / attacks a non-pawn piece). A follower that travels THROUGH
+                            # the cleared square (Ne6+ clearing d4 for Ba1-h8) is real clearance geometry
+                            # and needs no extra threat. (Sam, 2026-07-17 #67.)
+                            if prev_move.from_square == node.move.to_square:
+                                if board.is_check():
+                                    return True
+                                if any((pc := board.piece_at(t)) and pc.color != pov and pc.piece_type != PAWN
+                                       for t in board.attacks(node.move.to_square)):
+                                    return True
+                            else:
+                                return True
     return False
 
 
