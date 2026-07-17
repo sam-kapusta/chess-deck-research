@@ -1292,6 +1292,8 @@ def rook_to_seventh(m):
         return []
     if chess.square_rank(bm.from_square) == seventh:
         return []  # rook already on 7th, just sliding along it
+    if b.is_capture(bm):
+        return []  # capturing on the 7th isn't "placing the rook" — it's a tactic, not the endgame concept
     return [("Missed Rook to 7th", "missed", f"best {m.best_san} brings the rook to the 7th rank")]
 
 
