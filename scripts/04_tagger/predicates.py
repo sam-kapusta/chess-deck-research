@@ -539,6 +539,8 @@ def hung_material(m):
     # Rxd3 hangs the queen, settles -1; hung_material was silent.)
     peak_victim = None
     opp_promo_gain = 0                       # material the OPPONENT gains by PROMOTING in the line
+    mover_max_lost = 0                        # value of the biggest piece the MOVER loses in the line
+    opp_max_lost = 0                          # value of the biggest piece the OPPONENT loses in the line
     opp = not m.mover
     for i, san in enumerate(m.refutation_san):
         try:
@@ -551,6 +553,13 @@ def hung_material(m):
             cap_victim = vic.piece_type if vic is not None else chess.PAWN
             if i == 0:
                 first_victim = cap_victim
+            # Track the biggest piece EACH side loses over the line — the exchange imbalance. When the
+            # mover (bb.turn == opp means the opponent is capturing = the MOVER loses a piece) loses a
+            # bigger piece than the opponent does, it's an unfavorable trade ("Lost <Piece> in Exchange").
+            if bb.turn == opp:
+                mover_max_lost = max(mover_max_lost, VAL.get(cap_victim, 0))
+            else:
+                opp_max_lost = max(opp_max_lost, VAL.get(cap_victim, 0))
         # A promotion by the OPPONENT inflates material_diff by (promoted piece − pawn) without you
         # having HUNG anything — you lost a PAWN RACE. Track that gain so we can tell "hung a piece"
         # (a capture of your material) apart from "let a passer queen" (a different, endgame lesson).
@@ -595,6 +604,18 @@ def hung_material(m):
         pname = PIECE_NAME[named]
         return [(f"Hung {pname}", "hung",
                  f"the refutation wins your {pname.lower()} ({peak_lost} pts at worst, {net_lost} net over line)")]
+    # LOST <PIECE> IN EXCHANGE: your piece was captured and you got compensation back (small net loss,
+    # 1-2), but you traded a BIGGER piece for a smaller one — the classic "losing the exchange" (rook for
+    # minor) or a queen downgraded to rook+minor. Distinct from a HUNG piece (net ≈ full value, little
+    # back) and from an EVEN trade (same-size pieces, net ~0, owned by allowed_pawn_capture). Signature:
+    # the mover loses a strictly bigger piece than the opponent does, and the net loss is a real but
+    # small deficit. (Sam, 2026-07-17: move 22 h6 → ...Qxc1+ Bxc1, queen for rook+bishop, net 1 = "Lost
+    # Queen in Exchange"; issue #63 rook-for-bishop = "Lost Rook in Exchange".)
+    if (named is not None and mover_max_lost > opp_max_lost
+            and mover_max_lost >= VAL[chess.ROOK] and 1 <= net_lost <= 2):
+        pname = PIECE_NAME[named]
+        return [(f"Lost {pname} in Exchange", "allowed",
+                 f"the refutation trades your {pname.lower()} down for less ({net_lost} net over line)")]
     if immediate_lost >= 2 or peak_lost >= 2:
         return [("Hung Material", "hung",
                  f"the refutation wins material ({peak_lost} pts at worst, {net_lost} net over line)")]

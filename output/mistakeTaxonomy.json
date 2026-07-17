@@ -594,6 +594,16 @@
       "blurb": "Your move left your queen to be captured next move",
       "drillable": true
     },
+    "Lost Rook in Exchange": {
+      "category": "Trading",
+      "blurb": "Your rook was traded down for less than its value",
+      "drillable": true
+    },
+    "Lost Queen in Exchange": {
+      "category": "Trading",
+      "blurb": "Your queen was traded down for less than its value",
+      "drillable": true
+    },
     "Exposed King": {
       "category": "King Safety",
       "blurb": "Your move left your own king exposed",
@@ -989,7 +999,9 @@
         "Missed Rook Exchange",
         "Missed Queen Exchange",
         "Missed Bishop-Knight Exchange",
-        "Missed Pawn Trade"
+        "Missed Pawn Trade",
+        "Lost Rook in Exchange",
+        "Lost Queen in Exchange"
       ],
       "blurb": "A favorable or even trade was the move"
     },

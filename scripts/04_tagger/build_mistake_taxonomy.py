@@ -132,6 +132,11 @@ def build_taxonomy():
     add("Hung Material", "Your move dropped material to a one-move capture")
     for p in ["Knight", "Bishop", "Rook", "Queen"]:
         add(f"Hung {p}", f"Your move left your {p.lower()} to be captured next move")
+    # Lost <piece> in Exchange — the piece was captured but you got compensation back; you traded a
+    # bigger piece down for less (queen for rook+minor, rook for a minor = "the exchange"). A real but
+    # small deficit — distinct from a clean hang and from an even trade.
+    for p in ["Rook", "Queen"]:
+        add(f"Lost {p} in Exchange", f"Your {p.lower()} was traded down for less than its value")
     # Exposed king — explicit labels (no Missed/Allowed prefix; reads as a positional state).
     add("Exposed King", "Your move left your own king exposed")
     add("Enemy King Exposed", "The enemy king was exposed and you didn't press the attack")
