@@ -1193,9 +1193,22 @@ def missed_prophylaxis(m):
     if bm.to_square == threat_sq:
         return [("Missed Prophylaxis", "missed",
                  f"{m.best_san} stops the opponent's {threat_san}; instead you allowed it")]
-    # best move controls the threat square
+    # best move controls the threat square. BUT "controls" must mean the opponent can't go there SAFELY —
+    # covering a square where the opponent's piece is pawn-defended prevents nothing (e.g. Qa5 "covers" a4
+    # but Na4 is defended by b3, so Qxa4 loses the queen). Verify by playing the threat anyway after the
+    # best move and checking SEE: if landing there still doesn't lose the opponent material, it's not
+    # prevented. (Sam, 2026-07-17: Qa5 was mislabeled prophylaxis for the pawn-defended Na4 outpost.)
     after_best = b.copy(); after_best.push(bm)
     if after_best.is_attacked_by(m.mover, threat_sq) and not b.is_attacked_by(m.mover, threat_sq):
+        try:
+            threat_after_best = after_best.parse_san(threat_san)
+        except Exception:
+            return []
+        # If the opponent can still play the threat move and it's NOT a losing move (SEE >= 0), the
+        # square isn't really contested — the "coverage" is nominal. Real prophylaxis makes the threat
+        # square unsafe (SEE < 0 for the opponent going there).
+        if threat_after_best in after_best.legal_moves and U.static_exchange_eval(after_best, threat_after_best) >= 0:
+            return []
         return [("Missed Prophylaxis", "missed",
                  f"{m.best_san} covers {chess.square_name(threat_sq)}, preventing the opponent's {threat_san}")]
     return []
