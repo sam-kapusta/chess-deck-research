@@ -133,7 +133,13 @@ def _pin_target(board: chess.Board, move: chess.Move):
                         # piece isn't actually stuck — it leaves with tempo and wins. (Sam, 2026-07-12:
                         # Qd3 "pinning" Nd4→Rd8 fired Failed Pin, but a QUEEN pinning knight-to-rook is
                         # not a pin — Ne2+ just unpins with a winning check. A BISHOP pinning N→R is.)
-                        if p.piece_type == chess.KING or U.king_values[pt] <= U.king_values[p.piece_type]:
+                        # QUEEN-TO-QUEEN gate: if the pinning piece is the SAME VALUE as the back piece
+                        # (queen pins to queen), the pin doesn't win material — the front piece CAN move
+                        # because trading queens is equal. Only positional pressure, not a tactic. Only
+                        # fire when the pinner is STRICTLY less than the back piece, or the back is the
+                        # king (absolute pin, always real). (Sam, 2026-07-17 #64: Qg4 pins Nf3→Qd1;
+                        # queen-to-queen = no material gain, shouldn't be "Allowed Pin to Queen".)
+                        if p.piece_type == chess.KING or U.king_values[pt] < U.king_values[p.piece_type]:
                             return p.piece_type   # pinned `first` against more-valuable `p`
                     break
             r += dr; f += df
