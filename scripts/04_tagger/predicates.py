@@ -541,6 +541,8 @@ def hung_material(m):
     opp_promo_gain = 0                       # material the OPPONENT gains by PROMOTING in the line
     mover_max_lost = 0                        # value of the biggest piece the MOVER loses in the line
     opp_max_lost = 0                          # value of the biggest piece the OPPONENT loses in the line
+    mover_lost_counts = {}                     # piece_type -> count the MOVER loses over the line
+    opp_lost_counts = {}                       # piece_type -> count the OPPONENT loses over the line
     opp = not m.mover
     for i, san in enumerate(m.refutation_san):
         try:
@@ -558,8 +560,10 @@ def hung_material(m):
             # bigger piece than the opponent does, it's an unfavorable trade ("Lost <Piece> in Exchange").
             if bb.turn == opp:
                 mover_max_lost = max(mover_max_lost, VAL.get(cap_victim, 0))
+                mover_lost_counts[cap_victim] = mover_lost_counts.get(cap_victim, 0) + 1
             else:
                 opp_max_lost = max(opp_max_lost, VAL.get(cap_victim, 0))
+                opp_lost_counts[cap_victim] = opp_lost_counts.get(cap_victim, 0) + 1
         # A promotion by the OPPONENT inflates material_diff by (promoted piece − pawn) without you
         # having HUNG anything — you lost a PAWN RACE. Track that gain so we can tell "hung a piece"
         # (a capture of your material) apart from "let a passer queen" (a different, endgame lesson).
@@ -599,11 +603,21 @@ def hung_material(m):
     # Examples that fail: queen for 2 rooks (net≈-1), rook for rook (net=1), rook for B+N (net≈-1).
     # (Sam, 2026-07-17: "rook taken but I take their rook back = not hung rook." Also "queen for B+N
     # = hung queen" and "2 rooks for queen = not hung queen." Fixes #58.)
-    named = peak_victim if peak_victim is not None else first_victim
-    if named is not None and VAL.get(named, 0) >= peak_lost - 1 and net_lost >= 3:
+    # NET VICTIM: the most valuable piece type the MOVER lost that the OPPONENT did NOT also lose (a
+    # rook-for-rook trade cancels; the leftover piece is what's genuinely gone). This beats the transient
+    # peak_victim, which latches onto a momentary worst point even when that piece is recaptured in an
+    # even trade. (Sam, 2026-07-17: move 23 Qd7 → Rxc8+ Qxc8 (rook trade) Qxb6 (bishop taken) — peak
+    # said "Hung Rook" off the transient Rxc8+, but the rook was recaptured; the BISHOP is the net loss.)
+    net_victim = None
+    for pt in (chess.QUEEN, chess.ROOK, chess.BISHOP, chess.KNIGHT, chess.PAWN):
+        if mover_lost_counts.get(pt, 0) > opp_lost_counts.get(pt, 0):
+            net_victim = pt
+            break
+    named = net_victim if net_victim is not None else (peak_victim if peak_victim is not None else first_victim)
+    if named is not None and VAL.get(named, 0) >= net_lost - 1 and net_lost >= 3:
         pname = PIECE_NAME[named]
         return [(f"Hung {pname}", "hung",
-                 f"the refutation wins your {pname.lower()} ({peak_lost} pts at worst, {net_lost} net over line)")]
+                 f"the refutation wins your {pname.lower()} ({net_lost} pts net over the line)")]
     # LOST <PIECE> IN EXCHANGE: your piece was captured and you got compensation back (small net loss,
     # 1-2), but you traded a BIGGER piece for a smaller one — the classic "losing the exchange" (rook for
     # minor) or a queen downgraded to rook+minor. Distinct from a HUNG piece (net ≈ full value, little
