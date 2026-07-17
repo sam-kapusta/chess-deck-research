@@ -1055,12 +1055,13 @@ def missed_pawn_break(m):
             if after.piece_type_at(atk) == chess.PAWN:
                 creates_tension = True
                 break
-    # A capture only counts as a pawn break if it's pawn-takes-PAWN (or en passant). pawn-takes-PIECE
-    # is winning material, not a structural break — it was 53% of capture-fires, mislabeling "grab the
-    # hanging bishop" as "Missed Pawn Break". Let capture_or_exchange name those. (GH #28-class fix, Sam.)
+    # A pawn break is an ADVANCE that CREATES tension — not the capture that RESOLVES it. A capture
+    # (pawn takes pawn) is a trade, not a break. The break is the moment you push c5 attacking d4,
+    # not the moment you play cxd4. (Sam, 2026-07-17: per chess.com, "a pawn move that attacks one of
+    # the opponent's pawns" — every example is an advance creating an attack, never a capture resolving
+    # it. bxa5 was wrongly tagged Missed Pawn Break — it's a capture, not a break.)
     if b.is_capture(bm):
-        if b.is_en_passant(bm) or (b.piece_at(bm.to_square) and b.piece_at(bm.to_square).piece_type == chess.PAWN):
-            creates_tension = True
+        return []
     if not creates_tension:
         return []
     # Name the break by WHERE IT LANDS (its own file), not by the enemy king's side. Files a-c (0-2) =
