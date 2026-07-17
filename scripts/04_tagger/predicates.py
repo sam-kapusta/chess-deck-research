@@ -866,12 +866,21 @@ def backward_pawn(m):
     # square is controlled by an enemy pawn (can't advance). Direction depends on color.
     fwd = 1 if m.mover == chess.WHITE else -1
     neighbors_behind = False
+    neighbors_ahead = False
     for nf in (tf - 1, tf + 1):
         for nr in files.get(nf, []):
             # "behind or level" relative to advance direction
             if (m.mover == chess.WHITE and nr <= tr) or (m.mover == chess.BLACK and nr >= tr):
                 neighbors_behind = True
+            else:
+                neighbors_ahead = True
     if neighbors_behind:
+        return []
+    # A BACKWARD pawn LAGS BEHIND its neighbors — so it needs at least one friendly pawn on an adjacent
+    # file that has ADVANCED past it. With NO adjacent-file pawns at all, the pawn is ISOLATED, not
+    # backward (the two are mutually exclusive). (Sam, 2026-07-17: move 10 exd5 → an isolated d-pawn was
+    # ALSO tagged Created Backward Pawn; a pawn can't be both.)
+    if not neighbors_ahead:
         return []
     stop = chess.square(tf, tr + fwd) if 0 <= tr + fwd <= 7 else None
     if stop is not None and after.is_attacked_by(not m.mover, stop):
@@ -1880,6 +1889,12 @@ def premature_attack(m):
         return []
     dev = _development_count(b, m.mover)
     if dev >= 4:
+        return []
+    # A CAPTURE is not a "premature attack" — it's grabbing material (owned by pawn_grab_undeveloped /
+    # greedy_capture). Premature attack = a NON-capturing aggressive advance while underdeveloped.
+    # (Sam, 2026-07-17: move 10 exd5 is a recapture, was mislabeled Premature Attack + overlapped
+    # Pawn Grab While Undeveloped.)
+    if b.is_capture(pm):
         return []
     # Is the played move "attacking"? Piece moves toward enemy king half, or pawn storms
     piece_type = b.piece_type_at(pm.from_square)
