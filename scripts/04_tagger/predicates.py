@@ -1049,12 +1049,15 @@ def missed_pawn_break(m):
             creates_tension = True
     if not creates_tension:
         return []
-    # determine the type of break
-    opp_king = b.king(not m.mover)
-    if opp_king is not None and abs(to_f - chess.square_file(opp_king)) <= 2:
-        kind = "kingside" if chess.square_file(opp_king) >= 4 else "queenside"
-        return [("Missed Pawn Break", "missed", f"best {m.best_san} = {kind} pawn storm")]
-    return [("Missed Pawn Break", "missed", f"best {m.best_san} = pawn break creating tension")]
+    # Name the break by WHERE IT LANDS (its own file), not by the enemy king's side. Files a-c (0-2) =
+    # queenside, d-e (3-4) = central, f-h (5-7) = kingside. (Sam, 2026-07-17: e5 (file e, central advance)
+    # was mislabeled "kingside pawn storm" because the old code keyed on opp_king_file >= 4, and a king
+    # still on e8 reads as file 4. A central pawn break is not a kingside storm.)
+    if to_f <= 2:
+        return [("Missed Pawn Break", "missed", f"best {m.best_san} = queenside pawn break")]
+    if to_f >= 5:
+        return [("Missed Pawn Break", "missed", f"best {m.best_san} = kingside pawn storm")]
+    return [("Missed Pawn Break", "missed", f"best {m.best_san} = central pawn break")]
 
 
 def missed_tempo_push(m):
