@@ -542,10 +542,16 @@ def hung_material(m):
         return []
     # how much is gone after the opponent's FIRST reply (immediate vs delayed).
     immediate_lost = start_diff - diffs[1] if len(diffs) > 1 else (start_diff - diffs[0])
-    # Name the hung piece: prefer the peak victim (the biggest piece the opponent won), else the first-
-    # reply victim, when that piece's value ~ the peak loss. Else generic "Hung Material".
+    # Name the hung piece: "Hung <Piece>" means you lost that piece and didn't get adequate
+    # compensation. Gate: net_lost >= 3 (at least a minor piece's worth stayed lost — anything less
+    # means the opponent paid nearly as much to get it, which is a trade/exchange, not a hang).
+    # Examples that pass: queen for nothing (net=9), queen for rook (net=4), queen for B+N (net=3),
+    #   rook for nothing (net=5), rook for pawn (net=4).
+    # Examples that fail: queen for 2 rooks (net≈-1), rook for rook (net=1), rook for B+N (net≈-1).
+    # (Sam, 2026-07-17: "rook taken but I take their rook back = not hung rook." Also "queen for B+N
+    # = hung queen" and "2 rooks for queen = not hung queen." Fixes #58.)
     named = peak_victim if peak_victim is not None else first_victim
-    if named is not None and VAL.get(named, 0) >= peak_lost - 1:
+    if named is not None and VAL.get(named, 0) >= peak_lost - 1 and net_lost >= 3:
         pname = PIECE_NAME[named]
         return [(f"Hung {pname}", "hung",
                  f"the refutation wins your {pname.lower()} ({peak_lost} pts at worst, {net_lost} net over line)")]

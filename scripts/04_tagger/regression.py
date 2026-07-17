@@ -212,9 +212,13 @@ def run():
         # PEAK-LOSS: queen hung MID-line for partial compensation. move 18 Qd3, Ne2+ Rxe2 Rxd3 (queen
         # gone, -6 at worst) Rxe8+ Kd7 Rae1 (rook back, nets -1). End-of-line saw only -1 (pawn) and
         # stayed silent; peak-loss + end>=1 catches the real Hung Queen. (Sam, 2026-07-12.)
-        ("hung queen with partial recovery = Hung Queen",
+        # Queen captured (Rxd3) BUT mover recaptures a rook (Rxe8+) → net=1 (only a pawn lost net).
+        # With net>=3 gate, this is NOT "Hung Queen" — it's generic "Hung Material" (the queen loss
+        # was largely compensated by the rook recapture). Sam's rule: if you got back enough that the
+        # net is small, the piece wasn't truly "hung." (2026-07-17, #58.)
+        ("queen taken but rook recaptured (net=1) = Hung Material not Hung Queen",
          "2krr3/ppp2ppp/8/2q5/3n4/2P2B1P/PPQ2PP1/R3R1K1 w - - 1 18",
-         "c2d3", ["Ne2+", "Rxe2", "Rxd3", "Rxe8+", "Kd7", "Rae1"], "Hung Queen"),
+         "c2d3", ["Ne2+", "Rxe2", "Rxd3", "Rxe8+", "Kd7", "Rae1"], "Hung Material"),
         # PROMOTION RACE != hung material (Sam, 2026-07-13). Opponent's passer queens in the refutation;
         # the +8 swing is a LOST PAWN RACE (endgame technique), NOT a hung piece. Must NOT fire —
         # the pawn-endgame fragments own it. (Was mislabeled Hung Material / even Hung Queen, swallowing
