@@ -2185,10 +2185,18 @@ def _king_is_castled(board, color):
 def missed_remove_the_guard(m):
     """Best move captures (an EVEN trade — defended target) a MINOR piece that DEFENDS the enemy
     CASTLED king's ring, stripping a defender off the king; the played move doesn't. The classic
-    'remove the defender of the castled king' (e.g. Bxf6 taking the knight that guards h7/g8). Tightened
-    to avoid over-fire: minor-piece victim only (not queen/rook/random material), king must be castled
-    (not opening/endgame), and the capture must not be a check (those are forcing tactics, named
-    elsewhere)."""
+    'remove the defender of the castled king' (e.g. Bxf6 taking the knight that guards h7/g8).
+
+    CONCEPT GATE (2026-07-17 audit, Sam's game review): "remove the guard" is an OFFENSIVE pattern —
+    you strip a defender BECAUSE you have pieces bearing on that king. Without this, 60% of fires were
+    defensive trades where the mover had zero attackers near the opponent's king after the exchange
+    (e.g. Bxd3 to neutralize a piece that threatens YOUR side, not to weaken the opponent's king).
+    Gate: after the exchange (capture + recapture), the mover must still have ≥1 non-pawn piece
+    attacking the opponent's king ring. This separates "I'm attacking your king, removing its defender"
+    (the real lesson) from "I'm trading off a piece that threatens me" (a defensive exchange).
+
+    Other tightening (pre-existing): minor-piece victim only, king must be castled, not a check, not
+    endgame."""
     if _is_endgame(m):
         return []
     b = m.board_before
@@ -2222,6 +2230,24 @@ def missed_remove_the_guard(m):
     if not (chess.SquareSet(guards) - still_guarded):
         return []
     if pm.to_square == victim_sq:
+        return []
+    # OFFENSIVE PRESSURE GATE: after the exchange (capture + opponent's likely recapture), does the
+    # mover still have non-pawn pieces attacking the opponent's king ring? If not, this is a defensive
+    # trade, not "remove the guard to enable an attack." (2026-07-17: 60% of fires had 0 attackers.)
+    # Simulate the recapture (opponent takes back with lowest-value piece on that square).
+    post = after.copy()
+    recaptures = [mv for mv in post.legal_moves if post.is_capture(mv) and mv.to_square == victim_sq]
+    if recaptures:
+        recaptures.sort(key=lambda mv: VAL.get(post.piece_type_at(mv.from_square), 9))
+        post.push(recaptures[0])
+    # Count mover's non-pawn/king pieces attacking the opponent's king ring AFTER the exchange.
+    opp_ring = _king_ring(post, opp)
+    attackers = sum(
+        1 for sq, p in post.piece_map().items()
+        if p.color == m.mover and p.piece_type not in (chess.PAWN, chess.KING)
+        and (post.attacks(sq) & opp_ring)
+    )
+    if attackers < 1:
         return []
     return [("Missed Remove the Guard", "missed",
              f"best {m.best_san} removes a defender of the castled king")]

@@ -607,8 +607,13 @@ def run():
          "e8f8", "b8c6", PR.missed_interposition, None),
         # POS remove-the-guard: Black Kg8 castled, Nf6 guards king-ring (g8/h7). White Bg5xf6 (even
         # trade, f6 defended by g7) strips the guard; played a3 doesn't. Fires Missed Remove the Guard.
-        ("trade off the defender of the castled king", "r2q1rk1/ppp2ppp/5n2/6B1/8/8/PPP2PPP/R2Q1RK1 w - - 0 1",
-         "a2a3", "g5f6", PR.missed_remove_the_guard, "Missed Remove the Guard"),
+        # Old POS case (Bxf6 gxf6 opens the g-file) no longer fires: after the exchange,
+        # White has 0 pieces attacking Black's king ring (Qd1+Ra1 don't reach it yet). The exploitation
+        # is a NEXT-MOVE idea (Rg1/Qd4), not immediate pressure — so the offensive-pressure gate
+        # correctly blocks it. This is a "Missed Bishop Exchange" case, not "Remove the Guard."
+        # (2026-07-17: gate kills 60% of false fires that were defensive trades, accepts losing this.)
+        ("Bxf6 opens g-file but no immediate attacker → NOT remove-the-guard anymore", "r2q1rk1/ppp2ppp/5n2/6B1/8/8/PPP2PPP/R2Q1RK1 w - - 0 1",
+         "a2a3", "g5f6", PR.missed_remove_the_guard, None),
         # NEG: a capture far from the enemy king strips no king-guard -> must NOT fire.
         ("capture away from king is not remove-the-guard", "r2q1rk1/ppp2ppp/8/3n4/3N4/8/PPP2PPP/R2Q1RK1 w - - 0 1",
          "a2a3", "d4d5", PR.missed_remove_the_guard, None),
