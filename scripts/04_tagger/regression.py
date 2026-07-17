@@ -769,10 +769,9 @@ def run():
         # Pawn Break NEG: best exd5 captures a BISHOP — material grab, not a structural break. Must NOT fire.
         ("pawn break NEG: pawn takes piece", PR.missed_pawn_break,
          "4k3/8/8/3b4/4P3/8/8/4K3 w - - 0 1", "e1e2", "e4d5", "exd5", [], 300, None),
-        # Pawn Break POS: best exd5 captures a PAWN — a real break. Uses a middlegame position (rooks
-        # present) because pawn endgames are excluded (the lesson there is endgame technique, not "break").
+        # Pawn Break POS: best exd5 captures a PAWN — a real break. Must still fire.
         ("pawn break POS: pawn takes pawn", PR.missed_pawn_break,
-         "r3k2r/8/8/3p4/4P3/8/8/R3K2R w KQkq - 0 1", "e1d1", "e4d5", "exd5", [], 120, "Missed Pawn Break"),
+         "4k3/8/8/3p4/4P3/8/8/4K3 w - - 0 1", "e1e2", "e4d5", "exd5", [], 120, "Missed Pawn Break"),
         # Prophylaxis NEG: best move is a capture (Bxd5) — winning material, not quiet prevention. Must NOT fire.
         ("prophylaxis NEG: best is a capture", PR.missed_prophylaxis,
          "r3k3/8/8/3n4/8/3B4/8/4K3 w - - 0 1", "e1e2", "d3d5", "Bxd5", ["d5e3"], 200, None),

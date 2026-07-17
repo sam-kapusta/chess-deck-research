@@ -971,12 +971,8 @@ def rook_behind_passer(m):
 def missed_pawn_break(m):
     """Best move is a pawn advance that creates tension (adjacent to an enemy pawn or opens a file),
     and the played move isn't a pawn advance toward the same goal. Covers central breaks, kingside
-    storms, and minority attacks. NOT for pawn endgames — there the "push" is endgame technique
-    (passed pawn creation, race calculation), not a structural break. K+P endgames get "Pawn Endgame"
-    as their visible tag; the deeper lesson belongs to the LLM coach."""
+    storms, and minority attacks."""
     b = m.board_before
-    if _only_piece_types_present(b, {chess.PAWN}):
-        return []  # pawn endgame — not a "break" concept
     bm = _best_move(m); pm = _played_move(m)
     if bm is None or bm == pm:
         return []
