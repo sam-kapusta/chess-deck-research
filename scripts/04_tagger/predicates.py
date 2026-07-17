@@ -718,8 +718,19 @@ def pawn_structure(m):
             pass
 
     out = []
-    # NEW doubled file: doubled after, not before, and the best move doesn't also double it
+    # NEW doubled file: doubled after, not before, and the best move doesn't also double it.
+    # ALSO: the doubling must SURVIVE the opponent's forced reply (refutation[0]). If the opponent
+    # immediately recaptures and undoes the doubling, it's ephemeral and not a real structural cost.
+    # (Sam, 2026-07-17: dxc5 creates c5+c7 doubled, but bxc5 removes c5 instantly → not real.)
     new_dbl = (after_dbl - before_dbl) - best_dbl
+    if new_dbl and m.refutation_san and len(m.refutation_san) >= 1:
+        try:
+            post_reply = after.copy()
+            post_reply.push(post_reply.parse_san(m.refutation_san[0]))
+            surviving_dbl = _doubled_files(_pawn_files(post_reply, m.mover))
+            new_dbl = new_dbl & surviving_dbl  # keep only doublings that survive the reply
+        except Exception:
+            pass
     if new_dbl:
         f = sorted(new_dbl)[0]
         out.append(("Created Doubled Pawn", "played", f"move doubled pawns on the {chr(97 + f)}-file (best move avoids it)"))
