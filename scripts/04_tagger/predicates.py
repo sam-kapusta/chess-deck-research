@@ -1025,22 +1025,27 @@ def missed_pawn_break(m):
         vic = b.piece_at(bm.to_square)
         if vic and vic.piece_type != chess.PAWN:
             return []
-    # check: does the pawn advance create tension (enemy pawn adjacent)?
+    # A pawn break requires pawn-on-pawn TENSION: the advanced pawn diagonally ATTACKS an enemy pawn,
+    # OR an enemy pawn diagonally attacks it (either way a capture is now possible). A pawn merely
+    # advancing BESIDE an enemy pawn (e5 next to d5, same rank) is a SPACE gain, not a break — no
+    # capture is possible. (Sam, 2026-07-17, per chess.com: "a pawn move that ATTACKS one or two of the
+    # opponent's pawns." e4-e5 past d5 was wrongly tagged — e5 and d5 don't attack each other.)
     to_f = chess.square_file(bm.to_square)
     to_r = chess.square_rank(bm.to_square)
+    after = b.copy(); after.push(bm)
     creates_tension = False
-    for adj_f in (to_f - 1, to_f, to_f + 1):
-        if not (0 <= adj_f <= 7):
-            continue
-        for adj_r in (to_r - 1, to_r, to_r + 1):
-            if not (0 <= adj_r <= 7):
-                continue
-            pc = b.piece_at(chess.square(adj_f, adj_r))
-            if pc and pc.piece_type == chess.PAWN and pc.color != m.mover:
+    # (a) the advanced pawn attacks an enemy pawn (its two forward diagonals)
+    for tgt in after.attacks(bm.to_square):
+        pc = after.piece_at(tgt)
+        if pc and pc.piece_type == chess.PAWN and pc.color != m.mover:
+            creates_tension = True
+            break
+    # (b) an enemy pawn attacks the advanced pawn (enemy pawn on a forward-diagonal square)
+    if not creates_tension:
+        for atk in after.attackers(not m.mover, bm.to_square):
+            if after.piece_type_at(atk) == chess.PAWN:
                 creates_tension = True
                 break
-        if creates_tension:
-            break
     # A capture only counts as a pawn break if it's pawn-takes-PAWN (or en passant). pawn-takes-PIECE
     # is winning material, not a structural break — it was 53% of capture-fires, mislabeling "grab the
     # hanging bishop" as "Missed Pawn Break". Let capture_or_exchange name those. (GH #28-class fix, Sam.)
