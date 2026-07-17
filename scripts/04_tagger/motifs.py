@@ -38,7 +38,13 @@ import chesslib_util as U
 
 def is_fork(board: chess.Board, move: chess.Move) -> bool:
     """After `move`, the moved (non-king) piece attacks >=2 enemy pieces each either higher-value
-    than the mover, or hanging and not defended by the mover's new square. (cook fork() per-node body.)"""
+    than the mover, or hanging and not defended by the mover's new square. (cook fork() per-node body.)
+
+    MUTUAL-DEFENSE case (Sam, 2026-07-17): a target of EQUAL value that's "defended" counts toward the
+    fork if ALL its defenders are themselves forked — the defense is illusory. E.g. Na4 forks Qb6 + Bc5
+    where the queen and bishop guard each other: White plays Nxb6 (knight for queen), and the bishop's
+    only defender is gone. cook's strict test missed this because the bishop reads as "defended". A
+    higher-value target is also present (the queen), so this only rescues equal-value co-forked pieces."""
     pov = board.turn
     if board.piece_type_at(move.from_square) == KING:
         return False
@@ -47,12 +53,19 @@ def is_fork(board: chess.Board, move: chess.Move) -> bool:
     if U.is_in_bad_spot(b, to):
         return False
     mover_pt = b.piece_type_at(to)
+    targets = [(piece, sq) for piece, sq in U.attacked_opponent_squares(b, to, pov)
+               if piece.piece_type != PAWN]
+    target_squares = {sq for _, sq in targets}
     nb = 0
-    for piece, sq in U.attacked_opponent_squares(b, to, pov):
-        if piece.piece_type == PAWN:
-            continue
+    for piece, sq in targets:
         if U.king_values[piece.piece_type] > U.king_values[mover_pt] or \
            (U.is_hanging(b, piece, sq) and sq not in b.attackers(not pov, to)):
+            nb += 1
+            continue
+        # Mutual-defense: a defended target still falls if every one of its defenders (other than the
+        # forking piece) is ALSO forked — capturing the co-forked defender first collapses the defense.
+        defenders = set(b.attackers(not pov, sq)) - {to}
+        if defenders and defenders.issubset(target_squares):
             nb += 1
     return nb > 1
 
