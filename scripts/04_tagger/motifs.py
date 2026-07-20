@@ -277,6 +277,12 @@ def hanging_piece_line(nodes, pov) -> bool:
     captured = start.piece_at(to)
     if start.is_check() and (not captured or captured.piece_type == PAWN):
         return False
+    # The hanging piece must be the OPPONENT's — pov captures an enemy piece. Puzzle parity
+    # guarantees this by construction, but MISSED-direction best-lines start with pov's own
+    # move, making nodes[1] the OPPONENT's capture of POV's piece (e.g. O-O Bxg7 Kxg7 read as
+    # "missed hanging piece" when g7 was pov's OWN bishop — Sam's Gauntlet report, 2026-07-20).
+    if captured and captured.color == pov:
+        return False
     if captured and captured.piece_type != PAWN:
         if U.is_hanging(start, captured, to):
             op_move = op0.move
