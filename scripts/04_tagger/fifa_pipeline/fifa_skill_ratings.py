@@ -49,12 +49,10 @@ label_group={}                          # label -> its group
 stale={"Bad Capture","Wrong Capture","Captured With Wrong Piece","Lost Material to Combination","Wrong Move Order"}
 stale_hits=Counter()
 _t0=_time.time(); _n=0; _err=0
-print(f"tagging {len(sweep)} positions...", flush=True)
-for row in sweep:
-    _n+=1
-    if _n % 5000 == 0: print(f"  {_n}/{len(sweep)} ({_time.time()-_t0:.0f}s, {_err} errs)", flush=True)
-    band=row["band"]; ce=enrich.get(f'{row["fen"]}|{row["uci"]}')
-    if not ce: continue
+def _tag_one(row):
+    """Worker: tag one position. Returns (band, groups, labels_here, stale_labels) or None."""
+    ce=enrich.get(f'{row["fen"]}|{row["uci"]}')
+    if not ce: return None
     try:
         fen=row["fen"]; b=chess.Board(fen); mover=b.turn
         bl=line_to_sans(ce.get("top_3_best",[{}])[0].get("line","")) if ce.get("top_3_best") else []
@@ -67,21 +65,35 @@ for row in sweep:
         m=Mistake(fen_before=fen,played_uci=row["uci"],best_uci=bu,best_line_san=bl,refutation_san=refut,
                   eval_before=eb,eval_after=ea,cp_loss=int(ce.get("cp_loss",0) or 0),mover=mover,
                   played_san=ce.get("played_san",""),best_san=ce.get("best_san",""))
-        groups=set(); labels_here=set()
+        groups=set(); labels_here=set(); stale_here=[]
         for t in T.tag_mistake_full(m,with_maia=False)["tags"]:
             lab=t["label"]
             if t.get("direction")=="info": continue   # orient/context tags (incl. endgame-TYPE) are
             # NOT skill mistakes — excluding them fixes the Endgame non-monotonicity (the TYPE tags
             # Rook/Pawn/Knight Endgame leak into the group via categorize's "endgame" substring and are
             # 59% of its numerator). Matches the frontend's direction!=="info" filter. (2026-06-22.)
-            if lab in stale: stale_hits[lab]+=1
+            if lab in stale: stale_here.append(lab)
             g=to_group(T.categorize(lab,t.get("direction")),lab)
             if g: groups.add(g); labels_here.add((lab,g))
+        return (row["band"], groups, labels_here, stale_here)
+    except Exception:
+        return "ERR"
+
+# Parallel tagging (2026-07-17): the serial loop took ~2.5h at 25 pos/s on ONE of 64 cores; the tagger
+# is pure CPU (python-chess) so a Pool gives near-linear speedup (~8-10 min at 40 workers). Aggregation
+# semantics identical — workers return per-position sets, parent does all Counter updates.
+from multiprocessing import Pool
+print(f"tagging {len(sweep)} positions (parallel)...", flush=True)
+with Pool(40) as _pool:
+    for res in _pool.imap_unordered(_tag_one, sweep, chunksize=200):
+        _n+=1
+        if _n % 20000 == 0: print(f"  {_n}/{len(sweep)} ({_time.time()-_t0:.0f}s, {_err} errs)", flush=True)
+        if res is None: continue
+        if res == "ERR": _err+=1; continue
+        band, groups, labels_here, stale_here = res
+        for lab in stale_here: stale_hits[lab]+=1
         for g in groups: band_group_fires[band][g]+=1
         for (lab,g) in labels_here: band_label_fires[band][lab]+=1; label_group[lab]=g
-    except Exception:
-        _err+=1
-        continue
 
 # per-band per-group RATE: fires / denominator (Endgame -> endmoves, others -> moves)
 bands_out={}

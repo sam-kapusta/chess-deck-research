@@ -1,0 +1,74 @@
+{
+ "3": {
+  "chip": "Missed Capture (often Queen)",
+  "direction": "missed",
+  "consistency": 98,
+  "label": "The player declined a free winning capture (best move is a capture 100% of the time, winning material): top boards are almost uniformly a hanging enemy queen grabbed for free, while median boards broaden to capturing rooks, knights, bishops, and even a capture-promotion."
+ },
+ "49": {
+  "chip": "Hung Piece (often Bishop)",
+  "direction": "hung",
+  "consistency": 80,
+  "label": "The player makes a developing/advancing move that drops material on an undefended square (often a zwischenzug like Nxf6+ then Qxg4); the top band is dominated by the hung bishop on g4/g5, while the median broadens to pawns, knights and rooks hanging across the board."
+ },
+ "54": {
+  "chip": "Missed Fork/Pin",
+  "direction": "missed",
+  "consistency": 72,
+  "label": "Fires when the side to move overlooks a winning tactical blow \u2014 at the peak it's almost uniformly a knight fork delivered with check (Ne2+/Nd6+/Nf7+ winning the queen or exchange), but the median broadens to missed pins, captures, checks/mates and other tactics across different pieces, so the general 'Missed Fork/Pin' form fits better than naming the knight."
+ },
+ "31": {
+  "chip": "Missed Capture (Played Passive)",
+  "direction": "missed",
+  "consistency": 98,
+  "label": "The best move was a capture/exchange (100%) but the player instead made a passive non-capturing move (bishop retreat, king step, pawn push) that loses tempo, hangs material, or walks into a trap; the TOP boards cluster on missed opening bishop trades (Bxc3/Bxg3/Bxe6), while the MEDIAN broadens to any missed capture (dxe5, Nxd3, Rxa3, Rxd6, exf5) across opening and middlegame."
+ },
+ "35": {
+  "chip": "Missed Zwischenzug / Wrong Move Order",
+  "direction": "missed",
+  "consistency": 78,
+  "label": "Player makes a routine recapture/natural move instead of the stronger in-between capture that exploits mutual threats; the TOP boards are homogeneous bishop-takes-knight zwischenzugs (Qxe2 instead of Bxe7/Bxf6), while the MEDIAN broadens to general move-order errors and missed intermediate captures across various pieces."
+ },
+ "24": {
+  "chip": "Missed Pawn Break",
+  "direction": "missed",
+  "consistency": 80,
+  "label": "The engine's best move is almost always a winning central pawn break/thrust (d5/d4/e6/f5 \u2014 best piece is a pawn 99% and wins material 100%) that the player passed up; TOP boards are dominated by slow tempo-losing developing moves (b3, c3, Bb2, Be7) instead of the break, while MEDIAN broadens to assorted positional/king-safety/hanging lapses where the same pawn-push was still the key missed resource."
+ },
+ "29": {
+  "chip": "Hung Piece / Missed Capture",
+  "direction": "other",
+  "consistency": 82,
+  "label": "In a winning position the player either hangs material/moves away a defender or overlooks a forcing winning capture (best move wins material 100%, is a capture 88%); the TOP boards are dramatic queen blunders and missed mates/checks-in-one, while the MEDIAN broadens to hanging or missing any piece (rook, bishop, knight, even pawns)."
+ },
+ "59": {
+  "chip": "Allowed Mate (Walked into Mate)",
+  "direction": "other",
+  "consistency": 85,
+  "label": "The player ignores the opponent's mating threat\u2014frequently grabbing material with a greedy capture\u2014and walks straight into checkmate; the top boards are near-uniform kingside mates (Qxh7#/Qxf7# after removing a defender), while the median broadens to assorted king-safety collapses (king walks, back-rank, knight-sac mates, and a couple of merely material-losing blunders)."
+ },
+ "15": {
+  "chip": "Bad Trade / Hung Piece",
+  "direction": "hung",
+  "consistency": 90,
+  "label": "The player initiates a capture/trade (often with the bishop) that loses material or surrenders a key defensive piece \u2014 TOP boards are premature bishop trades that open lines/worsen structure (Bxc3, Bxf6, Bxe5), while MEDIAN boards broaden to outright hanging the capturing piece for too little (Nxf4, Bxf2, even a king move leaving a rook)."
+ },
+ "20": {
+  "chip": "Lost Tempo (Squandered Advantage)",
+  "direction": "other",
+  "consistency": 80,
+  "label": "Throws away a winning/equal position by playing a passive or wrong-piece move that loses a tempo instead of the one precise, material-winning active shot; at the top the missed move almost always gains tempo by attacking the enemy queen, while the median broadens to wrong recaptures, missed sacs, and general positional precision."
+ },
+ "2": {
+  "chip": "Wasted Tempo / Weakening Pawn Move",
+  "direction": "other",
+  "consistency": 80,
+  "label": "The move neglects development/king safety\u2014usually a premature or weakening pawn push (g4, b5, e5, h3)\u2014wasting a tempo and inviting a tactical refutation (often a fork or mate); the top band is uniformly loose pawn advances while the median broadens to passive/careless rook, queen and king moves that likewise ignore the position's priorities."
+ },
+ "25": {
+  "chip": "Hung Queen",
+  "direction": "hung",
+  "consistency": 75,
+  "label": "The player consistently fails to play the move-order finesse of trading queens first (a capture, usually with check), instead playing elsewhere and leaving their own queen en prise; the top boards are almost uniformly hung queens, while the median broadens to the same wrong-move-order error costing other pieces (rook, bishop) too."
+ }
+}

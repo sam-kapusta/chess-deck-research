@@ -1,0 +1,7173 @@
+{
+ "weights": "jr512_k8_final.pt",
+ "topn": 200,
+ "min_frac": 0.25,
+ "n_features": 512,
+ "n_labeled": 245,
+ "labels": {
+  "0": {
+   "label": "Missed Overloading",
+   "confidence": 0.345,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0127,
+   "top_votes": {
+    "Missed Overloading": 69,
+    "Missed Battery": 36,
+    "Pawn Move Exposed King": 20,
+    "Missed Bishop-Knight Exchange": 15,
+    "Allowed Doubled Rooks": 14
+   },
+   "n_positions": 200
+  },
+  "1": {
+   "label": "Missed Mate",
+   "confidence": 0.32,
+   "category": "Missed Mate",
+   "fire_rate": 0.0496,
+   "top_votes": {
+    "Missed Mate": 64,
+    "Missed Battery": 51,
+    "Missed Overloading": 49,
+    "Missed Kingside Attack": 34,
+    "Missed Free Rook": 21
+   },
+   "n_positions": 200
+  },
+  "2": {
+   "label": "Missed Open File",
+   "confidence": 0.295,
+   "category": "Position",
+   "fire_rate": 0.0145,
+   "top_votes": {
+    "Missed Open File": 59,
+    "Greedy Capture": 49,
+    "Missed Battery": 34,
+    "Missed Pin Exploitation": 17,
+    "Pawn Move Exposed King": 16
+   },
+   "n_positions": 200
+  },
+  "3": {
+   "label": null,
+   "confidence": 0.095,
+   "category": "Position",
+   "fire_rate": 0.0768,
+   "top_votes": {
+    "Missed Pawn Break": 19,
+    "Pawn Move Exposed King": 19,
+    "Premature Attack": 13,
+    "Missed Free Queen": 13,
+    "Ignored Threat": 13
+   },
+   "n_positions": 200
+  },
+  "4": {
+   "label": null,
+   "confidence": 0.185,
+   "category": "Position",
+   "fire_rate": 0.0195,
+   "top_votes": {
+    "Missed Open File": 37,
+    "Missed Passed Pawn": 35,
+    "Missed Trade to Simplify": 35,
+    "Missed King Activity": 29,
+    "Missed Free Pawn": 22
+   },
+   "n_positions": 200
+  },
+  "5": {
+   "label": null,
+   "confidence": 0.195,
+   "category": "Endgame",
+   "fire_rate": 0.0008,
+   "top_votes": {
+    "Wrong Pawn Race": 25,
+    "Pawn Move Exposed King": 17,
+    "Missed Trade to Simplify": 16,
+    "Missed King Activity": 15,
+    "Greedy Capture": 13
+   },
+   "n_positions": 128
+  },
+  "6": {
+   "label": "Missed Free Rook",
+   "confidence": 0.85,
+   "category": "Missed Capture",
+   "fire_rate": 0.0081,
+   "top_votes": {
+    "Missed Free Rook": 170,
+    "Pawn Move Exposed King": 24,
+    "Missed Desperado": 17,
+    "Missed Free Queen": 14,
+    "Missed Defensive Resource": 13
+   },
+   "n_positions": 200
+  },
+  "7": {
+   "label": "Greedy Capture",
+   "confidence": 0.52,
+   "category": "Calculation",
+   "fire_rate": 0.0055,
+   "top_votes": {
+    "Greedy Capture": 104,
+    "Pawn Grab While Undeveloped": 67,
+    "Premature Attack": 26,
+    "Missed Overloading": 21,
+    "Missed Pawn Break": 18
+   },
+   "n_positions": 200
+  },
+  "8": {
+   "label": "Pawn Move Exposed King",
+   "confidence": 0.3,
+   "category": "King Safety",
+   "fire_rate": 0.0779,
+   "top_votes": {
+    "Pawn Move Exposed King": 60,
+    "Missed Free Knight": 31,
+    "Missed Pawn Break": 30,
+    "Missed Overloading": 18,
+    "Missed Castling": 15
+   },
+   "n_positions": 200
+  },
+  "9": {
+   "label": null,
+   "confidence": 0.178,
+   "category": "Endgame",
+   "fire_rate": 0.0006,
+   "top_votes": {
+    "Missed Trade to Simplify": 18,
+    "Greedy Capture": 18,
+    "Pawn Move Exposed King": 17,
+    "Missed Overloading": 14,
+    "Missed King Activity": 11
+   },
+   "n_positions": 101
+  },
+  "10": {
+   "label": null,
+   "confidence": 0.165,
+   "category": "Endgame",
+   "fire_rate": 0.0062,
+   "top_votes": {
+    "Missed Trade to Simplify": 33,
+    "Missed Free Pawn": 20,
+    "Wrong Pawn Race": 18,
+    "Missed Unpinning Resource": 12,
+    "Missed Desperado": 12
+   },
+   "n_positions": 200
+  },
+  "11": {
+   "label": null,
+   "confidence": 0.189,
+   "category": "Calculation",
+   "fire_rate": 0.0002,
+   "top_votes": {
+    "Greedy Capture": 7,
+    "Missed Trade to Simplify": 6,
+    "Missed Pawn Trade": 3,
+    "Pawn Grab While Undeveloped": 3,
+    "Wrong King Direction": 3
+   },
+   "n_positions": 37
+  },
+  "12": {
+   "label": null,
+   "confidence": 0.191,
+   "category": "Endgame",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Missed Trade to Simplify": 13,
+    "Missed Free Rook": 9,
+    "Missed Overloading": 8,
+    "Pawn Move Exposed King": 8,
+    "Missed Desperado": 7
+   },
+   "n_positions": 68
+  },
+  "13": {
+   "label": "Greedy Capture",
+   "confidence": 0.285,
+   "category": "Calculation",
+   "fire_rate": 0.0033,
+   "top_votes": {
+    "Greedy Capture": 57,
+    "Pawn Grab While Undeveloped": 52,
+    "Missed Defensive Resource": 34,
+    "Missed Pawn Break": 33,
+    "Missed Desperado": 33
+   },
+   "n_positions": 200
+  },
+  "14": {
+   "label": null,
+   "confidence": 0.194,
+   "category": "King Safety",
+   "fire_rate": 0.0006,
+   "top_votes": {
+    "Pawn Move Exposed King": 19,
+    "Missed Overloading": 15,
+    "Missed Pawn Break": 11,
+    "Missed Trade to Simplify": 10,
+    "Missed Free Bishop": 9
+   },
+   "n_positions": 98
+  },
+  "15": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.82,
+   "category": "Endgame",
+   "fire_rate": 0.0069,
+   "top_votes": {
+    "Missed Trade to Simplify": 164,
+    "Missed Free Rook": 113,
+    "Missed Desperado": 37,
+    "Missed Free Queen": 28,
+    "Missed Defensive Resource": 23
+   },
+   "n_positions": 200
+  },
+  "16": {
+   "label": "Missed Passed Pawn",
+   "confidence": 0.745,
+   "category": "Endgame",
+   "fire_rate": 0.0114,
+   "top_votes": {
+    "Missed Passed Pawn": 149,
+    "Missed Push to Promote": 134,
+    "Missed Advanced Pawn": 122,
+    "Wrong Pawn Race": 71,
+    "Missed Pawn Break": 29
+   },
+   "n_positions": 200
+  },
+  "17": {
+   "label": null,
+   "confidence": 0.215,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0054,
+   "top_votes": {
+    "Missed Overloading": 43,
+    "Greedy Capture": 41,
+    "Pawn Move Exposed King": 31,
+    "Missed Battery": 25,
+    "Created Isolated Pawn": 19
+   },
+   "n_positions": 200
+  },
+  "18": {
+   "label": null,
+   "confidence": 0.21,
+   "category": "Calculation",
+   "fire_rate": 0.0033,
+   "top_votes": {
+    "Greedy Capture": 42,
+    "Missed Trade to Simplify": 36,
+    "Pawn Grab While Undeveloped": 27,
+    "Missed Queen Exchange": 23,
+    "Missed Pawn Break": 23
+   },
+   "n_positions": 200
+  },
+  "19": {
+   "label": null,
+   "confidence": 0.17,
+   "category": "Allowed Tactic",
+   "fire_rate": 0.0021,
+   "top_votes": {
+    "Missed Defensive Resource": 34,
+    "Missed Trade to Simplify": 32,
+    "Missed Pawn Break": 29,
+    "Ignored Threat": 26,
+    "Greedy Capture": 23
+   },
+   "n_positions": 200
+  },
+  "20": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.275,
+   "category": "Position",
+   "fire_rate": 0.2348,
+   "top_votes": {
+    "Missed Pawn Break": 55,
+    "Missed Overloading": 26,
+    "Missed Pawn Trade": 24,
+    "Missed Kingside Attack": 16,
+    "Pawn Move Exposed King": 16
+   },
+   "n_positions": 200
+  },
+  "21": {
+   "label": "Greedy Capture",
+   "confidence": 0.81,
+   "category": "Calculation",
+   "fire_rate": 0.0272,
+   "top_votes": {
+    "Greedy Capture": 162,
+    "Pawn Grab While Undeveloped": 150,
+    "Premature Attack": 49,
+    "Missed Pawn Break": 30,
+    "Missed Tempo Push": 16
+   },
+   "n_positions": 200
+  },
+  "22": {
+   "label": null,
+   "confidence": 0.192,
+   "category": "Position",
+   "fire_rate": 0.0009,
+   "top_votes": {
+    "Missed Pawn Break": 28,
+    "Wrong Pawn Race": 27,
+    "Missed Overloading": 22,
+    "Greedy Capture": 21,
+    "Missed King Activity": 17
+   },
+   "n_positions": 146
+  },
+  "23": {
+   "label": null,
+   "confidence": 0.24,
+   "category": "Missed Capture",
+   "fire_rate": 0.0021,
+   "top_votes": {
+    "Missed Free Queen": 48,
+    "Missed Desperado": 36,
+    "Missed Defensive Resource": 33,
+    "Missed Overloading": 33,
+    "Ignored Threat": 27
+   },
+   "n_positions": 200
+  },
+  "24": {
+   "label": null,
+   "confidence": 0.225,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0396,
+   "top_votes": {
+    "Missed Overloading": 45,
+    "Missed Free Pawn": 35,
+    "Missed Battery": 20,
+    "Greedy Capture": 19,
+    "Missed Desperado": 11
+   },
+   "n_positions": 200
+  },
+  "25": {
+   "label": "Missed Overloading",
+   "confidence": 0.365,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0024,
+   "top_votes": {
+    "Missed Overloading": 73,
+    "Pawn Move Exposed King": 29,
+    "Pawn Grab While Undeveloped": 22,
+    "Missed Pawn Break": 22,
+    "Greedy Capture": 17
+   },
+   "n_positions": 200
+  },
+  "26": {
+   "label": "Bad Simplification",
+   "confidence": 0.255,
+   "category": "Endgame",
+   "fire_rate": 0.0028,
+   "top_votes": {
+    "Bad Simplification": 51,
+    "Greedy Capture": 40,
+    "Missed Free Rook": 33,
+    "Missed Overloading": 28,
+    "Missed Defensive Resource": 23
+   },
+   "n_positions": 200
+  },
+  "27": {
+   "label": "Missed Overloading",
+   "confidence": 0.415,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0059,
+   "top_votes": {
+    "Missed Overloading": 83,
+    "Pawn Move Exposed King": 38,
+    "Greedy Capture": 37,
+    "Pawn Grab While Undeveloped": 26,
+    "Missed Pawn Break": 24
+   },
+   "n_positions": 200
+  },
+  "28": {
+   "label": null,
+   "confidence": 0.185,
+   "category": "Missed Capture",
+   "fire_rate": 0.0029,
+   "top_votes": {
+    "Missed Free Knight": 37,
+    "Missed Overloading": 32,
+    "Greedy Capture": 25,
+    "Pawn Move Exposed King": 23,
+    "Missed Defensive Resource": 14
+   },
+   "n_positions": 200
+  },
+  "29": {
+   "label": null,
+   "confidence": 0.245,
+   "category": "Calculation",
+   "fire_rate": 0.0013,
+   "top_votes": {
+    "Greedy Capture": 49,
+    "Missed Pawn Break": 28,
+    "Missed Overloading": 22,
+    "Pawn Move Exposed King": 20,
+    "Missed Defensive Resource": 17
+   },
+   "n_positions": 200
+  },
+  "30": {
+   "label": "Missed Queen Exchange",
+   "confidence": 0.39,
+   "category": "Trading",
+   "fire_rate": 0.0198,
+   "top_votes": {
+    "Missed Queen Exchange": 78,
+    "Missed Bishop-Knight Exchange": 56,
+    "Missed Desperado": 41,
+    "Missed Defensive Resource": 36,
+    "Missed Overloading": 35
+   },
+   "n_positions": 200
+  },
+  "31": {
+   "label": "Missed Bishop-Knight Exchange",
+   "confidence": 0.78,
+   "category": "Trading",
+   "fire_rate": 0.0092,
+   "top_votes": {
+    "Missed Bishop-Knight Exchange": 156,
+    "Missed Remove the Guard": 83,
+    "Missed Overloading": 26,
+    "Missed Desperado": 25,
+    "Missed Pawn Break": 19
+   },
+   "n_positions": 200
+  },
+  "32": {
+   "label": "Greedy Capture",
+   "confidence": 0.396,
+   "category": "Calculation",
+   "fire_rate": 0.0011,
+   "top_votes": {
+    "Greedy Capture": 74,
+    "Pawn Move Exposed King": 20,
+    "Missed Open File": 18,
+    "Missed Overloading": 17,
+    "Bad Simplification": 16
+   },
+   "n_positions": 187
+  },
+  "33": {
+   "label": null,
+   "confidence": 0.215,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0021,
+   "top_votes": {
+    "Missed Overloading": 43,
+    "Pawn Move Exposed King": 29,
+    "Missed Remove the Guard": 22,
+    "Missed Pawn Break": 22,
+    "Greedy Capture": 17
+   },
+   "n_positions": 200
+  },
+  "34": {
+   "label": null,
+   "confidence": 0.225,
+   "category": "Endgame",
+   "fire_rate": 0.0262,
+   "top_votes": {
+    "Wrong Pawn Race": 45,
+    "Greedy Capture": 39,
+    "Bad Simplification": 35,
+    "Missed Trade to Simplify": 30,
+    "Missed Open File": 30
+   },
+   "n_positions": 200
+  },
+  "35": {
+   "label": null,
+   "confidence": 0.142,
+   "category": "Calculation",
+   "fire_rate": 0.001,
+   "top_votes": {
+    "Greedy Capture": 25,
+    "Missed Trade to Simplify": 21,
+    "Missed Overloading": 21,
+    "Missed Pawn Break": 17,
+    "Pawn Move Exposed King": 14
+   },
+   "n_positions": 176
+  },
+  "36": {
+   "label": null,
+   "confidence": 0.235,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0154,
+   "top_votes": {
+    "Missed Remove the Guard": 47,
+    "Missed Knight Exchange": 46,
+    "Missed Bishop-Knight Exchange": 32,
+    "Missed Overloading": 30,
+    "Missed Bishop Exchange": 23
+   },
+   "n_positions": 200
+  },
+  "37": {
+   "label": "Wrong Pawn Race",
+   "confidence": 0.285,
+   "category": "Endgame",
+   "fire_rate": 0.0091,
+   "top_votes": {
+    "Wrong Pawn Race": 57,
+    "Greedy Capture": 54,
+    "Bad Simplification": 54,
+    "Pawn Move Exposed King": 46,
+    "Missed Pawn Break": 27
+   },
+   "n_positions": 200
+  },
+  "38": {
+   "label": "Greedy Capture",
+   "confidence": 0.375,
+   "category": "Calculation",
+   "fire_rate": 0.0196,
+   "top_votes": {
+    "Greedy Capture": 75,
+    "Bad Simplification": 52,
+    "Wrong Pawn Race": 17,
+    "Missed Pawn Break": 11,
+    "Missed Passed Pawn": 10
+   },
+   "n_positions": 200
+  },
+  "39": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.885,
+   "category": "Endgame",
+   "fire_rate": 0.0102,
+   "top_votes": {
+    "Missed Trade to Simplify": 177,
+    "Missed Free Rook": 81,
+    "Pawn Move Exposed King": 39,
+    "Missed Desperado": 37,
+    "Wrong Pawn Race": 34
+   },
+   "n_positions": 200
+  },
+  "40": {
+   "label": null,
+   "confidence": 0.205,
+   "category": "Calculation",
+   "fire_rate": 0.0016,
+   "top_votes": {
+    "Greedy Capture": 41,
+    "Missed Desperado": 25,
+    "Missed Overloading": 24,
+    "Pawn Move Exposed King": 22,
+    "Bad Simplification": 21
+   },
+   "n_positions": 200
+  },
+  "41": {
+   "label": null,
+   "confidence": 0.11,
+   "category": "King Safety",
+   "fire_rate": 0.0028,
+   "top_votes": {
+    "Pawn Move Exposed King": 22,
+    "Greedy Capture": 22,
+    "Missed Pawn Break": 19,
+    "Missed Trade to Simplify": 18,
+    "Missed Defensive Resource": 16
+   },
+   "n_positions": 200
+  },
+  "42": {
+   "label": "Missed Free Bishop",
+   "confidence": 0.405,
+   "category": "Missed Capture",
+   "fire_rate": 0.0162,
+   "top_votes": {
+    "Missed Free Bishop": 81,
+    "Missed Free Knight": 42,
+    "Missed Free Pawn": 28,
+    "Pawn Move Exposed King": 26,
+    "Missed Desperado": 22
+   },
+   "n_positions": 200
+  },
+  "43": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.425,
+   "category": "Endgame",
+   "fire_rate": 0.0255,
+   "top_votes": {
+    "Missed Trade to Simplify": 85,
+    "Wrong Pawn Race": 64,
+    "Pawn Move Exposed King": 49,
+    "Missed Passed Pawn": 48,
+    "Missed Pawn Break": 46
+   },
+   "n_positions": 200
+  },
+  "44": {
+   "label": "Missed Bishop-Knight Exchange",
+   "confidence": 0.505,
+   "category": "Trading",
+   "fire_rate": 0.1185,
+   "top_votes": {
+    "Missed Bishop-Knight Exchange": 101,
+    "Missed Bishop Exchange": 52,
+    "Missed Remove the Guard": 51,
+    "Missed Overloading": 37,
+    "Missed Desperado": 35
+   },
+   "n_positions": 200
+  },
+  "45": {
+   "label": null,
+   "confidence": 0.155,
+   "category": "King Safety",
+   "fire_rate": 0.0032,
+   "top_votes": {
+    "Pawn Move Exposed King": 31,
+    "Greedy Capture": 30,
+    "Missed Free Knight": 23,
+    "Missed Overloading": 23,
+    "Missed Pawn Break": 21
+   },
+   "n_positions": 200
+  },
+  "46": {
+   "label": "Missed Passed Pawn",
+   "confidence": 0.333,
+   "category": "Endgame",
+   "fire_rate": 0.0011,
+   "top_votes": {
+    "Missed Passed Pawn": 60,
+    "Missed Advanced Pawn": 59,
+    "Missed Promotion": 41,
+    "Pawn Move Exposed King": 24,
+    "Wrong Pawn Race": 24
+   },
+   "n_positions": 180
+  },
+  "47": {
+   "label": null,
+   "confidence": 0.17,
+   "category": "Calculation",
+   "fire_rate": 0.0051,
+   "top_votes": {
+    "Greedy Capture": 34,
+    "Missed Trade to Simplify": 21,
+    "Missed Open File": 17,
+    "Missed Overloading": 17,
+    "Missed Pawn Break": 17
+   },
+   "n_positions": 200
+  },
+  "48": {
+   "label": "Missed Tempo Push",
+   "confidence": 0.495,
+   "category": "Position",
+   "fire_rate": 0.0332,
+   "top_votes": {
+    "Missed Tempo Push": 99,
+    "Missed Pawn Break": 62,
+    "Missed Overloading": 34,
+    "Pawn Move Exposed King": 18,
+    "Missed Pawn Trade": 15
+   },
+   "n_positions": 200
+  },
+  "49": {
+   "label": "Missed Free Bishop",
+   "confidence": 0.38,
+   "category": "Missed Capture",
+   "fire_rate": 0.0221,
+   "top_votes": {
+    "Missed Free Bishop": 76,
+    "Missed Free Knight": 60,
+    "Missed Free Queen": 54,
+    "Missed Desperado": 46,
+    "Pawn Move Exposed King": 34
+   },
+   "n_positions": 200
+  },
+  "50": {
+   "label": "Missed Unpinning Resource",
+   "confidence": 0.505,
+   "category": "Allowed Tactic",
+   "fire_rate": 0.0119,
+   "top_votes": {
+    "Missed Unpinning Resource": 101,
+    "Missed Overloading": 83,
+    "Missed Kingside Attack": 37,
+    "Failed Discovered Attack": 18,
+    "Missed Bishop-Knight Exchange": 13
+   },
+   "n_positions": 200
+  },
+  "51": {
+   "label": null,
+   "confidence": 0.234,
+   "category": "Calculation",
+   "fire_rate": 0.0003,
+   "top_votes": {
+    "Greedy Capture": 11,
+    "Missed Free Pawn": 8,
+    "Pawn Grab While Undeveloped": 6,
+    "Missed Free Bishop": 5,
+    "Bad Simplification": 4
+   },
+   "n_positions": 47
+  },
+  "52": {
+   "label": null,
+   "confidence": 0.207,
+   "category": "Calculation",
+   "fire_rate": 0.0005,
+   "top_votes": {
+    "Greedy Capture": 17,
+    "Bad Simplification": 13,
+    "Missed Open File": 11,
+    "Missed Defensive Resource": 11,
+    "Wrong Pawn Race": 9
+   },
+   "n_positions": 82
+  },
+  "53": {
+   "label": "Greedy Capture",
+   "confidence": 0.42,
+   "category": "Calculation",
+   "fire_rate": 0.0012,
+   "top_votes": {
+    "Greedy Capture": 84,
+    "Bad Simplification": 79,
+    "Missed Passed Pawn": 34,
+    "Missed Overloading": 21,
+    "Missed Pawn Break": 17
+   },
+   "n_positions": 200
+  },
+  "54": {
+   "label": null,
+   "confidence": 0.185,
+   "category": "Missed Capture",
+   "fire_rate": 0.0192,
+   "top_votes": {
+    "Missed Free Knight": 37,
+    "Missed Defensive Resource": 31,
+    "Pawn Move Exposed King": 23,
+    "Missed Free Bishop": 22,
+    "Missed Desperado": 18
+   },
+   "n_positions": 200
+  },
+  "55": {
+   "label": "Missed Queen Exchange",
+   "confidence": 0.445,
+   "category": "Trading",
+   "fire_rate": 0.0673,
+   "top_votes": {
+    "Missed Queen Exchange": 89,
+    "Missed Trade to Simplify": 54,
+    "Missed Overloading": 36,
+    "Missed Rook Exchange": 31,
+    "Allowed Doubled Rooks": 28
+   },
+   "n_positions": 200
+  },
+  "56": {
+   "label": "Greedy Capture",
+   "confidence": 0.298,
+   "category": "Calculation",
+   "fire_rate": 0.0003,
+   "top_votes": {
+    "Greedy Capture": 17,
+    "Missed Overloading": 15,
+    "Bad Simplification": 7,
+    "Wrong Pawn Race": 7,
+    "Missed King Activity": 6
+   },
+   "n_positions": 57
+  },
+  "57": {
+   "label": "Ignored Threat",
+   "confidence": 0.27,
+   "category": "Allowed Tactic",
+   "fire_rate": 0.014,
+   "top_votes": {
+    "Ignored Threat": 54,
+    "Missed Defensive Resource": 45,
+    "Greedy Capture": 37,
+    "Missed Overloading": 37,
+    "Missed Desperado": 37
+   },
+   "n_positions": 200
+  },
+  "58": {
+   "label": "Greedy Capture",
+   "confidence": 0.28,
+   "category": "Calculation",
+   "fire_rate": 0.0048,
+   "top_votes": {
+    "Greedy Capture": 56,
+    "Bad Simplification": 54,
+    "Wrong Pawn Race": 44,
+    "Pawn Move Exposed King": 40,
+    "Missed King Activity": 25
+   },
+   "n_positions": 200
+  },
+  "59": {
+   "label": "Missed Free Pawn",
+   "confidence": 0.94,
+   "category": "Missed Capture",
+   "fire_rate": 0.0051,
+   "top_votes": {
+    "Missed Free Pawn": 188,
+    "Missed Overloading": 117,
+    "Pawn Move Exposed King": 26,
+    "Missed Desperado": 15,
+    "Failed Pin": 10
+   },
+   "n_positions": 200
+  },
+  "60": {
+   "label": null,
+   "confidence": 0.168,
+   "category": "King Safety",
+   "fire_rate": 0.0007,
+   "top_votes": {
+    "Pawn Move Exposed King": 19,
+    "Missed Trade to Simplify": 19,
+    "Missed Battery": 17,
+    "Missed Overloading": 15,
+    "Bad Simplification": 10
+   },
+   "n_positions": 113
+  },
+  "61": {
+   "label": null,
+   "confidence": 0.17,
+   "category": "Trading",
+   "fire_rate": 0.0037,
+   "top_votes": {
+    "Missed Queen Exchange": 34,
+    "Missed Desperado": 33,
+    "Ignored Threat": 30,
+    "Missed Overloading": 27,
+    "Greedy Capture": 25
+   },
+   "n_positions": 200
+  },
+  "62": {
+   "label": null,
+   "confidence": 0.2,
+   "category": "Allowed Tactic",
+   "fire_rate": 0.0022,
+   "top_votes": {
+    "Missed Defensive Resource": 40,
+    "Ignored Threat": 36,
+    "Missed Pawn Break": 33,
+    "Missed Desperado": 30,
+    "Greedy Capture": 29
+   },
+   "n_positions": 200
+  },
+  "63": {
+   "label": null,
+   "confidence": 0.21,
+   "category": "King Safety",
+   "fire_rate": 0.0301,
+   "top_votes": {
+    "Pawn Move Exposed King": 42,
+    "Greedy Capture": 38,
+    "Ignored Threat": 19,
+    "Missed Overloading": 17,
+    "Missed Defensive Resource": 17
+   },
+   "n_positions": 200
+  },
+  "64": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.305,
+   "category": "Endgame",
+   "fire_rate": 0.0016,
+   "top_votes": {
+    "Missed Trade to Simplify": 61,
+    "Missed Pawn Break": 26,
+    "Missed Desperado": 23,
+    "Failed Pin": 22,
+    "Pawn Move Exposed King": 21
+   },
+   "n_positions": 200
+  },
+  "65": {
+   "label": "Missed Overloading",
+   "confidence": 0.305,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0134,
+   "top_votes": {
+    "Missed Overloading": 61,
+    "Missed Bishop-Knight Exchange": 41,
+    "Missed Free Queen": 38,
+    "Missed Remove the Guard": 30,
+    "Missed Pawn Break": 27
+   },
+   "n_positions": 200
+  },
+  "66": {
+   "label": null,
+   "confidence": 0.095,
+   "category": "Allowed Tactic",
+   "fire_rate": 0.0154,
+   "top_votes": {
+    "Ignored Threat": 19,
+    "Missed Open File": 15,
+    "Missed Defensive Resource": 13,
+    "Missed Tempo Push": 13,
+    "Wrong Pawn Race": 12
+   },
+   "n_positions": 200
+  },
+  "67": {
+   "label": null,
+   "confidence": 0.146,
+   "category": "Position",
+   "fire_rate": 0.0003,
+   "top_votes": {
+    "Missed Pawn Break": 7,
+    "Pawn Move Exposed King": 6,
+    "Missed Pawn Trade": 6,
+    "Missed Overloading": 6,
+    "Missed Open File": 5
+   },
+   "n_positions": 48
+  },
+  "68": {
+   "label": null,
+   "confidence": 0.135,
+   "category": "Calculation",
+   "fire_rate": 0.0932,
+   "top_votes": {
+    "Greedy Capture": 27,
+    "Missed Trade to Simplify": 24,
+    "Missed Pawn Break": 23,
+    "Missed Defensive Resource": 21,
+    "Missed Free Pawn": 21
+   },
+   "n_positions": 200
+  },
+  "69": {
+   "label": null,
+   "confidence": 0.215,
+   "category": "Missed Capture",
+   "fire_rate": 0.0104,
+   "top_votes": {
+    "Missed Free Bishop": 43,
+    "Missed Overloading": 28,
+    "Missed Free Rook": 25,
+    "Missed Desperado": 24,
+    "Greedy Capture": 20
+   },
+   "n_positions": 200
+  },
+  "70": {
+   "label": "Bad Simplification",
+   "confidence": 0.365,
+   "category": "Endgame",
+   "fire_rate": 0.0033,
+   "top_votes": {
+    "Bad Simplification": 73,
+    "Greedy Capture": 63,
+    "Wrong Pawn Race": 50,
+    "Missed Passed Pawn": 49,
+    "Missed Push to Promote": 34
+   },
+   "n_positions": 200
+  },
+  "71": {
+   "label": "Greedy Capture",
+   "confidence": 0.29,
+   "category": "Calculation",
+   "fire_rate": 0.0006,
+   "top_votes": {
+    "Greedy Capture": 27,
+    "Bad Simplification": 19,
+    "Missed Pawn Break": 18,
+    "Missed Pawn Trade": 14,
+    "Wrong Pawn Race": 9
+   },
+   "n_positions": 93
+  },
+  "72": {
+   "label": "Greedy Capture",
+   "confidence": 0.415,
+   "category": "Calculation",
+   "fire_rate": 0.0033,
+   "top_votes": {
+    "Greedy Capture": 83,
+    "Pawn Grab While Undeveloped": 77,
+    "Premature Attack": 56,
+    "Missed Pawn Break": 49,
+    "Pawn Move Exposed King": 17
+   },
+   "n_positions": 200
+  },
+  "73": {
+   "label": null,
+   "confidence": 0.184,
+   "category": "Endgame",
+   "fire_rate": 0.0011,
+   "top_votes": {
+    "Missed Trade to Simplify": 34,
+    "Missed Passed Pawn": 32,
+    "Missed Open File": 24,
+    "Greedy Capture": 22,
+    "Missed Overloading": 20
+   },
+   "n_positions": 185
+  },
+  "74": {
+   "label": null,
+   "confidence": 0.23,
+   "category": "Endgame",
+   "fire_rate": 0.002,
+   "top_votes": {
+    "Missed Trade to Simplify": 46,
+    "Missed Overloading": 32,
+    "Missed Desperado": 20,
+    "Pawn Move Exposed King": 19,
+    "Missed Free Knight": 17
+   },
+   "n_positions": 200
+  },
+  "75": {
+   "label": null,
+   "confidence": 0.15,
+   "category": "Endgame",
+   "fire_rate": 0.0196,
+   "top_votes": {
+    "Missed Trade to Simplify": 30,
+    "Missed Free Pawn": 22,
+    "Missed Open File": 22,
+    "Missed Overloading": 14,
+    "Missed King Activity": 11
+   },
+   "n_positions": 200
+  },
+  "76": {
+   "label": null,
+   "confidence": 0.195,
+   "category": "Calculation",
+   "fire_rate": 0.0005,
+   "top_votes": {
+    "Greedy Capture": 17,
+    "Bad Simplification": 10,
+    "Ignored Threat": 9,
+    "Missed Free Rook": 8,
+    "Missed Pawn Break": 8
+   },
+   "n_positions": 87
+  },
+  "77": {
+   "label": null,
+   "confidence": 0.16,
+   "category": "Calculation",
+   "fire_rate": 0.0016,
+   "top_votes": {
+    "Greedy Capture": 32,
+    "Missed Pawn Break": 29,
+    "Missed Free Pawn": 25,
+    "Ignored Threat": 21,
+    "Missed Defensive Resource": 20
+   },
+   "n_positions": 200
+  },
+  "78": {
+   "label": "Missed Battery",
+   "confidence": 0.29,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0382,
+   "top_votes": {
+    "Missed Battery": 58,
+    "Missed Interposition": 46,
+    "Missed Overloading": 36,
+    "Pawn Move Exposed King": 19,
+    "Greedy Capture": 18
+   },
+   "n_positions": 200
+  },
+  "79": {
+   "label": "Wrong King Direction",
+   "confidence": 0.28,
+   "category": "Endgame",
+   "fire_rate": 0.0119,
+   "top_votes": {
+    "Wrong King Direction": 56,
+    "Wrong Pawn Race": 46,
+    "Missed King Activity": 39,
+    "Greedy Capture": 17,
+    "Pawn Move Exposed King": 15
+   },
+   "n_positions": 200
+  },
+  "80": {
+   "label": null,
+   "confidence": 0.125,
+   "category": "Endgame",
+   "fire_rate": 0.0053,
+   "top_votes": {
+    "Wrong Pawn Race": 25,
+    "Pawn Move Exposed King": 25,
+    "Missed Trade to Simplify": 25,
+    "Missed Pawn Break": 24,
+    "Greedy Capture": 20
+   },
+   "n_positions": 200
+  },
+  "81": {
+   "label": "Missed Overloading",
+   "confidence": 0.3,
+   "category": "Missed Tactic",
+   "fire_rate": 0.1022,
+   "top_votes": {
+    "Missed Overloading": 60,
+    "Missed Tempo Push": 31,
+    "Greedy Capture": 20,
+    "Pawn Move Exposed King": 18,
+    "Bad Simplification": 16
+   },
+   "n_positions": 200
+  },
+  "82": {
+   "label": null,
+   "confidence": 0.167,
+   "category": "Endgame",
+   "fire_rate": 0.0,
+   "top_votes": {
+    "Missed Queen Activity": 1,
+    "Bad Simplification": 1,
+    "Missed Push to Promote": 1,
+    "Missed Overloading": 1,
+    "Missed Pawn Break": 1
+   },
+   "n_positions": 6
+  },
+  "83": {
+   "label": null,
+   "confidence": 0.205,
+   "category": "Calculation",
+   "fire_rate": 0.2172,
+   "top_votes": {
+    "Greedy Capture": 41,
+    "Pawn Move Exposed King": 31,
+    "Failed Discovered Attack": 24,
+    "Missed Defensive Resource": 22,
+    "Ignored Threat": 19
+   },
+   "n_positions": 200
+  },
+  "84": {
+   "label": null,
+   "confidence": 0.177,
+   "category": "Position",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Missed Pawn Break": 11,
+    "Missed Overloading": 7,
+    "Bad Simplification": 6,
+    "Missed Passed Pawn": 6,
+    "Wrong Pawn Race": 6
+   },
+   "n_positions": 62
+  },
+  "85": {
+   "label": null,
+   "confidence": 0.17,
+   "category": "Position",
+   "fire_rate": 0.0238,
+   "top_votes": {
+    "Missed Open File": 34,
+    "Greedy Capture": 23,
+    "Ignored Threat": 22,
+    "Missed Defensive Resource": 20,
+    "Missed Trade to Simplify": 19
+   },
+   "n_positions": 200
+  },
+  "86": {
+   "label": null,
+   "confidence": 0.165,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0026,
+   "top_votes": {
+    "Missed Overloading": 33,
+    "Greedy Capture": 26,
+    "Pawn Move Exposed King": 15,
+    "Missed Defensive Resource": 15,
+    "Missed Pawn Break": 13
+   },
+   "n_positions": 200
+  },
+  "87": {
+   "label": null,
+   "confidence": 0.242,
+   "category": "Calculation",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Greedy Capture": 16,
+    "Bad Simplification": 9,
+    "Missed Passed Pawn": 9,
+    "Pawn Move Exposed King": 8,
+    "Wrong Pawn Race": 6
+   },
+   "n_positions": 66
+  },
+  "88": {
+   "label": null,
+   "confidence": 0.152,
+   "category": "Endgame",
+   "fire_rate": 0.0009,
+   "top_votes": {
+    "Missed Trade to Simplify": 24,
+    "Greedy Capture": 21,
+    "Missed Pawn Break": 20,
+    "Missed Overloading": 20,
+    "Missed Free Pawn": 17
+   },
+   "n_positions": 158
+  },
+  "89": {
+   "label": "Missed Queen Exchange",
+   "confidence": 0.965,
+   "category": "Trading",
+   "fire_rate": 0.0053,
+   "top_votes": {
+    "Missed Queen Exchange": 193,
+    "Missed Overloading": 58,
+    "Missed Desperado": 28,
+    "Missed Defensive Resource": 26,
+    "Ignored Threat": 19
+   },
+   "n_positions": 200
+  },
+  "90": {
+   "label": "Greedy Capture",
+   "confidence": 0.825,
+   "category": "Calculation",
+   "fire_rate": 0.0037,
+   "top_votes": {
+    "Greedy Capture": 165,
+    "Pawn Grab While Undeveloped": 153,
+    "Premature Attack": 72,
+    "Missed Pawn Break": 30,
+    "Missed Castling": 25
+   },
+   "n_positions": 200
+  },
+  "91": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.255,
+   "category": "Position",
+   "fire_rate": 0.0019,
+   "top_votes": {
+    "Missed Pawn Break": 51,
+    "Missed Pawn Trade": 42,
+    "Missed Passed Pawn": 40,
+    "Pawn Move Exposed King": 38,
+    "Missed Desperado": 36
+   },
+   "n_positions": 200
+  },
+  "92": {
+   "label": null,
+   "confidence": 0.16,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0423,
+   "top_votes": {
+    "Missed Overloading": 32,
+    "Missed Battery": 31,
+    "Missed Open File": 17,
+    "Missed Defensive Resource": 16,
+    "Allowed Doubled Rooks": 15
+   },
+   "n_positions": 200
+  },
+  "93": {
+   "label": "Greedy Capture",
+   "confidence": 0.365,
+   "category": "Calculation",
+   "fire_rate": 0.0394,
+   "top_votes": {
+    "Greedy Capture": 73,
+    "Failed Discovered Attack": 43,
+    "Pawn Move Exposed King": 37,
+    "Ignored Threat": 36,
+    "Missed Defensive Resource": 36
+   },
+   "n_positions": 200
+  },
+  "94": {
+   "label": null,
+   "confidence": 0.2,
+   "category": "Trading",
+   "fire_rate": 0.0,
+   "top_votes": {
+    "Missed Bishop-Knight Exchange": 1,
+    "Missed Mate": 1,
+    "Missed Free Pawn": 1
+   },
+   "n_positions": 5
+  },
+  "95": {
+   "label": "Greedy Capture",
+   "confidence": 0.296,
+   "category": "Calculation",
+   "fire_rate": 0.0005,
+   "top_votes": {
+    "Greedy Capture": 24,
+    "Bad Simplification": 16,
+    "Pawn Move Exposed King": 14,
+    "Missed Desperado": 9,
+    "Missed Overloading": 9
+   },
+   "n_positions": 81
+  },
+  "96": {
+   "label": "Missed Overloading",
+   "confidence": 0.365,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0429,
+   "top_votes": {
+    "Missed Overloading": 73,
+    "Missed Free Pawn": 37,
+    "Greedy Capture": 27,
+    "Ignored Threat": 22,
+    "Missed Defensive Resource": 22
+   },
+   "n_positions": 200
+  },
+  "97": {
+   "label": "Missed Free Bishop",
+   "confidence": 0.465,
+   "category": "Missed Capture",
+   "fire_rate": 0.0432,
+   "top_votes": {
+    "Missed Free Bishop": 93,
+    "Missed Free Knight": 65,
+    "Missed Desperado": 41,
+    "Missed Defensive Resource": 25,
+    "Missed Unpinning Resource": 23
+   },
+   "n_positions": 200
+  },
+  "98": {
+   "label": "Greedy Capture",
+   "confidence": 0.465,
+   "category": "Calculation",
+   "fire_rate": 0.0065,
+   "top_votes": {
+    "Greedy Capture": 93,
+    "Pawn Grab While Undeveloped": 82,
+    "Premature Attack": 25,
+    "Missed Pawn Break": 16,
+    "Missed Defensive Resource": 12
+   },
+   "n_positions": 200
+  },
+  "99": {
+   "label": "Missed Free Queen",
+   "confidence": 0.635,
+   "category": "Missed Capture",
+   "fire_rate": 0.0585,
+   "top_votes": {
+    "Missed Free Queen": 127,
+    "Missed Trade to Simplify": 56,
+    "Missed Desperado": 52,
+    "Missed Defensive Resource": 44,
+    "Missed Free Rook": 44
+   },
+   "n_positions": 200
+  },
+  "100": {
+   "label": "Missed Tempo Push",
+   "confidence": 0.975,
+   "category": "Position",
+   "fire_rate": 0.0786,
+   "top_votes": {
+    "Missed Tempo Push": 195,
+    "Missed Pawn Break": 39,
+    "Pawn Move Exposed King": 22,
+    "Greedy Capture": 22,
+    "Pawn Grab While Undeveloped": 17
+   },
+   "n_positions": 200
+  },
+  "101": {
+   "label": "Missed Rook Exchange",
+   "confidence": 0.905,
+   "category": "Trading",
+   "fire_rate": 0.0216,
+   "top_votes": {
+    "Missed Rook Exchange": 181,
+    "Missed Kingside Attack": 68,
+    "Missed Overloading": 59,
+    "Missed Desperado": 33,
+    "Missed Defensive Resource": 27
+   },
+   "n_positions": 200
+  },
+  "102": {
+   "label": null,
+   "confidence": 0.115,
+   "category": "Calculation",
+   "fire_rate": 0.0247,
+   "top_votes": {
+    "Greedy Capture": 23,
+    "Pawn Move Exposed King": 22,
+    "Missed Battery": 12,
+    "Wrong King Direction": 10,
+    "Wrong Pawn Race": 9
+   },
+   "n_positions": 200
+  },
+  "103": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.495,
+   "category": "Endgame",
+   "fire_rate": 0.0083,
+   "top_votes": {
+    "Missed Trade to Simplify": 99,
+    "Missed Free Rook": 93,
+    "Missed Free Queen": 68,
+    "Missed Desperado": 41,
+    "Missed Defensive Resource": 33
+   },
+   "n_positions": 200
+  },
+  "104": {
+   "label": "Missed Open File",
+   "confidence": 0.32,
+   "category": "Position",
+   "fire_rate": 0.022,
+   "top_votes": {
+    "Missed Open File": 64,
+    "Greedy Capture": 37,
+    "Bad Simplification": 31,
+    "Pawn Move Exposed King": 20,
+    "Missed King Activity": 15
+   },
+   "n_positions": 200
+  },
+  "105": {
+   "label": null,
+   "confidence": 0.16,
+   "category": "Position",
+   "fire_rate": 0.001,
+   "top_votes": {
+    "Missed Pawn Break": 27,
+    "Missed Overloading": 27,
+    "Greedy Capture": 23,
+    "Missed Desperado": 21,
+    "Missed Queen Exchange": 19
+   },
+   "n_positions": 169
+  },
+  "106": {
+   "label": null,
+   "confidence": 0.185,
+   "category": "Position",
+   "fire_rate": 0.0218,
+   "top_votes": {
+    "Missed Pawn Break": 37,
+    "Premature Attack": 27,
+    "Missed Castling": 18,
+    "Failed Discovered Attack": 17,
+    "Missed Tempo Push": 13
+   },
+   "n_positions": 200
+  },
+  "107": {
+   "label": null,
+   "confidence": 0.185,
+   "category": "Endgame",
+   "fire_rate": 0.0048,
+   "top_votes": {
+    "Missed Passed Pawn": 37,
+    "Missed Overloading": 35,
+    "Missed Advanced Pawn": 33,
+    "Missed Promotion": 29,
+    "Greedy Capture": 28
+   },
+   "n_positions": 200
+  },
+  "108": {
+   "label": null,
+   "confidence": 0.203,
+   "category": "Calculation",
+   "fire_rate": 0.0011,
+   "top_votes": {
+    "Greedy Capture": 36,
+    "Pawn Move Exposed King": 25,
+    "Missed Pawn Break": 21,
+    "Missed Trade to Simplify": 20,
+    "Created Doubled Pawn": 18
+   },
+   "n_positions": 177
+  },
+  "109": {
+   "label": "Missed Queen Exchange",
+   "confidence": 0.365,
+   "category": "Trading",
+   "fire_rate": 0.0032,
+   "top_votes": {
+    "Missed Queen Exchange": 73,
+    "Missed Overloading": 47,
+    "Missed Desperado": 42,
+    "Missed Defensive Resource": 40,
+    "Ignored Threat": 34
+   },
+   "n_positions": 200
+  },
+  "110": {
+   "label": null,
+   "confidence": 0.138,
+   "category": "Calculation",
+   "fire_rate": 0.0009,
+   "top_votes": {
+    "Greedy Capture": 22,
+    "Missed Overloading": 21,
+    "Pawn Move Exposed King": 19,
+    "Missed Free Pawn": 16,
+    "Bad Simplification": 14
+   },
+   "n_positions": 159
+  },
+  "111": {
+   "label": null,
+   "confidence": 0.095,
+   "category": "Position",
+   "fire_rate": 0.0191,
+   "top_votes": {
+    "Missed Open File": 19,
+    "Missed Free Pawn": 17,
+    "Missed Pawn Break": 15,
+    "Ignored Threat": 15,
+    "Greedy Capture": 15
+   },
+   "n_positions": 200
+  },
+  "112": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.26,
+   "category": "Position",
+   "fire_rate": 0.0019,
+   "top_votes": {
+    "Missed Pawn Break": 52,
+    "Missed Trade to Simplify": 44,
+    "Wrong Pawn Race": 42,
+    "Missed Pawn Trade": 26,
+    "Missed Passed Pawn": 26
+   },
+   "n_positions": 200
+  },
+  "113": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.625,
+   "category": "Position",
+   "fire_rate": 0.0176,
+   "top_votes": {
+    "Missed Pawn Break": 125,
+    "Missed Pawn Trade": 117,
+    "Missed Free Pawn": 50,
+    "Pawn Move Exposed King": 29,
+    "Missed Passed Pawn": 26
+   },
+   "n_positions": 200
+  },
+  "114": {
+   "label": "Greedy Capture",
+   "confidence": 0.35,
+   "category": "Calculation",
+   "fire_rate": 0.269,
+   "top_votes": {
+    "Greedy Capture": 70,
+    "Bad Simplification": 47,
+    "Missed Overloading": 23,
+    "Missed Trade to Simplify": 19,
+    "Missed Open File": 19
+   },
+   "n_positions": 200
+  },
+  "115": {
+   "label": "Missed Overloading",
+   "confidence": 0.38,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0046,
+   "top_votes": {
+    "Missed Overloading": 76,
+    "Missed Mate": 47,
+    "Missed Battery": 40,
+    "Bad Simplification": 24,
+    "Missed Free Pawn": 23
+   },
+   "n_positions": 200
+  },
+  "116": {
+   "label": null,
+   "confidence": 0.228,
+   "category": "Calculation",
+   "fire_rate": 0.0011,
+   "top_votes": {
+    "Greedy Capture": 42,
+    "Missed Trade to Simplify": 34,
+    "Missed Pawn Break": 17,
+    "Missed Queen Exchange": 16,
+    "Missed Desperado": 14
+   },
+   "n_positions": 184
+  },
+  "117": {
+   "label": null,
+   "confidence": 0.205,
+   "category": "Calculation",
+   "fire_rate": 0.0015,
+   "top_votes": {
+    "Greedy Capture": 41,
+    "Bad Simplification": 23,
+    "Missed Passed Pawn": 22,
+    "Ignored Threat": 20,
+    "Missed Overloading": 20
+   },
+   "n_positions": 200
+  },
+  "118": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.415,
+   "category": "Position",
+   "fire_rate": 0.0028,
+   "top_votes": {
+    "Missed Pawn Break": 83,
+    "Missed Pawn Trade": 74,
+    "Missed Free Pawn": 41,
+    "Missed Desperado": 36,
+    "Pawn Move Exposed King": 31
+   },
+   "n_positions": 200
+  },
+  "119": {
+   "label": "Bad Simplification",
+   "confidence": 0.42,
+   "category": "Endgame",
+   "fire_rate": 0.0056,
+   "top_votes": {
+    "Bad Simplification": 84,
+    "Greedy Capture": 75,
+    "Missed Overloading": 42,
+    "Pawn Grab While Undeveloped": 33,
+    "Missed Passed Pawn": 18
+   },
+   "n_positions": 200
+  },
+  "120": {
+   "label": null,
+   "confidence": 0.195,
+   "category": "Calculation",
+   "fire_rate": 0.0278,
+   "top_votes": {
+    "Greedy Capture": 39,
+    "Missed Pawn Break": 22,
+    "Missed Overloading": 21,
+    "Pawn Move Exposed King": 20,
+    "Missed Castling": 16
+   },
+   "n_positions": 200
+  },
+  "121": {
+   "label": null,
+   "confidence": 0.165,
+   "category": "Calculation",
+   "fire_rate": 0.0455,
+   "top_votes": {
+    "Greedy Capture": 33,
+    "Ignored Threat": 25,
+    "Missed Defensive Resource": 24,
+    "Missed Overloading": 24,
+    "Missed Open File": 20
+   },
+   "n_positions": 200
+  },
+  "122": {
+   "label": "Missed f2/f7 Attack",
+   "confidence": 0.28,
+   "category": "King Safety",
+   "fire_rate": 0.0022,
+   "top_votes": {
+    "Missed f2/f7 Attack": 56,
+    "Missed Overloading": 54,
+    "Pawn Move Exposed King": 21,
+    "Missed Pawn Break": 16,
+    "Missed Desperado": 15
+   },
+   "n_positions": 200
+  },
+  "123": {
+   "label": "Greedy Capture",
+   "confidence": 0.345,
+   "category": "Calculation",
+   "fire_rate": 0.0428,
+   "top_votes": {
+    "Greedy Capture": 69,
+    "Pawn Grab While Undeveloped": 53,
+    "Pawn Move Exposed King": 38,
+    "Missed Pawn Break": 29,
+    "Premature Attack": 20
+   },
+   "n_positions": 200
+  },
+  "124": {
+   "label": null,
+   "confidence": 0.195,
+   "category": "King Safety",
+   "fire_rate": 0.0015,
+   "top_votes": {
+    "Pawn Move Exposed King": 39,
+    "Missed Pawn Break": 33,
+    "Missed Overloading": 26,
+    "Missed Trade to Simplify": 24,
+    "Greedy Capture": 20
+   },
+   "n_positions": 200
+  },
+  "125": {
+   "label": null,
+   "confidence": 0.155,
+   "category": "Endgame",
+   "fire_rate": 0.0014,
+   "top_votes": {
+    "Bad Simplification": 31,
+    "Wrong Pawn Race": 25,
+    "Greedy Capture": 22,
+    "Missed Open File": 19,
+    "Missed Pawn Break": 17
+   },
+   "n_positions": 200
+  },
+  "126": {
+   "label": "Wrong Pawn Race",
+   "confidence": 0.49,
+   "category": "Endgame",
+   "fire_rate": 0.0146,
+   "top_votes": {
+    "Wrong Pawn Race": 98,
+    "Pawn Move Exposed King": 72,
+    "Missed King Activity": 46,
+    "Missed Passed Pawn": 33,
+    "Missed Trade to Simplify": 24
+   },
+   "n_positions": 200
+  },
+  "127": {
+   "label": null,
+   "confidence": 0.18,
+   "category": "Calculation",
+   "fire_rate": 0.002,
+   "top_votes": {
+    "Missed Desperado": 36,
+    "Pawn Move Exposed King": 34,
+    "Missed Free Bishop": 30,
+    "Missed Pawn Break": 24,
+    "Missed Trade to Simplify": 23
+   },
+   "n_positions": 200
+  },
+  "128": {
+   "label": null,
+   "confidence": 0.2,
+   "category": "Allowed Tactic",
+   "fire_rate": 0.0002,
+   "top_votes": {
+    "Missed Defensive Resource": 6,
+    "Missed Free Queen": 6,
+    "Missed Pawn Break": 5,
+    "Pawn Move Exposed King": 4,
+    "Greedy Capture": 4
+   },
+   "n_positions": 30
+  },
+  "129": {
+   "label": null,
+   "confidence": 0.135,
+   "category": "Endgame",
+   "fire_rate": 0.0162,
+   "top_votes": {
+    "Missed King Activity": 27,
+    "Missed Open File": 24,
+    "Missed Free Pawn": 20,
+    "Missed Passed Pawn": 20,
+    "Missed Trade to Simplify": 18
+   },
+   "n_positions": 200
+  },
+  "130": {
+   "label": null,
+   "confidence": 0.13,
+   "category": "Endgame",
+   "fire_rate": 0.0019,
+   "top_votes": {
+    "Missed Trade to Simplify": 26,
+    "Missed Desperado": 25,
+    "Greedy Capture": 23,
+    "Missed Overloading": 21,
+    "Ignored Threat": 20
+   },
+   "n_positions": 200
+  },
+  "131": {
+   "label": "Missed Bishop-Knight Exchange",
+   "confidence": 0.73,
+   "category": "Trading",
+   "fire_rate": 0.0239,
+   "top_votes": {
+    "Missed Bishop-Knight Exchange": 146,
+    "Missed Overloading": 47,
+    "Missed Remove the Guard": 34,
+    "Missed Desperado": 32,
+    "Failed Pin": 30
+   },
+   "n_positions": 200
+  },
+  "132": {
+   "label": "Missed Free Knight",
+   "confidence": 0.35,
+   "category": "Missed Capture",
+   "fire_rate": 0.0086,
+   "top_votes": {
+    "Missed Free Knight": 70,
+    "Missed Desperado": 56,
+    "Missed Free Bishop": 53,
+    "Pawn Move Exposed King": 46,
+    "Missed Pawn Break": 41
+   },
+   "n_positions": 200
+  },
+  "133": {
+   "label": "Bad Simplification",
+   "confidence": 0.575,
+   "category": "Endgame",
+   "fire_rate": 0.0167,
+   "top_votes": {
+    "Bad Simplification": 115,
+    "Greedy Capture": 70,
+    "Missed Overloading": 44,
+    "Missed Passed Pawn": 33,
+    "Missed Open File": 29
+   },
+   "n_positions": 200
+  },
+  "134": {
+   "label": null,
+   "confidence": 0.225,
+   "category": "Calculation",
+   "fire_rate": 0.0327,
+   "top_votes": {
+    "Greedy Capture": 45,
+    "Ignored Threat": 28,
+    "Missed Defensive Resource": 28,
+    "Missed Desperado": 25,
+    "Missed Pawn Break": 21
+   },
+   "n_positions": 200
+  },
+  "135": {
+   "label": "Greedy Capture",
+   "confidence": 0.285,
+   "category": "Calculation",
+   "fire_rate": 0.0238,
+   "top_votes": {
+    "Greedy Capture": 57,
+    "Missed Overloading": 24,
+    "Missed Pawn Break": 16,
+    "Missed Tempo Push": 14,
+    "Missed Passed Pawn": 12
+   },
+   "n_positions": 200
+  },
+  "136": {
+   "label": "Missed Mate",
+   "confidence": 0.67,
+   "category": "Missed Mate",
+   "fire_rate": 0.0288,
+   "top_votes": {
+    "Missed Mate": 134,
+    "Missed Battery": 95,
+    "Missed Overloading": 62,
+    "Missed Kingside Attack": 50,
+    "Allowed Doubled Rooks": 26
+   },
+   "n_positions": 200
+  },
+  "137": {
+   "label": null,
+   "confidence": 0.22,
+   "category": "Calculation",
+   "fire_rate": 0.0019,
+   "top_votes": {
+    "Greedy Capture": 44,
+    "Bad Simplification": 25,
+    "Missed Pawn Break": 24,
+    "Missed Overloading": 23,
+    "Missed Open File": 22
+   },
+   "n_positions": 200
+  },
+  "138": {
+   "label": null,
+   "confidence": 0.2,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0334,
+   "top_votes": {
+    "Missed Overloading": 40,
+    "Greedy Capture": 24,
+    "Missed Tempo Push": 23,
+    "Missed Interposition": 20,
+    "Pawn Move Exposed King": 19
+   },
+   "n_positions": 200
+  },
+  "139": {
+   "label": null,
+   "confidence": 0.215,
+   "category": "Calculation",
+   "fire_rate": 0.0023,
+   "top_votes": {
+    "Greedy Capture": 43,
+    "Pawn Grab While Undeveloped": 25,
+    "Missed Pawn Break": 23,
+    "Pawn Move Exposed King": 23,
+    "Missed Trade to Simplify": 20
+   },
+   "n_positions": 200
+  },
+  "140": {
+   "label": null,
+   "confidence": 0.16,
+   "category": "Calculation",
+   "fire_rate": 0.0015,
+   "top_votes": {
+    "Greedy Capture": 32,
+    "Missed Trade to Simplify": 30,
+    "Missed Free Pawn": 23,
+    "Missed Pawn Break": 20,
+    "Pawn Move Exposed King": 20
+   },
+   "n_positions": 200
+  },
+  "141": {
+   "label": null,
+   "confidence": 0.13,
+   "category": "Calculation",
+   "fire_rate": 0.0016,
+   "top_votes": {
+    "Missed Desperado": 26,
+    "Pawn Move Exposed King": 25,
+    "Missed Pawn Break": 19,
+    "Ignored Threat": 19,
+    "Missed Defensive Resource": 18
+   },
+   "n_positions": 200
+  },
+  "142": {
+   "label": null,
+   "confidence": 0.125,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0074,
+   "top_votes": {
+    "Missed Overloading": 25,
+    "Missed Defensive Resource": 24,
+    "Missed Trade to Simplify": 23,
+    "Missed Free Pawn": 22,
+    "Greedy Capture": 22
+   },
+   "n_positions": 200
+  },
+  "143": {
+   "label": null,
+   "confidence": 0.21,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0114,
+   "top_votes": {
+    "Missed Overloading": 42,
+    "Missed Discovered Attack": 39,
+    "Missed Desperado": 27,
+    "Greedy Capture": 27,
+    "Missed Defensive Resource": 22
+   },
+   "n_positions": 200
+  },
+  "144": {
+   "label": null,
+   "confidence": 0.174,
+   "category": "Calculation",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Greedy Capture": 12,
+    "Missed Overloading": 8,
+    "Bad Simplification": 8,
+    "Missed Defensive Resource": 6,
+    "Pawn Move Exposed King": 5
+   },
+   "n_positions": 69
+  },
+  "145": {
+   "label": null,
+   "confidence": 0.23,
+   "category": "Endgame",
+   "fire_rate": 0.0102,
+   "top_votes": {
+    "Wrong Pawn Race": 46,
+    "Wrong King Direction": 31,
+    "Missed Passed Pawn": 25,
+    "Missed King Activity": 24,
+    "Missed Trade to Simplify": 24
+   },
+   "n_positions": 200
+  },
+  "146": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.396,
+   "category": "Endgame",
+   "fire_rate": 0.0006,
+   "top_votes": {
+    "Missed Trade to Simplify": 38,
+    "Pawn Move Exposed King": 19,
+    "Missed Open File": 12,
+    "Wrong Pawn Race": 12,
+    "Missed Desperado": 11
+   },
+   "n_positions": 96
+  },
+  "147": {
+   "label": null,
+   "confidence": 0.225,
+   "category": "Endgame",
+   "fire_rate": 0.0042,
+   "top_votes": {
+    "Missed Trade to Simplify": 45,
+    "Missed Free Rook": 24,
+    "Missed Desperado": 24,
+    "Ignored Threat": 21,
+    "Greedy Capture": 21
+   },
+   "n_positions": 200
+  },
+  "148": {
+   "label": null,
+   "confidence": 0.23,
+   "category": "Endgame",
+   "fire_rate": 0.0013,
+   "top_votes": {
+    "Missed Trade to Simplify": 46,
+    "Missed Overloading": 25,
+    "Missed Open File": 23,
+    "Missed Free Queen": 22,
+    "Missed Desperado": 19
+   },
+   "n_positions": 200
+  },
+  "149": {
+   "label": "Missed Tempo Push",
+   "confidence": 0.95,
+   "category": "Position",
+   "fire_rate": 0.0104,
+   "top_votes": {
+    "Missed Tempo Push": 190,
+    "Missed Pawn Break": 49,
+    "Greedy Capture": 27,
+    "Pawn Move Exposed King": 18,
+    "Missed Overloading": 16
+   },
+   "n_positions": 200
+  },
+  "150": {
+   "label": null,
+   "confidence": 0.175,
+   "category": "Calculation",
+   "fire_rate": 0.0856,
+   "top_votes": {
+    "Greedy Capture": 35,
+    "Missed Battery": 27,
+    "Missed Open File": 22,
+    "Pawn Move Exposed King": 19,
+    "Missed Pin": 19
+   },
+   "n_positions": 200
+  },
+  "151": {
+   "label": null,
+   "confidence": 0.155,
+   "category": "Calculation",
+   "fire_rate": 0.0014,
+   "top_votes": {
+    "Greedy Capture": 31,
+    "Ignored Threat": 30,
+    "Missed Trade to Simplify": 27,
+    "Missed Desperado": 26,
+    "Missed Overloading": 25
+   },
+   "n_positions": 200
+  },
+  "152": {
+   "label": null,
+   "confidence": 0.21,
+   "category": "Calculation",
+   "fire_rate": 0.0553,
+   "top_votes": {
+    "Greedy Capture": 42,
+    "Missed Battery": 25,
+    "Missed Overloading": 21,
+    "Missed Free Pawn": 14,
+    "Pawn Move Exposed King": 11
+   },
+   "n_positions": 200
+  },
+  "153": {
+   "label": null,
+   "confidence": 0.245,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0039,
+   "top_votes": {
+    "Missed Overloading": 49,
+    "Missed Pawn Break": 47,
+    "Missed Pawn Trade": 45,
+    "Pawn Move Exposed King": 31,
+    "Missed Desperado": 24
+   },
+   "n_positions": 200
+  },
+  "154": {
+   "label": "Greedy Capture",
+   "confidence": 0.635,
+   "category": "Calculation",
+   "fire_rate": 0.0209,
+   "top_votes": {
+    "Greedy Capture": 127,
+    "Failed Pin": 28,
+    "Missed Overloading": 26,
+    "Missed Free Pawn": 25,
+    "Missed Tempo Push": 15
+   },
+   "n_positions": 200
+  },
+  "155": {
+   "label": null,
+   "confidence": 0.2,
+   "category": "Missed Capture",
+   "fire_rate": 0.0,
+   "top_votes": {
+    "Missed Free Pawn": 1,
+    "Missed Trade to Simplify": 1,
+    "Greedy Capture": 1,
+    "Missed Free Knight": 1,
+    "Pawn Move Exposed King": 1
+   },
+   "n_positions": 5
+  },
+  "156": {
+   "label": null,
+   "confidence": 0.24,
+   "category": "Calculation",
+   "fire_rate": 0.0027,
+   "top_votes": {
+    "Greedy Capture": 48,
+    "Bad Simplification": 32,
+    "Pawn Move Exposed King": 32,
+    "Missed Trade to Simplify": 26,
+    "Missed Free Knight": 22
+   },
+   "n_positions": 200
+  },
+  "157": {
+   "label": null,
+   "confidence": 0.111,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0003,
+   "top_votes": {
+    "Missed Overloading": 5,
+    "Missed Unpinning Resource": 5,
+    "Missed Free Bishop": 5,
+    "Missed Knight Exchange": 4,
+    "Missed Defensive Resource": 4
+   },
+   "n_positions": 45
+  },
+  "158": {
+   "label": "Pawn Move Exposed King",
+   "confidence": 1.0,
+   "category": "King Safety",
+   "fire_rate": 0.0,
+   "top_votes": {
+    "Pawn Move Exposed King": 2,
+    "Missed Queen Exchange": 1,
+    "Missed Trade to Simplify": 1
+   },
+   "n_positions": 2
+  },
+  "159": {
+   "label": "Missed Open File",
+   "confidence": 0.44,
+   "category": "Position",
+   "fire_rate": 0.041,
+   "top_votes": {
+    "Missed Open File": 88,
+    "Missed Rook to Open File": 77,
+    "Missed Overloading": 42,
+    "Bad Simplification": 29,
+    "Pawn Move Exposed King": 22
+   },
+   "n_positions": 200
+  },
+  "160": {
+   "label": "Greedy Capture",
+   "confidence": 0.26,
+   "category": "Calculation",
+   "fire_rate": 0.0108,
+   "top_votes": {
+    "Greedy Capture": 52,
+    "Missed Open File": 51,
+    "Bad Simplification": 42,
+    "Wrong Pawn Race": 24,
+    "Missed King Activity": 24
+   },
+   "n_positions": 200
+  },
+  "161": {
+   "label": null,
+   "confidence": 0.23,
+   "category": "Calculation",
+   "fire_rate": 0.0023,
+   "top_votes": {
+    "Greedy Capture": 46,
+    "Bad Simplification": 41,
+    "Wrong Pawn Race": 32,
+    "Missed Trade to Simplify": 24,
+    "Missed Overloading": 21
+   },
+   "n_positions": 200
+  },
+  "162": {
+   "label": "Greedy Capture",
+   "confidence": 0.345,
+   "category": "Calculation",
+   "fire_rate": 0.0048,
+   "top_votes": {
+    "Greedy Capture": 69,
+    "Pawn Grab While Undeveloped": 46,
+    "Missed Overloading": 38,
+    "Missed Pawn Break": 37,
+    "Bad Simplification": 32
+   },
+   "n_positions": 200
+  },
+  "163": {
+   "label": "Greedy Capture",
+   "confidence": 0.315,
+   "category": "Calculation",
+   "fire_rate": 0.0129,
+   "top_votes": {
+    "Greedy Capture": 63,
+    "Pawn Grab While Undeveloped": 48,
+    "Premature Attack": 34,
+    "Missed Overloading": 24,
+    "Missed Tempo Push": 13
+   },
+   "n_positions": 200
+  },
+  "164": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.77,
+   "category": "Position",
+   "fire_rate": 0.0275,
+   "top_votes": {
+    "Missed Pawn Break": 154,
+    "Wrong Pawn Race": 53,
+    "Missed Pawn Trade": 38,
+    "Missed Trade to Simplify": 38,
+    "Pawn Move Exposed King": 28
+   },
+   "n_positions": 200
+  },
+  "165": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.253,
+   "category": "Position",
+   "fire_rate": 0.0005,
+   "top_votes": {
+    "Missed Pawn Break": 21,
+    "Greedy Capture": 17,
+    "Missed Passed Pawn": 13,
+    "Missed Pawn Trade": 10,
+    "Missed Advanced Pawn": 9
+   },
+   "n_positions": 83
+  },
+  "166": {
+   "label": null,
+   "confidence": 0.17,
+   "category": "Calculation",
+   "fire_rate": 0.0066,
+   "top_votes": {
+    "Greedy Capture": 34,
+    "Missed Trade to Simplify": 25,
+    "Ignored Threat": 25,
+    "Missed Desperado": 24,
+    "Missed Defensive Resource": 23
+   },
+   "n_positions": 200
+  },
+  "167": {
+   "label": "Greedy Capture",
+   "confidence": 0.365,
+   "category": "Calculation",
+   "fire_rate": 0.0021,
+   "top_votes": {
+    "Greedy Capture": 73,
+    "Pawn Grab While Undeveloped": 37,
+    "Pawn Move Exposed King": 27,
+    "Bad Simplification": 25,
+    "Missed Defensive Resource": 20
+   },
+   "n_positions": 200
+  },
+  "168": {
+   "label": null,
+   "confidence": 0.138,
+   "category": "Calculation",
+   "fire_rate": 0.0006,
+   "top_votes": {
+    "Greedy Capture": 15,
+    "Missed King Activity": 12,
+    "Missed Trade to Simplify": 10,
+    "Missed Overloading": 10,
+    "Pawn Move Exposed King": 9
+   },
+   "n_positions": 109
+  },
+  "169": {
+   "label": "Greedy Capture",
+   "confidence": 0.27,
+   "category": "Calculation",
+   "fire_rate": 0.2673,
+   "top_votes": {
+    "Greedy Capture": 54,
+    "Ignored Threat": 35,
+    "Missed Defensive Resource": 35,
+    "Bad Simplification": 30,
+    "Missed Overloading": 23
+   },
+   "n_positions": 200
+  },
+  "170": {
+   "label": "Missed King Activity",
+   "confidence": 0.261,
+   "category": "Endgame",
+   "fire_rate": 0.0001,
+   "top_votes": {
+    "Missed King Activity": 6,
+    "Wrong Pawn Race": 4,
+    "Lost the Opposition": 2,
+    "Missed Advanced Pawn": 2,
+    "Missed Passed Pawn": 2
+   },
+   "n_positions": 23
+  },
+  "171": {
+   "label": "Missed Free Queen",
+   "confidence": 0.73,
+   "category": "Missed Capture",
+   "fire_rate": 0.1657,
+   "top_votes": {
+    "Missed Free Queen": 146,
+    "Missed Trade to Simplify": 104,
+    "Missed Desperado": 64,
+    "Ignored Threat": 50,
+    "Missed Free Rook": 34
+   },
+   "n_positions": 200
+  },
+  "172": {
+   "label": null,
+   "confidence": 0.22,
+   "category": "Calculation",
+   "fire_rate": 0.0034,
+   "top_votes": {
+    "Greedy Capture": 44,
+    "Bad Simplification": 36,
+    "Missed Pawn Break": 34,
+    "Missed Desperado": 29,
+    "Missed Trade to Simplify": 25
+   },
+   "n_positions": 200
+  },
+  "173": {
+   "label": null,
+   "confidence": 0.215,
+   "category": "Calculation",
+   "fire_rate": 0.0008,
+   "top_votes": {
+    "Greedy Capture": 28,
+    "Missed Overloading": 20,
+    "Pawn Move Exposed King": 17,
+    "Missed Trade to Simplify": 16,
+    "Missed Free Knight": 14
+   },
+   "n_positions": 130
+  },
+  "174": {
+   "label": null,
+   "confidence": 0.23,
+   "category": "Endgame",
+   "fire_rate": 0.0093,
+   "top_votes": {
+    "Missed Trade to Simplify": 46,
+    "Missed Free Rook": 40,
+    "Missed Passed Pawn": 39,
+    "Bad Simplification": 28,
+    "Wrong Pawn Race": 24
+   },
+   "n_positions": 200
+  },
+  "175": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.255,
+   "category": "Position",
+   "fire_rate": 0.011,
+   "top_votes": {
+    "Missed Pawn Break": 51,
+    "Missed Tempo Push": 43,
+    "Missed Bishop-Knight Exchange": 37,
+    "Missed Overloading": 31,
+    "Pawn Move Exposed King": 23
+   },
+   "n_positions": 200
+  },
+  "176": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.325,
+   "category": "Endgame",
+   "fire_rate": 0.0291,
+   "top_votes": {
+    "Missed Trade to Simplify": 65,
+    "Wrong Pawn Race": 59,
+    "Missed Passed Pawn": 49,
+    "Pawn Move Exposed King": 33,
+    "Missed Free Rook": 26
+   },
+   "n_positions": 200
+  },
+  "177": {
+   "label": null,
+   "confidence": 0.185,
+   "category": "Calculation",
+   "fire_rate": 0.0005,
+   "top_votes": {
+    "Greedy Capture": 17,
+    "Missed Defensive Resource": 10,
+    "Missed Trade to Simplify": 9,
+    "Missed Pawn Break": 9,
+    "Ignored Threat": 9
+   },
+   "n_positions": 92
+  },
+  "178": {
+   "label": null,
+   "confidence": 0.14,
+   "category": "Position",
+   "fire_rate": 0.0018,
+   "top_votes": {
+    "Missed Pawn Break": 28,
+    "Greedy Capture": 27,
+    "Missed Desperado": 26,
+    "Missed Overloading": 22,
+    "Missed Free Bishop": 18
+   },
+   "n_positions": 200
+  },
+  "179": {
+   "label": "Missed Overloading",
+   "confidence": 0.73,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0181,
+   "top_votes": {
+    "Missed Overloading": 146,
+    "Pawn Grab While Undeveloped": 32,
+    "Pawn Move Exposed King": 31,
+    "Failed Discovered Attack": 11,
+    "Ignored Threat": 5
+   },
+   "n_positions": 200
+  },
+  "180": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.615,
+   "category": "Endgame",
+   "fire_rate": 0.0046,
+   "top_votes": {
+    "Missed Trade to Simplify": 123,
+    "Missed Free Pawn": 36,
+    "Wrong Pawn Race": 35,
+    "Missed King Activity": 34,
+    "Missed Pawn Trade": 32
+   },
+   "n_positions": 200
+  },
+  "181": {
+   "label": null,
+   "confidence": 0.2,
+   "category": "Calculation",
+   "fire_rate": 0.0501,
+   "top_votes": {
+    "Failed Pin": 40,
+    "Missed Overloading": 26,
+    "Missed Pawn Break": 25,
+    "Missed Free Pawn": 17,
+    "Missed Open File": 15
+   },
+   "n_positions": 200
+  },
+  "182": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.305,
+   "category": "Endgame",
+   "fire_rate": 0.003,
+   "top_votes": {
+    "Missed Trade to Simplify": 61,
+    "Pawn Move Exposed King": 38,
+    "Missed Free Pawn": 32,
+    "Missed Desperado": 27,
+    "Wrong Pawn Race": 27
+   },
+   "n_positions": 200
+  },
+  "183": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.855,
+   "category": "Endgame",
+   "fire_rate": 0.0057,
+   "top_votes": {
+    "Missed Trade to Simplify": 171,
+    "Missed Free Rook": 107,
+    "Missed Desperado": 38,
+    "Missed Free Queen": 26,
+    "Pawn Move Exposed King": 25
+   },
+   "n_positions": 200
+  },
+  "184": {
+   "label": null,
+   "confidence": 0.172,
+   "category": "Calculation",
+   "fire_rate": 0.0011,
+   "top_votes": {
+    "Greedy Capture": 32,
+    "Missed Pawn Break": 27,
+    "Bad Simplification": 25,
+    "Pawn Move Exposed King": 25,
+    "Missed Trade to Simplify": 17
+   },
+   "n_positions": 186
+  },
+  "185": {
+   "label": null,
+   "confidence": 0.175,
+   "category": "King Safety",
+   "fire_rate": 0.0121,
+   "top_votes": {
+    "Pawn Move Exposed King": 35,
+    "Greedy Capture": 22,
+    "Missed Overloading": 22,
+    "Missed Tempo Push": 15,
+    "Missed Free Queen": 15
+   },
+   "n_positions": 200
+  },
+  "186": {
+   "label": "Greedy Capture",
+   "confidence": 0.33,
+   "category": "Calculation",
+   "fire_rate": 0.0026,
+   "top_votes": {
+    "Greedy Capture": 66,
+    "Bad Simplification": 25,
+    "Missed Pawn Break": 21,
+    "Pawn Grab While Undeveloped": 21,
+    "Premature Attack": 15
+   },
+   "n_positions": 200
+  },
+  "187": {
+   "label": "Missed Overloading",
+   "confidence": 0.34,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0407,
+   "top_votes": {
+    "Missed Overloading": 68,
+    "Pawn Move Exposed King": 25,
+    "Missed Battery": 10,
+    "Missed Free Pawn": 9,
+    "Pawn Grab While Undeveloped": 8
+   },
+   "n_positions": 200
+  },
+  "188": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.385,
+   "category": "Position",
+   "fire_rate": 0.01,
+   "top_votes": {
+    "Missed Pawn Break": 77,
+    "Missed Tempo Push": 31,
+    "Pawn Move Exposed King": 24,
+    "Greedy Capture": 16,
+    "Failed Pin": 12
+   },
+   "n_positions": 200
+  },
+  "189": {
+   "label": "Greedy Capture",
+   "confidence": 0.465,
+   "category": "Calculation",
+   "fire_rate": 0.0101,
+   "top_votes": {
+    "Greedy Capture": 93,
+    "Missed Overloading": 33,
+    "Missed Free Pawn": 27,
+    "Missed Battery": 26,
+    "Bad Simplification": 23
+   },
+   "n_positions": 200
+  },
+  "190": {
+   "label": null,
+   "confidence": 0.205,
+   "category": "King Safety",
+   "fire_rate": 0.0005,
+   "top_votes": {
+    "Pawn Move Exposed King": 18,
+    "Missed Trade to Simplify": 12,
+    "Missed Free Pawn": 11,
+    "Missed Pawn Break": 9,
+    "Missed Desperado": 8
+   },
+   "n_positions": 88
+  },
+  "191": {
+   "label": "Wrong Pawn Race",
+   "confidence": 0.31,
+   "category": "Endgame",
+   "fire_rate": 0.0439,
+   "top_votes": {
+    "Wrong Pawn Race": 62,
+    "Missed King Activity": 51,
+    "Lost the Opposition": 36,
+    "Missed Trade to Simplify": 32,
+    "Wrong King Direction": 32
+   },
+   "n_positions": 200
+  },
+  "192": {
+   "label": null,
+   "confidence": 0.222,
+   "category": "Endgame",
+   "fire_rate": 0.0007,
+   "top_votes": {
+    "Wrong Pawn Race": 26,
+    "Missed Trade to Simplify": 24,
+    "Missed Passed Pawn": 20,
+    "Missed Advanced Pawn": 18,
+    "Missed Push to Promote": 18
+   },
+   "n_positions": 117
+  },
+  "193": {
+   "label": null,
+   "confidence": 0.133,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0005,
+   "top_votes": {
+    "Missed Overloading": 11,
+    "Missed Open File": 10,
+    "Missed Free Pawn": 8,
+    "Missed Trade to Simplify": 8,
+    "Ignored Threat": 7
+   },
+   "n_positions": 83
+  },
+  "194": {
+   "label": null,
+   "confidence": 0.149,
+   "category": "Calculation",
+   "fire_rate": 0.0006,
+   "top_votes": {
+    "Greedy Capture": 15,
+    "Missed Defensive Resource": 13,
+    "Missed Desperado": 13,
+    "Missed Overloading": 12,
+    "Missed Queen Exchange": 12
+   },
+   "n_positions": 101
+  },
+  "195": {
+   "label": "Missed Mate",
+   "confidence": 0.29,
+   "category": "Missed Mate",
+   "fire_rate": 0.0192,
+   "top_votes": {
+    "Missed Mate": 58,
+    "Missed Battery": 55,
+    "Missed Kingside Attack": 33,
+    "Missed Overloading": 30,
+    "Pawn Move Exposed King": 17
+   },
+   "n_positions": 200
+  },
+  "196": {
+   "label": "Missed Overloading",
+   "confidence": 0.26,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0018,
+   "top_votes": {
+    "Missed Overloading": 52,
+    "Missed Free Pawn": 42,
+    "Pawn Move Exposed King": 31,
+    "Wrong Pawn Race": 24,
+    "Missed Pawn Break": 24
+   },
+   "n_positions": 200
+  },
+  "197": {
+   "label": "Wrong Pawn Race",
+   "confidence": 0.357,
+   "category": "Endgame",
+   "fire_rate": 0.0001,
+   "top_votes": {
+    "Wrong Pawn Race": 5,
+    "Wrong King Direction": 3,
+    "Missed Castling": 2,
+    "Missed Passed Pawn": 2,
+    "Bad Simplification": 2
+   },
+   "n_positions": 14
+  },
+  "198": {
+   "label": null,
+   "confidence": 0.205,
+   "category": "Calculation",
+   "fire_rate": 0.0055,
+   "top_votes": {
+    "Greedy Capture": 41,
+    "Missed Overloading": 32,
+    "Pawn Move Exposed King": 22,
+    "Bad Simplification": 21,
+    "Missed Defensive Resource": 19
+   },
+   "n_positions": 200
+  },
+  "199": {
+   "label": null,
+   "confidence": 0.15,
+   "category": "Calculation",
+   "fire_rate": 0.0513,
+   "top_votes": {
+    "Greedy Capture": 30,
+    "Pawn Move Exposed King": 18,
+    "Missed Overloading": 13,
+    "Missed Tempo Push": 11,
+    "Missed Battery": 11
+   },
+   "n_positions": 200
+  },
+  "200": {
+   "label": "Bad Simplification",
+   "confidence": 0.291,
+   "category": "Endgame",
+   "fire_rate": 0.0011,
+   "top_votes": {
+    "Bad Simplification": 55,
+    "Greedy Capture": 53,
+    "Missed Trade to Simplify": 31,
+    "Missed Open File": 21,
+    "Missed Overloading": 20
+   },
+   "n_positions": 189
+  },
+  "201": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.255,
+   "category": "Endgame",
+   "fire_rate": 0.0011,
+   "top_votes": {
+    "Missed Trade to Simplify": 47,
+    "Wrong Pawn Race": 38,
+    "Missed Free Bishop": 33,
+    "Pawn Move Exposed King": 25,
+    "Missed Free Knight": 23
+   },
+   "n_positions": 184
+  },
+  "202": {
+   "label": "Greedy Capture",
+   "confidence": 0.335,
+   "category": "Calculation",
+   "fire_rate": 0.014,
+   "top_votes": {
+    "Greedy Capture": 67,
+    "Missed Trade to Simplify": 27,
+    "Missed Open File": 21,
+    "Bad Simplification": 18,
+    "Missed Overloading": 18
+   },
+   "n_positions": 200
+  },
+  "203": {
+   "label": "Missed Passed Pawn",
+   "confidence": 0.25,
+   "category": "Endgame",
+   "fire_rate": 0.0005,
+   "top_votes": {
+    "Missed Passed Pawn": 22,
+    "Missed Advanced Pawn": 16,
+    "Missed Promotion": 16,
+    "Greedy Capture": 13,
+    "Wrong Pawn Race": 11
+   },
+   "n_positions": 88
+  },
+  "204": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.27,
+   "category": "Endgame",
+   "fire_rate": 0.0012,
+   "top_votes": {
+    "Missed Trade to Simplify": 54,
+    "Greedy Capture": 39,
+    "Missed Free Queen": 34,
+    "Missed Desperado": 31,
+    "Pawn Move Exposed King": 31
+   },
+   "n_positions": 200
+  },
+  "205": {
+   "label": null,
+   "confidence": 0.155,
+   "category": "Endgame",
+   "fire_rate": 0.0015,
+   "top_votes": {
+    "Missed Passed Pawn": 31,
+    "Missed Advanced Pawn": 21,
+    "Missed Push to Promote": 21,
+    "Greedy Capture": 21,
+    "Missed Overloading": 20
+   },
+   "n_positions": 200
+  },
+  "206": {
+   "label": null,
+   "confidence": 0.15,
+   "category": "Position",
+   "fire_rate": 0.0137,
+   "top_votes": {
+    "Missed Pawn Break": 30,
+    "Missed Overloading": 29,
+    "Missed Tempo Push": 25,
+    "Missed Passed Pawn": 23,
+    "Greedy Capture": 23
+   },
+   "n_positions": 200
+  },
+  "207": {
+   "label": null,
+   "confidence": 0.13,
+   "category": "Missed Tactic",
+   "fire_rate": 0.1021,
+   "top_votes": {
+    "Missed Overloading": 26,
+    "Missed Open File": 22,
+    "Allowed Doubled Rooks": 14,
+    "Failed Discovered Attack": 14,
+    "Missed Rook Exchange": 13
+   },
+   "n_positions": 200
+  },
+  "208": {
+   "label": "Pawn Move Exposed King",
+   "confidence": 0.36,
+   "category": "King Safety",
+   "fire_rate": 0.0103,
+   "top_votes": {
+    "Pawn Move Exposed King": 72,
+    "Wrong Pawn Race": 62,
+    "Bad Simplification": 55,
+    "Greedy Capture": 52,
+    "Missed King Activity": 45
+   },
+   "n_positions": 200
+  },
+  "209": {
+   "label": null,
+   "confidence": 0.145,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0034,
+   "top_votes": {
+    "Missed Overloading": 29,
+    "Wrong Pawn Race": 26,
+    "Bad Simplification": 20,
+    "Missed Pawn Break": 20,
+    "Missed Trade to Simplify": 15
+   },
+   "n_positions": 200
+  },
+  "210": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.275,
+   "category": "Endgame",
+   "fire_rate": 0.0015,
+   "top_votes": {
+    "Missed Trade to Simplify": 55,
+    "Pawn Move Exposed King": 33,
+    "Wrong Pawn Race": 33,
+    "Missed Passed Pawn": 30,
+    "Greedy Capture": 26
+   },
+   "n_positions": 200
+  },
+  "211": {
+   "label": "Wrong Pawn Race",
+   "confidence": 0.355,
+   "category": "Endgame",
+   "fire_rate": 0.0117,
+   "top_votes": {
+    "Wrong Pawn Race": 71,
+    "Pawn Move Exposed King": 44,
+    "Wrong King Direction": 41,
+    "Missed Passed Pawn": 32,
+    "Missed King Activity": 27
+   },
+   "n_positions": 200
+  },
+  "212": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.875,
+   "category": "Endgame",
+   "fire_rate": 0.0132,
+   "top_votes": {
+    "Missed Trade to Simplify": 175,
+    "Missed Free Rook": 97,
+    "Missed Free Queen": 46,
+    "Missed Desperado": 38,
+    "Ignored Threat": 24
+   },
+   "n_positions": 200
+  },
+  "213": {
+   "label": "Missed Passed Pawn",
+   "confidence": 0.76,
+   "category": "Endgame",
+   "fire_rate": 0.0086,
+   "top_votes": {
+    "Missed Passed Pawn": 152,
+    "Missed Push to Promote": 97,
+    "Wrong Pawn Race": 89,
+    "Missed Pawn Break": 62,
+    "Missed Trade to Simplify": 25
+   },
+   "n_positions": 200
+  },
+  "214": {
+   "label": null,
+   "confidence": 0.206,
+   "category": "Endgame",
+   "fire_rate": 0.001,
+   "top_votes": {
+    "Wrong Pawn Race": 35,
+    "Missed King Activity": 31,
+    "Missed Trade to Simplify": 30,
+    "Missed Free Pawn": 27,
+    "Wrong King Direction": 20
+   },
+   "n_positions": 170
+  },
+  "215": {
+   "label": null,
+   "confidence": 0.21,
+   "category": "Endgame",
+   "fire_rate": 0.0016,
+   "top_votes": {
+    "Wrong Pawn Race": 42,
+    "Pawn Move Exposed King": 33,
+    "Wrong King Direction": 30,
+    "Missed Pawn Break": 26,
+    "Missed King Activity": 24
+   },
+   "n_positions": 200
+  },
+  "216": {
+   "label": "Failed Fork",
+   "confidence": 0.355,
+   "category": "Calculation",
+   "fire_rate": 0.0588,
+   "top_votes": {
+    "Failed Fork": 71,
+    "Pawn Move Exposed King": 25,
+    "Failed Discovered Attack": 23,
+    "Failed Pin": 20,
+    "Missed Free Bishop": 20
+   },
+   "n_positions": 200
+  },
+  "217": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.385,
+   "category": "Position",
+   "fire_rate": 0.0041,
+   "top_votes": {
+    "Missed Pawn Break": 77,
+    "Missed Free Pawn": 62,
+    "Missed Pawn Trade": 54,
+    "Missed Desperado": 43,
+    "Pawn Move Exposed King": 38
+   },
+   "n_positions": 200
+  },
+  "218": {
+   "label": null,
+   "confidence": 0.145,
+   "category": "Calculation",
+   "fire_rate": 0.0018,
+   "top_votes": {
+    "Greedy Capture": 29,
+    "Missed Desperado": 26,
+    "Missed Defensive Resource": 24,
+    "Missed Overloading": 22,
+    "Missed Pawn Break": 19
+   },
+   "n_positions": 200
+  },
+  "219": {
+   "label": null,
+   "confidence": 0.21,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0006,
+   "top_votes": {
+    "Missed Overloading": 21,
+    "Missed Pawn Break": 9,
+    "Missed Trade to Simplify": 8,
+    "Wrong Pawn Race": 8,
+    "Missed Pawn Trade": 7
+   },
+   "n_positions": 100
+  },
+  "220": {
+   "label": "Greedy Capture",
+   "confidence": 0.41,
+   "category": "Calculation",
+   "fire_rate": 0.0787,
+   "top_votes": {
+    "Greedy Capture": 82,
+    "Pawn Move Exposed King": 34,
+    "Pawn Grab While Undeveloped": 31,
+    "Created Doubled Pawn": 23,
+    "Missed Defensive Resource": 23
+   },
+   "n_positions": 200
+  },
+  "221": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.409,
+   "category": "Endgame",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Missed Trade to Simplify": 27,
+    "Pawn Move Exposed King": 15,
+    "Missed Free Bishop": 13,
+    "Wrong Pawn Race": 10,
+    "Missed Free Rook": 9
+   },
+   "n_positions": 66
+  },
+  "222": {
+   "label": null,
+   "confidence": 0.165,
+   "category": "Endgame",
+   "fire_rate": 0.0012,
+   "top_votes": {
+    "Missed King Activity": 33,
+    "Wrong Pawn Race": 26,
+    "Missed Trade to Simplify": 24,
+    "Wrong King Direction": 21,
+    "Greedy Capture": 20
+   },
+   "n_positions": 200
+  },
+  "223": {
+   "label": "Missed Overloading",
+   "confidence": 0.58,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0179,
+   "top_votes": {
+    "Missed Overloading": 116,
+    "Missed f2/f7 Attack": 94,
+    "Missed Kingside Attack": 39,
+    "Missed Free Pawn": 38,
+    "Pawn Move Exposed King": 16
+   },
+   "n_positions": 200
+  },
+  "224": {
+   "label": "Pawn Move Exposed King",
+   "confidence": 0.265,
+   "category": "King Safety",
+   "fire_rate": 0.0295,
+   "top_votes": {
+    "Pawn Move Exposed King": 53,
+    "Missed Overloading": 51,
+    "Missed Free Pawn": 26,
+    "Missed Battery": 25,
+    "Allowed Doubled Rooks": 21
+   },
+   "n_positions": 200
+  },
+  "225": {
+   "label": null,
+   "confidence": 0.19,
+   "category": "Calculation",
+   "fire_rate": 0.0378,
+   "top_votes": {
+    "Greedy Capture": 38,
+    "Missed Overloading": 30,
+    "Missed Tempo Push": 27,
+    "Missed Free Knight": 24,
+    "Pawn Move Exposed King": 23
+   },
+   "n_positions": 200
+  },
+  "226": {
+   "label": null,
+   "confidence": 0.165,
+   "category": "King Safety",
+   "fire_rate": 0.0069,
+   "top_votes": {
+    "Pawn Move Exposed King": 33,
+    "Greedy Capture": 29,
+    "Premature Attack": 27,
+    "Pawn Grab While Undeveloped": 26,
+    "Missed Pawn Break": 23
+   },
+   "n_positions": 200
+  },
+  "227": {
+   "label": "Missed Mate",
+   "confidence": 0.545,
+   "category": "Missed Mate",
+   "fire_rate": 0.0232,
+   "top_votes": {
+    "Missed Mate": 109,
+    "Missed Battery": 72,
+    "Missed Overloading": 30,
+    "Missed Trade to Simplify": 25,
+    "Missed Open File": 25
+   },
+   "n_positions": 200
+  },
+  "228": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.415,
+   "category": "Endgame",
+   "fire_rate": 0.0107,
+   "top_votes": {
+    "Missed Trade to Simplify": 83,
+    "Missed Desperado": 58,
+    "Missed Free Queen": 58,
+    "Missed Free Rook": 52,
+    "Ignored Threat": 37
+   },
+   "n_positions": 200
+  },
+  "229": {
+   "label": null,
+   "confidence": 0.2,
+   "category": "Calculation",
+   "fire_rate": 0.0005,
+   "top_votes": {
+    "Greedy Capture": 18,
+    "Bad Simplification": 13,
+    "Missed Open File": 10,
+    "Wrong Pawn Race": 9,
+    "Missed Free Queen": 8
+   },
+   "n_positions": 90
+  },
+  "230": {
+   "label": null,
+   "confidence": 0.215,
+   "category": "Calculation",
+   "fire_rate": 0.0407,
+   "top_votes": {
+    "Greedy Capture": 43,
+    "Missed Pawn Break": 33,
+    "Pawn Move Exposed King": 32,
+    "Missed Overloading": 24,
+    "Missed Tempo Push": 23
+   },
+   "n_positions": 200
+  },
+  "231": {
+   "label": null,
+   "confidence": 0.23,
+   "category": "Endgame",
+   "fire_rate": 0.0015,
+   "top_votes": {
+    "Missed Trade to Simplify": 46,
+    "Missed Free Queen": 40,
+    "Missed Free Rook": 33,
+    "Greedy Capture": 33,
+    "Missed Desperado": 30
+   },
+   "n_positions": 200
+  },
+  "232": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.4,
+   "category": "Position",
+   "fire_rate": 0.0168,
+   "top_votes": {
+    "Missed Pawn Break": 80,
+    "Missed Pawn Trade": 29,
+    "Pawn Move Exposed King": 12,
+    "Missed Overloading": 9,
+    "Missed Bishop-Knight Exchange": 8
+   },
+   "n_positions": 200
+  },
+  "233": {
+   "label": null,
+   "confidence": 0.13,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0014,
+   "top_votes": {
+    "Missed Overloading": 26,
+    "Greedy Capture": 26,
+    "Missed Trade to Simplify": 25,
+    "Pawn Move Exposed King": 20,
+    "Wrong Pawn Race": 19
+   },
+   "n_positions": 200
+  },
+  "234": {
+   "label": null,
+   "confidence": 0.152,
+   "category": "Endgame",
+   "fire_rate": 0.0006,
+   "top_votes": {
+    "Missed Trade to Simplify": 15,
+    "Missed Overloading": 14,
+    "Bad Simplification": 10,
+    "Greedy Capture": 10,
+    "Missed Defensive Resource": 10
+   },
+   "n_positions": 99
+  },
+  "235": {
+   "label": null,
+   "confidence": 0.175,
+   "category": "Missed Capture",
+   "fire_rate": 0.0023,
+   "top_votes": {
+    "Missed Free Pawn": 35,
+    "Greedy Capture": 34,
+    "Missed Pawn Break": 27,
+    "Premature Attack": 22,
+    "Pawn Grab While Undeveloped": 20
+   },
+   "n_positions": 200
+  },
+  "236": {
+   "label": null,
+   "confidence": 0.215,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0199,
+   "top_votes": {
+    "Missed Overloading": 43,
+    "Missed Battery": 21,
+    "Greedy Capture": 19,
+    "Missed Open File": 17,
+    "Missed Defensive Resource": 12
+   },
+   "n_positions": 200
+  },
+  "237": {
+   "label": null,
+   "confidence": 0.235,
+   "category": "Endgame",
+   "fire_rate": 0.0014,
+   "top_votes": {
+    "Missed Trade to Simplify": 47,
+    "Missed Passed Pawn": 34,
+    "Missed Advanced Pawn": 29,
+    "Pawn Move Exposed King": 26,
+    "Missed Promotion": 22
+   },
+   "n_positions": 200
+  },
+  "238": {
+   "label": null,
+   "confidence": 0.22,
+   "category": "Endgame",
+   "fire_rate": 0.0214,
+   "top_votes": {
+    "Missed Trade to Simplify": 44,
+    "Allowed Doubled Rooks": 43,
+    "Missed Free Rook": 42,
+    "Missed Desperado": 41,
+    "Ignored Threat": 36
+   },
+   "n_positions": 200
+  },
+  "239": {
+   "label": "Greedy Capture",
+   "confidence": 0.73,
+   "category": "Calculation",
+   "fire_rate": 0.1301,
+   "top_votes": {
+    "Greedy Capture": 146,
+    "Failed Pin": 25,
+    "Premature Attack": 24,
+    "Missed Pawn Break": 24,
+    "Missed Free Pawn": 23
+   },
+   "n_positions": 200
+  },
+  "240": {
+   "label": null,
+   "confidence": 0.199,
+   "category": "Calculation",
+   "fire_rate": 0.0009,
+   "top_votes": {
+    "Greedy Capture": 31,
+    "Missed Trade to Simplify": 25,
+    "Pawn Move Exposed King": 22,
+    "Pawn Grab While Undeveloped": 21,
+    "Missed Pawn Break": 20
+   },
+   "n_positions": 156
+  },
+  "241": {
+   "label": "Greedy Capture",
+   "confidence": 0.315,
+   "category": "Calculation",
+   "fire_rate": 0.0042,
+   "top_votes": {
+    "Greedy Capture": 63,
+    "Pawn Grab While Undeveloped": 57,
+    "Missed Overloading": 27,
+    "Missed Pawn Break": 25,
+    "Premature Attack": 20
+   },
+   "n_positions": 200
+  },
+  "242": {
+   "label": null,
+   "confidence": 0.16,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0246,
+   "top_votes": {
+    "Missed Overloading": 32,
+    "Pawn Move Exposed King": 25,
+    "Missed Tempo Push": 24,
+    "Missed Unpinning Resource": 20,
+    "Missed Pawn Break": 17
+   },
+   "n_positions": 200
+  },
+  "243": {
+   "label": null,
+   "confidence": 0.11,
+   "category": "Position",
+   "fire_rate": 0.0081,
+   "top_votes": {
+    "Premature Attack": 22,
+    "Missed Pawn Break": 21,
+    "Greedy Capture": 19,
+    "Missed Overloading": 18,
+    "Failed Discovered Attack": 14
+   },
+   "n_positions": 200
+  },
+  "244": {
+   "label": "Greedy Capture",
+   "confidence": 0.3,
+   "category": "Calculation",
+   "fire_rate": 0.0035,
+   "top_votes": {
+    "Greedy Capture": 60,
+    "Missed Overloading": 47,
+    "Missed Desperado": 29,
+    "Created Isolated Pawn": 28,
+    "Failed Discovered Attack": 24
+   },
+   "n_positions": 200
+  },
+  "245": {
+   "label": null,
+   "confidence": 0.155,
+   "category": "Endgame",
+   "fire_rate": 0.0014,
+   "top_votes": {
+    "Wrong Pawn Race": 31,
+    "Greedy Capture": 30,
+    "Missed Overloading": 25,
+    "Missed Passed Pawn": 23,
+    "Wrong King Direction": 19
+   },
+   "n_positions": 200
+  },
+  "246": {
+   "label": "Bad Simplification",
+   "confidence": 0.845,
+   "category": "Endgame",
+   "fire_rate": 0.0187,
+   "top_votes": {
+    "Bad Simplification": 169,
+    "Greedy Capture": 144,
+    "Missed Open File": 60,
+    "Missed Rook to Open File": 33,
+    "Missed Overloading": 24
+   },
+   "n_positions": 200
+  },
+  "247": {
+   "label": null,
+   "confidence": 0.17,
+   "category": "Endgame",
+   "fire_rate": 0.0023,
+   "top_votes": {
+    "Missed Trade to Simplify": 34,
+    "Wrong Pawn Race": 23,
+    "Pawn Move Exposed King": 22,
+    "Missed Pawn Break": 19,
+    "Greedy Capture": 19
+   },
+   "n_positions": 200
+  },
+  "248": {
+   "label": "Missed Interposition",
+   "confidence": 0.28,
+   "category": "Allowed Tactic",
+   "fire_rate": 0.0179,
+   "top_votes": {
+    "Missed Interposition": 56,
+    "Ignored Threat": 24,
+    "Greedy Capture": 22,
+    "Missed Overloading": 20,
+    "Allowed Doubled Rooks": 18
+   },
+   "n_positions": 200
+  },
+  "249": {
+   "label": "Missed Free Bishop",
+   "confidence": 0.38,
+   "category": "Missed Capture",
+   "fire_rate": 0.0044,
+   "top_votes": {
+    "Missed Free Bishop": 76,
+    "Missed Desperado": 44,
+    "Pawn Move Exposed King": 36,
+    "Greedy Capture": 25,
+    "Missed Defensive Resource": 24
+   },
+   "n_positions": 200
+  },
+  "250": {
+   "label": "Missed Free Pawn",
+   "confidence": 0.815,
+   "category": "Missed Capture",
+   "fire_rate": 0.009,
+   "top_votes": {
+    "Missed Free Pawn": 163,
+    "Missed Overloading": 51,
+    "Pawn Move Exposed King": 12,
+    "Missed Desperado": 10,
+    "Failed Discovered Attack": 8
+   },
+   "n_positions": 200
+  },
+  "251": {
+   "label": null,
+   "confidence": 0.18,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0424,
+   "top_votes": {
+    "Missed Overloading": 36,
+    "Missed Free Pawn": 17,
+    "Ignored Threat": 17,
+    "Missed Defensive Resource": 16,
+    "Missed Free Queen": 16
+   },
+   "n_positions": 200
+  },
+  "252": {
+   "label": "Greedy Capture",
+   "confidence": 0.4,
+   "category": "Calculation",
+   "fire_rate": 0.0887,
+   "top_votes": {
+    "Greedy Capture": 80,
+    "Missed Overloading": 75,
+    "Bad Simplification": 71,
+    "Missed Battery": 22,
+    "Missed Open File": 20
+   },
+   "n_positions": 200
+  },
+  "253": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.455,
+   "category": "Endgame",
+   "fire_rate": 0.0109,
+   "top_votes": {
+    "Missed Trade to Simplify": 91,
+    "Missed Passed Pawn": 53,
+    "Missed Free Pawn": 46,
+    "Missed Advanced Pawn": 46,
+    "Missed Promotion": 43
+   },
+   "n_positions": 200
+  },
+  "254": {
+   "label": null,
+   "confidence": 0.15,
+   "category": "Missed Tactic",
+   "fire_rate": 0.004,
+   "top_votes": {
+    "Missed Overloading": 30,
+    "Missed Passed Pawn": 25,
+    "Greedy Capture": 23,
+    "Missed Pawn Break": 21,
+    "Missed Tempo Push": 20
+   },
+   "n_positions": 200
+  },
+  "255": {
+   "label": "Missed Free Rook",
+   "confidence": 0.425,
+   "category": "Missed Capture",
+   "fire_rate": 0.0089,
+   "top_votes": {
+    "Missed Free Rook": 85,
+    "Missed Trade to Simplify": 53,
+    "Allowed Doubled Rooks": 46,
+    "Missed Desperado": 32,
+    "Missed Free Queen": 30
+   },
+   "n_positions": 200
+  },
+  "256": {
+   "label": "Bad Simplification",
+   "confidence": 0.495,
+   "category": "Endgame",
+   "fire_rate": 0.0212,
+   "top_votes": {
+    "Bad Simplification": 99,
+    "Greedy Capture": 71,
+    "Missed Overloading": 67,
+    "Missed Open File": 35,
+    "Missed Free Pawn": 25
+   },
+   "n_positions": 200
+  },
+  "257": {
+   "label": "Failed Pin",
+   "confidence": 0.32,
+   "category": "Calculation",
+   "fire_rate": 0.0095,
+   "top_votes": {
+    "Failed Pin": 64,
+    "Allowed Doubled Rooks": 33,
+    "Missed Trade to Simplify": 31,
+    "Missed Rook Exchange": 26,
+    "Missed Defensive Resource": 23
+   },
+   "n_positions": 200
+  },
+  "258": {
+   "label": null,
+   "confidence": 0.12,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0423,
+   "top_votes": {
+    "Missed Overloading": 24,
+    "Missed Desperado": 20,
+    "Pawn Move Exposed King": 18,
+    "Missed Pawn Break": 17,
+    "Missed Free Rook": 16
+   },
+   "n_positions": 200
+  },
+  "259": {
+   "label": null,
+   "confidence": 0.205,
+   "category": "Calculation",
+   "fire_rate": 0.0255,
+   "top_votes": {
+    "Greedy Capture": 41,
+    "Pawn Move Exposed King": 37,
+    "Missed Overloading": 29,
+    "Missed Battery": 20,
+    "Missed Pawn Break": 17
+   },
+   "n_positions": 200
+  },
+  "260": {
+   "label": null,
+   "confidence": 0.2,
+   "category": "Calculation",
+   "fire_rate": 0.0016,
+   "top_votes": {
+    "Greedy Capture": 40,
+    "Bad Simplification": 26,
+    "Missed Trade to Simplify": 20,
+    "Wrong King Direction": 18,
+    "Missed Overloading": 17
+   },
+   "n_positions": 200
+  },
+  "261": {
+   "label": null,
+   "confidence": 0.207,
+   "category": "Endgame",
+   "fire_rate": 0.0008,
+   "top_votes": {
+    "Bad Simplification": 28,
+    "Missed Overloading": 28,
+    "Greedy Capture": 23,
+    "Missed Passed Pawn": 16,
+    "Missed Defensive Resource": 10
+   },
+   "n_positions": 135
+  },
+  "262": {
+   "label": null,
+   "confidence": 0.17,
+   "category": "Calculation",
+   "fire_rate": 0.0651,
+   "top_votes": {
+    "Greedy Capture": 34,
+    "Pawn Move Exposed King": 19,
+    "Missed Open File": 17,
+    "Bad Simplification": 15,
+    "Missed Overloading": 12
+   },
+   "n_positions": 200
+  },
+  "263": {
+   "label": null,
+   "confidence": 0.144,
+   "category": "Trading",
+   "fire_rate": 0.0006,
+   "top_votes": {
+    "Missed Queen Exchange": 15,
+    "Allowed Doubled Rooks": 12,
+    "Missed Defensive Resource": 10,
+    "Missed Desperado": 9,
+    "Missed Trade to Simplify": 9
+   },
+   "n_positions": 104
+  },
+  "264": {
+   "label": null,
+   "confidence": 0.216,
+   "category": "Endgame",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Wrong Pawn Race": 16,
+    "Wrong King Direction": 14,
+    "Pawn Move Exposed King": 13,
+    "Greedy Capture": 12,
+    "Missed King Activity": 8
+   },
+   "n_positions": 74
+  },
+  "265": {
+   "label": null,
+   "confidence": 0.203,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Missed Overloading": 15,
+    "Bad Simplification": 12,
+    "Greedy Capture": 9,
+    "Missed Pawn Break": 7,
+    "Missed Desperado": 6
+   },
+   "n_positions": 74
+  },
+  "266": {
+   "label": null,
+   "confidence": 0.16,
+   "category": "Endgame",
+   "fire_rate": 0.0236,
+   "top_votes": {
+    "Missed Queen Activity": 32,
+    "Missed Free Pawn": 31,
+    "Missed Overloading": 22,
+    "Missed Trade to Simplify": 16,
+    "Missed Battery": 16
+   },
+   "n_positions": 200
+  },
+  "267": {
+   "label": null,
+   "confidence": 0.16,
+   "category": "Endgame",
+   "fire_rate": 0.0043,
+   "top_votes": {
+    "Missed Trade to Simplify": 32,
+    "Bad Simplification": 30,
+    "Greedy Capture": 29,
+    "Ignored Threat": 24,
+    "Missed Open File": 21
+   },
+   "n_positions": 200
+  },
+  "268": {
+   "label": null,
+   "confidence": 0.22,
+   "category": "Endgame",
+   "fire_rate": 0.3583,
+   "top_votes": {
+    "Missed Trade to Simplify": 44,
+    "Missed Desperado": 41,
+    "Missed Free Queen": 40,
+    "Missed Free Rook": 35,
+    "Ignored Threat": 34
+   },
+   "n_positions": 200
+  },
+  "269": {
+   "label": "Missed Tempo Push",
+   "confidence": 0.355,
+   "category": "Position",
+   "fire_rate": 0.0016,
+   "top_votes": {
+    "Missed Tempo Push": 71,
+    "Greedy Capture": 64,
+    "Pawn Grab While Undeveloped": 42,
+    "Missed Pawn Break": 31,
+    "Missed Trade to Simplify": 16
+   },
+   "n_positions": 200
+  },
+  "270": {
+   "label": "Wrong Pawn Race",
+   "confidence": 0.26,
+   "category": "Endgame",
+   "fire_rate": 0.0177,
+   "top_votes": {
+    "Wrong Pawn Race": 52,
+    "Missed Passed Pawn": 46,
+    "Bad Simplification": 45,
+    "Greedy Capture": 29,
+    "Pawn Move Exposed King": 28
+   },
+   "n_positions": 200
+  },
+  "271": {
+   "label": "Greedy Capture",
+   "confidence": 0.31,
+   "category": "Calculation",
+   "fire_rate": 0.0029,
+   "top_votes": {
+    "Greedy Capture": 62,
+    "Wrong Pawn Race": 39,
+    "Missed Trade to Simplify": 37,
+    "Missed King Activity": 26,
+    "Wrong King Direction": 20
+   },
+   "n_positions": 200
+  },
+  "272": {
+   "label": null,
+   "confidence": 0.21,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0236,
+   "top_votes": {
+    "Missed Overloading": 42,
+    "Missed Mate": 30,
+    "Missed Trade to Simplify": 24,
+    "Missed Battery": 19,
+    "Pawn Move Exposed King": 17
+   },
+   "n_positions": 200
+  },
+  "273": {
+   "label": null,
+   "confidence": 0.178,
+   "category": "King Safety",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Pawn Move Exposed King": 13,
+    "Missed Overloading": 12,
+    "Greedy Capture": 11,
+    "Missed Defensive Resource": 10,
+    "Missed Desperado": 10
+   },
+   "n_positions": 73
+  },
+  "274": {
+   "label": null,
+   "confidence": 0.15,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0383,
+   "top_votes": {
+    "Missed Overloading": 30,
+    "Missed Queen Exchange": 19,
+    "Failed Pin": 18,
+    "Missed Tempo Push": 16,
+    "Missed Defensive Resource": 13
+   },
+   "n_positions": 200
+  },
+  "275": {
+   "label": null,
+   "confidence": 0.195,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0026,
+   "top_votes": {
+    "Missed Overloading": 39,
+    "Missed Trade to Simplify": 37,
+    "Missed Open File": 23,
+    "Pawn Move Exposed King": 23,
+    "Wrong Pawn Race": 19
+   },
+   "n_positions": 200
+  },
+  "276": {
+   "label": null,
+   "confidence": 0.205,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0156,
+   "top_votes": {
+    "Missed Battery": 41,
+    "Missed Overloading": 41,
+    "Missed Open File": 32,
+    "Missed Pawn Break": 28,
+    "Missed Unpinning Resource": 26
+   },
+   "n_positions": 200
+  },
+  "277": {
+   "label": "Greedy Capture",
+   "confidence": 0.259,
+   "category": "Calculation",
+   "fire_rate": 0.001,
+   "top_votes": {
+    "Greedy Capture": 42,
+    "Bad Simplification": 31,
+    "Missed Overloading": 22,
+    "Missed Desperado": 16,
+    "Missed Open File": 15
+   },
+   "n_positions": 162
+  },
+  "278": {
+   "label": null,
+   "confidence": 0.195,
+   "category": "King Safety",
+   "fire_rate": 0.0322,
+   "top_votes": {
+    "Pawn Move Exposed King": 39,
+    "Missed Free Knight": 22,
+    "Missed Free Bishop": 22,
+    "Missed Free Rook": 19,
+    "Missed Defensive Resource": 19
+   },
+   "n_positions": 200
+  },
+  "279": {
+   "label": "Pawn Move Exposed King",
+   "confidence": 0.32,
+   "category": "King Safety",
+   "fire_rate": 0.0264,
+   "top_votes": {
+    "Pawn Move Exposed King": 64,
+    "Missed Overloading": 30,
+    "Missed Free Rook": 23,
+    "Missed Free Pawn": 22,
+    "Allowed Doubled Rooks": 22
+   },
+   "n_positions": 200
+  },
+  "280": {
+   "label": null,
+   "confidence": 0.129,
+   "category": "Calculation",
+   "fire_rate": 0.0008,
+   "top_votes": {
+    "Greedy Capture": 18,
+    "Missed Pawn Break": 17,
+    "Missed Overloading": 16,
+    "Missed Trade to Simplify": 15,
+    "Missed Open File": 11
+   },
+   "n_positions": 139
+  },
+  "281": {
+   "label": null,
+   "confidence": 0.18,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0313,
+   "top_votes": {
+    "Missed Overloading": 36,
+    "Allowed Doubled Rooks": 36,
+    "Pawn Move Exposed King": 22,
+    "Bad Simplification": 19,
+    "Missed Queen Activity": 15
+   },
+   "n_positions": 200
+  },
+  "282": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.3,
+   "category": "Position",
+   "fire_rate": 0.0085,
+   "top_votes": {
+    "Missed Pawn Break": 60,
+    "Missed Pawn Trade": 47,
+    "Missed Overloading": 36,
+    "Missed Tempo Push": 26,
+    "Missed Passed Pawn": 22
+   },
+   "n_positions": 200
+  },
+  "283": {
+   "label": null,
+   "confidence": 0.2,
+   "category": "Endgame",
+   "fire_rate": 0.0023,
+   "top_votes": {
+    "Missed Passed Pawn": 40,
+    "Bad Simplification": 35,
+    "Greedy Capture": 32,
+    "Missed Pawn Break": 31,
+    "Missed Tempo Push": 27
+   },
+   "n_positions": 200
+  },
+  "284": {
+   "label": null,
+   "confidence": 0.226,
+   "category": "Endgame",
+   "fire_rate": 0.0003,
+   "top_votes": {
+    "Missed Trade to Simplify": 12,
+    "Greedy Capture": 9,
+    "Ignored Threat": 9,
+    "Missed Free Pawn": 7,
+    "Missed Defensive Resource": 7
+   },
+   "n_positions": 53
+  },
+  "285": {
+   "label": null,
+   "confidence": 0.16,
+   "category": "Allowed Tactic",
+   "fire_rate": 0.0027,
+   "top_votes": {
+    "Missed Defensive Resource": 32,
+    "Ignored Threat": 27,
+    "Greedy Capture": 26,
+    "Missed Desperado": 23,
+    "Missed Free Knight": 17
+   },
+   "n_positions": 200
+  },
+  "286": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.545,
+   "category": "Endgame",
+   "fire_rate": 0.0487,
+   "top_votes": {
+    "Missed Trade to Simplify": 109,
+    "Missed Free Queen": 106,
+    "Missed Desperado": 53,
+    "Ignored Threat": 43,
+    "Missed Open File": 32
+   },
+   "n_positions": 200
+  },
+  "287": {
+   "label": null,
+   "confidence": 0.135,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0166,
+   "top_votes": {
+    "Missed Overloading": 27,
+    "Greedy Capture": 25,
+    "Ignored Threat": 24,
+    "Missed Defensive Resource": 19,
+    "Missed Desperado": 17
+   },
+   "n_positions": 200
+  },
+  "288": {
+   "label": null,
+   "confidence": 0.185,
+   "category": "Endgame",
+   "fire_rate": 0.0023,
+   "top_votes": {
+    "Wrong Pawn Race": 37,
+    "Missed Passed Pawn": 33,
+    "Greedy Capture": 33,
+    "Missed King Activity": 27,
+    "Pawn Move Exposed King": 26
+   },
+   "n_positions": 200
+  },
+  "289": {
+   "label": "Pawn Move Exposed King",
+   "confidence": 0.395,
+   "category": "King Safety",
+   "fire_rate": 0.0279,
+   "top_votes": {
+    "Pawn Move Exposed King": 79,
+    "Missed Pawn Break": 19,
+    "Missed Tempo Push": 15,
+    "Missed Castling": 12,
+    "Missed Open File": 12
+   },
+   "n_positions": 200
+  },
+  "290": {
+   "label": null,
+   "confidence": 0.158,
+   "category": "Endgame",
+   "fire_rate": 0.0001,
+   "top_votes": {
+    "Wrong Pawn Race": 3,
+    "Bad Simplification": 3,
+    "Missed Free Pawn": 2,
+    "Missed Pawn Break": 2,
+    "Missed Advanced Pawn": 1
+   },
+   "n_positions": 19
+  },
+  "291": {
+   "label": "Missed Overloading",
+   "confidence": 0.285,
+   "category": "Missed Tactic",
+   "fire_rate": 0.002,
+   "top_votes": {
+    "Missed Overloading": 57,
+    "Bad Simplification": 28,
+    "Greedy Capture": 25,
+    "Missed f2/f7 Attack": 16,
+    "Missed Open File": 16
+   },
+   "n_positions": 200
+  },
+  "292": {
+   "label": null,
+   "confidence": 0.145,
+   "category": "Allowed Tactic",
+   "fire_rate": 0.0986,
+   "top_votes": {
+    "Missed Defensive Resource": 29,
+    "Missed Pawn Break": 24,
+    "Ignored Threat": 22,
+    "Missed Overloading": 20,
+    "Missed Pawn Trade": 18
+   },
+   "n_positions": 200
+  },
+  "293": {
+   "label": null,
+   "confidence": 0.181,
+   "category": "Calculation",
+   "fire_rate": 0.0009,
+   "top_votes": {
+    "Greedy Capture": 26,
+    "Missed Trade to Simplify": 22,
+    "Ignored Threat": 17,
+    "Missed Overloading": 14,
+    "Missed Pawn Break": 14
+   },
+   "n_positions": 144
+  },
+  "294": {
+   "label": "Bad Simplification",
+   "confidence": 0.255,
+   "category": "Endgame",
+   "fire_rate": 0.0003,
+   "top_votes": {
+    "Bad Simplification": 13,
+    "Greedy Capture": 13,
+    "Missed Overloading": 12,
+    "Missed Open File": 6,
+    "Missed Unpinning Resource": 5
+   },
+   "n_positions": 51
+  },
+  "295": {
+   "label": "Greedy Capture",
+   "confidence": 0.3,
+   "category": "Calculation",
+   "fire_rate": 0.0017,
+   "top_votes": {
+    "Greedy Capture": 60,
+    "Bad Simplification": 41,
+    "Missed Overloading": 25,
+    "Missed Tempo Push": 20,
+    "Missed Defensive Resource": 19
+   },
+   "n_positions": 200
+  },
+  "296": {
+   "label": null,
+   "confidence": 0.145,
+   "category": "Missed Capture",
+   "fire_rate": 0.0014,
+   "top_votes": {
+    "Missed Free Queen": 29,
+    "Missed Defensive Resource": 26,
+    "Missed Trade to Simplify": 25,
+    "Ignored Threat": 25,
+    "Missed Desperado": 25
+   },
+   "n_positions": 200
+  },
+  "297": {
+   "label": null,
+   "confidence": 0.196,
+   "category": "Endgame",
+   "fire_rate": 0.0005,
+   "top_votes": {
+    "Missed Passed Pawn": 18,
+    "Missed Trade to Simplify": 18,
+    "Missed Advanced Pawn": 17,
+    "Missed Promotion": 17,
+    "Missed Pawn Break": 13
+   },
+   "n_positions": 92
+  },
+  "298": {
+   "label": null,
+   "confidence": 0.185,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0021,
+   "top_votes": {
+    "Missed Overloading": 37,
+    "Pawn Move Exposed King": 31,
+    "Greedy Capture": 27,
+    "Bad Simplification": 22,
+    "Missed Free Pawn": 19
+   },
+   "n_positions": 200
+  },
+  "299": {
+   "label": "Pawn Move Exposed King",
+   "confidence": 0.26,
+   "category": "King Safety",
+   "fire_rate": 0.003,
+   "top_votes": {
+    "Pawn Move Exposed King": 52,
+    "Missed Trade to Simplify": 34,
+    "Wrong Pawn Race": 30,
+    "Created Isolated Pawn": 28,
+    "Greedy Capture": 26
+   },
+   "n_positions": 200
+  },
+  "300": {
+   "label": "Allowed Doubled Rooks",
+   "confidence": 0.31,
+   "category": "Allowed Tactic",
+   "fire_rate": 0.0085,
+   "top_votes": {
+    "Allowed Doubled Rooks": 62,
+    "Missed Free Rook": 51,
+    "Missed Rook Exchange": 37,
+    "Missed Desperado": 30,
+    "Missed Free Queen": 28
+   },
+   "n_positions": 200
+  },
+  "301": {
+   "label": "Missed Pin (to King)",
+   "confidence": 0.265,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0455,
+   "top_votes": {
+    "Missed Pin (to King)": 53,
+    "Missed Overloading": 50,
+    "Missed Battery": 46,
+    "Greedy Capture": 32,
+    "Pawn Move Exposed King": 19
+   },
+   "n_positions": 200
+  },
+  "302": {
+   "label": "Greedy Capture",
+   "confidence": 0.305,
+   "category": "Calculation",
+   "fire_rate": 0.016,
+   "top_votes": {
+    "Greedy Capture": 61,
+    "Bad Simplification": 56,
+    "Pawn Move Exposed King": 23,
+    "Created Isolated Pawn": 23,
+    "Missed Rook Cut-Off": 19
+   },
+   "n_positions": 200
+  },
+  "303": {
+   "label": "Greedy Capture",
+   "confidence": 0.475,
+   "category": "Calculation",
+   "fire_rate": 0.1743,
+   "top_votes": {
+    "Greedy Capture": 95,
+    "Missed Tempo Push": 21,
+    "Pawn Move Exposed King": 19,
+    "Missed Overloading": 18,
+    "Created Doubled Pawn": 16
+   },
+   "n_positions": 200
+  },
+  "304": {
+   "label": "Greedy Capture",
+   "confidence": 0.645,
+   "category": "Calculation",
+   "fire_rate": 0.0334,
+   "top_votes": {
+    "Greedy Capture": 129,
+    "Missed Overloading": 28,
+    "Ignored Threat": 27,
+    "Missed Defensive Resource": 26,
+    "Missed Open File": 19
+   },
+   "n_positions": 200
+  },
+  "305": {
+   "label": "Missed Free Rook",
+   "confidence": 0.895,
+   "category": "Missed Capture",
+   "fire_rate": 0.025,
+   "top_votes": {
+    "Missed Free Rook": 179,
+    "Missed Trade to Simplify": 166,
+    "Pawn Move Exposed King": 20,
+    "Missed Desperado": 18,
+    "Missed Rook Exchange": 17
+   },
+   "n_positions": 200
+  },
+  "306": {
+   "label": null,
+   "confidence": 0.2,
+   "category": "Calculation",
+   "fire_rate": 0.063,
+   "top_votes": {
+    "Greedy Capture": 40,
+    "Missed Open File": 27,
+    "Ignored Threat": 25,
+    "Missed Overloading": 18,
+    "Pawn Move Exposed King": 15
+   },
+   "n_positions": 200
+  },
+  "307": {
+   "label": null,
+   "confidence": 0.148,
+   "category": "Calculation",
+   "fire_rate": 0.0011,
+   "top_votes": {
+    "Greedy Capture": 27,
+    "Missed Defensive Resource": 24,
+    "Missed Desperado": 23,
+    "Pawn Move Exposed King": 21,
+    "Ignored Threat": 20
+   },
+   "n_positions": 183
+  },
+  "308": {
+   "label": null,
+   "confidence": 0.164,
+   "category": "King Safety",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Pawn Move Exposed King": 12,
+    "Missed Trade to Simplify": 8,
+    "Missed Pawn Break": 8,
+    "Wrong Pawn Race": 7,
+    "Missed Passed Pawn": 7
+   },
+   "n_positions": 73
+  },
+  "309": {
+   "label": "Greedy Capture",
+   "confidence": 0.28,
+   "category": "Calculation",
+   "fire_rate": 0.0017,
+   "top_votes": {
+    "Greedy Capture": 56,
+    "Pawn Move Exposed King": 31,
+    "Missed Overloading": 26,
+    "Missed Pawn Break": 24,
+    "Bad Simplification": 20
+   },
+   "n_positions": 200
+  },
+  "310": {
+   "label": "Greedy Capture",
+   "confidence": 0.805,
+   "category": "Calculation",
+   "fire_rate": 0.0088,
+   "top_votes": {
+    "Greedy Capture": 161,
+    "Pawn Grab While Undeveloped": 136,
+    "Premature Attack": 66,
+    "Missed Pawn Break": 30,
+    "Missed Castling": 26
+   },
+   "n_positions": 200
+  },
+  "311": {
+   "label": "Missed Mate",
+   "confidence": 0.475,
+   "category": "Missed Mate",
+   "fire_rate": 0.1276,
+   "top_votes": {
+    "Missed Mate": 95,
+    "Missed Battery": 46,
+    "Allowed Doubled Rooks": 32,
+    "Missed Overloading": 31,
+    "Bad Simplification": 16
+   },
+   "n_positions": 200
+  },
+  "312": {
+   "label": null,
+   "confidence": 0.195,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0016,
+   "top_votes": {
+    "Missed Overloading": 39,
+    "Missed Battery": 32,
+    "Greedy Capture": 29,
+    "Bad Simplification": 25,
+    "Allowed Doubled Rooks": 20
+   },
+   "n_positions": 200
+  },
+  "313": {
+   "label": null,
+   "confidence": 0.229,
+   "category": "Position",
+   "fire_rate": 0.0003,
+   "top_votes": {
+    "Missed Pawn Break": 11,
+    "Pawn Move Exposed King": 7,
+    "Missed Free Pawn": 6,
+    "Missed Overloading": 6,
+    "Missed Trade to Simplify": 5
+   },
+   "n_positions": 48
+  },
+  "314": {
+   "label": "Missed Free Queen",
+   "confidence": 0.46,
+   "category": "Missed Capture",
+   "fire_rate": 0.0057,
+   "top_votes": {
+    "Missed Free Queen": 92,
+    "Missed Desperado": 60,
+    "Missed Free Bishop": 60,
+    "Pawn Move Exposed King": 34,
+    "Missed Defensive Resource": 31
+   },
+   "n_positions": 200
+  },
+  "315": {
+   "label": null,
+   "confidence": 0.202,
+   "category": "Calculation",
+   "fire_rate": 0.0005,
+   "top_votes": {
+    "Greedy Capture": 17,
+    "Missed Pawn Break": 15,
+    "Pawn Grab While Undeveloped": 12,
+    "Pawn Move Exposed King": 11,
+    "Missed Trade to Simplify": 9
+   },
+   "n_positions": 84
+  },
+  "316": {
+   "label": null,
+   "confidence": 0.195,
+   "category": "Endgame",
+   "fire_rate": 0.0013,
+   "top_votes": {
+    "Missed Trade to Simplify": 39,
+    "Pawn Move Exposed King": 21,
+    "Missed Pawn Break": 20,
+    "Greedy Capture": 18,
+    "Missed Free Rook": 16
+   },
+   "n_positions": 200
+  },
+  "317": {
+   "label": "Missed Free Queen",
+   "confidence": 0.35,
+   "category": "Missed Capture",
+   "fire_rate": 0.007,
+   "top_votes": {
+    "Missed Free Queen": 70,
+    "Missed Trade to Simplify": 64,
+    "Missed Free Rook": 62,
+    "Missed Desperado": 54,
+    "Missed Defensive Resource": 35
+   },
+   "n_positions": 200
+  },
+  "318": {
+   "label": null,
+   "confidence": 0.21,
+   "category": "Calculation",
+   "fire_rate": 0.0329,
+   "top_votes": {
+    "Greedy Capture": 42,
+    "Missed Tempo Push": 24,
+    "Missed Overloading": 15,
+    "Pawn Move Exposed King": 10,
+    "Pawn Grab While Undeveloped": 7
+   },
+   "n_positions": 200
+  },
+  "319": {
+   "label": null,
+   "confidence": 0.24,
+   "category": "Missed Capture",
+   "fire_rate": 0.0082,
+   "top_votes": {
+    "Missed Free Pawn": 48,
+    "Missed Trade to Simplify": 47,
+    "Missed Passed Pawn": 26,
+    "Missed King Activity": 23,
+    "Missed Open File": 20
+   },
+   "n_positions": 200
+  },
+  "320": {
+   "label": "Greedy Capture",
+   "confidence": 0.55,
+   "category": "Calculation",
+   "fire_rate": 0.0333,
+   "top_votes": {
+    "Greedy Capture": 110,
+    "Bad Simplification": 29,
+    "Missed Open File": 28,
+    "Missed Overloading": 19,
+    "Pawn Move Exposed King": 16
+   },
+   "n_positions": 200
+  },
+  "321": {
+   "label": null,
+   "confidence": 0.21,
+   "category": "King Safety",
+   "fire_rate": 0.0305,
+   "top_votes": {
+    "Pawn Move Exposed King": 42,
+    "Missed Pawn Break": 31,
+    "Missed Pawn Trade": 22,
+    "Missed Free Pawn": 18,
+    "Missed Defensive Resource": 17
+   },
+   "n_positions": 200
+  },
+  "322": {
+   "label": "Missed Open File",
+   "confidence": 0.265,
+   "category": "Position",
+   "fire_rate": 0.0034,
+   "top_votes": {
+    "Missed Open File": 53,
+    "Missed Battery": 40,
+    "Missed Trade to Simplify": 39,
+    "Missed Overloading": 35,
+    "Missed Interposition": 28
+   },
+   "n_positions": 200
+  },
+  "323": {
+   "label": null,
+   "confidence": 0.14,
+   "category": "King Safety",
+   "fire_rate": 0.0003,
+   "top_votes": {
+    "Pawn Move Exposed King": 8,
+    "Missed Pawn Break": 8,
+    "Missed Free Queen": 7,
+    "Missed Pawn Trade": 7,
+    "Greedy Capture": 7
+   },
+   "n_positions": 57
+  },
+  "324": {
+   "label": "Greedy Capture",
+   "confidence": 0.294,
+   "category": "Calculation",
+   "fire_rate": 0.0003,
+   "top_votes": {
+    "Greedy Capture": 15,
+    "Missed Trade to Simplify": 8,
+    "Missed Open File": 8,
+    "Pawn Grab While Undeveloped": 7,
+    "Missed Passed Pawn": 7
+   },
+   "n_positions": 51
+  },
+  "325": {
+   "label": null,
+   "confidence": 0.225,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0403,
+   "top_votes": {
+    "Missed Overloading": 45,
+    "Missed Battery": 38,
+    "Missed Desperado": 23,
+    "Missed Kingside Attack": 17,
+    "Pawn Move Exposed King": 15
+   },
+   "n_positions": 200
+  },
+  "326": {
+   "label": null,
+   "confidence": 0.17,
+   "category": "King Safety",
+   "fire_rate": 0.0022,
+   "top_votes": {
+    "Pawn Move Exposed King": 34,
+    "Missed Free Rook": 24,
+    "Missed Free Bishop": 22,
+    "Missed Overloading": 21,
+    "Missed Pawn Break": 20
+   },
+   "n_positions": 200
+  },
+  "327": {
+   "label": null,
+   "confidence": 0.2,
+   "category": "Endgame",
+   "fire_rate": 0.0216,
+   "top_votes": {
+    "Wrong Pawn Race": 40,
+    "Missed Open File": 40,
+    "Missed King Activity": 35,
+    "Bad Simplification": 35,
+    "Rook Behind Passer": 29
+   },
+   "n_positions": 200
+  },
+  "328": {
+   "label": null,
+   "confidence": 0.16,
+   "category": "Calculation",
+   "fire_rate": 0.0015,
+   "top_votes": {
+    "Greedy Capture": 32,
+    "Pawn Move Exposed King": 31,
+    "Missed Pawn Break": 30,
+    "Missed Defensive Resource": 22,
+    "Missed Overloading": 17
+   },
+   "n_positions": 200
+  },
+  "329": {
+   "label": null,
+   "confidence": 0.141,
+   "category": "King Safety",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Pawn Move Exposed King": 9,
+    "Wrong Pawn Race": 9,
+    "Missed Overloading": 9,
+    "Greedy Capture": 8,
+    "Missed Free Knight": 6
+   },
+   "n_positions": 64
+  },
+  "330": {
+   "label": null,
+   "confidence": 0.18,
+   "category": "Allowed Tactic",
+   "fire_rate": 0.0434,
+   "top_votes": {
+    "Missed Interposition": 36,
+    "Missed Overloading": 22,
+    "Greedy Capture": 21,
+    "Missed Trade to Simplify": 19,
+    "Missed Free Queen": 18
+   },
+   "n_positions": 200
+  },
+  "331": {
+   "label": null,
+   "confidence": 0.185,
+   "category": "Calculation",
+   "fire_rate": 0.0033,
+   "top_votes": {
+    "Greedy Capture": 37,
+    "Missed Overloading": 26,
+    "Missed Trade to Simplify": 26,
+    "Missed Desperado": 18,
+    "Pawn Grab While Undeveloped": 17
+   },
+   "n_positions": 200
+  },
+  "332": {
+   "label": null,
+   "confidence": 0.205,
+   "category": "Calculation",
+   "fire_rate": 0.0043,
+   "top_votes": {
+    "Greedy Capture": 41,
+    "Pawn Move Exposed King": 28,
+    "Missed Knight Exchange": 26,
+    "Missed Defensive Resource": 26,
+    "Missed Free Knight": 25
+   },
+   "n_positions": 200
+  },
+  "333": {
+   "label": null,
+   "confidence": 0.18,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0027,
+   "top_votes": {
+    "Missed Overloading": 36,
+    "Greedy Capture": 31,
+    "Missed Defensive Resource": 23,
+    "Missed Pawn Break": 23,
+    "Missed Desperado": 19
+   },
+   "n_positions": 200
+  },
+  "334": {
+   "label": "Missed Open File",
+   "confidence": 0.65,
+   "category": "Position",
+   "fire_rate": 0.0353,
+   "top_votes": {
+    "Missed Open File": 130,
+    "Missed Battery": 113,
+    "Greedy Capture": 40,
+    "Missed Overloading": 30,
+    "Failed Discovered Attack": 15
+   },
+   "n_positions": 200
+  },
+  "335": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.615,
+   "category": "Endgame",
+   "fire_rate": 0.011,
+   "top_votes": {
+    "Missed Trade to Simplify": 123,
+    "Missed Queen Exchange": 95,
+    "Missed Rook Exchange": 75,
+    "Missed Desperado": 46,
+    "Ignored Threat": 36
+   },
+   "n_positions": 200
+  },
+  "336": {
+   "label": null,
+   "confidence": 0.128,
+   "category": "Endgame",
+   "fire_rate": 0.0012,
+   "top_votes": {
+    "Missed Trade to Simplify": 25,
+    "Greedy Capture": 25,
+    "Missed Pawn Break": 25,
+    "Pawn Move Exposed King": 22,
+    "Missed Overloading": 18
+   },
+   "n_positions": 195
+  },
+  "337": {
+   "label": null,
+   "confidence": 0.21,
+   "category": "Position",
+   "fire_rate": 0.0032,
+   "top_votes": {
+    "Missed Pawn Break": 42,
+    "Greedy Capture": 38,
+    "Missed Overloading": 23,
+    "Missed Trade to Simplify": 21,
+    "Missed Desperado": 20
+   },
+   "n_positions": 200
+  },
+  "338": {
+   "label": null,
+   "confidence": 0.175,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0008,
+   "top_votes": {
+    "Missed Overloading": 24,
+    "Wrong Pawn Race": 16,
+    "Greedy Capture": 15,
+    "Pawn Move Exposed King": 14,
+    "Bad Simplification": 14
+   },
+   "n_positions": 137
+  },
+  "339": {
+   "label": "Missed Overloading",
+   "confidence": 0.38,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0845,
+   "top_votes": {
+    "Missed Overloading": 76,
+    "Missed Battery": 25,
+    "Missed Free Pawn": 19,
+    "Missed Defensive Resource": 18,
+    "Pawn Move Exposed King": 18
+   },
+   "n_positions": 200
+  },
+  "340": {
+   "label": null,
+   "confidence": 0.115,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0019,
+   "top_votes": {
+    "Missed Overloading": 23,
+    "Missed Battery": 22,
+    "Pawn Move Exposed King": 22,
+    "Missed Trade to Simplify": 21,
+    "Missed Desperado": 20
+   },
+   "n_positions": 200
+  },
+  "341": {
+   "label": "Missed Overloading",
+   "confidence": 0.32,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0317,
+   "top_votes": {
+    "Missed Overloading": 64,
+    "Missed Open File": 38,
+    "Bad Simplification": 34,
+    "Missed Rook to Open File": 26,
+    "Pawn Move Exposed King": 24
+   },
+   "n_positions": 200
+  },
+  "342": {
+   "label": "Greedy Capture",
+   "confidence": 0.74,
+   "category": "Calculation",
+   "fire_rate": 0.0323,
+   "top_votes": {
+    "Greedy Capture": 148,
+    "Pawn Grab While Undeveloped": 40,
+    "Premature Attack": 18,
+    "Missed Defensive Resource": 15,
+    "Missed Open File": 15
+   },
+   "n_positions": 200
+  },
+  "343": {
+   "label": null,
+   "confidence": 0.198,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0005,
+   "top_votes": {
+    "Missed Overloading": 16,
+    "Greedy Capture": 15,
+    "Wrong Pawn Race": 8,
+    "Missed Battery": 8,
+    "Pawn Move Exposed King": 6
+   },
+   "n_positions": 81
+  },
+  "344": {
+   "label": null,
+   "confidence": 0.215,
+   "category": "Calculation",
+   "fire_rate": 0.0112,
+   "top_votes": {
+    "Greedy Capture": 43,
+    "Bad Simplification": 33,
+    "Missed Overloading": 33,
+    "Pawn Move Exposed King": 15,
+    "Missed Battery": 14
+   },
+   "n_positions": 200
+  },
+  "345": {
+   "label": null,
+   "confidence": 0.09,
+   "category": "Calculation",
+   "fire_rate": 0.0106,
+   "top_votes": {
+    "Greedy Capture": 18,
+    "Pawn Move Exposed King": 17,
+    "Missed Battery": 17,
+    "Wrong King Direction": 11,
+    "Allowed Doubled Rooks": 10
+   },
+   "n_positions": 200
+  },
+  "346": {
+   "label": null,
+   "confidence": 0.24,
+   "category": "Position",
+   "fire_rate": 0.0121,
+   "top_votes": {
+    "Premature Attack": 48,
+    "Missed Pawn Break": 30,
+    "Missed Tempo Push": 15,
+    "Missed Free Pawn": 13,
+    "Failed Pin": 13
+   },
+   "n_positions": 200
+  },
+  "347": {
+   "label": "Missed Overloading",
+   "confidence": 0.48,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0182,
+   "top_votes": {
+    "Missed Overloading": 96,
+    "Missed Battery": 61,
+    "Pawn Move Exposed King": 30,
+    "Greedy Capture": 16,
+    "Missed Interposition": 15
+   },
+   "n_positions": 200
+  },
+  "348": {
+   "label": null,
+   "confidence": 0.165,
+   "category": "Endgame",
+   "fire_rate": 0.0021,
+   "top_votes": {
+    "Missed Trade to Simplify": 33,
+    "Missed Passed Pawn": 28,
+    "Missed Free Pawn": 17,
+    "Pawn Move Exposed King": 16,
+    "Missed Open File": 16
+   },
+   "n_positions": 200
+  },
+  "349": {
+   "label": "Greedy Capture",
+   "confidence": 0.315,
+   "category": "Calculation",
+   "fire_rate": 0.0058,
+   "top_votes": {
+    "Greedy Capture": 63,
+    "Pawn Grab While Undeveloped": 43,
+    "Missed Defensive Resource": 37,
+    "Ignored Threat": 30,
+    "Missed Free Knight": 29
+   },
+   "n_positions": 200
+  },
+  "350": {
+   "label": null,
+   "confidence": 0.155,
+   "category": "Calculation",
+   "fire_rate": 0.0066,
+   "top_votes": {
+    "Greedy Capture": 31,
+    "Failed Pin": 21,
+    "Missed Battery": 17,
+    "Missed Overloading": 16,
+    "Missed Pawn Break": 14
+   },
+   "n_positions": 200
+  },
+  "351": {
+   "label": null,
+   "confidence": 0.175,
+   "category": "Missed Capture",
+   "fire_rate": 0.002,
+   "top_votes": {
+    "Missed Free Bishop": 35,
+    "Missed Free Knight": 31,
+    "Missed Knight Exchange": 26,
+    "Missed Trade to Simplify": 24,
+    "Missed Defensive Resource": 19
+   },
+   "n_positions": 200
+  },
+  "352": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.355,
+   "category": "Endgame",
+   "fire_rate": 0.005,
+   "top_votes": {
+    "Missed Trade to Simplify": 71,
+    "Missed Free Rook": 51,
+    "Wrong Pawn Race": 33,
+    "Pawn Move Exposed King": 27,
+    "Missed Passed Pawn": 26
+   },
+   "n_positions": 200
+  },
+  "353": {
+   "label": "Bad Simplification",
+   "confidence": 0.885,
+   "category": "Endgame",
+   "fire_rate": 0.0073,
+   "top_votes": {
+    "Bad Simplification": 177,
+    "Greedy Capture": 125,
+    "Missed Open File": 58,
+    "Missed Overloading": 43,
+    "Missed Rook to Open File": 31
+   },
+   "n_positions": 200
+  },
+  "354": {
+   "label": "Wrong Pawn Race",
+   "confidence": 0.265,
+   "category": "Endgame",
+   "fire_rate": 0.0036,
+   "top_votes": {
+    "Wrong Pawn Race": 53,
+    "Missed Trade to Simplify": 50,
+    "Missed Passed Pawn": 41,
+    "Missed King Activity": 37,
+    "Pawn Move Exposed King": 35
+   },
+   "n_positions": 200
+  },
+  "355": {
+   "label": "Missed Passed Pawn",
+   "confidence": 0.256,
+   "category": "Endgame",
+   "fire_rate": 0.0002,
+   "top_votes": {
+    "Missed Passed Pawn": 10,
+    "Missed Advanced Pawn": 9,
+    "Missed Promotion": 9,
+    "Wrong Pawn Race": 5,
+    "Pawn Move Exposed King": 4
+   },
+   "n_positions": 39
+  },
+  "356": {
+   "label": "Missed Bishop-Knight Exchange",
+   "confidence": 0.495,
+   "category": "Trading",
+   "fire_rate": 0.0133,
+   "top_votes": {
+    "Missed Bishop-Knight Exchange": 99,
+    "Missed Remove the Guard": 70,
+    "Missed Knight Exchange": 47,
+    "Missed Bishop Exchange": 42,
+    "Missed Desperado": 37
+   },
+   "n_positions": 200
+  },
+  "357": {
+   "label": null,
+   "confidence": 0.155,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0328,
+   "top_votes": {
+    "Missed Overloading": 31,
+    "Missed Remove the Guard": 28,
+    "Pawn Move Exposed King": 15,
+    "Missed Bishop-Knight Exchange": 12,
+    "Missed Knight Exchange": 8
+   },
+   "n_positions": 200
+  },
+  "358": {
+   "label": "Greedy Capture",
+   "confidence": 0.27,
+   "category": "Calculation",
+   "fire_rate": 0.0486,
+   "top_votes": {
+    "Greedy Capture": 54,
+    "Ignored Threat": 31,
+    "Missed Defensive Resource": 29,
+    "Missed Desperado": 26,
+    "Missed Overloading": 25
+   },
+   "n_positions": 200
+  },
+  "359": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.345,
+   "category": "Endgame",
+   "fire_rate": 0.0007,
+   "top_votes": {
+    "Missed Trade to Simplify": 40,
+    "Missed Overloading": 15,
+    "Missed Free Pawn": 14,
+    "Pawn Move Exposed King": 14,
+    "Greedy Capture": 14
+   },
+   "n_positions": 116
+  },
+  "360": {
+   "label": null,
+   "confidence": 0.235,
+   "category": "Calculation",
+   "fire_rate": 0.0025,
+   "top_votes": {
+    "Greedy Capture": 47,
+    "Pawn Move Exposed King": 43,
+    "Missed Overloading": 25,
+    "Bad Simplification": 23,
+    "Missed Passed Pawn": 18
+   },
+   "n_positions": 200
+  },
+  "361": {
+   "label": null,
+   "confidence": 0.18,
+   "category": "Calculation",
+   "fire_rate": 0.0003,
+   "top_votes": {
+    "Greedy Capture": 9,
+    "Missed Overloading": 8,
+    "Missed Pawn Break": 7,
+    "Pawn Grab While Undeveloped": 6,
+    "Missed Tempo Push": 6
+   },
+   "n_positions": 50
+  },
+  "362": {
+   "label": "Bad Simplification",
+   "confidence": 0.29,
+   "category": "Endgame",
+   "fire_rate": 0.0098,
+   "top_votes": {
+    "Bad Simplification": 58,
+    "Greedy Capture": 47,
+    "Ignored Threat": 43,
+    "Missed Defensive Resource": 42,
+    "Missed Open File": 41
+   },
+   "n_positions": 200
+  },
+  "363": {
+   "label": null,
+   "confidence": 0.165,
+   "category": "Missed Mate",
+   "fire_rate": 0.004,
+   "top_votes": {
+    "Missed Mate": 33,
+    "Missed Trade to Simplify": 26,
+    "Wrong Pawn Race": 24,
+    "Bad Simplification": 21,
+    "Pawn Move Exposed King": 19
+   },
+   "n_positions": 200
+  },
+  "364": {
+   "label": "Missed Bishop-Knight Exchange",
+   "confidence": 0.355,
+   "category": "Trading",
+   "fire_rate": 0.0032,
+   "top_votes": {
+    "Missed Bishop-Knight Exchange": 71,
+    "Missed Knight Exchange": 70,
+    "Missed Desperado": 41,
+    "Missed Defensive Resource": 35,
+    "Pawn Move Exposed King": 32
+   },
+   "n_positions": 200
+  },
+  "365": {
+   "label": null,
+   "confidence": 0.229,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0003,
+   "top_votes": {
+    "Missed Overloading": 11,
+    "Missed Queen Exchange": 6,
+    "Missed Trade to Simplify": 6,
+    "Missed Bishop-Knight Exchange": 5,
+    "Ignored Threat": 4
+   },
+   "n_positions": 48
+  },
+  "366": {
+   "label": null,
+   "confidence": 0.205,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0013,
+   "top_votes": {
+    "Missed Overloading": 41,
+    "Greedy Capture": 29,
+    "Pawn Move Exposed King": 25,
+    "Bad Simplification": 22,
+    "Missed Desperado": 20
+   },
+   "n_positions": 200
+  },
+  "367": {
+   "label": "Greedy Capture",
+   "confidence": 0.375,
+   "category": "Calculation",
+   "fire_rate": 0.001,
+   "top_votes": {
+    "Greedy Capture": 60,
+    "Pawn Grab While Undeveloped": 47,
+    "Missed Pawn Break": 26,
+    "Premature Attack": 23,
+    "Missed Free Pawn": 13
+   },
+   "n_positions": 160
+  },
+  "368": {
+   "label": "Missed Defensive Resource",
+   "confidence": 0.265,
+   "category": "Allowed Tactic",
+   "fire_rate": 0.0234,
+   "top_votes": {
+    "Missed Defensive Resource": 53,
+    "Missed Desperado": 52,
+    "Failed Discovered Attack": 50,
+    "Missed Bishop Exchange": 49,
+    "Ignored Threat": 49
+   },
+   "n_positions": 200
+  },
+  "369": {
+   "label": null,
+   "confidence": 0.133,
+   "category": "Endgame",
+   "fire_rate": 0.0005,
+   "top_votes": {
+    "Bad Simplification": 12,
+    "Missed Overloading": 12,
+    "Greedy Capture": 11,
+    "Missed Trade to Simplify": 11,
+    "Pawn Move Exposed King": 11
+   },
+   "n_positions": 90
+  },
+  "370": {
+   "label": "Missed Free Pawn",
+   "confidence": 0.77,
+   "category": "Missed Capture",
+   "fire_rate": 0.0066,
+   "top_votes": {
+    "Missed Free Pawn": 154,
+    "Missed Overloading": 142,
+    "Pawn Move Exposed King": 30,
+    "Missed Defensive Resource": 12,
+    "Missed Desperado": 12
+   },
+   "n_positions": 200
+  },
+  "371": {
+   "label": "Missed Free Queen",
+   "confidence": 0.41,
+   "category": "Missed Capture",
+   "fire_rate": 0.0236,
+   "top_votes": {
+    "Missed Free Queen": 82,
+    "Missed Desperado": 44,
+    "Missed Defensive Resource": 30,
+    "Missed Free Bishop": 25,
+    "Missed Free Knight": 25
+   },
+   "n_positions": 200
+  },
+  "372": {
+   "label": null,
+   "confidence": 0.16,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0006,
+   "top_votes": {
+    "Missed Overloading": 15,
+    "Bad Simplification": 13,
+    "Missed Trade to Simplify": 13,
+    "Missed Free Pawn": 11,
+    "Missed Passed Pawn": 9
+   },
+   "n_positions": 94
+  },
+  "373": {
+   "label": "Missed Overloading",
+   "confidence": 0.34,
+   "category": "Missed Tactic",
+   "fire_rate": 0.3123,
+   "top_votes": {
+    "Missed Overloading": 68,
+    "Missed Free Rook": 61,
+    "Missed Kingside Attack": 39,
+    "Missed Desperado": 31,
+    "Ignored Threat": 29
+   },
+   "n_positions": 200
+  },
+  "374": {
+   "label": null,
+   "confidence": 0.22,
+   "category": "Calculation",
+   "fire_rate": 0.0223,
+   "top_votes": {
+    "Greedy Capture": 44,
+    "Pawn Grab While Undeveloped": 25,
+    "Failed Pin": 17,
+    "Pawn Move Exposed King": 17,
+    "Missed Free Pawn": 15
+   },
+   "n_positions": 200
+  },
+  "375": {
+   "label": "Missed Free Rook",
+   "confidence": 0.42,
+   "category": "Missed Capture",
+   "fire_rate": 0.0164,
+   "top_votes": {
+    "Missed Free Rook": 84,
+    "Missed Trade to Simplify": 47,
+    "Pawn Move Exposed King": 28,
+    "Greedy Capture": 24,
+    "Bad Simplification": 23
+   },
+   "n_positions": 200
+  },
+  "376": {
+   "label": "Missed Free Queen",
+   "confidence": 0.585,
+   "category": "Missed Capture",
+   "fire_rate": 0.0404,
+   "top_votes": {
+    "Missed Free Queen": 117,
+    "Missed Trade to Simplify": 104,
+    "Missed Desperado": 68,
+    "Missed Free Rook": 49,
+    "Ignored Threat": 45
+   },
+   "n_positions": 200
+  },
+  "377": {
+   "label": "Pawn Move Exposed King",
+   "confidence": 0.32,
+   "category": "King Safety",
+   "fire_rate": 0.0175,
+   "top_votes": {
+    "Pawn Move Exposed King": 64,
+    "Missed Unpinning Resource": 33,
+    "Missed Overloading": 28,
+    "Missed Free Bishop": 22,
+    "Missed Pawn Break": 20
+   },
+   "n_positions": 200
+  },
+  "378": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.455,
+   "category": "Endgame",
+   "fire_rate": 0.0018,
+   "top_votes": {
+    "Missed Trade to Simplify": 91,
+    "Missed Free Rook": 48,
+    "Missed Free Queen": 34,
+    "Missed Desperado": 23,
+    "Missed Open File": 23
+   },
+   "n_positions": 200
+  },
+  "379": {
+   "label": "Bad Simplification",
+   "confidence": 0.38,
+   "category": "Endgame",
+   "fire_rate": 0.0072,
+   "top_votes": {
+    "Bad Simplification": 76,
+    "Greedy Capture": 70,
+    "Missed Passed Pawn": 61,
+    "Wrong Pawn Race": 60,
+    "Missed Advanced Pawn": 44
+   },
+   "n_positions": 200
+  },
+  "380": {
+   "label": null,
+   "confidence": 0.192,
+   "category": "Position",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Missed Pawn Break": 14,
+    "Missed Tempo Push": 9,
+    "Missed Overloading": 7,
+    "Greedy Capture": 6,
+    "Pawn Move Exposed King": 6
+   },
+   "n_positions": 73
+  },
+  "381": {
+   "label": null,
+   "confidence": 0.113,
+   "category": "Missed Capture",
+   "fire_rate": 0.0008,
+   "top_votes": {
+    "Missed Free Pawn": 15,
+    "Greedy Capture": 14,
+    "Missed Trade to Simplify": 14,
+    "Missed Overloading": 12,
+    "Bad Simplification": 11
+   },
+   "n_positions": 133
+  },
+  "382": {
+   "label": null,
+   "confidence": 0.215,
+   "category": "Calculation",
+   "fire_rate": 0.0313,
+   "top_votes": {
+    "Greedy Capture": 43,
+    "Missed Battery": 24,
+    "Pawn Move Exposed King": 20,
+    "Missed Pin Exploitation": 13,
+    "Missed Overloading": 10
+   },
+   "n_positions": 200
+  },
+  "383": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.69,
+   "category": "Position",
+   "fire_rate": 0.0073,
+   "top_votes": {
+    "Missed Pawn Break": 138,
+    "Missed Free Knight": 121,
+    "Pawn Move Exposed King": 42,
+    "Missed Desperado": 30,
+    "Missed Free Bishop": 27
+   },
+   "n_positions": 200
+  },
+  "384": {
+   "label": "Greedy Capture",
+   "confidence": 0.85,
+   "category": "Calculation",
+   "fire_rate": 0.021,
+   "top_votes": {
+    "Greedy Capture": 170,
+    "Pawn Grab While Undeveloped": 57,
+    "Missed Open File": 22,
+    "Missed Pawn Break": 21,
+    "Premature Attack": 12
+   },
+   "n_positions": 200
+  },
+  "385": {
+   "label": null,
+   "confidence": 0.155,
+   "category": "Calculation",
+   "fire_rate": 0.0159,
+   "top_votes": {
+    "Greedy Capture": 31,
+    "Missed Free Pawn": 19,
+    "Pawn Move Exposed King": 17,
+    "Missed Overloading": 17,
+    "Wrong Pawn Race": 16
+   },
+   "n_positions": 200
+  },
+  "386": {
+   "label": "Greedy Capture",
+   "confidence": 0.44,
+   "category": "Calculation",
+   "fire_rate": 0.014,
+   "top_votes": {
+    "Greedy Capture": 88,
+    "Pawn Grab While Undeveloped": 61,
+    "Ignored Threat": 28,
+    "Missed Defensive Resource": 19,
+    "Missed Desperado": 19
+   },
+   "n_positions": 200
+  },
+  "387": {
+   "label": "Missed Queen Exchange",
+   "confidence": 0.525,
+   "category": "Trading",
+   "fire_rate": 0.0217,
+   "top_votes": {
+    "Missed Queen Exchange": 105,
+    "Missed Overloading": 65,
+    "Missed Defensive Resource": 28,
+    "Missed Rook Exchange": 28,
+    "Missed Desperado": 27
+   },
+   "n_positions": 200
+  },
+  "388": {
+   "label": null,
+   "confidence": 0.21,
+   "category": "Calculation",
+   "fire_rate": 0.001,
+   "top_votes": {
+    "Greedy Capture": 35,
+    "Missed Overloading": 18,
+    "Missed Pawn Break": 17,
+    "Missed Trade to Simplify": 16,
+    "Pawn Grab While Undeveloped": 15
+   },
+   "n_positions": 167
+  },
+  "389": {
+   "label": null,
+   "confidence": 0.11,
+   "category": "Calculation",
+   "fire_rate": 0.0175,
+   "top_votes": {
+    "Greedy Capture": 22,
+    "Missed Free Pawn": 20,
+    "Missed Defensive Resource": 17,
+    "Missed Unpinning Resource": 14,
+    "Missed Trade to Simplify": 14
+   },
+   "n_positions": 200
+  },
+  "390": {
+   "label": "Missed Pawn Trade",
+   "confidence": 0.305,
+   "category": "Trading",
+   "fire_rate": 0.0164,
+   "top_votes": {
+    "Missed Pawn Trade": 61,
+    "Missed Pawn Break": 50,
+    "Pawn Move Exposed King": 23,
+    "Greedy Capture": 19,
+    "Missed Overloading": 15
+   },
+   "n_positions": 200
+  },
+  "391": {
+   "label": null,
+   "confidence": 0.135,
+   "category": "Calculation",
+   "fire_rate": 0.0031,
+   "top_votes": {
+    "Greedy Capture": 27,
+    "Missed Open File": 24,
+    "Pawn Move Exposed King": 23,
+    "Missed Overloading": 22,
+    "Bad Simplification": 18
+   },
+   "n_positions": 200
+  },
+  "392": {
+   "label": null,
+   "confidence": 0.24,
+   "category": "Calculation",
+   "fire_rate": 0.0662,
+   "top_votes": {
+    "Greedy Capture": 48,
+    "Pawn Grab While Undeveloped": 45,
+    "Missed Defensive Resource": 39,
+    "Premature Attack": 34,
+    "Ignored Threat": 28
+   },
+   "n_positions": 200
+  },
+  "393": {
+   "label": null,
+   "confidence": 0.13,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0013,
+   "top_votes": {
+    "Missed Overloading": 26,
+    "Missed Trade to Simplify": 26,
+    "Missed Desperado": 25,
+    "Missed Open File": 23,
+    "Missed Passed Pawn": 21
+   },
+   "n_positions": 200
+  },
+  "394": {
+   "label": "Greedy Capture",
+   "confidence": 0.83,
+   "category": "Calculation",
+   "fire_rate": 0.0195,
+   "top_votes": {
+    "Greedy Capture": 166,
+    "Failed Pin": 21,
+    "Missed Pawn Break": 20,
+    "Premature Attack": 19,
+    "Missed Castling": 14
+   },
+   "n_positions": 200
+  },
+  "395": {
+   "label": "Missed Free Bishop",
+   "confidence": 0.46,
+   "category": "Missed Capture",
+   "fire_rate": 0.0037,
+   "top_votes": {
+    "Missed Free Bishop": 92,
+    "Missed Desperado": 30,
+    "Missed Free Knight": 30,
+    "Missed Pawn Break": 29,
+    "Missed Free Pawn": 26
+   },
+   "n_positions": 200
+  },
+  "396": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.27,
+   "category": "Endgame",
+   "fire_rate": 0.0016,
+   "top_votes": {
+    "Missed Trade to Simplify": 54,
+    "Greedy Capture": 33,
+    "Missed Pawn Break": 31,
+    "Missed Free Rook": 25,
+    "Pawn Move Exposed King": 20
+   },
+   "n_positions": 200
+  },
+  "397": {
+   "label": null,
+   "confidence": 0.13,
+   "category": "Position",
+   "fire_rate": 0.0085,
+   "top_votes": {
+    "Missed Pawn Break": 26,
+    "Missed Free Pawn": 21,
+    "Ignored Threat": 20,
+    "Missed Overloading": 17,
+    "Missed Tempo Push": 16
+   },
+   "n_positions": 200
+  },
+  "398": {
+   "label": null,
+   "confidence": 0.24,
+   "category": "Calculation",
+   "fire_rate": 0.0009,
+   "top_votes": {
+    "Greedy Capture": 35,
+    "Pawn Move Exposed King": 24,
+    "Missed Overloading": 19,
+    "Missed Defensive Resource": 16,
+    "Missed Desperado": 14
+   },
+   "n_positions": 146
+  },
+  "399": {
+   "label": null,
+   "confidence": 0.23,
+   "category": "Position",
+   "fire_rate": 0.0154,
+   "top_votes": {
+    "Missed Open File": 46,
+    "Bad Simplification": 44,
+    "Greedy Capture": 39,
+    "Missed Trade to Simplify": 34,
+    "Rook Behind Passer": 32
+   },
+   "n_positions": 200
+  },
+  "400": {
+   "label": null,
+   "confidence": 0.15,
+   "category": "Calculation",
+   "fire_rate": 0.0029,
+   "top_votes": {
+    "Greedy Capture": 30,
+    "Ignored Threat": 29,
+    "Missed Desperado": 25,
+    "Missed Overloading": 25,
+    "Missed Defensive Resource": 23
+   },
+   "n_positions": 200
+  },
+  "401": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.27,
+   "category": "Endgame",
+   "fire_rate": 0.0043,
+   "top_votes": {
+    "Missed Trade to Simplify": 54,
+    "Missed Overloading": 33,
+    "Pawn Move Exposed King": 31,
+    "Wrong Pawn Race": 24,
+    "Missed Desperado": 16
+   },
+   "n_positions": 200
+  },
+  "402": {
+   "label": "Missed Unpinning Resource",
+   "confidence": 0.31,
+   "category": "Allowed Tactic",
+   "fire_rate": 0.0129,
+   "top_votes": {
+    "Missed Unpinning Resource": 62,
+    "Missed Desperado": 45,
+    "Missed Defensive Resource": 28,
+    "Missed Trade to Simplify": 23,
+    "Greedy Capture": 23
+   },
+   "n_positions": 200
+  },
+  "403": {
+   "label": null,
+   "confidence": 0.155,
+   "category": "King Safety",
+   "fire_rate": 0.0015,
+   "top_votes": {
+    "Pawn Move Exposed King": 31,
+    "Missed Trade to Simplify": 28,
+    "Missed Open File": 27,
+    "Wrong Pawn Race": 26,
+    "Missed Overloading": 22
+   },
+   "n_positions": 200
+  },
+  "404": {
+   "label": null,
+   "confidence": 0.2,
+   "category": "Missed Capture",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Missed Free Knight": 15,
+    "Missed Defensive Resource": 11,
+    "Greedy Capture": 9,
+    "Pawn Move Exposed King": 9,
+    "Ignored Threat": 7
+   },
+   "n_positions": 75
+  },
+  "405": {
+   "label": "Greedy Capture",
+   "confidence": 0.264,
+   "category": "Calculation",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Greedy Capture": 19,
+    "Missed Pawn Break": 11,
+    "Missed Passed Pawn": 9,
+    "Wrong Pawn Race": 8,
+    "Missed Trade to Simplify": 8
+   },
+   "n_positions": 72
+  },
+  "406": {
+   "label": null,
+   "confidence": 0.19,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0956,
+   "top_votes": {
+    "Missed Overloading": 38,
+    "Missed Pawn Break": 26,
+    "Missed Free Pawn": 15,
+    "Missed Battery": 12,
+    "Missed Tempo Push": 12
+   },
+   "n_positions": 200
+  },
+  "407": {
+   "label": null,
+   "confidence": 0.185,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0008,
+   "top_votes": {
+    "Missed Overloading": 25,
+    "Missed Pawn Break": 23,
+    "Missed Tempo Push": 22,
+    "Pawn Move Exposed King": 19,
+    "Missed Defensive Resource": 12
+   },
+   "n_positions": 135
+  },
+  "408": {
+   "label": "Greedy Capture",
+   "confidence": 0.282,
+   "category": "Calculation",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Greedy Capture": 20,
+    "Missed Trade to Simplify": 14,
+    "Pawn Move Exposed King": 12,
+    "Pawn Grab While Undeveloped": 8,
+    "Wrong Pawn Race": 8
+   },
+   "n_positions": 71
+  },
+  "409": {
+   "label": null,
+   "confidence": 0.235,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0109,
+   "top_votes": {
+    "Missed Overloading": 47,
+    "Greedy Capture": 23,
+    "Ignored Threat": 17,
+    "Missed Defensive Resource": 17,
+    "Missed Free Pawn": 17
+   },
+   "n_positions": 200
+  },
+  "410": {
+   "label": "Missed Free Bishop",
+   "confidence": 0.67,
+   "category": "Missed Capture",
+   "fire_rate": 0.0073,
+   "top_votes": {
+    "Missed Free Bishop": 134,
+    "Missed Bishop-Knight Exchange": 24,
+    "Lost Castling Rights": 18,
+    "Missed Remove the Guard": 18,
+    "Pawn Move Exposed King": 15
+   },
+   "n_positions": 200
+  },
+  "411": {
+   "label": "Missed f2/f7 Attack",
+   "confidence": 0.405,
+   "category": "King Safety",
+   "fire_rate": 0.0021,
+   "top_votes": {
+    "Missed f2/f7 Attack": 81,
+    "Missed Overloading": 70,
+    "Missed Kingside Attack": 36,
+    "Pawn Move Exposed King": 17,
+    "Missed Desperado": 13
+   },
+   "n_positions": 200
+  },
+  "412": {
+   "label": null,
+   "confidence": 0.125,
+   "category": "Endgame",
+   "fire_rate": 0.0009,
+   "top_votes": {
+    "Bad Simplification": 19,
+    "Greedy Capture": 17,
+    "Pawn Move Exposed King": 16,
+    "Missed Trade to Simplify": 15,
+    "Missed Overloading": 15
+   },
+   "n_positions": 152
+  },
+  "413": {
+   "label": null,
+   "confidence": 0.186,
+   "category": "Endgame",
+   "fire_rate": 0.0006,
+   "top_votes": {
+    "Missed Passed Pawn": 19,
+    "Missed Advanced Pawn": 17,
+    "Missed Push to Promote": 16,
+    "Wrong Pawn Race": 16,
+    "Greedy Capture": 16
+   },
+   "n_positions": 102
+  },
+  "414": {
+   "label": null,
+   "confidence": 0.143,
+   "category": "Calculation",
+   "fire_rate": 0.0008,
+   "top_votes": {
+    "Greedy Capture": 20,
+    "Pawn Move Exposed King": 20,
+    "Missed Trade to Simplify": 18,
+    "Missed Overloading": 16,
+    "Bad Simplification": 15
+   },
+   "n_positions": 140
+  },
+  "415": {
+   "label": null,
+   "confidence": 0.187,
+   "category": "Endgame",
+   "fire_rate": 0.0009,
+   "top_votes": {
+    "Missed Trade to Simplify": 28,
+    "Missed Overloading": 22,
+    "Greedy Capture": 19,
+    "Pawn Move Exposed King": 18,
+    "Missed Open File": 15
+   },
+   "n_positions": 150
+  },
+  "416": {
+   "label": null,
+   "confidence": 0.155,
+   "category": "Endgame",
+   "fire_rate": 0.0081,
+   "top_votes": {
+    "Bad Simplification": 31,
+    "Pawn Move Exposed King": 26,
+    "Missed Open File": 25,
+    "Missed Rook to Open File": 23,
+    "Missed Overloading": 21
+   },
+   "n_positions": 200
+  },
+  "417": {
+   "label": "Pawn Move Exposed King",
+   "confidence": 0.26,
+   "category": "King Safety",
+   "fire_rate": 0.0279,
+   "top_votes": {
+    "Pawn Move Exposed King": 52,
+    "Premature Attack": 18,
+    "Greedy Capture": 14,
+    "Failed Discovered Attack": 14,
+    "Missed Pawn Break": 13
+   },
+   "n_positions": 200
+  },
+  "418": {
+   "label": "Greedy Capture",
+   "confidence": 0.815,
+   "category": "Calculation",
+   "fire_rate": 0.0042,
+   "top_votes": {
+    "Greedy Capture": 163,
+    "Pawn Grab While Undeveloped": 157,
+    "Premature Attack": 71,
+    "Missed Pawn Break": 33,
+    "Missed Castling": 22
+   },
+   "n_positions": 200
+  },
+  "419": {
+   "label": null,
+   "confidence": 0.17,
+   "category": "Missed Capture",
+   "fire_rate": 0.0504,
+   "top_votes": {
+    "Missed Free Rook": 34,
+    "Greedy Capture": 32,
+    "Missed Pawn Break": 28,
+    "Missed Open File": 14,
+    "Pawn Move Exposed King": 14
+   },
+   "n_positions": 200
+  },
+  "420": {
+   "label": "Missed Queen Exchange",
+   "confidence": 0.795,
+   "category": "Trading",
+   "fire_rate": 0.012,
+   "top_votes": {
+    "Missed Queen Exchange": 159,
+    "Missed Trade to Simplify": 85,
+    "Missed Desperado": 56,
+    "Ignored Threat": 52,
+    "Missed Rook Exchange": 35
+   },
+   "n_positions": 200
+  },
+  "421": {
+   "label": null,
+   "confidence": 0.225,
+   "category": "Endgame",
+   "fire_rate": 0.0092,
+   "top_votes": {
+    "Missed Trade to Simplify": 45,
+    "Wrong Pawn Race": 34,
+    "Ignored Threat": 25,
+    "Missed Defensive Resource": 24,
+    "Wrong King Direction": 23
+   },
+   "n_positions": 200
+  },
+  "422": {
+   "label": null,
+   "confidence": 0.19,
+   "category": "Allowed Tactic",
+   "fire_rate": 0.0314,
+   "top_votes": {
+    "Allowed Doubled Rooks": 38,
+    "Missed Overloading": 29,
+    "Pawn Move Exposed King": 17,
+    "Missed Free Pawn": 12,
+    "Missed Open File": 11
+   },
+   "n_positions": 200
+  },
+  "423": {
+   "label": null,
+   "confidence": 0.166,
+   "category": "Calculation",
+   "fire_rate": 0.001,
+   "top_votes": {
+    "Greedy Capture": 29,
+    "Bad Simplification": 25,
+    "Missed Battery": 25,
+    "Missed Overloading": 20,
+    "Pawn Move Exposed King": 14
+   },
+   "n_positions": 175
+  },
+  "424": {
+   "label": null,
+   "confidence": 0.142,
+   "category": "Endgame",
+   "fire_rate": 0.0009,
+   "top_votes": {
+    "Missed Trade to Simplify": 22,
+    "Greedy Capture": 18,
+    "Wrong Pawn Race": 18,
+    "Pawn Move Exposed King": 15,
+    "Missed Overloading": 14
+   },
+   "n_positions": 155
+  },
+  "425": {
+   "label": null,
+   "confidence": 0.195,
+   "category": "Calculation",
+   "fire_rate": 0.0021,
+   "top_votes": {
+    "Greedy Capture": 39,
+    "Missed Overloading": 25,
+    "Missed Open File": 21,
+    "Missed Defensive Resource": 19,
+    "Bad Simplification": 18
+   },
+   "n_positions": 200
+  },
+  "426": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.625,
+   "category": "Endgame",
+   "fire_rate": 0.0154,
+   "top_votes": {
+    "Missed Trade to Simplify": 125,
+    "Missed Free Queen": 92,
+    "Missed Free Rook": 74,
+    "Missed Desperado": 48,
+    "Ignored Threat": 33
+   },
+   "n_positions": 200
+  },
+  "427": {
+   "label": "Greedy Capture",
+   "confidence": 0.263,
+   "category": "Calculation",
+   "fire_rate": 0.0003,
+   "top_votes": {
+    "Greedy Capture": 15,
+    "Missed Castling": 10,
+    "Pawn Grab While Undeveloped": 7,
+    "Missed Unpinning Resource": 5,
+    "Missed Overloading": 5
+   },
+   "n_positions": 57
+  },
+  "428": {
+   "label": "Greedy Capture",
+   "confidence": 0.32,
+   "category": "Calculation",
+   "fire_rate": 0.0014,
+   "top_votes": {
+    "Greedy Capture": 64,
+    "Missed Defensive Resource": 35,
+    "Ignored Threat": 29,
+    "Pawn Move Exposed King": 22,
+    "Missed Desperado": 22
+   },
+   "n_positions": 200
+  },
+  "429": {
+   "label": null,
+   "confidence": 0.204,
+   "category": "Calculation",
+   "fire_rate": 0.0011,
+   "top_votes": {
+    "Greedy Capture": 39,
+    "Bad Simplification": 31,
+    "Missed Open File": 23,
+    "Pawn Move Exposed King": 21,
+    "Missed Pawn Break": 20
+   },
+   "n_positions": 191
+  },
+  "430": {
+   "label": "Missed Queen Exchange",
+   "confidence": 0.7,
+   "category": "Trading",
+   "fire_rate": 0.0232,
+   "top_votes": {
+    "Missed Queen Exchange": 140,
+    "Missed Free Queen": 60,
+    "Missed Trade to Simplify": 55,
+    "Missed Desperado": 48,
+    "Ignored Threat": 42
+   },
+   "n_positions": 200
+  },
+  "431": {
+   "label": "Missed Queen Exchange",
+   "confidence": 0.375,
+   "category": "Trading",
+   "fire_rate": 0.0031,
+   "top_votes": {
+    "Missed Queen Exchange": 75,
+    "Missed Overloading": 41,
+    "Missed Desperado": 39,
+    "Missed Defensive Resource": 31,
+    "Pawn Move Exposed King": 30
+   },
+   "n_positions": 200
+  },
+  "432": {
+   "label": "Greedy Capture",
+   "confidence": 0.276,
+   "category": "Calculation",
+   "fire_rate": 0.0005,
+   "top_votes": {
+    "Greedy Capture": 21,
+    "Premature Attack": 11,
+    "Pawn Grab While Undeveloped": 10,
+    "Missed Tempo Push": 10,
+    "Missed Overloading": 8
+   },
+   "n_positions": 76
+  },
+  "433": {
+   "label": null,
+   "confidence": 0.222,
+   "category": "Calculation",
+   "fire_rate": 0.0011,
+   "top_votes": {
+    "Greedy Capture": 42,
+    "Missed Open File": 21,
+    "Pawn Move Exposed King": 18,
+    "Missed Trade to Simplify": 17,
+    "Wrong Pawn Race": 16
+   },
+   "n_positions": 189
+  },
+  "434": {
+   "label": "Missed Mate",
+   "confidence": 0.385,
+   "category": "Missed Mate",
+   "fire_rate": 0.0227,
+   "top_votes": {
+    "Missed Mate": 77,
+    "Missed Overloading": 33,
+    "Missed Open File": 25,
+    "Bad Simplification": 24,
+    "Allowed Doubled Rooks": 22
+   },
+   "n_positions": 200
+  },
+  "435": {
+   "label": "Missed Queen Exchange",
+   "confidence": 0.3,
+   "category": "Trading",
+   "fire_rate": 0.0804,
+   "top_votes": {
+    "Missed Queen Exchange": 60,
+    "Missed Pawn Break": 42,
+    "Missed Pawn Trade": 41,
+    "Missed Desperado": 36,
+    "Ignored Threat": 30
+   },
+   "n_positions": 200
+  },
+  "436": {
+   "label": null,
+   "confidence": 0.125,
+   "category": "Endgame",
+   "fire_rate": 0.0126,
+   "top_votes": {
+    "Bad Simplification": 25,
+    "Missed Open File": 25,
+    "Missed Mate": 24,
+    "Pawn Move Exposed King": 23,
+    "Missed Overloading": 22
+   },
+   "n_positions": 200
+  },
+  "437": {
+   "label": "Missed Overloading",
+   "confidence": 0.265,
+   "category": "Missed Tactic",
+   "fire_rate": 0.006,
+   "top_votes": {
+    "Missed Overloading": 53,
+    "Pawn Move Exposed King": 31,
+    "Missed Tempo Push": 22,
+    "Missed Bishop Exchange": 22,
+    "Missed Defensive Resource": 21
+   },
+   "n_positions": 200
+  },
+  "438": {
+   "label": "Missed Bishop Exchange",
+   "confidence": 0.77,
+   "category": "Trading",
+   "fire_rate": 0.0124,
+   "top_votes": {
+    "Missed Bishop Exchange": 154,
+    "Missed Desperado": 71,
+    "Missed Overloading": 70,
+    "Missed Defensive Resource": 62,
+    "Ignored Threat": 48
+   },
+   "n_positions": 200
+  },
+  "439": {
+   "label": null,
+   "confidence": 0.11,
+   "category": "King Safety",
+   "fire_rate": 0.0015,
+   "top_votes": {
+    "Pawn Move Exposed King": 22,
+    "Missed Pawn Break": 21,
+    "Greedy Capture": 20,
+    "Missed Overloading": 16,
+    "Missed Bishop-Knight Exchange": 15
+   },
+   "n_positions": 200
+  },
+  "440": {
+   "label": "Missed Pawn Trade",
+   "confidence": 0.75,
+   "category": "Trading",
+   "fire_rate": 0.0061,
+   "top_votes": {
+    "Missed Pawn Trade": 150,
+    "Missed Pawn Break": 136,
+    "Missed Desperado": 41,
+    "Pawn Move Exposed King": 35,
+    "Missed Free Pawn": 22
+   },
+   "n_positions": 200
+  },
+  "441": {
+   "label": null,
+   "confidence": 0.2,
+   "category": "Endgame",
+   "fire_rate": 0.0028,
+   "top_votes": {
+    "Missed Trade to Simplify": 40,
+    "Pawn Move Exposed King": 27,
+    "Missed Free Pawn": 22,
+    "Missed Pawn Break": 21,
+    "Greedy Capture": 19
+   },
+   "n_positions": 200
+  },
+  "442": {
+   "label": null,
+   "confidence": 0.22,
+   "category": "Position",
+   "fire_rate": 0.0025,
+   "top_votes": {
+    "Missed Pawn Break": 44,
+    "Greedy Capture": 41,
+    "Pawn Grab While Undeveloped": 34,
+    "Missed Overloading": 31,
+    "Missed Tempo Push": 25
+   },
+   "n_positions": 200
+  },
+  "443": {
+   "label": null,
+   "confidence": 0.215,
+   "category": "Endgame",
+   "fire_rate": 0.0065,
+   "top_votes": {
+    "Missed Trade to Simplify": 43,
+    "Greedy Capture": 37,
+    "Missed Desperado": 30,
+    "Pawn Move Exposed King": 25,
+    "Missed Pawn Break": 23
+   },
+   "n_positions": 200
+  },
+  "444": {
+   "label": "Wrong Pawn Race",
+   "confidence": 0.286,
+   "category": "Endgame",
+   "fire_rate": 0.0001,
+   "top_votes": {
+    "Wrong Pawn Race": 6,
+    "Pawn Move Exposed King": 4,
+    "Missed Passed Pawn": 3,
+    "Bad Simplification": 3,
+    "Wrong King Direction": 2
+   },
+   "n_positions": 21
+  },
+  "445": {
+   "label": null,
+   "confidence": 0.244,
+   "category": "Endgame",
+   "fire_rate": 0.001,
+   "top_votes": {
+    "Missed Trade to Simplify": 43,
+    "Pawn Move Exposed King": 25,
+    "Missed Overloading": 25,
+    "Missed Free Queen": 23,
+    "Greedy Capture": 22
+   },
+   "n_positions": 176
+  },
+  "446": {
+   "label": null,
+   "confidence": 0.2,
+   "category": "Position",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Missed Pawn Break": 14,
+    "Greedy Capture": 12,
+    "Pawn Move Exposed King": 9,
+    "Missed Pawn Trade": 9,
+    "Missed Overloading": 6
+   },
+   "n_positions": 70
+  },
+  "447": {
+   "label": null,
+   "confidence": 0.16,
+   "category": "Calculation",
+   "fire_rate": 0.0064,
+   "top_votes": {
+    "Greedy Capture": 32,
+    "Pawn Move Exposed King": 25,
+    "Bad Simplification": 24,
+    "Missed Passed Pawn": 16,
+    "Ignored Threat": 16
+   },
+   "n_positions": 200
+  },
+  "448": {
+   "label": null,
+   "confidence": 0.155,
+   "category": "Calculation",
+   "fire_rate": 0.0012,
+   "top_votes": {
+    "Greedy Capture": 31,
+    "Pawn Move Exposed King": 17,
+    "Missed Defensive Resource": 17,
+    "Ignored Threat": 16,
+    "Missed Trade to Simplify": 16
+   },
+   "n_positions": 200
+  },
+  "449": {
+   "label": null,
+   "confidence": 0.22,
+   "category": "Calculation",
+   "fire_rate": 0.0276,
+   "top_votes": {
+    "Greedy Capture": 44,
+    "Missed Battery": 35,
+    "Missed Tempo Push": 31,
+    "Missed Overloading": 29,
+    "Missed Open File": 20
+   },
+   "n_positions": 200
+  },
+  "450": {
+   "label": null,
+   "confidence": 0.185,
+   "category": "Endgame",
+   "fire_rate": 0.0233,
+   "top_votes": {
+    "Wrong Pawn Race": 37,
+    "Pawn Move Exposed King": 30,
+    "Missed Pawn Break": 29,
+    "Missed Passed Pawn": 29,
+    "Missed Trade to Simplify": 25
+   },
+   "n_positions": 200
+  },
+  "451": {
+   "label": null,
+   "confidence": 0.167,
+   "category": "Position",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Missed Open File": 10,
+    "Greedy Capture": 9,
+    "Missed Rook to Open File": 9,
+    "Missed Trade to Simplify": 7,
+    "Missed Passed Pawn": 5
+   },
+   "n_positions": 60
+  },
+  "452": {
+   "label": "Missed Overloading",
+   "confidence": 0.475,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0198,
+   "top_votes": {
+    "Missed Overloading": 95,
+    "Missed Free Pawn": 21,
+    "Pawn Move Exposed King": 11,
+    "Missed Defensive Resource": 11,
+    "Ignored Threat": 8
+   },
+   "n_positions": 200
+  },
+  "453": {
+   "label": null,
+   "confidence": 0.195,
+   "category": "Endgame",
+   "fire_rate": 0.0122,
+   "top_votes": {
+    "Missed King Activity": 39,
+    "Wrong King Direction": 26,
+    "Wrong Pawn Race": 24,
+    "Missed Trade to Simplify": 24,
+    "Greedy Capture": 20
+   },
+   "n_positions": 200
+  },
+  "454": {
+   "label": null,
+   "confidence": 0.24,
+   "category": "Calculation",
+   "fire_rate": 0.0019,
+   "top_votes": {
+    "Greedy Capture": 48,
+    "Bad Simplification": 45,
+    "Missed Trade to Simplify": 38,
+    "Pawn Move Exposed King": 24,
+    "Wrong Pawn Race": 21
+   },
+   "n_positions": 200
+  },
+  "455": {
+   "label": null,
+   "confidence": 0.21,
+   "category": "Calculation",
+   "fire_rate": 0.001,
+   "top_votes": {
+    "Greedy Capture": 35,
+    "Missed Pawn Break": 26,
+    "Wrong Pawn Race": 20,
+    "Pawn Grab While Undeveloped": 18,
+    "Pawn Move Exposed King": 16
+   },
+   "n_positions": 167
+  },
+  "456": {
+   "label": null,
+   "confidence": 0.179,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0005,
+   "top_votes": {
+    "Missed Overloading": 14,
+    "Missed Trade to Simplify": 12,
+    "Missed Desperado": 9,
+    "Pawn Move Exposed King": 9,
+    "Bad Simplification": 8
+   },
+   "n_positions": 78
+  },
+  "457": {
+   "label": null,
+   "confidence": 0.215,
+   "category": "Endgame",
+   "fire_rate": 0.0029,
+   "top_votes": {
+    "Missed Trade to Simplify": 43,
+    "Ignored Threat": 33,
+    "Missed Defensive Resource": 32,
+    "Wrong Pawn Race": 25,
+    "Missed Free Pawn": 24
+   },
+   "n_positions": 200
+  },
+  "458": {
+   "label": null,
+   "confidence": 0.17,
+   "category": "Endgame",
+   "fire_rate": 0.0045,
+   "top_votes": {
+    "Missed Trade to Simplify": 34,
+    "Missed Mate": 31,
+    "Pawn Move Exposed King": 21,
+    "Missed Overloading": 18,
+    "Missed Battery": 17
+   },
+   "n_positions": 200
+  },
+  "459": {
+   "label": "Missed Pin (to King)",
+   "confidence": 0.775,
+   "category": "Missed Tactic",
+   "fire_rate": 0.016,
+   "top_votes": {
+    "Missed Pin (to King)": 155,
+    "Missed Overloading": 58,
+    "Missed Battery": 44,
+    "Greedy Capture": 42,
+    "Missed Pin": 36
+   },
+   "n_positions": 200
+  },
+  "460": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.665,
+   "category": "Position",
+   "fire_rate": 0.037,
+   "top_votes": {
+    "Missed Pawn Break": 133,
+    "Missed Tempo Push": 130,
+    "Missed Overloading": 39,
+    "Missed Passed Pawn": 29,
+    "Missed Pawn Trade": 27
+   },
+   "n_positions": 200
+  },
+  "461": {
+   "label": "Missed Desperado",
+   "confidence": 0.33,
+   "category": "Calculation",
+   "fire_rate": 0.0382,
+   "top_votes": {
+    "Missed Desperado": 66,
+    "Missed Overloading": 62,
+    "Missed Defensive Resource": 54,
+    "Ignored Threat": 49,
+    "Created Doubled Pawn": 43
+   },
+   "n_positions": 200
+  },
+  "462": {
+   "label": null,
+   "confidence": 0.18,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0212,
+   "top_votes": {
+    "Missed Overloading": 36,
+    "Missed Battery": 26,
+    "Allowed Doubled Rooks": 23,
+    "Missed Queen Activity": 21,
+    "Bad Simplification": 15
+   },
+   "n_positions": 200
+  },
+  "463": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.315,
+   "category": "Endgame",
+   "fire_rate": 0.0016,
+   "top_votes": {
+    "Missed Trade to Simplify": 63,
+    "Missed Free Rook": 21,
+    "Missed Desperado": 20,
+    "Missed Free Pawn": 20,
+    "Missed Pawn Break": 19
+   },
+   "n_positions": 200
+  },
+  "464": {
+   "label": null,
+   "confidence": 0.174,
+   "category": "Calculation",
+   "fire_rate": 0.001,
+   "top_votes": {
+    "Greedy Capture": 29,
+    "Missed Overloading": 24,
+    "Pawn Move Exposed King": 22,
+    "Missed Queen Exchange": 20,
+    "Missed Passed Pawn": 18
+   },
+   "n_positions": 167
+  },
+  "465": {
+   "label": "Missed Open File",
+   "confidence": 0.3,
+   "category": "Position",
+   "fire_rate": 0.0195,
+   "top_votes": {
+    "Missed Open File": 60,
+    "Bad Simplification": 57,
+    "Greedy Capture": 45,
+    "Missed Rook to Open File": 36,
+    "Missed Active Rook": 20
+   },
+   "n_positions": 200
+  },
+  "466": {
+   "label": "Greedy Capture",
+   "confidence": 0.268,
+   "category": "Calculation",
+   "fire_rate": 0.0008,
+   "top_votes": {
+    "Greedy Capture": 34,
+    "Missed Pawn Break": 17,
+    "Missed Overloading": 17,
+    "Missed Pawn Trade": 12,
+    "Missed Bishop-Knight Exchange": 10
+   },
+   "n_positions": 127
+  },
+  "467": {
+   "label": "Greedy Capture",
+   "confidence": 0.59,
+   "category": "Calculation",
+   "fire_rate": 0.0191,
+   "top_votes": {
+    "Greedy Capture": 118,
+    "Failed Discovered Attack": 51,
+    "Ignored Threat": 45,
+    "Missed Defensive Resource": 42,
+    "Missed Overloading": 29
+   },
+   "n_positions": 200
+  },
+  "468": {
+   "label": null,
+   "confidence": 0.21,
+   "category": "Calculation",
+   "fire_rate": 0.0008,
+   "top_votes": {
+    "Greedy Capture": 29,
+    "Missed Overloading": 26,
+    "Pawn Move Exposed King": 14,
+    "Wrong Pawn Race": 13,
+    "Failed Discovered Attack": 12
+   },
+   "n_positions": 138
+  },
+  "469": {
+   "label": null,
+   "confidence": 0.207,
+   "category": "Calculation",
+   "fire_rate": 0.0012,
+   "top_votes": {
+    "Greedy Capture": 41,
+    "Bad Simplification": 36,
+    "Pawn Move Exposed King": 33,
+    "Created Isolated Pawn": 24,
+    "Missed Overloading": 19
+   },
+   "n_positions": 198
+  },
+  "470": {
+   "label": "Missed Overloading",
+   "confidence": 0.405,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0249,
+   "top_votes": {
+    "Missed Overloading": 81,
+    "Missed Open File": 42,
+    "Missed Battery": 28,
+    "Greedy Capture": 25,
+    "Missed Passed Pawn": 19
+   },
+   "n_positions": 200
+  },
+  "471": {
+   "label": null,
+   "confidence": 0.215,
+   "category": "Calculation",
+   "fire_rate": 0.0246,
+   "top_votes": {
+    "Greedy Capture": 43,
+    "Missed Overloading": 32,
+    "Pawn Move Exposed King": 30,
+    "Missed Battery": 28,
+    "Bad Simplification": 20
+   },
+   "n_positions": 200
+  },
+  "472": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.395,
+   "category": "Position",
+   "fire_rate": 0.0049,
+   "top_votes": {
+    "Missed Pawn Break": 79,
+    "Missed Tempo Push": 75,
+    "Missed Pawn Trade": 26,
+    "Pawn Move Exposed King": 23,
+    "Missed Free Bishop": 22
+   },
+   "n_positions": 200
+  },
+  "473": {
+   "label": "Missed Open File",
+   "confidence": 0.295,
+   "category": "Position",
+   "fire_rate": 0.0949,
+   "top_votes": {
+    "Missed Open File": 59,
+    "Missed Battery": 58,
+    "Greedy Capture": 48,
+    "Missed Tempo Push": 45,
+    "Missed Overloading": 34
+   },
+   "n_positions": 200
+  },
+  "474": {
+   "label": "Missed Tempo Push",
+   "confidence": 0.975,
+   "category": "Position",
+   "fire_rate": 0.0241,
+   "top_votes": {
+    "Missed Tempo Push": 195,
+    "Greedy Capture": 26,
+    "Pawn Move Exposed King": 21,
+    "Failed Discovered Attack": 19,
+    "Pawn Grab While Undeveloped": 14
+   },
+   "n_positions": 200
+  },
+  "475": {
+   "label": "Greedy Capture",
+   "confidence": 0.63,
+   "category": "Calculation",
+   "fire_rate": 0.021,
+   "top_votes": {
+    "Greedy Capture": 126,
+    "Missed Overloading": 39,
+    "Missed Tempo Push": 31,
+    "Ignored Threat": 27,
+    "Missed Pawn Break": 25
+   },
+   "n_positions": 200
+  },
+  "476": {
+   "label": "Greedy Capture",
+   "confidence": 0.294,
+   "category": "Calculation",
+   "fire_rate": 0.0009,
+   "top_votes": {
+    "Greedy Capture": 42,
+    "Ignored Threat": 28,
+    "Missed Defensive Resource": 24,
+    "Pawn Grab While Undeveloped": 20,
+    "Pawn Move Exposed King": 18
+   },
+   "n_positions": 143
+  },
+  "477": {
+   "label": "Missed Pawn Break",
+   "confidence": 0.29,
+   "category": "Position",
+   "fire_rate": 0.0024,
+   "top_votes": {
+    "Missed Pawn Break": 58,
+    "Missed Tempo Push": 44,
+    "Wrong Pawn Race": 29,
+    "Missed Passed Pawn": 22,
+    "Pawn Move Exposed King": 22
+   },
+   "n_positions": 200
+  },
+  "478": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.4,
+   "category": "Endgame",
+   "fire_rate": 0.0291,
+   "top_votes": {
+    "Missed Trade to Simplify": 80,
+    "Ignored Threat": 53,
+    "Missed Defensive Resource": 47,
+    "Missed Free Rook": 41,
+    "Missed Free Queen": 31
+   },
+   "n_positions": 200
+  },
+  "479": {
+   "label": "Greedy Capture",
+   "confidence": 0.435,
+   "category": "Calculation",
+   "fire_rate": 0.0145,
+   "top_votes": {
+    "Greedy Capture": 87,
+    "Pawn Grab While Undeveloped": 70,
+    "Premature Attack": 35,
+    "Missed Defensive Resource": 29,
+    "Ignored Threat": 23
+   },
+   "n_positions": 200
+  },
+  "480": {
+   "label": null,
+   "confidence": 0.185,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0032,
+   "top_votes": {
+    "Missed Overloading": 37,
+    "Missed Trade to Simplify": 29,
+    "Missed Pawn Break": 25,
+    "Missed Desperado": 24,
+    "Missed Knight Exchange": 23
+   },
+   "n_positions": 200
+  },
+  "481": {
+   "label": "Greedy Capture",
+   "confidence": 0.445,
+   "category": "Calculation",
+   "fire_rate": 0.0313,
+   "top_votes": {
+    "Greedy Capture": 89,
+    "Pawn Grab While Undeveloped": 66,
+    "Premature Attack": 48,
+    "Pawn Move Exposed King": 28,
+    "Missed Free Bishop": 17
+   },
+   "n_positions": 200
+  },
+  "482": {
+   "label": "Missed Knight Exchange",
+   "confidence": 0.47,
+   "category": "Trading",
+   "fire_rate": 0.0324,
+   "top_votes": {
+    "Missed Knight Exchange": 94,
+    "Missed Bishop-Knight Exchange": 35,
+    "Missed Pawn Break": 22,
+    "Pawn Move Exposed King": 18,
+    "Missed Free Bishop": 14
+   },
+   "n_positions": 200
+  },
+  "483": {
+   "label": null,
+   "confidence": 0.128,
+   "category": "Position",
+   "fire_rate": 0.001,
+   "top_votes": {
+    "Missed Pawn Break": 22,
+    "Pawn Move Exposed King": 21,
+    "Missed Trade to Simplify": 21,
+    "Greedy Capture": 20,
+    "Bad Simplification": 18
+   },
+   "n_positions": 172
+  },
+  "484": {
+   "label": "Missed Queen Exchange",
+   "confidence": 0.76,
+   "category": "Trading",
+   "fire_rate": 0.0269,
+   "top_votes": {
+    "Missed Queen Exchange": 152,
+    "Missed Overloading": 28,
+    "Ignored Threat": 22,
+    "Missed Trade to Simplify": 22,
+    "Missed Desperado": 22
+   },
+   "n_positions": 200
+  },
+  "485": {
+   "label": null,
+   "confidence": 0.203,
+   "category": "Calculation",
+   "fire_rate": 0.0009,
+   "top_votes": {
+    "Greedy Capture": 30,
+    "Missed Trade to Simplify": 28,
+    "Missed Pawn Break": 24,
+    "Pawn Move Exposed King": 21,
+    "Missed Pawn Trade": 16
+   },
+   "n_positions": 148
+  },
+  "486": {
+   "label": null,
+   "confidence": 0.232,
+   "category": "Calculation",
+   "fire_rate": 0.0012,
+   "top_votes": {
+    "Greedy Capture": 46,
+    "Missed Free Bishop": 45,
+    "Pawn Move Exposed King": 31,
+    "Pawn Grab While Undeveloped": 23,
+    "Missed Overloading": 23
+   },
+   "n_positions": 198
+  },
+  "487": {
+   "label": null,
+   "confidence": 0.183,
+   "category": "Calculation",
+   "fire_rate": 0.0004,
+   "top_votes": {
+    "Greedy Capture": 11,
+    "Missed Overloading": 10,
+    "Missed Free Queen": 9,
+    "Bad Simplification": 7,
+    "Missed Pawn Break": 7
+   },
+   "n_positions": 60
+  },
+  "488": {
+   "label": "Missed Trade to Simplify",
+   "confidence": 0.27,
+   "category": "Endgame",
+   "fire_rate": 0.0022,
+   "top_votes": {
+    "Missed Trade to Simplify": 54,
+    "Greedy Capture": 33,
+    "Missed Desperado": 31,
+    "Ignored Threat": 30,
+    "Missed Defensive Resource": 29
+   },
+   "n_positions": 200
+  },
+  "489": {
+   "label": "Missed Overloading",
+   "confidence": 0.38,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0156,
+   "top_votes": {
+    "Missed Overloading": 76,
+    "Missed Battery": 29,
+    "Missed Free Pawn": 25,
+    "Pawn Move Exposed King": 21,
+    "Pawn Grab While Undeveloped": 20
+   },
+   "n_positions": 200
+  },
+  "490": {
+   "label": "Missed Free Bishop",
+   "confidence": 0.535,
+   "category": "Missed Capture",
+   "fire_rate": 0.0042,
+   "top_votes": {
+    "Missed Free Bishop": 107,
+    "Pawn Move Exposed King": 40,
+    "Missed Free Knight": 39,
+    "Missed Pawn Break": 38,
+    "Missed Desperado": 34
+   },
+   "n_positions": 200
+  },
+  "491": {
+   "label": null,
+   "confidence": 0.245,
+   "category": "Calculation",
+   "fire_rate": 0.1174,
+   "top_votes": {
+    "Greedy Capture": 49,
+    "Failed Fork": 32,
+    "Missed Overloading": 32,
+    "Missed Desperado": 20,
+    "Failed Discovered Attack": 19
+   },
+   "n_positions": 200
+  },
+  "492": {
+   "label": null,
+   "confidence": 0.24,
+   "category": "Position",
+   "fire_rate": 0.0014,
+   "top_votes": {
+    "Missed Pawn Break": 48,
+    "Pawn Move Exposed King": 27,
+    "Greedy Capture": 21,
+    "Bad Simplification": 14,
+    "Missed Free Pawn": 14
+   },
+   "n_positions": 200
+  },
+  "493": {
+   "label": "Bad Simplification",
+   "confidence": 0.415,
+   "category": "Endgame",
+   "fire_rate": 0.0057,
+   "top_votes": {
+    "Bad Simplification": 83,
+    "Greedy Capture": 78,
+    "Missed Overloading": 26,
+    "Missed Open File": 22,
+    "Wrong Pawn Race": 19
+   },
+   "n_positions": 200
+  },
+  "494": {
+   "label": "Missed f2/f7 Attack",
+   "confidence": 0.35,
+   "category": "King Safety",
+   "fire_rate": 0.0232,
+   "top_votes": {
+    "Missed f2/f7 Attack": 70,
+    "Missed Overloading": 70,
+    "Missed Kingside Attack": 54,
+    "Missed Trade to Simplify": 36,
+    "Pawn Move Exposed King": 25
+   },
+   "n_positions": 200
+  },
+  "495": {
+   "label": null,
+   "confidence": 0.219,
+   "category": "Calculation",
+   "fire_rate": 0.0009,
+   "top_votes": {
+    "Greedy Capture": 32,
+    "Missed Trade to Simplify": 25,
+    "Missed Free Rook": 18,
+    "Missed Overloading": 15,
+    "Wrong Pawn Race": 14
+   },
+   "n_positions": 146
+  },
+  "496": {
+   "label": null,
+   "confidence": 0.14,
+   "category": "Calculation",
+   "fire_rate": 0.0024,
+   "top_votes": {
+    "Greedy Capture": 28,
+    "Missed Battery": 26,
+    "Missed Overloading": 24,
+    "Missed Open File": 20,
+    "Missed Interposition": 17
+   },
+   "n_positions": 200
+  },
+  "497": {
+   "label": null,
+   "confidence": 0.175,
+   "category": "Allowed Tactic",
+   "fire_rate": 0.0198,
+   "top_votes": {
+    "Ignored Threat": 35,
+    "Greedy Capture": 30,
+    "Missed Defensive Resource": 30,
+    "Missed Free Bishop": 29,
+    "Pawn Move Exposed King": 20
+   },
+   "n_positions": 200
+  },
+  "498": {
+   "label": "Missed Overloading",
+   "confidence": 0.31,
+   "category": "Missed Tactic",
+   "fire_rate": 0.007,
+   "top_votes": {
+    "Missed Overloading": 62,
+    "Greedy Capture": 36,
+    "Pawn Move Exposed King": 23,
+    "Missed Defensive Resource": 17,
+    "Missed Pawn Break": 17
+   },
+   "n_positions": 200
+  },
+  "499": {
+   "label": null,
+   "confidence": 0.15,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0544,
+   "top_votes": {
+    "Missed Overloading": 30,
+    "Missed Open File": 27,
+    "Missed Defensive Resource": 26,
+    "Ignored Threat": 23,
+    "Missed Battery": 22
+   },
+   "n_positions": 200
+  },
+  "500": {
+   "label": "Missed Bishop Exchange",
+   "confidence": 0.525,
+   "category": "Trading",
+   "fire_rate": 0.0043,
+   "top_votes": {
+    "Missed Bishop Exchange": 105,
+    "Missed Defensive Resource": 52,
+    "Missed Desperado": 46,
+    "Missed Remove the Guard": 42,
+    "Ignored Threat": 41
+   },
+   "n_positions": 200
+  },
+  "501": {
+   "label": "Missed Overloading",
+   "confidence": 0.625,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0118,
+   "top_votes": {
+    "Missed Overloading": 125,
+    "Pawn Move Exposed King": 32,
+    "Pawn Grab While Undeveloped": 27,
+    "Missed Battery": 9,
+    "Failed Discovered Attack": 6
+   },
+   "n_positions": 200
+  },
+  "502": {
+   "label": null,
+   "confidence": 0.185,
+   "category": "Endgame",
+   "fire_rate": 0.0201,
+   "top_votes": {
+    "Wrong Pawn Race": 37,
+    "Missed King Activity": 29,
+    "Missed Pawn Break": 27,
+    "Greedy Capture": 26,
+    "Missed Trade to Simplify": 24
+   },
+   "n_positions": 200
+  },
+  "503": {
+   "label": null,
+   "confidence": 0.19,
+   "category": "Calculation",
+   "fire_rate": 0.0061,
+   "top_votes": {
+    "Greedy Capture": 38,
+    "Bad Simplification": 25,
+    "Missed Pawn Break": 22,
+    "Missed Overloading": 21,
+    "Missed Open File": 18
+   },
+   "n_positions": 200
+  },
+  "504": {
+   "label": "Greedy Capture",
+   "confidence": 0.315,
+   "category": "Calculation",
+   "fire_rate": 0.0445,
+   "top_votes": {
+    "Greedy Capture": 63,
+    "Missed Desperado": 49,
+    "Ignored Threat": 45,
+    "Missed Defensive Resource": 37,
+    "Missed Unpinning Resource": 26
+   },
+   "n_positions": 200
+  },
+  "505": {
+   "label": "Greedy Capture",
+   "confidence": 0.255,
+   "category": "Calculation",
+   "fire_rate": 0.021,
+   "top_votes": {
+    "Greedy Capture": 51,
+    "Ignored Threat": 25,
+    "Failed Fork": 24,
+    "Missed Defensive Resource": 23,
+    "Missed Overloading": 22
+   },
+   "n_positions": 200
+  },
+  "506": {
+   "label": "Missed Pawn Trade",
+   "confidence": 0.965,
+   "category": "Trading",
+   "fire_rate": 0.0167,
+   "top_votes": {
+    "Missed Pawn Trade": 193,
+    "Missed Pawn Break": 155,
+    "Missed Desperado": 40,
+    "Pawn Move Exposed King": 36,
+    "Missed Overloading": 21
+   },
+   "n_positions": 200
+  },
+  "507": {
+   "label": "Missed Overloading",
+   "confidence": 0.365,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0167,
+   "top_votes": {
+    "Missed Overloading": 73,
+    "Bad Simplification": 65,
+    "Missed Mate": 39,
+    "Greedy Capture": 34,
+    "Missed Battery": 33
+   },
+   "n_positions": 200
+  },
+  "508": {
+   "label": "Missed Overloading",
+   "confidence": 0.27,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0212,
+   "top_votes": {
+    "Missed Overloading": 54,
+    "Missed Battery": 43,
+    "Allowed Doubled Rooks": 24,
+    "Missed Mate": 22,
+    "Missed Open File": 12
+   },
+   "n_positions": 200
+  },
+  "509": {
+   "label": "Missed Overloading",
+   "confidence": 0.27,
+   "category": "Missed Tactic",
+   "fire_rate": 0.0103,
+   "top_votes": {
+    "Missed Overloading": 54,
+    "Allowed Doubled Rooks": 38,
+    "Pawn Move Exposed King": 30,
+    "Missed Trade to Simplify": 23,
+    "Missed Rook Exchange": 21
+   },
+   "n_positions": 200
+  },
+  "510": {
+   "label": "Missed Free Pawn",
+   "confidence": 0.69,
+   "category": "Missed Capture",
+   "fire_rate": 0.0213,
+   "top_votes": {
+    "Missed Free Pawn": 138,
+    "Missed Free Knight": 30,
+    "Missed Overloading": 25,
+    "Pawn Move Exposed King": 21,
+    "Missed Free Bishop": 11
+   },
+   "n_positions": 200
+  },
+  "511": {
+   "label": "Greedy Capture",
+   "confidence": 0.27,
+   "category": "Calculation",
+   "fire_rate": 0.0037,
+   "top_votes": {
+    "Greedy Capture": 54,
+    "Pawn Grab While Undeveloped": 40,
+    "Bad Simplification": 19,
+    "Pawn Move Exposed King": 18,
+    "Premature Attack": 15
+   },
+   "n_positions": 200
+  }
+ }
+}

@@ -1,0 +1,44 @@
+{
+  "1600-1800": {
+    "games": 1675,
+    "moves": 117276,
+    "opening": 39932,
+    "middle": 54692,
+    "endgame": 22652
+  },
+  "2000-2200": {
+    "games": 1890,
+    "moves": 143975,
+    "opening": 45247,
+    "middle": 67083,
+    "endgame": 31645
+  },
+  "1400-1600": {
+    "games": 1683,
+    "moves": 110854,
+    "opening": 40056,
+    "middle": 50311,
+    "endgame": 20487
+  },
+  "1200-1400": {
+    "games": 1669,
+    "moves": 104409,
+    "opening": 39619,
+    "middle": 46612,
+    "endgame": 18178
+  },
+  "1000-1200": {
+    "games": 1854,
+    "moves": 113014,
+    "opening": 43906,
+    "middle": 50985,
+    "endgame": 18123
+  },
+  "1800-2000": {
+    "games": 1691,
+    "moves": 121535,
+    "opening": 40375,
+    "middle": 57341,
+    "endgame": 23819
+  }
+}

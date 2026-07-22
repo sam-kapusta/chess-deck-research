@@ -24,7 +24,7 @@
       ]
     },
     {
-      "name": "Missed Combinative Motifs",
+      "name": "Other",
       "group": "Offensive Tactics",
       "scoreable": true,
       "features": [
@@ -33,13 +33,10 @@
         "Missed Attraction",
         "Missed Interference",
         "Missed Zwischenzug",
-        "Missed Trapped Rook",
-        "Missed Trapped Knight",
-        "Missed Trapped Bishop",
-        "Missed Trapped Queen",
         "Missed Overloading",
         "Missed Doubled Rooks",
-        "Missed Battery"
+        "Missed Battery",
+        "Missed X-Ray"
       ]
     },
     {
@@ -60,14 +57,31 @@
       ]
     },
     {
-      "name": "Missed Discovered Attacks & Skewers",
+      "name": "Missed Discovered Attacks",
       "group": "Offensive Tactics",
       "scoreable": true,
       "features": [
         "Missed Discovered Attack",
-        "Missed Double Check",
-        "Missed Skewer",
-        "Missed X-Ray"
+        "Missed Double Check"
+      ]
+    },
+    {
+      "name": "Missed Skewers",
+      "group": "Offensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Missed Skewer"
+      ]
+    },
+    {
+      "name": "Missed Trapped Pieces",
+      "group": "Offensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Missed Trapped Rook",
+        "Missed Trapped Knight",
+        "Missed Trapped Bishop",
+        "Missed Trapped Queen"
       ]
     },
     {
@@ -98,7 +112,7 @@
       ]
     },
     {
-      "name": "Allowed Combinative Motifs",
+      "name": "Other",
       "group": "Defensive Tactics",
       "scoreable": true,
       "features": [
@@ -107,11 +121,9 @@
         "Allowed Attraction",
         "Allowed Interference",
         "Allowed Zwischenzug",
-        "Allowed Trapped Rook",
-        "Allowed Trapped Knight",
-        "Allowed Trapped Bishop",
-        "Allowed Trapped Queen",
-        "Allowed Overloading"
+        "Allowed Overloading",
+        "Allowed X-Ray",
+        "Allowed Doubled Rooks"
       ]
     },
     {
@@ -148,15 +160,31 @@
       ]
     },
     {
-      "name": "Allowed Discovered Attacks & Skewers",
+      "name": "Allowed Discovered Attacks",
       "group": "Defensive Tactics",
       "scoreable": true,
       "features": [
         "Allowed Discovered Attack",
-        "Allowed Double Check",
-        "Allowed Skewer",
-        "Allowed X-Ray",
-        "Allowed Doubled Rooks"
+        "Allowed Double Check"
+      ]
+    },
+    {
+      "name": "Allowed Skewers",
+      "group": "Defensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Allowed Skewer"
+      ]
+    },
+    {
+      "name": "Allowed Trapped Pieces",
+      "group": "Defensive Tactics",
+      "scoreable": true,
+      "features": [
+        "Allowed Trapped Rook",
+        "Allowed Trapped Knight",
+        "Allowed Trapped Bishop",
+        "Allowed Trapped Queen"
       ]
     },
     {

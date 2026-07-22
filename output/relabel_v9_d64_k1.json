@@ -1,29 +1,33 @@
 {
  "1": {
-  "chip": "Wasted Tempo / Mistimed Move",
+  "chip": "Wasted Tempo",
   "direction": "other",
   "consistency": 80,
-  "label": "A non-capturing, non-checking pawn or king move that squanders a critical tempo or plays a key break/maneuver in the wrong move-order, letting the opponent strike first; top boards are sharp pawn-endgame timing errors (mistimed pawn breaks or wrong king routes that throw away a win/draw), while median boards are more generic slow, passive tempo-losing moves in the middlegame and endgame."
+  "label": "Played a slow/passive move or wrong move-order that wastes a critical tempo, when concrete action was needed \u2014 most often in pawn/king endgames (let the opponent reach a key square or make a break first). Holds across BOTH bands: TOP = endgame tempo/move-order errors (a5 blocks own king, delayed f5 break, Kc2-before-bxa4); MIDDLE = 'purposeless king move', 'pure tempo loss', 'slow non-essential pawn move'. Tempo theme persists peak-to-middle (not peak-only), so not over-specialized.",
+  "review": "confirmed"
  },
  "6": {
-  "chip": "Premature Queen Trade",
-  "direction": "other",
+  "chip": "Bad Trade (Relieved Tension)",
+  "direction": "hung",
   "consistency": 88,
-  "label": "The player grabs a capture/trade\u2014usually the queen (71%, capture 100%, self-inflicted material loss 99%)\u2014simplifying away a winning attack instead of keeping pieces on; top boards are clear-cut queen trades that throw away a FORCED MATE/winning attack against an exposed king, while median boards broaden into wrong-move-order captures, exchanges, and premature promotions that merely squander a winning advantage rather than a mate."
+  "label": "A capture/trade that breaks a favorable tactical situation by relieving the tension \u2014 often a wrong-move-order capture (took before the intermediate check/zwischenzug) or trading off the attacker. Median boards are clearly tension/move-order driven; peak adds queen-trades that squander a winning attack.",
+  "review": "confirmed"
  },
  "3": {
-  "chip": "Missed Capture",
+  "chip": "Missed Hanging Piece (often Queen)",
   "direction": "missed",
   "consistency": 80,
-  "label": "best move is a capture 30/30 (played ~0); over-specified to 'queen' before but the captured piece varies.",
+  "label": "Best move is a capture in ~100% of boards \u2014 a hanging enemy piece the player declined. At peak activation the captured piece is overwhelmingly the queen (94% of the high-activation cohort); across the full firing range it broadens to rook/knight, so 'often Queen' names the peak, 'hanging piece' the general case.",
   "edited": true,
-  "fixed_by": "predicate"
+  "fixed_by": "predicate",
+  "review": "confirmed"
  },
  "4": {
   "chip": "Pointless Check",
   "direction": "other",
   "consistency": 95,
-  "label": "The player gives a tempting but purposeless check (100% checks, best move never a check, 85% lose own material) that worsens the position\u2014in the TOP boards the check throws away the queen or walks into forced mate, while in the MEDIAN boards it merely squanders a tempo or drops the exchange."
+  "label": "The played move is a check 100% of the time (20/20), but it's never the best move (best-is-check 0%) and usually loses material (hung-own 85%) \u2014 a check that achieves nothing and backfires.",
+  "review": "confirmed"
  },
  "5": {
   "chip": "Hung Piece (Premature Opening Sortie)",
@@ -54,21 +58,25 @@
   "direction": "hung",
   "consistency": 70,
   "label": "A loosening pawn push that weakens the player's own king cover. Pawn-move dominant at strong activations (24/25 top, 20/25 upper), broadening to rook/bishop moves only in the weak tail. Unlike a walk-into-mate, the exposure here is structural/positional (few immediate enemy checks) \u2014 the push creates long-term king weakness rather than allowing an instant mating attack.",
-  "edited": true
+  "edited": true,
+  "review": "confirmed"
  },
  "0": {
-  "chip": "Missed Queen Capture",
+  "chip": "Missed Queen Capture / Involved Queen",
   "direction": "missed",
   "consistency": 60,
-  "label": "The unifying mistake is failing to capture the enemy queen when a winning capture is available (best move wins material / captures the queen 100%), almost always by recapturing or moving with the wrong piece (often the queen) in the wrong order and leaving one's own piece hanging; the TOP boards are clear-cut blundered queen wins (huge ~450\u2013880cp swings, e.g. Bxd8/Bxf3/exd5 was forced), while the MEDIAN boards degrade into softer, smaller piece-misplacement errors\u2014retreats and wrong-square moves that merely lose tempo or walk into forks rather than dropping the queen."
+  "label": "POLYSEMANTIC. Peak (top 25%, act 10-34): best move CAPTURES THE ENEMY QUEEN, missed in a mutual-capture standoff \u2014 often wrong move-order or wrong recapturing piece (54% best-captures-queen, +17% rook). But upper/mid/low bands (75% of 462 firings) are overwhelmingly NON-captures (76-100%) \u2014 the queen is involved but it's not a clean missed-queen-capture. Named for the peak; flagged polysemantic because the lower-activation mass is a different, broader pattern (missed tactics / quiet errors involving the queen).",
+  "review": "confirmed",
+  "polysemantic": true
  },
  "17": {
-  "chip": "Missed Capture",
+  "chip": "Missed Free Capture (Minor)",
   "direction": "missed",
   "consistency": 88,
-  "label": "best move is a capture 30/30; over-specified to 'hanging piece' before \u2014 it's a missed capture, piece varies.",
+  "label": "Best move captures a FREE (undefended) MINOR piece the player declined \u2014 bishop or knight, never rook/queen (14/20 minors: bishop 10, knight 4; 5 pawns; 0 majors). High-activation cohort: bishop 78%, knight 22%. A hanging minor left on the board, distinct from 'Missed Exchange' (trades) and major-piece blunders.",
   "edited": true,
-  "fixed_by": "predicate"
+  "fixed_by": "predicate",
+  "review": "confirmed"
  },
  "10": {
   "chip": "Premature Trade into Lost Endgame",
@@ -83,18 +91,20 @@
   "label": "In winning endgames the player repeatedly fails to grab a free hanging piece\u2014usually the king (or a pawn) capturing a bishop/knight that blockades a passed pawn\u2014and instead pushes a pawn or shuffles the king; top boards are clean missed king-captures that throw away a clearly won game (~650cp+ swings), while median boards degrade into subtler near-equal endgame slips (wrong pawn push, tempo loss, advancing the wrong passer) where no piece is truly hanging."
  },
  "12": {
-  "chip": "Hung Piece",
+  "chip": "Hung Material",
   "direction": "hung",
   "consistency": 80,
-  "label": "Player relocates a piece (knight/bishop/pawn) onto a vulnerable square or away from a key defensive/supporting duty and loses material (97% self-inflicted material loss, outcome hangs 60%); TOP boards are outright hung pieces or fork-targets that squander a clearly winning position (~250\u2013710cp swings, winning\u2192equal/losing), while MEDIAN boards are subtler\u2014abandoning a defender, blocking a recapture, or losing tempo to drop a pawn or the exchange (~180\u2013290cp)."
+  "label": "Self-inflicted material loss (hung-own 97%, refutation 4/4 confirm loss of 2-11 pts). The move that does it varies widely (pawn 39%, knight 27%, bishop 20%, rook 7%) and the amount lost ranges from a pawn to a full piece/exchange, so 'Hung Material' (broad) fits better than 'Hung Piece'. Opus: unblocks a diagonal, abandons a tactical resource, drops the exchange.",
+  "review": "confirmed"
  },
  "14": {
-  "chip": "Missed Capture",
+  "chip": "Missed Capture (Often Endgame)",
   "direction": "missed",
   "consistency": 55,
-  "label": "best move is a capture 25/30; 'free rook' over-specified the captured piece.",
+  "label": "A missed free capture that occurs predominantly in the endgame (83% endgame by see_stats, 15/20 boards by piece count). Mostly FREE/undefended captures (13/20), rook-dominant (74% of cohort). Distinct from f17 (minor-piece, all phases) by being an endgame major-piece grab left on the board.",
   "edited": true,
-  "fixed_by": "predicate"
+  "fixed_by": "predicate",
+  "review": "confirmed"
  },
  "18": {
   "chip": "Misplaced King in Endgame",
@@ -107,14 +117,16 @@
   "direction": "hung",
   "consistency": 90,
   "label": "The played move is a capture that backfires \u2014 you grab a piece/pawn and it loses material or initiative (played-capture ~96-100% at peak, hung-own 100%, outcome 'trade' 92%). The best move is usually a quiet developing move or castling, not a recapture. Holds across the full range (played-capture 30/30 top down to ~20/30 in the weak tail). Not a clean even trade \u2014 the capture itself is the mistake.",
-  "edited": true
+  "edited": true,
+  "review": "confirmed"
  },
  "20": {
   "chip": "Missed Attack on Queen",
   "direction": "missed",
   "consistency": 70,
   "label": "Best move attacks the enemy queen (tempo-gaining) on 20/20 peak+median boards; shortened from the verbose 'Missed Tempo-Gaining Queen Attack'.",
-  "edited": true
+  "edited": true,
+  "review": "confirmed"
  },
  "22": {
   "chip": "Missed Winning Capture",
@@ -133,7 +145,8 @@
   "direction": "missed",
   "consistency": 80,
   "label": "The best move is a quiet, non-capturing repositioning the player overlooked. Peak (act ~33): 10/10 forward central pawn breaks (d5/d4/e4/f4) that the player skipped for a passive move. Median (act ~13): broadens to backward piece repositioning \u2014 knight retreats/regroups (Nf4, Nb6, Ne4) and king steps, all backward moves. Unifying idea: improve your position with a quiet pawn-forward or piece-back move, not an active lunge.",
-  "edited": true
+  "edited": true,
+  "review": "confirmed"
  },
  "8": {
   "chip": "Missed Winning Capture",
@@ -151,21 +164,24 @@
   "chip": "Missed Check/Mate",
   "direction": "missed",
   "consistency": 78,
-  "label": "The player repeatedly chose a quiet, non-forcing move when the best move was a check (100% of boards) that should have been played immediately; top boards throw away short, immediate forced mates (mate in 1-7), while median boards miss a forcing check that wins material or only a longer/slower mate."
+  "label": "The player repeatedly chose a quiet, non-forcing move when the best move was a check (100% of boards) that should have been played immediately; top boards throw away short, immediate forced mates (mate in 1-7), while median boards miss a forcing check that wins material or only a longer/slower mate.",
+  "review": "confirmed"
  },
  "26": {
-  "chip": "Missed Winning Simplification",
+  "chip": "Missed Simplification / Pointless Move",
   "direction": "missed",
   "consistency": 58,
-  "label": "In a winning position the player declines the decisive simplifying capture/trade (Rxf6+, Qxd7+, Rxc4+) that liquidates the opponent's last piece into a won king-and-pawn endgame, instead playing a passive check or slow king move; top boards are clean missed simplifications in completely winning endgames, while median boards degrade into more general tempo-losing/passive moves in messier middlegame positions."
+  "label": "The player is winning and the best move is a capture/trade (19/20 best moves are captures, mostly queen/rook trades) that liquidates into a trivially won pawn/minor endgame \u2014 but they decline it, playing a pointless check, a passive shuffle, or a pawn push instead. Classic conversion failure: won't simplify into the won endgame. Confirmed by 3 independent Opus-4.8 analysts (high confidence, ~17/20 fit) + Sam. Sub-pattern: reflexive checks instead of the capturing trade.",
+  "review": "confirmed"
  },
  "25": {
-  "chip": "Missed Capture",
-  "direction": "missed",
+  "chip": "Missed Exchange, Hung Piece",
+  "direction": "other",
   "consistency": 75,
-  "label": "best move is a capture 30/30 \u2014 direction was WRONG before ('Hung Queen'); it's an omission, you missed taking, not hung.",
+  "label": "Dual: the best move is an EQUAL TRADE the player declined (20/20 even exchanges, zero free captures) AND the move played instead HANGS material in the refutation (verified 3/3 on cached boards: end-of-line loss 9-12pts, Opus confirms 'Qxc5/Qxd1+/Qxe7 devastating'). You skipped a correct trade and dropped a piece. (refutation coverage thin: 3/20 cached + Opus text.)",
   "edited": true,
-  "fixed_by": "predicate"
+  "fixed_by": "predicate",
+  "review": "confirmed"
  },
  "16": {
   "chip": "Exposed King, Queen Lost to Pin",
@@ -189,21 +205,24 @@
   "chip": "Squandered Winning Attack",
   "direction": "missed",
   "consistency": 80,
-  "label": "The player abandons a winning initiative by choosing a passive, materialistic, or trading move instead of the decisive attacking blow (most often a queen centralization like Qe5/Qe4/Qxh3 or a crushing sacrifice like Rxh7/Bf6), with the best move winning material 72% and being the queen 58% while delivering 0% checks; top boards squander outright forced mates and rook sacrifices (10k+ cp swings), whereas median boards merely miss the strong attacking move that would have preserved a big advantage or the initiative."
+  "label": "The player abandons a winning initiative by choosing a passive, materialistic, or trading move instead of the decisive attacking blow (most often a queen centralization like Qe5/Qe4/Qxh3 or a crushing sacrifice like Rxh7/Bf6), with the best move winning material 72% and being the queen 58% while delivering 0% checks; top boards squander outright forced mates and rook sacrifices (10k+ cp swings), whereas median boards merely miss the strong attacking move that would have preserved a big advantage or the initiative.",
+  "review": "confirmed"
  },
  "35": {
   "chip": "Missed Zwischenzug",
   "direction": "missed",
   "consistency": 70,
-  "label": "Player makes a routine recapture or natural move instead of inserting a tempo-gaining in-between capture; top boards are clean missed zwischenzugs that win a full piece (e.g., the routine 'Qxe2' instead of the intermediate Bxe7/Bxf6 exploiting mutual threats), while median boards broaden into general move-order errors and missed intermediate captures that merely squander the existing advantage."
+  "label": "Player makes a routine recapture or natural move instead of inserting a tempo-gaining in-between capture; top boards are clean missed zwischenzugs that win a full piece (e.g., the routine 'Qxe2' instead of the intermediate Bxe7/Bxf6 exploiting mutual threats), while median boards broaden into general move-order errors and missed intermediate captures that merely squander the existing advantage.",
+  "review": "confirmed"
  },
  "34": {
-  "chip": "Missed Capture",
+  "chip": "Pawn Play",
   "direction": "missed",
   "consistency": 60,
-  "label": "best move is a capture 29/30; the '...exd4 central' detail was peak-specific noise.",
+  "label": "The correct move is a pawn move 85% of the time (17/20 best moves are pawns, frequently the central break e5xd4 / e4xd5 / c4xd5) \u2014 the player instead played a piece move or wrong pawn move. A central-pawn-tension / pawn-play feature: the position calls for a pawn move and you didn't make the right one.",
   "edited": true,
-  "fixed_by": "predicate"
+  "fixed_by": "predicate",
+  "review": "confirmed"
  },
  "30": {
   "chip": "Unsound Bishop Sacrifice",
@@ -218,11 +237,12 @@
   "label": "The player makes a developing/quiet move that lets an enemy pawn advance win material\u2014either trapping a bishop or forking two pieces\u2014almost always in the opening; top boards are clean flank-pawn (a/b/c-pawn) bishop traps that simply win the bishop, while median boards shift toward central pawn-break forks (e5/d4) that hit the f6-knight plus a second piece (or, more rarely, other tactical motifs the same prophylaxis would have prevented)."
  },
  "31": {
-  "chip": "Missed Capture",
+  "chip": "Missed Exchange",
   "direction": "missed",
   "consistency": 90,
-  "label": "Best move is a capture in 60/60 boards across all bands (played move is a non-capture ~95%); a free/winning capture the player skipped. Verified vs v9's wrong 'Missed Exchange'.",
-  "edited": true
+  "label": "The best move is an EQUAL TRADE the player declined (20/20 even exchanges \u2014 bishopxknight, queenxqueen, rookxrook, pawnxpawn; zero free/hanging captures). Distinct from 'Missed Capture' (a free undefended piece) \u2014 every capture here is defended/recaptured.",
+  "edited": true,
+  "review": "confirmed"
  },
  "39": {
   "chip": "King to the Wrong Square",
@@ -237,22 +257,25 @@
   "label": "In winning/equal endgames the player fails to neutralize the opponent's passed pawn\u2014pushing the wrong pawn, capturing the wrong pawn, or moving the king/piece off the blockade and so losing the promotion race; top boards are catastrophic won\u2192lost blunders (missed mate or letting the pawn queen with a tempo-gaining check), while median boards are smaller king-and-pawn missteps that merely squander the win or let a draw slip."
  },
  "42": {
-  "chip": "Hung Queen/Piece",
+  "chip": "Hung Piece",
   "direction": "hung",
   "consistency": 80,
-  "label": "Self-inflicted blunder where the player parks a piece on a square where it's captured for free (lost-own-material 100%, mostly the queen); top boards are clean queen hangs (Qe6, Qg2, Qc5, leaving Q en prise) while median boards broaden to hung rooks/bishops and pieces dropped to allowed forks/mating shots."
+  "label": "Clean self-inflicted hang: the played move leaves the player's own material en prise (hung-own 100%; refutation confirms material loss 3/3). Opus: 'moved the queen to an undefended square', 'pawn push ignoring the undefended queen'. Queen-dominant at peak (53%) but broadens to rook/pawn/knight, so 'Hung Piece' not 'Hung Queen'.",
+  "review": "confirmed"
  },
  "47": {
   "chip": "Missed Check/Mate",
   "direction": "missed",
   "consistency": 100,
-  "label": "In every position the best move was a forcing check that the player overlooked (often grabbing material or making a quiet move instead); top boards are all missed forced checkmates (mate-in-1 to mate-in-8), while median boards are missed shorter mates or winning/tempo-gaining checks that merely squander a large advantage rather than an outright mate."
+  "label": "In every position the best move was a forcing check that the player overlooked (often grabbing material or making a quiet move instead); top boards are all missed forced checkmates (mate-in-1 to mate-in-8), while median boards are missed shorter mates or winning/tempo-gaining checks that merely squander a large advantage rather than an outright mate.",
+  "review": "confirmed"
  },
  "40": {
-  "chip": "Missed Queen Trade",
-  "direction": "missed",
+  "chip": "Deserted the Defender",
+  "direction": "hung",
   "consistency": 65,
-  "label": "In losing/lost middlegames the player declines the defensive queen-capture/trade (best move is a capture 94%, captures the queen 69%) that would defuse the attack, instead drifting the queen elsewhere or grabbing a pawn; top boards miss the saving queen trade and walk into forced mate (~9000cp king-safety blunders), while median boards miss a more ordinary saving capture and merely drop material or worsen the eval (~150-260cp)."
+  "label": "The player moves the piece that was the SOLE/critical defender \u2014 of the king's mating squares, the back rank, or a passed-pawn blockade \u2014 either to grab material (greed) or to retreat passively (fear). The undefended square then collapses, usually to mate. Queen is the repeat offender but it recurs with rooks (back-rank/blockade), bishops (king diagonal), even a pawn (gxf5 removing the only stop to Qg7#). Consensus of 4 independent Opus-4.8 analysts (high confidence, ~15/20 fit; clean greed-vs-retreat sub-split). NOT a queen trade. Outliers: wrong-piece captures, king-into-fork (~5 tail).",
+  "review": "confirmed"
  },
  "43": {
   "chip": "Missed Hanging Piece",
@@ -264,7 +287,8 @@
   "chip": "Missed Winning Capture",
   "direction": "missed",
   "consistency": 90,
-  "label": "In a winning/equal position the player overlooks the forcing best-move capture (best move is a capture 100%, often a pointless check or quiet king move played instead), throwing away the game; the top boards miss snatching the enemy QUEEN for free (huge 800\u20131000+cp/mate swings), while the median boards 'merely' miss capturing a rook, knight, or piece."
+  "label": "In a winning/equal position the player overlooks the forcing best-move capture (best move is a capture 100%, often a pointless check or quiet king move played instead), throwing away the game; the top boards miss snatching the enemy QUEEN for free (huge 800\u20131000+cp/mate swings), while the median boards 'merely' miss capturing a rook, knight, or piece.",
+  "review": "confirmed"
  },
  "48": {
   "chip": "Unsound f7/f2 Sacrifice",
@@ -283,13 +307,15 @@
   "direction": "other",
   "consistency": 80,
   "label": "A middlegame feature (94% middlegame) where the player both hangs their own material (lost-own ~88%) and overlooks a winning capture \u2014 the decisive move is a forcing check/capture (best-is-check 88%, wins material 100%) on essentially every board. Direction is genuinely mixed: some boards you hung a piece, others you missed taking one.",
-  "edited": true
+  "edited": true,
+  "review": "confirmed"
  },
  "38": {
-  "chip": "Bad Check Sacrifice (Failed Fork)",
-  "direction": "hung",
+  "chip": "King in Danger",
+  "direction": "other",
   "consistency": 60,
-  "label": "The player fires a check\u2014most often a knight fork\u2014that just loses the checking piece because the targeted piece simply captures the forker, squandering a winning position; top boards are clean hung-fork checks (winning\u2192losing knight sacs refuted by RxN), while median boards broaden into premature checks, king moves, and trades that throw away forced mates or decisive advantages."
+  "label": "Sharp positions where A king is under attack \u2014 yours or the opponent's \u2014 and the player plays a check into it (played-check 100%). At peak the ENEMY king is the hot one (pressure avg 2.1, you're attacking); lower bands shift toward your OWN king exposed. A king is under fire (>=2 attackers) on ~70-80% of boards every band. Not a specific tactic \u2014 a king-danger position detector.",
+  "review": "confirmed"
  },
  "50": {
   "chip": "Hung Bishop",
@@ -304,10 +330,11 @@
   "label": "Player either steps the king onto an open file/diagonal or fails to make the prophylactic king-safety move (best move is a king move 67% of the time, e.g. Kh1/Ka8/Kh8), unleashing a discovered check or back-rank shot; TOP boards lose the queen outright to the discovery (mostly Nc6+/Rf-file discoveries), while MEDIAN boards instead walk the exposed king into a forced mate or crushing king-side attack."
  },
  "54": {
-  "chip": "Missed Knight Fork",
+  "chip": "Missed Fork/Pin",
   "direction": "missed",
   "consistency": 60,
-  "label": "The recurring pattern is failing to play a winning knight-fork-with-check (Ne2+, Nd6+, Nf6+, Nd3+, Nf7+) that wins the queen or exchange\u2014best move is a check 82% and a knight 77%\u2014while the player instead makes a quiet/safe move (72% safe, only 28% loses own material), so it's an omission; top boards are clean, decisive forks that win the queen outright (~500cp swings), whereas median boards degrade into softer squandered advantages (passed-pawn mishandling, tempo loss, positional slips) where a precise but less spectacular move was missed and the edge merely shrinks rather than a queen being won."
+  "label": "A missed tactical motif that wins material \u2014 fork OR pin, by whichever piece. Peak boards are mostly knight forks (Nf2/Ne2/Nd6) but already include a bishop fork (g4f5); median broadens to rook pins-to-king (f1e1 pinning a knight, allowing a free capture), bishop forks (g7b2, f8b4), and rook lifts. Piece distribution knight 11 / bishop 4 / rook 3 / pawn 2 \u2014 so the invariant is the missed fork-or-pin tactic, NOT 'knight'.",
+  "review": "confirmed"
  },
  "55": {
   "chip": "Missed Knight Fork",
@@ -332,13 +359,15 @@
   "direction": "hung",
   "consistency": 85,
   "label": "The played move lets the opponent give check \u2014 99/100 boards across all activation bands allow a checking reply. At strong activations these checks are a forced mate (top band 24/25 forced-mate \u22645ply, classic Qxh7#/diagonal mates); in the weaker tail they soften to damaging checks / king-safety collapses short of forced mate. Mirror of 'Missed Check/Mate' (f47): there you skipped your own check, here your move hands the opponent one.",
-  "edited": true
+  "edited": true,
+  "review": "confirmed"
  },
  "57": {
-  "chip": "Unsound Queen Attack",
-  "direction": "hung",
+  "chip": "Either King Exposed",
+  "direction": "other",
   "consistency": 60,
-  "label": "Player throws the queen to an aggressive attacking square (repeatedly h3/g3/h6/e6) that abandons a critical defensive duty and gets refuted; in the TOP boards this is a self-inflicted king-attack/back-rank disaster (queen sortie leaves f7/d1/king exposed \u2192 mate or material loss), while the MEDIAN boards soften into more general premature commitments and hung pieces (pawn pushes, knights, missed free captures) rather than full mating attacks."
+  "label": "Sharp positions where a king is exposed (a king under fire, >=2 attackers, on 9/10 peak / 7/10 median \u2014 usually the ENEMY king, pressure ~2.9). No check played (0%), queen-led maneuvers (67%) but broadens to bishop/knight/rook \u2014 so 'King Exposed' not 'Unsound Queen Attack'. Distinct from f38 'King in Danger' which is checking INTO the danger (played-check 100%); f57 is king-exposed without a check.",
+  "review": "confirmed"
  },
  "51": {
   "chip": "Missed Capture",
@@ -374,7 +403,8 @@
   "chip": "Missed Defensive Check",
   "direction": "missed",
   "consistency": 70,
-  "label": "In losing, king-exposed positions the player overlooks the one saving/tempo-gaining check (often a perpetual or delaying check) and instead plays a passive or king-walking move that allows forced mate (best move is a check 100% of the time); the TOP boards are longer forced mates where the missed check would have prolonged resistance or held a perpetual, whereas the MEDIAN boards are sharper, immediate back-rank or mate-in-2 collapses where the missed check/interposition was the only survival."
+  "label": "In losing, king-exposed positions the player overlooks the one saving/tempo-gaining check (often a perpetual or delaying check) and instead plays a passive or king-walking move that allows forced mate (best move is a check 100% of the time); the TOP boards are longer forced mates where the missed check would have prolonged resistance or held a perpetual, whereas the MEDIAN boards are sharper, immediate back-rank or mate-in-2 collapses where the missed check/interposition was the only survival.",
+  "review": "confirmed"
  },
  "63": {
   "chip": "Missed Pawn Breakthrough",
@@ -399,6 +429,7 @@
   "direction": "hung",
   "consistency": 65,
   "label": "The played move attacks the enemy queen (chasing it for tempo) but it's a mistake \u2014 the attacking piece hangs or the tempo is wasted. Constant across nearly all boards (top 25/25, upper 24/25, mid 22/25 played-move-attacks-queen); the attacking piece varies (pawn/knight/bishop/rook), so it's the queen-harassment that's the invariant, not the piece. Low-activation tail loosens into other loose-piece moves.",
-  "edited": true
+  "edited": true,
+  "review": "confirmed"
  }
 }

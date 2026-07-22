@@ -1,0 +1,1613 @@
+{
+  "meta": {
+    "source": "/tmp/game2.pgn"
+  },
+  "moves": [
+    {
+      "ply": 1,
+      "move_num": 1,
+      "side": "white",
+      "san": "e4",
+      "uci": "e2e4",
+      "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+      "best_san": "e4",
+      "cp_before": 48,
+      "cp_after": 35,
+      "cp_loss": 13,
+      "classification": "good"
+    },
+    {
+      "ply": 2,
+      "move_num": 1,
+      "side": "black",
+      "san": "c6",
+      "uci": "c7c6",
+      "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1",
+      "best_san": "e5",
+      "cp_before": -35,
+      "cp_after": -39,
+      "cp_loss": 4,
+      "classification": "good"
+    },
+    {
+      "ply": 3,
+      "move_num": 2,
+      "side": "white",
+      "san": "Nf3",
+      "uci": "g1f3",
+      "fen": "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "best_san": "Nc3",
+      "cp_before": 39,
+      "cp_after": 30,
+      "cp_loss": 9,
+      "classification": "good"
+    },
+    {
+      "ply": 4,
+      "move_num": 2,
+      "side": "black",
+      "san": "d5",
+      "uci": "d7d5",
+      "fen": "rnbqkbnr/pp1ppppp/2p5/8/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+      "best_san": "d5",
+      "cp_before": -30,
+      "cp_after": -30,
+      "cp_loss": 0,
+      "classification": "good"
+    },
+    {
+      "ply": 5,
+      "move_num": 3,
+      "side": "white",
+      "san": "exd5",
+      "uci": "e4d5",
+      "fen": "rnbqkbnr/pp2pppp/2p5/3p4/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3",
+      "best_san": "Nc3",
+      "cp_before": 30,
+      "cp_after": 25,
+      "cp_loss": 5,
+      "classification": "good"
+    },
+    {
+      "ply": 6,
+      "move_num": 3,
+      "side": "black",
+      "san": "cxd5",
+      "uci": "c6d5",
+      "fen": "rnbqkbnr/pp2pppp/2p5/3P4/8/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 3",
+      "best_san": "cxd5",
+      "cp_before": -25,
+      "cp_after": -25,
+      "cp_loss": 0,
+      "classification": "good"
+    },
+    {
+      "ply": 7,
+      "move_num": 4,
+      "side": "white",
+      "san": "Nc3",
+      "uci": "b1c3",
+      "fen": "rnbqkbnr/pp2pppp/8/3p4/8/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 4",
+      "best_san": "d4",
+      "cp_before": 25,
+      "cp_after": -14,
+      "cp_loss": 39,
+      "classification": "good"
+    },
+    {
+      "ply": 8,
+      "move_num": 4,
+      "side": "black",
+      "san": "Nf6",
+      "uci": "g8f6",
+      "fen": "rnbqkbnr/pp2pppp/8/3p4/8/2N2N2/PPPP1PPP/R1BQKB1R b KQkq - 1 4",
+      "best_san": "Nc6",
+      "cp_before": 14,
+      "cp_after": -11,
+      "cp_loss": 25,
+      "classification": "good"
+    },
+    {
+      "ply": 9,
+      "move_num": 5,
+      "side": "white",
+      "san": "d4",
+      "uci": "d2d4",
+      "fen": "rnbqkb1r/pp2pppp/5n2/3p4/8/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 2 5",
+      "best_san": "d4",
+      "cp_before": 11,
+      "cp_after": 4,
+      "cp_loss": 7,
+      "classification": "good"
+    },
+    {
+      "ply": 10,
+      "move_num": 5,
+      "side": "black",
+      "san": "Nc6",
+      "uci": "b8c6",
+      "fen": "rnbqkb1r/pp2pppp/5n2/3p4/3P4/2N2N2/PPP2PPP/R1BQKB1R b KQkq - 0 5",
+      "best_san": "Nc6",
+      "cp_before": -4,
+      "cp_after": -22,
+      "cp_loss": 18,
+      "classification": "good"
+    },
+    {
+      "ply": 11,
+      "move_num": 6,
+      "side": "white",
+      "san": "Bg5",
+      "uci": "c1g5",
+      "fen": "r1bqkb1r/pp2pppp/2n2n2/3p4/3P4/2N2N2/PPP2PPP/R1BQKB1R w KQkq - 1 6",
+      "best_san": "h3",
+      "cp_before": 22,
+      "cp_after": -38,
+      "cp_loss": 60,
+      "classification": "inaccuracy"
+    },
+    {
+      "ply": 12,
+      "move_num": 6,
+      "side": "black",
+      "san": "Bg4",
+      "uci": "c8g4",
+      "fen": "r1bqkb1r/pp2pppp/2n2n2/3p2B1/3P4/2N2N2/PPP2PPP/R2QKB1R b KQkq - 2 6",
+      "best_san": "h6",
+      "cp_before": 38,
+      "cp_after": 24,
+      "cp_loss": 14,
+      "classification": "good"
+    },
+    {
+      "ply": 13,
+      "move_num": 7,
+      "side": "white",
+      "san": "Be2",
+      "uci": "f1e2",
+      "fen": "r2qkb1r/pp2pppp/2n2n2/3p2B1/3P2b1/2N2N2/PPP2PPP/R2QKB1R w KQkq - 3 7",
+      "best_san": "h3",
+      "cp_before": -24,
+      "cp_after": -41,
+      "cp_loss": 17,
+      "classification": "good"
+    },
+    {
+      "ply": 14,
+      "move_num": 7,
+      "side": "black",
+      "san": "e6",
+      "uci": "e7e6",
+      "fen": "r2qkb1r/pp2pppp/2n2n2/3p2B1/3P2b1/2N2N2/PPP1BPPP/R2QK2R b KQkq - 4 7",
+      "best_san": "e6",
+      "cp_before": 41,
+      "cp_after": 28,
+      "cp_loss": 13,
+      "classification": "good"
+    },
+    {
+      "ply": 15,
+      "move_num": 8,
+      "side": "white",
+      "san": "h3",
+      "uci": "h2h3",
+      "fen": "r2qkb1r/pp3ppp/2n1pn2/3p2B1/3P2b1/2N2N2/PPP1BPPP/R2QK2R w KQkq - 0 8",
+      "best_san": "Ne5",
+      "cp_before": -28,
+      "cp_after": -41,
+      "cp_loss": 13,
+      "classification": "good"
+    },
+    {
+      "ply": 16,
+      "move_num": 8,
+      "side": "black",
+      "san": "Bh5",
+      "uci": "g4h5",
+      "fen": "r2qkb1r/pp3ppp/2n1pn2/3p2B1/3P2b1/2N2N1P/PPP1BPP1/R2QK2R b KQkq - 0 8",
+      "best_san": "Bxf3",
+      "cp_before": 41,
+      "cp_after": 31,
+      "cp_loss": 10,
+      "classification": "good"
+    },
+    {
+      "ply": 17,
+      "move_num": 9,
+      "side": "white",
+      "san": "Ne5",
+      "uci": "f3e5",
+      "fen": "r2qkb1r/pp3ppp/2n1pn2/3p2Bb/3P4/2N2N1P/PPP1BPP1/R2QK2R w KQkq - 1 9",
+      "best_san": "Ne5",
+      "cp_before": -31,
+      "cp_after": -34,
+      "cp_loss": 3,
+      "classification": "good"
+    },
+    {
+      "ply": 18,
+      "move_num": 9,
+      "side": "black",
+      "san": "Bd6",
+      "uci": "f8d6",
+      "fen": "r2qkb1r/pp3ppp/2n1pn2/3pN1Bb/3P4/2N4P/PPP1BPP1/R2QK2R b KQkq - 2 9",
+      "best_san": "Bxe2",
+      "cp_before": 34,
+      "cp_after": -341,
+      "cp_loss": 375,
+      "classification": "blunder"
+    },
+    {
+      "ply": 19,
+      "move_num": 10,
+      "side": "white",
+      "san": "Nxc6",
+      "uci": "e5c6",
+      "fen": "r2qk2r/pp3ppp/2nbpn2/3pN1Bb/3P4/2N4P/PPP1BPP1/R2QK2R w KQkq - 3 10",
+      "best_san": "Bxh5",
+      "cp_before": 341,
+      "cp_after": 389,
+      "cp_loss": 0,
+      "classification": "good"
+    },
+    {
+      "ply": 20,
+      "move_num": 10,
+      "side": "black",
+      "san": "bxc6",
+      "uci": "b7c6",
+      "fen": "r2qk2r/pp3ppp/2Nbpn2/3p2Bb/3P4/2N4P/PPP1BPP1/R2QK2R b KQkq - 0 10",
+      "best_san": "Bxe2",
+      "cp_before": -389,
+      "cp_after": -389,
+      "cp_loss": 0,
+      "classification": "good"
+    },
+    {
+      "ply": 21,
+      "move_num": 11,
+      "side": "white",
+      "san": "Bxh5",
+      "uci": "e2h5",
+      "fen": "r2qk2r/p4ppp/2pbpn2/3p2Bb/3P4/2N4P/PPP1BPP1/R2QK2R w KQkq - 0 11",
+      "best_san": "Bxh5",
+      "cp_before": 389,
+      "cp_after": 392,
+      "cp_loss": 0,
+      "classification": "good"
+    },
+    {
+      "ply": 22,
+      "move_num": 11,
+      "side": "black",
+      "san": "O-O",
+      "uci": "e8g8",
+      "fen": "r2qk2r/p4ppp/2pbpn2/3p2BB/3P4/2N4P/PPP2PP1/R2QK2R b KQkq - 0 11",
+      "best_san": "Qb6",
+      "cp_before": -392,
+      "cp_after": -371,
+      "cp_loss": 0,
+      "classification": "good"
+    },
+    {
+      "ply": 23,
+      "move_num": 12,
+      "side": "white",
+      "san": "Bf3",
+      "uci": "h5f3",
+      "fen": "r2q1rk1/p4ppp/2pbpn2/3p2BB/3P4/2N4P/PPP2PP1/R2QK2R w KQ - 1 12",
+      "best_san": "Bf3",
+      "cp_before": 371,
+      "cp_after": 381,
+      "cp_loss": 0,
+      "classification": "good"
+    },
+    {
+      "ply": 24,
+      "move_num": 12,
+      "side": "black",
+      "san": "h6",
+      "uci": "h7h6",
+      "fen": "r2q1rk1/p4ppp/2pbpn2/3p2B1/3P4/2N2B1P/PPP2PP1/R2QK2R b KQ - 2 12",
+      "best_san": "Rb8",
+      "cp_before": -381,
+      "cp_after": -405,
+      "cp_loss": 24,
+      "classification": "good"
+    },
+    {
+      "ply": 25,
+      "move_num": 13,
+      "side": "white",
+      "san": "Bh4",
+      "uci": "g5h4",
+      "fen": "r2q1rk1/p4pp1/2pbpn1p/3p2B1/3P4/2N2B1P/PPP2PP1/R2QK2R w KQ - 0 13",
+      "best_san": "Bd2",
+      "cp_before": 405,
+      "cp_after": 368,
+      "cp_loss": 37,
+      "classification": "good"
+    },
+    {
+      "ply": 26,
+      "move_num": 13,
+      "side": "black",
+      "san": "Rb8",
+      "uci": "a8b8",
+      "fen": "r2q1rk1/p4pp1/2pbpn1p/3p4/3P3B/2N2B1P/PPP2PP1/R2QK2R b KQ - 1 13",
+      "best_san": "Qb8",
+      "cp_before": -368,
+      "cp_after": -344,
+      "cp_loss": 0,
+      "classification": "good"
+    },
+    {
+      "ply": 27,
+      "move_num": 14,
+      "side": "white",
+      "san": "b3",
+      "uci": "b2b3",
+      "fen": "1r1q1rk1/p4pp1/2pbpn1p/3p4/3P3B/2N2B1P/PPP2PP1/R2QK2R w KQ - 2 14",
+      "best_san": "Rb1",
+      "cp_before": 344,
+      "cp_after": 8,
+      "cp_loss": 336,
+      "classification": "blunder"
+    },
+    {
+      "ply": 28,
+      "move_num": 14,
+      "side": "black",
+      "san": "g5",
+      "uci": "g7g5",
+      "fen": "1r1q1rk1/p4pp1/2pbpn1p/3p4/3P3B/1PN2B1P/P1P2PP1/R2QK2R b KQ - 0 14",
+      "best_san": "Qa5",
+      "cp_before": -8,
+      "cp_after": -65,
+      "cp_loss": 57,
+      "classification": "inaccuracy"
+    },
+    {
+      "ply": 29,
+      "move_num": 15,
+      "side": "white",
+      "san": "Bg3",
+      "uci": "h4g3",
+      "fen": "1r1q1rk1/p4p2/2pbpn1p/3p2p1/3P3B/1PN2B1P/P1P2PP1/R2QK2R w KQ - 0 15",
+      "best_san": "Bg3",
+      "cp_before": 65,
+      "cp_after": 81,
+      "cp_loss": 0,
+      "classification": "good"
+    },
+    {
+      "ply": 30,
+      "move_num": 15,
+      "side": "black",
+      "san": "Bxg3",
+      "uci": "d6g3",
+      "fen": "1r1q1rk1/p4p2/2pbpn1p/3p2p1/3P4/1PN2BBP/P1P2PP1/R2QK2R b KQ - 1 15",
+      "best_san": "Bb4",
+      "cp_before": -81,
+      "cp_after": -345,
+      "cp_loss": 264,
+      "classification": "blunder"
+    },
+    {
+      "ply": 31,
+      "move_num": 16,
+      "side": "white",
+      "san": "fxg3",
+      "uci": "f2g3",
+      "fen": "1r1q1rk1/p4p2/2p1pn1p/3p2p1/3P4/1PN2BbP/P1P2PP1/R2QK2R w KQ - 0 16",
+      "best_san": "fxg3",
+      "cp_before": 345,
+      "cp_after": 331,
+      "cp_loss": 14,
+      "classification": "good"
+    },
+    {
+      "ply": 32,
+      "move_num": 16,
+      "side": "black",
+      "san": "Qd6",
+      "uci": "d8d6",
+      "fen": "1r1q1rk1/p4p2/2p1pn1p/3p2p1/3P4/1PN2BPP/P1P3P1/R2QK2R b KQ - 0 16",
+      "best_san": "c5",
+      "cp_before": -331,
+      "cp_after": -378,
+      "cp_loss": 47,
+      "classification": "good"
+    },
+    {
+      "ply": 33,
+      "move_num": 17,
+      "side": "white",
+      "san": "Kf2",
+      "uci": "e1f2",
+      "fen": "1r3rk1/p4p2/2pqpn1p/3p2p1/3P4/1PN2BPP/P1P3P1/R2QK2R w KQ - 1 17",
+      "best_san": "O-O",
+      "cp_before": 378,
+      "cp_after": 232,
+      "cp_loss": 146,
+      "classification": "mistake"
+    },
+    {
+      "ply": 34,
+      "move_num": 17,
+      "side": "black",
+      "san": "c5",
+      "uci": "c6c5",
+      "fen": "1r3rk1/p4p2/2pqpn1p/3p2p1/3P4/1PN2BPP/P1P2KP1/R2Q3R b - - 2 17",
+      "best_san": "c5",
+      "cp_before": -232,
+      "cp_after": -269,
+      "cp_loss": 37,
+      "classification": "good"
+    },
+    {
+      "ply": 35,
+      "move_num": 18,
+      "side": "white",
+      "san": "Ne2",
+      "uci": "c3e2",
+      "fen": "1r3rk1/p4p2/3qpn1p/2pp2p1/3P4/1PN2BPP/P1P2KP1/R2Q3R w - - 0 18",
+      "best_san": "Re1",
+      "cp_before": 269,
+      "cp_after": 211,
+      "cp_loss": 58,
+      "classification": "inaccuracy"
+    },
+    {
+      "ply": 36,
+      "move_num": 18,
+      "side": "black",
+      "san": "Rfc8",
+      "uci": "f8c8",
+      "fen": "1r3rk1/p4p2/3qpn1p/2pp2p1/3P4/1P3BPP/P1P1NKP1/R2Q3R b - - 1 18",
+      "best_san": "cxd4",
+      "cp_before": -211,
+      "cp_after": -282,
+      "cp_loss": 71,
+      "classification": "inaccuracy"
+    },
+    {
+      "ply": 37,
+      "move_num": 19,
+      "side": "white",
+      "san": "Rf1",
+      "uci": "h1f1",
+      "fen": "1rr3k1/p4p2/3qpn1p/2pp2p1/3P4/1P3BPP/P1P1NKP1/R2Q3R w - - 2 19",
+      "best_san": "c3",
+      "cp_before": 282,
+      "cp_after": 218,
+      "cp_loss": 64,
+      "classification": "inaccuracy"
+    },
+    {
+      "ply": 38,
+      "move_num": 19,
+      "side": "black",
+      "san": "Ne4+",
+      "uci": "f6e4",
+      "fen": "1rr3k1/p4p2/3qpn1p/2pp2p1/3P4/1P3BPP/P1P1NKP1/R2Q1R2 b - - 3 19",
+      "best_san": "cxd4",
+      "cp_before": -218,
+      "cp_after": -377,
+      "cp_loss": 159,
+      "classification": "mistake"
+    },
+    {
+      "ply": 39,
+      "move_num": 20,
+      "side": "white",
+      "san": "Bxe4",
+      "uci": "f3e4",
+      "fen": "1rr3k1/p4p2/3qp2p/2pp2p1/3Pn3/1P3BPP/P1P1NKP1/R2Q1R2 w - - 4 20",
+      "best_san": "Bxe4",
+      "cp_before": 377,
+      "cp_after": 355,
+      "cp_loss": 22,
+      "classification": "good"
+    },
+    {
+      "ply": 40,
+      "move_num": 20,
+      "side": "black",
+      "san": "dxe4",
+      "uci": "d5e4",
+      "fen": "1rr3k1/p4p2/3qp2p/2pp2p1/3PB3/1P4PP/P1P1NKP1/R2Q1R2 b - - 0 20",
+      "best_san": "dxe4",
+      "cp_before": -355,
+      "cp_after": -354,
+      "cp_loss": 0,
+      "classification": "good"
+    },
+    {
+      "ply": 41,
+      "move_num": 21,
+      "side": "white",
+      "san": "dxc5",
+      "uci": "d4c5",
+      "fen": "1rr3k1/p4p2/3qp2p/2p3p1/3Pp3/1P4PP/P1P1NKP1/R2Q1R2 w - - 0 21",
+      "best_san": "Kg1",
+      "cp_before": 354,
+      "cp_after": 350,
+      "cp_loss": 4,
+      "classification": "good"
+    },
+    {
+      "ply": 42,
+      "move_num": 21,
+      "side": "black",
+      "san": "Qxc5+",
+      "uci": "d6c5",
+      "fen": "1rr3k1/p4p2/3qp2p/2P3p1/4p3/1P4PP/P1P1NKP1/R2Q1R2 b - - 0 21",
+      "best_san": "Qxc5+",
+      "cp_before": -350,
+      "cp_after": -352,
+      "cp_loss": 2,
+      "classification": "good"
+    },
+    {
+      "ply": 43,
+      "move_num": 22,
+      "side": "white",
+      "san": "Qd4",
+      "uci": "d1d4",
+      "fen": "1rr3k1/p4p2/4p2p/2q3p1/4p3/1P4PP/P1P1NKP1/R2Q1R2 w - - 0 22",
+      "best_san": "Qd4",
+      "cp_before": 352,
+      "cp_after": 325,
+      "cp_loss": 27,
+      "classification": "good"
+    },
+    {
+      "ply": 44,
+      "move_num": 22,
+      "side": "black",
+      "san": "f5",
+      "uci": "f7f5",
+      "fen": "1rr3k1/p4p2/4p2p/2q3p1/3Qp3/1P4PP/P1P1NKP1/R4R2 b - - 1 22",
+      "best_san": "Qxd4+",
+      "cp_before": -325,
+      "cp_after": -433,
+      "cp_loss": 108,
+      "classification": "mistake"
+    },
+    {
+      "ply": 45,
+      "move_num": 23,
+      "side": "white",
+      "san": "Qxc5",
+      "uci": "d4c5",
+      "fen": "1rr3k1/p7/4p2p/2q2pp1/3Qp3/1P4PP/P1P1NKP1/R4R2 w - - 0 23",
+      "best_san": "Qxc5",
+      "cp_before": 433,
+      "cp_after": 461,
+      "cp_loss": 0,
+      "classification": "good"
+    },
+    {
+      "ply": 46,
+      "move_num": 23,
+      "side": "black",
+      "san": "Rxc5",
+      "uci": "c8c5",
+      "fen": "1rr3k1/p7/4p2p/2Q2pp1/4p3/1P4PP/P1P1NKP1/R4R2 b - - 0 23",
+      "best_san": "Rxc5",
+      "cp_before": -461,
+      "cp_after": -446,
+      "cp_loss": 0,
+      "classification": "good"
+    },
+    {
+      "ply": 47,
+      "move_num": 24,
+      "side": "white",
+      "san": "c4",
+      "uci": "c2c4",
+      "fen": "1r4k1/p7/4p2p/2r2pp1/4p3/1P4PP/P1P1NKP1/R4R2 w - - 0 24",
+      "best_san": "c4",
+      "cp_before": 446,
+      "cp_after": 427,
+      "cp_loss": 19,
+      "classification": "good"
+    },
+    {
+      "ply": 48,
+      "move_num": 24,
+      "side": "black",
+      "san": "Rd8",
+      "uci": "b8d8",
+      "fen": "1r4k1/p7/4p2p/2r2pp1/2P1p3/1P4PP/P3NKP1/R4R2 b - - 0 24",
+      "best_san": "f4",
+      "cp_before": -427,
+      "cp_after": -513,
+      "cp_loss": 86,
+      "classification": "inaccuracy"
+    },
+    {
+      "ply": 49,
+      "move_num": 25,
+      "side": "white",
+      "san": "Rfd1",
+      "uci": "f1d1",
+      "fen": "3r2k1/p7/4p2p/2r2pp1/2P1p3/1P4PP/P3NKP1/R4R2 w - - 1 25",
+      "best_san": "Rad1",
+      "cp_before": 513,
+      "cp_after": 442,
+      "cp_loss": 71,
+      "classification": "inaccuracy"
+    },
+    {
+      "ply": 50,
+      "move_num": 25,
+      "side": "black",
+      "san": "Rcc8",
+      "uci": "c5c8",
+      "fen": "3r2k1/p7/4p2p/2r2pp1/2P1p3/1P4PP/P3NKP1/R2R4 b - - 2 25",
+      "best_san": "Rf8",
+      "cp_before": -442,
+      "cp_after": -467,
+      "cp_loss": 25,
+      "classification": "good"
+    },
+    {
+      "ply": 51,
+      "move_num": 26,
+      "side": "white",
+      "san": "Nc3",
+      "uci": "e2c3",
+      "fen": "2rr2k1/p7/4p2p/5pp1/2P1p3/1P4PP/P3NKP1/R2R4 w - - 3 26",
+      "best_san": "Ke1",
+      "cp_before": 467,
+      "cp_after": 455,
+      "cp_loss": 12,
+      "classification": "good"
+    },
+    {
+      "ply": 52,
+      "move_num": 26,
+      "side": "black",
+      "san": "a6",
+      "uci": "a7a6",
+      "fen": "2rr2k1/p7/4p2p/5pp1/2P1p3/1PN3PP/P4KP1/R2R4 b - - 4 26",
+      "best_san": "Kf7",
+      "cp_before": -455,
+      "cp_after": -478,
+      "cp_loss": 23,
+      "classification": "good"
+    },
+    {
+      "ply": 53,
+      "move_num": 27,
+      "side": "white",
+      "san": "Rxd8+",
+      "uci": "d1d8",
+      "fen": "2rr2k1/8/p3p2p/5pp1/2P1p3/1PN3PP/P4KP1/R2R4 w - - 0 27",
+      "best_san": "Ke1",
+      "cp_before": 478,
+      "cp_after": 459,
+      "cp_loss": 19,
+      "classification": "good"
+    },
+    {
+      "ply": 54,
+      "move_num": 27,
+      "side": "black",
+      "san": "Rxd8",
+      "uci": "c8d8",
+      "fen": "2rR2k1/8/p3p2p/5pp1/2P1p3/1PN3PP/P4KP1/R7 b - - 0 27",
+      "best_san": "Rxd8",
+      "cp_before": -459,
+      "cp_after": -463,
+      "cp_loss": 4,
+      "classification": "good"
+    },
+    {
+      "ply": 55,
+      "move_num": 28,
+      "side": "white",
+      "san": "Rd1",
+      "uci": "a1d1",
+      "fen": "3r2k1/8/p3p2p/5pp1/2P1p3/1PN3PP/P4KP1/R7 w - - 0 28",
+      "best_san": "Rd1",
+      "cp_before": 463,
+      "cp_after": 452,
+      "cp_loss": 11,
+      "classification": "good"
+    },
+    {
+      "ply": 56,
+      "move_num": 28,
+      "side": "black",
+      "san": "Rxd1",
+      "uci": "d8d1",
+      "fen": "3r2k1/8/p3p2p/5pp1/2P1p3/1PN3PP/P4KP1/3R4 b - - 1 28",
+      "best_san": "Rxd1",
+      "cp_before": -452,
+      "cp_after": -463,
+      "cp_loss": 11,
+      "classification": "good"
+    },
+    {
+      "ply": 57,
+      "move_num": 29,
+      "side": "white",
+      "san": "Nxd1",
+      "uci": "c3d1",
+      "fen": "6k1/8/p3p2p/5pp1/2P1p3/1PN3PP/P4KP1/3r4 w - - 0 29",
+      "best_san": "Nxd1",
+      "cp_before": 463,
+      "cp_after": 461,
+      "cp_loss": 2,
+      "classification": "good"
+    },
+    {
+      "ply": 58,
+      "move_num": 29,
+      "side": "black",
+      "san": "e5",
+      "uci": "e6e5",
+      "fen": "6k1/8/p3p2p/5pp1/2P1p3/1P4PP/P4KP1/3N4 b - - 0 29",
+      "best_san": "a5",
+      "cp_before": -461,
+      "cp_after": -507,
+      "cp_loss": 46,
+      "classification": "good"
+    },
+    {
+      "ply": 59,
+      "move_num": 30,
+      "side": "white",
+      "san": "Nc3",
+      "uci": "d1c3",
+      "fen": "6k1/8/p6p/4ppp1/2P1p3/1P4PP/P4KP1/3N4 w - - 0 30",
+      "best_san": "b4",
+      "cp_before": 507,
+      "cp_after": 538,
+      "cp_loss": 0,
+      "classification": "good"
+    },
+    {
+      "ply": 60,
+      "move_num": 30,
+      "side": "black",
+      "san": "Kf7",
+      "uci": "g8f7",
+      "fen": "6k1/8/p6p/4ppp1/2P1p3/1PN3PP/P4KP1/8 b - - 1 30",
+      "best_san": "Kf7",
+      "cp_before": -538,
+      "cp_after": -544,
+      "cp_loss": 6,
+      "classification": "good"
+    },
+    {
+      "ply": 61,
+      "move_num": 31,
+      "side": "white",
+      "san": "Ke3",
+      "uci": "f2e3",
+      "fen": "8/5k2/p6p/4ppp1/2P1p3/1PN3PP/P4KP1/8 w - - 2 31",
+      "best_san": "g4",
+      "cp_before": 544,
+      "cp_after": 509,
+      "cp_loss": 35,
+      "classification": "good"
+    },
+    {
+      "ply": 62,
+      "move_num": 31,
+      "side": "black",
+      "san": "Ke6",
+      "uci": "f7e6",
+      "fen": "8/5k2/p6p/4ppp1/2P1p3/1PN1K1PP/P5P1/8 b - - 3 31",
+      "best_san": "Ke7",
+      "cp_before": -509,
+      "cp_after": -518,
+      "cp_loss": 9,
+      "classification": "good"
+    },
+    {
+      "ply": 63,
+      "move_num": 32,
+      "side": "white",
+      "san": "b4",
+      "uci": "b3b4",
+      "fen": "8/8/p3k2p/4ppp1/2P1p3/1PN1K1PP/P5P1/8 w - - 4 32",
+      "best_san": "b4",
+      "cp_before": 518,
+      "cp_after": 531,
+      "cp_loss": 0,
+      "classification": "good"
+    }
+  ],
+  "deep": [
+    {
+      "ply": 18,
+      "move_num": 9,
+      "side": "black",
+      "san": "Bd6",
+      "uci": "f8d6",
+      "fen": "r2qkb1r/pp3ppp/2n1pn2/3pN1Bb/3P4/2N4P/PPP1BPP1/R2QK2R b KQkq - 2 9",
+      "best_san": "Bxe2",
+      "cp_before": 34,
+      "cp_after": -341,
+      "cp_loss": 375,
+      "classification": "blunder",
+      "deep_eval_before": "-27",
+      "deep_eval_after": "+370",
+      "top_lines": [
+        {
+          "eval": "-27",
+          "moves": [
+            "Bxe2",
+            "Nxe2",
+            "Bd6",
+            "Nxc6",
+            "bxc6",
+            "O-O"
+          ]
+        },
+        {
+          "eval": "+10",
+          "moves": [
+            "Bg6",
+            "h4",
+            "h6",
+            "Nxg6",
+            "fxg6",
+            "Be3"
+          ]
+        },
+        {
+          "eval": "+171",
+          "moves": [
+            "Qb6",
+            "Bxh5",
+            "Nxh5",
+            "Nxf7",
+            "Kxf7",
+            "Qxh5+"
+          ]
+        }
+      ],
+      "refutation": {
+        "eval": "+370",
+        "moves": [
+          "Nxc6",
+          "bxc6",
+          "Bxh5",
+          "Rb8",
+          "Rb1",
+          "h6"
+        ]
+      },
+      "tags": [
+        {
+          "label": "Allowed Pin (to King)",
+          "direction": "allowed",
+          "evidence": "target=King line=f8d6 e5c6 b7c6 e2h5 a8b8 a1b1",
+          "layer": "tactic"
+        },
+        {
+          "label": "Opening",
+          "direction": "info",
+          "evidence": "30 pieces, move 9",
+          "layer": "position"
+        },
+        {
+          "label": "Equal",
+          "direction": "info",
+          "evidence": "-34cp before (mover POV)",
+          "layer": "position"
+        },
+        {
+          "label": "Missed Exchange (Bishop)",
+          "direction": "missed",
+          "evidence": "best Bxe2 = even trade of bishop",
+          "layer": "position"
+        },
+        {
+          "label": "Missed Capture",
+          "direction": "missed",
+          "evidence": "best Bxe2 captures; played Bd6 was passive",
+          "layer": "position"
+        },
+        {
+          "label": "Hung Material",
+          "direction": "hung",
+          "evidence": "opponent's first reply wins 3 pts (3 net over line)",
+          "layer": "position"
+        },
+        {
+          "label": "Wrong Move Order",
+          "direction": "played",
+          "evidence": "Bd6 is in the best line, played too early",
+          "layer": "position"
+        }
+      ],
+      "categories": [
+        "Material",
+        "Meta",
+        "Other",
+        "Tactical"
+      ],
+      "maia": {}
+    },
+    {
+      "ply": 27,
+      "move_num": 14,
+      "side": "white",
+      "san": "b3",
+      "uci": "b2b3",
+      "fen": "1r1q1rk1/p4pp1/2pbpn1p/3p4/3P3B/2N2B1P/PPP2PP1/R2QK2R w KQ - 2 14",
+      "best_san": "Rb1",
+      "cp_before": 344,
+      "cp_after": 8,
+      "cp_loss": 336,
+      "classification": "blunder",
+      "deep_eval_before": "+384",
+      "deep_eval_after": "-28",
+      "top_lines": [
+        {
+          "eval": "+384",
+          "moves": [
+            "Rb1",
+            "g5",
+            "Bg3",
+            "Bxg3",
+            "fxg3",
+            "c5"
+          ]
+        },
+        {
+          "eval": "+346",
+          "moves": [
+            "Na4",
+            "e5",
+            "dxe5",
+            "Bxe5",
+            "O-O",
+            "Qd6"
+          ]
+        },
+        {
+          "eval": "+331",
+          "moves": [
+            "O-O",
+            "Rxb2",
+            "Na4",
+            "Rb5",
+            "Re1",
+            "Re8"
+          ]
+        }
+      ],
+      "refutation": {
+        "eval": "-28",
+        "moves": [
+          "Bb4",
+          "Qd3",
+          "Qa5",
+          "O-O",
+          "Bxc3",
+          "Rad1"
+        ]
+      },
+      "tags": [
+        {
+          "label": "Missed Pin (to Rook)",
+          "direction": "missed",
+          "evidence": "target=Rook line=a1b1 g7g5 h4g3 d6g3 f2g3 c6c5",
+          "layer": "tactic"
+        },
+        {
+          "label": "Allowed Pin (to King)",
+          "direction": "allowed",
+          "evidence": "target=King line=b2b3 d6b4 d1d3 d8a5 e1g1 b4c3",
+          "layer": "tactic"
+        },
+        {
+          "label": "Middlegame",
+          "direction": "info",
+          "evidence": "27 pieces, move 14",
+          "layer": "position"
+        },
+        {
+          "label": "Winning",
+          "direction": "info",
+          "evidence": "+344cp before (mover POV)",
+          "layer": "position"
+        },
+        {
+          "label": "Lost Material to Combination",
+          "direction": "hung",
+          "evidence": "refutation wins 3 pts net over 6 plies (delayed, not a 1-move hang)",
+          "layer": "position"
+        }
+      ],
+      "categories": [
+        "Material",
+        "Meta",
+        "Other",
+        "Tactical"
+      ],
+      "maia": {}
+    },
+    {
+      "ply": 30,
+      "move_num": 15,
+      "side": "black",
+      "san": "Bxg3",
+      "uci": "d6g3",
+      "fen": "1r1q1rk1/p4p2/2pbpn1p/3p2p1/3P4/1PN2BBP/P1P2PP1/R2QK2R b KQ - 1 15",
+      "best_san": "Bb4",
+      "cp_before": -81,
+      "cp_after": -345,
+      "cp_loss": 264,
+      "classification": "blunder",
+      "deep_eval_before": "+93",
+      "deep_eval_after": "+364",
+      "top_lines": [
+        {
+          "eval": "+93",
+          "moves": [
+            "Bb4",
+            "Qd3",
+            "Qa5",
+            "O-O",
+            "Bxc3",
+            "Be5"
+          ]
+        },
+        {
+          "eval": "+364",
+          "moves": [
+            "Bxg3",
+            "fxg3",
+            "Qa5",
+            "Qd2",
+            "c5",
+            "Ne2"
+          ]
+        },
+        {
+          "eval": "+404",
+          "moves": [
+            "c5",
+            "Bxd6",
+            "Qxd6",
+            "O-O",
+            "cxd4",
+            "Qxd4"
+          ]
+        }
+      ],
+      "refutation": {
+        "eval": "+364",
+        "moves": [
+          "fxg3",
+          "Qa5",
+          "Qd2",
+          "c5",
+          "O-O",
+          "Kg7"
+        ]
+      },
+      "tags": [
+        {
+          "label": "Missed Pin (to King)",
+          "direction": "missed",
+          "evidence": "target=King line=d6b4 d1d3 d8a5 e1g1 b4c3 g3e5",
+          "layer": "tactic"
+        },
+        {
+          "label": "Allowed Castling",
+          "direction": "allowed",
+          "evidence": "line=d6g3 f2g3 d8a5 d1d2 c6c5 e1g1",
+          "layer": "tactic"
+        },
+        {
+          "label": "Failed Pin",
+          "direction": "failed",
+          "evidence": "move=d6g3",
+          "layer": "tactic"
+        },
+        {
+          "label": "Middlegame",
+          "direction": "info",
+          "evidence": "27 pieces, move 15",
+          "layer": "position"
+        },
+        {
+          "label": "Equal",
+          "direction": "info",
+          "evidence": "+81cp before (mover POV)",
+          "layer": "position"
+        },
+        {
+          "label": "Bad Capture",
+          "direction": "played",
+          "evidence": "played Bxg3 (took bishop) lost 264cp",
+          "layer": "position"
+        },
+        {
+          "label": "Only Move",
+          "direction": "info",
+          "evidence": "best move >=150cp better than 2nd best",
+          "layer": "position"
+        }
+      ],
+      "categories": [
+        "King Safety",
+        "Material",
+        "Meta",
+        "Other",
+        "Tactical"
+      ],
+      "maia": {}
+    },
+    {
+      "ply": 38,
+      "move_num": 19,
+      "side": "black",
+      "san": "Ne4+",
+      "uci": "f6e4",
+      "fen": "1rr3k1/p4p2/3qpn1p/2pp2p1/3P4/1P3BPP/P1P1NKP1/R2Q1R2 b - - 3 19",
+      "best_san": "cxd4",
+      "cp_before": -218,
+      "cp_after": -377,
+      "cp_loss": 159,
+      "classification": "mistake",
+      "deep_eval_before": "+213",
+      "deep_eval_after": "+376",
+      "top_lines": [
+        {
+          "eval": "+213",
+          "moves": [
+            "cxd4",
+            "Qxd4",
+            "e5",
+            "Qe3",
+            "Rxc2",
+            "Kg1"
+          ]
+        },
+        {
+          "eval": "+317",
+          "moves": [
+            "g4",
+            "Bxg4",
+            "cxd4",
+            "Kg1",
+            "Nxg4",
+            "hxg4"
+          ]
+        },
+        {
+          "eval": "+327",
+          "moves": [
+            "Rb7",
+            "Kg1",
+            "cxd4",
+            "Nxd4",
+            "Qxg3",
+            "Ne2"
+          ]
+        }
+      ],
+      "refutation": {
+        "eval": "+376",
+        "moves": [
+          "Kg1",
+          "cxd4",
+          "Bxe4",
+          "dxe4",
+          "Qxd4",
+          "Qxd4+"
+        ]
+      },
+      "tags": [
+        {
+          "label": "Middlegame",
+          "direction": "info",
+          "evidence": "25 pieces, move 19",
+          "layer": "position"
+        },
+        {
+          "label": "Winning",
+          "direction": "info",
+          "evidence": "+218cp before (mover POV)",
+          "layer": "position"
+        },
+        {
+          "label": "Missed Pawn Trade",
+          "direction": "missed",
+          "evidence": "best cxd4 = even pawn trade",
+          "layer": "position"
+        },
+        {
+          "label": "Missed Capture",
+          "direction": "missed",
+          "evidence": "best cxd4 captures; played Ne4+ was passive",
+          "layer": "position"
+        }
+      ],
+      "categories": [
+        "Material",
+        "Meta",
+        "Other",
+        "Positional"
+      ],
+      "maia": {}
+    },
+    {
+      "ply": 33,
+      "move_num": 17,
+      "side": "white",
+      "san": "Kf2",
+      "uci": "e1f2",
+      "fen": "1r3rk1/p4p2/2pqpn1p/3p2p1/3P4/1PN2BPP/P1P3P1/R2QK2R w KQ - 1 17",
+      "best_san": "O-O",
+      "cp_before": 378,
+      "cp_after": 232,
+      "cp_loss": 146,
+      "classification": "mistake",
+      "deep_eval_before": "+382",
+      "deep_eval_after": "+251",
+      "top_lines": [
+        {
+          "eval": "+382",
+          "moves": [
+            "O-O",
+            "c5",
+            "Kh2",
+            "Rfc8",
+            "Be2",
+            "cxd4"
+          ]
+        },
+        {
+          "eval": "+355",
+          "moves": [
+            "Ne2",
+            "c5",
+            "O-O",
+            "cxd4",
+            "Nxd4",
+            "Qxg3"
+          ]
+        },
+        {
+          "eval": "+353",
+          "moves": [
+            "Qd2",
+            "Qxg3+",
+            "Qf2",
+            "Qxf2+",
+            "Kxf2",
+            "h5"
+          ]
+        }
+      ],
+      "refutation": {
+        "eval": "+251",
+        "moves": [
+          "e5",
+          "Rf1",
+          "e4",
+          "Bg4",
+          "Nxg4+",
+          "hxg4"
+        ]
+      },
+      "tags": [
+        {
+          "label": "Missed Castling",
+          "direction": "missed",
+          "evidence": "line=e1g1 c6c5 g1h2 f8c8 f3e2 c5d4",
+          "layer": "tactic"
+        },
+        {
+          "label": "Middlegame",
+          "direction": "info",
+          "evidence": "25 pieces, move 17",
+          "layer": "position"
+        },
+        {
+          "label": "Winning",
+          "direction": "info",
+          "evidence": "+378cp before (mover POV)",
+          "layer": "position"
+        },
+        {
+          "label": "Lost Castling Rights",
+          "direction": "played",
+          "evidence": "played move forfeited castling",
+          "layer": "position"
+        }
+      ],
+      "categories": [
+        "King Safety",
+        "Meta",
+        "Other"
+      ],
+      "maia": {}
+    },
+    {
+      "ply": 44,
+      "move_num": 22,
+      "side": "black",
+      "san": "f5",
+      "uci": "f7f5",
+      "fen": "1rr3k1/p4p2/4p2p/2q3p1/3Qp3/1P4PP/P1P1NKP1/R4R2 b - - 1 22",
+      "best_san": "Qxd4+",
+      "cp_before": -325,
+      "cp_after": -433,
+      "cp_loss": 108,
+      "classification": "mistake",
+      "deep_eval_before": "+361",
+      "deep_eval_after": "+408",
+      "top_lines": [
+        {
+          "eval": "+361",
+          "moves": [
+            "Qc7",
+            "Rac1",
+            "Rd8",
+            "Qe3",
+            "f5",
+            "Kg1"
+          ]
+        },
+        {
+          "eval": "+381",
+          "moves": [
+            "Qxd4+",
+            "Nxd4",
+            "Rb7",
+            "Rfc1",
+            "Rd7",
+            "Ne2"
+          ]
+        },
+        {
+          "eval": "+392",
+          "moves": [
+            "Qa3",
+            "Rac1",
+            "Rd8",
+            "Qe5",
+            "Qa6",
+            "Rfd1"
+          ]
+        }
+      ],
+      "refutation": {
+        "eval": "+408",
+        "moves": [
+          "Qxc5",
+          "Rxc5",
+          "c4",
+          "Kf7",
+          "Nc3",
+          "a5"
+        ]
+      },
+      "tags": [
+        {
+          "label": "Middlegame",
+          "direction": "info",
+          "evidence": "21 pieces, move 22",
+          "layer": "position"
+        },
+        {
+          "label": "Winning",
+          "direction": "info",
+          "evidence": "+325cp before (mover POV)",
+          "layer": "position"
+        },
+        {
+          "label": "Pawn Move Exposed King",
+          "direction": "played",
+          "evidence": "pawn push near own king",
+          "layer": "position"
+        },
+        {
+          "label": "Wrong Move Order",
+          "direction": "played",
+          "evidence": "f5 is in the best line, played too early",
+          "layer": "position"
+        }
+      ],
+      "categories": [
+        "King Safety",
+        "Meta",
+        "Other"
+      ],
+      "maia": {}
+    },
+    {
+      "ply": 48,
+      "move_num": 24,
+      "side": "black",
+      "san": "Rd8",
+      "uci": "b8d8",
+      "fen": "1r4k1/p7/4p2p/2r2pp1/2P1p3/1P4PP/P3NKP1/R4R2 b - - 0 24",
+      "best_san": "f4",
+      "cp_before": -427,
+      "cp_after": -513,
+      "cp_loss": 86,
+      "classification": "inaccuracy",
+      "deep_eval_before": "+399",
+      "deep_eval_after": "+448",
+      "top_lines": [
+        {
+          "eval": "+399",
+          "moves": [
+            "Kg7",
+            "Rad1",
+            "Kf6",
+            "Rd7",
+            "Ke5",
+            "Rfd1"
+          ]
+        },
+        {
+          "eval": "+402",
+          "moves": [
+            "h5",
+            "Nc3",
+            "Kf7",
+            "Ke3",
+            "h4",
+            "g4"
+          ]
+        },
+        {
+          "eval": "+405",
+          "moves": [
+            "Kf7",
+            "Nc3",
+            "h5",
+            "Rad1",
+            "Kf6",
+            "Rd7"
+          ]
+        }
+      ],
+      "refutation": {
+        "eval": "+448",
+        "moves": [
+          "Rad1",
+          "Rcc8",
+          "Nc3",
+          "g4",
+          "Ke2",
+          "gxh3"
+        ]
+      },
+      "tags": [
+        {
+          "label": "Middlegame",
+          "direction": "info",
+          "evidence": "19 pieces, move 24",
+          "layer": "position"
+        },
+        {
+          "label": "Winning",
+          "direction": "info",
+          "evidence": "+427cp before (mover POV)",
+          "layer": "position"
+        }
+      ],
+      "categories": [
+        "Meta",
+        "Other"
+      ],
+      "maia": {}
+    },
+    {
+      "ply": 36,
+      "move_num": 18,
+      "side": "black",
+      "san": "Rfc8",
+      "uci": "f8c8",
+      "fen": "1r3rk1/p4p2/3qpn1p/2pp2p1/3P4/1P3BPP/P1P1NKP1/R2Q3R b - - 1 18",
+      "best_san": "cxd4",
+      "cp_before": -211,
+      "cp_after": -282,
+      "cp_loss": 71,
+      "classification": "inaccuracy",
+      "deep_eval_before": "+204",
+      "deep_eval_after": "+316",
+      "top_lines": [
+        {
+          "eval": "+204",
+          "moves": [
+            "cxd4",
+            "Rf1",
+            "e5",
+            "Kg1",
+            "Rfc8",
+            "Rc1"
+          ]
+        },
+        {
+          "eval": "+281",
+          "moves": [
+            "Rbe8",
+            "dxc5",
+            "Qxc5+",
+            "Qd4",
+            "Qe7",
+            "Rhd1"
+          ]
+        },
+        {
+          "eval": "+283",
+          "moves": [
+            "Rbc8",
+            "c3",
+            "cxd4",
+            "cxd4",
+            "Ne4+",
+            "Bxe4"
+          ]
+        }
+      ],
+      "refutation": {
+        "eval": "+316",
+        "moves": [
+          "c3",
+          "cxd4",
+          "cxd4",
+          "a5",
+          "Rf1",
+          "a4"
+        ]
+      },
+      "tags": [
+        {
+          "label": "Middlegame",
+          "direction": "info",
+          "evidence": "25 pieces, move 18",
+          "layer": "position"
+        },
+        {
+          "label": "Winning",
+          "direction": "info",
+          "evidence": "+211cp before (mover POV)",
+          "layer": "position"
+        },
+        {
+          "label": "Missed Pawn Trade",
+          "direction": "missed",
+          "evidence": "best cxd4 = even pawn trade",
+          "layer": "position"
+        },
+        {
+          "label": "Missed Capture",
+          "direction": "missed",
+          "evidence": "best cxd4 captures; played Rfc8 was passive",
+          "layer": "position"
+        },
+        {
+          "label": "Wrong Move Order",
+          "direction": "played",
+          "evidence": "Rfc8 is in the best line, played too early",
+          "layer": "position"
+        }
+      ],
+      "categories": [
+        "Material",
+        "Meta",
+        "Other",
+        "Positional"
+      ],
+      "maia": {}
+    }
+  ]
+}

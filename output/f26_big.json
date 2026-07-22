@@ -1,0 +1,1522 @@
+[
+ {
+  "band": "top",
+  "act": 48.2,
+  "fen": "8/5k2/R4n2/5p2/8/5KP1/5P1P/8 w - - 4 49",
+  "played": "Kf4",
+  "best": "Rxf6+",
+  "motif": "positional_mistake",
+  "intent": "The player likely intended to centralize the King on f4 to attack the f5-pawn and prepare an active King march, which is a standard endgame plan. However, by moving the King from f3 to f4, White critically abandoned the defense of the f2-pawn, exposing it to the Knight's attack.",
+  "blunder_summary": "The move cost 105 centipawns, dropping from a completely winning +667 to a still-winning but less decisive +562. Only one move (Rxf6+) was within 50 centipawns of the best evaluation, meaning the margin for error was narrow despite the large advantage. The core error was failing to recognize that the Rook sacrifice on f6 would create a trivially won pawn endgame, instead advancing the King which abandoned the defense of f2 and gave Black's Knight immediate tactical opportunities (Ne4, Nd5+, or regrouping with Ng8).",
+  "best_moves_analysis": "The top move 49. Rxf6+ is a brilliant simplification: White sacrifices the Rook to eliminate Black's only piece, and after 49...Kxf6 50. Kf4 Kg6 51. h3, White enters a pure King and pawn endgame with three pawns versus one \u2014 a trivially won position where White's extra pawns on the kingside will queen without any counterplay from Black. This 'sacrifice' costs nothing because the resulting pawn endgame is completely winning. The second-best move 49. Ra7+ harasses the Black King, forcing 49...Kf8 (since ...Kg6 or ...Ke6 would allow further rook activity), after which 50. Kf4 Nd5+ 51. Kg5 sees White's King marching aggressively toward Black's f5-pawn while the Rook dominates the seventh rank, cutting off the Black King \u2014 evaluated at +550, still very strong but less clean than the pawn endgame conversion. The third option 49. Kf4 (the move played) is objectively the weakest of the three because it advances the King without first eliminating Black's tactical resources; after 49...Ne4 50. Rc6 Ke7 51. h4, White maintains an advantage but must still navigate a Rook-vs-Knight endgame with the Knight actively placed on e4 threatening f2."
+ },
+ {
+  "band": "top",
+  "act": 45.88,
+  "fen": "4k3/3q4/7p/1P3Q2/8/8/6PK/8 w - - 3 71",
+  "played": "Qg6+",
+  "best": "Qxd7+",
+  "motif": "pawn_endgame",
+  "intent": "Qg6+ was likely played to harass the Black king with checks and potentially win the h6 pawn with tempo, hoping to drive the king into a worse position or create mating threats while maintaining the queen on the board.",
+  "blunder_summary": "White squandered a clearly winning position by playing a purposeless check instead of the decisive queen trade 71. Qxd7+, which would have yielded a theoretically won pawn endgame. The check allowed Black's king to escape to d8 where it's safer, keeping queens on the board and reducing White's advantage from a near-winning +609 to a merely better +201.",
+  "best_moves_analysis": "The clear best move was 71. Qxd7+ Kxd7 (eval +609), transitioning into a won pawn endgame where White's king marches via Kh3-Kh4-Kh5 to win the h6 pawn, then pushes the g-pawn while Black's king is too slow to both capture the b5 pawn and return to stop White's g-pawn. This is a textbook case of recognizing when a queen trade produces a decisive advantage. The second-best move 71. Qc5 (eval +190) keeps queens on but pressures h6 and the center, maintaining a solid advantage without forcing the critical simplification. The third option 71. Qe5+ Kd8 72. Qb8+ Ke7 73. b6 (eval +183) pushes the passed pawn aggressively but allows Black's queen to remain active, making the win far more technical. The massive gap between the first move (+609) and the alternatives (+183-190) underscores how decisive the pawn endgame conversion was."
+ },
+ {
+  "band": "top",
+  "act": 42.36,
+  "fen": "4Q3/7p/3K2q1/3P4/8/7k/8/8 w - - 3 61",
+  "played": "Qe6+",
+  "best": "Qxg6",
+  "motif": "pawn_endgame",
+  "intent": "White plays Qe6+ to give check, intending to follow up with Qxg6 to transition into a won pawn endgame, but the intermediate check grants Black's king a free tempo to step to a more favorable square closer to the center and the passed d-pawn.",
+  "blunder_summary": "This is an extremely minor inaccuracy (9cp) in a completely won position. The check on e6 simply gives Black's king a free move to step closer to the center before the inevitable queen trade, whereas the immediate 61.Qxg6 locks Black's king on the distant h3 square and maximizes White's winning margin in the resulting pawn endgame.",
+  "best_moves_analysis": "The best move 61.Qxg6 immediately trades queens, and after hxg6 Ke5, White enters a trivially won king and pawn endgame because Black's king remains on h3\u2014far too distant to contest the d-pawn's promotion (d6-d7-d8=Q). The second-best move 61.Qe6+ (the one played) also wins comfortably but interposes a check that allows Black's king to step closer to the center before the queen trade occurs, resulting in a marginally less efficient pawn endgame. The third-best move 61.Kd7 is dramatically worse at only +73, as it allows Black's queen to become very active with checks (Qg7+) and White struggles to make progress, likely heading toward a drawn queen endgame where the d-pawn is blockaded."
+ },
+ {
+  "band": "top",
+  "act": 41.09,
+  "fen": "6K1/4q3/8/2Q5/1P4pk/8/8/8 b - - 3 56",
+  "played": "Qe6+",
+  "best": "Qxc5",
+  "motif": "pawn_endgame",
+  "intent": "Black's 56...Qe6+ was likely motivated by the instinct to give check and potentially set up a mating attack or perpetual, but it fails to address the critical positional requirement of exploiting the advanced g-pawn before White's b-pawn becomes relevant.",
+  "blunder_summary": "Black threw away a completely won position by giving a purposeless check instead of capturing the queen with 56...Qxc5!, which wins a trivial pawn endgame. The 497cp loss represents the difference between a forced win via pawn promotion and a near-draw where White's counterplay with the b-pawn neutralizes Black's advantage.",
+  "best_moves_analysis": "The winning move 56...Qxc5! is a brilliant simplification: after 57. bxc5 g3 58. Kf7 g2, Black's pawn reaches g2 while White's c-pawn is only on c5\u2014Black promotes first and wins trivially in the pawn race. This is a textbook case where trading queens decisively favors the side with the more advanced passed pawn. The second-best move 56...Qg5+ (-130) keeps queens on but drives White's king away with check while preparing g3, maintaining a significant advantage. The played move 56...Qe6+ (-25) gives a meaningless check that allows White's king to escape to h7, f8, or g7, after which Black cannot make meaningful progress and the position drifts toward a draw."
+ },
+ {
+  "band": "top",
+  "act": 39.31,
+  "fen": "8/p5rk/1p5p/8/3P2R1/6K1/P5P1/8 w - - 2 39",
+  "played": "d5",
+  "best": "Rxg7+",
+  "motif": "passed_pawn",
+  "intent": "White played 39. d5 intending to immediately advance the passed pawn, reasoning that pushing it forward creates a dangerous threat, but this is a classic case of premature pawn advancement in a rook endgame.",
+  "blunder_summary": "By prematurely pushing d5, White transforms a winning position into equality. The d-pawn on d4 was more valuable as a latent threat \u2014 supporting a rook exchange into a won pawn endgame where White's king leads the pawn forward. On d5, the pawn becomes a fixed blockade target that Black's king can easily restrain from d6 or e7.",
+  "best_moves_analysis": "The top move 39. Rxg7+ Kxg7 brilliantly liquidates into a winning pawn endgame where White's king marches via Kg4-Kf5-Ke5/Ke6, getting AHEAD of the d-pawn before advancing it \u2014 a critical endgame principle. With the king leading, the d4 pawn can advance decisively while Black's king is too far back. The second-best move 39. Kf4 improves the king's position first while maintaining the rook, keeping tension and the threat of a favorable exchange. The third option 39. Kf3 is similar in spirit, centralizing the king toward e4/f5, though slightly slower. All three moves share the common theme of king activation before committing the d-pawn."
+ },
+ {
+  "band": "top",
+  "act": 38.73,
+  "fen": "8/8/6pk/7p/8/2r4R/5PK1/8 b - - 5 42",
+  "played": "Rc2",
+  "best": "Rxh3",
+  "motif": "pawn_endgame",
+  "intent": "42...Rc2 targets the f2 pawn by pinning it or attacking it directly, attempting to win material while keeping rooks on the board, likely thinking that active rook play behind the pawn would be strong.",
+  "blunder_summary": "Black threw away a completely winning position by keeping rooks on the board instead of trading into a trivially won king and pawn endgame with 42...Rxh3! The fundamental endgame principle\u2014simplify when you have a material advantage that becomes decisive without pieces\u2014was violated, allowing White's rook activity to fully compensate for the pawn deficit.",
+  "best_moves_analysis": "The crushing move 42...Rxh3! (eval -585) forces a transition into a completely winning king and pawn endgame after 43.Kxh3 Kg5 44.Kg3 Kf5, where Black's king centralizes perfectly and the two connected pawns vs White's lone f-pawn create an easily winning advantage. This is the classic technique of trading into a won pawn endgame. The alternatives 42...Rc5 (eval -19) and 42...Rc7 (eval -18) maintain the rook but only preserve a minimal edge, as keeping rooks on allows White's active piece play to neutralize most of Black's pawn advantage. The massive evaluation gap between the first and second-best moves (566cp difference) underscores that the rook exchange was the only path to a decisive advantage."
+ },
+ {
+  "band": "top",
+  "act": 37.52,
+  "fen": "8/8/8/3k4/1P2n2R/1K6/1P6/8 w - - 5 66",
+  "played": "Ka4",
+  "best": "Rxe4",
+  "motif": "pawn_endgame",
+  "intent": "The player likely intended to march the King to a5 (and potentially a6) to actively support the b-pawn's advance to b5-b6-b7-b8, thinking that the King's activity combined with the Rook on h4 would be sufficient to overpower the lone Knight. This is a natural plan of King centralization and pawn support, but it overlooks the immediate tactical solution.",
+  "blunder_summary": "The move Ka4 loses 129 centipawns, dropping the evaluation from +718 to +589 \u2014 still winning but significantly less clean. Only one move (Rxe4) was within 50cp of the best evaluation, meaning this was a narrow decision point with a single clearly superior option. Multiple equally strong refutations exist (Nf2, Ng5, Nd6) all exploiting the core error: White failed to eliminate the Knight via Rxe4, which would have transitioned into a trivially winning pawn endgame, and instead allowed the Knight to survive and serve as a powerful blockading piece against the passed b-pawn.",
+  "best_moves_analysis": "The top move, 66. Rxe4, is a brilliant simplifying exchange \u2014 White sacrifices the Rook for the Knight, entering a pure King and pawn versus King endgame. After 66...Kxe4 67. b5 Kd5 68. Kb4, White's King is perfectly positioned on b4 to escort the b5-pawn to promotion, and Black's King on d5 cannot simultaneously stop b5 from advancing and deal with the b2 pawn; this results in an evaluation of +718 because it's a trivially won pawn endgame. The second-best move, 66. b5, immediately thrusts the pawn forward, and after 66...Nc5+ 67. Kb4 Nb7 68. b6, White advances the pawn to b6 where the Knight on b7 is forced into a passive blockade, but the Knight's continued presence on the board makes the conversion slightly more complex, hence the lower +589 evaluation. The third option is the played move Ka4, which begins marching the King toward a5 to support the b-pawn's advance, but this approach is the slowest because it gives Black time to reposition the Knight to optimal defensive squares."
+ },
+ {
+  "band": "top",
+  "act": 36.72,
+  "fen": "8/R3rk2/1p3p2/1Pp2K1p/7P/8/PP6/8 w - - 1 39",
+  "played": "Ra6",
+  "best": "Rxe7+",
+  "motif": "rook_endgame",
+  "intent": "The player likely played Ra6 to directly attack the b6-pawn, intending to win material on the queenside while maintaining the rook's activity. The idea was probably to combine pressure on b6 with the advanced b5-pawn to create decisive queenside threats.",
+  "blunder_summary": "This blunder cost 380 centipawns, dropping the position from a completely won game (+433) to near-equality (+53). There was exactly one good move available (Rxe7+), making this a critical decision point with no margin for error. The core error was failing to recognize that the rook exchange led to a trivially won pawn endgame thanks to White's superior king placement, and that keeping rooks on the board allowed Black's rook to exploit the exposed White king via checks on the 5th rank, neutralizing White's entire positional advantage.",
+  "best_moves_analysis": "The clear best move is 39. Rxe7+ Kxe7 40. b3 Kf7 41. a4, which exchanges rooks and transitions into a completely won king and pawn endgame. After the trade, White's king on f5 is vastly superior to Black's king on e7/f7 \u2014 White dominates the center and can support pawn advances on both flanks. The continuation b3 followed by a4 creates a mobile queenside majority; Black's king cannot simultaneously deal with the advancing a-pawn and defend the kingside weaknesses (f6, h5). This is evaluated at +433, essentially a full win. The second-best move 39. Ra6 attacks b6 but only evaluates to +43 after Black's best response because it allows counterplay via checks. The third-best move 39. Ra4 similarly keeps rooks on and evaluates to just +22, as Black's rook remains active and can exploit the exposed White king \u2014 both Ra6 and Ra4 fundamentally fail to capitalize on the winning pawn endgame conversion."
+ },
+ {
+  "band": "top",
+  "act": 36.18,
+  "fen": "8/8/5pk1/6r1/P5R1/6K1/8/8 w - - 19 60",
+  "played": "Kf4",
+  "best": "Rxg5+",
+  "motif": "pawn_endgame",
+  "intent": "Kf4 likely intended to centralize the king actively, possibly planning to support both the a-pawn advance and to pressure Black's f6-pawn, while staying near the rook on g4.",
+  "blunder_summary": "Kf4 places the king on a square where after ...Kf7 and Rxg5, the recapture fxg5+ comes with check, forcing White's king to g5. This results in a drawn King+Pawn vs King endgame because the White king is one critical tempo too far from the a-pawn to support its promotion, converting a completely winning position into a dead draw.",
+  "best_moves_analysis": "Kf3 (best, +532cp) keeps the king off f4 where it would be exposed to a check after fxg5+, and after Rxg4 Kxg4, the resulting position leaves Black's f6-pawn still on the board as a weakness while White's king is optimally placed to both support the a-pawn and blockade f6. Rxg5+ Kxg5 a5 (+514cp) trades rooks immediately and enters a King+Pawn endgame where White's a-pawn is far enough advanced with the king close enough to support its promotion while Black's f-pawn alone cannot compensate. a5 (+514cp) is a similar idea with a different move order, forcing Rxg4+ Kxg4 and then the a-pawn runs. All three moves share the common theme of ensuring that when the rooks come off, White's king position relative to the a-pawn guarantees promotion."
+ },
+ {
+  "band": "top",
+  "act": 35.33,
+  "fen": "8/6pk/7p/8/8/2K3P1/1R3r1P/8 b - - 1 51",
+  "played": "Rf3+",
+  "best": "Rxb2",
+  "motif": "hanging_piece",
+  "intent": "The player likely saw the check on f3 and instinctively played it, perhaps intending to drive White's king away from the defense of the b2-rook or to harass the king before capturing. This is a classic case of 'patzer sees a check, patzer gives a check' \u2014 prioritizing a forcing move over an immediately winning capture.",
+  "blunder_summary": "This blunder represents a catastrophic 558-centipawn evaluation drop, converting a completely won position (-559, rook up after Rxb2) into an essentially drawn game (-1). There was exactly one good move available (Rxb2), and after the blunder, White had multiple equally strong refutations (Kd4, Kc4, Kb4) all leading to drawn positions. The core error was giving an unnecessary check instead of making the simple winning capture \u2014 Black's rook could take White's rook on b2 for free, but the player was seduced by the forcing nature of the check.",
+  "best_moves_analysis": "The first and overwhelmingly best move is 51...Rxb2, which simply captures White's rook. After 52. h4 (White's best try, pushing the h-pawn since the rook is gone) Kg6 53. g4 Rg2, Black has a rook against only two isolated kingside pawns \u2014 a trivially winning endgame evaluated at -559cp. Black's rook will mop up the pawns and promote its own. The second-best move 51...Rf3+ is the blunder actually played, evaluated at only -9cp; after 52. Kd4 Kg6 53. Ke4 Ra3 54. Rb7, White's king has centralized powerfully on e4 and the rook invades the 7th rank to target g7, reaching near-equality. The third option 51...Rf1 is also nearly a draw at -3cp; after 52. Kd3 Re1 53. Re2 Rxe2, the game transitions into a king-and-pawn endgame where White's active king and connected kingside pawns provide sufficient counterplay to hold."
+ },
+ {
+  "band": "top",
+  "act": 34.59,
+  "fen": "8/1Rrk4/4p1p1/1P1p1p1p/3P3P/2PK4/5PP1/8 w - - 3 41",
+  "played": "Rb8",
+  "best": "Rxc7+",
+  "motif": "pawn_endgame",
+  "intent": "Rb8 aims to put the rook on an active square behind Black's position, potentially threatening to infiltrate on the 8th rank or support the b-pawn's advance while restricting Black's king, but it lacks the immediate forcing quality of the exchange.",
+  "blunder_summary": "White missed the winning exchange sacrifice 41. Rxc7+ leading to a trivially won pawn endgame, instead opting for a natural but imprecise rook move that allows Black to maintain defensive activity. The 185cp loss represents the difference between a technically winning pawn endgame and a rook endgame where Black's rook can generate counterplay against the passed b-pawn.",
+  "best_moves_analysis": "The best move 41. Rxc7+ Kxc7 42. c4 dxc4+ 43. Kxc4 brilliantly liquidates into a completely winning pawn endgame where White's centralized king on c4 and passed b-pawn are decisive\u2014Black simply cannot handle both the b-pawn advance and White's king penetration. This move evaluates at +535, a near-winning advantage. The second-best move 41. Rb8 (+322) keeps the rook active but allows Black's rook to remain on the board with defensive resources. The third option 41. Rb6 (+289) pressures e6 but is less forcing, and Black gets counterplay with ...f4. The critical difference is that the pawn endgame conversion is clean and unstoppable, while rook endgames always offer the defender more practical chances."
+ },
+ {
+  "band": "top",
+  "act": 34.0,
+  "fen": "3r4/1pp1k3/p7/7P/8/3R4/PPP2PP1/6K1 w - - 1 35",
+  "played": "Re3+",
+  "best": "Rxd8",
+  "motif": "tempo_loss",
+  "intent": "Re3+ appears to be a 'checking' instinct \u2014 driving the Black king away from the center \u2014 likely intending to activate the rook along the third rank or set up a later attack. However, the check is purposeless since it doesn't improve White's position and actually abandons the critical d-file confrontation.",
+  "blunder_summary": "Re3+ is a classic example of a purposeless check in a rook endgame. White squandered the opportunity to trade rooks with Rxd8, entering a completely winning pawn endgame, and instead drove Black's king to a superior square (f6/f7) near the h5 pawn while the White rook lost a full tempo returning to d3.",
+  "best_moves_analysis": "The clear best move is 35. Rxd8, simply capturing Black's rook. After 35...Kf6 (declining recapture to chase the h-pawn) 36. g4 Kg5 37. Kg2, White's rook dominates from d8, the h-pawn is secure, and White wins by advancing the kingside majority while Black's king is cut off from the queenside. If Black recaptures with Kxd8, the resulting pawn endgame is decisively won for White due to the passed h5 pawn and better king proximity. The alternatives 35. f3 and 35. g4 (both +551) are more cautious approaches that maintain White's advantage through pawn structure improvements and keeping the rook active, though they don't force the issue as dramatically as the exchange."
+ },
+ {
+  "band": "top",
+  "act": 33.41,
+  "fen": "8/p7/8/8/2P5/P3knNK/5R2/8 w - - 1 59",
+  "played": "Ra2",
+  "best": "Rxf3+",
+  "motif": "hanging_piece",
+  "intent": "The player likely played 59. Ra2 to target the weak a7 pawn from the second rank, possibly envisioning a rook penetration along the a-file or creating threats against Black's lone queenside pawn, while perhaps not recognizing that the knight on f3 could be captured with check.",
+  "blunder_summary": "The move Ra2 cost 193 centipawns, dropping the evaluation from +615 to +422. There was essentially only one move within 50cp of the best (Rxf3+), making this a position with a single clear winning continuation. The core error was missing that the knight on f3, seemingly defended by the king on e3, could be captured with check along the third rank\u2014the rook's capture gives check precisely because both squares share the same rank\u2014choosing instead a slow prophylactic move that allows Black to consolidate with active centralization of both king and knight.",
+  "best_moves_analysis": "The best move, 59. Rxf3+, captures Black's knight and delivers check simultaneously along the third rank (both Rf3 and Ke3 share rank 3), meaning the king cannot recapture. After 59...Kd4, the rook repositions to f5 (a dominant central post), and after 60...Kxc4, White plays 61. Ra5 targeting the a7 pawn with a completely winning rook and knight versus lone king endgame. The second-best move, 59. Rf1, retreats the rook to f1, maintaining f-file control while sidestepping the knight; after 59...Nd4, White has 60. Nf5+ forking the Black king on e3 and the knight on d4, and after 60...Kd3, White wins the knight with 61. Nxd4, gaining decisive material. The third option, 59. Kg2, sidesteps away from any knight checks; after 59...Ne1+ 60. Kf1 the knight is attacked and must retreat to d3, allowing 61. Nf5+ with a strong check that maintains White's domination. All three moves exploit the vulnerability of Black's knight on f3 and the exposed Black king."
+ },
+ {
+  "band": "top",
+  "act": 32.74,
+  "fen": "6r1/7k/4p2p/1p1p1p2/P2P4/1PP3RP/5PPK/8 w - - 0 44",
+  "played": "a5",
+  "best": "Rxg8",
+  "motif": "hanging_piece",
+  "intent": "White likely played 44. a5 to advance the a-pawn and create a passed pawn, attempting to fix the queenside structure favorably and establish a long-term strategic advantage with a protected passed pawn. The player may have been thinking positionally about pawn advancement rather than recognizing the immediate tactical opportunity on the g-file.",
+  "blunder_summary": "This blunder costs 273 centipawns, dropping the evaluation from a completely winning +644 to a merely advantageous +371. There was essentially only one move within 50cp of the best (Rxg8), and the blunder faces multiple equally strong refutations. The core tactical error is breathtaking in its simplicity: White played a slow positional pawn advance while their rook on g3 could have simply captured the opposing rook on g8 along a completely unobstructed file, transitioning into a trivially won pawn endgame.",
+  "best_moves_analysis": "The best move, 44. Rxg8, is devastatingly simple: White's rook on g3 captures Black's rook on g8 along the completely open g-file. After 44...b4 (Black's best try, advancing the b-pawn to damage White's queenside structure before recapturing) 45. cxb4 Kxg8 46. a5, the resulting pawn endgame is trivially won for White\u2014a connected passed pawn duo on a5 and b4 against Black's stranded kingside majority gives White a decisive advantage at +644. Black cannot stop the queenside pawns while defending everything. The second-best move, 44. axb5, captures the b5 pawn directly, and after 44...Rc8 45. c4 dxc4 46. Rc3, White opens the c-file, gains an active rook on c3, and creates connected passed pawns on the queenside; this is clearly winning at +463 but less clean than simply taking the rook. The third option, 44. Re3, repositions the rook to target the weak e6 pawn; after 44...bxa4 45. bxa4 Re8 46. a5, White creates a passed a-pawn supported by the rook from behind\u2014still winning at +392 but much slower and more complex than the immediate tactical solution."
+ },
+ {
+  "band": "top",
+  "act": 32.34,
+  "fen": "8/8/p1Q2qk1/1p5p/8/2P5/PP4P1/6K1 w - - 1 35",
+  "played": "Qe4+",
+  "best": "Qxf6+",
+  "motif": "pawn_endgame",
+  "intent": "Qe4+ was likely played to centralize the queen with check and probe the Black king, possibly hoping to create mating threats or win material, while overlooking that the direct queen exchange was immediately decisive.",
+  "blunder_summary": "White missed the decisive 35. Qxf6+ which forces a trivially won king and pawn endgame. By playing the aimless check Qe4+ instead, White kept queens on the board and threw away 225 centipawns of advantage, converting a winning position into one where Black has real drawing chances in a queen endgame.",
+  "best_moves_analysis": "The best move 35. Qxf6+ Kxf6 is a brilliant simplification that trades into a completely winning king and pawn endgame (+377). White's queenside pawn majority (a2, b2, c3) is far superior to Black's split pawns (a6, b5, h5); White can create a passed pawn and win by force. The second-best move 35. Qe8+ (+139) gives check but merely leads to queen shuffling after Kg5 Qe3+ Kg6, keeping queens on the board where Black retains defensive chances. The third-best move 35. Qe4+ (+125), which was played, is essentially the same idea as Qe8+ \u2014 a check that leads nowhere decisive, leaving White with only a modest advantage in an ongoing queen endgame."
+ },
+ {
+  "band": "top",
+  "act": 32.01,
+  "fen": "8/pp2k3/2p1p3/3pPq1p/3P4/2P1P3/PP2KQ2/8 b - - 9 40",
+  "played": "Qxe5",
+  "best": "Qxf2+",
+  "motif": "hanging_piece",
+  "intent": "Black played 40...Qxe5 intending to win White's advanced e5-pawn and centralize the queen on an apparently strong square, likely overlooking that the d4-pawn diagonally guards e5.",
+  "blunder_summary": "Black blundered the queen by placing it on e5, a square defended by White's d4-pawn. This simple oversight\u2014failing to notice a pawn's diagonal capture\u2014turned a slightly favorable position into a completely lost one, costing approximately 885 centipawns.",
+  "best_moves_analysis": "The top move 40...Qxf2+ forces a queen trade after Kxf2, leading to a pawn endgame where Black is slightly better (-175cp) thanks to the outside h-pawn and active king route via f7-g6. The second-best move 40...Qc2+ achieves the same queen trade via a different move order (Kf1 Qxf2+ Kxf2), reaching an equivalent favorable endgame. Both moves recognize that the queen endgame offers less practical winning chances than the structurally favorable pawn endgame. The third option 40...Qg4+ keeps queens on the board with a check, maintaining slight pressure but offering near-equality (-24cp). The common thread in all three good moves is that they either simplify into a winning endgame or maintain the queen's activity without placing it on a defended square."
+ },
+ {
+  "band": "top",
+  "act": 31.79,
+  "fen": "8/8/4k3/8/5p2/2rRn3/4K3/8 b - - 9 78",
+  "played": "Rc2+",
+  "best": "Rxd3"
+ },
+ {
+  "band": "top",
+  "act": 31.52,
+  "fen": "5k2/pp4p1/5q2/2p5/5Qp1/PPP3P1/8/6K1 b - - 2 38",
+  "played": "Kg8",
+  "best": "Qxf4",
+  "motif": "pawn_endgame",
+  "intent": "38...Kg8 likely aimed to tuck the king into apparent safety on the kingside and away from any back-rank threats, possibly anticipating future maneuvering rather than recognizing the immediate decisive opportunity to trade queens.",
+  "blunder_summary": "Black missed the immediately winning queen trade 38...Qxf4, which would have produced a trivially won pawn endgame with a passed g-pawn and superior king position. By playing 38...Kg8 instead, Black exposed the king to a diagonal check (Qc4+) that allowed White to win the g4-pawn and fully equalize, squandering a decisive 4+ pawn advantage in a single move.",
+  "best_moves_analysis": "The standout best move is 38...Qxf4, trading queens with 39. gxf4, after which Black enters a winning pawn endgame with 5 pawns versus 4, a passed g4-pawn, and a king that can immediately centralize via Ke7-Kf6. The resulting endgame is evaluated at -433cp because White's f4 pawn blocks its own king from reaching the g-pawn, and Black's king dominates. The second-best move 38...b6 is essentially neutral (eval -13), simply making a quiet queenside move without committing to the winning plan. The third option 38...Ke8 (eval -2) centralizes the king but allows White's queen activity with Qb8+ to equalize, showing that only the queen trade secures the full advantage."
+ },
+ {
+  "band": "top",
+  "act": 31.11,
+  "fen": "8/4k3/1R1rp1p1/1P3p1p/2KP3P/5P2/6P1/8 w - - 1 46",
+  "played": "Rb7+",
+  "best": "Rxd6",
+  "motif": "pawn_endgame",
+  "intent": "46. Rb7+ aims to drive the Black king to a less active square and activate the rook on the seventh rank, hoping to exploit the king's exposure and create threats against Black's pawns while supporting the b-pawn's advance.",
+  "blunder_summary": "White missed that 46. Rxd6 Kxd6 leads to a completely won king-and-pawn endgame where the distant passed b-pawn combined with kingside breakthroughs (f4, hxg5) creates an unstoppable two-front attack. By playing Rb7+ instead, White kept rooks on the board and sacrificed 166cp of advantage, making the win significantly more difficult to convert.",
+  "best_moves_analysis": "The best move 46. Rxd6! is a brilliant exchange sacrifice into a won pawn endgame. After Kxd6 47. f4 g5 48. hxg5, White creates a decisive advantage with the distant passed b-pawn combined with favorable kingside pawn structure \u2014 Black's king cannot handle threats on both flanks. The second-best move 46. Rb7+ is still winning but allows Black to keep rooks on the board, reducing White's advantage by 166cp. The third option 46. Rc6 attempts to win through b6-b7 promotion ideas but similarly keeps rooks on and gives Black more defensive resources. The key difference is that the pawn endgame after Rxd6 is technically won with precision, whereas rook endgames with this margin offer more counterplay."
+ },
+ {
+  "band": "top",
+  "act": 30.33,
+  "fen": "8/7P/8/6k1/4p3/5pK1/r6R/8 b - - 3 51",
+  "played": "Ra8",
+  "best": "Rxh2",
+  "motif": "promotion_error",
+  "intent": "The player likely intended to place the rook behind the h-pawn on the 8th rank to stop or intercept the promotion, reasoning that attacking the pawn from behind is a standard rook endgame technique. Black may have also hoped to exchange the rook for the promoted piece and fight on with the two passed pawns.",
+  "blunder_summary": "The move Ra8 cost Black 209 centipawns, shifting the evaluation from +241 to +450\u2014transforming a difficult but fightable position into a clearly lost one. There was only one good move (f2) within 50cp of the best, meaning the position demanded precise calculation rather than general rook endgame principles. The core error was prioritizing a passive defensive plan (attacking the h-pawn from behind) over the active counter-threat of f2!, which would have forced White to sacrifice the rook and kept Black's counterplay alive.",
+  "best_moves_analysis": "The best move, 51...f2!, is the critical resource that creates an immediate promotion threat of its own (f1=Q), forcing White to react with 52. Rh5+ (a rook sacrifice to deflect the Black king and buy time for promotion); after 52...Kxh5 53. h8=Q+ Kg6, White has promoted to a queen but Black retains the rook on a2, the f2 pawn one square from queening, and the e4 pawn\u2014giving Black maximum counterplay in a Q vs R+pawns endgame evaluated at only +241. The second option 51...Ra8 (+456) attempts to attack the h-pawn from behind but loses crucial tempo, allowing White to promote without needing to sacrifice material, and after the rook exchange the resulting R vs two pawns endgame is easily won for White. The third option 51...Rxh2 (+566) is the worst of the three: after 52. Kxh2 Kf4 53. h8=Q Ke3, Black has eliminated White's rook but given White a free queen promotion with no rook left to fight it\u2014the two pawns are simply insufficient against a queen with an active king, making this the most losing continuation."
+ },
+ {
+  "band": "top",
+  "act": 30.26,
+  "fen": "8/1pQ2qkp/p5p1/P1P2p2/1P6/7P/5P2/6K1 w - - 11 43",
+  "played": "Qe5+",
+  "best": "Qxf7+",
+  "motif": "pawn_endgame",
+  "intent": "Qe5+ aims to centralize the queen with check and possibly probe Black's king, but it fails to recognize that the most powerful plan is to trade queens and exploit the won pawn endgame rather than keeping the queens on the board.",
+  "blunder_summary": "White missed that 43. Qxf7+ forces a trivially won pawn endgame where the connected queenside passers (after b5-c6) are unstoppable. By playing Qe5+ instead, White kept queens on the board, allowing Black to retain defensive resources and reducing a nearly winning position (+461) to merely a solid advantage (+224).",
+  "best_moves_analysis": "The best move 43. Qxf7+ Kxf7 brilliantly liquidates into a winning pawn endgame: after 44. b5 Ke7 45. c6, White's connected passed pawns on the queenside are unstoppable because Black's king is too far away to handle both the a-pawn and c-pawn simultaneously. This is a textbook case of a queen trade being superior precisely because the resulting pawn structure is decisive. The second-best move 43. Qe5+ (eval +226) gives check but after Kh6, Black's king is safe and queens remain on, preserving Black's defensive resources in a complex queen endgame. The third option 43. Qd6 (eval +211) similarly maintains queens on the board without forcing the winning simplification, and while White retains an advantage, it's far less clear-cut than the pawn endgame."
+ },
+ {
+  "band": "top",
+  "act": 29.71,
+  "fen": "6r1/7k/4pp1p/1p1p4/3P4/PPP3RP/5PPK/8 w - - 1 43",
+  "played": "a4",
+  "best": "Rxg8",
+  "motif": "rook_endgame",
+  "intent": "White played 43. a4 intending to immediately challenge Black's b5 pawn and create a passed pawn on the queenside, but neglected the crucial move-order of eliminating Black's rook first.",
+  "blunder_summary": "White committed a move-order error by pushing a4 before exchanging rooks with Rxg8. The rook exchange transitions into a trivially winning pawn endgame where Black's king cannot cope with the outside passed pawn, whereas keeping rooks on the board gives Black significant defensive resources through rook activity on the b-file and kingside counterplay.",
+  "best_moves_analysis": "The top move 43. Rxg8 Kxg8 (+557) is a critical conversion: by exchanging rooks first, White enters a pawn endgame where the outside queenside majority is completely decisive because Black's king on g8 is too far away to stop the advancing a/b pawns. After 44. a4 b4 45. cxb4, White creates connected passers or an outside passed pawn that will queen. The second-best move 43. a4 (+360) achieves the same queenside expansion but critically keeps rooks on the board, giving Black defensive resources with an active rook on the b-file. The third move 43. Re3 (+304) is more passive, centralizing the rook but lacking the forcing nature of the exchange or the immediate queenside advance."
+ },
+ {
+  "band": "top",
+  "act": 29.55,
+  "fen": "r1b3k1/7p/p3p1pP/1pp2p2/8/P5PK/2q3R1/8 b - - 1 38",
+  "played": "Qc3",
+  "best": "Qxg2+",
+  "motif": "king_safety",
+  "intent": "The player likely chose Qc3 to centralize the queen on a square that eyes both the a1-h8 diagonal and the third rank, possibly planning to harass the exposed White king from multiple angles or to combine threats against g3 and along the c-file, while keeping options flexible for bishop development.",
+  "blunder_summary": "The centipawn loss is a mere 1cp, representing the difference between forced mate in 13 (with the optimal Qd1) and forced mate in 14 (after Qc3 with White's best defense Kh4)\u2014an almost imperceptible inaccuracy rather than a true blunder. Three moves were within the top tier, and multiple White responses after Qc3 still lead to quick mates (even as fast as mate in 10 if White errs with Kh2), confirming that the position is overwhelmingly won regardless. The core issue is a minor tempo loss: Qd1 immediately threatened the lethal Qh1+ check exploiting the h-file and a8-h1 diagonal, while Qc3 requires additional queen maneuvering before the same mating patterns emerge.",
+  "best_moves_analysis": "The top move 38...Qd1 is the most efficient, placing the queen on d1 with the immediate threat of Qh1+; after 39. g4 (White's attempt to gain breathing room or block the diagonal), 39...Qh1+ forces 40. Kg3 as the only legal escape, and then 40...Bb7 unleashes the bishop onto the powerful a8-h1 diagonal where it coordinates devastatingly with the queen already on h1, creating an inescapable mating net in 13 moves. The second-best move 38...Qc3 (the move played) places the queen on the third rank, maintaining pressure but without the immediate Qh1+ threat; after 39. Rf2 Qc1 40. g4 Bb7, Black eventually achieves the same bishop development to the long diagonal but the attack takes additional moves to organize since the queen must reposition. The third option 38...Qc1 goes directly to c1, a flexible square from which the queen can influence many diagonals and files; after 39. g4 Bb7 40. Kg3 Qe1+, Black develops the bishop and then delivers a check on e1 that drives the king and continues the assault, but this is the slowest path at mate in 17."
+ },
+ {
+  "band": "top",
+  "act": 28.44,
+  "fen": "8/pp1k2p1/2p1rp1p/3p4/6PP/4RP2/PPP2K2/8 b - - 0 25",
+  "played": "a5",
+  "best": "Rxe3",
+  "motif": "rook_endgame",
+  "intent": "25...a5 is a slow pawn move intended to fix the queenside structure and potentially prepare a future b5-b4 pawn advance, creating a passed a-pawn or gaining space on the queenside.",
+  "blunder_summary": "Black played a slow queenside pawn move instead of the decisive 25...Rxe3!, which would have converted the position into a winning king and pawn endgame. The move a5 cost 147cp because it allowed White to activate the rook via Ra3, targeting the weakened a5 pawn and dramatically improving White's defensive prospects.",
+  "best_moves_analysis": "The strongest move 25...Rxe3! trades rooks to enter a winning king and pawn endgame. After 26.Kxe3 g5! 27.hxg5 hxg5, Black's extra d5 pawn becomes decisive because Black's king can centralize and eventually create a passed pawn, while White's king is unable to cover both flanks. The second-best move 25...Kd6 centralizes the king first, maintaining the rook tension while keeping a comfortable advantage (-231cp). The third option 25...c5 is similar in spirit, bolstering the center and preparing to advance queenside pawns. Both Kd6 and c5 are solid positional continuations but miss the cleanest winning path via the rook exchange."
+ },
+ {
+  "band": "top",
+  "act": 27.88,
+  "fen": "1B6/r7/8/2p5/2P4P/1PK3R1/5k2/8 w - - 0 50",
+  "played": "h5",
+  "best": "Bxa7",
+  "motif": "tempo_loss",
+  "intent": "The player likely intended to advance the passed h-pawn toward promotion, viewing h5 as a natural preparatory move that gains space and threatens to create an unstoppable passer, without realizing that the immediate tactical capture Bxa7 was available and far stronger.",
+  "blunder_summary": "This 338 centipawn blunder dropped the evaluation from a near-decisive +895 to a merely winning +557. White had at least two moves (Bxa7 and Rg2+) within 50cp of the best evaluation, both involving the immediate exploitation of the bishop's attack on the a7 rook. The core error was a tempo loss: instead of capturing the tactically vulnerable rook now, White advanced a pawn that gave Black time to save the rook and create counterplay against the newly advanced h5 pawn.",
+  "best_moves_analysis": "The first best move, 50. Bxa7, is devastatingly simple: White captures Black's rook outright with the bishop. After 50...Kxg3 (Black's only compensation is capturing White's rook), 51. h5 pushes the passed pawn, and after 51...Kf4 52. h6, White has a Bishop plus three pawns versus one pawn\u2014a trivially winning endgame where the h-pawn will promote. The second best move, 50. Rg2+, gives check to Black's king on f2, forcing 50...Ke3 (the king must flee the g-file). Then 51. Bxa7 captures the now-uncompensated rook since Black's king is too far from g2 to recapture, and after 51...Kf4 52. Bxc5, White has won a full rook and a pawn. The third best move, 50. Rf3+, sacrifices the rook with check\u2014after 50...Kxf3, White plays 51. Bxa7 winning Black's rook, resulting in Bishop plus three pawns versus one pawn (same material outcome as line 1). After 51...Kg4 52. Bxc5, White also eliminates Black's last pawn. All three lines exploit the same idea: the Bishop on b8 attacks the Rook on a7, and White can either capture immediately or deflect Black's king first."
+ },
+ {
+  "band": "top",
+  "act": 26.82,
+  "fen": "8/8/4pp1R/5kpp/6n1/7r/5PK1/8 b - - 5 51",
+  "played": "Rh2+",
+  "best": "Nxh6",
+  "motif": "king_safety",
+  "intent": "Rh2+ forces the White king away from the h3-rook before Black captures on h6, ensuring that when the rook trade happens, White's king ends up on g1 rather than h3, giving Black an even more dominant king position in the resulting endgame.",
+  "blunder_summary": "Rh2+ is not a blunder at all\u2014it loses 0 centipawns and actually leads to a slightly better evaluation than the position before the move. The move order of checking first before capturing the rook is a perfectly valid approach that forces White's king to a less active square, maintaining Black's decisive advantage.",
+  "best_moves_analysis": "The top engine choice 51...Nxh6 immediately captures White's rook, and after 52.Kxh3 Kf4 53.Kg2 g4, Black obtains a won knight+pawns versus lone pawn endgame where the connected kingside pawns are unstoppable. The second-best move 51...Rh2+ achieves a very similar result by first driving the White king to an inferior square before capturing the rook with Nxh6 next move; after 52.Kg1 Nxh6 53.Kxh2 Kf4, Black reaches an equivalent winning structure. The third option 51...Kf4 centralizes the king but is less precise, allowing White counterplay with 52.Rh8, though Black still maintains a large advantage after Rh2+ and Kf3. At full depth, Rh2+ proves essentially equivalent to Nxh6 since it forces White into an inferior configuration."
+ },
+ {
+  "band": "top",
+  "act": 26.52,
+  "fen": "5rk1/1pp2p2/p6K/r7/8/8/8/8 b - - 3 42",
+  "played": "Re8",
+  "best": "Rh5+"
+ },
+ {
+  "band": "top",
+  "act": 25.31,
+  "fen": "5rk1/5ppp/1p6/6PP/1Pp5/p1P5/P1KQ2q1/8 b - - 3 29",
+  "played": "Qxg5",
+  "best": "Qxd2+",
+  "motif": "positional_mistake",
+  "intent": "Qxg5 captures a pawn and removes White's advanced g-pawn, seemingly gaining material while eliminating a potential threat on the kingside. Black likely saw a 'free' pawn and failed to appreciate that the queen's attacking role was far more valuable than material gain.",
+  "blunder_summary": "Black traded their most powerful attacking piece for a mere pawn, transforming a winning attack into a lost endgame. The queen on g2 was the engine of Black's entire position\u2014applying pressure to White's exposed king and coordinating with the rook\u2014and its removal left Black with no compensation against White's passed h-pawn and superior pawn structure.",
+  "best_moves_analysis": "Qe4+ (best move) delivers an immediate check, forcing White's king to d1, after which Re8 brings the rook into the attack with devastating effect\u2014the queen and rook create unstoppable threats against the displaced king. Qg4 is nearly as strong, threatening Qxh5 while keeping the queen active and maintaining all attacking potential; after g6 hxg6, Black's rook enters decisively with Re8. Qf1 also works by threatening infiltration and after g6 Qf5+ picks up the h5 pawn with check while maintaining the initiative. All three moves share the common theme of keeping the queen actively engaged in the attack against White's exposed king while coordinating with the f8 rook."
+ },
+ {
+  "band": "top",
+  "act": 24.98,
+  "fen": "8/Q5rp/3ppkp1/2p5/P3P3/2K3P1/5P1P/8 w - - 0 33",
+  "played": "Qb7",
+  "best": "Qxg7+",
+  "motif": "hanging_piece",
+  "intent": "Qb7 likely intended to centralize the queen on the 7th rank to pressure Black's pawns from b7, perhaps eyeing both the b-file and the 7th rank \u2014 but fatally overlooked that the rook on g7 has an unobstructed path along that same rank.",
+  "blunder_summary": "White moved the queen onto the 7th rank directly into the path of Black's rook on g7, allowing Rxb7 to win the queen outright. This was a catastrophic oversight of the rook's control of the entire 7th rank, transforming a completely winning position into a lost one.",
+  "best_moves_analysis": "All three best moves keep the queen off the 7th rank where Black's rook operates. Qb6 drops to the 6th rank, pinning and targeting the d6 pawn directly, leading to its capture after Rd7, Qc6, Rf7, Qxd6. Qa6 achieves a nearly identical effect, also pressuring the d6/e6 pawn complex from the 6th rank. Qb8 moves to the 8th rank, safely out of the rook's reach, and prepares Qxd6 from a different angle. All three maintain White's overwhelming advantage of roughly +600 centipawns by keeping the queen active and safe while dismantling Black's pawn structure."
+ },
+ {
+  "band": "top",
+  "act": 24.89,
+  "fen": "8/3k4/4p1p1/5p1p/pB3r2/P6K/8/8 b - - 1 54",
+  "played": "e5",
+  "best": "Rxb4"
+ },
+ {
+  "band": "top",
+  "act": 24.48,
+  "fen": "8/p1p1k3/4b3/P1P1p1p1/1PB5/4K1P1/8/8 w - - 5 34",
+  "played": "Bb5",
+  "best": "Bxe6",
+  "motif": "pawn_endgame",
+  "intent": "Bb5 likely aimed to reposition the bishop to a more active diagonal, possibly preparing Bc6 to restrict Black's king or to support an eventual b5 advance from a different angle, but it fundamentally misses the winning idea of eliminating the defending bishop.",
+  "blunder_summary": "White threw away a completely winning position by relocating the bishop instead of exchanging it with Bxe6!, which would have entered a trivially won pawn endgame. The fundamental error was failing to recognize that Black's bishop is the sole defender holding the queenside together\u2014removing it was the key to unlocking White's decisive pawn majority.",
+  "best_moves_analysis": "The standout move 34. Bxe6! (eval +517) is a brilliant exchange sacrifice that enters a completely winning pawn endgame. After Kxe6 35. b5, the b-pawn storms forward, and after 35...Kd5 36. b6, White creates unstoppable threats: if cxb6 then c6! creates a new passed pawn, and if axb6 then a6! does the same\u2014Black's king simply cannot cover both flanks. The other two moves, Ba6 and Bb5 (both eval +5), keep the bishops on the board where Black's bishop can effectively blockade the queenside pawns from strong central squares like d5. The enormous gap between move 1 and moves 2-3 (over 500cp) underscores that the bishop trade is the decisive strategic breakthrough."
+ },
+ {
+  "band": "top",
+  "act": 23.53,
+  "fen": "2k5/2p5/2n5/p7/P2p4/4b3/2PNK3/8 b - - 0 39",
+  "played": "Kb7",
+  "best": "Bxd2",
+  "motif": "hanging_piece",
+  "intent": "Kb7 aims to activate the black king, preparing to march it toward b6-c5 to support the passed d-pawn and pressure White's queenside, but it completely ignores the immediate tactical opportunity on d2.",
+  "blunder_summary": "Black missed the simple capture 39...Bxd2 which wins White's knight cleanly, a full minor piece. By playing 39...Kb7, Black gave White time to move the knight to safety, squandering roughly 127 centipawns of advantage and converting a won position into one that merely favors Black.",
+  "best_moves_analysis": "The best move 39...Bxd2 simply captures White's knight, winning a full minor piece outright. After 40.Kxd2 Ne5, Black emerges with a knight and three pawns versus only two white pawns \u2014 a completely decisive material advantage. The second-best move 39...Kd7 centralizes the king and maintains a strong advantage (eval -464) but inexplicably passes on the free piece capture, likely planning a long-term king march. The played move 39...Kb7 is the weakest of the three, activating the king toward the queenside but entirely overlooking the hanging knight, reducing Black's advantage by over a pawn's worth of evaluation."
+ },
+ {
+  "band": "top",
+  "act": 23.14,
+  "fen": "8/5R2/4p3/B2pPn2/3P4/3K1k2/8/8 w - - 3 43",
+  "played": "Rf6",
+  "best": "Rxf5+"
+ },
+ {
+  "band": "top",
+  "act": 22.38,
+  "fen": "8/4k3/3Rn1p1/8/1P5P/8/5P1P/6K1 w - - 1 39",
+  "played": "b5",
+  "best": "Rxe6+"
+ },
+ {
+  "band": "top",
+  "act": 21.93,
+  "fen": "8/7k/5rr1/1p6/pP4R1/2P5/P3K1R1/8 w - - 9 56",
+  "played": "R4g3",
+  "best": "Rxg6",
+  "motif": "pawn_endgame",
+  "intent": "R4g3 likely intended to regroup the rooks or prepare a more coordinated doubling, perhaps anticipating a future attack along the g-file or freeing the g4 square, without realizing that the immediate tactical exchange was far superior.",
+  "blunder_summary": "White missed that 56. Rxg6 forces a completely winning king-and-pawn endgame, opting instead for an aimless rook regrouping that allows Black to exchange into a much more defensible single-rook endgame. The 163cp loss represents the difference between a trivially winning pawn endgame and a technically challenging rook endgame.",
+  "best_moves_analysis": "The clear best move is 56. Rxg6, capturing Black's rook and forcing a sequence of exchanges (Rxg6 Rxg6 Kxg6) that leads to a king and pawn endgame evaluated at +537. This endgame is completely winning because White's king reaches d3 quickly and dominates the queenside pawn battle with a2/b4/c3 vs a4/b5, where White's centralized king and connected pawn majority guarantee victory. The second-best move 56. Rg5 (eval +430) maintains heavy pressure while keeping rooks on but is less incisive. The third option 56. Ke3 (eval +381) centralizes the king but allows Black to exchange on g4 under more favorable terms, reducing White's edge significantly."
+ },
+ {
+  "band": "top",
+  "act": 21.48,
+  "fen": "3r2k1/2q2ppp/8/8/P7/1Q1R2PP/5P1K/8 w - - 1 31",
+  "played": "Rf3",
+  "best": "Rxd8+",
+  "motif": "positional_mistake",
+  "intent": "31. Rf3 likely intended to reposition the rook to defend f2 or potentially swing to the f-file for kingside pressure against f7, but it fundamentally misjudges the position's requirements by abandoning the critical d-file.",
+  "blunder_summary": "By playing 31. Rf3, White voluntarily surrendered control of the open d-file \u2014 the very foundation of the winning position. This allowed Black's rook to become active (especially via d4), neutralizing both White's piece activity and the passed a-pawn threat, converting a clearly winning position into one that is barely better than equal.",
+  "best_moves_analysis": "The strongest move 31. Qb7 invades the 7th rank with the queen, attacking f7 and forcing Black's queen to a passive square like c8, after which 32. Rxd8+ Qxd8 33. a5 leaves White with a dominating queen on the 7th rank and a rapidly advancing passed a-pawn \u2014 a completely winning endgame. The second-best move 31. Rxd8+ immediately simplifies by exchanging rooks, after which the a-pawn races up the board with the queen's support (a5-a6), creating an unstoppable passed pawn. The third option 31. Qc4 centralizes the queen, maintains d-file pressure, and after a rook trade reaches a favorable queen endgame with 33. Qc5 controlling key squares. All three moves share a common theme: they exploit White's d-file dominance and the passed a-pawn in tandem, either through active piece invasion or favorable simplification."
+ },
+ {
+  "band": "top",
+  "act": 21.09,
+  "fen": "R3r3/3k4/Pp3b2/2p5/2P2P2/1P1K2Pp/7P/8 w - - 1 45",
+  "played": "Ra7+",
+  "best": "Rxe8"
+ },
+ {
+  "band": "top",
+  "act": 19.16,
+  "fen": "8/pppk1p1p/4b3/8/2P4P/1P2PPK1/r6R/8 b - - 2 25",
+  "played": "Rb2",
+  "best": "Rxh2"
+ },
+ {
+  "band": "top",
+  "act": 17.27,
+  "fen": "3k4/2Rb1pp1/r3p1p1/P2pP3/3P4/1N4P1/5P1P/6K1 w - - 7 36",
+  "played": "Rb7",
+  "best": "Rxd7+"
+ },
+ {
+  "band": "top",
+  "act": 16.48,
+  "fen": "1r6/8/8/3k3P/3p1p2/4r3/1p1K4/1RR5 b - - 7 50",
+  "played": "Rbb3",
+  "best": "bxc1=Q+",
+  "motif": "promotion_error",
+  "intent": "Rbb3 likely aimed to double rooks on the third rank, coordinating both rooks for pressure along the b-file and third rank, while perhaps planning a later promotion \u2014 a positionally motivated but tactically disastrous waste of tempo.",
+  "blunder_summary": "Black missed the immediate game-winning capture-promotion bxc1=Q+ (or =B+), which simultaneously removes White's rook and promotes with check, leading to a forced mating sequence. By playing the slow Rbb3, Black gifted White a crucial tempo to simply slide the c1 rook away, permanently blocking the b-pawn (stuck behind White's b1 rook) and converting a forced mate in 10 into a much less decisive advantage.",
+  "best_moves_analysis": "The winning moves all exploit the immediate capture-promotion bxc1, taking White's rook and promoting in a single move. Both bxc1=Q+ and bxc1=B+ deliver check along the c1-d2 diagonal, forcing Rxc1, after which Rb2+ creates a devastating double-rook attack on the second rank leading to forced mate in 10. The sequence Rb2+ followed by Rc2 Rxc2+ wins decisive material with an ongoing mating net. Even bxc1=R (without check) scores -579, as the material advantage is still overwhelming though White gets slightly more defensive resources without the tempo of check. The critical insight is recognizing that the b2 pawn can simultaneously remove a defender and promote."
+ },
+ {
+  "band": "upper",
+  "act": 10.76,
+  "fen": "5r1k/2p2ppp/5n2/1p6/1PNpP3/q5PP/5P2/3r1RK1 b - - 1 30",
+  "played": "Qxb4",
+  "best": "Rxf1+"
+ },
+ {
+  "band": "upper",
+  "act": 10.06,
+  "fen": "rnbqkbnr/pppp2pp/8/4pp2/4PP2/8/PPPP2PP/RNBQKBNR w KQkq - 0 3",
+  "played": "fxe5",
+  "best": "exf5",
+  "motif": "king_safety",
+  "intent": "The player likely intended 3.fxe5 to win a central pawn (capturing e5 while leaving their own e4 pawn intact), reasoning symmetrically that since 3.exf5 was good, taking the other pawn should be equally viable. They may not have recognized the critical difference between the two captures \u2014 namely that fxe5 opens the lethal h4-e1 diagonal toward their own king while leaving e4 unprotected.",
+  "blunder_summary": "This blunder cost 311 centipawns, swinging the evaluation from a comfortable +86 (slight White advantage) to a devastating -225 (Black winning). White had at least 2 good moves within 50cp of the best (3.exf5 and 3.Nc3), both of which maintained a clear advantage. While Black has one truly crushing punishment (3...Qh4+) that wins material by force, even the calmer responses (3...d5, 3...d6) neutralize White's entire opening advantage. The core error was failing to recognize that capturing with the f-pawn toward the center removes the last barrier on the h4-e1 diagonal, creating an immediate tactical vulnerability with the queen check combined with the now-hanging e4 pawn and exposed h1 rook.",
+  "best_moves_analysis": "The best move 3.exf5 captures Black's f5 pawn, winning material while maintaining central solidity \u2014 after 3...Qe7 Black tries to exploit the e-file but White calmly develops with 4.Nf3, and after 4...d6 5.Bb5+ White gains a tempo with check while staying a pawn ahead at +86cp. The second-best move 3.Nc3 prioritizes piece development and strengthens the center; after 3...exf4 4.d4 Black may try 4...Qh4+ but White has 5.g3 available since the e4 pawn is protected by the knight on c3, yielding a comfortable +50cp advantage. The third option 3.d3 is the most solid and positional approach, reinforcing the e4 pawn and preparing smooth development with Nc3 and Nf3; after 3...d6 4.Nc3 Nc6 5.Nf3 White develops harmoniously with a modest +24cp edge. All three best moves share a common theme: they either maintain the integrity of White's central pawn structure or capture in a way that does not catastrophically expose the king along the h4-e1 diagonal."
+ },
+ {
+  "band": "upper",
+  "act": 9.42,
+  "fen": "8/5p1k/5n1p/1p1B1Pp1/1P3K1P/4P3/2P1Q3/8 w - g6 0 42",
+  "played": "Ke5",
+  "best": "fxg6+",
+  "motif": "tempo_loss",
+  "intent": "42. Ke5 aims to centralize the king aggressively, preparing to march toward Black's queenside or support the f5-pawn's advance, but it neglects the time-sensitive en passant capture that was only available on this specific move.",
+  "blunder_summary": "White missed the one-time-only en passant capture 42. fxg6+, which would have given check with tempo and permanently weakened Black's kingside pawn structure. By playing 42. Ke5 first, the en passant right is forfeited, costing 67 centipawns and allowing Black to maintain a more resilient pawn configuration on the kingside.",
+  "best_moves_analysis": "The best move 42. fxg6+ exploits the en passant opportunity, giving check to the Black king on h7, and after fxg6 (forced), Black's kingside pawn structure is shattered with an isolated g6-pawn that blocks the knight's defense. White then plays 43. Ke5 with an even more dominant position since the f5-pawn is gone and the bishop on d5 gains greater scope. The second-best move 42. hxg5 hxg5+ also addresses the kingside tension directly, exchanging pawns and eventually winning the g5-pawn, though it's less precise at +691. The third option 42. Kg3 retreats the king and allows Black to capture on h4 with check, leading to material recovery via 44. Qxb5 after Nxd5, but this concedes the bishop and yields only +550."
+ },
+ {
+  "band": "upper",
+  "act": 9.35,
+  "fen": "r1bqkb1r/ppp2p1p/1n3n2/3p4/P4P2/1P2P3/2PNB2P/RNBQK2R b KQkq - 0 11",
+  "played": "c5",
+  "best": "Ng4",
+  "motif": "tempo_loss",
+  "intent": "11...c5 aims to grab more central space, support the d5 pawn chain from a different angle, and potentially prepare dark-squared bishop development, but it fundamentally ignores the dynamic demands of the position \u2014 specifically the open g-file attacking chance against White's stuck king.",
+  "blunder_summary": "By playing 11...c5, Black ignored the critical open g-file attacking opportunity against White's uncastled king and instead made a positional pawn advance that weakened the d5 pawn and allowed White to seize queenside initiative with a5, gaining tempo against the b6-knight. This transformed a position where Black had a significant dynamic advantage (-157) into one where White is clearly better (+73).",
+  "best_moves_analysis": "11...Rg8 (-157) is the strongest move, immediately seizing the open g-file to create direct pressure against White's uncastled king \u2014 the g-file is the key feature of this position and Black must act dynamically before White consolidates. 11...a5 (-129) is also strong, fixing the queenside pawns and preventing White's a5 advance while maintaining the Rg8 idea for the next move. 11...Bb4 (-114) develops the bishop actively, potentially creating pressure on White's queenside and preparing to castle or use the g-file later. All three moves share a common thread: they either directly exploit White's vulnerable king or prevent White from stabilizing, maintaining Black's significant advantage."
+ },
+ {
+  "band": "upper",
+  "act": 8.92,
+  "fen": "8/8/5rk1/p1p1R3/2P5/P5PP/1P2R1K1/8 w - - 2 43",
+  "played": "Rxc5",
+  "best": "Re6",
+  "motif": "rook_endgame",
+  "intent": "The player chose Rxc5 to immediately win the c5-pawn, simplifying the queenside pawn structure and creating a passed c-pawn that could become a long-term winning asset alongside the already dominant material advantage.",
+  "blunder_summary": "The centipawn loss of only 4cp (from +667 to +663) makes this essentially a non-blunder\u2014Rxc5 is in fact the engine's top-recommended move. Three moves were available within 50cp of the best, and the 'refutations' all leave White with a completely winning advantage. There is no meaningful strategic or tactical error; the microscopic eval drop reflects only a trivial difference in how Black can respond optimally.",
+  "best_moves_analysis": "The first-choice move 43. Rxc5 (eval +667) immediately captures Black's c5-pawn, creating a passed c-pawn for White and eliminating one of Black's queenside assets; the continuation Ra6 44. Rb5 Kf7 45. Rd2 shows White consolidating with active rook placements targeting both the a5-pawn and penetrating via the d-file. The second-best move 43. h4 (eval +655) improves White's kingside pawn structure and creates the option to push further, gaining space; after Rc6 44. Rg5+ Kf6 45. Kh3, White's rook aggressively checks on g5, forcing Black's king to f6, while White's king steps to h3 to support a potential kingside advance. The third option 43. Rd5 (eval +649) repositions the rook to d5, attacking the c5-pawn from a different angle while controlling the d-file; after Rc6 44. h4 a4 45. Rg5+, White advances the h-pawn first before delivering a check on g5, maintaining pressure on both flanks simultaneously. All three moves maintain White's overwhelming advantage, differing only in the precise order of operations."
+ },
+ {
+  "band": "upper",
+  "act": 8.49,
+  "fen": "r1bqk2r/ppp1nBpp/2n5/4b3/3P4/2P5/PP4PP/RNBQ1RK1 b kq - 0 12",
+  "played": "Kd7",
+  "best": "Kf8"
+ },
+ {
+  "band": "upper",
+  "act": 8.36,
+  "fen": "r7/4kp2/6p1/1N5p/2p1n3/8/P5PP/3R2K1 w - - 1 39",
+  "played": "Re1",
+  "best": "Rd4",
+  "motif": "tempo_loss",
+  "intent": "The player likely played 39. Re1 intending to put direct pressure on Black's centralized knight on e4, hoping either to win it or force it to retreat, since the knight is a powerful piece in Black's position. The rook on e1 appears to 'attack' the knight, but this idea is fundamentally flawed because the knight can be easily reinforced.",
+  "blunder_summary": "The move Re1 caused a 203-centipawn evaluation drop (from -48 to -251), transforming a nearly equal position into a clearly losing one. There was essentially only one good move available (Rd4), making this a critical decision point where the only saving idea was to immediately attack the c4-pawn. The core error was abandoning the active plan of Rd4 (winning the c4-pawn) in favor of a superficially logical but strategically misguided rook move that accomplished nothing after Black's simple reinforcement with ...f5, effectively losing a crucial tempo in a position where every move counted.",
+  "best_moves_analysis": "39. Rd4 is clearly the best move (eval -48) because it directly attacks the weak c4 pawn while also X-raying the knight on e4. After 39...f5 40. Rxc4, White wins the passed c-pawn, and after 40...Rxa2 41. g3, material is roughly balanced and the position is nearly equal \u2014 White traded the c4-pawn weakness for giving up the a2-pawn. The rook is supremely active on c4. 39. a3 (eval -232) is a quieter stabilizing move that prevents any future ...c3 breakthroughs and secures the a2 pawn's safety; after 39...f5 40. Kf1 Kf6 41. Ra1, White keeps the position together but remains significantly worse because the c4 pawn persists and Black's pieces are more active. 39. Ra1 (eval -240) simply defends the a2 pawn directly; after 39...Kd7 40. a4 Kc6 41. Nd4+, White tries to use the knight actively, but Black's king centralizes powerfully on c6, pressuring the knight and supporting the c4 pawn. The massive evaluation gap between Rd4 and the other options shows that attacking c4 immediately was the critical idea \u2014 only Rd4 leverages White's rook on the open file to neutralize Black's passed pawn advantage."
+ },
+ {
+  "band": "upper",
+  "act": 8.23,
+  "fen": "rn1qkb1r/pp3ppp/8/3pp3/6b1/1Q6/PP1PPPBP/R1B1K1NR w KQkq - 0 8",
+  "played": "Qxb7",
+  "best": "Bxd5",
+  "motif": "tempo_loss",
+  "intent": "White's intent with 8. Qxb7 was to grab a free pawn on the queenside, likely hoping to consolidate the material advantage later. The queen also eyes the a8-rook, seemingly threatening further material gains.",
+  "blunder_summary": "White chose a greedy pawn grab on b7 over the much stronger tactical shot 8. Bxd5, which would have won material by force through the Bxe6/Qxe6+ combination. By stranding the queen on b7, White surrendered all initiative and allowed Black to develop rapidly with tempo, transforming a winning position into a losing one.",
+  "best_moves_analysis": "The top move 8. Bxd5 is a powerful tactical strike exploiting the alignment of the bishop on d5 with the Black king on e8: after 8...Be6 9. Bxe6 fxe6 10. Qxe6+, White wins a pawn with check and damages Black's king safety, maintaining a +159 advantage. The second option 8. Qxd5 is a simpler approach, trading queens after Nc6 9. Qxd8+ Rxd8 10. Bxc6+ bxc6, which leads to a roughly equal endgame at -27. The third option, the played move 8. Qxb7, grabs a wing pawn but strands the queen in a dangerous corner where Black can rapidly develop with tempo, resulting in a -65 evaluation. The crucial difference is that Bxd5 creates a concrete tactical sequence exploiting the central tension and king vulnerability, while Qxb7 ignores these themes for a peripheral pawn."
+ },
+ {
+  "band": "upper",
+  "act": 8.06,
+  "fen": "rnbq1rk1/ppp2ppp/5n2/3p4/1b1P1B2/2N2Q2/PPP2PPP/R3KBNR w KQ - 6 7",
+  "played": "O-O-O",
+  "best": "Bd3",
+  "motif": "hanging_piece",
+  "intent": "The player likely wanted to castle the king into safety quickly, get the rook to d1 to support the central d4-pawn, and felt that queenside castling was more natural since the kingside was undeveloped (Bf1 and Ng1 still home). They may have also envisioned a potential kingside attack with the queen on f3 and bishop on f4 already pointing that direction.",
+  "blunder_summary": "This move cost 192 centipawns, swinging the evaluation from a manageable -66 to a very serious -258\u2014essentially losing the exchange by force. Three good alternatives existed within 50cp of the best move (h3, Ne2, a3), all of which were straightforward developing or prophylactic moves. While only one refutation (7...Bg4) truly punishes the blunder with full force, the core tactical error was placing the rook on d1 where it becomes a target of ...Bg4 discovering an attack on the rook through the queen, which cannot capture on g4 due to ...Nxg4 winning the queen.",
+  "best_moves_analysis": "The first-choice move 7.h3 is a prophylactic gem: it prevents the crucial ...Bg4 move that would harass White's queen on f3, buying time to reorganize. After 7...c5 8.Ne2 (developing the dormant kingside knight while unpinning from the b4-bishop) Nc6 9.O-O-O, White can finally castle queenside safely because the Bg4 tactical shot has been permanently denied by the h3 pawn. The second-best move 7.Ne2 immediately develops the knight, and after 7...Bg4 8.Qg3 the queen sidesteps to an active diagonal where it's not vulnerable to the bishop, followed by 8...Re8 9.f3 pushing the bishop back and solidifying the center. The third option 7.a3 directly challenges Black's active b4-bishop, forcing it to make a decision; after 7...Bg4 8.Qd3 Re8+ 9.Ne2 White blocks the check while developing, maintaining a playable if slightly worse position. All three moves share a common theme: they address White's vulnerability on the f3-g4 diagonal before committing the king."
+ },
+ {
+  "band": "upper",
+  "act": 7.9,
+  "fen": "r1bqk2r/1pppbppp/p1n2n2/8/B2NP3/8/PPP2PPP/RNBQ1RK1 b kq - 0 7",
+  "played": "Nxe4",
+  "best": "O-O",
+  "motif": "king_safety",
+  "intent": "The player likely saw the undefended e4 pawn and grabbed it with 7...Nxe4, hoping to win a free pawn while the knight appeared safe on the central e4 square. Black may have calculated that the knight could retreat or be supported, overlooking how removing the f6 knight fatally weakens the kingside and leaves the king stranded in the center.",
+  "blunder_summary": "This blunder cost 284 centipawns, swinging the evaluation from -126 (Black clearly better) to +158 (White clearly better). There was essentially only one good move within 50cp of the best (7...Nxd4), making this a position requiring precise calculation. The core error was removing the f6 knight from its critical defensive role, exposing the uncastled king to a vicious Nf5 attack that simultaneously targets the e7 bishop, threatens Qd5 with multiple tactical shots, and exploits the now-homeless knight on e4.",
+  "best_moves_analysis": "The best move 7...Nxd4 captures White's powerfully centralized knight on d4; after 8.e5 (pushing to attack the f6 knight and gain space), Black plays 8...b5 kicking the a4 bishop, then 9.Bb3 Nxb3, winning material by collecting the bishop while maintaining a solid position \u2014 this nets Black a comfortable advantage at -126. The second-best move 7...b5 immediately challenges the a4 bishop, and after 8.Nxc6 dxc6 9.Qxd8+ Kxd8, the game simplifies into a roughly equal queenless middlegame where Black's slightly disrupted king position is offset by the bishop pair and solid pawn structure \u2014 a safe, pragmatic choice at -12. The third option 7...O-O simply tucks the king to safety; after 8.Nf5 d5 9.Nxe7+ Nxe7, Black trades the dark-squared bishop but gains central space with ...d5 and has a fully equal position at +1 \u2014 the knight on f6 remains on its natural defensive post protecting the kingside."
+ },
+ {
+  "band": "upper",
+  "act": 7.71,
+  "fen": "3rk3/pp1q1pbp/5n2/2P1p3/1n6/4P3/2Q1NPP1/2R1K1NR w K - 0 24",
+  "played": "Qxh7",
+  "best": "Qc3"
+ },
+ {
+  "band": "upper",
+  "act": 7.57,
+  "fen": "6K1/1k6/8/2p4P/1p6/2P5/8/8 w - - 0 47",
+  "played": "h6",
+  "best": "cxb4"
+ },
+ {
+  "band": "upper",
+  "act": 7.43,
+  "fen": "4r1k1/p4p1p/2p2Pp1/q7/8/1Pprb3/P1K3QP/R1B2R2 w - - 2 25",
+  "played": "Bxe3",
+  "best": "Kxd3",
+  "motif": "king_safety",
+  "intent": "The player almost certainly played Bxe3 to eliminate Black's active bishop on e3, which was blocking the c1-bishop and exerting pressure on White's position\u2014likely believing it was a simple trade that would relieve pressure and activate the c1-bishop's diagonal. They may have underestimated that recapturing with a rook would be far more dangerous than the bishop itself.",
+  "blunder_summary": "Bxe3 cost 534 centipawns, collapsing the position from a difficult but defensible -316 to a virtually lost -850. Only one good move existed (Kxd3, the counterintuitive king capture), and the punishment is severe with multiple refutations all winning decisively. The core error was trading White's bishop into a recapture that activates Black's rook onto the third rank, giving Black devastating coordination of two rooks and a queen against White's completely exposed king on c2\u2014whereas Kxd3 would have reduced the attacking force by eliminating a rook entirely.",
+  "best_moves_analysis": "The best move, 25. Kxd3, boldly captures the intruding rook on d3 with the king, removing Black's most dangerous attacking piece from the board and winning material (a whole rook for nothing immediately). After 25...Bxc1 26. Rfxc1 Rd8+ 27. Kc2, White has traded a bishop for a rook net, and while the king endures a check on d8, it retreats safely to c2 with a more manageable defensive task\u2014the eval holds at -316, meaning Black is better but White can fight. The second-best move, 25. Qe2, relocates the queen to e2 where it defends the second rank and contests the e-file; after 25...Rdd8 26. Bxe3 Rd2+ 27. Qxd2, White trades the queen via an interposition on d2, but the resulting position at -477 is significantly worse because Black retains heavy-piece pressure. The third option, 25. Qf3, attacks both the rook on d3 and the bishop on e3 simultaneously; after 25...Red8 26. Qxe3 Rxe3 27. Bxe3, queens and bishops are traded off but White is left at -524 in a rook endgame where Black's activity and extra pawn on c3 dominate\u2014still far better than the game move."
+ },
+ {
+  "band": "upper",
+  "act": 7.35,
+  "fen": "Q7/pp3k2/8/2nN4/8/2BPP3/PPP1K3/2r5 w - - 2 32",
+  "played": "Qxa7",
+  "best": "Kd2",
+  "motif": "king_safety",
+  "intent": "Qxa7 captures a free pawn while pinning the b7-pawn to the king and maintaining queenside pressure, likely based on the assumption that White's massive material advantage is sufficient regardless of the queen's exact placement.",
+  "blunder_summary": "White abandoned a forced checkmate in 11 moves by greedily capturing a pawn on a7, moving the queen far from the attacking zone around Black's exposed king. The queen belonged on h8 where it created unstoppable mating threats in conjunction with the d5-knight and c3-bishop; on a7, it merely threatens material in a position already won on material.",
+  "best_moves_analysis": "Qh8 is the clear best move, maintaining a forced mate in 11 by repositioning the queen to an ideal attacking square aimed directly at the black king. After 32. Qh8 Rxc2+ 33. Kf3 Rf2+ 34. Kxf2, the rook is eliminated and White's Queen-Knight-Bishop trio weave an inescapable mating net around the exposed black king on f7 (threats include Qh7+, Ne7+, and various discovered attacks). Qxa7 and b4 both still produce winning positions (~+720 cp) but completely relinquish the forced mating sequence by diverting the queen away from the kingside attack zone. The crucial difference is that Qh8 keeps the queen laser-focused on Black's vulnerable king, while Qxa7 sends it to the queenside where it merely threatens pawns rather than delivering checkmate."
+ },
+ {
+  "band": "upper",
+  "act": 7.24,
+  "fen": "6k1/8/8/2N3P1/p3B3/4P1P1/1n5P/2R3K1 w - - 0 40",
+  "played": "Ra1",
+  "best": "Nxa4",
+  "motif": "tempo_loss",
+  "intent": "Ra1 targets the a4-pawn, aiming to eliminate Black's last source of counterplay and simplify the technical task, likely intending to clean up the position before advancing the g-pawn.",
+  "blunder_summary": "Ra1 is a tempo loss that prioritizes eliminating an irrelevant a-pawn over the immediately winning g-pawn advance. The position demanded urgent action on the kingside (Rf1, g6, or Ne6) where mate in 4-15 was available, rather than addressing a threat that posed no real danger given White's massive material superiority.",
+  "best_moves_analysis": "Rf1 (mate in 4) is the most precise move, repositioning the rook to the f-file where it monitors the knight's retreat squares and supports the kingside mating plan; after Nd1, Ne6 creates an unstoppable promotion threat with g6-g7. The move g6 (mate in 14) immediately advances the passed pawn, and after Kg7, Ne6+ forks the king away from the queening square, allowing g7 to promote. Ne6 (mate in 15) similarly focuses on pawn promotion by threatening g6 immediately; if Kf7, g6+ forces Kxe6 and g7 promotes. All three best moves share the common theme of aggressively pushing the g-pawn with knight coordination, completely ignoring Black's irrelevant a-pawn."
+ },
+ {
+  "band": "upper",
+  "act": 7.13,
+  "fen": "8/6kp/6n1/3bq3/1pp5/6P1/1PQ3PP/2R4K w - - 4 47",
+  "played": "Kg1",
+  "best": "Qd2",
+  "motif": "king_safety",
+  "intent": "The player likely played Kg1 to bring the king off the back rank corner, perhaps intending to centralize it slightly or preemptively avoid any potential back-rank issues, feeling that the king would be safer on g1 with more escape squares available.",
+  "blunder_summary": "The blunder drops 272 centipawns (from -50 to -322), transforming a difficult but defensible position into a losing one. White had at least two good moves (Qd2 and Qf2) that maintained the balance, and the punishment after Kg1 is severe with one clearly devastating reply (Qe3+) plus additional strong options. The core error was moving the king to g1 where it becomes immediately vulnerable to diagonal checks, wasting a critical tempo that Black exploits to activate the knight to the crushing d3 outpost via Ne5.",
+  "best_moves_analysis": "47. Qd2 is the best move, relocating the queen to d2 where it covers key central and kingside squares while keeping an eye on the b4-pawn's advance. After 47...b3, White responds 48. Re1, seizing the open e-file and directly challenging Black's powerful queen on e5; following 48...Qf5, White plays 49. Qd4+ which delivers a check to the exposed Black king on g7, generating vital counterplay and maintaining the balance at -50. 47. Qf2 is essentially equal, placing the queen on f2 where it firmly guards the g1 square and the king's vicinity while controlling the a7-g1 diagonal; after 47...b3 48. h3 (strengthening the kingside pawn structure and denying the g4 square) 48...h5 49. Rd1, White repositions the rook to the d-file to pressure the bishop on d5, maintaining a near-equal evaluation at -53. 47. Ra1 is the third option but somewhat inferior (eval -128), moving the rook off the c-file preemptively; after 47...Qd4 48. h3 49...Ne5 49. Qe2, White tries to regroup but Black's knight reaches the powerful e5 outpost, making White's defensive task considerably harder than in the first two lines."
+ },
+ {
+  "band": "upper",
+  "act": 7.06,
+  "fen": "r1b2r2/p4p1k/1qp1pPp1/6Bp/1b3P1Q/3B4/PPP3PP/2KR3R b - - 1 18",
+  "played": "Ba6",
+  "best": "Kg8"
+ },
+ {
+  "band": "upper",
+  "act": 6.96,
+  "fen": "8/2b5/4k1p1/8/4Nn1P/8/r7/3K4 b - - 0 56",
+  "played": "Ng2",
+  "best": "Kf5"
+ },
+ {
+  "band": "upper",
+  "act": 6.72,
+  "fen": "6rk/5Q1p/p3p3/1p1pq1r1/6P1/P4pKP/5P2/5R2 w - - 0 36",
+  "played": "Kxf3",
+  "best": "Kh4",
+  "motif": "king_safety",
+  "intent": "The player likely intended to eliminate the dangerous passed pawn on f3, which was restricting White's pieces and threatening to become a promotion candidate, while perhaps hoping the king on f3 would be safe enough to coordinate a defense or that capturing the pawn would open the f-file favorably for the Rook on f1.",
+  "blunder_summary": "The move Kxf3 caused a catastrophic evaluation shift of 9426 centipawns, moving from a losing but playable position (-570) to forced checkmate in 4 moves (#-4). Only one move (Qf4) was within 50cp of the best evaluation, meaning the position was already on a knife's edge defensively. The core error was placing the king on an exposed central square (f3) where it becomes vulnerable to diagonal checks (Qe4+), file checks (Rf5+), and rook sacrifices (Rxg4+), rather than using the queen trade to defuse the attack.",
+  "best_moves_analysis": "36. Qf4 is the only survivable move, offering a queen trade by attacking Black's queen on e5. After 36...d4 37. Rd1 Qxf4+ 38. Kxf4, White trades queens and enters an endgame that is clearly lost (eval -570) but at least removes Black's most dangerous attacking piece, eliminating the immediate mating threats and allowing White to struggle on. 36. Kxf3 (the move played) removes the pesky f3-pawn but fatally exposes the king on an open square vulnerable to checks along the e4-diagonal and the f-file, leading to forced checkmate in 4 moves. 36. Kh4 is the worst option of all, as the king steps into a mating net where 36...Rxg4+ 37. hxg4 Qh2# delivers immediate checkmate \u2014 the king is trapped on h4 with no flight squares and the queen delivers mate from h2 supported conceptually by the open lines."
+ },
+ {
+  "band": "upper",
+  "act": 6.66,
+  "fen": "8/5p2/4p1k1/p2p4/P2N2PP/2r1n1K1/5R2/8 b - - 0 42",
+  "played": "Nd1+",
+  "best": "Nf5+"
+ },
+ {
+  "band": "upper",
+  "act": 6.52,
+  "fen": "r2q3B/ppp1n3/7k/3P3p/6bP/2PQ4/P1P5/R3R1K1 b - - 0 25",
+  "played": "Qxh8",
+  "best": "Nf5"
+ },
+ {
+  "band": "upper",
+  "act": 6.46,
+  "fen": "4r1k1/p4pp1/N1p4p/2Pp4/P2P2b1/6P1/1P3P1P/R5K1 b - - 0 22",
+  "played": "Be2",
+  "best": "Re2",
+  "motif": "tempo_loss",
+  "intent": "Black likely played Be2 hoping to activate the bishop aggressively on the second rank, potentially targeting f1/d1/d3/f3 squares and restricting White's rook from using the first rank freely, or possibly planning Bf3 to attack White's kingside pawns.",
+  "blunder_summary": "The move Be2 cost Black 199 centipawns, shifting the evaluation from a manageable +45 to a clearly losing +244. Black had at least 2 good alternatives (f6 and Bc8) that maintained near-equality, and while the primary punishment (Re1) is clearly strongest, Nb4 also works effectively. The core error was placing the bishop on the same file as Black's own rook, creating a self-interference that White exploits with Re1 \u2014 forcing the bishop to retreat while simultaneously enabling a favorable rook exchange that leaves White with a dominant knight and dangerous passed pawn.",
+  "best_moves_analysis": "The top move 22...f6 is a quiet prophylactic move that strengthens Black's kingside, denies squares, and prepares king activity with Kf7; after 23. Rc1 Kf7 24. Rc3 Bc8, Black repositions the bishop to c8 where it can challenge White's knight on a6 (via Bd7), keeping the position balanced at +45. The second-best move 22...Bc8 directly retreats the bishop to confront the a6 knight; after 23. Nb4 Bd7 24. Nd3 f6, Black achieves a solid setup where the bishop on d7 covers c6 and contests White's knight, keeping the disadvantage manageable at +80. The third option 22...Bd7 similarly reroutes the bishop to d7 immediately; after 23. f3 Bc8 24. Nb4 Bd7, the bishop oscillates on the c8-d7 diagonal while preventing White's knight from exploiting c6 effectively, holding at +106. All three best moves share a common theme: the bishop retreats to the queenside (c8 or d7) where it performs useful defensive work contesting the knight and protecting c6, while keeping the e-file clear for the rook."
+ },
+ {
+  "band": "upper",
+  "act": 6.39,
+  "fen": "2b3k1/8/5n2/p7/3pp1pP/1P3pP1/P5r1/3BRR1K b - - 3 33",
+  "played": "Rxg3",
+  "best": "e3"
+ },
+ {
+  "band": "upper",
+  "act": 6.35,
+  "fen": "8/8/2K3k1/1p2pp2/1Pp2P2/2B3P1/8/8 w - - 0 48",
+  "played": "Bxe5",
+  "best": "fxe5",
+  "motif": "passed_pawn",
+  "intent": "The player chose Bxe5 to eliminate Black's central e5 pawn while keeping the bishop active on a strong central diagonal, preserving the f4 pawn for structural purposes, and maintaining flexibility about how to win the queenside pawns with the king.",
+  "blunder_summary": "Despite being labeled for analysis, 48. Bxe5 incurs 0 centipawn loss and actually shifts the evaluation from +750 to +768, making it essentially equivalent to or marginally better than the engine's top choice of fxe5. Two moves were within 50cp of best, and all of Black's 'refutations' still leave White completely winning, meaning no actual punishment exists. The 'error,' if any, is purely theoretical\u2014Bxe5 trades a tiny amount of efficiency (keeping the bishop rather than creating an immediate passed pawn with fxe5) but the position is so winning that the distinction is meaningless.",
+  "best_moves_analysis": "The top move 48. fxe5 captures with the pawn, immediately creating a powerful passed e-pawn. After 48...Kh5 49. e6, the e-pawn races forward toward promotion while Black's king desperately heads to the kingside via g4 to target g3; White then plays 50. Kxb5, collecting Black's b-pawn and maintaining a decisive advantage at +750 thanks to the unstoppable e-pawn. The second-best move 48. Bxe5 captures with the bishop instead, keeping the f4 pawn intact and maintaining piece activity; after 48...Kh5 49. Kxb5 Kg4 50. Kxc4, White methodically devours both queenside pawns while Black can only chase the g3 pawn, reaching +723. The third option 48. Kxb5 ignores the e5 tension entirely to immediately gobble the b-pawn; after 48...e4 (Black advances while White's king is busy) 49. Kxc4 Kh5 50. b5, White creates a dangerous passed b-pawn and evaluates at +668, slightly less efficient but still completely winning."
+ },
+ {
+  "band": "upper",
+  "act": 6.27,
+  "fen": "1b4k1/5p2/2P1p1pp/3p4/2n5/1BP2PNP/6PK/8 b - - 2 33",
+  "played": "Ne5",
+  "best": "Na5"
+ },
+ {
+  "band": "upper",
+  "act": 6.22,
+  "fen": "2rqk2r/5pp1/p3pn1p/2bpNb2/7B/2Q5/PPPN1PPP/R3R1K1 w k - 0 16",
+  "played": "Qg3",
+  "best": "Qb3"
+ },
+ {
+  "band": "upper",
+  "act": 6.18,
+  "fen": "8/1pp2p2/p2p4/3P4/2P5/Pr5k/5R2/2B3K1 b - - 3 35",
+  "played": "Rb1",
+  "best": "Rc3",
+  "motif": "tempo_loss",
+  "intent": "Rb1 targets the bishop on c1, seemingly pinning or pressuring it against the back rank, likely hoping to win material or force the bishop into a passive position while maintaining pressure on a3.",
+  "blunder_summary": "By playing Rb1, Black abandoned the critical pressure on c4 and wasted a tempo attacking a piece that was easily defended. The rook becomes passive on b1 while White gains time to play Rf1 and Kf2, rapidly activating the king to support the passed d5-pawn, transforming a balanced position into a clearly winning one for White.",
+  "best_moves_analysis": "Rc3 (eval +24) is clearly the best move, directly attacking the c4 pawn and forcing White into a defensive response with Bd2, after which Rxc4 wins the pawn and Kg4 centralizes the king \u2014 maintaining full equality. Kg4 (eval +59) is also strong, proactively improving the king's position to a central square where it supports future rook activity and avoids potential back-rank or file-based tactics. Kg3 (eval +61) follows a similar logic of king activation, preparing to centralize while keeping options open for the rook. All three moves share the common theme of either immediately targeting White's weak c4-pawn or improving the king's activity \u2014 the critical resources Black needs to hold the balance."
+ },
+ {
+  "band": "upper",
+  "act": 6.16,
+  "fen": "2k5/1p1n4/p1nB4/3p4/P7/1PqP2Q1/2P3PP/5R1K b - - 8 34",
+  "played": "Nce5",
+  "best": "Qxc2",
+  "motif": "back_rank",
+  "intent": "Black likely played Nce5 to centralize the knight aggressively on e5, attacking White's powerful bishop on d6 and potentially threatening the d3 pawn, hoping to generate counterplay by undermining White's dominant piece. The knight on e5 also appears to coordinate with the queen on c3, but this move fatally ignored the knight's crucial defensive role on c6.",
+  "blunder_summary": "This blunder caused a catastrophic evaluation shift from +553 (White winning but no forced mate) to #+4 (forced checkmate in 4 moves), a loss of approximately 9443 centipawns. Black had at least three good alternative moves (Qh8, Nd8, d4) all within 50cp of each other that would have maintained the defensive structure without allowing immediate mate. The core error was removing the c6 knight\u2014the sole guardian of the e7 square\u2014which unlocked a devastating queen infiltration sequence via Qg8+ that led to forced mate through the now-undefended checking square e7.",
+  "best_moves_analysis": "The first best move, 34...Qh8, relocates the queen to h8 where it eyes the back rank against White's king on h1, and after 35. d4 Qe8 36. Qf2 Qe6, Black consolidates the queen to e6 where it covers critical squares and keeps the position stable (though still lost, at +553). The second option, 34...Nd8, retreats the knight from c6 to d8, which crucially still keeps e7 under observation and places the knight where it can support f7 or return to c6/e6; after 35. Qg4 b5 36. h3 Qc6, Black maintains defensive coordination at +570. The third option, 34...d4, pushes the central pawn forward to create counterplay and open lines for the queen, and after 35. Qg4 Qd2 36. Qg8+ Nd8, Black still has the knight available to block on d8 while the queen on d2 creates enough counter-threats to hold the position together (at +576). All three moves share the common thread of maintaining the defensive integrity of the e7 square and the 8th rank while not opening up the king to a fatal checking sequence."
+ },
+ {
+  "band": "upper",
+  "act": 6.11,
+  "fen": "8/N6p/1p6/P5P1/1P5P/2P1p1k1/4K3/8 b - - 0 39",
+  "played": "Kxh4",
+  "best": "bxa5",
+  "motif": "passed_pawn",
+  "intent": "Black played 39...Kxh4 to grab the h4-pawn and begin rolling up White's kingside, planning to subsequently take on g5 and create a passed h-pawn. The idea was to address the immediate kingside pawns, assuming the queenside could be dealt with later.",
+  "blunder_summary": "By capturing on h4 before addressing the queenside with 39...bxa5, Black committed a move-order error that allowed White to execute the axb6/b7 breakthrough, creating a nearly unstoppable passed pawn on the seventh rank supported by the knight. The 72cp loss stems entirely from White now having a far more dangerous promotion threat than would have existed with correct move order.",
+  "best_moves_analysis": "The best move 39...bxa5 eliminates the dangerous pawn tension on the queenside immediately: after 40. bxa5 Kxh4 41. Nb5 Kxg5, Black has neutralized White's kingside pawns and the resulting a5 passed pawn is far less threatening without the b-pawn breakthrough possibility. The key insight is that this move order prevents White from ever achieving axb6 followed by b7, which would place a pawn one square from promotion supported by the knight on a7. The second-best move 39...b5 also addresses the queenside but concedes the a-file to White after 40. a6, giving White a passed a-pawn that is further advanced. The played move 39...Kxh4 is third-best because while it grabs material, it ignores the critical queenside timing issue, allowing White to immediately execute the axb6/b7 breakthrough."
+ },
+ {
+  "band": "upper",
+  "act": 6.04,
+  "fen": "r1b2r2/pp3qp1/2p3p1/2k3B1/8/6Q1/PPP2PPP/5RK1 w - - 2 21",
+  "played": "Qe3+",
+  "best": "Qe5+",
+  "motif": "king_safety",
+  "intent": "The player likely intended to give an immediate check with Qe3+, hoping to drive the king further into danger and maintain attacking tempo. It appears to be a natural-looking aggressive move that directly targets the exposed king, but it fatally miscalculates which checking sequences actually trap the king versus which ones allow it to consolidate.",
+  "blunder_summary": "This blunder costs approximately 9837 centipawns \u2014 the difference between a forced mate in 15 moves and a position evaluated at merely +148, essentially squandering a guaranteed checkmate. There was essentially only one truly best move (b4+) within 50cp of optimal, making this a narrow decision point where the unique pawn-thrust idea was critical. The core error is giving a purposeless queen check that drives the king to a safer square (b5 without a pawn on b4 to cage it), instead of first using b4+ to restrict the king's flight squares and construct an inescapable mating net \u2014 a classic case of 'patzer sees a check, patzer gives a check' without calculating whether the check actually improves the position.",
+  "best_moves_analysis": "The best move, 21. b4+, is a brilliant pawn thrust that forces the king to b5 (the only legal square since b4 now controls a5 and c5 is vacated). After 22. Qd3+ Ka4 23. c4, White constructs an airtight mating net: the pawn on b4 cuts off escape to a5 and b5 is no longer available, the queen dominates from d3, and c4 seals additional flight squares \u2014 this leads to a forced mate in 15. The key insight is using pawns to restrict the king before delivering the queen checks, creating a cage from which there is no escape. The second-best move, 21. Be3+, uses the bishop to give check directly to the king on c5 while simultaneously clearing g5 and aiming at the a7-g1 diagonal. After Kb5 22. Qd6, White's queen infiltrates with devastating threats against Black's uncoordinated pieces, and after Qd5 23. Qxf8, White wins the exchange and a massive material advantage (eval +314) by capturing the rook on f8 while maintaining the attack. The third-best move, 21. Be7+, simultaneously attacks the king on c5 (via the diagonal) and threatens the rook on f8. After Kb6 22. Qe3+ Kc7 23. Qe5+, White maintains relentless checking pressure along diagonals and files, keeping the king permanently in danger while threatening to win material \u2014 this evaluates to +273, still an overwhelming advantage."
+ },
+ {
+  "band": "upper",
+  "act": 5.98,
+  "fen": "2kr1b1r/2p1qbp1/p1pp1n1p/4pP2/4N1PB/2PP1N1P/PP3P2/R2QK2R b KQ - 1 14",
+  "played": "g5",
+  "best": "d5",
+  "motif": "discovered_attack",
+  "intent": "With 14...g5, Black was almost certainly trying to chase away the dark-squared bishop from h4 (which pressures f6 and pins/threatens the knight), while simultaneously attempting to open the g-file for potential kingside counterplay against White's uncastled king. Black may have also hoped to gain space on the kingside and relieve the cramping effect of White's f5 pawn.",
+  "blunder_summary": "The move 14...g5 caused a catastrophic evaluation swing of 319 centipawns (from +163 to +482), transforming a manageable slight disadvantage into a nearly losing position. Black had at least three solid alternatives (d5, c5, Bd5) all within 33cp of each other, none of which exposed such vulnerabilities. The core tactical error was that advancing the g-pawn allowed an en passant capture (fxg6) that removed the g-pawn's defense of the f6 knight, enabling a devastating double attack by Bxf6 against both the queen on e7 and the rook on d8, winning the exchange outright.",
+  "best_moves_analysis": "The best move 14...d5 strikes at the center immediately, challenging White's powerfully placed knight on e4. After 15. Ng3 (the knight retreats as d5 undermines its support), Black continues 15...e4 pushing the e-pawn forward to attack the f3 knight and seize central space, forcing 16. Nd4 (the second knight also retreats), and then 16...Rd6 activates the rook along the third rank, giving Black dynamic counterplay while maintaining a solid structure. The second-best move 14...c5 gains queenside space and prepares a potential d5 break later; after 15. Qa4 (White activates the queen to target the a6 pawn), Black plays 15...Bd5 centralizing the bishop powerfully, and after 16. c4 Bb7 the bishop retreats to a safe diagonal while maintaining coverage of key central squares, leaving the position only slightly worse for Black at +185. The third option 14...Bd5 immediately centralizes the f7 bishop, contesting the long diagonal and challenging the e4 knight's dominance; after 15. Qa4 c5 16. c4 Bb7, Black reaches a similar structure to the second line with a manageable disadvantage of +196. All three moves share the common theme of actively fighting for central control rather than engaging in a risky kingside pawn advance."
+ },
+ {
+  "band": "upper",
+  "act": 5.94,
+  "fen": "5b2/Q4k2/3p1p1p/1Pp1pbpP/2P1P1P1/5P2/8/6K1 b - - 1 37",
+  "played": "Ke6",
+  "best": "Be7",
+  "motif": "king_safety",
+  "intent": "The player likely played Ke6 attempting to centralize the king, possibly to support the d6 pawn or the Bishop on f5, thinking that in a materially inferior position an active king would help coordinate the Bishops and pawns in a defensive or counterattacking setup. The player evidently failed to recognize that e6 is a fatal square due to the pawn capture discoveries on f5.",
+  "blunder_summary": "This blunder resulted in a catastrophic evaluation shift from +652 (a lost but playable position) to checkmate in one move (#+1), a loss of approximately 9347 centipawns. Only one move (Kg8) kept Black alive without being in a forced mating sequence, meaning the position was already extremely difficult, but Ke6 was uniquely disastrous because it allowed not just one but two immediate checkmates (exf5# and gxf5#) plus other winning continuations. The core tactical error was moving the king onto a square fatally vulnerable to a pawn capture on f5, where Black's own pawn structure and White's Queen coverage created a perfect mating net.",
+  "best_moves_analysis": "The best move, 37...Kg8, retreats the king to the back rank where it is safe from any pawn-capture-checkmate patterns; after 38. exf5 (capturing the Bishop), d5 39. Qb7 dxc4, Black loses the Bishop but the king on g8 is far from danger, leaving White up roughly 6.5 pawns in evaluation but with no forced mate\u2014Black can still resist. The second-best move, 37...Be7, develops the dark-squared Bishop to a more active square covering key flight squares; after 38. exf5 d5 39. cxd5 Kf8, Black's king retreats to relative safety on f8, but White still has a forced mate in 17 moves due to the overwhelming positional and material advantage. The third option, 37...Bd7, moves the light-squared Bishop off f5 to d7, removing it from the pawn captures' threat; after 38. Qxd7+ Be7 39. b6 f5, White captures the Bishop with check and pushes the b-pawn, leading to a forced mate in 14 moves. All three moves share the critical theme of either moving the king away from e6 or removing the Bishop from f5 so that exf5/gxf5 cannot deliver check or mate, with only Kg8 genuinely prolonging meaningful resistance."
+ },
+ {
+  "band": "upper",
+  "act": 5.9,
+  "fen": "8/8/2K5/8/k2p4/8/8/8 w - - 0 59",
+  "played": "Kc5",
+  "best": "Kd5",
+  "motif": "passed_pawn",
+  "intent": "The player chose Kc5 to approach the d4-pawn as directly as possible, stepping onto the c5 square where it simultaneously threatens to capture on d4 (if Black wastes a tempo) and positions itself on the pawn's diagonal path toward the promotion square, hoping to set a practical trap for Black.",
+  "blunder_summary": "This is actually not a blunder at all\u2014Kc5 is the engine's top recommendation with 0cp loss. The position is objectively lost for White (approximately -562cp), and all three best moves lead to the same hopeless evaluation. However, Kc5 is the most practically challenging choice because it forces Black to find the one precise continuation (d3) while offering two tempting but drawing alternatives (Kb3 and Ka3), making it the optimal try in a lost position.",
+  "best_moves_analysis": "All three best moves evaluate identically at -562cp, reflecting that the position is lost for White regardless of the king's retreat path. First, 59. Kc5 moves the king diagonally toward d4, aiming to block or capture the pawn; after 59...d3 60. Kd4 d2 61. Ke4, White's king arrives too late\u2014the pawn on d2 will promote on the next move and White cannot reach d1 or e1 in time. Second, 59. Kd5 takes a direct route toward the pawn; after 59...d3 60. Ke4 d2 61. Kf4, the king drifts even further from the promotion square d1, confirming the pawn cannot be caught. Third, 59. Kd6 moves the king farther from the pawn but might aim for a longer interception arc; after 59...Kb3 60. Ke5 d3 61. Ke4, White gets close to d3 but Black's king on b3 is well-placed to escort the pawn, and the pawn still promotes. In all three lines, the d-pawn is simply too far advanced and too well-supported for White's distant king to intercept."
+ },
+ {
+  "band": "upper",
+  "act": 5.85,
+  "fen": "r6k/6b1/p2p2qp/1p2p3/1P2P1p1/4N1K1/P1P3P1/8 b - - 1 31",
+  "played": "h5",
+  "best": "Qxe4",
+  "motif": "king_safety",
+  "intent": "The move h5 prepares h4+ or h4-h3 breakthroughs, leveraging the queen-bishop battery along the dark-square diagonal and the advancing kingside pawns to construct an inescapable mating net around White's exposed king on g3.",
+  "blunder_summary": "This is not a blunder at all\u2014h5 loses 0 centipawns and actually upgrades Black's position from a dominant advantage (-952) to a forced checkmate in 17. The player found the most precise attacking continuation, converting positional dominance into a mating attack.",
+  "best_moves_analysis": "The top move 31...Qxe4 wins the central pawn cleanly, and after 32.Nxg4 h5, the knight is trapped on g4 with h5 coming, leading to a crushing -952 evaluation. 31...d5 breaks open the center, creating threats of discovered attacks and central pawn advances that overwhelm White's fragile position. 31...h5, the move played, is the most aggressive and forcing option\u2014it prepares to advance the h-pawn to h4, cracking open the king's position, and supports the g4-pawn's advance to g3. Remarkably, h5 leads to a forced checkmate in 17 moves, which is objectively even stronger than the -952 static evaluation of Qxe4, hence the 0 centipawn loss."
+ },
+ {
+  "band": "upper",
+  "act": 5.8,
+  "fen": "3q1rk1/p1pbbppp/1rnp1n2/4p3/Q1P5/2N1P1P1/PP1PNPBP/R1B1K2R b KQ - 4 10",
+  "played": "Nd4",
+  "best": "Nb4",
+  "motif": "tempo_loss",
+  "intent": "10...Nd4 aims to centralize the knight aggressively, clearing the c6 square and opening the d7-bishop's diagonal to a4, thus threatening to win White's queen with Bxa4. It also eyes a potential Nc2+ fork.",
+  "blunder_summary": "Black chose the wrong knight move to attack the queen. While Nd4 threatens Bxa4, this single threat is trivially met by Qd1. The superior 10...Nb4 created an unstoppable dual threat (attacking the queen AND threatening Nd3+ fork on the uncastled king), which White had no adequate defense against \u2014 a 345cp difference between the two knight moves.",
+  "best_moves_analysis": "The star move 10...Nb4 (eval -262) attacks the queen on a4 while simultaneously threatening the devastating Nd3+ fork on the uncastled king \u2014 a dual-purpose move that White cannot adequately address. After 11. Qd1 Bf5 12. e4 Nd3+, Black's knight infiltrates with check, creating havoc. The second-best move 10...d5 (eval -131) is a classical central break that challenges c4 and opens lines while the white king is still in the center; after O-O Nb4, Black transposes into a favorable version. The third option 10...Rb4 (eval +35) is merely adequate \u2014 it harasses the queen and wins the c4 pawn but without the dynamic punch of Nb4, allowing White to equalize after castling."
+ },
+ {
+  "band": "upper",
+  "act": 5.7,
+  "fen": "r7/pp1k4/3Pp1P1/3pP3/5R2/PP5b/1BPK3P/8 b - - 0 32",
+  "played": "Rg8",
+  "best": "Bf5"
+ },
+ {
+  "band": "upper",
+  "act": 5.67,
+  "fen": "r4rk1/p2b1ppp/2p1q3/1pR1B3/3Pp3/4P3/P1Q2PPP/1R4K1 w - - 4 19",
+  "played": "Qxe4",
+  "best": "a4"
+ },
+ {
+  "band": "upper",
+  "act": 5.63,
+  "fen": "rn2kbQ1/pb3p2/2p1p3/1p2P3/2PP1P2/1B4P1/PP2q2P/R1B2RK1 w q - 1 21",
+  "played": "cxb5",
+  "best": "f5",
+  "motif": "tempo_loss",
+  "intent": "White played cxb5 to win the b5 pawn and open the c-file, treating the position as a material contest rather than recognizing the urgent need to maintain attacking pressure against Black's vulnerable centralized King.",
+  "blunder_summary": "White squandered a winning attack by spending a tempo on the materialistic cxb5 instead of the crushing 21. f5, which would have blown open Black's King position. The wasted tempo allowed Black to recapture, stabilize the center, and neutralize White's attacking pressure, reducing a +479 advantage to merely +60.",
+  "best_moves_analysis": "The top move 21. f5 (+479) is a devastating pawn thrust that attacks e6, threatens to rip open lines against Black's uncastled King, and empowers the b3 Bishop's diagonal \u2014 after c5 22. d5 Nc6 23. Bg5, White has overwhelming pressure with multiple pieces converging on the King. The second-best move 21. Bd1 (+424) is a tempo-gaining retreat that forces Black's Queen to commit while enabling the stunning sequence Bh5 followed by Qxf7+, exploiting the King's central position. The third option 21. Rf2 (+398) pragmatically neutralizes Black's Queen activity while preparing to resume the f5 advance. All three moves prioritize maintaining the initiative and exploiting Black's King vulnerability rather than pursuing material gains."
+ },
+ {
+  "band": "upper",
+  "act": 5.51,
+  "fen": "3NQ3/6pp/1kp5/4N3/p1Pn4/P2P2Pb/1PK1P2P/4R2R w - - 3 29",
+  "played": "Kc1",
+  "best": "Kc3"
+ },
+ {
+  "band": "upper",
+  "act": 5.44,
+  "fen": "4rrk1/1b1p1pp1/pp5p/2p1Pq2/5P2/1PN1Q3/PP3P1P/2KR2R1 w - - 4 24",
+  "played": "Qd2",
+  "best": "Rd6",
+  "motif": "tempo_loss",
+  "intent": "The player likely intended Qd2 to reposition the queen behind the d-file rook, perhaps envisioning doubled heavy pieces on the d-file or preparing to centralize pressure on d7, while also potentially connecting the queen with king-side defense. It may also have been a 'flexible' regrouping move, intending to keep options open.",
+  "blunder_summary": "The 254 centipawn loss (from +147 to -107) represents a complete swing from a winning advantage to a losing position. Only one move (Qg3) maintained the full advantage within 50cp of the best, so this was a position demanding precise play. The core error is a critical tempo loss: by retreating the queen to the passive d2 square, White abandons control of the e3-g3 attacking corridor and leaves the d1-rook tactically exposed to Black's Bc6-f3 maneuver, transforming Black's previously defensive bishop into a dominating piece that disrupts White's entire coordination.",
+  "best_moves_analysis": "The top move 24. Qg3 keeps the queen supremely active, eyeing the g7-pawn and the entire kingside. After g6 (Black weakens the light squares to prevent Qg3-based threats), White plays 25. Rd6 lifting the rook to attack both d7 and b6 while dominating the sixth rank, and after 25...Re6 attempting to contest, 26. Rxd7 wins the d-pawn cleanly with a dominant position (+147). The second-best move 24. f3 is more positional, solidifying the pawn chain and supporting e5 permanently; after 24...d5 (Black's attempt to challenge the center), 25. Nxd5 Bxd5 26. Rxd5 leaves White with a powerfully centralized rook on d5 and a comfortable advantage (+41). The third option 24. Rd6 immediately activates the rook to the sixth rank, pressuring b6 and d7; after 24...f6 (trying to undermine e5), 25. Qg3 keeps attacking momentum toward the kingside, and after 25...Re7 26. Qh4 White targets the h6-pawn with ongoing pressure (+14). All three moves share the common theme of maintaining White's initiative and keeping pieces aggressively placed."
+ },
+ {
+  "band": "mid",
+  "act": 5.19,
+  "fen": "2r2rk1/pp3pbp/1q2b1p1/4p3/8/2P1PB2/PP2Q1PP/R1N2RK1 w - - 6 17",
+  "played": "Nd3",
+  "best": "Nb3"
+ },
+ {
+  "band": "mid",
+  "act": 5.18,
+  "fen": "4rnk1/ppqr1pp1/4b2p/4P3/2PB4/P1QB4/4R1PP/R5K1 w - - 3 23",
+  "played": "Bxa7",
+  "best": "Bf2",
+  "motif": "trapped_piece",
+  "intent": "White played Bxa7 to win a free pawn on a7, likely reasoning that the bishop would remain active on the a7-b8 diagonal and that the material gain would be worth the bishop's temporary displacement from the center.",
+  "blunder_summary": "This blunder costs 323 centipawns, transforming a nearly equal position (-43) into a lost one (-366). White had at least two strong moves (Rd2 and Bf2) that maintained the balance, but instead chose a pawn grab that fatally displaced the dark-squared bishop to a7 where it becomes trapped by ...b6. The core error is failing to recognize that the a7-g1 diagonal allows Black's queen to deliver check from b6 after recapturing the bishop, making the entire combination tactically forced and devastating.",
+  "best_moves_analysis": "The first best move, 23. Rd2, contests the open d-file by placing White's rook opposite Black's rook on d7; after Red8 24. Be3, White repositions the d4 bishop to a safer but still active square, and after Ng6 25. Bxg6, White trades the passive d3 bishop for Black's activating knight, maintaining equilibrium at -43. The second best move, 23. Bf2, retreats the d4 bishop to f2 where it remains useful for king defense and diagonal control; after Rc8 24. Ree1 Ng6 25. Bxg6, a similar bishop-for-knight exchange keeps the position level at -44. The third best move, 23. Be3, also repositions the bishop to a safer square, though after b5 24. c5 Rxd3 25. Qxd3, Black gains some initiative by capturing the d3 bishop, leading to a slightly worse position for White at -111. All three best moves share the common theme of keeping the dark-squared bishop safe while maintaining central control and coordination."
+ },
+ {
+  "band": "mid",
+  "act": 5.17,
+  "fen": "r4k2/1p2R2p/2p3p1/p4p2/P2P3P/1qP5/1P2QPP1/6K1 w - - 1 29",
+  "played": "Rc7",
+  "best": "Qe5"
+ },
+ {
+  "band": "mid",
+  "act": 5.09,
+  "fen": "r5k1/p4pp1/3Q3p/4p3/2P1b1q1/1P6/P5N1/3R2K1 w - - 2 35",
+  "played": "Qd2",
+  "best": "Rd2",
+  "motif": "hanging_piece",
+  "intent": "The player likely intended to consolidate by bringing the queen back to defend the second rank and connect with the rook, perhaps hoping to create a defensive fortress or prepare to use the d-file collaboratively with both heavy pieces on d1/d2. The retreat may also have been motivated by a desire to protect the g2 knight indirectly or avoid perceived threats against the queen on d6.",
+  "blunder_summary": "The move Qd2 cost 153 centipawns, dropping the evaluation from -459 to -612. Only one move (Rd2) was within 50cp of the best option, making this a position demanding precision. The core error was retreating the queen from its active post on d6 \u2014 where it generated back-rank threats and tactical counterplay that prevented Black from freely capturing the g2 knight \u2014 to the passive d2 square where it threatens nothing, allowing Black to win the knight with ...Bxg2 without any tactical consequences.",
+  "best_moves_analysis": "The best move, 35. Rd2, keeps the queen on its powerful d6 outpost where it generates constant tactical threats \u2014 particularly Qd8+ back-rank ideas and pressure on f7. After 35. Rd2 Re8 36. Qd7 Re6 37. Qd8+, White maintains active counterplay; the queen on d7/d8 harasses Black relentlessly, and the back-rank threats prevent Black from simply grabbing the knight on g2, because any tempo spent on ...Bxg2 allows White's queen to exploit the back rank. The second option, 35. Qd2 (the move played), retreats the queen to a passive square where it generates no threats, allowing Black to capture the knight freely \u2014 after 35... Bxg2 36. Kf2 Be4 37. c5, Black is up a full piece with a dominating position. The third option, 35. Qd8+ Rxd8 36. Rxd8+ Kh7 37. Rd2, trades queens and enters a hopeless endgame where Black's bishop and queen(less) advantage is overwhelming; White eliminates counterplay entirely by exchanging the most active piece. The critical distinction is that only Rd2 preserves the queen's activity on d6, which is the sole source of White's counterplay in this difficult position."
+ },
+ {
+  "band": "mid",
+  "act": 5.08,
+  "fen": "r4rk1/p1pp1ppp/bpn5/4P3/1b2PB2/1N3N2/P1R2PPP/2R3K1 b - - 3 15",
+  "played": "Ba3",
+  "best": "Bd3",
+  "motif": "tempo_loss",
+  "intent": "The player likely moved 15...Ba3 to attack White's rook on c1 along the a3-b2-c1 diagonal, hoping to disrupt White's doubled rooks on the c-file and create tactical pressure. The intent may also have been to misplace White's rook or win material, but this bishop maneuver targets the wrong piece with the wrong bishop.",
+  "blunder_summary": "The move 15...Ba3 cost Black 198 centipawns, dropping the evaluation from -371 to -173 \u2014 nearly halving Black's advantage. There was only one truly good move (Bd3) within 50cp of the best, making this a position where precision was critical. The core error was moving the wrong bishop to a passive rim square (a3) that merely threatens a rook that can easily relocate, instead of the crushing 15...Bd3 which wins the exchange outright by attacking the trapped rook on c2 \u2014 Black chose a superficially aggressive move that wasted a critical tempo and missed a concrete tactical blow.",
+  "best_moves_analysis": "The best move 15...Bd3 is a devastating infiltration by the light-squared bishop from a6 to d3, directly attacking the rook on c2 and also threatening the e4-pawn. After 16.Nbd4 (the knight jumps to d4 to block and simultaneously threaten the c6-knight), Black plays 16...Bxc2 capturing the rook, and after 17.Rxc2 Nd8, Black has won the exchange cleanly (bishop for rook) and retreats the knight from c6 to d8 to avoid the threat from the d4-knight \u2014 Black emerges a full exchange up with a dominating position. The second-best move 15...f5 takes a more positional approach, challenging the e4-pawn and opening the f-file; after 16.exf5 Rxf5 Black's rook becomes very active on the open f-file, and 17.g3 Bd3 follows up with the same infiltrating bishop idea to d3, attacking the rook on c2 \u2014 though White has had time to capture on f5, making the advantage less decisive at -218. The third option 15...f6 attacks White's e5-pawn from the base; after 16.a3 (kicking the b4-bishop) fxe5 17.Bxe5 Be7, Black has eliminated White's strong central e5-pawn and repositioned the bishop, maintaining a clear advantage of -217 with better piece coordination and pawn structure."
+ },
+ {
+  "band": "mid",
+  "act": 5.05,
+  "fen": "6k1/2q2pp1/1p2p2p/p2n4/8/PQ3N1P/5PP1/6K1 w - - 1 32",
+  "played": "Nd4",
+  "best": "Qb5",
+  "motif": "hanging_piece",
+  "intent": "32. Nd4 aims to centralize the knight aggressively, blockading the d-file and potentially threatening forks on c6/e6/f5, while seemingly challenging Black's well-placed knight on d5. White likely hoped the centralized knight would provide counterplay.",
+  "blunder_summary": "White placed the knight on an undefended square (d4) where it could be won through a tactical check sequence: Qc1+ forces the king to h2, then Qf4+ attacks both king and knight, and after White blocks with Qg3, the knight is captured for free. The knight on f3 was performing a vital defensive role guarding the kingside and was itself protected; removing it to an exposed outpost without support cost a full piece.",
+  "best_moves_analysis": "32. a4 is the best move, a quiet prophylactic pawn push that prevents ...b5 expansion ideas and keeps White's position as solid as possible while maintaining the knight on f3 where it guards key squares and remains defended; after Qc1+ Kh2, Black has no devastating follow-up. 32. Qa4 is equally viable, inviting a queen trade via Qf4+ Qxf4 that leads to a difficult but defensible knight endgame for White. 32. Nd2 retreats the knight to safety, potentially rerouting to c4 or e4, while accepting a passive but stable position. The common thread is that all three moves either keep the knight defended or avoid placing it on a vulnerable square where it can be tactically won."
+ },
+ {
+  "band": "mid",
+  "act": 5.01,
+  "fen": "1k1r2nr/pp2Ppbp/6p1/3P4/1P1qPBb1/2N2N2/P5PP/2R1KB1R b K - 0 15",
+  "played": "Ka8",
+  "best": "Kc8"
+ },
+ {
+  "band": "mid",
+  "act": 4.99,
+  "fen": "8/p7/1p2kp2/3p2pK/P2n4/6P1/5P2/8 b - - 1 37",
+  "played": "Nc2",
+  "best": "a6"
+ },
+ {
+  "band": "mid",
+  "act": 4.92,
+  "fen": "r1bq1rk1/ppppbp1p/2n2np1/4p3/4P3/2NPBP2/PPP1Q1PP/2KR1BNR b - - 1 7",
+  "played": "Nb4",
+  "best": "d5"
+ },
+ {
+  "band": "mid",
+  "act": 4.9,
+  "fen": "5q1k/p1r3p1/4p1Q1/Pp3p1P/5P2/1bp1B3/3p1K2/R5R1 w - - 2 38",
+  "played": "Bd4",
+  "best": "h6",
+  "motif": "passed_pawn",
+  "intent": "The player likely moved 38. Bd4 to place the bishop on the long a1-h8 diagonal, targeting the g7 pawn and the black king on h8, possibly intending to support a future h6 push with extra pressure on g7, or to blockade the d-pawn while maintaining attacking chances.",
+  "blunder_summary": "The move 38. Bd4 caused a catastrophic 383-centipawn evaluation drop from +281 (winning) to -102 (losing), squandering a decisive advantage. Only one move (h6) was within 50 centipawns of the best, making this a position where a single precise move was required, and after Bd4, Black has one clear best punishment (38...c2) while other moves also yield advantage. The core error is a fatal tempo loss \u2014 White needed to create an immediate kingside crisis with h6 to outrun Black's promotion threats, but instead spent a move repositioning the bishop, giving Black time to advance the c-pawn to the seventh rank where the twin promotion threats become unstoppable.",
+  "best_moves_analysis": "The best move, 38. h6, is a time-critical breakthrough that attacks g7 and threatens to rip open Black's king cover. After 38...Kg8 (forced, as 38...gxh6 allows devastating mating attacks), 39. Qh5 puts the queen on a dominating square threatening Qg6+ and mate, and when Black promotes with 39...d1=Q, White simply captures 40. Raxd1 and has neutralized the promotion threat while maintaining an overwhelming kingside attack (eval +281). The second-best option, 38. Ke2, addresses the d2-pawn directly by stepping the king toward safety and off the dangerous f2 square; after 38...Bc4+ 39. Kf2 Qf6 40. h6, White eventually gets the h-pawn push in but has spent time shuffling the king, leading to a roughly equal position (eval -5). The third option, 38. Rg3, uses the rook to defend along the third rank while keeping mating threats alive; after 38...Qf6 39. Qe8+ Kh7 40. Qg6+, White forces a perpetual check sequence, ensuring at least a draw (eval -19). The critical insight is that only 38. h6 wins \u2014 it's the only move that combines attack and defense by creating threats so severe that Black cannot afford to promote."
+ },
+ {
+  "band": "mid",
+  "act": 4.84,
+  "fen": "r1bq1b1r/pppp1Qp1/2nk1n1p/8/2BpPB2/8/PPP2PPP/RN2K2R b KQ - 7 9",
+  "played": "Ne5",
+  "best": "Kc5"
+ },
+ {
+  "band": "mid",
+  "act": 4.78,
+  "fen": "8/7p/4Nkp1/1p6/5P2/7P/p5PK/1r6 w - - 2 38",
+  "played": "Nd4",
+  "best": "Ng5",
+  "motif": "tempo_loss",
+  "intent": "The player likely intended to centralize the knight on d4 with a follow-up plan of Nf3, creating a compact defensive setup to resist Black's promotion and rook activity while maintaining some kingside pawn structure cohesion.",
+  "blunder_summary": "The centipawn loss of 62cp (from -777 to -839) represents a small but meaningful inaccuracy in a lost position where only two moves were within 50cp of the best. The core error is a tempo issue: Ng5 forces the Black king to spend a move retreating from f6, delaying promotion by one critical tempo, while Nd4 poses no immediate threat to the king, allowing Black to promote at once with a better-coordinated position. While the position was already lost, this tempo difference means White faces a queen plus rook combination with less defensive organization.",
+  "best_moves_analysis": "The best move 38. Ng5 attacks the Black king directly on f6, forcing 38...Ke7 as the king must retreat, costing Black a crucial tempo before promoting. After 39. Kg3 White improves king centralization, and only then does Black promote with 39...a1=Q, followed by 40. Nf3 where the knight returns to a solid defensive post. The key advantage of Ng5 is the tempo gained by harassing the king. The second-best move 38. Nd4 (the move played) is only slightly worse at -792; it repositions the knight centrally with ideas of Nf3, but critically does not attack the Black king, meaning Black can promote immediately with 38...a1=Q without spending a move retreating. After 39. Nf3 Ke7 40. h4, White has a marginally worse version of the defensive setup because Black's queen is already active. The third option 38. Nf8 sends the knight away from the action toward h7/g6, and after 38...a1=Q 39. Nd7+ Ke7 40. Ne5, White gets a check and brings the knight to e5, but the knight's journey is too circuitous and Black's position is more consolidated at -846."
+ },
+ {
+  "band": "mid",
+  "act": 4.75,
+  "fen": "r3k2r/bppq1pp1/p2p3p/P3p1n1/2P1P3/3PB1Nb/BP3PP1/R2Q1RK1 w kq - 0 16",
+  "played": "Bxg5",
+  "best": "Bxa7",
+  "motif": "positional_mistake",
+  "intent": "White likely played Bxg5 to eliminate Black's actively-placed knight on g5, which was threatening to participate in a kingside attack and was putting pressure on White's position. White may have also believed that simplifying pieces would relieve the pressure, not fully appreciating the critical defensive role the e3 bishop was playing.",
+  "blunder_summary": "The move Bxg5 caused a catastrophic 242-centipawn evaluation swing (from -44 to -286), transforming a nearly equal position into a decisively worse one. Only one good move (gxh3) existed within 50cp of best, meaning the position was already critical and demanded precise handling of the h3 bishop threat. The core error was removing the e3 bishop\u2014a vital defensive piece that controlled the d4 square and blocked the a7-g1 diagonal\u2014which allowed Black's a7 bishop to exploit the now-open long diagonal and ultimately win the a1 rook after the b-pawn advanced.",
+  "best_moves_analysis": "The best move, 16. gxh3, directly eliminates Black's dangerous bishop on h3 by capturing it with the g-pawn. After 16...Bxe3 (Black's a7 bishop captures the now-available e3 bishop) 17. fxe3 Qxh3 18. Qe1, White has traded off the main attacking piece and stabilized; although Black's queen reaches h3, White's Qe1 provides flexible defense and the eval is only -44. The second-best move, 16. c5, ignores the immediate tactical tension and instead launches queenside play; after 16...Bg4 17. Qc2 c6 18. b4, White expands on the queenside with a space advantage there, accepting a slightly worse but manageable position at -96. The third option, 16. Nf5, places the knight on a dominant outpost attacking g7 and d6; after 16...g6 17. Nh4 (the knight retreats but targets the weakened h3 bishop) Bxe3 18. fxe3, White has somewhat clunky pawns but the position is playable at -181, still far better than what occurs after the blunder."
+ },
+ {
+  "band": "mid",
+  "act": 4.73,
+  "fen": "r1bqk1nr/3np1bp/5pp1/1p1pP3/p1pP1P2/2P1BNPB/PP1NQ2P/R4RK1 w kq - 0 13",
+  "played": "a3",
+  "best": "f5"
+ },
+ {
+  "band": "mid",
+  "act": 4.66,
+  "fen": "4r3/p1p3k1/1p2prp1/4Q2R/2qP1P2/8/PPP5/2K3R1 w - - 0 31",
+  "played": "Qg5",
+  "best": "Rhg5",
+  "motif": "king_safety",
+  "intent": "The player likely intended Qg5 to increase pressure on the g6 pawn and set up threats like Qh6+ or Rxg6+, thinking the queen on g5 would be more active in the attack. They may have also wanted to threaten Qd8 or simply add another attacker to the kingside.",
+  "blunder_summary": "This blunder represents a staggering 9818 centipawn loss, converting a forced mate in 4 into a mere +178 advantage \u2014 essentially throwing away a completely won game. White had two clearly winning moves (Rxg6+ and Rh7+, both forced mates) yet chose the slow and purposeless Qg5, which moves the queen away from the critical e5 square where it was essential to the mating pattern. The core error was choosing a 'threatening-looking' move over a concrete, forcing rook sacrifice that immediately exploited the exposed king, giving Black crucial tempo to organize defenses.",
+  "best_moves_analysis": "The first and best move, 31. Rxg6+, is a brilliant rook sacrifice that demolishes Black's last pawn shield: after Kxg6, the queen delivers 32. Qg5+ forcing the king to f7 (the only legal square since g7 and h6 are covered), and then 33. Rh7+ is devastating because after Kg8 White has Qg7# and after Ke8 White has Qg8+ Rf8 Qxf8#, concluding a forced mate in 4. The second-best move, 31. Rh7+, is another rook sacrifice \u2014 after Kxh7, White plays 32. Qxf6 threatening the unstoppable Qg7#; Black's desperate attempt 32...Qf1+ is met by 33. Rxf1 and White still has a forced mate in 5, as the threats of Qg7+ or Rf7+ cannot both be parried. The third option, 31. Rh6, is quieter but still crushingly strong at +717: the rook swings to attack g6 laterally, and after 31...Re7 32. Rhxg6+ Kf7 33. Rg8 White invades with decisive material advantage and attack, though this doesn't force an immediate mate like the first two options."
+ },
+ {
+  "band": "mid",
+  "act": 4.62,
+  "fen": "5N2/6R1/7p/3p1pk1/p3p1P1/7P/3q1P2/1Q4K1 b - - 0 40",
+  "played": "Kf4",
+  "best": "Kh4"
+ },
+ {
+  "band": "mid",
+  "act": 4.61,
+  "fen": "rn1qr1k1/3bppbp/6p1/2p1P3/1p5P/4QN2/1PP2PP1/1NKR1B1R w - - 0 18",
+  "played": "Qxc5",
+  "best": "h5",
+  "motif": "tempo_loss",
+  "intent": "18. Qxc5 aims to win Black's c5-pawn, presumably calculating that the material gain is safe and that the queen remains active on c5 controlling key squares.",
+  "blunder_summary": "White's queen grab on c5 squanders a powerful attacking position for a mere pawn, placing the queen on an exposed square vulnerable to tempo-gaining attacks (Ra5, Qa5). The resulting loss of initiative transforms White's +188 advantage into a -156 deficit, as Black seizes the open lines and gains rapid development with threats against White's king.",
+  "best_moves_analysis": "The top move 18. e6! is a powerful pawn sacrifice that shatters Black's kingside pawn structure (fxe6), after which Bb5 pins/targets the e8 rook and creates multiple threats; White retains a commanding +188 advantage. This move exploits the key dynamic factor: White's attacking potential against the black king is far more valuable than material considerations. The second-best move 18. h5 maintains a slight edge by probing the kingside directly, threatening to open the h-file with hxg6. The third option 18. Ng5 targets the weakened kingside squares and eyes e6/f7, keeping a smaller but stable advantage. All three best moves share a common theme: maintaining pressure on Black's king rather than grabbing material."
+ },
+ {
+  "band": "mid",
+  "act": 4.58,
+  "fen": "r1bq1rk1/pp3ppp/3p4/2p5/2P1P3/P1NPP2P/1P2Q3/2KR2R1 b - - 0 18",
+  "played": "Bxh3",
+  "best": "Be6",
+  "motif": "trapped_piece",
+  "intent": "The player was likely trying to win the h3 pawn while activating the dormant c8-bishop, perhaps reasoning that capturing a flank pawn while opening a diagonal for the bishop was efficient development with material gain. They may have underestimated how quickly White's queen and g1-rook could coordinate on the newly opened h-file.",
+  "blunder_summary": "The move lost 380 centipawns, shifting the evaluation from a nearly equal +73 to a crushing +453 advantage for White. Three good moves existed within 50cp of the best (f6, Be6, Bd7), all involving sensible development or kingside reinforcement rather than material grabs. The core error was sending the bishop to h3 where it became trapped \u2014 White's queen and rook coordinate effortlessly on the h-file to recover the piece while simultaneously building an overwhelming attack against Black's exposed king.",
+  "best_moves_analysis": "18...f6 is the best move, solidifying Black's kingside pawn structure by covering the g5 and e5 squares, ensuring White cannot easily break through on the kingside; after 19. Qh2 a6 20. d4 cxd4, Black maintains the balance and begins counterplay on the queenside by preparing b5 pushes. 18...Be6 develops the dormant c8-bishop to an active square where it pressures the c4 pawn and supports central control; after 19. Qg2 g6 20. h4 Qe7, Black is braced for White's kingside pawn storm while keeping the position solid. 18...Bd7 is a more modest development of the bishop that still activates the piece and connects the rooks; after 19. Qg2 g6 20. h4 f6, Black builds a fortress on the kingside with pawns on f6 and g6 holding firm against White's advancing h-pawn. All three moves share the theme of either fortifying the kingside or developing the bishop to a safe, useful square rather than lunging for material."
+ },
+ {
+  "band": "mid",
+  "act": 4.53,
+  "fen": "2k5/2pb4/p5p1/7p/1P1p4/6PK/P2R1R1P/4r3 w - - 0 34",
+  "played": "Kg2",
+  "best": "Kh4",
+  "motif": "tempo_loss",
+  "intent": "Kg2 aimed to centralize the king and move it out of its exposed position on h3, likely intending to support the rooks from a safer square while keeping open the option to push kingside pawns.",
+  "blunder_summary": "By playing Kg2, White placed the king on the a8-h1 diagonal, allowing Black's bishop to activate with tempo via Bc6+. This effectively wasted a move since the king must retreat to h3, while Black gains free piece activation and the ability to restrict White with ...g5. Kh4 avoided the diagonal entirely and maintained White's significant advantage.",
+  "best_moves_analysis": "34. Kh4 (eval: +206) is the clear best move, stepping the king to a square that avoids the a8-h1 diagonal entirely while keeping it active; after Re5, White plays Rf8+ Kb7 and Rxd4, cleanly winning the passed pawn with a dominant position. 34. Kg2 (eval: +57) moves the king centrally but fatally places it on the long diagonal, inviting Bc6+ with tempo and allowing Black significant counterplay. 34. g4 (eval: -9) is the worst option, weakening the kingside pawn structure and after Re4, Black's rook becomes powerfully centralized while White's king remains exposed. The key distinction between Kh4 and Kg2 is that Kh4 keeps the king off dangerous diagonals while maintaining White's initiative to attack the d4-pawn."
+ },
+ {
+  "band": "mid",
+  "act": 4.51,
+  "fen": "r7/p4k1p/1p2b2r/2p2p2/5N1q/QP5P/P5P1/4RRK1 w - - 1 24",
+  "played": "Qc1",
+  "best": "Qa6"
+ },
+ {
+  "band": "mid",
+  "act": 4.49,
+  "fen": "r4rk1/1pq2ppp/p1n1p3/3p4/1P1P4/2n1NBPP/P4P2/R2Q1RK1 w - - 0 20",
+  "played": "Qc2",
+  "best": "Qd2"
+ },
+ {
+  "band": "mid",
+  "act": 4.44,
+  "fen": "3r1rk1/pp3pbp/1Bp1b1p1/8/P3n3/1PQ4P/N1P1BPP1/R4RK1 b - - 0 21",
+  "played": "Bxc3",
+  "best": "Nxc3"
+ },
+ {
+  "band": "mid",
+  "act": 4.42,
+  "fen": "rn2k1nr/1ppqbp2/p3p2p/3pP1p1/2PP4/3QBN2/PP2NPPP/2R2RK1 b kq - 1 12",
+  "played": "f5",
+  "best": "Nc6"
+ },
+ {
+  "band": "mid",
+  "act": 4.39,
+  "fen": "5r2/1kqb2b1/pn2p1p1/1p1pPrPp/2pP1P1B/P1P1QRP1/1PB2R1K/8 b - - 2 33",
+  "played": "R5f7",
+  "best": "a5",
+  "motif": "tempo_loss",
+  "intent": "Black likely intended to consolidate the f-file by doubling rooks on f7/f8, but chose the wrong rook\u2014moving the actively-placed f5 rook rather than the passive f8 rook, failing to recognize that the f5 rook's positioning was what held the kingside together tactically.",
+  "blunder_summary": "Black moved the wrong rook to f7, removing the tactically crucial f5 rook that was preventing Bxg6 through latent pressure on f4/f3. This one-tempo mistake allowed White to harvest both the g6 and h5 pawns with the bishop, swinging the evaluation by 348 centipawns from a clear Black advantage to a clear White advantage.",
+  "best_moves_analysis": "The top move 33...a5 maintains Black's strong rook on f5 while preparing queenside expansion, keeping a comfortable -190 advantage. 33...Nc8 repositions the knight (potentially to d6) while similarly preserving the rook's active role on f5. Critically, 33...R8f7 was the correct rook to move\u2014bringing the f8 rook to f7 while keeping the powerful f5 rook in place, which prevents White from exploiting g6 since any Bxg6 attempt would be met by tactical counterplay along the f-file (Rxf4 or Rxf3). All three moves share the common thread of maintaining the rook on f5, which serves as both a defensive anchor and an offensive weapon against White's f-file weaknesses."
+ },
+ {
+  "band": "mid",
+  "act": 4.38,
+  "fen": "r2qr1k1/pb4bp/1p2p1p1/1NnpNp2/5PP1/P6P/BPP1QP2/2KR3R w - - 1 18",
+  "played": "g5",
+  "best": "Nd4"
+ },
+ {
+  "band": "mid",
+  "act": 4.37,
+  "fen": "r2qk2r/1p1nb1pb/2p1Qn1p/p6P/8/3P1NN1/PPP2PP1/R1B1R1K1 b kq - 4 16",
+  "played": "Bg8",
+  "best": "Nc5",
+  "motif": "tempo_loss",
+  "intent": "The player likely moved Bg8 to safeguard the h7-bishop from tactical threats involving Nh4 or Nf5 attacks, possibly intending to reroute it or simply keep it safe while planning to castle kingside later.",
+  "blunder_summary": "The move Bg8 caused a catastrophic 227cp evaluation swing (from -96 to +131), transforming a slight Black advantage into a clear White edge. Only one move (Rf8) was within 50cp of the best option, making this a critical juncture where precision was required. The core error is twofold: Bg8 is a pure tempo loss (the bishop achieves nothing on g8 and must return to h7 in all lines) AND it critically blocks the f8-square, preventing the essential defensive resource Rf8-f7 that was the backbone of Black's best continuation.",
+  "best_moves_analysis": "16...Rf8 is the clear best move (eval -96), preparing the critical defensive maneuver Rf7 which blocks the e-file pressure and covers the 7th rank; after 17. Nh4 Rf7 18. Ngf5 Bxf5, Black eliminates the dangerous knight on f5 with the h7-bishop and maintains a slight edge with solid coordination. 16...a4 (eval -33) is a slower but still viable alternative gaining queenside space; after 17. Bd2 Rf8 18. Nh4 Rf7, Black reaches a similar defensive setup one tempo later, having committed to the a4 push which may be useful later but gives White time to develop the bishop. 16...Nf8 (eval -24) is a purely defensive concept, moving the d7-knight to block the f-file and reduce the Queen's influence on e6; after 17. Qe2 (forced to retreat as Nf8 blunts its power) c5 18. Be3 Ne6, Black consolidates with a knight reaching the strong e6 square, establishing a solid defensive perimeter."
+ },
+ {
+  "band": "mid",
+  "act": 4.36,
+  "fen": "2k3rr/1bpqbp2/1p2p3/3pP3/4P3/2P5/PP1NQPPP/R1B2RK1 w - - 3 19",
+  "played": "Nf3",
+  "best": "a4",
+  "motif": "hanging_piece",
+  "intent": "The player likely intended to activate the knight on a 'natural' square where it supports the e5 pawn, controls d4, and prepares potential kingside defensive duties \u2014 Nf3 appears to develop the knight from the seemingly passive d2 square to a classically strong outpost.",
+  "blunder_summary": "This 302-centipawn blunder swings the evaluation from a comfortable +101 advantage to a -201 losing position. White had at least two good moves within 50cp of the best (Rd1 and Re1), making this an avoidable error. The core mistake is removing the knight \u2014 the sole viable defender of e4 \u2014 from d2 to f3, where it no longer covers e4, while the fianchettoed bishop on b7 prevents the queen from recapturing on that square, effectively hanging the e4 pawn for free.",
+  "best_moves_analysis": "19. Rd1 is the best move because it develops the rook to the central d-file, supporting the position prophylactically; after dxe4, White retreats Nf1 preparing to handle the passed pawn, and after e3, f3 solidly blocks the intruder while maintaining White's structural advantage and piece coordination \u2014 eval remains +101. 19. Re1 is the second-best option, placing the rook directly behind the e4 pawn to reinforce it; after Rh4 (Black targets e4 from the side), White plays a4 gaining queenside space, and after dxe4 Nf1 White remains flexible and solid at +55. 19. Nb3 reroutes the knight to a more active square where it eyes c5 and d4; after Rh4, g3 defends the kingside, and after f5 exf6 White opens the position with roughly equal chances at -10. Crucially, all three moves maintain the knight's current defense of e4 (via staying on d2 in the first two cases) or compensate adequately before releasing the tension."
+ },
+ {
+  "band": "mid",
+  "act": 4.35,
+  "fen": "r1b1kb1r/ppppqppp/5n2/4pQ2/2BnP3/3P4/PPP2PPP/RNB1K1NR w KQkq - 3 6",
+  "played": "Qh3",
+  "best": "Qg5",
+  "motif": "fork",
+  "intent": "The player likely chose Qh3 to maintain pressure along the h3-c8 diagonal, threatening the undefended c8 bishop and keeping an eye on the kingside, while retreating the queen to a seemingly safe square away from the d4 knight's reach.",
+  "blunder_summary": "Qh3 costs 189 centipawns, worsening the evaluation from -367 to -556. Only one move (Qg5) was within 50cp of the best evaluation, showing how narrow White's survival path was. The core error is that Qh3 places the queen on a passive square that neither prevents the lethal Nxc2+ fork nor addresses Black's central pawn advance d5, which tactically exploits the h3-c8 diagonal to force a queen-for-bishop trade that devastates White's material balance.",
+  "best_moves_analysis": "The best move, Qg5, keeps the queen active on a central square where it pressures f6 and eyes the kingside; after Nxc2+ Kd1 Nxa1, White loses the exchange but plays f4 to open lines and generate some counterplay\u2014this minimizes the damage at -367. The second-best move, Qf3, offers the queen to be captured by the d4 knight (Nxf3+ is check since a knight on f3 attacks e1), after which Nxf3 recaptures, and Black plays d6 followed by Nc3\u2014White loses the queen for a knight but the position stabilizes somewhat at -476. The third option, Nc3, develops a piece but allows Nxf5 where the knight captures the queen outright; after exf5 c6 Bg5 White has a bishop and pawn for the queen, evaluated at -507. All three options reflect a dire position where White must choose the least damaging way to cope with the dominant d4 knight's threats."
+ },
+ {
+  "band": "mid",
+  "act": 4.32,
+  "fen": "r6r/p4ppn/2k3b1/6Pp/2Pq1B2/3P3P/PP3P2/R2QR1K1 w - - 1 23",
+  "played": "Qf3+",
+  "best": "Qa4+"
+ },
+ {
+  "band": "mid",
+  "act": 4.29,
+  "fen": "r1b2b1r/ppp1kBp1/2nq3p/6NQ/3pp3/8/PPP3PP/RNB2RK1 b - - 1 11",
+  "played": "Ne5",
+  "best": "e3",
+  "motif": "king_safety",
+  "intent": "Ne5 aims to centralize the knight on a strong outpost, potentially eyeing the f7 bishop, blocking the e-file, and supporting the d4 pawn, while also appearing to add defensive control to the kingside.",
+  "blunder_summary": "Ne5 is a strategic-looking move that ignores the tactical emergency. It leaves the e4 pawn completely undefended, allowing Nxe4 which attacks the queen on d6, and the subsequent Qh4+ check exploits the exposed king to win the queen. Unlike e3, which eliminates the e4 target and creates counterplay, Ne5 generates no urgency for White and allows the devastating tactical combination.",
+  "best_moves_analysis": "The best move 11...e3 is a critical counter-strike that advances the pawn, removing the e4 target and creating a disruptive advanced passed pawn that threatens e2, forking White's rooks. After 12. Nc3 hxg5 13. Qxh8 Bg4, Black sacrifices the rook but gains active piece play and the dangerous e3 pawn. The second-best move 11...Qe5 centralizes the queen while attacking h5, aiming to exchange queens and reduce White's attacking potential; after 12. Bf4 Qa5 13. Nxe4 Qxh5, Black eliminates the most dangerous attacking piece. The third option 11...Qc5 similarly seeks a queen trade, leading to 12. Nxe4 Qxh5 13. Bxh5 Be6 where Black enters a queenless position and starts developing. All three best moves share the common thread of urgently addressing the tactical crisis rather than making a developing move."
+ },
+ {
+  "band": "mid",
+  "act": 4.25,
+  "fen": "3r1k2/p1R5/1p4pp/3BBp2/1b2p3/4P3/P4PPP/6K1 w - - 1 28",
+  "played": "Rf7+",
+  "best": "Bg7+",
+  "motif": "king_safety",
+  "intent": "The player likely saw the rook check on f7 and assumed it was the most forcing continuation, perhaps intending to drive the king to the back rank or win material. They may have confused the idea of placing a piece on f7 with check, not realizing that it was the *bishop* on d5 that needed to arrive on f7 (as the mating blow), not the rook.",
+  "blunder_summary": "This blunder loses 9556 centipawns of evaluation, converting a forced checkmate in 2 moves (#+2) into a merely winning endgame (+442). There was only one move within 50cp of the best continuation, meaning the position demanded extreme precision. The core tactical error was placing the rook on f7\u2014the exact square that the Bd5 needed to occupy for the mating blow\u2014thereby blocking its own bishop from delivering Bf7# and allowing Black's king to escape the mating net entirely.",
+  "best_moves_analysis": "The best move is 28. Bg7+, moving the bishop from e5 to g7 with check. This is devastating because the king on f8 cannot go to g8 (controlled by the Bd5 along the d5-e6-f7-g8 diagonal) and cannot go to e7 (controlled by the Rc7 along the 7th rank), so it is forced to play 28...Ke8. Then 29. Bf7# delivers checkmate: the bishop moves from d5 to f7, checking the king on e8, and all escape squares are sealed\u2014d7 and e7 are covered by the Rc7, f8 is covered by the Bg7, d8 is blocked by Black's own rook, and nothing can capture or block the Bf7. The second-best move, 28. Bb3, is a quiet repositioning of the d5-bishop to b3, simply consolidating White's enormous material and positional advantage (two bishops dominating the board); after 28...Be7 29. g4 h5 30. gxh5, White steadily converts at +491. The third option is the move actually played, 28. Rf7+, which is still winning at +436 but throws away the forced mate entirely\u2014it gives check and wins material eventually, but allows Black to exchange the rook off and survive into an endgame that is lost but not immediately terminal."
+ },
+ {
+  "band": "mid",
+  "act": 4.21,
+  "fen": "8/8/1k1r4/1p2q2p/1p1N2pb/3QP3/6PK/5R2 w - - 2 39",
+  "played": "Rf4",
+  "best": "Kh1"
+ },
+ {
+  "band": "mid",
+  "act": 4.18,
+  "fen": "8/2k4p/6p1/pPK5/P4P2/8/6PP/8 b - - 0 37",
+  "played": "h5",
+  "best": "Kb7"
+ },
+ {
+  "band": "mid",
+  "act": 4.13,
+  "fen": "6k1/3b1pp1/p3p2p/3pP3/2p2P2/2P1P3/4B1PP/6K1 w - - 1 31",
+  "played": "Bd1",
+  "best": "Kf2",
+  "motif": "tempo_loss",
+  "intent": "White played Bd1 intending to reroute the bishop via c2 to b1, hoping to establish it on the a2-g8 diagonal to pressure d5 or support the pawn structure, possibly believing the bishop needed a better post before the king could move.",
+  "blunder_summary": "Bd1 is a severe positional blunder because it wastes a critical tempo on a passive bishop maneuver while the king remains stuck on g1. With the king unable to reach the queenside in time, Black's a-pawn races forward unchallenged, creating a winning passed pawn that the bishop alone cannot contain.",
+  "best_moves_analysis": "31. Kf2 (eval: -99) is clearly the best move, beginning the urgent task of king centralization; the king heads toward d2 via e1 to cover the queenside and prevent Black's a-pawn from becoming unstoppable. 31. Kf1 (eval: -106) is nearly equivalent, pursuing the same king activation plan with a marginally different route. Both moves recognize that in this endgame, the king is the critical defensive piece \u2014 the bishop alone cannot handle Black's queenside pawns. 31. Bd1 (eval: -391) is a catastrophic third choice because it wastes a vital tempo on a bishop maneuver while leaving the king stranded on g1, unable to assist on the queenside in time."
+ },
+ {
+  "band": "mid",
+  "act": 4.12,
+  "fen": "r4rk1/pp5p/3p2p1/3Pp3/4Np1q/5Q2/PP2B1bP/R1B2K2 w - - 0 21",
+  "played": "Qxg2",
+  "best": "Kxg2",
+  "motif": "fork",
+  "intent": "White likely played 21. Qxg2 thinking it was equivalent to Kxg2 for capturing the intruding bishop, possibly preferring to keep the king on f1 where it seemed tucked away, or wanting to centralize the queen on the long diagonal.",
+  "blunder_summary": "By capturing with the queen instead of the king, White left the f3 square unguarded, enabling the pawn fork ...f3 which attacks both the queen and bishop. The forced interposition Bxf3 creates a fatal interference on the g2-e4 diagonal, causing White to lose the knight on e4 and the initiative entirely.",
+  "best_moves_analysis": "The best move 21. Kxg2 (eval +369) is superior because the king on g2 directly controls the f3 square, preventing the thematic ...f3 pawn advance from being effective. After 21. Kxg2 Qe1 22. Qf2 Qb4 23. Bf3, White consolidates with a healthy extra knight and stable king position. The second-best move 21. Qxg2 (eval -453) is in fact the blunder played, showing a massive 822cp swing from the best move. The third option 21. Kg1 (eval -643) is also poor as it allows 21...Bxf3 22. Bxf3 Qe1+ with Black winning material and maintaining a strong attack."
+ },
+ {
+  "band": "mid",
+  "act": 4.09,
+  "fen": "4r1k1/ppp1n3/1n3p1p/4pPp1/1bPpP1QB/3P1N2/PP1N3P/R3K1R1 w Q - 0 20",
+  "played": "O-O-O",
+  "best": "Qh5",
+  "motif": "discovered_attack",
+  "intent": "The player likely wanted to bring the king to safety on the queenside and connect the rooks (placing the a1-rook on d1 to support the center), treating this as a standard middlegame consolidation move before continuing the kingside attack. They may have felt the king was vulnerable on e1 with the black bishop on b4 exerting pressure, and prioritized king safety over immediate tactical execution.",
+  "blunder_summary": "This blunder represents a catastrophic 9203-centipawn loss, dropping from a forced mate in 12 moves to merely a large positional/material advantage of +785. There was essentially only one move within 50 centipawns of the best option (Nxg5), making this a position with an extremely narrow critical path. The core error was a failure to recognize the immediate tactical demolition available through Nxg5 followed by the discovered check mechanism (Bxg5 then Bh6+ unveiling the queen), instead opting for a slow prophylactic move that surrendered the initiative and allowed Black critical defensive time with Ng6.",
+  "best_moves_analysis": "The best move 20. Nxg5 is a brilliant tactical strike that exploits the weakened kingside pawn structure: after hxg5, White plays 21. Bxg5 (bishop from h4 captures on g5), attacking the f6 pawn and crucially positioning the bishop on the g4-g8 diagonal where the queen sits\u2014meaning any bishop move off g5 unleashes a discovered check from the queen on g4 down the g-file to the king on g8. The continuation 22. Bh6+ is exactly this: the bishop leaps to h6 delivering discovered check (queen on g4 now sees g8 unobstructed), while simultaneously covering g7 to prevent the king from escaping, leading to forced mate in 12 moves. The second-best move 20. Bxg5 takes a slightly different move order\u2014the bishop captures on g5 first, then after fxg5 the knight takes on g5 with 21. Nxg5, opening lines and creating deadly threats against the exposed king, though Black can interpose with 22...Bxd2+ forcing White to recapture and losing some tempo, which is why this scores +1033 instead of forced mate. The third-best move is O-O-O itself at +777/+785, showing that it's technically still winning but represents an enormous missed opportunity compared to the forced mate that was available."
+ },
+ {
+  "band": "mid",
+  "act": 4.06,
+  "fen": "8/5k2/5Bp1/8/1p4p1/4P3/5PK1/8 w - - 2 37",
+  "played": "Bd4",
+  "best": "Bb2"
+ },
+ {
+  "band": "mid",
+  "act": 4.02,
+  "fen": "2b1r1k1/2Q2pbp/p5p1/8/4P3/1BP2N1P/P1P1nPPK/R4R2 b - - 4 22",
+  "played": "Bxc3",
+  "best": "Nxc3"
+ },
+ {
+  "band": "mid",
+  "act": 4.0,
+  "fen": "8/4nk2/4p3/2NpP1K1/3P2P1/8/8/8 w - - 15 59",
+  "played": "Kf4",
+  "best": "Kh6"
+ },
+ {
+  "band": "mid",
+  "act": 3.96,
+  "fen": "r1b2r2/1pp2ppk/p1n2n1p/2b1pP2/4P3/P1Pq1N2/BP1N2PP/R1B1QR1K b - - 4 14",
+  "played": "Be3",
+  "best": "b5",
+  "motif": "positional_mistake",
+  "intent": "The player likely intended to place the bishop on the active e3-square to attack the f2-point and the d2-knight while seemingly blocking White's queen from accessing the e-file, perhaps confusing it with the far superior Qe3 which accomplishes similar goals with much greater force.",
+  "blunder_summary": "The move Be3 cost approximately 197 centipawns, shifting the evaluation from a nearly equal +52 to a clearly advantageous +249 for White. Only one move (Qe3) maintained the balance within 50cp, making this a position demanding precise play. The core error was choosing the bishop instead of the queen for the e3 square\u2014the bishop on e3 merely invites a favorable exchange for White (Bxd2/Bxd2) that untangles White's cramped pieces while simultaneously allowing White to redeploy the light-squared bishop to the deadly b1-h7 diagonal, exploiting Black's king vulnerability that the queen on e3 would have kept safely suppressed.",
+  "best_moves_analysis": "The best move, 14...Qe3, centralizes the queen on a powerful square where it attacks the c1-bishop, the d2-knight, and restricts White's queen from active deployment. After 15. Qd1 (forced to maintain material), Black plays 15...Ba7 to tuck the bishop safely away from any tactical exchanges while maintaining its diagonal pressure, and after 16. Ng1 b5, White is reduced to awkward regrouping (the knight retreats passively to g1) while Black expands on the queenside\u2014the position remains approximately equal at +52. The second-best move, 14...b6, is a quiet prophylactic move preparing to develop the c8-bishop to b7, but after 15. Qh4 Bb7 16. Re1 Be7, White has gained time to activate with Qh4 targeting h6 and Re1 pressuring the e-file, leaving White clearly better at +147. The third option, 14...Kh8, simply moves the king to the corner to avoid potential tactical tricks on the h7 square, but after 15. Qh4 Nh7 16. Re1 f6, White has seized the initiative with the active queen on h4 and rook entering the game, reaching +188\u2014Black is solid but passive."
+ },
+ {
+  "band": "low",
+  "act": 3.66,
+  "fen": "5rk1/6b1/2pP2p1/1pPbp2p/1P5q/2B1Q1NP/6P1/4R1K1 b - - 2 32",
+  "played": "Rf4",
+  "best": "Kh7",
+  "motif": "king_safety",
+  "intent": "32...Rf4 aims to activate the rook aggressively, likely planning to swing to g4 to attack the g2 pawn or support the queen's pressure on the kingside, mimicking the spirit of Rf3 but without the forcing sacrificial element.",
+  "blunder_summary": "By playing Rf4 instead of Rf3, Black loses the forced sacrificial sequence that would crack open White's kingside and eliminate the g3 knight. The rook on f4 lacks tactical punch\u2014it doesn't attack anything critical\u2014allowing White's king to calmly reposition with Kh2, after which the advanced d-pawn becomes decisive and Black's attack evaporates.",
+  "best_moves_analysis": "The brilliant 32...Rf3! is a rook sacrifice that exploits the critical alignment of Black's queen on h4 and the g3 knight. After 33.gxf3 Qxg3+ 34.Kf1 Qxh3+, the knight is eliminated, the g-file is ripped open, and Black's queen invades with devastating checks supported by the bishops on d5 and g7\u2014yielding a winning attack (eval -192). The second-best move 32...Re8 is passive and merely defensive, conceding White a significant advantage (+136) as the d6 pawn remains threatening. Similarly, 32...Kh7 is prophylactic but doesn't challenge White's initiative, leaving the d-pawn alive and White clearly better (+146). The gap between the first and second-best moves (over 300cp) underscores that only the sacrificial Rf3 truly works for Black in this critical position."
+ },
+ {
+  "band": "low",
+  "act": 3.62,
+  "fen": "2kr2nr/1pp1q2p/p1b1pp2/4P3/1bB4B/2N5/PP3PPP/R2Q1RK1 w - - 1 14",
+  "played": "Qc2",
+  "best": "Qb3"
+ },
+ {
+  "band": "low",
+  "act": 3.61,
+  "fen": "r1bqkb1r/pppp2pp/2n2p1n/4p3/2BPP3/5N2/PPP2PPP/RNBQ1RK1 b kq - 3 5",
+  "played": "g5",
+  "best": "Nf7",
+  "motif": "king_safety",
+  "intent": "Black likely played 5...g5 trying to support the misplaced knight on h6 by giving it access to g7 or f4, or aggressively trying to grab kingside space and potentially drive away White's f3-knight, not realizing this pawn advance creates an immediately exploitable tactical target.",
+  "blunder_summary": "The move 5...g5 loses 156 centipawns, shifting the evaluation from an already difficult +189 to a near-winning +345 for White. Black had at least 2 reasonable alternatives (g6 and Na5) within 50cp of the best continuation. The core error is advancing a kingside pawn aggressively while the king remains stuck in the center\u2014this creates an immediate tactical target on g5 that cannot be safely defended because recapturing with fxg5 would fatally expose the f-file and the f7-square against White's active c4-bishop.",
+  "best_moves_analysis": "The best move 5...g6 prepares to fianchetto the dark-squared bishop to g7, giving it a natural long diagonal and shoring up the weakened dark squares around Black's king; after 6.dxe5 Nxe5 7.Nxe5 fxe5, Black surrenders the central tension but maintains a semi-solid structure with the e5-pawn and can eventually develop, keeping the disadvantage to +189. The second-best move 5...Na5 directly attacks the strong c4-bishop, forcing White to deal with the threat; after 6.Nxe5 Nxc4 7.Nxc4 Nf7, Black trades off White's dangerous light-squared bishop and reroutes the misplaced h6-knight to the more stable f7 square, simplifying the position at the cost of a moderate +226 disadvantage. The third option 5...d6 solidly supports the e5-pawn and prepares natural development; after 6.Bxh6 gxh6 7.Nc3 Bg4, White has traded its dark-squared bishop for Black's poorly-placed knight, but Black achieves some counterplay by pinning the f3-knight with Bg4, keeping the evaluation at a manageable +244."
+ },
+ {
+  "band": "low",
+  "act": 3.57,
+  "fen": "r1bq1b1r/pppp1Qp1/3k1n1p/4n3/2BpPB2/8/PPP2PPP/RN2K2R w KQ - 8 10",
+  "played": "O-O",
+  "best": "Na3",
+  "motif": "tempo_loss",
+  "intent": "The player likely castled O-O to bring the king to safety and connect the rooks, following the general opening principle that the king should be castled before the middlegame intensifies. It may also have been motivated by a desire to activate the h1-rook along the f-file.",
+  "blunder_summary": "The move O-O caused a 239-centipawn evaluation swing (from +80 to -159), squandering a clearly better position. Three good moves were available within 50cp of the best, meaning White had multiple paths to maintain the advantage. The core error was wasting a critical tempo on a non-urgent king safety move in a position that demanded immediate active play \u2014 the exposed black king on d6 required continuous pressure, and by castling, White allowed Black to force a queen exchange that transformed the 'exposed' king into a centralized endgame asset while Black retained the strong d4-pawn and superior piece activity.",
+  "best_moves_analysis": "The best move 10. Bxe5+ Kxe5 11. f4+ Kd6 12. e5+ is a forcing sequence that captures the strong e5-knight with check, compelling the king to recapture on e5, then drives it back with f4+ (another check), and continues the onslaught with e5+ \u2014 a discovered or pawn check that keeps Black's king under relentless fire, never allowing consolidation. The second-best move 10. c3 attacks the advanced d4-pawn immediately; after Black's best response Qe7 (offering a queen trade to relieve pressure), White plays Qxe7+ Bxe7 and then cxd4, winning the important d4-pawn and emerging into a simplified position with an extra pawn and better structure. The third option 10. Nd2 develops the dormant b1-knight toward the center; after Qe7, White continues Nf3 developing with tempo against the e5-knight, and after Qxf7 Bxf7, White has exchanged queens but retains two active bishops, a developed knight, and a comfortable material balance. All three moves share the common thread of maintaining initiative and either continuing the attack on the exposed king or simplifying into a structurally favorable position."
+ },
+ {
+  "band": "low",
+  "act": 3.5,
+  "fen": "2r5/5B1R/1n1kP3/p1p1qp2/P1Pn4/1p1P4/K5Q1/8 w - - 0 41",
+  "played": "Kb1",
+  "best": "Ka3"
+ },
+ {
+  "band": "low",
+  "act": 3.48,
+  "fen": "r1b2rk1/pp3pbp/4p1p1/8/4B3/P1N1BQ2/1q3PPP/R4RK1 b - - 1 16",
+  "played": "Bxc3",
+  "best": "Qxc3"
+ },
+ {
+  "band": "low",
+  "act": 3.46,
+  "fen": "8/8/1n3p2/1k2pP2/4P3/p4KP1/3R4/8 w - - 4 47",
+  "played": "Ke2",
+  "best": "g4"
+ },
+ {
+  "band": "low",
+  "act": 3.44,
+  "fen": "8/3r2kp/PR4p1/5p2/2Bp4/1P5P/3K1rP1/8 w - - 1 45",
+  "played": "Kd1",
+  "best": "Kd3",
+  "motif": "passed_pawn",
+  "intent": "The player likely chose Kd1 to escape the pressure from Black's rook on f2, moving the king off the second rank and away from checks, while perhaps hoping that the a-pawn's advance would be unstoppable regardless of precise king placement.",
+  "blunder_summary": "This move costs 278 centipawns, dropping from a winning position (+278) to dead equality (0). Only one move (Ke1) maintained the full advantage within 50cp of the best evaluation, making this a position demanding precise calculation rather than routine play. The core error is a subtle but devastating king placement mistake\u2014retreating to d1 instead of stepping to e1 leaves the king passive and unable to support the a-pawn's promotion, allowing Black to establish a classical rook-behind-the-passed-pawn blockade that neutralizes White's entire advantage.",
+  "best_moves_analysis": "The top move 45. Ke1 is superior because it sidesteps the f-file, moving the king off the dangerous diagonal and second-rank pressure. After 45...Rf4 46. Rb7, White's rook leaps to the seventh rank with tremendous force\u2014simultaneously threatening to support a7 while pressuring Black's d7-rook\u2014and after 46...Re4+ 47. Kd2, the king returns centrally with the rook already dominating the seventh rank, maintaining a decisive +278 advantage. The second-best move 45. Kd3 activates the king forward, supporting the b3 pawn and the center; after 45...Rd8 46. a7 Ra2 47. Rb8, White pushes the a-pawn and invades with the rook, though Black's counterplay with the rook on a2 limits the advantage to only +52\u2014the king on d3 is active but slightly exposed to rook harassment. The critical difference with 45. Kd1 (the move played) is that the king retreats to a passive square on the back rank where it has no influence over the advancing a-pawn's support and cannot quickly re-centralize, allowing Black time to organize a complete defensive blockade."
+ },
+ {
+  "band": "low",
+  "act": 3.41,
+  "fen": "2r3k1/5pbp/1p4p1/3Pp3/1P2P3/1Q2B1P1/P3qPPK/8 w - - 2 32",
+  "played": "Bxb6",
+  "best": "d6"
+ },
+ {
+  "band": "low",
+  "act": 3.39,
+  "fen": "8/5p2/8/3p1k1p/4p3/1K2PP2/6PP/8 w - - 0 37",
+  "played": "Kc2",
+  "best": "Kc3"
+ },
+ {
+  "band": "low",
+  "act": 3.32,
+  "fen": "r3k2r/pppqb1p1/3p1n1p/5b2/2BQ1B2/2N5/PPP2PPP/R3R1K1 b kq - 4 12",
+  "played": "Bxc2",
+  "best": "a6",
+  "motif": "tempo_loss",
+  "intent": "12...Bxc2 aims to win a pawn on c2, removing it from White's structure and seemingly gaining material, while also displacing the bishop from f5 where it had limited scope to c2 where it attacks White's pawns.",
+  "blunder_summary": "12...Bxc2 is a classic pawn-grabbing blunder with an uncastled king on an open file. By spending two critical tempi moving the bishop away from a reasonable square (f5) to grab a pawn on c2, Black gifts White the time to seize complete control of the e-file with Re2, turning a difficult but defensible position into a near-lost one.",
+  "best_moves_analysis": "12...Kd8 (best, +278) is the most pragmatic choice, immediately sidestepping the e-file pin and preparing to 'castle by hand' via Kc8, acknowledging that king safety is the paramount concern. 12...Kf8 (+298) also removes the king from the e-file, though the king is slightly more exposed on the kingside and less likely to find a safe harbor. Both moves sacrifice a tempo on development to address the existential threat of the open e-file. 12...h5 (+370) is notably weaker because it doesn't address the fundamental problem of the king on e8, though it avoids the catastrophic loss of time that Bxc2 creates. All three best moves share the common theme of NOT leaving the e-file to grab material."
+ },
+ {
+  "band": "low",
+  "act": 3.29,
+  "fen": "r2q1rk1/1b2npp1/p2bp2p/3pN3/3p1BP1/2P2N2/PP3P1P/R2QR1K1 w - - 0 15",
+  "played": "Qxd4",
+  "best": "cxd4",
+  "motif": "fork",
+  "intent": "The player likely chose Qxd4 to recapture the d4 pawn while centralizing the queen on an apparently dominant square, perhaps hoping to exert pressure along the d-file and on Black's center. The queen on d4 looks imposing at first glance, seemingly controlling key central squares.",
+  "blunder_summary": "This blunder costs 290 centipawns, dropping from a nearly equal position (-42) to losing the equivalent of a full minor piece (-332). White had two solid moves within 50cp of the best (cxd4 and Nxd4) that both recaptured safely, so there was no need to take risks with the queen. The core error was placing the queen on d4, where it becomes vulnerable to a pawn fork after ...f6 followed by ...e5, a tactical pattern that the simple pawn recaptures (cxd4) or knight recapture (Nxd4) would never have allowed because those moves don't create a high-value target on d4.",
+  "best_moves_analysis": "The best move 15. cxd4 simply recaptures with the pawn, maintaining a solid structure. After 15... f6 16. Nd3 Bxf4 17. Nxf4, White trades a knight for Black's dark-squared bishop in a controlled manner, keeping the position close to equal (-42). The pawn on d4 gives White central presence without exposing any piece to tactical tricks. The second-best move 15. Nxd4 recaptures with the f3-knight, centralizing it powerfully. After 15... Bc8 16. Qf3 f6 17. Nec6, White achieves excellent knight activity on c6, pressuring Black's position while the queen supports from f3; the evaluation is only -66, still a playable game. The third option 15. Qb3 sidesteps the d4 tension temporarily, targeting d5 and the b7 bishop. After 15... Bc8 16. cxd4 f6 17. Nd3, White eventually recaptures on d4 with slightly worse coordination (eval -147), but the position remains defensible without catastrophic weaknesses."
+ },
+ {
+  "band": "low",
+  "act": 3.26,
+  "fen": "r1bq1rk1/1p2bp2/p3pnpp/8/2Pp3B/3Q1N2/PPB2PPP/3R1RK1 b - - 1 14",
+  "played": "b6",
+  "best": "b5"
+ },
+ {
+  "band": "low",
+  "act": 3.25,
+  "fen": "r4rk1/p1pq2pp/2p2n2/3p4/5Q2/3P1NPb/PPP2P1P/RN2R1K1 b - - 0 15",
+  "played": "Nh5",
+  "best": "Ng4",
+  "motif": "missed_tactic",
+  "intent": "Black likely played 15...Nh5 intending to directly attack the White queen on f4 and the g3-pawn simultaneously (a knight on h5 controls both f4 and g3), hoping to win material or force the queen to a passive square while creating kingside threats.",
+  "blunder_summary": "This blunder cost 530 centipawns, converting a near-winning position (-462) into approximate equality (+68). Only one move (Ng4) maintained Black's decisive advantage within a 50cp margin, meaning the position demanded precise calculation rather than general aggression. The core error was moving the knight to an apparently active but tactically vulnerable rim square (h5) instead of the crushing Ng4, which exploited dual threats against f2 and the queen\u2014Black essentially traded a game-winning combination for a superficially attacking move that left the knight exposed to capture.",
+  "best_moves_analysis": "The top move 15...Ng4 is a devastating tactical stroke: the knight lands on g4 where it creates crushing dual threats against f2 (forking the king and threatening mating motifs) and h2, forcing White into a defensive contortion like 16. Nbd2 to cover f2, after which Black coolly plays 16...Rxf4, capturing the white queen with the f8-rook since nothing adequately defends it, and after 17. gxf4 Qf7, Black emerges with a queen versus White's minor pieces\u2014a winning material surplus. The second-best move 15...Ne4 also improves the knight centrally, attacking the f4-queen while eyeing d2 and f2; after 16. Qe3 Rxf3 17. Qxf3 Rf8, Black wins White's f3-knight and maintains pressure along the f-file, reaching a roughly equal but still playable position. The third option 15...Rab8 is quieter and positional, bringing the a8-rook into play and preparing counterplay; after 16. Qd4 Qg4 17. Nbd2 Qxd4, Black forces a queen trade that leads to a manageable endgame, roughly level but avoiding any risk."
+ },
+ {
+  "band": "low",
+  "act": 3.24,
+  "fen": "r3k1qr/1bp1bpp1/1pnp1n2/p3pP2/4P1Np/2PPB2P/PP1NB1P1/R2Q1R1K w kq - 6 17",
+  "played": "Bg5",
+  "best": "d4"
+ },
+ {
+  "band": "low",
+  "act": 3.23,
+  "fen": "5r2/6k1/pp1pR3/2pP1PP1/6KB/7P/PPP5/8 w - - 3 38",
+  "played": "Bg3",
+  "best": "g6"
+ },
+ {
+  "band": "low",
+  "act": 3.18,
+  "fen": "r1b1k2r/ppp5/3p3p/3Q2p1/2B1Pp2/2q2P1P/P1P3P1/R4RK1 b kq - 1 15",
+  "played": "Qg7",
+  "best": "Rf8"
+ },
+ {
+  "band": "low",
+  "act": 3.15,
+  "fen": "6rk/7p/p7/3qp1r1/3p1p1P/1P6/PQ4P1/4R1RK b - - 0 35",
+  "played": "Rh5",
+  "best": "Rg4"
+ },
+ {
+  "band": "low",
+  "act": 3.11,
+  "fen": "2r3k1/1Qp2p2/3p3p/Rp1Pp1pn/4Pnq1/2P2N2/1PB2PPP/6K1 w - - 1 26",
+  "played": "g3",
+  "best": "Ne1",
+  "motif": "king_safety",
+  "intent": "White played g3 intending to attack the powerful knight on f4, hoping to drive it away or win it, while also possibly creating luft for the king and attempting to stabilize the kingside pawn structure.",
+  "blunder_summary": "The move g3 caused a catastrophic evaluation swing from -75 to forced mate in 7 (#-7), a loss of 9918 centipawns. There was only 1 move within 50cp of the best (Ne1), making this a position requiring extreme precision. Multiple punishments exist (Qxf3 forces mate, Qh3 and Nh3+ also win decisively), and the core error was advancing the g2 pawn which simultaneously removed protection from the f3 knight AND destroyed the king's pawn shelter, allowing Black's queen and knights to execute a lethal kingside attack.",
+  "best_moves_analysis": "The first and clearly best move is 26. Ne1, which retreats the knight from f3 to safety on e1 where it still helps cover critical squares around the king (particularly f3 and g2). After 26...Rf8 27. Ra1 Qe2 28. Qxc7, White maintains material balance and the position is only slightly worse (-75); the knight on e1 stabilizes the kingside and White's queen becomes active on c7. The second-best option is 26. Qxc8+ Qxc8 27. Ne1 Nf6 28. Ra7, which trades queens to reduce Black's attacking firepower, but at -439 White emerges into a much worse endgame because Black's two active knights and better pawn structure dominate. The third option, 26. Nh4 gxh4 27. Qxc8+ Qxc8 28. Bd1, sacrifices the knight on h4 to disrupt Black's pawn structure and then trades queens, but at -523 White is left materially down with a hopeless position. The common thread in all good moves is removing or sacrificing the f3 knight proactively rather than leaving it as a tactical target."
+ },
+ {
+  "band": "low",
+  "act": 3.08,
+  "fen": "rn1qkbnr/ppp2ppp/4p3/3p3b/2PPP3/3B1P2/PP4PP/RNBQK1NR b KQkq - 1 5",
+  "played": "dxc4",
+  "best": "dxe4",
+  "motif": "positional_mistake",
+  "intent": "The player likely saw the opportunity to win the c4 pawn with the bishop on d3 appearing to be overloaded or forced to recapture on an inferior square, or simply chose the wrong capture direction thinking that any central exchange would be acceptable and that grabbing toward the queenside would deflect White's bishop from its strong post.",
+  "blunder_summary": "The move dxc4 caused a catastrophic 212-centipawn evaluation swing (from -82 to +130), transforming a position where Black held a comfortable advantage into one where White is clearly winning. There was essentially only one good move available (dxe4), making this a position requiring precise tactical awareness. The core error was capturing in the wrong direction\u2014dxe4 exploited the vulnerability of the bishop landing on an undefended e4 square with Qh4+ check to follow, whereas dxc4 allowed White to recapture on a completely safe square, retain a dominant two-pawn center, and develop without any tactical disruption.",
+  "best_moves_analysis": "The strongest move, 5...dxe4, is a tactical shot that exploits the geometry of the position: after 6.Bxe4 (the natural recapture), Black plays 6...Qh4+ delivering check along the h4-e1 diagonal, which White can only answer with 7.g3, and then 7...Qxe4+ captures the bishop on e4 with check, winning significant material since the bishop moved to an unprotected square and the king cannot escape the discovered geometry. The second-best move, 5...c6, is a solid positional choice that reinforces d5 and prepares to recapture if White takes; after 6.Ne2 dxe4 7.Bxe4 Nf6, Black develops the knight with tempo attacking the bishop on e4, leading to a near-equal position. The third option, 5...Bb4+, forces White to interpose with 6.Bd2 (blocking the bishop's natural development square), after which 6...dxe4 7.Bxe4 Qh4+ achieves a similar tactical motif as the main line, though White has slightly more resources with the bishop already on d2, resulting in a roughly equal position."
+ },
+ {
+  "band": "low",
+  "act": 3.06,
+  "fen": "2kr3r/ppp2pp1/2n1pn2/8/3P1b2/2N2Pp1/PPP1B1P1/R2QRKBq w - - 4 17",
+  "played": "Bd3",
+  "best": "Bb5",
+  "motif": "king_safety",
+  "intent": "The player likely played 17. Bd3 hoping to reposition the bishop to a more active diagonal (eyeing f5 or supporting the center), possibly intending to defend against threats along the a6-f1 diagonal or free the e2 square for the king to escape later. They may have underestimated how critically the bishop was needed on the a6-diagonal for counterplay and how Bd3 actually obstructs defensive coordination.",
+  "blunder_summary": "This move causes a catastrophic evaluation shift from -850 (very bad but defensible) to checkmate in 11, a loss of over 9100 centipawns. Only one move (Nd5) was within 50 centipawns of the best evaluation, meaning the position was already razor-thin and demanded precise defense. The core error was abandoning the e2-bishop's critical a6-trajectory (the only source of counterplay against Black's king) while placing it on d3 where it blocks the king's escape route and does nothing to prevent the lethal Rh2 invasion.",
+  "best_moves_analysis": "The first-best move 17. Nd5 disrupts Black's coordination by attacking the f6-knight and threatening Nc7; after 17...Nxd5, White plays 18. Ba6 targeting b7 to create counterplay against Black's king on c8, and after 18...Rh2 19. Ke2, the White king escapes the lethal g1-h1 corridor while the pressure on b7 gives White some practical chances despite being significantly worse (-850). The second-best move 17. Ba6 immediately deploys the e2-bishop to attack b7 and threaten the Black king's shelter; after 17...Rh2 18. Ke2 Qxg2+ 19. Kd3, the White king flees to the center where, although exposed, it avoids immediate checkmate and White retains counterplay threats against c7/b7 (-939). The third-best move 17. Qd2 offers to trade queens or at least repositions the queen defensively; after 17...Rh2 18. Ba6 Bxd2 19. Ke2, White gives up the queen but the king escapes and the Ba6 pressure remains, leading to a bad but survivable endgame (-1116). The common thread in all three best moves is preserving the e2-bishop's path to a6 for counterplay AND facilitating the king's escape via e2."
+ },
+ {
+  "band": "low",
+  "act": 3.03,
+  "fen": "8/R4k1p/5B2/1p4P1/4n2P/8/P2r1PK1/8 b - - 2 35",
+  "played": "Ke6",
+  "best": "Kg6",
+  "motif": "tempo_loss",
+  "intent": "Ke6 appears to be a natural centralizing move, likely intending to support the knight, potentially threaten Nxf6, or march the king toward the queenside to help the b5 pawn\u2014but it misjudges the real battlefield which is the kingside.",
+  "blunder_summary": "By playing Ke6 instead of Kg6, Black directed the king to the wrong theater of operations. Kg6 would have created immediate threats against the g5 pawn, forcing White into passivity, whereas Ke6 allows White's Kf3 to centralize with tempo against the knight, simultaneously solving White's f2 weakness and seizing the initiative with a crushing positional advantage.",
+  "best_moves_analysis": "35...Kg6 is the clear best move (eval +93), directly attacking the g5 pawn and forcing White into a passive posture with Bh8, after which Rxf2+ Kh3 Kf5 gives Black excellent counterplay against White's fragile kingside pawn chain with the king actively placed. 35...Kg8 (eval +172) is a safer retreat that still allows Rxf2+ ideas but places the king too far from the action, reducing Black's ability to pressure g5 and h4. 35...Ke6 (eval +308) centralizes the king but critically ignores the kingside battle\u2014the king neither attacks g5 nor shields h7, and it walks into a tempo-losing scenario where White's Kf3 targets the knight immediately. The key theme across all three options is that Black's king must engage the g5-pawn directly to maintain the balance."
+ },
+ {
+  "band": "low",
+  "act": 2.99,
+  "fen": "4k3/R1Rbr3/4p3/1p1p2p1/p2P1pP1/P2K1P1p/1P5P/8 b - - 0 40",
+  "played": "Rf7",
+  "best": "Kd8",
+  "motif": "tempo_loss",
+  "intent": "Black likely played Rf7 to reposition the rook to defend along the f-file (perhaps guarding the f4 pawn or preparing to double up defensive duties), or to vacate e7 with the idea of later moving the bishop or king, without realizing this removed the critical coordination needed for the b4/Bb5+ tactical combination.",
+  "blunder_summary": "The move Rf7 cost 145 centipawns, shifting the evaluation from +452 to +597, which in a position that's already lost represents a significant acceleration of White's winning chances. There was only one good move available (40...b4, the only move within 50cp of best), meaning the position demanded precise tactical play that Black missed. The core error was abandoning the rook's active post on e7 where it enabled the critical b4/Bb5+ tactical combination, instead placing it passively on f7 where it cannot meaningfully contest White's king march to the queenside or participate in counterplay.",
+  "best_moves_analysis": "The best move 40...b4 is a tactical pawn sacrifice that initiates a forcing sequence: after 41. axb4, Black unleashes 41...Bb5+ \u2014 a devastating bishop check along the a6-d3 diagonal targeting White's exposed king on d3. White is forced to retreat with 42. Kd2, at which point Black plays 42...Rxc7, capturing the White rook on c7 for free since the king has been deflected from protecting the central files, and White's remaining rook on a7 cannot recapture without allowing Black's bishop to dominate. This wins material and keeps the evaluation from worsening (holding at +452). The second-best move 40...e5 challenges the center with 41. dxe5 b4 42. Kd4 bxa3 \u2014 here Black opens lines and creates a dangerous passed a-pawn, though it allows White more central control (eval worsens to +565 for White). The third option 40...Kd8 simply moves the king off the vulnerable e-file with 41. Kc3 Rh7 42. Kb4 Re7 \u2014 this is the most passive option but at least keeps the rook flexible; however, it concedes the initiative entirely and lets White advance the king to b4 unchallenged (eval +581)."
+ },
+ {
+  "band": "low",
+  "act": 2.88,
+  "fen": "r1bq2k1/3p1pp1/p4n1p/1pb1r3/3nP3/PPNB1P2/1B4PP/2RQR2K b - - 2 16",
+  "played": "Re8",
+  "best": "Rh5"
+ },
+ {
+  "band": "low",
+  "act": 2.85,
+  "fen": "3r4/pp3k2/2pqnp1p/6p1/2PpR1Q1/P6P/1PP3P1/4R1K1 b - - 5 26",
+  "played": "Nf4",
+  "best": "Ng7"
+ },
+ {
+  "band": "low",
+  "act": 2.83,
+  "fen": "r2q1rk1/pp3ppp/3bb3/3Q4/8/1P6/P2PN1PP/RNB2RK1 w - - 1 15",
+  "played": "Qxb7",
+  "best": "Qf3",
+  "motif": "king_safety",
+  "intent": "The player likely saw the undefended b7 pawn and wanted to grab material, winning a pawn while also seemingly threatening the a8 rook and maintaining queen activity on the seventh rank.",
+  "blunder_summary": "The move Qxb7 throws away 293 centipawns of advantage, dropping from a nearly winning +2.93 evaluation to dead equality. Three excellent alternatives existed within 50cp of the best move (Qf3, Qd4, Qh5), all of which maintained White's dominant position through sensible queen repositioning and continued development. The core error was removing the queen from defensive duties on the kingside to grab a relatively unimportant b-pawn, allowing Black's bishop pair and queen to coordinate a lethal kingside attack that White cannot parry.",
+  "best_moves_analysis": "15.Qf3 retreats the queen to a secure square that keeps an eye on both flanks, maintains the f-file control adjacent to the rook on f1, and prepares natural development with Nbc3 and Bb2; after 15...Re8 16.Nbc3 b5 17.Bb2, White completes development with a crushing bind where the knight on c3, bishop on b2, and central pawn on d2 all work in harmony. 15.Qd4 is another strong centralizing retreat, placing the queen on an ideal outpost controlling the a1-h8 and d-file diagonals; after 15...Rc8 16.Ba3 (pinning/pressuring the bishop on d6 along the a3-f8 diagonal) Bc7 17.Qxd8, White simplifies favorably by trading queens while maintaining the bishop's activity and piece coordination. 15.Qh5 is the most aggressive option, sliding the queen to the kingside where it eyes f7 and supports potential attacks; after 15...Re8 16.Nbc3 Rc8 17.d4, White gains central space and threatens to unleash the c1 bishop while the queen remains poised for kingside pressure. All three moves share the common theme of keeping the queen within defensive and offensive reach of the kingside while continuing piece development."
+ },
+ {
+  "band": "low",
+  "act": 2.76,
+  "fen": "r2q1r2/1pp1k3/2n1bp2/p3p1p1/8/2PP1NQ1/PP1NPPP1/2KR1B2 w - - 0 20",
+  "played": "b3",
+  "best": "Kb1"
+ },
+ {
+  "band": "low",
+  "act": 2.71,
+  "fen": "4r3/1p3ppp/p1k5/8/5n2/2K1bPP1/PPP4P/R6R b - - 2 20",
+  "played": "Ne2+",
+  "best": "Nd5+"
+ },
+ {
+  "band": "low",
+  "act": 2.66,
+  "fen": "2k1r1nr/ppp2ppp/3p4/4q3/8/Q7/PPP1BPPP/R3K2R w KQ - 4 14",
+  "played": "O-O-O",
+  "best": "O-O",
+  "motif": "hanging_piece",
+  "intent": "The player likely wanted to castle queenside to get the king out of the center and connect the rooks, while simultaneously placing the d1 rook on a semi-useful file and hoping to consolidate the position behind the b2-c2 pawn shield.",
+  "blunder_summary": "This 150-centipawn blunder drops the evaluation from -250 to -400, transforming a difficult but defensible position into one that is likely lost. Two good moves existed within 50cp of best (Qd3 and Qf3), both maintaining bishop defense, yet the player chose to castle into a position where the e2 bishop became completely unprotected. The core error was failing to recognize that O-O-O severs all defensive connections to the bishop on e2 while simultaneously exposing the king on c1 to diagonal checks, allowing Black to win material by force through multiple tactical paths.",
+  "best_moves_analysis": "The top recommendation 14. Qd3 relocates the queen to d3, a key square from which it simultaneously defends the bishop on e2 (along the d3-e2 diagonal) and maintains central influence; after 14... Nf6 15. c3 h5 16. Rd1, White consolidates with a pawn on c3 bolstering the queenside and the rook entering the game on d1, keeping the disadvantage stable at -250. The second-best move 14. Qf3 similarly keeps the queen in contact with the e2 bishop (f3 guards e2 diagonally), and after 14... Nf6 15. Rc1 Qb5 16. Qd3, White manages to coordinate the rook to c1 and bring the queen to d3 for a solid if unpleasant defensive setup at -298. The third option 14. Qe3 offers a queen exchange, and after 14... Qxe3 15. fxe3 Rxe3 16. Kf2, White accepts structural damage (doubled isolated e-pawns are gone but the f-file opens) but activates the king to f2 attacking the rook on e3, transitioning into a worse but simplified endgame at -360. All three moves share the common thread of either defending the e2 bishop directly or eliminating the piece configuration that makes it vulnerable."
+ },
+ {
+  "band": "low",
+  "act": 2.65,
+  "fen": "1r4k1/p5p1/7p/P2PKP2/2N3PP/1pn5/1R6/8 b - - 2 42",
+  "played": "Nd1",
+  "best": "Na4",
+  "motif": "trapped_piece",
+  "intent": "The player likely intended Nd1 to reposition the knight toward e3, where it would simultaneously attack the c4-knight, the f5-pawn, and the g4-pawn, hoping to create multiple tactical threats while the b3-pawn remains a distraction on the queenside.",
+  "blunder_summary": "The move Nd1 cost 120 centipawns, shifting the evaluation from +105 to +225\u2014a significant degradation. Black had at least two moves (Rb5 and Na4) well within optimal range that maintained active piece coordination and kept the b3-pawn supported. The core error was removing the knight from its excellent c3 outpost\u2014where it actively supported the passed pawn and controlled key squares\u2014to the d1 square where it immediately becomes a target for Rd2, ultimately leading to a forced exchange that eliminates both the knight and the critical b3-passer.",
+  "best_moves_analysis": "42...Rb5 is the top choice: the rook becomes extremely active, attacking both the a5-pawn and d5-pawn while tying White's pieces down defensively. After 43. Rd2 Na4 44. Kd6 a6, Black's knight reaches a4 where it eyes c5 and b2-squares, and the rook on b5 remains dominant\u2014Black keeps the position under control with active piece coordination. 42...Na4 is essentially equivalent: it attacks the rook on b2 directly, forcing 43. Rb1, after which Black plays Nc3 and then Ne2, maneuvering the knight to a more aggressive post that pressures White's pawns while maintaining support for the b3-passer. 42...Kf7 is slightly more committal but activates the king toward the center; after 43. Nd2 h5 44. g5 Re8+, Black opens the kingside and delivers a check on the e-file, exploiting White's king exposure on e5\u2014the check forces White to deal with immediate threats rather than advance pawns."
+ },
+ {
+  "band": "low",
+  "act": 2.63,
+  "fen": "2kr3r/bpp2p2/8/1B2qbp1/N3n2p/P3P2P/2PB1PP1/1RQ2RK1 w - - 2 21",
+  "played": "Ba5",
+  "best": "Bd3",
+  "motif": "king_safety",
+  "intent": "The player likely played Ba5 (Bd2-a5) intending to create queenside pressure against Black's castled king by targeting the c7 pawn and restricting Black's dark-squared bishop on a7, hoping to generate counterplay on the opposite flank before Black's kingside attack arrives.",
+  "blunder_summary": "The move Ba5 caused a massive 292-centipawn evaluation drop (from -41 to -333), transforming a position where White was only slightly worse into one that is practically lost. There was only one good move available (Bd3, which maintained the evaluation) making this a position where precision was essential. The core error is twofold: the bishop on a5 is completely undefended and can be won once the b5 bishop moves, and more immediately, removing the dark-squared bishop from the kingside leaves White helpless against the g4 pawn break which tears open the king's shelter.",
+  "best_moves_analysis": "The best move 21. Bd3 relocates the light-squared bishop from the relatively passive b5 square to d3, where it directly challenges Black's strong f5 bishop and provides support around the e4 square; after 21...g4 22. Bc3 the dark-squared bishop moves to c3 where it challenges the powerful Black queen on the a1-h8 diagonal, forcing 22...Nxc3 23. Qb2, resulting in exchanges that relieve pressure and hold the evaluation at only -41. The second-best move 21. Be1 is a purely defensive retreat of the dark-squared bishop, keeping it on dark squares near the king to brace against the kingside pawn storm; after 21...g4 22. Qb2 Qxb2 23. Nxb2, White offers a queen exchange to defuse Black's attacking potential, though the resulting position at -282 shows White has already conceded significant ground. The third option 21. Bc4 moves the light-squared bishop to target f7 and remains more active, but after 21...Nxd2 Black simply captures the now-undefended dark-squared bishop on d2 since it's no longer protected; after 22. Rb5 Qf6 23. Be2 White tries to regroup, but being a full bishop down effectively (having lost the d2 bishop for nothing) leaves the position at -328. The critical lesson is that only Bd3 maintains both bishops in functional roles while addressing the immediate threats."
+ },
+ {
+  "band": "low",
+  "act": 2.59,
+  "fen": "r1bk4/ppppnBrp/1q4pN/7n/4P3/2PP4/PP3RPP/RN1Q2K1 w - - 2 16",
+  "played": "Nd2",
+  "best": "Bb3"
+ },
+ {
+  "band": "low",
+  "act": 2.58,
+  "fen": "r1bqr1k1/pp1n1pp1/2pbpn1p/3p4/2PP4/P1NBPP2/1P1BN1PP/R2QK2R w KQ - 4 10",
+  "played": "Bb1",
+  "best": "O-O"
+ },
+ {
+  "band": "low",
+  "act": 2.51,
+  "fen": "r1b2rk1/pp3ppp/4p3/2b3B1/2Bq2n1/PP6/3N1PPP/R2Q1RK1 w - - 1 15",
+  "played": "Qf3",
+  "best": "Qe2",
+  "motif": "overloaded_defender",
+  "intent": "The player likely intended Qf3 to simultaneously defend the f2 pawn and put pressure on the knight on g4, perhaps hoping the queen on f3 would also support future Nf3 ideas or create threats along the f-file and the a8-h1 diagonal.",
+  "blunder_summary": "The move Qf3 causes a catastrophic 407 centipawn evaluation drop from a balanced position to a nearly losing one. Only one move (Qe2) maintained full equality, making this a position requiring precise defense. The core tactical error is that placing the queen on f3 blocks the crucial Nf3 resource that would have developed the knight with tempo on Black's queen after ...Nxf2, instead forcing White to passively recapture with Qxf2 where the queen is poorly placed while Black's queen dominates from e5.",
+  "best_moves_analysis": "15. Qe2 is the only move that fully equalizes (eval 0). It defends f2 while keeping the queen flexible, and crucially after 15...Nxf2 16. Nf3, the knight develops from d2 to f3 with tempo by attacking the Black queen on d4, forcing Black to deal with multiple issues at once; after 16...Nh3+ 17. Kh1, the knight on h3 is awkwardly placed and White has consolidated with the active knight on f3 compensating for the lost f-pawn. 15. Qc1 (eval -160) sidesteps the d-file tension and prepares to reorganize, but after 15...Nxf2 16. Nf3 Nd3, Black's knight lands on d3 forking the queen on c1 while the queen on d4 is also hanging, leading to 17. Nxd4 where both sides exchange queens but Black retains a structural and activity advantage. 15. Qb1 (eval -199) retreats the queen to safety on b1 eyeing the b1-h7 diagonal, but after 15...Qd6 16. Nf3 b5 17. Bd3, Black has used the tempo to push the bishop off c4 and consolidate the extra initiative, leaving White passively placed though still fighting."
+ },
+ {
+  "band": "low",
+  "act": 2.47,
+  "fen": "rn1q1b1r/1b1k4/p2p4/1p1P1P2/5pN1/P2B2N1/1P3PP1/R2QR1K1 w - - 2 21",
+  "played": "Nh1",
+  "best": "Ne4",
+  "motif": "tempo_loss",
+  "intent": "The player likely retreated the knight to h1 to reroute it (perhaps to f2 or back to g3 later) or was concerned about the Black rook on h8 creating threats down the h-file, possibly trying to consolidate the kingside defensively. This defensive instinct was entirely misguided given that White's position called for immediate, aggressive action against Black's exposed king.",
+  "blunder_summary": "The move Nh1 lost 223 centipawns, dropping the evaluation from a nearly winning +483 to a merely substantial +260. White had at least 2 moves within 50cp of the best (f6 and Re6), both involving aggressive action against Black's exposed king. The core error was retreating an active knight to the corner \u2014 an egregious tempo loss \u2014 when the position demanded immediate tactical exploitation of Black's vulnerable king on d7, and the best punishment 21...Qh4 forces White to waste another tempo returning the knight to g3 while conceding structural damage.",
+  "best_moves_analysis": "The top move 21. f6 is a brilliant pawn thrust that ignores the attacked knight on g3, recognizing that after 21...fxg3 22. Bf5+ the bishop delivers check on the a2-g8 diagonal to the exposed king on d7, forcing 22...Kc7, when 23. Rc1+ delivers another check on the newly-opened c-file, creating a devastating multi-piece assault on the fleeing king. The second-best move 21. Re6 powerfully infiltrates the sixth rank, attacking the d6 pawn and dominating the position; after 21...Qh4 (Black's best attempt at counterplay), White plays 22. Nf6+ (the g4 knight leaps to f6 checking the king on d7), forcing 22...Kd8, and then 23. Rc1 brings yet another piece into the attack with crushing pressure along the c-file and sixth rank. The third option 21. Nh5 sends the g3 knight to h5, tempting Black to capture it; after 21...Rxh5 22. Nf6+ forks the king on d7 and the rook, and after 22...Qxf6 (forced to stop the fork's worst effects), 23. Qxh5 wins the exchange cleanly while maintaining a powerful attack with the advanced pawns and active pieces."
+ },
+ {
+  "band": "low",
+  "act": 2.42,
+  "fen": "r1q1r1kb/pb3p1p/1p3npB/3Pp1N1/8/P1NP2PP/1P3PB1/2Q2RK1 b - - 0 19",
+  "played": "Qc5",
+  "best": "Qd7",
+  "motif": "positional_mistake",
+  "intent": "The player likely played Qc5 to activate the queen on an open diagonal, possibly targeting weak points like f2, a3, or the d5 pawn from a different angle, while also attempting to place the queen on a centralized outpost on the c-file.",
+  "blunder_summary": "This blunder costs 279 centipawns, swinging the evaluation from a clearly winning -218 to a slightly losing +61 for Black. Three good moves existed within 50cp of the best, all involving simple queen or rook placements supporting the Nxd5 plan, making this an avoidable error. The core mistake is that Qc5 removes the queen from supporting the critical f6-knight and the d5-capture plan, allowing White's Nge4 to land with decisive effect \u2014 forcing a favorable exchange that grants White a dominating center and bishop-pair advantage.",
+  "best_moves_analysis": "19...Qd7 is the best move (eval -218), placing the queen on d7 where it supports a future Nxd5 capture and connects the rooks; after 20. f4 Nxd5 21. Bxd5 Bxd5, Black cleanly wins the d5-pawn as the g2-bishop recaptures on d5 and then Black's b7-bishop takes back, leaving Black a clean pawn up with active pieces. 19...Rd8 (eval -191) directly pressures d5 with the rook; after 20. f4 Nxd5 21. fxe5 Nxc3, Black not only captures the d5 pawn but also wins the c3-knight in the resulting tactics, gaining significant material. 19...Qd8 (eval -181) is a more patient retreat that prepares Qd7 next; after 20. Qd1 Qd7 21. f4 Nxd5, Black achieves the same thematic capture of d5 one move later. All three moves share the strategic thread of maintaining pressure on d5 while keeping pieces coordinated to support the Nxd5 break."
+ },
+ {
+  "band": "low",
+  "act": 2.35,
+  "fen": "r4rk1/4bp2/p6Q/2pRp1p1/2B1q3/1P4P1/P1P3PP/5R1K b - - 2 23",
+  "played": "Rfd8",
+  "best": "Rad8",
+  "motif": "king_safety",
+  "intent": "Black likely played 23...Rfd8 to challenge White's powerful Rook on d5 by contesting the open d-file, hoping to trade off one of White's most active pieces and relieve the positional pressure, without realizing the catastrophic tactical consequence that would follow the exchange.",
+  "blunder_summary": "This blunder represents a catastrophic evaluation shift from a losing-but-survivable position (+473 centipawns) to forced checkmate in two moves (#+2), a loss of 9525 centipawns. Black had only one truly good defensive move (23...Qh7) within 50 centipawns of the best, but all alternatives at least kept the game going, whereas 23...Rfd8 allows an immediate forced mate. The core tactical error was failing to see that after Rxd8+ Bxd8, the Bishop's recapture on d8 fatally blocks the f8 escape square, allowing Bxf7# \u2014 a combination exploiting self-blocking and the latent power of the Bc4/Qh6 battery targeting the king.",
+  "best_moves_analysis": "The first and best option, 23...Qh7, is a purely defensive move that offers a queen exchange on h7, neutralizing White's most dangerous attacking piece; after 24. Qc6 White repositions the queen to maintain pressure, and Black responds with 24...Qg7 to cover dark squares around the king, followed by 25. Rd7 Rae8 where Black is still suffering greatly but the king is not immediately under a mating net. The second option, 23...Qg6, directly offers the queen trade by attacking the White queen on h6; after 24. Qxg6+ fxg6 25. Rxe5+ Kh8, Black loses the e5 pawn and enters a clearly worse endgame but has defused the immediate mating threats by removing queens from the board. The third option, 23...Rab8, moves the inactive a8-rook to a useful square; after 24. Rd7 (White invades the seventh rank threatening the bishop and f7), Black plays 24...Qh7 forcing a queen exchange, and after 25. Qxh7+ Kxh7 the position is a difficult but survivable endgame for Black. All three moves share a common theme: they prioritize king safety and defuse White's mating threats, accepting a materially or positionally inferior but survivable position."
+ },
+ {
+  "band": "low",
+  "act": 2.3,
+  "fen": "1r5r/5qp1/3p1p2/p2PpPk1/1pPnBbPp/1P1QN2P/P5R1/6RK b - - 9 39",
+  "played": "Ra8",
+  "best": "a4"
+ },
+ {
+  "band": "low",
+  "act": 2.19,
+  "fen": "6k1/2q4p/2p1p1P1/1p2r3/pQ2P1r1/P1P5/1P6/1K1RR3 b - - 0 32",
+  "played": "Rxg6",
+  "best": "hxg6"
+ },
+ {
+  "band": "low",
+  "act": 2.12,
+  "fen": "5k2/1p3pbQ/2p3pB/3p4/2n5/3R4/1PP2K1P/r3q3 w - - 8 36",
+  "played": "Kf3",
+  "best": "Kg2",
+  "motif": "king_safety",
+  "intent": "Kf3 likely intended to centralize the king, perhaps hoping to support the Rook on d3, escape from the back-rank pressure on the e-file, and potentially prepare Kg4 or Ke3 to consolidate, misunderstanding the severity of the knight check on e5.",
+  "blunder_summary": "Kf3 converted a lost-but-playable position (where Kg2 offered a draw by repetition) into a forced mate in 4, as the king stepped directly into the knight's striking range on e5. The critical error was failing to recognize that f3 places the king on intersecting diagonals and knight-check squares where Black's entire army converges with checks.",
+  "best_moves_analysis": "Kg2 was the only move that avoided immediate forced mate, retreating to a square where the king can hide behind the h-pawn and potentially reach a perpetual via Qh5+/Qg4+ repetitions, keeping the evaluation at -660 (lost but not immediately terminal). After Kg2, Black checks with Qe2+ and Kh3 Qh5+ Kg2 leads to a repetition, which is White's best practical outcome in this dire position. Kf3 was the second-best move listed but carries a catastrophic difference \u2014 it walks into forced mate in 4. No other moves were listed, indicating all alternatives also led to immediate disaster."
+ }
+]
