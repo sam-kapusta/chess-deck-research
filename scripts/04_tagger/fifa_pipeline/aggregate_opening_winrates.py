@@ -1,17 +1,20 @@
-"""opening_winrates.json -> openingBandRates.json (the frontend artifact for the Openings page).
+"""opening_winrates{,_variations}.json -> openingBandRates.json (frontend Openings-page artifact).
 
-Emits the SAME shape the frontend bridge already parses (src/pages/stats/openingBandRates.ts):
+Emits the shape the frontend bridge parses (src/pages/stats/openingBandRates.ts):
   { "clusters": [ { name, group: "Openings - White"|"Openings - Black",
-                    by_band: [ { band, win_rate, games, rate: null } ] } ] }
-`rate` is null on purpose — this table is win-rate-only (the openings page ignores blunder rate;
-that still comes from fifaSkillRatings.json for the Drill skill card, which we do NOT touch).
+                    by_band:      [ { band, win_rate, games, rate: null } ],
+                    by_variation: [ { name, by_band: [ ... ] } ]   # NEW level-2 (optional) } ] }
+`rate` is null on purpose — win-rate-only table (openings page ignores blunder rate; that still
+comes from fifaSkillRatings.json for the Drill skill card, which we do NOT touch).
 
-A family is emitted per color if it clears MIN_FAMILY_GAMES total across its populated bands (so we
-don't ship 3-game "baselines"). Thin families pool into "Other" per color. Only bands with
->= MIN_BAND_GAMES are kept as cells — a 4-game band is dropped rather than shown as a baseline.
+A family is emitted if it clears MIN_FAMILY_GAMES across its populated bands; thin families pool
+into "Other". A VARIATION is emitted under its family if it clears MIN_VARIATION_GAMES (looser —
+variations are naturally smaller); thin variations are simply dropped (family row still covers
+them). Only bands with >= MIN_BAND_GAMES ship as cells.
 
 Usage: python aggregate_opening_winrates.py opening_winrates.json \
-         /path/to/chess-deck-code/frontend/src/data/openingBandRates.json
+         /path/to/chess-deck-code/frontend/src/data/openingBandRates.json \
+         [opening_winrates_variations.json]   # optional; adds by_variation
 """
 import sys, json
 
@@ -22,6 +25,9 @@ BAND_ORDER = ["600-800", "800-1000", "1000-1200", "1200-1400", "1400-1600", "160
 # games/major-family/band; total across bands is a looser but honest gate on "is this a real
 # baseline or noise".
 MIN_FAMILY_GAMES = 2000
+# A variation needs less than a family (it's a slice of one) but still enough that its per-band
+# rates aren't noise. Dropped variations just don't get a band-mode row — the family row covers them.
+MIN_VARIATION_GAMES = 1000
 # Drop a single band cell thinner than this — better a gap than a noisy point (the frontend already
 # renders "-" for a missing cell).
 MIN_BAND_GAMES = 50
@@ -45,7 +51,22 @@ def by_band_rows(bands_dict):
     return rows, total
 
 
-def build_group(color_data, group_name):
+def build_variations(fam_var_data):
+    """fam_var_data: {variation: {band: cell}} -> [{name, by_band}] for variations clearing the gate.
+    'Main Line' is kept (it's the meaningful default line, not a catch-all). Sorted by total volume."""
+    out = []
+    for var, bands_dict in (fam_var_data or {}).items():
+        if var == "Unknown":
+            continue
+        rows, total = by_band_rows(bands_dict)
+        if total < MIN_VARIATION_GAMES or not rows:
+            continue
+        out.append({"name": var, "by_band": rows, "_total": total})
+    out.sort(key=lambda v: v.pop("_total"), reverse=True)
+    return out
+
+
+def build_group(color_data, group_name, var_data):
     other = {b: {"games": 0, "wins": 0, "draws": 0, "losses": 0} for b in BAND_ORDER}
     clusters = []
     for fam, bands_dict in color_data.items():
@@ -57,7 +78,11 @@ def build_group(color_data, group_name):
                     for k in ("games", "wins", "draws", "losses"):
                         other[b][k] += c.get(k, 0)
             continue
-        clusters.append({"name": fam, "group": group_name, "by_band": rows})
+        cluster = {"name": fam, "group": group_name, "by_band": rows}
+        variations = build_variations(var_data.get(fam)) if var_data else []
+        if variations:
+            cluster["by_variation"] = variations
+        clusters.append(cluster)
     o_rows, o_total = by_band_rows(other)
     if o_total >= MIN_FAMILY_GAMES and o_rows:
         clusters.append({"name": "Other", "group": group_name, "by_band": o_rows})
@@ -65,13 +90,14 @@ def build_group(color_data, group_name):
 
 
 def main():
-    if len(sys.argv) != 3:
+    if len(sys.argv) not in (3, 4):
         print(__doc__)
         sys.exit(1)
     src, dst = sys.argv[1], sys.argv[2]
     data = json.load(open(src))
-    clusters = (build_group(data.get("White", {}), "Openings - White")
-                + build_group(data.get("Black", {}), "Openings - Black"))
+    vdata = json.load(open(sys.argv[3])) if len(sys.argv) == 4 else {}
+    clusters = (build_group(data.get("White", {}), "Openings - White", vdata.get("White", {}))
+                + build_group(data.get("Black", {}), "Openings - Black", vdata.get("Black", {})))
     out = {"clusters": clusters}
     json.dump(out, open(dst, "w"), indent=0)
     # Report so the runner can eyeball coverage before shipping.
@@ -79,7 +105,8 @@ def main():
     for c in clusters:
         gmin = min((r["games"] for r in c["by_band"]), default=0)
         gmax = max((r["games"] for r in c["by_band"]), default=0)
-        print(f"  {c['group'][9:]:6} {c['name']:28} bands={len(c['by_band']):2} games={gmin}-{gmax}")
+        nv = len(c.get("by_variation", []))
+        print(f"  {c['group'][9:]:6} {c['name']:28} bands={len(c['by_band']):2} games={gmin}-{gmax} vars={nv}")
 
 
 if __name__ == "__main__":

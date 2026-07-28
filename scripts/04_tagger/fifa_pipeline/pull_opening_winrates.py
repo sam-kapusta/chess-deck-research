@@ -35,7 +35,9 @@ BANDS = [('600-800', 600, 800), ('800-1000', 800, 1000), ('1000-1200', 1000, 120
 # puts the big families (Sicilian, Caro-Kann, QP) in the 5k-30k range and most named families over
 # 1k. The scarce anchor bands (600-800, 2600-2800) won't hit target — take what exists, log it.
 GAME_TARGET = 100_000
-MAX_SHARDS = 200  # safety cap; headers-only shards fill bands fast, but low/high bands are rare
+# Bands 600-2200 fill in ~20 shards; 2400/2600 never reach target (rapid at master level is rare),
+# so cap at 30 rather than grind all 200 shards chasing tails that can't fill. Tails take what exists.
+MAX_SHARDS = 30
 
 
 def is_rapid(tc):
@@ -60,6 +62,51 @@ def family_of(opening):
     return name if name and name != "Unknown Opening" else "Unknown"
 
 
+# ── Variation-level bucketing ───────────────────────────────────────────────
+# FAITHFUL PORT of the frontend's variationName() (openingRepertoireData.ts). The player's tree
+# labels variations with that function; the corpus MUST bucket by the identical key or the band
+# lookup won't join (STANDARDS.md: "algorithms in both Python and TS stay in sync"). Verified
+# empirically against the TS on a corpus sample (verify_variation_keys) before the production run.
+FAMILY_PREFIXES = [
+    "Caro Kann Defense", "Caro-Kann Defense", "Sicilian Defense", "French Defense", "Scandinavian Defense",
+    "Pirc Defense", "Alekhine Defense", "Philidor Defense", "Slav Defense", "Nimzo-Indian Defense",
+    "King's Indian Defense", "Queen's Gambit Declined", "Queen's Gambit Accepted", "Queen's Gambit",
+    "Queen's Pawn Game", "Vienna Game", "Italian Game", "Scotch Game", "Ruy Lopez", "English Opening",
+    "Bishop's Opening", "Petrov's Defense", "Russian Game", "London System", "Dutch Defense", "Bird Opening",
+    "Bird's Opening", "Vienna", "Caro-Kann", "Caro Kann",
+]
+TWO_WORD_HEADS = [
+    "main line", "max lange", "two knights", "panov attack", "fried liver",
+    "kings indian", "queens indian", "nimzo indian", "kings gambit", "queens gambit",
+    "bishops opening", "scotch gambit", "danish gambit", "evans gambit", "smith morra",
+]
+# step 1: cut from the first move-notation token onward ("3...cxd5", "4.Nf3", "...5.c3", "2.d4")
+_MOVE_TAIL_A = re.compile(r'\s+(\.{3})?\s*\d+\s*\.{1,3}.*$')
+_MOVE_TAIL_B = re.compile(r'\s+\.{3}.*$')
+
+
+def variation_of(opening):
+    """Port of variationName(): derive the level-2 variation head from a full opening name."""
+    if not opening:
+        return "Main Line"
+    s = opening.strip()
+    s = _MOVE_TAIL_B.sub("", _MOVE_TAIL_A.sub("", s))
+    low = s.lower()
+    for p in FAMILY_PREFIXES:  # longest-first, matches the TS ordering
+        if low.startswith(p.lower()):
+            s = s[len(p):].strip()
+            break
+    # drop leftover ": "/", " from colon-form names, the word "Variation", collapse whitespace
+    s = re.sub(r'^[\s:,]+', '', s)
+    s = re.sub(r'\bVariation\b', '', s, flags=re.I)
+    s = re.sub(r'\s+', ' ', s).strip()
+    if not s:
+        return "Main Line"
+    low = s.lower()
+    head = next((t for t in TWO_WORD_HEADS if low.startswith(t)), None)
+    return " ".join(s.split(" ")[:2]) if head else s.split(" ")[0]
+
+
 def result_pts(res, is_white):
     """Mover-color result -> (win, draw, loss) one-hot from THAT color's perspective."""
     if res == "1-0":
@@ -78,6 +125,10 @@ files.sort(reverse=True)
 # stats[color][family][band] = [games, wins, draws, losses]
 stats = {"White": defaultdict(lambda: defaultdict(lambda: [0, 0, 0, 0])),
          "Black": defaultdict(lambda: defaultdict(lambda: [0, 0, 0, 0]))}
+# vstats[color][family][variation][band] = [games, wins, draws, losses] — the level-2 tally, keyed
+# by variation_of() (== frontend variationName()). Same banding/skip gate as the family tally.
+vstats = {"White": defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: [0, 0, 0, 0]))),
+          "Black": defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: [0, 0, 0, 0])))}
 band_games = {b: 0 for b, _, _ in BANDS}
 t0 = time.time()
 ng = 0
@@ -108,6 +159,7 @@ for fi, f in enumerate(files):
         if (wb is None or band_games[wb] >= GAME_TARGET) and (bb is None or band_games[bb] >= GAME_TARGET):
             continue
         fam = family_of(ope)
+        var = variation_of(ope)
         for is_white, band in ((True, wb), (False, bb)):
             if band is None or band_games[band] >= GAME_TARGET:
                 continue
@@ -115,11 +167,17 @@ for fi, f in enumerate(files):
             if pts is None:
                 continue
             band_games[band] += 1
-            cell = stats["White" if is_white else "Black"][fam][band]
+            color = "White" if is_white else "Black"
+            cell = stats[color][fam][band]
             cell[0] += 1
             cell[1] += pts[0]
             cell[2] += pts[1]
             cell[3] += pts[2]
+            vcell = vstats[color][fam][var][band]
+            vcell[0] += 1
+            vcell[1] += pts[0]
+            vcell[2] += pts[1]
+            vcell[3] += pts[2]
     try:
         os.remove(p)
     except OSError:
@@ -131,11 +189,19 @@ for fi, f in enumerate(files):
     print(f'shard {fi + 1} | {ng}g {time.time() - t0:.0f}s | ' +
           ' '.join(f'{b.split("-")[0]}:{band_games[b]}' for b, _, _ in BANDS), flush=True)
 
-out = {color: {fam: {b: {"games": stats[color][fam][b][0], "wins": stats[color][fam][b][1],
-                         "draws": stats[color][fam][b][2], "losses": stats[color][fam][b][3]}
-                     for b in stats[color][fam]}
+def cell_dict(c):
+    return {"games": c[0], "wins": c[1], "draws": c[2], "losses": c[3]}
+
+
+out = {color: {fam: {b: cell_dict(stats[color][fam][b]) for b in stats[color][fam]}
                for fam in stats[color]}
        for color in ("White", "Black")}
+# Level-2: {color: {family: {variation: {band: {...}}}}}. Aggregator nests these under their family.
+vout = {color: {fam: {var: {b: cell_dict(vstats[color][fam][var][b]) for b in vstats[color][fam][var]}
+                      for var in vstats[color][fam]}
+                for fam in vstats[color]}
+        for color in ("White", "Black")}
 json.dump(out, open("opening_winrates.json", "w"))
+json.dump(vout, open("opening_winrates_variations.json", "w"))
 print(f"=== DONE === {(time.time() - t0) / 60:.1f}min | bands: " +
       ' '.join(f'{b}:{band_games[b]}' for b, _, _ in BANDS), flush=True)
