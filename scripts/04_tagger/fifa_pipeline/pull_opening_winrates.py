@@ -35,9 +35,18 @@ BANDS = [('600-800', 600, 800), ('800-1000', 800, 1000), ('1000-1200', 1000, 120
 # puts the big families (Sicilian, Caro-Kann, QP) in the 5k-30k range and most named families over
 # 1k. The scarce anchor bands (600-800, 2600-2800) won't hit target — take what exists, log it.
 GAME_TARGET = 100_000
-# Bands 600-2200 fill in ~20 shards; 2400/2600 never reach target (rapid at master level is rare),
-# so cap at 30 rather than grind all 200 shards chasing tails that can't fill. Tails take what exists.
-MAX_SHARDS = 30
+# Bands 600-2200 fill in ~20 shards unfiltered; the close-rated filter below drops ~2/3 of games, so
+# allow more shards to refill them. 2400/2600 still never reach target (rapid at master level is rare)
+# — they take what exists rather than grinding all 200 shards.
+MAX_SHARDS = 60
+
+# CLOSE-RATED ONLY. Banding is by the player's OWN Elo, ignoring the opponent's — and the opponent
+# pool is badly asymmetric at the extremes: measured on one 2025-09 shard, 2600-2800 players average
+# +334 Elo ABOVE their opponents (win 68% in every opening) while 600-800 average -54 BELOW. That
+# gradient swamped the opening signal: every family showed the same fake +31pt "improvement" across
+# bands. Requiring a near-equal opponent removes the mismatch at the source, so each band's baseline
+# sits near 50% and an opening's deviation is real. Costs sample at the thin top bands.
+MAX_ELO_GAP = 100
 
 
 def is_rapid(tc):
@@ -152,6 +161,8 @@ for fi, f in enumerate(files):
     for we, be, tc, ope, res in zip(*cols):
         ng += 1
         if not we or not be or not is_rapid(tc):
+            continue
+        if abs(we - be) > MAX_ELO_GAP:  # close-rated only — see MAX_ELO_GAP
             continue
         wb, bb = band_of(we), band_of(be)
         # Skip only if BOTH colors' bands are full (or out of range) — else we'd drop a game that
