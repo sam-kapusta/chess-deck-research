@@ -1,4 +1,4 @@
-"""Dedicated per-(family, color, band) opening WIN-RATE table from the Lichess rapid corpus.
+"""Dedicated per-(family, color, band) opening WIN-RATE table from the Lichess BLITZ corpus.
 
 Issue #76: the openings-page band baselines currently piggyback on the FIFA blunder scan
 (pull_opening_rates.py), which budgets 60k *moves* per band → only ~2,400 games/band → 5-128
@@ -16,6 +16,9 @@ Output: opening_winrates.json =
   {"White": {family: {band: {games, wins, draws, losses}}}, "Black": {...}}
 then aggregate_opening_winrates.py turns it into the frontend's openingBandRates.json.
 
+Time class is BLITZ (was rapid until 2026-07-28) so the whole product shares ONE rating scale —
+Lichess blitz, which is also Maia 3's conditioning scale. See is_blitz() for the full rationale.
+
 Run on chess-poc:  export HF_TOKEN=...; python -u pull_opening_winrates.py
 Tune GAME_TARGET / MAX_SHARDS below. No GPU, no Stockfish — pure header scan.
 """
@@ -31,14 +34,27 @@ BANDS = [('600-800', 600, 800), ('800-1000', 800, 1000), ('1000-1200', 1000, 120
          ('2400-2600', 2400, 2600), ('2600-2800', 2600, 2800)]
 
 # GAMES (not moves) counted toward each band, per COLOR. #76 wants >=1,000 games/major-family/band;
-# a family is a fraction of all games, so the band total must be well above that. 100k games/band
-# puts the big families (Sicilian, Caro-Kann, QP) in the 5k-30k range and most named families over
-# 1k. The scarce anchor bands (600-800, 2600-2800) won't hit target — take what exists, log it.
-GAME_TARGET = 100_000
-# Bands 600-2200 fill in ~20 shards unfiltered; the close-rated filter below drops ~2/3 of games, so
-# allow more shards to refill them. 2400/2600 still never reach target (rapid at master level is rare)
-# — they take what exists rather than grinding all 200 shards.
-MAX_SHARDS = 60
+# a family is a fraction of all games, so the band total must be well above that. The scarce anchor
+# bands (600-800, 2600-2800) won't hit target — take what exists, log it.
+#
+# Raised 100k -> 500k (2026-07-29, issue #82). At 100k the openings page was missing nine families a
+# coach would name as common (Réti, Catalan, Trompowsky, Torre, Veresov, Grünfeld, Benko, Budapest,
+# London-as-a-family): each landed at 200-1,800 games TOTAL, under the aggregator's
+# MIN_FAMILY_GAMES=2000, so they pooled into "Other" and their games showed up under Queen's Pawn.
+# Lowering that floor instead would have admitted ~50 junk families (Elephant Gambit, Grob, Ware, "?")
+# alongside them, so the fix is more sample, not a looser gate — earn the volume at 2000.
+#
+# Note the interaction with the per-band cap below (`band_games[band] >= GAME_TARGET`): once a band
+# fills it stops ACCEPTING games, so at 100k the mid bands capped on shard 1-3 and every later shard
+# only fed 2400/2600. Raising the target is what lets the mid bands keep filling.
+GAME_TARGET = 500_000
+# Blitz is ~3x denser than rapid per shard, so bands fill faster than the old rapid run needed. The
+# close-rated filter still drops ~2/3 of games. Measured on the 2026-07-29 run: 40 shards = 56.2M
+# games scanned in 6.4min (~1.4M/shard, ~10s/shard), which filled every band to 100k except
+# 2600-2800 (50,083 — that band yields only ~1.25k close-rated blitz per shard, so it is
+# shard-limited, not target-limited, and will stay short at any target).
+# 5x the target needs ~5x the shards for the mid bands; 200 is sized for that with headroom.
+MAX_SHARDS = 200
 
 # CLOSE-RATED ONLY. Banding is by the player's OWN Elo, ignoring the opponent's — and the opponent
 # pool is badly asymmetric at the extremes: measured on one 2025-09 shard, 2600-2800 players average
@@ -49,12 +65,19 @@ MAX_SHARDS = 60
 MAX_ELO_GAP = 100
 
 
-def is_rapid(tc):
+# TIME CLASS: blitz, not rapid (changed 2026-07-28). ONE rating scale across the whole product —
+# Maia 3 is conditioned on Lichess BLITZ, so making the corpus blitz too means a single conversion
+# target everywhere (frontend `maiaEloConversion` already maps any platform/time-class → Li-Blitz)
+# instead of Maia-on-blitz + bands-on-rapid, which is how players ended up benchmarked two bands off.
+# Blitz is also far better sampled: on one 2025-09 shard, 667,926 blitz vs 208,782 rapid games, and
+# the gap widens exactly where rapid starved — close-rated 2400-2600: 3,951 blitz vs 171 rapid;
+# 2600-2800: 674 vs 8. Lichess time-class boundary: blitz = 180s <= est < 480s (est = base + 40*inc).
+def is_blitz(tc):
     m = re.match(r'(\d+)\+(\d+)', str(tc or ''))
     if not m:
         return False
     b, i = int(m.group(1)), int(m.group(2))
-    return 480 <= b + 40 * i < 1500
+    return 180 <= b + 40 * i < 480
 
 
 def band_of(e):
@@ -100,11 +123,24 @@ def variation_of(opening):
         return "Main Line"
     s = opening.strip()
     s = _MOVE_TAIL_B.sub("", _MOVE_TAIL_A.sub("", s))
-    low = s.lower()
-    for p in FAMILY_PREFIXES:  # longest-first, matches the TS ordering
-        if low.startswith(p.lower()):
-            s = s[len(p):].strip()
-            break
+    # Strip the opening's OWN family prefix first (family_of == everything before the ':'). The
+    # hand-maintained FAMILY_PREFIXES list below only covered ~29 names, so any family missing from it
+    # had nothing stripped and every line collapsed to the first word: "Indian Defense: Budapest
+    # Gambit" -> "Indian", same as all ~50 other Indian lines. Measured on the 500k scan: 59 families
+    # were reduced to ONE variation key holding 700k+ games (King's Pawn 108,947 -> "King's",
+    # Indian Defense 57,188 -> "Indian"), which is why the Budapest read 0 games and Grünfeld
+    # sublines were invisible. Using family_of makes this work for every family, present or future.
+    # Only for COLON-form names: family_of() of a colonless name is the whole string, so stripping it
+    # would empty `s` and turn every such line into "Main Line". Must match the TS guard exactly.
+    fam = family_of(opening) if ":" in opening else None
+    if fam and fam != "Unknown" and s.lower().startswith(fam.lower()):
+        s = s[len(fam):].strip()
+    else:
+        low = s.lower()
+        for p in FAMILY_PREFIXES:  # longest-first, matches the TS ordering
+            if low.startswith(p.lower()):
+                s = s[len(p):].strip()
+                break
     # drop leftover ": "/", " from colon-form names, the word "Variation", collapse whitespace
     s = re.sub(r'^[\s:,]+', '', s)
     s = re.sub(r'\bVariation\b', '', s, flags=re.I)
@@ -160,7 +196,7 @@ for fi, f in enumerate(files):
     cols = [t.column(c).to_pylist() for c in ['WhiteElo', 'BlackElo', 'TimeControl', 'Opening', 'Result']]
     for we, be, tc, ope, res in zip(*cols):
         ng += 1
-        if not we or not be or not is_rapid(tc):
+        if not we or not be or not is_blitz(tc):
             continue
         if abs(we - be) > MAX_ELO_GAP:  # close-rated only — see MAX_ELO_GAP
             continue
