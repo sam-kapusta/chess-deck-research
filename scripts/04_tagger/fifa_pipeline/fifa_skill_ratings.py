@@ -1,10 +1,10 @@
-"""Stage 3/4: turn the re-detected rapid corpus into per-band 6-group RATES + rate-direct anchors,
+"""Stage 3/4: turn the re-detected BLITZ corpus into per-band 6-group RATES + rate-direct anchors,
 and write fifaSkillRatings.json (the frontend artifact).
 
 Inputs (on chess-poc ~/SageMaker):
   fifa_enrich.json     {fen|uci -> enrichment record}   (from redetect_positions_d16.py)
   fifa_sweep.json      [{band, fen, uci, cp_loss}]       (band membership per blunder)
-  band_denominators.json {moves:{band:n}, endmoves:{band:n}}  (rapid mover-move denominators)
+  band_denominators.json {moves:{band:n}, endmoves:{band:n}}  (blitz mover-move denominators)
 Tagger: ~/SageMaker/tagger_run (current — synced). Out: fifa_skill_ratings.json + console table.
 """
 import os, sys, json, chess
@@ -131,7 +131,7 @@ for lab in all_labels:
                    "monotonic":mono,"sparse":min_band_fires<30,
                    "by_band":{b:{"fires":f,"rate":(round(r,6) if r is not None else None)} for (b,f,r) in seq}}
 
-out={"_version":"production_2026-06-22","_source":"rapid-only 11-band (600-2800), 60k moves/band one-scan, depth-16 re-detect, current tagger. info/orient tags EXCLUDED from scoring (fixes Endgame). Endgame denom = endgame-moves; others = total moves.",
+out={"_version":"production_blitz_2026-07-30","_source":"BLITZ-only 11-band (600-2800), |elo gap|<=100, 60k moves/band one-scan, depth-16 re-detect, current tagger. info/orient tags EXCLUDED from scoring (fixes Endgame). Endgame denom = endgame-moves; others = total moves.",
      "_groups":GROUPS,"_band_n":{b:bmoves.get(b) for b in present},
      "_endmoves":{b:bend.get(b) for b in present},
      "anchors":anchors,"bands":bands_out,"features":features}

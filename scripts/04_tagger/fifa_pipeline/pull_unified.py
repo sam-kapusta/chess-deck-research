@@ -1,4 +1,4 @@
-"""Unified pull (fixes the num/denom sample-mismatch bug): per band, scan rapid eval-annotated games
+"""Unified pull (fixes the num/denom sample-mismatch bug): per band, scan BLITZ eval-annotated games
 (mover-banded) until MOVE_TARGET mover-moves, counting BOTH total moves (+ endgame moves) AND keeping
 ALL >=200cp blunders found in the SAME moves. rate = blunders_in_scan / moves_in_scan — one scan.
 Numerator and denominator now share the exact same game population. Outputs:
@@ -13,10 +13,23 @@ BANDS=[('600-800',600,800),('800-1000',800,1000),('1000-1200',1000,1200),('1200-
        ('1400-1600',1400,1600),('1600-1800',1600,1800),('1800-2000',1800,2000),('2000-2200',2000,2200),
        ('2200-2400',2200,2400),('2400-2600',2400,2600),('2600-2800',2600,2800)]
 MOVE_TARGET=60000; MIN_LOSS=200; MAX_SHARDS=260
-def is_rapid(tc):
+# BLITZ, not rapid (changed 2026-07-30). ONE rating scale across the product: Maia 3 is conditioned on
+# Lichess blitz, openingBandRates was rescanned on blitz 2026-07-28, and sample_lichess.py followed on
+# 2026-07-30. This pull was the last rapid holdout, which left the FIFA skill card scoring players
+# against RAPID anchors while the band cards on the same page used blitz ones (GH #84). Blitz has
+# materially more blunders/move at equal rating (Hung Queen 5.1% blitz vs 2.3% rapid), so mixing the
+# two skews every score. Must stay byte-identical to pull_opening_winrates.is_blitz.
+# Lichess boundary: blitz = 180s <= base + 40*inc < 480s.
+def is_blitz(tc):
     m=re.match(r'(\d+)\+(\d+)',str(tc or ''))
     if not m: return False
-    b,i=int(m.group(1)),int(m.group(2)); return 480<=b+40*i<1500
+    b,i=int(m.group(1)),int(m.group(2)); return 180<=b+40*i<480
+
+# Both players must be near-equal. Banding by the MOVER's Elo alone ignores the opponent, and at the
+# top bands players average +334 Elo above theirs — that gradient masquerades as skill and was the
+# documented cause of every opening showing the same fake improvement across bands. Ported from
+# pull_opening_winrates.py. See knowledge/2026-07-28-rating-band-corpus-stats.md.
+MAX_ELO_GAP=100
 def band_of(e):
     for n,lo,hi in BANDS:
         if lo<=e<hi: return n
@@ -47,7 +60,8 @@ for fi,f in enumerate(files):
     except Exception as e: print('skip',str(e)[:60],flush=True); continue
     for we,be,tc,mt in zip(*[t.column(c).to_pylist() for c in ['WhiteElo','BlackElo','TimeControl','movetext']]):
         ng+=1
-        if not we or not be or not is_rapid(tc) or '%eval' not in mt: continue
+        if not we or not be or not is_blitz(tc) or '%eval' not in mt: continue
+        if abs(we-be)>MAX_ELO_GAP: continue
         wb,bb=band_of(we),band_of(be)
         if (wb is None or moves[wb]>=MOVE_TARGET) and (bb is None or moves[bb]>=MOVE_TARGET): continue
         try: g=chess.pgn.read_game(io.StringIO(f'[Event "?"]\n\n{mt}'))
