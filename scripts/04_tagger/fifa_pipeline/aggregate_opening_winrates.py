@@ -34,6 +34,10 @@ MIN_FAMILY_GAMES = 2000
 # (6.8%) sat in no shipped variation at all, so a family's rows didn't add up to the family. MIN_BAND_GAMES
 # still keeps individual thin CELLS out, so lowering this floor doesn't admit noisy per-band points.
 MIN_VARIATION_GAMES = 200
+# A level-3 LINE is a slice of a variation, so it needs less again. 100 keeps a line's per-band cells
+# meaningful once MIN_BAND_GAMES=50 has had its say, without discarding the named sub-lines that are
+# the whole point of the level (Milner-Barry Gambit, Euwe, Nimzowitsch Attack under Advance French).
+MIN_LINE_GAMES = 100
 # Drop a single band cell thinner than this — better a gap than a noisy point (the frontend already
 # renders "-" for a missing cell).
 MIN_BAND_GAMES = 50
@@ -57,7 +61,7 @@ def by_band_rows(bands_dict):
     return rows, total
 
 
-def build_variations(fam_var_data, family_bands=None):
+def build_variations(fam_var_data, family_bands=None, fam_line_data=None):
     """fam_var_data: {variation: {band: cell}} -> [{name, by_band}] for variations clearing the gate.
     Sorted by total volume, with an explicit remainder row so the rows always sum to the family.
 
@@ -73,7 +77,21 @@ def build_variations(fam_var_data, family_bands=None):
         if total < MIN_VARIATION_GAMES or not rows:
             continue
         kept[var] = bands_dict
-        out.append({"name": var, "by_band": rows, "_total": total})
+        entry = {"name": var, "by_band": rows, "_total": total}
+        # LEVEL 3 — the move-order lines under this variation. Same gate as a variation: a line needs
+        # MIN_LINE_GAMES to ship, and MIN_BAND_GAMES still governs individual cells. Omitted entirely
+        # when there's nothing to show, so the file doesn't carry empty arrays.
+        if fam_line_data:
+            lines = []
+            for ln, lbands in (fam_line_data.get(var) or {}).items():
+                lrows, ltotal = by_band_rows(lbands)
+                if ltotal < MIN_LINE_GAMES or not lrows:
+                    continue
+                lines.append({"name": ln, "by_band": lrows, "_total": ltotal})
+            lines.sort(key=lambda v: v.pop("_total"), reverse=True)
+            if lines:
+                entry["by_line"] = lines
+        out.append(entry)
     out.sort(key=lambda v: v.pop("_total"), reverse=True)
 
     if family_bands and out:
@@ -93,7 +111,7 @@ def build_variations(fam_var_data, family_bands=None):
     return out
 
 
-def build_group(color_data, group_name, var_data):
+def build_group(color_data, group_name, var_data, line_data=None):
     other = {b: {"games": 0, "wins": 0, "draws": 0, "losses": 0} for b in BAND_ORDER}
     clusters = []
     for fam, bands_dict in color_data.items():
@@ -106,7 +124,8 @@ def build_group(color_data, group_name, var_data):
                         other[b][k] += c.get(k, 0)
             continue
         cluster = {"name": fam, "group": group_name, "by_band": rows}
-        variations = build_variations(var_data.get(fam), bands_dict) if var_data else []
+        variations = build_variations(var_data.get(fam), bands_dict,
+                                      (line_data or {}).get(fam)) if var_data else []
         if variations:
             cluster["by_variation"] = variations
         clusters.append(cluster)
@@ -117,14 +136,19 @@ def build_group(color_data, group_name, var_data):
 
 
 def main():
-    if len(sys.argv) not in (3, 4):
+    if len(sys.argv) not in (3, 4, 5):
         print(__doc__)
         sys.exit(1)
     src, dst = sys.argv[1], sys.argv[2]
     data = json.load(open(src))
-    vdata = json.load(open(sys.argv[3])) if len(sys.argv) == 4 else {}
-    clusters = (build_group(data.get("White", {}), "Openings - White", vdata.get("White", {}))
-                + build_group(data.get("Black", {}), "Openings - Black", vdata.get("Black", {})))
+    vdata = json.load(open(sys.argv[3])) if len(sys.argv) >= 4 else {}
+    # Level-3 lines are OPTIONAL: a scan without them still produces a valid file, just with no
+    # by_line on any variation.
+    ldata = json.load(open(sys.argv[4])) if len(sys.argv) == 5 else {}
+    clusters = (build_group(data.get("White", {}), "Openings - White",
+                            vdata.get("White", {}), ldata.get("White", {}))
+                + build_group(data.get("Black", {}), "Openings - Black",
+                              vdata.get("Black", {}), ldata.get("Black", {})))
     out = {"clusters": clusters}
     json.dump(out, open(dst, "w"), indent=0)
     # Report so the runner can eyeball coverage before shipping.

@@ -152,6 +152,37 @@ def variation_of(opening):
     return " ".join(s.split(" ")[:2]) if head else s.split(" ")[0]
 
 
+_MOVE_HEAD = re.compile(r'(\.{3}\s*)?\d+\s*\.{1,3}.*$')
+
+
+def line_of(opening, variation):
+    """Port of lineLabel(): the level-3 leaf — sub-variation words plus the move sequence.
+
+    "French Defense: Advance Variation, Milner-Barry Gambit, Hector Variation"
+      variation_of -> "Advance"
+      line_of      -> "Milner-Barry Gambit, Hector"
+
+    MUST stay in sync with lineLabel() in
+    chess-deck-code/frontend/src/pages/stats/openingRepertoireData.ts — these keys are the join
+    between the player's own tree and the corpus baselines, so a mismatch silently orphans every row.
+    """
+    if not opening:
+        return "Main line"
+    name_part = _MOVE_TAIL_B.sub("", _MOVE_TAIL_A.sub("", opening))
+    low_name, low_var = name_part.lower(), (variation or "").lower()
+    idx = low_name.rfind(low_var) if low_var else -1
+    sub = name_part[idx + len(variation):] if idx >= 0 else ""
+    sub = re.sub(r'\bVariation\b', '', sub, flags=re.I)
+    sub = re.sub(r'\s+', ' ', sub).strip()
+    # NO leading-comma strip. lineLabel() does NOT tidy the separator here (unlike variationName(),
+    # which has its own `^[\s:,]+` pass), so its keys really do read ", Everglades". Stripping it looked
+    # tidier and produced 787 key mismatches against the TS — the join is what matters, not the prose.
+    m = _MOVE_HEAD.search(opening)
+    moves = m.group(0).strip() if m else ""
+    label = " ".join(x for x in (sub, moves) if x).strip()
+    return label or "Main line"
+
+
 def result_pts(res, is_white):
     """Mover-color result -> (win, draw, loss) one-hot from THAT color's perspective."""
     if res == "1-0":
@@ -174,6 +205,11 @@ stats = {"White": defaultdict(lambda: defaultdict(lambda: [0, 0, 0, 0])),
 # by variation_of() (== frontend variationName()). Same banding/skip gate as the family tally.
 vstats = {"White": defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: [0, 0, 0, 0]))),
           "Black": defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: [0, 0, 0, 0])))}
+# lstats[color][family][variation][line][band] = [games, wins, draws, losses] — the LEVEL-3 tally.
+# Keyed on line_of(), i.e. the sub-variation words plus the move sequence, so a card can open one more
+# layer: French Defense > Advance > "Milner-Barry Gambit, Hector". Same shape one level deeper.
+lstats = {"White": defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: [0, 0, 0, 0])))),
+          "Black": defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: [0, 0, 0, 0]))))}
 band_games = {b: 0 for b, _, _ in BANDS}
 t0 = time.time()
 ng = 0
@@ -207,6 +243,7 @@ for fi, f in enumerate(files):
             continue
         fam = family_of(ope)
         var = variation_of(ope)
+        line = line_of(ope, var)
         for is_white, band in ((True, wb), (False, bb)):
             if band is None or band_games[band] >= GAME_TARGET:
                 continue
@@ -225,6 +262,11 @@ for fi, f in enumerate(files):
             vcell[1] += pts[0]
             vcell[2] += pts[1]
             vcell[3] += pts[2]
+            lcell = lstats[color][fam][var][line][band]
+            lcell[0] += 1
+            lcell[1] += pts[0]
+            lcell[2] += pts[1]
+            lcell[3] += pts[2]
     try:
         os.remove(p)
     except OSError:
@@ -248,7 +290,17 @@ vout = {color: {fam: {var: {b: cell_dict(vstats[color][fam][var][b]) for b in vs
                       for var in vstats[color][fam]}
                 for fam in vstats[color]}
         for color in ("White", "Black")}
+# Level-3: {color: {family: {variation: {line: {band: {...}}}}}}. Written separately so the existing
+# two files keep their exact shape — the aggregator treats this one as optional, and a run without it
+# still produces a valid openingBandRates.json.
+lout = {color: {fam: {var: {ln: {b: cell_dict(lstats[color][fam][var][ln][b])
+                                for b in lstats[color][fam][var][ln]}
+                            for ln in lstats[color][fam][var]}
+                      for var in lstats[color][fam]}
+                for fam in lstats[color]}
+        for color in ("White", "Black")}
 json.dump(out, open("opening_winrates.json", "w"))
 json.dump(vout, open("opening_winrates_variations.json", "w"))
+json.dump(lout, open("opening_winrates_lines.json", "w"))
 print(f"=== DONE === {(time.time() - t0) / 60:.1f}min | bands: " +
       ' '.join(f'{b}:{band_games[b]}' for b, _, _ in BANDS), flush=True)
