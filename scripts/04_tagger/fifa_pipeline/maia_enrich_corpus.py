@@ -82,10 +82,23 @@ def rapid_to_blitz(r):
 
 
 def band_elos(band):
-    """5 clamped Maia query Elos for a band like '1600-1800'."""
+    """5 clamped Maia query Elos for a band like '1600-1800'.
+
+    NO rapid->blitz conversion (fixed 2026-07-30). The corpus band keys are ALREADY Lichess-blitz —
+    sample_lichess.py / pull_unified.py both sample with `is_blitz` and band by raw Lichess rating — and
+    Maia 3 is trained on Lichess blitz. Converting here was a DOUBLE conversion: it asked Maia "what do
+    1700-rated players play?" for the 1800-2000 band, so `goodRate` (and the Easy/Medium/Hard axis built
+    on it) described the wrong population.
+
+    Measured error at the time of the fix: 200pts low on 1400-1600, 1600-1800 and 1800-2000. The other
+    eight bands clamp to the same value either way, so only those three needed a re-run.
+
+    See knowledge/2026-07-28-one-rating-scale-lichess-blitz.md — one scale, and this file was converting
+    off it rather than onto it.
+    """
     lo, hi = band.split("-")
     mid = (int(lo) + int(hi)) // 2
-    center = round(rapid_to_blitz(mid) / 100) * 100
+    center = round(mid / 100) * 100
     return [max(MAIA_MIN, min(MAIA_MAX, center + o)) for o in ELO_OFFSETS]
 
 
@@ -366,8 +379,15 @@ def main():
     for b in sorted(by_band):
         print(f"{b}: {len(by_band[b])} positions, elos {elos_by_band[b]}", flush=True)
 
+    # Optional band allowlist: `python3 maia_enrich_corpus.py 1400-1600 1600-1800`. Combined with the
+    # exists-skip below this makes a targeted re-run cheap — delete the stale files, pass their names,
+    # and the other bands' outputs are never touched.
+    only = set(sys.argv[1:])
     ordered = BAND_PRIORITY + sorted(
         (b for b in by_band if b not in BAND_PRIORITY), key=lambda b: int(b.split("-")[0]))
+    if only:
+        ordered = [b for b in ordered if b in only]
+        print(f"band allowlist active: {sorted(only)}", flush=True)
     for band in ordered:
         if band not in by_band:
             continue
