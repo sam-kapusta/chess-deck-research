@@ -233,7 +233,11 @@ def greedy_capture(m):
     # #52: greed = grabbing material you KEEP. If SEE says the capture LOSES material (recaptured at a
     # net loss), it's an unsound SACRIFICE, not a grab — do NOT tag Greedy Capture. (Greek-Gift Bxf7+ =
     # bishop-for-pawn, SEE ~-2: sheds material. Was the #45 conflation — 11 confident-wrong SAE features.)
-    if U.static_exchange_eval(b, pm) < 0:
+    # SEE == 0 is a TRADE of a DEFENDED target (exf5 with the pawn guarded by Rf1) — also not greed,
+    # even when the recapture comes late in the line via a zwischenzug (game1 m20: Rxe7 first, Rxf5 at
+    # ply 5, so the same-square reply check below never sees it). Greed requires SEE > 0: material you
+    # statically WIN. (Sam, 2026-07-26.)
+    if U.static_exchange_eval(b, pm) <= 0:
         return []
     # Greed = grabbing material you KEEP (poisoned-pawn style). If the opponent recaptures on the same
     # square (i.e., it's a TRADE), that's premature_trade's job, not ours. Check: does the refutation's
@@ -782,18 +786,21 @@ def pawn_structure(m):
 
     out = []
     # NEW doubled file: doubled after, not before, and the best move doesn't also double it.
-    # ALSO: the doubling must SURVIVE the opponent's forced reply (refutation[0]). If the opponent
-    # immediately recaptures and undoes the doubling, it's ephemeral and not a real structural cost.
-    # (Sam, 2026-07-17: dxc5 creates c5+c7 doubled, but bxc5 removes c5 instantly → not real.)
+    # ALSO: the doubling must SURVIVE the WHOLE refutation line, not just the first reply. A doubled
+    # pawn the engine line simply wins is a phantom — the cost is the material, not the structure.
+    # (Sam, 2026-07-17: dxc5 c5+c7 doubled, bxc5 undoes it instantly. Sam, 2026-07-26 game1 m20: exf5
+    # doubles the f-file, survives 21.Rxe7 but dies at 23.Rxf5 — three plies later, same phantom.)
     new_dbl = (after_dbl - before_dbl) - best_dbl
-    if new_dbl and m.refutation_san and len(m.refutation_san) >= 1:
+    if new_dbl and m.refutation_san:
         try:
-            post_reply = after.copy()
-            post_reply.push(post_reply.parse_san(m.refutation_san[0]))
-            surviving_dbl = _doubled_files(_pawn_files(post_reply, m.mover))
-            new_dbl = new_dbl & surviving_dbl  # keep only doublings that survive the reply
+            post = after.copy()
+            for san in m.refutation_san:
+                post.push(post.parse_san(san))
+                new_dbl = new_dbl & _doubled_files(_pawn_files(post, m.mover))
+                if not new_dbl:
+                    break  # doubling already dissolved — stop early
         except Exception:
-            pass
+            pass  # unparseable tail: judge on what we walked so far
     if new_dbl:
         f = sorted(new_dbl)[0]
         out.append(("Created Doubled Pawn", "played", f"move doubled pawns on the {chr(97 + f)}-file (best move avoids it)"))

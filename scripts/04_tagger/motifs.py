@@ -569,6 +569,13 @@ def _fresh_pin_index(nodes, pov):
         if U.moved_piece_type(node) is KING:
             continue
         if is_pin(node.parent.board(), node.move):
+            # A pin created BY a materially-winning capture is incidental — the capture is the story,
+            # not the pin. (Sam, 2026-07-26, game1 move 20: Rxe7 wins the hung e7-bishop and happens to
+            # line up d7-knight → b7-queen; the "pin" never cashes in the line, and tagging it buried
+            # the real lesson — Hung Bishop — under "Allowed Pin".) Quiet pin moves (Bg5, Ba6) pass.
+            if node.parent.board().is_capture(node.move) and \
+                    U.static_exchange_eval(node.parent.board(), node.move) > 0:
+                continue
             # node.move.to_square is where the pinning piece now sits. If the opponent's reply captures
             # it, the pin dissolves — skip.
             child = node.variations[0] if node.variations else None
@@ -586,11 +593,22 @@ def pin_line(nodes, pov) -> bool:
 
 def pin_target(nodes, pov):
     """The piece_type the pin is AGAINST (KING/QUEEN/ROOK) — for naming. Returns the most valuable
-    target among pov's pinning moves in the line, or None."""
+    target among pov's QUALIFYING pinning moves — the same gates as _fresh_pin_index (skip winning
+    captures / dissolved pins), else the name can come from a move the detector didn't fire on
+    (game1 move 20: the Rxe8 trade recapture named "to King" while the fired pin was "to Queen")."""
     best = None
-    for node in U.pov_nodes(nodes, pov)[:-1] or U.pov_nodes(nodes, pov):
+    povn = U.pov_nodes(nodes, pov)
+    for i, node in enumerate(povn[:-1] or povn):
         tgt = _pin_target_after(node)
-        if tgt is not None and (best is None or U.king_values[tgt] > U.king_values[best]):
+        if tgt is None:
+            continue
+        b = node.parent.board()
+        if b.is_capture(node.move) and U.static_exchange_eval(b, node.move) > 0:
+            continue  # incidental pin on a winning capture — not the fired pin
+        child = node.variations[0] if node.variations else None
+        if child is not None and child.move.to_square == node.move.to_square:
+            continue  # pinning piece immediately captured — dissolved
+        if best is None or U.king_values[tgt] > U.king_values[best]:
             best = tgt
     return best
 
