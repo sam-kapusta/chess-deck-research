@@ -273,6 +273,16 @@ def hanging_piece_line(nodes, pov) -> bool:
         return False
     op0 = nodes[0]                       # opponent's (setup) move == the blunder for ALLOWED
     to = nodes[1].move.to_square
+    # nodes[1] MUST be a capture. The whole premise is "nodes[0] leaves a piece hanging WHICH nodes[1]
+    # captures", but `captured` below is read off the board BEFORE nodes[0] — two plies earlier — so a
+    # quiet nodes[1] can land on a square that merely HAPPENED to be occupied back then.
+    #
+    # Real false positive (Sam, 2026-08-08): r6k/pp1qbrpp/2p1Rn1B/... played Bg5, refutation `h6 Bh4 ...`.
+    # nodes[1] is the pawn push h6; on the pre-Bg5 board h6 still holds WHITE'S OWN BISHOP (it moves to
+    # g5 as nodes[0]), which is undefended there — so is_hanging said True and the tag fired on a piece
+    # nobody captured. The bishop just retreats with Bh4 next ply.
+    if not nodes[1].parent.board().is_capture(nodes[1].move):
+        return False
     start = op0.parent.board()
     captured = start.piece_at(to)
     if start.is_check() and (not captured or captured.piece_type == PAWN):
