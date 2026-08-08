@@ -235,13 +235,39 @@ def run():
         ("SEE<0 played capture = sacrifice, not hung",
          "rnbqk2r/pppp1ppp/5n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 1",
          "c4f7", ["Kxf7"], None),
+        # STILL-WINNING guard (2026-08-08): move 18 Bg5 — the refutation nets Black material, but the
+        # material is White's attack fuel and eval_after is +1.36 (White still winning). Not a hang.
+        # These two differ ONLY in eval_after: winning-after suppresses, tanked-after fires.
+        ("net loss but still winning (eval +1.36) = NOT hung",
+         "r6k/pp1qbrpp/2p1Rn1B/8/2P5/2N3Q1/PP3PPP/4R1K1 w - - 3 18",
+         "h6g5", ["h6", "Bh4", "Raf8", "Qe3", "Nd5", "Qe5", "Bxh4", "Rxh6+", "Kg8", "Rxh4", "Nxc3", "Qh5"],
+         None, 136),
+        ("same line but eval tanked (0.00) -> material really lost = hung",
+         "r6k/pp1qbrpp/2p1Rn1B/8/2P5/2N3Q1/PP3PPP/4R1K1 w - - 3 18",
+         "h6g5", ["h6", "Bh4", "Raf8", "Qe3", "Nd5", "Qe5", "Bxh4", "Rxh6+", "Kg8", "Rxh4", "Nxc3", "Qh5"],
+         "Hung Material", 0),
     ]
-    for name, fen, uci, ref, want in hung_cases:
+    for case in hung_cases:
+        name, fen, uci, ref, want = case[:5]
+        eval_after = case[5] if len(case) > 5 else None   # White-POV cp; None = material-only fixture
         b = chess.Board(fen)
         # the move-18 case supplies SAN refutation from the AFTER-played board; others too. eval None →
         # win_drop falls back to cp_loss (these test material, not the gate).
+        # ref may be SAN (old cases) or UCI (new eval cases); build_line-style conversion handles UCI,
+        # but hung_material reads refutation_san, so convert UCI->SAN from the post-played board.
         ref_san = ref
-        m = Mistake(fen, uci, "", [], ref_san, 0, -300, 300, b.turn)
+        if ref and len(ref[0]) == 4 and ref[0][0] in "abcdefgh":
+            tmp = chess.Board(fen); tmp.push(chess.Move.from_uci(uci)); conv = []
+            for u in ref:
+                try: mv = chess.Move.from_uci(u); conv.append(tmp.san(mv)); tmp.push(mv)
+                except Exception: break
+            ref_san = conv
+        # eval_after=None: material-only fixtures test MATERIAL logic (net/peak loss over the line), not the eval
+        # gate. The still-winning guard (2026-08-08) only reads eval_after when present, so None keeps
+        # these material-only. Passing a signed eval here would need per-case White-POV values — the
+        # adapter's convention — and that's not what these assert. Real still-winning suppression is
+        # covered by the dedicated eval cases below.
+        m = Mistake(fen, uci, "", [], ref_san, 0, eval_after, 300, b.turn)
         res = PR.hung_material(m)
         got = res[0][0] if res else None
         passed = (got == want)

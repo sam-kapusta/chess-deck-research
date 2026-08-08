@@ -535,6 +535,17 @@ def hung_material(m):
     # only 4% of genuine-hang features were. SEE cleanly separates "I sacrificed" from "I hung".)
     if pm is not None and b0.is_capture(pm) and U.static_exchange_eval(b0, pm) < 0:
         return []
+    # STILL-WINNING guard (Sam, 2026-08-08): a refutation line can net the opponent material as
+    # COMPENSATION for the mover's ongoing attack — invested, not hung. Move 18 Bg5: the line nets Black
+    # +2 material, but eval_after is +1.36 for White (Qh5 + Rh4 vs the g8 king). The material IS the
+    # attack's fuel; the engine still has White winning. This predicate counts pieces off the terminal
+    # board and can't see that, so it mislabels a winning attacking line as a hang. If the eval after the
+    # played move still clearly favors the mover, trust the eval over the piece count. A real hang tanks
+    # the eval (move 22 R3e2: +1.86 -> 0.00, still fires).
+    if m.eval_after is not None:
+        after_cp = m.eval_after if m.mover == chess.WHITE else -m.eval_after
+        if after_cp >= 100:   # still >= +1.0 pawn for the mover -> material is compensated, not hung
+            return []
     # Reference point MUST be board_BEFORE the played move, so that if the played move is itself a
     # capture, the player's own gain is netted in. Measuring from board_after (post-capture) made an
     # EQUAL trade (e.g. Bxc6 bxc6, 3-for-3) read as a 3-pt hang — it counted the recapture loss but

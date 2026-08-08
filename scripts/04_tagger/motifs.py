@@ -380,7 +380,17 @@ def discovered_attack_line(nodes, pov) -> bool:
                     and node.move.to_square != prev.move.to_square
                     and node.move.from_square != prev.move.to_square
                     and not U.is_castling(prev)):
-                return True
+                # REVEALED-PIECE guard (2026-08-08): cook fires here on "prev vacated a square on the
+                # ray this capture travels." In a puzzle that means a discovery; in a coaching PV it
+                # also matches a piece merely moving DOWN a just-opened line to grab material — the
+                # capturer is then the only attacker and nothing was revealed (ply21 dxe6…Qxb7,
+                # move18 Nd5…Bxh4, both tagged wrongly). A real discovery has a STATIONARY second pov
+                # piece already bearing on the target. Require it.
+                board_from = node.parent.board()  # position the capture is played from
+                other_attackers = [s for s in board_from.attackers(pov, node.move.to_square)
+                                   if s != node.move.from_square]
+                if other_attackers:
+                    return True
     return False
 
 
