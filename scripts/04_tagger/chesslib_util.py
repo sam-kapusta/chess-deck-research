@@ -380,11 +380,35 @@ def build_line(start_board: Board, ucis: List[str]) -> List[ChildNode]:
     return list(g.mainline())
 
 
+def _movers_by_parity(nodes: List[ChildNode], pov: Color, want_pov: bool) -> List[ChildNode]:
+    """Split a mainline by who MOVED, using ply parity instead of per-node board reconstruction.
+
+    `node.turn()` (the side to move AFTER that node's move) walks every parent to the root and reparses
+    the root FEN. Cheap once; ruinous here — the motif detectors call pov_nodes/opp_nodes ~300 times per
+    /tag-moments request, and this one comprehension drove the largest share of a ~2.5s response
+    (`Board.set_fen`: 5,948 calls, 72% of tagger wall time — measured 2026-08-07).
+
+    A mainline strictly alternates, so the mover of nodes[i] follows from ONE board read: the mover of
+    nodes[0], flipped by i. Equivalent to `n.turn() != pov` for every node, with no boards built.
+    """
+    if not nodes:
+        return []
+    # nodes[0].turn() is the side to move AFTER move 0 — i.e. NOT its mover. One call total, instead of
+    # one per node on every invocation.
+    first_mover = not nodes[0].turn()
+    out = []
+    for i, n in enumerate(nodes):
+        mover = first_mover if i % 2 == 0 else not first_mover
+        if (mover == pov) == want_pov:
+            out.append(n)
+    return out
+
+
 def pov_nodes(nodes: List[ChildNode], pov: Color) -> List[ChildNode]:
     """Nodes whose move was made BY pov (cook's mainline[1::2] when pov is the solver)."""
-    return [n for n in nodes if n.turn() != pov]
+    return _movers_by_parity(nodes, pov, True)
 
 
 def opp_nodes(nodes: List[ChildNode], pov: Color) -> List[ChildNode]:
     """Nodes whose move was made by the opponent of pov (cook's mainline[::2])."""
-    return [n for n in nodes if n.turn() == pov]
+    return _movers_by_parity(nodes, pov, False)

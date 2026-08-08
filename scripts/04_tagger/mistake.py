@@ -25,16 +25,31 @@ class Mistake:
     played_san: str = ""
     best_san: str = ""
     n_good_moves: Optional[int] = None   # # moves within ~100cp of best at fen_before (MultiPV). None = unknown.
+    # Parse caches (not constructor args, not compared, not printed) — see board_before below.
+    _board_before_cache: Optional[chess.Board] = field(default=None, repr=False, compare=False)
+    _board_after_cache: Optional[chess.Board] = field(default=None, repr=False, compare=False)
 
+    # Cached FEN parses. These were plain @property, so EVERY access reparsed the FEN — measured 574
+    # board_before parses for a 6-moment /tag-moments request, the single largest cost in a ~2.5s
+    # response (one set_fen is ~200 from_symbol calls). fen_before/played_uci never change on a
+    # Mistake, so the parse is pure and cacheable.
+    #
+    # Each access still returns a COPY: the tagger pushes moves on these boards, so handing out the
+    # cached instance would let one caller corrupt every later reader. copy(stack=False) skips
+    # duplicating the move history, which the tagger doesn't read on these.
     @property
     def board_before(self) -> chess.Board:
-        return chess.Board(self.fen_before)
+        if self._board_before_cache is None:
+            self._board_before_cache = chess.Board(self.fen_before)
+        return self._board_before_cache.copy(stack=False)
 
     @property
     def board_after(self) -> chess.Board:
-        b = chess.Board(self.fen_before)
-        b.push(chess.Move.from_uci(self.played_uci))
-        return b
+        if self._board_after_cache is None:
+            b = chess.Board(self.fen_before)
+            b.push(chess.Move.from_uci(self.played_uci))
+            self._board_after_cache = b
+        return self._board_after_cache.copy(stack=False)
 
     @property
     def win_drop(self) -> float:
