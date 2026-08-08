@@ -502,6 +502,18 @@ def run():
         # NEG: best is a bishop sac-check NOT next to the king -> not GG geometry.
         ("bishop sac-check far from king -> NOT Greek Gift",
          "4k3/8/8/8/1b6/8/1p6/1B2K3 w - - 0 1", "e1e2", "b1e4", None),
+        # NEG (2026-08-08): Bxg7+ is adjacent to the king and sheds material, but the Greek Gift is
+        # defined by the SQUARE — h7 for White, h2 for Black. This real position tagged Greek Gift when
+        # the move actually opens a forcing rook-fork line (Missed Combination -> Rook Fork names it).
+        ("Bxg7+ adjacent but wrong square -> NOT Greek Gift",
+         "r6k/pp1qbrpp/2p1Rn1B/8/2P5/2N3Q1/PP3PPP/4R1K1 w - - 3 18", "h6g5", "h6g7", None),
+        # NEG: f7/f2 sacs are the Fried Liver family, not a Greek Gift (the old docstring claimed them).
+        # They still get Missed Sacrifice.
+        ("Bxf7+ is a different named sac -> NOT Greek Gift",
+         "r1bqkb1r/pppp1ppp/2n2n2/8/2B5/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 6", "f3e5", "c4f7", None),
+        # POS: the Black mirror — bishop sac on h2 against a short-castled white king.
+        ("Bxh2+ mirror = Missed Greek Gift",
+         "r1bq1rk1/pppn1ppp/3b4/8/8/5N2/PPPP1PPP/R1BQ1RK1 b - - 0 10", "d7f6", "d6h2", "Missed Greek Gift"),
     ]
     for name, fen, uci, best, want in gg_cases:
         b = chess.Board(fen)
@@ -1215,6 +1227,37 @@ def run():
                 break
         nodes = U.build_line(chess.Board(fen), ucis)
         got = M.sacrifice_line(nodes, chess.WHITE if pov_white else chess.BLACK)
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: fires={got} exp={want}")
+
+    print("--- motifs: hanging_piece_line (nodes[1] must be a real capture) ---")
+    # (name, fen, line_san, pov_white, expected)
+    # The motif reads `captured = start.piece_at(nodes[1].move.to_square)` off the board BEFORE nodes[0]
+    # — two plies earlier — so a QUIET nodes[1] can land on a square that merely happened to be occupied
+    # back then. Real false positive found 2026-08-08 (Sam): played Bg5, refutation h6 Bh4 ... The push h6
+    # is not a capture, and pre-Bg5 the h6 square still held White's OWN bishop, undefended -> the tag
+    # fired on a piece nobody took. This motif had NO regression coverage before, which is how it survived.
+    hang_cases = [
+        ("quiet reply -> NOT a hang", "r6k/pp1qbrpp/2p1Rn1B/8/2P5/2N3Q1/PP3PPP/4R1K1 w - - 3 18",
+         ["Bg5", "h6", "Bh4", "Raf8"], False, False),
+        # POS: quiet Qd2 leaves the b2 bishop loose; Qxb2 takes it and keeps the material.
+        ("real hang still fires", "6k1/pp3ppp/1q6/8/8/8/PB3PPP/3Q2K1 w - - 0 1",
+         ["Qd2", "Qxb2", "Qd8+", "Kg7"], False, True),
+    ]
+    for name, fen, line_san, pov_white, want in hang_cases:
+        b = chess.Board(fen)
+        ucis = []
+        for san in line_san:
+            try:
+                mv = b.parse_san(san); ucis.append(mv.uci()); b.push(mv)
+            except Exception:
+                break
+        nodes = U.build_line(chess.Board(fen), ucis)
+        got = M.hanging_piece_line(nodes, chess.WHITE if pov_white else chess.BLACK)
         passed = (got == want)
         ok += passed
         mark = "PASS" if passed else "FAIL"
