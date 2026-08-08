@@ -401,8 +401,8 @@ def wrong_check(m):
 
 
 def missed_greek_gift(m):
-    """The BEST move is a BISHOP sacrifice with CHECK on a square next to the enemy castled king
-    (classic Greek Gift Bxh7+/Bxf7+ and the Bxh2+/Bxf2+ mirror) that the player MISSED. The mirror of
+    """The BEST move is a BISHOP sacrifice with CHECK on **h7** (White) / **h2** (Black) — the pawn in
+    front of a short-castled king — that the player MISSED. The mirror of
     unsound_sacrifice (the PLAYED bad sac); here it's the missed SOUND sac — it reaches the tagger past
     the win_drop gate, so the sac genuinely works (a bad one wouldn't be the engine's best by a
     mistake-sized margin).
@@ -421,9 +421,20 @@ def missed_greek_gift(m):
         return []
     if U.static_exchange_eval(b, bm) >= 0:            # must SHED material (a sacrifice)
         return []
+    # THE SQUARE IS THE DEFINITION. "The Greek Gift happens when a player sacrifices a bishop for the
+    # h7-pawn as White or the h2-pawn as Black" (Sam, 2026-08-08). This used to test only
+    # "adjacent to the enemy king", which Bxg7+ also satisfies — so a real game's move 18 (Bxg7+ opening
+    # a forcing rook-fork line) was tagged Greek Gift. The tagger's own Missed Combination -> Rook Fork
+    # already named that correctly.
+    #
+    # f7/f2 are deliberately EXCLUDED: a bishop sac on f7 is the Fried Liver family, a different named
+    # tactic (the old docstring claimed it as a Greek Gift). Those still get Missed Sacrifice.
+    gift_square = chess.H7 if m.mover == chess.WHITE else chess.H2
+    if bm.to_square != gift_square:
+        return []
     ek = b.king(not m.mover)
     if ek is None or chess.square_distance(bm.to_square, ek) > 1:
-        return []                                      # bishop must land NEXT to the enemy king
+        return []                                      # king must actually be next to the sac square
     return [("Missed Greek Gift", "missed",
              f"the bishop sacrifice {m.best_san} cracks the king; you played {m.played_san}")]
 
