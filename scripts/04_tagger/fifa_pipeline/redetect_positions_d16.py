@@ -12,9 +12,16 @@ OUT_ENRICH = sys.argv[2] if len(sys.argv)>2 else "proof_3band_enrich.json"
 OUT_SWEEP  = sys.argv[3] if len(sys.argv)>3 else "proof_3band_sweep.json"
 NPROC = int(sys.argv[4]) if len(sys.argv)>4 else 16
 
+# Engine-line cap (plies) for BOTH the best line and the refutation. Must match TAGGER_LINE_PLIES in
+# chess-deck-code (backend/mcp/analysis.py + frontend/src/utils/batchAnalysis.ts) or this corpus cannot
+# reproduce production tag output — which is exactly what happened at 6: a production Allowed Sacrifice
+# false positive needed a ~10-ply refutation, so a 56,950-position audit of this corpus could not see it.
+# Design: chess-deck-code/docs/superpowers/specs/2026-08-09-tagger-line-length-contract-design.md
+TAGGER_LINE_PLIES = 8
+
 def line_sans(board, pv):
     out=[]; b=board.copy()
-    for mv in pv[:6]:
+    for mv in pv[:TAGGER_LINE_PLIES]:
         try: out.append(b.san(mv)); b.push(mv)
         except Exception: break
     return " ".join(out)
