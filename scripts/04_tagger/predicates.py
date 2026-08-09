@@ -806,6 +806,39 @@ def _isolated_files(files):
     return {f for f in present if (f - 1) not in present and (f + 1) not in present}
 
 
+def _surviving_files(after_board, refutation_san, mover, candidate_files, defect_fn):
+    """Keep only the files whose structural defect SURVIVES the whole refutation line.
+
+    A structural claim ("you created a weakness") is about a RESTING position — one the opponent can
+    actually play against. A defect the engine line simply captures off the board is a phantom: the cost
+    of the move was the material, not the structure, and naming the structure teaches the wrong lesson.
+
+    This is the shared version of a check the doubled-pawn branch already had and the isolated-pawn branch
+    did not (Sam, 2026-08-09, ply 33: cxd5 was tagged "Created Isolated Pawn" on the d-file, but the
+    refutation plays ...Qxd5+ and the pawn is GONE — "it's just a pawn trade because that pawn gets
+    scooped up right away"). Extracted because this is the third instance of one missing primitive: the
+    hung_material settled-peak fix and the sacrifice_line pending-recapture guard are the other two. Every
+    one was a board fact read at a ply where the exchange had not finished.
+
+    Walks the line ply by ply and intersects, so a defect that dissolves at ANY point is dropped — not
+    just one that's absent at the end. An unparseable tail judges on what was walked (best effort, same
+    as the original doubled-pawn code) rather than throwing the claim away.
+    """
+    if not candidate_files or not refutation_san:
+        return candidate_files
+    survived = set(candidate_files)
+    try:
+        post = after_board.copy()
+        for san in refutation_san:
+            post.push(post.parse_san(san))
+            survived = survived & defect_fn(_pawn_files(post, mover))
+            if not survived:
+                break
+    except Exception:
+        pass
+    return survived
+
+
 def pawn_structure(m):
     """A pawn move that NEWLY CREATED a structural weakness (doubled or isolated pawn) the best move
     would have avoided. Semantics (2026-06-23 rewrite — the old version had two bugs):
@@ -845,22 +878,15 @@ def pawn_structure(m):
     # pawn the engine line simply wins is a phantom — the cost is the material, not the structure.
     # (Sam, 2026-07-17: dxc5 c5+c7 doubled, bxc5 undoes it instantly. Sam, 2026-07-26 game1 m20: exf5
     # doubles the f-file, survives 21.Rxe7 but dies at 23.Rxf5 — three plies later, same phantom.)
-    new_dbl = (after_dbl - before_dbl) - best_dbl
-    if new_dbl and m.refutation_san:
-        try:
-            post = after.copy()
-            for san in m.refutation_san:
-                post.push(post.parse_san(san))
-                new_dbl = new_dbl & _doubled_files(_pawn_files(post, m.mover))
-                if not new_dbl:
-                    break  # doubling already dissolved — stop early
-        except Exception:
-            pass  # unparseable tail: judge on what we walked so far
+    new_dbl = _surviving_files(after, m.refutation_san, m.mover,
+                               (after_dbl - before_dbl) - best_dbl, _doubled_files)
     if new_dbl:
         f = sorted(new_dbl)[0]
         out.append(("Created Doubled Pawn", "played", f"move doubled pawns on the {chr(97 + f)}-file (best move avoids it)"))
-    # NEW isolated file: isolated after, not before, and the best move doesn't also isolate it
-    new_iso = (after_iso - before_iso) - best_iso
+    # NEW isolated file: isolated after, not before, and the best move doesn't also isolate it — AND the
+    # isolation must survive the refutation (same rule as doubling; see _surviving_files).
+    new_iso = _surviving_files(after, m.refutation_san, m.mover,
+                               (after_iso - before_iso) - best_iso, _isolated_files)
     if new_iso:
         f = sorted(new_iso)[0]
         out.append(("Created Isolated Pawn", "played", f"move left an isolated pawn on the {chr(97 + f)}-file (best move avoids it)"))
