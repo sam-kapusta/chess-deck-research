@@ -328,11 +328,49 @@ def sacrifice_line(nodes, pov) -> bool:
         return False
     end_diff = U.material_diff(nodes[-1].board(), pov)
     last_pov_diff = U.material_diff(pov_nodes[-1].board(), pov)
+    # TRUNCATED-LINE guard: a PV can simply stop in the middle of a combination, and then the final
+    # position is a snapshot rather than a settled result. If pov is on move at the end and can just take
+    # material back with a favourable capture, the "investment" was never established — the line ended
+    # before the recapture, it didn't end because pov chose to stay down.
+    #
+    # Real false positive (Sam, 2026-08-09, ply 15 of a live game): played d5, refutation
+    # `e6 Ng5 exd5 Nxf7 Bc5 Nxd8 Nd4 Bxg4 Nxg4 cxd5` ends with White's knight sitting on d8 having just
+    # taken a rook — TRAPPED beside the black king, with Kxd8/Rxd8 available immediately. Raw material
+    # read -6 for Black, so "Black sacrificed" and the moment tagged Allowed Sacrifice. But eval_after
+    # was -0.90, i.e. Black is BETTER by a pawn; a 7-point contradiction between material and eval is the
+    # tell that the material number is mid-exchange.
+    #
+    # Same bug class as the hung_material settled-peak fix (2026-08-08): measuring material at a ply
+    # where the trade isn't finished. That fix could not cover this one because it lives in a different
+    # detector, and this instance is invisible in the research corpus, where 94% of refutations are
+    # exactly 6 plies and stop before the grab.
+    if _has_pending_recapture(nodes[-1].board(), pov):
+        return False
     # invested >=2 that survives to the end of the line AND to pov's final move (not a transient dip)
     if (end_diff - initial <= -2) and (last_pov_diff - initial <= -2):
         # not a promotion line (cook excludes those — they're combinations, not sacs)
         if not any(n.move.promotion for n in pov_nodes):
             return True
+    return False
+
+
+def _has_pending_recapture(board, pov, threshold=2):
+    """Is pov on move with a favourable capture worth >= threshold available?
+
+    Used to detect a line that STOPPED mid-combination. A genuine sacrifice ends with pov down material
+    and nothing to collect; a truncated PV ends with pov about to scoop a piece back. SEE (not raw victim
+    value) is what distinguishes "free recapture" from "capture into a defended square".
+    """
+    if board.turn != pov:
+        return False
+    for mv in board.legal_moves:
+        if not board.is_capture(mv):
+            continue
+        try:
+            if U.static_exchange_eval(board, mv) >= threshold:
+                return True
+        except Exception:
+            continue
     return False
 
 
