@@ -182,7 +182,24 @@ def _motif_tags(m):
     # MISSED: best line, pov = mover.
     best_ucis = _best_line_ucis(m)
     if len(best_ucis) >= 1:
+        # A sacrifice is an INVESTMENT, which presupposes a position worth investing in. sacrifice_line
+        # only asks "does pov end the line >=2 material down" — and a player who is already LOSING
+        # satisfies that for free, because the material is draining away, not being spent. GH #100:
+        # 573/1324 fires (43.3%) had the mover already >3 pawns down; e.g. Black a full queen down with
+        # the "sacrifice" being White's queen eating a rook on the way to mate.
+        #
+        # This is the same bug as the ALLOWED-direction guard below, in the other direction. When I fixed
+        # that one (#98) I concluded MISSED sacs were safe because they are "sound by the win_drop gate."
+        # That was wrong: win_drop measures how bad the PLAYED move was, and says nothing about whether
+        # the best line is an investment or a death rattle. A lost position can still have a large
+        # win_drop. Gate on the SACRIFICER's own eval — here the sacrificer is the MOVER.
+        mover_sac_unsound = False
+        if m.eval_before is not None:
+            mover_cp = m.eval_before if mover == chess.WHITE else -m.eval_before
+            mover_sac_unsound = mover_cp < -300   # already losing by >3 pawns -> not investing
         for key, ev in MO.detect_line(b, best_ucis, mover).items():
+            if key == "sacrifice" and mover_sac_unsound:
+                continue                          # mover is being beaten, not sacrificing
             lab = _motif_label(key, ev)
             out.append((_directional_label(key, lab, "missed"), "missed", ev))
 
@@ -264,14 +281,35 @@ _MATE_OUTRANKS = {"Fork", "Combination → Fork", "Pin", "Skewer", "Discovered A
                   "Deflection", "Attraction", "Clearance", "Interference", "Zwischenzug", "Overload",
                   "X-Ray", "Capture of Defender", "Hanging Piece", "Sacrifice", "Trapped Piece"}
 
+def _is_material_label(lab):
+    """Material-family labels, which come from the PREDICATE layer rather than a motif detector.
+
+    They are named per-piece ("Missed Free Knight", "Hung Rook", "Lost Queen in Exchange"), so they can't
+    be listed in _MATE_OUTRANKS the way bare motif names are — hence a predicate. GH #101: a mate-in-one
+    shipped as "Missed Free Knight (nets +3)" because the suppression only ever consulted _MATE_OUTRANKS.
+    """
+    return (lab.startswith("Missed Free") or lab.startswith("Hung ")
+            or (lab.startswith("Lost ") and lab.endswith("in Exchange"))
+            or lab == "Hung Material")
+
+
 def _suppress_lesser_under_mate(tags):
     """If a direction produced 'Missed/Allowed Mate', drop the lesser tactical motifs in that
-    same direction (config — Sam can disable). Returns the filtered list, order preserved."""
-    mate_dirs = {d for (lab, d, ev) in tags if lab in ("Missed Mate", "Allowed Mate")}
+    same direction (config — Sam can disable). Returns the filtered list, order preserved.
+
+    "Lesser" covers BOTH families: the motif names in _MATE_OUTRANKS and the per-piece material labels
+    (see _is_material_label). A coach says "you missed mate in 1", not "you missed a free knight."
+    Scoping stays per-DIRECTION: a missed mate must not silence a Hung Rook, which describes what the
+    played move actually gave away and is still true.
+    """
+    # Accepts 3-tuples (label, direction, evidence) from the motif layer AND 4-tuples with a trailing
+    # layer field from the merged pipeline — same filter, both shapes, extra fields passed through.
+    mate_dirs = {t[1] for t in tags if t[0] in ("Missed Mate", "Allowed Mate")}
     if not mate_dirs:
         return tags
     kept = []
-    for (lab, d, ev) in tags:
+    for t in tags:
+        lab, d = t[0], t[1]
         if d in mate_dirs:
             # strip the "Missed "/"Allowed "/"Failed " prefix to get the bare motif name
             bare = lab.split(" ", 1)[1] if " " in lab else lab
@@ -280,7 +318,9 @@ def _suppress_lesser_under_mate(tags):
             tail = base.rsplit(" ", 1)[-1] if " " in base else base   # "Knight Fork" -> "Fork"
             if bare in _MATE_OUTRANKS or base in _MATE_OUTRANKS or tail in _MATE_OUTRANKS:
                 continue
-        kept.append((lab, d, ev))
+            if lab not in ("Missed Mate", "Allowed Mate") and _is_material_label(lab):
+                continue
+        kept.append(t)
     return kept
 
 
@@ -645,6 +685,11 @@ def tag_mistake_full(m, with_maia=True, classification=None):
         seen.add(t[0]); tags.append(t)
 
     tags = _collapse_missed_allowed_twins(tags)
+    # Mate outranking has to run HERE, after both layers are merged — not inside _motif_tags, which only
+    # ever sees the tactic layer. GH #101: "Missed Free Knight" is a PREDICATE-layer tag, so the in-motif
+    # call could never suppress it and a mate-in-one shipped labelled as winning a knight. Tuples are
+    # 4-wide at this point (label, direction, evidence, layer); the filter preserves the extra field.
+    tags = _suppress_lesser_under_mate(tags)
     # NOTE: _suppress_parents / _PARENT_CHILD exists but is NOT called here. Per the 2026-07-12 grill
     # decision (Sam), parent→child suppression is a DISPLAY concern (the frontend's display_game flag),
     # not a data concern — every tag keeps its own stats/drill counts. The function stays in the file

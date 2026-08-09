@@ -443,9 +443,17 @@ def missed_sacrifice(m):
     """The BEST move is a capture with negative SEE (a material sacrifice) that the player missed.
     Any piece sacrifice that the engine says is winning — attack sacs, exchange sacs, positional sacs.
 
-    Gate: best is a capture, SEE < 0 (genuinely sheds material on the square). The tagger's global
-    win_drop entry gate ensures the sac is SOUND (the engine says it's best by a mistake-sized margin).
-    Does NOT fire when missed_greek_gift already covers it (bishop + check + adjacent to king).
+    Gate: best is a capture, SEE < 0 (genuinely sheds material on the square), AND the mover is not
+    already lost (see below). Does NOT fire when missed_greek_gift already covers it (bishop + check +
+    adjacent to king).
+
+    ⚠️ This docstring used to claim "the win_drop entry gate ensures the sac is SOUND." That is FALSE and
+    it shipped a real bug (GH #100). win_drop measures how bad the PLAYED move was; it says nothing about
+    whether the best line is an investment or a death rattle, and a lost position can still produce a
+    large win_drop. Calling a shed piece a "sacrifice" when you are already a queen down describes being
+    beaten, not investing — the evidence string ("the queen sacrifice ... was winning") is then simply
+    untrue. The motif-layer twin in tagger.py carries the same guard; both are needed because THIS
+    predicate fires independently of sacrifice_line (found when the motif-only fix left 7/44 cases).
 
     (Sam, 2026-07-17: "does it have to be near king?" — no. A sacrifice is a sacrifice regardless of
     where it lands. Exchange sacs, positional sacs, attacking sacs all count.)"""
@@ -457,6 +465,12 @@ def missed_sacrifice(m):
         return []
     if U.static_exchange_eval(b, bm) >= 0:        # must shed material — otherwise it's just a good capture
         return []
+    # SOUNDNESS: a sacrifice is an investment, so the mover must have something to invest FROM. Mirrors
+    # the motif-layer guard in tagger.py; eval_before is WHITE-POV, so convert first. (GH #100)
+    if m.eval_before is not None:
+        mover_cp = m.eval_before if m.mover == chess.WHITE else -m.eval_before
+        if mover_cp < -300:
+            return []
     # Don't fire if missed_greek_gift already covers this (bishop + check + adjacent to king)
     pc = b.piece_at(bm.from_square)
     ek = b.king(not m.mover)
