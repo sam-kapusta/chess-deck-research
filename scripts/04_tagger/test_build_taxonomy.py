@@ -6,7 +6,10 @@ from tagger import categorize
 
 def test_taxonomy_shape_and_coverage():
     tax = B.build_taxonomy()
-    assert set(tax.keys()) == {"categories", "tags"}
+    # "families" joined the payload in 699d0c1 (family_of groups e.g. every Hung <Piece> under one
+    # parent so player-profile rollups can ask "does this player hang material"). This assertion still
+    # named the old two-key shape and had been failing since.
+    assert set(tax.keys()) == {"categories", "tags", "families"}
     # 10-category drill scheme + Meta/Other (Sam, 2026-06-14)
     for cat in ["Hung Piece", "Missed Capture", "Missed Tactic", "Missed Mate", "Allowed Tactic",
                 "Calculation", "Trading", "Position", "King Safety", "Endgame"]:

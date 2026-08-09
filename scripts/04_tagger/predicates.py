@@ -606,7 +606,20 @@ def hung_material(m):
             peak_victim = cap_victim
     end_diff = diffs[-1]
     net_lost = start_diff - end_diff        # end-of-line net — equal trades net 0
-    peak_lost = start_diff - min(diffs)     # worst point in the line — a mid-line hang shows here
+    # peak_lost = worst point in the line, but measured only at SETTLED positions (where the MOVER has
+    # completed its reply, i.e. the opponent is on move again). diffs[0] is after the played move
+    # (opponent to move = settled); each opponent capture then mover recapture is a pair, so the settled
+    # points are the even indices. Measuring every ply instead counted mid-exchange snapshots: move 38
+    # (Sam, 2026-08-08) had Qxd6 grab the queen (-9) BEFORE Bxd6 recaptured it next ply, so peak read
+    # "10 pts at worst" on a queen that never left. A capture-then-recapture is a trade, not a hang; only
+    # a deficit that survives the mover's reply is real. Genuine delayed hangs (the queen stays gone)
+    # still show at settled points, so this only strips transients. (net_lost is already settled by
+    # construction — it's the end of the line.)
+    # Settled = even indices (opponent on move again = mover has replied) PLUS the final position: if
+    # the line ends on the opponent's capture with no mover reply, that piece is genuinely gone even
+    # though its index is odd. Missing this dropped a real unrecaptured-rook hang (-5 at the last ply).
+    settled = [d for k, d in enumerate(diffs) if k % 2 == 0 or k == len(diffs) - 1]
+    peak_lost = start_diff - min(settled)
     # PROMOTION-RACE guard: if the opponent's promotion in the line accounts for most of the material
     # swing, this is NOT a hung piece — it's a lost pawn race / botched passed-pawn defense (an ENDGAME
     # technique lesson, tagged by the pawn-endgame fragments, NOT "Hung Material"/"Hung Queen"). Subtract
@@ -615,9 +628,16 @@ def hung_material(m):
     # reads as +8 material.)
     net_lost -= opp_promo_gain
     peak_lost -= opp_promo_gain
+    # LOST-IN-EXCHANGE bypass for the peak gate. That tag's signature is ASYMMETRIC PIECE VALUES (you
+    # gave a rook+ and got less back), not peak material: a queen traded for rook+knight nets only 1 and
+    # its settled peak can be 1 too, since the recapture happens immediately. Gating it on peak >= 2
+    # silenced it entirely (regression "queen taken but rook recaptured (net=1)"). Move 38's transient
+    # can't sneak in here — it's an EVEN queen trade, so mover_max_lost == opp_max_lost fails this test.
+    lost_in_exchange = (mover_max_lost > opp_max_lost and mover_max_lost >= VAL[chess.ROOK]
+                        and 1 <= net_lost <= 2)
     # Fire when material is lost at the PEAK (>=2) AND is still down at the end (>=1). The end>=1 guard
     # is what stops a full-recovery slosh (peak dips then nets back to 0) from over-claiming.
-    if peak_lost < 2 or net_lost < 1:
+    if net_lost < 1 or (peak_lost < 2 and not lost_in_exchange):
         return []
     # how much is gone after the opponent's FIRST reply (immediate vs delayed).
     immediate_lost = start_diff - diffs[1] if len(diffs) > 1 else (start_diff - diffs[0])
@@ -651,8 +671,7 @@ def hung_material(m):
     # the mover loses a strictly bigger piece than the opponent does, and the net loss is a real but
     # small deficit. (Sam, 2026-07-17: move 22 h6 → ...Qxc1+ Bxc1, queen for rook+bishop, net 1 = "Lost
     # Queen in Exchange"; issue #63 rook-for-bishop = "Lost Rook in Exchange".)
-    if (named is not None and mover_max_lost > opp_max_lost
-            and mover_max_lost >= VAL[chess.ROOK] and 1 <= net_lost <= 2):
+    if named is not None and lost_in_exchange:
         pname = PIECE_NAME[named]
         return [(f"Lost {pname} in Exchange", "allowed",
                  f"the refutation trades your {pname.lower()} down for less ({net_lost} net over line)")]

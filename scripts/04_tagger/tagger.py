@@ -189,9 +189,24 @@ def _motif_tags(m):
     # ALLOWED: [played]+refutation, pov = opponent (== cook's puzzle shape, the validated one)
     allowed_ucis = _allowed_line_ucis(m)
     if len(allowed_ucis) >= 2:   # need the played move + at least one punishment ply
+        # A SOUND allowed-sacrifice needs the sacrificer (the opponent) to be doing well by eval — a
+        # sacrifice is investing material FROM a good position, not just being down material. But
+        # sacrifice_line is pure geometry: it fires whenever pov ends the line down >=2, which in the
+        # ALLOWED direction (pov = opponent) also matches the opponent simply LOSING material to your
+        # refutation. Real false positive (Sam, 2026-08-08): move 16 Qd6, the line leaves White (the
+        # "sacrificer") down 4 AND losing by eval (-2.96 mover-POV) — White isn't sacrificing, White is
+        # being beaten. MISSED-direction sacs don't need this: they're the engine's best move, sound by
+        # the win_drop gate. Only the ALLOWED sac lacks a soundness guarantee, so gate it on eval here.
+        opp_sac_unsound = False
+        if m.eval_after is not None:
+            # eval_after is White-POV; the opponent (sacrificer) is fine only if THEIR eval isn't losing.
+            opp_cp = m.eval_after if opp == chess.WHITE else -m.eval_after
+            opp_sac_unsound = opp_cp < -100   # opponent down >1 pawn by eval -> not a sound sac
         for key, ev in MO.detect_line(b, allowed_ucis, opp).items():
             if key in _MISSED_ONLY_MOTIFS:      # e.g. castling — no teachable "Allowed" twin
                 continue
+            if key == "sacrifice" and opp_sac_unsound:
+                continue                        # opponent is just losing material, not sacrificing
             lab = _motif_label(key, ev)
             out.append((_directional_label(key, lab, "allowed"), "allowed", ev))
 
