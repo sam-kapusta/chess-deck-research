@@ -908,6 +908,42 @@ def run():
         print(f"  [{'PASS' if passed else 'FAIL'}] {name}: '{label}' present={got} exp={should_fire}")
     extra_castle = len(castle_cases)
 
+    # ALLOWED SACRIFICE needs the sacrificer to be SOUND (2026-08-08, Sam's move-16 audit).
+    # sacrifice_line requires pov to END the line >=2 material DOWN. In the ALLOWED direction pov is the
+    # OPPONENT, so "opponent ends up material down" is also exactly what happens when your refutation
+    # simply WINS their material — the detector can't tell investing from being beaten. It is the ONLY
+    # detector of the 24 in LINE_DETECTORS that keys on pov being materially WORSE off (hanging_piece_line
+    # is the other material user, but it requires pov to KEEP material, i.e. pov benefits), which is why
+    # this bug is specific to it and not a whole-class sweep. Corpus check over 19,362 moments: the
+    # "sacrificer is losing" rate is 28.0% for Allowed Sacrifice vs an 11.6% base rate and 2-12% for every
+    # other allowed tag — 2.4x base, structural, not noise. Gate = the sacrificer's own eval.
+    # Same position both ways; ONLY eval_after differs, so this pins the eval gate and nothing else.
+    # classification="mistake" is REQUIRED, not decoration: with classification=None the tagger falls
+    # back to win_drop >= 10, and the losing-sacrificer variant scores 7.28 — below the gate — so ALL
+    # explain tags vanish and the NEG case passes even with the guard deleted. Found by mutation testing
+    # (the mutant survived); the explicit classification satisfies the entry gate in BOTH variants so
+    # the guard is the only difference between them.
+    print("--- tagger: Allowed Sacrifice requires a sound sacrificer (eval gate) ---")
+    asac_fen = "rb1qk2r/1p3ppp/p1n1pn2/3p4/8/2NBB2P/PPP2PP1/R2Q1RK1 b kq - 1 16"
+    asac_rf = ["g3", "d4", "Bf4", "e5", "Ne4", "Nxe4", "Bxe4", "exf4", "Bxc6+", "bxc6", "Re1+", "Kd8"]
+    asac_cases = [
+        # The real false positive: White (the "sacrificer") ends the line down 4 AND losing by eval.
+        ("Allowed Sacrifice NEG: sacrificer is losing (-296cp), not investing", -296, False),
+        # Control: identical line, but the sacrificer is fine by eval -> a real sac, must still fire.
+        ("Allowed Sacrifice POS: sacrificer is fine (+150cp) -> sound sac", 150, True),
+    ]
+    for name, eval_after, should_fire in asac_cases:
+        m = Mistake(asac_fen, "d8d6", None, [], asac_rf, -414, eval_after, 118, chess.BLACK)
+        labels = [t["label"] for t in
+                  TG_GM.tag_mistake_full(m, with_maia=False, classification="mistake")["tags"]]
+        got = "Allowed Sacrifice" in labels
+        passed = (got == should_fire)
+        ok += passed
+        if not passed:
+            fails.append(name)
+        print(f"  [{'PASS' if passed else 'FAIL'}] {name}: present={got} exp={should_fire}")
+    extra_asac = len(asac_cases)
+
     # Missed Stalemate (2026-07-14): from a LOSING position, best move forces stalemate = a draw save.
     # Synthetic anchor — board is K+Q vs lone K (Qg6 mechanically stalemates the boxed king); eval_before
     # is set to exercise the losing-side gate (a genuine losing-side-forces-stalemate FEN is hard to
@@ -1372,7 +1408,8 @@ def run():
              + len(hung_cases) + extra_exch + extra_greedy + extra_pinx + extra_gate + extra_cls + extra_gm + extra_grab + extra_castle + extra_sm + extra_pt + extra_md + extra_eg + len(ps_cases) + extra_tg + 2 + extra_cd
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk
-             + extra_ekp + extra_mac + extra_zz + extra_gg + extra_rek + extra_ovl + extra_conv + extra_sev + extra_md)
+             + extra_ekp + extra_mac + extra_zz + extra_gg + extra_rek + extra_ovl + extra_conv + extra_sev + extra_md
+             + extra_asac)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 
