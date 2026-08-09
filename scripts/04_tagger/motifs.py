@@ -657,6 +657,26 @@ def pin_target(nodes, pov):
             continue  # pinning piece immediately captured — dissolved
         if best is None or U.king_values[tgt] > U.king_values[best]:
             best = tgt
+    if best is not None:
+        return best
+    # FALLBACK: pin_line also fires via _pin_prevents_attack, which exploits a pin pov did NOT create —
+    # so no pov move has a target to read and the loop above finds nothing. The label then shipped as a
+    # bare "Allowed Pin" with no target (GH #102), even when the pin is ABSOLUTE, which is the most
+    # nameable case there is. Real example: Bc5 pins the f2 pawn against Kg1, and that pin is what makes
+    # ...Qxg3+ safe. Read the target off the board instead: find pov's opponent's pinned pieces and name
+    # the most valuable thing each one shields.
+    for node in U.pov_nodes(nodes, pov):
+        board = node.board()
+        for square, piece in board.piece_map().items():
+            if piece.color == pov:
+                continue
+            if board.pin(piece.color, square) == chess.BB_ALL:
+                continue           # not pinned
+            # python-chess's board.pin() is king-only, so a pinned piece is by definition shielding the
+            # king — an absolute pin. Relative pins (to queen/rook) are found by the pov-move loop above.
+            tgt = KING
+            if best is None or U.king_values[tgt] > U.king_values[best]:
+                best = tgt
     return best
 
 
