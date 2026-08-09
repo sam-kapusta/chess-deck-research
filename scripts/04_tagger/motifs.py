@@ -344,33 +344,22 @@ def sacrifice_line(nodes, pov) -> bool:
     # where the trade isn't finished. That fix could not cover this one because it lives in a different
     # detector, and this instance is invisible in the research corpus, where 94% of refutations are
     # exactly 6 plies and stop before the grab.
-    if _has_pending_recapture(nodes[-1].board(), pov):
+    # The subject of a sacrifice claim is the square pov's investment landed on — i.e. wherever the
+    # opponent last captured. If that square is still contested, the exchange is unfinished and the
+    # "investment" was never established. Uses the shared U.subject_resolved primitive rather than a
+    # local guard so every detector asks this the same way (see its docstring).
+    last_capture_sq = None
+    for node in nodes:
+        parent = node.parent
+        if parent is not None and parent.board().is_capture(node.move):
+            last_capture_sq = node.move.to_square
+    if last_capture_sq is not None and not U.subject_resolved(nodes[-1].board(), last_capture_sq):
         return False
     # invested >=2 that survives to the end of the line AND to pov's final move (not a transient dip)
     if (end_diff - initial <= -2) and (last_pov_diff - initial <= -2):
         # not a promotion line (cook excludes those — they're combinations, not sacs)
         if not any(n.move.promotion for n in pov_nodes):
             return True
-    return False
-
-
-def _has_pending_recapture(board, pov, threshold=2):
-    """Is pov on move with a favourable capture worth >= threshold available?
-
-    Used to detect a line that STOPPED mid-combination. A genuine sacrifice ends with pov down material
-    and nothing to collect; a truncated PV ends with pov about to scoop a piece back. SEE (not raw victim
-    value) is what distinguishes "free recapture" from "capture into a defended square".
-    """
-    if board.turn != pov:
-        return False
-    for mv in board.legal_moves:
-        if not board.is_capture(mv):
-            continue
-        try:
-            if U.static_exchange_eval(board, mv) >= threshold:
-                return True
-        except Exception:
-            continue
     return False
 
 

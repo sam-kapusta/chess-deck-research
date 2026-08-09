@@ -824,19 +824,33 @@ def _surviving_files(after_board, refutation_san, mover, candidate_files, defect
     just one that's absent at the end. An unparseable tail judges on what was walked (best effort, same
     as the original doubled-pawn code) rather than throwing the claim away.
     """
-    if not candidate_files or not refutation_san:
+    if not candidate_files:
         return candidate_files
     survived = set(candidate_files)
+    post = after_board.copy()
     try:
-        post = after_board.copy()
-        for san in refutation_san:
+        for san in refutation_san or []:
             post.push(post.parse_san(san))
             survived = survived & defect_fn(_pawn_files(post, mover))
             if not survived:
                 break
     except Exception:
         pass
-    return survived
+    if not survived:
+        return survived
+    # CONTESTED-PAWN check, via the shared U.subject_resolved primitive. Walking the line is not enough:
+    # the refuting capture can lie BEYOND the line's end (TAGGER_LINE_PLIES caps it at 8, and the ply-33
+    # case captures the pawn at ply 9), so the loop above sees a pawn that is in fact already falling.
+    # Asking whether the pawn's own square is still contested catches it without needing to see the
+    # capture — which is the whole point of the primitive. A pawn the opponent simply wins is not a
+    # structural weakness; the cost of the move was the material.
+    resting = post
+    still = set()
+    for f in survived:
+        squares = [s for s in resting.pieces(chess.PAWN, mover) if chess.square_file(s) == f]
+        if squares and all(U.subject_resolved(resting, s) for s in squares):
+            still.add(f)
+    return still
 
 
 def pawn_structure(m):

@@ -412,3 +412,50 @@ def pov_nodes(nodes: List[ChildNode], pov: Color) -> List[ChildNode]:
 def opp_nodes(nodes: List[ChildNode], pov: Color) -> List[ChildNode]:
     """Nodes whose move was made by the opponent of pov (cook's mainline[::2])."""
     return _movers_by_parity(nodes, pov, False)
+
+
+def subject_resolved(board: Board, square: chess.Square, threshold: int = 0) -> bool:
+    """Is the exchange over `square` FINISHED in this position?
+
+    THE PRIMITIVE FOR "read the board only where the dust has settled."
+
+    Every tag is a claim about one square: `Hung Material` names the square your piece was taken on,
+    `Created Isolated Pawn` the square the pawn sits on, `Allowed Sacrifice` the square the invested piece
+    landed on. A claim read off a position where that square is still under a favourable capture is
+    PREMATURE — the engine line was cut mid-combination, it did not end because anyone chose to stop.
+
+    Returns False when some side can still capture on `square` with SEE >= threshold, i.e. the claim is
+    NOT yet safe to assert. Note it does not care WHOSE turn it is: the question is whether the square is
+    contested, and a capture that is available to either side one ply later is enough to make a
+    resting-position claim wrong.
+
+    WHY THIS SHAPE, and not the two alternatives already tried and measured:
+      * whole-position quiescence (play out every SEE-positive capture, then read) fixed only 1 of 3 known
+        bugs. It cannot model engine lines, which are driven by checks and tempo, not just material.
+      * "material disagrees with the eval" is unusable: on lines that end quiet, material and eval still
+        differ by 2.07 pawns on average, so a real signal is indistinguishable from that noise floor. It
+        would also suppress every SOUND SACRIFICE, which is defined by that disagreement.
+    Asking about ONE square — the one the tag already names — avoids both failures.
+
+    Measured on the three known false positives, at the ply each line was truncated: d8 holding a knight
+    at SEE +3, d6 holding a queen at SEE +9, d5 holding a pawn at SEE +1 — all correctly unresolved. And
+    silent on a genuine unrecaptured rook hang and a genuine bishop sacrifice, which is what makes it a
+    guard rather than a blanket mute.
+
+    SCOPE LIMIT: this is about the END of a line. It does NOT replace the settled-peak rule in
+    predicates.hung_material, which is about plies in the MIDDLE of one (a mid-exchange dip can sit at ply
+    7 while the line's final position is perfectly quiet). Two primitives, deliberately.
+
+    Design: chess-deck-code/docs/superpowers/specs/2026-08-09-tagger-line-length-contract-design.md
+    """
+    best = None
+    for mv in board.legal_moves:
+        if not board.is_capture(mv) or mv.to_square != square:
+            continue
+        try:
+            see = static_exchange_eval(board, mv)
+        except Exception:
+            continue
+        if best is None or see > best:
+            best = see
+    return best is None or best < threshold
