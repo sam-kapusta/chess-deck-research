@@ -5,9 +5,21 @@ rate-direct 0-99). Design: `chess-deck-code/docs/plans/2026-06-19-fifa-skill-car
 Findings + gotchas: `chess-deck-research/docs/2026-06-19 FIFA corpus rebuild ....md`. Scoring
 philosophy: `chess-deck-code/knowledge/2026-06-16-player-leak-metrics.md` § rate-direct.
 
-**Status (2026-06-19):** chain VALIDATED on a 3-band proof (800-1000, 1600-1800, 2600-2800). The
-production run below has NOT been executed yet. Scripts here are the proof versions parameterized for
-the proof bands — for production, edit `BANDS`/`TARGET` as noted.
+**Status (updated 2026-08-09):** the production run HAS been executed. Outputs live on chess-poc in
+`~/SageMaker/fifa_blitz/` dated 2026-07-30: `fifa_blunders_all.json` (13MB), **`fifa_enrich.json`
+(27MB, 56,950 positions)**, `fifa_sweep.json`, `fifa_skill_ratings.json`. The old status line below
+claimed it had never run, which sent me looking for a corpus that already existed.
+
+`fifa_enrich.json` is now also the **tag-audit corpus** — it is the only local-ish source of real
+engine lines (`top_3_refutations`, 6 plies in 94% of rows). Two gotchas before using it: its lines are
+space-joined **SAN strings**, so `mistake.from_sf_entry` (which expects `top_lines[].moves` lists)
+returns EMPTY lines and every motif tag silently vanishes — use
+`scripts/04_tagger/audit_fifa_corpus.from_fifa_entry`. And 1,565 rows have ≤1-ply refutations, which
+cannot produce an ALLOWED tag at all; exclude them from denominators. See
+`chess-deck-code/knowledge/2026-08-09-tagger-audit-harness.md`.
+
+Scripts here are the proof versions parameterized for the proof bands (800-1000, 1600-1800,
+2600-2800) — for a re-run, edit `BANDS`/`TARGET` as noted.
 
 ## Runs on
 chess-poc (SageMaker, account 140023406996, profile `default`). Env: conda `pytorch_p310` (has
