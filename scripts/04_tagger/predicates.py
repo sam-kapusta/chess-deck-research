@@ -471,6 +471,32 @@ def missed_sacrifice(m):
         mover_cp = m.eval_before if m.mover == chess.WHITE else -m.eval_before
         if mover_cp < -300:
             return []
+    # PERSISTENCE: the investment must STAY invested. SEE is a ONE-PLY verdict — it answers "does the
+    # exchange on this square lose material", not "does the mover end up down". A capture that loses the
+    # local exchange but wins a rook three plies later is a COMBINATION, and calling it a sacrifice tells
+    # the player they missed an investment when they missed free material. (GH #108: 198 of 260 corpus
+    # fires — 76% — recovered the shed. Worst case: Bxb2 with SEE -2, whose line continues ...Bd2 Bxa1 and
+    # Black is +7 having won a rook.)
+    #
+    # Ported from motifs.sacrifice_line, which has required this since the equal-trade fix ("44% of corpus
+    # 'Missed Sacrifice' were these transient dips"). Both layers emit the same label and the predicate
+    # fires independently, so it needed the same rule — exactly as the #100 soundness gate did.
+    #
+    # A line too SHORT to judge is left alone: producers cap at TAGGER_LINE_PLIES and some positions yield
+    # a stub, so treating "can't tell" as "recovered" would delete real sacrifices whenever the engine
+    # returned little — the same blindness that made the 6-ply corpus unable to see production bugs.
+    if len(m.best_line_san) >= 3:
+        start = _material_diff(b, m.mover)
+        walk = b.copy()
+        complete = True
+        for san in m.best_line_san:
+            try:
+                walk.push(walk.parse_san(san))
+            except Exception:
+                complete = False
+                break
+        if complete and _material_diff(walk, m.mover) - start > -2:
+            return []          # shed was recovered -> combination, not sacrifice
     # Don't fire if missed_greek_gift already covers this (bishop + check + adjacent to king)
     pc = b.piece_at(bm.from_square)
     ek = b.king(not m.mover)
