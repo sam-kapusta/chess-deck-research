@@ -2629,7 +2629,13 @@ def allowed_pawn_capture(m):
         if after_played.is_capture(first):
             victim = after_played.piece_at(first.to_square)
             victim_type = victim.piece_type if victim is not None else chess.PAWN
-            if victim_type == chess.PAWN and first not in after_best.legal_moves:
+            # SEE of the GRAB must be positive — a real WON pawn, not an even trade. cxd5 into a defended
+            # d5 is SEE 0: Black just plays exd5 and it's dead even, NOT a lost pawn. The original case
+            # this path was built for (Rb8 lets Bxd5, an UNDEFENDED pawn) is SEE > 0 and still fires.
+            # Without this, a symmetric pawn trade reads as "you let them grab a pawn". (Sam, ply 10 e6
+            # cxd5 exd5, alternatives line +0.22 ~ equal.)
+            grab_see = U.static_exchange_eval(after_played, first)
+            if victim_type == chess.PAWN and grab_see >= 1 and first not in after_best.legal_moves:
                 return [("Allowed Pawn Capture", "allowed",
                          f"{m.played_san} lets the opponent grab a pawn ({m.refutation_san[0]}); best {m.best_san} prevents it")]
     except Exception:
