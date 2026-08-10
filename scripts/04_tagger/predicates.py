@@ -198,7 +198,18 @@ def capture_or_exchange(m):
         # wins material over the full sequence — same "Missed Free X" coaching tag as the undefended case
         # (Sam: collapse free/winning into one tag); evidence distinguishes it.
         return [(f"Missed Free {pname}", "missed", f"best {m.best_san} wins material (nets +{see})")]
-    # SEE == 0 → a genuine even trade.
+    # SEE == 0 → material parity ON THE SQUARE, but that does NOT make it an even trade. SEE only sees
+    # material: a capture that also gives CHECK, or swings the eval far past a trade (wins the queen
+    # behind the recapture, sets up mate), reads SEE 0 and was mislabeled "even trade". Measured on 20k
+    # FIFA positions: 37-49% of Missed Rook/Queen Exchange fires were checks, 58-83% were cp>=300 — the
+    # tag was a third-to-most tactics wearing a trade label. (GH #28.) A real even trade is QUIET and
+    # trade-sized; anything else is a tactic the MISSED motif detectors (fork/skewer/mate/pin) name, so
+    # bow out and let them. cp_loss is mover-POV magnitude in centipawns.
+    if bm is not None and b.gives_check(bm):
+        return []
+    if m.cp_loss >= 250:
+        return []
+    # SEE == 0 and quiet + trade-sized → a genuine even trade.
     if victim.piece_type == chess.PAWN:
         return [("Missed Pawn Trade", "missed", f"best {m.best_san} = even pawn trade")]
     # Name the trade by BOTH pieces, not just the victim. The old "Missed {victim} Exchange" mislabeled
