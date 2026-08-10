@@ -70,6 +70,27 @@ BLURB = {
 }
 NAMED_MATE_BLURB = {m: f"{m} was available" for m in NAMED_MATES}
 
+# ALLOWED-direction phrasing per motif. The old generator produced two ungrammatical shapes — a
+# colon-dump ("let the opponent: a sound sacrifice was available") and a missing article ("let the
+# opponent execute fork"). Each phrase below completes "Your move let the opponent ___" as a clean
+# clause. Tactics the opponent EXECUTES take an action verb; board STATES the opponent EXPLOITS are
+# phrased as such. These blurbs render verbatim on the moment card AND feed the coaching LLM.
+ALLOWED = {
+    "Fork": "land a fork", "Combination → Fork": "land a fork after a short combination",
+    "Skewer": "land a skewer", "Discovered Attack": "uncover a discovered attack",
+    "Discovered Check": "uncover a discovered check", "Double Check": "land a double check",
+    "Deflection": "deflect a defender", "Attraction": "exploit an attraction",
+    "Clearance": "clear a line with tempo", "Zwischenzug": "slip in an in-between move",
+    "Overload": "exploit an overloaded piece", "X-Ray": "exploit an x-ray",
+    "Trapped Piece": "trap a piece", "Sacrifice": "land a sound sacrifice",
+    "Capture of Defender": "capture a defender", "Hanging Piece": "win a hanging piece",
+    "Exposed King": "get at your exposed king", "Promotion": "promote a pawn",
+    "Underpromotion": "underpromote", "En Passant": "capture en passant",
+    "Castling": "castle to safety", "f2/f7 Attack": "strike at the f2/f7 square",
+    "Advanced Pawn": "push a pawn dangerously", "Mate": "force checkmate",
+    "Outpost": "plant a piece on a permanent outpost",
+}
+
 
 def build_taxonomy():
     tags = {}
@@ -86,7 +107,8 @@ def build_taxonomy():
         b = BLURB.get(x, x)
         add(f"Missed {x}", f"{b} (you didn't play it)")
         if x not in MISSED_ONLY:
-            add(f"Allowed {x}", f"Your move let the opponent: {b[0].lower() + b[1:]}")
+            allowed = ALLOWED.get(x, f"exploit {x.lower()}")
+            add(f"Allowed {x}", f"Your move let the opponent {allowed}")
     # fork + its combination split, and the by-PIECE variants (#53): _motif_label emits "Knight Fork",
     # "Combination → Queen Fork", etc. Enumerate all so they get a category/blurb (else they fall back
     # to Other in the frontend). Generic "Fork" stays for lines where the forking piece isn't resolved.
@@ -94,9 +116,14 @@ def build_taxonomy():
     for pc in ["Knight", "Bishop", "Rook", "Queen", "Pawn", "King"]:
         fork_forms += [f"{pc} Fork", f"Combination → {pc} Fork"]
     for x in fork_forms:
-        base = "a fork" if x.endswith("Fork") and "→" not in x else "a short combination ending in a fork"
+        combo = "→" in x
+        base = "a short combination ending in a fork" if combo else "a fork"
+        # name the forking piece when present: "Knight Fork" -> "a knight fork"
+        piece = x.replace("Combination → ", "").replace(" Fork", "").strip().lower()
+        noun = f"a {piece} fork" if piece and piece != "fork" else "a fork"
         add(f"Missed {x}", f"{base} was available (you didn't play it)")
-        add(f"Allowed {x}", f"Your move let the opponent execute {x.lower()}")
+        landed = f"land {noun} after a short combination" if combo else f"land {noun}"
+        add(f"Allowed {x}", f"Your move let the opponent {landed}")
     # pins, parametrized by target
     for tgt in ["King", "Queen", "Rook"]:
         add(f"Missed Pin (to {tgt})", f"A pin against the {tgt.lower()} was available")
@@ -184,7 +211,7 @@ def build_taxonomy():
     # Endgame mistakes (detectors, 2026-06-13)
     add("Missed King Activity", "Your king should have activated toward the center or the pawns")
     add("Lost the Opposition", "You gave up the opposition in a king-and-pawn endgame")
-    add("Missed Passed Pawn", "A move that made or advanced a passed pawn was best")
+    add("Missed Passed Pawn", "Making or advancing a passed pawn was best")
     add("Rook Behind Passer", "The rook belonged behind the passed pawn")
     # Defensive draw resources from a lost position (swindles). Perpetual was missing a taxonomy entry
     # (rendered neutral); added alongside Stalemate 2026-07-14.

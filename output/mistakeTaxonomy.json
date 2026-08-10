@@ -21,7 +21,7 @@
     },
     "Allowed Skewer": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent: a skewer was available",
+      "blurb": "Your move let the opponent land a skewer",
       "drillable": true
     },
     "Missed Discovered Attack": {
@@ -31,7 +31,7 @@
     },
     "Allowed Discovered Attack": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent: a discovered attack was available",
+      "blurb": "Your move let the opponent uncover a discovered attack",
       "drillable": true
     },
     "Missed Discovered Check": {
@@ -41,7 +41,7 @@
     },
     "Allowed Discovered Check": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent: a discovered check was available",
+      "blurb": "Your move let the opponent uncover a discovered check",
       "drillable": true
     },
     "Missed Deflection": {
@@ -51,7 +51,7 @@
     },
     "Allowed Deflection": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent: a deflection was available",
+      "blurb": "Your move let the opponent deflect a defender",
       "drillable": true
     },
     "Missed Attraction": {
@@ -61,7 +61,7 @@
     },
     "Allowed Attraction": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent: an attraction was available",
+      "blurb": "Your move let the opponent exploit an attraction",
       "drillable": true
     },
     "Missed Clearance": {
@@ -71,7 +71,7 @@
     },
     "Allowed Clearance": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent: a clearance was available",
+      "blurb": "Your move let the opponent clear a line with tempo",
       "drillable": true
     },
     "Missed Zwischenzug": {
@@ -81,7 +81,7 @@
     },
     "Allowed Zwischenzug": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent: an in-between move was available",
+      "blurb": "Your move let the opponent slip in an in-between move",
       "drillable": true
     },
     "Missed Overload": {
@@ -91,7 +91,7 @@
     },
     "Allowed Overload": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent: an overloaded enemy piece could be exploited",
+      "blurb": "Your move let the opponent exploit an overloaded piece",
       "drillable": true
     },
     "Missed X-Ray": {
@@ -101,7 +101,7 @@
     },
     "Allowed X-Ray": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent: an x-ray was available",
+      "blurb": "Your move let the opponent exploit an x-ray",
       "drillable": true
     },
     "Missed Trapped Piece": {
@@ -121,7 +121,7 @@
     },
     "Allowed Sacrifice": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent: a sound sacrifice was available",
+      "blurb": "Your move let the opponent land a sound sacrifice",
       "drillable": true
     },
     "Missed Capture of Defender": {
@@ -131,7 +131,7 @@
     },
     "Allowed Capture of Defender": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent: capturing the defender was available",
+      "blurb": "Your move let the opponent capture a defender",
       "drillable": true
     },
     "Missed Hanging Piece": {
@@ -141,7 +141,7 @@
     },
     "Allowed Hanging Piece": {
       "category": "Hung Piece",
-      "blurb": "Your move let the opponent: a piece was hanging",
+      "blurb": "Your move let the opponent win a hanging piece",
       "drillable": true
     },
     "Missed Promotion": {
@@ -151,7 +151,7 @@
     },
     "Allowed Promotion": {
       "category": "Endgame",
-      "blurb": "Your move let the opponent: a promotion was available",
+      "blurb": "Your move let the opponent promote a pawn",
       "drillable": true
     },
     "Missed Underpromotion": {
@@ -161,7 +161,7 @@
     },
     "Allowed Underpromotion": {
       "category": "Endgame",
-      "blurb": "Your move let the opponent: an underpromotion was the move",
+      "blurb": "Your move let the opponent underpromote",
       "drillable": true
     },
     "Missed En Passant": {
@@ -171,7 +171,7 @@
     },
     "Allowed En Passant": {
       "category": "Endgame",
-      "blurb": "Your move let the opponent: en passant was the move",
+      "blurb": "Your move let the opponent capture en passant",
       "drillable": true
     },
     "Missed Castling": {
@@ -186,7 +186,7 @@
     },
     "Allowed Double Check": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent: a double check was available",
+      "blurb": "Your move let the opponent land a double check",
       "drillable": true
     },
     "Missed f2/f7 Attack": {
@@ -196,7 +196,7 @@
     },
     "Allowed f2/f7 Attack": {
       "category": "King Safety",
-      "blurb": "Your move let the opponent: an attack on the f2/f7 square was available",
+      "blurb": "Your move let the opponent strike at the f2/f7 square",
       "drillable": true
     },
     "Missed Advanced Pawn": {
@@ -216,7 +216,7 @@
     },
     "Allowed Mate": {
       "category": "King Safety",
-      "blurb": "Your move let the opponent: forced mate was available",
+      "blurb": "Your move let the opponent force checkmate",
       "drillable": true
     },
     "Missed Outpost": {
@@ -226,7 +226,7 @@
     },
     "Allowed Outpost": {
       "category": "Position",
-      "blurb": "Your move let the opponent: a piece could take a permanent outpost",
+      "blurb": "Your move let the opponent plant a piece on a permanent outpost",
       "drillable": true
     },
     "Missed Fork": {
@@ -236,7 +236,7 @@
     },
     "Allowed Fork": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent execute fork",
+      "blurb": "Your move let the opponent land a fork",
       "drillable": true
     },
     "Missed Combination \u2192 Fork": {
@@ -246,7 +246,7 @@
     },
     "Allowed Combination \u2192 Fork": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent execute combination \u2192 fork",
+      "blurb": "Your move let the opponent land a fork after a short combination",
       "drillable": true
     },
     "Missed Knight Fork": {
@@ -256,7 +256,7 @@
     },
     "Allowed Knight Fork": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent execute knight fork",
+      "blurb": "Your move let the opponent land a knight fork",
       "drillable": true
     },
     "Missed Combination \u2192 Knight Fork": {
@@ -266,7 +266,7 @@
     },
     "Allowed Combination \u2192 Knight Fork": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent execute combination \u2192 knight fork",
+      "blurb": "Your move let the opponent land a knight fork after a short combination",
       "drillable": true
     },
     "Missed Bishop Fork": {
@@ -276,7 +276,7 @@
     },
     "Allowed Bishop Fork": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent execute bishop fork",
+      "blurb": "Your move let the opponent land a bishop fork",
       "drillable": true
     },
     "Missed Combination \u2192 Bishop Fork": {
@@ -286,7 +286,7 @@
     },
     "Allowed Combination \u2192 Bishop Fork": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent execute combination \u2192 bishop fork",
+      "blurb": "Your move let the opponent land a bishop fork after a short combination",
       "drillable": true
     },
     "Missed Rook Fork": {
@@ -296,7 +296,7 @@
     },
     "Allowed Rook Fork": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent execute rook fork",
+      "blurb": "Your move let the opponent land a rook fork",
       "drillable": true
     },
     "Missed Combination \u2192 Rook Fork": {
@@ -306,7 +306,7 @@
     },
     "Allowed Combination \u2192 Rook Fork": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent execute combination \u2192 rook fork",
+      "blurb": "Your move let the opponent land a rook fork after a short combination",
       "drillable": true
     },
     "Missed Queen Fork": {
@@ -316,7 +316,7 @@
     },
     "Allowed Queen Fork": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent execute queen fork",
+      "blurb": "Your move let the opponent land a queen fork",
       "drillable": true
     },
     "Missed Combination \u2192 Queen Fork": {
@@ -326,7 +326,7 @@
     },
     "Allowed Combination \u2192 Queen Fork": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent execute combination \u2192 queen fork",
+      "blurb": "Your move let the opponent land a queen fork after a short combination",
       "drillable": true
     },
     "Missed Pawn Fork": {
@@ -336,7 +336,7 @@
     },
     "Allowed Pawn Fork": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent execute pawn fork",
+      "blurb": "Your move let the opponent land a pawn fork",
       "drillable": true
     },
     "Missed Combination \u2192 Pawn Fork": {
@@ -346,7 +346,7 @@
     },
     "Allowed Combination \u2192 Pawn Fork": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent execute combination \u2192 pawn fork",
+      "blurb": "Your move let the opponent land a pawn fork after a short combination",
       "drillable": true
     },
     "Missed King Fork": {
@@ -356,7 +356,7 @@
     },
     "Allowed King Fork": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent execute king fork",
+      "blurb": "Your move let the opponent land a king fork",
       "drillable": true
     },
     "Missed Combination \u2192 King Fork": {
@@ -366,7 +366,7 @@
     },
     "Allowed Combination \u2192 King Fork": {
       "category": "Allowed Tactic",
-      "blurb": "Your move let the opponent execute combination \u2192 king fork",
+      "blurb": "Your move let the opponent land a king fork after a short combination",
       "drillable": true
     },
     "Missed Pin (to King)": {
@@ -821,7 +821,7 @@
     },
     "Missed Passed Pawn": {
       "category": "Endgame",
-      "blurb": "A move that made or advanced a passed pawn was best",
+      "blurb": "Making or advancing a passed pawn was best",
       "drillable": true
     },
     "Rook Behind Passer": {
