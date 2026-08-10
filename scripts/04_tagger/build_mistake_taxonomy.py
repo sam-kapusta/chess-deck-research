@@ -151,7 +151,8 @@ def build_taxonomy():
         add(f"Allowed Trapped {p}", f"Your move let the opponent trap your {p.lower() if p != 'Piece' else 'piece'}")
     # Positional predicates
     for s in ["Doubled", "Isolated", "Backward"]:
-        add(f"Created {s} Pawn", f"Your move created a {s.lower()} pawn")
+        article = "an" if s[0] in "AEIOU" else "a"   # "an isolated pawn", not "a isolated pawn"
+        add(f"Created {s} Pawn", f"Your move created {article} {s.lower()} pawn")
     # Plan-execution positional detectors (2026-06-14)
     add("Missed Pawn Break", "A thematic pawn break was available; you played a waiting move")
     add("Missed Tempo Push", "A pawn push attacking an enemy piece (gaining tempo) was available")

@@ -691,7 +691,7 @@
     },
     "Created Isolated Pawn": {
       "category": "Position",
-      "blurb": "Your move created a isolated pawn",
+      "blurb": "Your move created an isolated pawn",
       "drillable": false
     },
     "Created Backward Pawn": {
