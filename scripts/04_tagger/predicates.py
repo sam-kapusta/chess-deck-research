@@ -1031,6 +1031,63 @@ def _is_endgame(m):
 
 
 
+def missed_material_combination(m):
+    """The best LINE wins material by force over several plies, and the played move doesn't — a
+    combination the player missed. The MISSED twin of hung_material's "Lost Material to Combination"
+    (which is ALLOWED-direction: material the played move LOSES over the refutation). We had no
+    detector for material the best line GAINS, so a forced win that isn't a one-move capture went
+    untagged. (Sam, move 44: best Nb5 is quiet; the c3 pawn falls at ply 3 via Nb5, a4, Nxc3.)
+
+    Reuses the "Combination →" prefix that fork_line uses for a delayed tactic, so naming stays
+    consistent: a fork after a setup is "Combination → Fork", a material win after a setup is
+    "Combination → Free <Piece>".
+
+    Gates:
+      - best MOVE is NOT a capture — a one-move capture is capture_or_exchange's Missed Free X.
+      - net material gain over the best line >= 1 (mover POV), and it PERSISTS to the line's end
+        (a transient grab that nets back is not a win).
+      - the PLAYED line does not also win the same material (else the win wasn't this move's point).
+    Names the piece by the largest single thing the mover captures in the line.
+    """
+    b = m.board_before
+    bm = _best_move(m)
+    if bm is None or not m.best_line_san or len(m.best_line_san) < 2:
+        return []
+    if b.is_capture(bm):
+        return []                       # one-move capture -> Missed Free X owns it
+    mover = m.mover
+    start = _material_diff(b, mover)
+    walk = b.copy()
+    try:
+        for san in m.best_line_san:
+            walk.push(walk.parse_san(san))
+    except Exception:
+        return []                       # unparseable line -> can't assert a forced win
+    net = _material_diff(walk, mover) - start
+    if net < 1:
+        return []                       # no net gain that survives to the end of the line
+    # played line: if it wins the same material, this move wasn't the reason
+    if m.refutation_san:
+        pl = b.copy()
+        pm = _played_move(m)
+        if pm is not None and pm in pl.legal_moves:
+            pl.push(pm)
+            try:
+                for san in m.refutation_san:
+                    pl.push(pl.parse_san(san))
+                if _material_diff(pl, mover) - start >= 1:
+                    return []           # played line gains too -> not this move's fault
+            except Exception:
+                pass
+    # Name by the NET win, NOT the biggest single capture. A line that grabs a queen but gives a rook
+    # back nets +1 — that is "Free Pawn", not "Free Queen" (the move-38 / exchange-naming lesson: name
+    # by what STAYS won, not the transient peak). Map net pawns -> the piece of that value.
+    pname = ("Pawn" if net <= 2 else "Knight" if net <= 4 else
+             "Rook" if net <= 8 else "Queen")
+    return [(f"Missed Combination → Free {pname}", "missed",
+             f"best {m.best_san} wins material by force (+{net} over the line)")]
+
+
 def missed_king_activity(m):
     """Endgame: best move is a non-check king move toward the center OR the enemy pawns, and the played
     move wasn't that. Escaping a check is defense, not activity — excluded."""
@@ -2913,6 +2970,7 @@ ALL_PREDICATES = [
     missed_attacking_check, wrong_check, missed_greek_gift, missed_sacrifice, missed_zwischenzug, recapture_exposes_king, hung_material,
     king_in_center, lost_castling, exposed_king_pawn, pawn_structure,
     endgame_type, backward_pawn,
+    missed_material_combination,
     missed_king_activity, lost_opposition, missed_passed_pawn, rook_behind_passer,
     rook_to_seventh, rook_cut_off_king, missed_active_rook, rook_endgame_blockade,
     missed_connected_passers, missed_protected_passer, missed_square_rule,

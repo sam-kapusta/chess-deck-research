@@ -142,6 +142,11 @@ def build_taxonomy():
     # tagger merges them into one tag (the old separate "Missed Winning Capture (X)" is gone).
     for p in PIECES:
         add(f"Missed Free {p}", f"A free or favorable {p.lower()} capture was available")
+        # DELAYED version: the win comes after a short forcing sequence, not in one move. Emitted by
+        # predicates.missed_material_combination; "Combination →" prefix routes it to Missed Tactic via
+        # categorize(), matching the fork family. (Sam, move 44: best Nb5, c3 pawn falls at ply 3.)
+        add(f"Missed Combination → Free {p}",
+            f"A forcing sequence won a {p.lower()} — you didn't play it")
         if p != "Pawn":
             add(f"Missed {p} Exchange", f"An even {p.lower()} trade was the move")
     # mixed minor trade (bishop for knight / knight for bishop) — its own decision (bishop pair). (GH #28)

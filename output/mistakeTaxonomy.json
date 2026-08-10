@@ -484,9 +484,19 @@
       "blurb": "A free or favorable pawn capture was available",
       "drillable": true
     },
+    "Missed Combination \u2192 Free Pawn": {
+      "category": "Missed Tactic",
+      "blurb": "A forcing sequence won a pawn \u2014 you didn't play it",
+      "drillable": true
+    },
     "Missed Free Knight": {
       "category": "Missed Capture",
       "blurb": "A free or favorable knight capture was available",
+      "drillable": true
+    },
+    "Missed Combination \u2192 Free Knight": {
+      "category": "Missed Tactic",
+      "blurb": "A forcing sequence won a knight \u2014 you didn't play it",
       "drillable": true
     },
     "Missed Knight Exchange": {
@@ -499,6 +509,11 @@
       "blurb": "A free or favorable bishop capture was available",
       "drillable": true
     },
+    "Missed Combination \u2192 Free Bishop": {
+      "category": "Missed Tactic",
+      "blurb": "A forcing sequence won a bishop \u2014 you didn't play it",
+      "drillable": true
+    },
     "Missed Bishop Exchange": {
       "category": "Trading",
       "blurb": "An even bishop trade was the move",
@@ -509,6 +524,11 @@
       "blurb": "A free or favorable rook capture was available",
       "drillable": true
     },
+    "Missed Combination \u2192 Free Rook": {
+      "category": "Missed Tactic",
+      "blurb": "A forcing sequence won a rook \u2014 you didn't play it",
+      "drillable": true
+    },
     "Missed Rook Exchange": {
       "category": "Trading",
       "blurb": "An even rook trade was the move",
@@ -517,6 +537,11 @@
     "Missed Free Queen": {
       "category": "Missed Capture",
       "blurb": "A free or favorable queen capture was available",
+      "drillable": true
+    },
+    "Missed Combination \u2192 Free Queen": {
+      "category": "Missed Tactic",
+      "blurb": "A forcing sequence won a queen \u2014 you didn't play it",
       "drillable": true
     },
     "Missed Queen Exchange": {
