@@ -633,9 +633,28 @@ def _fresh_pin_index(nodes, pov):
 
 
 def pin_line(nodes, pov) -> bool:
-    # cook's pin-prevents-attack/escape (king-pin tactics) OR a fresh relative/absolute pin move
+    """cook's pin-prevents-attack/escape (king-pin tactics) OR a fresh pin available RIGHT NOW.
+
+    DEPTH 0 ONLY on the fresh path. "Missed Pin" claims the player failed to play a pin, so the pin has
+    to be the move in front of them — not a pin that shows up several plies into a line, contingent on
+    the opponent walking into it. (Sam, 2026-08-11, ply 5 of a Vienna: played f4, best line
+    `Nf3 Nc6 d4 d6 Bb5 exd4` got "Missed Pin (to King)" off the Bb5 at pov-depth 2. Bb5 WAS legal on
+    move 3 and pinned nothing — c6 was empty and d7 still had a pawn; the pin only exists after Black
+    volunteers ...Nc6 AND ...d6. The line never cashes it in either: ...Bd7 neutralizes it. That's the
+    Ruy-López developing bishop, not a tactic anyone missed.)
+
+    Two reasons this is a drop rather than a `Combination → Pin` relabel, which is how the fork family
+    handles depth (`fork_depth` / `_motif_label`): a pin wins nothing by itself, so a deep one that never
+    cashes in teaches nothing; and of the 13 depth>0 fires in the corpus, 12 already carry a sharper
+    explain tag (Missed Sacrifice, Hung Material, ...) — dropping the pin loses the lesson in 1 case out
+    of 13 while removing a confidently-wrong claim from the other 12.
+
+    Deliberately NOT applied to `_pin_prevents_*`: those require the pin to be EXPLOITED in the line
+    (the pinned piece can't defend / can't escape), which is its own soundness check. They are also 94%
+    of all pin fires — this gate touches only the 6% fresh-pin path.
+    """
     return (_pin_prevents_attack(nodes, pov) or _pin_prevents_escape(nodes, pov)
-            or _fresh_pin_index(nodes, pov) is not None)
+            or _fresh_pin_index(nodes, pov) == 0)
 
 
 def pin_target(nodes, pov):
