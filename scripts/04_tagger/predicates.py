@@ -2289,6 +2289,15 @@ def missed_overloading(m):
     bm = _best_move(m); pm = _played_move(m)
     if bm is None or pm is None or bm == pm:
         return []
+    # A real overload wins BECAUSE a stretched defender can't hold two things — not because the best move
+    # is itself a free capture. If the best move already wins material on its own (a SEE>=1 capture), the
+    # line's material comes from THAT, and the defender it happens to attack from its landing square is
+    # coincidental geometry (e.g. Qxf4 wins a free rook; the queen now on f4 incidentally eyes Bd4, which
+    # guards Ne5 → bogus "overloads the defender of a knight"). Board-confirmed via the LLM tag sweep
+    # (n=14 unanimous WRONG); 39% of 20k fires are this. (Twin of Class 7: material won by the capture,
+    # not by the named tactic.)
+    if b.is_capture(bm) and U.static_exchange_eval(b, bm) >= 1:
+        return []
     # (a) the overload must actually WIN material — verify the best LINE nets >= 2 pawns for the mover.
     # Geometry ("best move attacks a piece that defends something") alone fired on 9.96% of the corpus
     # and masked hung-piece/check features. A real overload converts to material; if the engine's line

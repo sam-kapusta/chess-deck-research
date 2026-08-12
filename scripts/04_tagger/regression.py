@@ -471,6 +471,12 @@ def run():
         ("overload geometry but no material win -> no fire",
          "r4rk1/ppqb1ppp/5n2/2Np4/3P4/2PB4/PP4Pb/R2Q1R1K b - - 1 18",
          "h2d6", ["d7g4"], None),
+        # NEG: best move is a FREE winning capture (Qxf4 grabs an undefended rook, SEE=5). The queen now
+        # on f4 incidentally attacks Bd4, sole guard of Ne5 — coincidental geometry, not an overload.
+        # Board-confirmed via the LLM tag sweep (2026-08-11, n=14 unanimous WRONG; 39% of fires).
+        ("free winning capture != overload",
+         "6k1/6p1/7p/2P1N3/3B1R2/8/PKPq4/8 b - - 0 34",
+         "d2b4", ["d2f4", "b2c3", "f4e4", "c5c6"], None),   # played Qb4+, best Qxf4 (free rook)
     ]
     for name, fen, uci, pv, want in ovl_cases:
         b = chess.Board(fen)
