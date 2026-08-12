@@ -175,6 +175,36 @@ def is_discovered_attack(board: chess.Board, move: chess.Move) -> bool:
     return False
 
 
+def is_winning_discovered_attack(board: chess.Board, move: chess.Move) -> bool:
+    """A discovered attack whose unveiled target is actually WINNABLE — Sam's rule (2026-08-11): the
+    stationary ray piece now bears on an enemy piece that is UNPROTECTED, or worth MORE than the ray
+    piece (an SEE-positive discovery). This is the material discriminator that separates a real
+    discovered attack from an incidental unveiling: a queen unveiled onto a DEFENDED equal piece is a
+    trade offer (Nb3→Qxd8, defended queen), a rook unveiled onto a defended knight is a losing exchange
+    (Bc5→Rxd5), but a rook onto an undefended queen (Nc6→Qc8) or any unprotected minor+ wins.
+
+    Naming (single-move) mirrors is_fork/is_pin — the LINE detector `discovered_attack_line` calls this
+    through `_first_fire_index`. Replaces the old cook.py capture-heuristic, which skipped the first move
+    and required the discovery to be cashed by a capture IN the line, missing e.g. Nxd5 (Qd8→g5, GH #122)."""
+    pov = board.turn
+    before = board
+    after = board.copy(stack=False); after.push(move)
+    for sq, p in after.piece_map().items():
+        if p.color != pov or p.piece_type not in U.ray_piece_types or sq == move.to_square:
+            continue
+        ray_val = U.values.get(p.piece_type, 0)
+        for tp, tsq in U.attacked_opponent_squares(after, sq, pov):
+            tval = U.values.get(tp.piece_type, 0)
+            if tval < 3 or not U.squares_are_collinear(sq, move.from_square, tsq):
+                continue
+            if tsq in before.attacks(sq) and before.piece_at(sq) is not None:
+                continue  # the ray piece already attacked this — nothing was unveiled by the move
+            defended = bool(after.attackers(not pov, tsq))
+            if (not defended) or (tval > ray_val):
+                return True
+    return False
+
+
 def is_outpost_move(board: chess.Board, move: chess.Move) -> bool:
     """`move` lands a knight/bishop on an outpost (enemy half, pawn-defended, unchallengeable by an
     enemy pawn). Positional, not tactical — the mover is board.turn."""
@@ -402,35 +432,21 @@ def discovered_check_line(nodes, pov) -> bool:
 
 
 def discovered_attack_line(nodes, pov) -> bool:
-    # A discovered CHECK is its own (sharper) motif — don't also fire the generic discovered-attack tag.
+    """A pov move unveils a WINNING attack (`is_winning_discovered_attack`) — the stationary ray piece
+    bears on an unprotected, or higher-value, enemy piece.
+
+    REWRITTEN 2026-08-11 (GH #122). The old cook.py capture-heuristic scanned pov moves from index 1
+    (skipping the move to play NOW) and only fired when the discovery was cashed by a capture IN the
+    line. It fired ~45×/20k and MISSED real discoveries the engine doesn't immediately capture — e.g.
+    Nxd5 unveiling Qd8→g5 (Sam-confirmed). Using the single-move detector via `_first_fire_index` mirrors
+    fork_line/is_fork and catches the discovery whether or not the line cashes it. The old REVEALED-PIECE
+    false positives (a piece moving DOWN an opened line to grab material, itself the only attacker) can't
+    recur: `is_winning_discovered_attack` requires a STATIONARY second ray piece (`sq != move.to_square`)
+    already bearing on the target — the capturer-is-the-only-attacker shape structurally can't fire."""
     if _discovered_check(nodes, pov):
+        # A discovered CHECK is its own (sharper) motif — don't also fire the generic discovered-attack tag.
         return False
-    for node in U.pov_nodes(nodes, pov)[1:]:
-        if U.is_capture(node):
-            between = SquareSet.between(node.move.from_square, node.move.to_square)
-            if not isinstance(node.parent, ChildNode):
-                continue
-            if node.parent.move.to_square == node.move.to_square:
-                return False
-            prev = node.parent.parent
-            if not isinstance(prev, ChildNode):
-                continue
-            if (prev.move.from_square in between
-                    and node.move.to_square != prev.move.to_square
-                    and node.move.from_square != prev.move.to_square
-                    and not U.is_castling(prev)):
-                # REVEALED-PIECE guard (2026-08-08): cook fires here on "prev vacated a square on the
-                # ray this capture travels." In a puzzle that means a discovery; in a coaching PV it
-                # also matches a piece merely moving DOWN a just-opened line to grab material — the
-                # capturer is then the only attacker and nothing was revealed (ply21 dxe6…Qxb7,
-                # move18 Nd5…Bxh4, both tagged wrongly). A real discovery has a STATIONARY second pov
-                # piece already bearing on the target. Require it.
-                board_from = node.parent.board()  # position the capture is played from
-                other_attackers = [s for s in board_from.attackers(pov, node.move.to_square)
-                                   if s != node.move.from_square]
-                if other_attackers:
-                    return True
-    return False
+    return _first_fire_index(nodes, pov, is_winning_discovered_attack) is not None
 
 
 def _discovered_check(nodes, pov) -> bool:

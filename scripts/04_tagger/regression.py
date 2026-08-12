@@ -97,6 +97,23 @@ LINE_CASES = [
     ("fork NEG: quiet last-move fork stays excluded",
      "rnbq1rk1/2pp1ppp/3bp3/1B6/3Pn2P/2P2N1R/1P3PP1/RNBQK3 b Q - 0 10",
      ["a8a1", "c1g5", "d8e8", "f3e5", "f7f6", "b5d3"], False, "fork", False),
+    # --- Discovered attack: fire when a move unveils a WINNING attack (unprotected, or worth more than
+    # the ray piece — Sam's rule), NOT on incidental unveilings/trades. Rewritten from the old capture-
+    # heuristic that skipped move 0 and missed real discoveries (GH #122). ---
+    # POS: ...Nxd5 unveils Qd8 -> Ng5 (undefended) — the ground-truth case. pov=Black.
+    ("discovered POS: Nxd5 unveils Qd8->g5 (undefended)",
+     "r1bq1rk1/pppp1ppp/2n2n2/2bNp1N1/2B1P3/8/PPPP1PPP/R1BQK2R b KQ - 9 6",
+     ["f6d5", "d2d4", "c5b4", "c2c3", "d5c3", "b2c3"], False, "discoveredAttack", True),
+    # NEG: Nb3 unveils Qd1 -> Qd8 but the queen is DEFENDED and equal value — a trade (line is ...Qxd1+),
+    # not a winning discovery. Must NOT fire. pov=White.
+    ("discovered NEG: unveils a defended equal piece (trade)",
+     "rnbqk2r/ppp2ppp/5n2/2b5/3Np3/2N2P2/PPP3PP/R1BQKB1R w KQkq - 0 7",
+     ["d4b3", "d8d1", "e1d1", "c5d6", "c3b5", "d6e5"], True, "discoveredAttack", False),
+    # NEG: Bc5 unveils Rd1 -> Nd5 (defended) — a ROOK onto a lower-value knight = losing exchange, not a
+    # win. Must NOT fire. pov=White.
+    ("discovered NEG: rook unveiled onto a defended lesser piece",
+     "5r1k/6pp/3q4/3n2p1/1PQB4/P4P2/7P/3R2K1 w - - 2 31",
+     ["d4c5", "d6g6", "c4d5", "f8e8", "c5f2", "g5g4"], True, "discoveredAttack", False),
     # --- Boden / Double-Bishop: BOTH bishops must participate, not just exist on the board.
     # NEG: Bh4# mates the e1 king with a SINGLE bishop; a second bishop sits idle on e6. Having two
     # bishops on the board is not a two-bishop mate. (Surfaced by the LLM tag sweep, 2026-08-11; 2 of 4
