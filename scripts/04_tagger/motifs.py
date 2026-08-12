@@ -1046,10 +1046,23 @@ def boden_or_double_bishop_line(nodes, pov) -> Optional[str]:
     bishops = list(board.pieces(BISHOP, pov))
     if len(bishops) < 2:
         return None
+    # Both bishops must actually bear on the king's zone — a TWO-bishop mate, not a single-bishop mate
+    # that happens to have a spectator bishop sitting elsewhere. Boden/Double-Bishop is a named tactic
+    # defined by two criss-crossing bishops delivering the net; checking bishop COUNT alone fires on e.g.
+    # Bh4# (single bishop mates the e1 king) whenever a second, idle bishop is on the board — 2 of 4
+    # corpus fires were exactly this. (Same class as the Greek Gift proper-noun fix; check the
+    # definition, not the vibe.)
+    zone = [king] + [s for s in chess.SQUARES if square_distance(s, king) == 1]
+    participating = [b for b in bishops
+                     if any(b in board.attackers(pov, sq) for sq in zone)]
+    if len(participating) < 2:
+        return None
     for square in [s for s in SquareSet(chess.BB_ALL) if square_distance(s, king) < 2]:
         if not all(p.piece_type == BISHOP for p in U.attacker_pieces(board, pov, square)):
             return None
-    if (square_file(bishops[0]) < square_file(king)) == (square_file(bishops[1]) > square_file(king)):
+    # Classify by the two PARTICIPATING bishops (a spectator's file must not decide boden vs double).
+    b0, b1 = participating[0], participating[1]
+    if (square_file(b0) < square_file(king)) == (square_file(b1) > square_file(king)):
         return "bodenMate"
     return "doubleBishopMate"
 

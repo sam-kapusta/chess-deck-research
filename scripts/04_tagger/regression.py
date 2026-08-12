@@ -79,6 +79,16 @@ LINE_CASES = [
     # Front=king (skewered), back=rook (won, >= minor). pov=White (the winner). Must still fire.
     ("king-front rook-back still skewers", "4r3/8/8/8/4k3/8/8/R5K1 w - - 0 1",
      ["a1e1", "e4d4", "e1e8"], True, "skewer", True),
+    # --- Boden / Double-Bishop: BOTH bishops must participate, not just exist on the board.
+    # NEG: Bh4# mates the e1 king with a SINGLE bishop; a second bishop sits idle on e6. Having two
+    # bishops on the board is not a two-bishop mate. (Surfaced by the LLM tag sweep, 2026-08-11; 2 of 4
+    # corpus fires were this. Same proper-noun class as the Greek Gift fix.) pov=Black (missed line).
+    ("single-bishop Bh4# != boden", "r3k1nr/pppqbppp/2npb3/8/6P1/3P1P1P/PPPNP3/R1BQKB1R b KQkq - 2 8",
+     ["e7h4"], False, "bodenMate", False),
+    # POS: a genuine double-bishop mate — Bf3+ Rd5 Bxd5#, both light bishops bear on the a8 king's zone.
+    # pov=White (the winner). Must still fire. Guards against over-tightening the participation gate.
+    ("two-bishop Bxd5# still double-bishop", "k1nr1b1r/p4p2/7p/4B3/8/6P1/P3BP1P/2R3K1 w - - 0 27",
+     ["e2f3", "d8d5", "f3d5"], True, "doubleBishopMate", True),
 ]
 
 
