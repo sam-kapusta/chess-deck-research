@@ -86,6 +86,17 @@ LINE_CASES = [
     # NEG: axb7 lands on the 7th too, but it's a CAPTURE — capture_or_exchange owns it, not a push.
     ("advanced pawn NEG: axb7 is a capture", "8/1p6/P7/8/8/6k1/8/6K1 w - - 0 1",
      ["a6b7"], True, "advancedPawn", False),
+    # --- Fork on the LAST pov move: a CHECK fork culminating a combination must fire; a QUIET one stays
+    # excluded (can't confirm the win in a truncated line). (LLM sweep 2026-08-11: 209 real check-forks
+    # on the last move were silently dropped by _first_fire_index's [:-1].) ---
+    # POS: ...Bg6 Nf4 Nd3 Nxd3 Qxd4+ — the line ENDS in a royal fork with CHECK (Kg1 + a rook). pov=Black.
+    ("fork POS: royal check-fork ends the combination",
+     "r2qkb1r/pp3ppp/2p2n2/7b/1nPP4/5PPN/P5BP/RNBQ1RK1 b kq - 0 11",
+     ["h5g6", "h3f4", "b4d3", "f4d3", "d8d4", "d3f2"], False, "fork", True),
+    # NEG: ...Rxa1 ... a fork appears on Black's LAST move but it's QUIET (no check) — stays excluded.
+    ("fork NEG: quiet last-move fork stays excluded",
+     "rnbq1rk1/2pp1ppp/3bp3/1B6/3Pn2P/2P2N1R/1P3PP1/RNBQK3 b Q - 0 10",
+     ["a8a1", "c1g5", "d8e8", "f3e5", "f7f6", "b5d3"], False, "fork", False),
     # --- Boden / Double-Bishop: BOTH bishops must participate, not just exist on the board.
     # NEG: Bh4# mates the e1 king with a SINGLE bishop; a second bishop sits idle on e6. Having two
     # bishops on the board is not a two-bishop mate. (Surfaced by the LLM tag sweep, 2026-08-11; 2 of 4

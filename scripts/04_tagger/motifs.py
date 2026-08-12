@@ -212,12 +212,21 @@ def _start_board(nodes: List[ChildNode]) -> Optional[chess.Board]:
     return nodes[0].parent.board() if nodes else None
 
 
-def _first_fire_index(nodes, pov, single_move_fn, skip_king=True):
+def _first_fire_index(nodes, pov, single_move_fn, skip_king=True, include_last_if_check=False):
     """Index among POV's OWN moves (0 = the move pov should play NOW) at which `single_move_fn`
     (a board,move -> bool detector) first fires, or None. This is what lets us split a tag by DEPTH:
     index 0 = the tactic is directly available (e.g. 'Missed Fork'); index >0 = it comes after a
-    setup sequence (e.g. 'Missed Combination -> Fork')."""
-    for i, node in enumerate(U.pov_nodes(nodes, pov)[:-1]):
+    setup sequence (e.g. 'Missed Combination -> Fork').
+
+    The LAST pov move is normally excluded: a tactic on the final ply of a (truncated) line has no
+    continuation to confirm it wins. EXCEPTION (`include_last_if_check`): a CHECK is self-confirming —
+    a checking fork culminating a combination (royal fork) wins the forked piece by force, and the line
+    is the engine's best, so it's vetted. Skipping it silently dropped 209 real forks-on-the-last-move
+    in 20k (LLM sweep 2026-08-11)."""
+    povn = U.pov_nodes(nodes, pov)
+    scan = povn if (include_last_if_check and povn
+                    and povn[-1].parent.board().gives_check(povn[-1].move)) else povn[:-1]
+    for i, node in enumerate(scan):
         if skip_king and U.moved_piece_type(node) is KING:
             continue
         if single_move_fn(node.parent.board(), node.move):
@@ -226,18 +235,21 @@ def _first_fire_index(nodes, pov, single_move_fn, skip_king=True):
 
 
 def fork_line(nodes, pov) -> bool:
-    return _first_fire_index(nodes, pov, is_fork) is not None
+    return _first_fire_index(nodes, pov, is_fork, include_last_if_check=True) is not None
 
 
 def fork_depth(nodes, pov):
     """Depth (index among pov's moves) of the first fork, or None. 0 = fork is the move to play now."""
-    return _first_fire_index(nodes, pov, is_fork)
+    return _first_fire_index(nodes, pov, is_fork, include_last_if_check=True)
 
 
 def fork_piece(nodes, pov):
     """The piece TYPE that delivers the first fork (for 'Knight Fork' vs 'Queen Fork' — #53). The
-    forking piece is the one MOVED at the firing node. Returns a PIECE_NAME string or None."""
-    for node in U.pov_nodes(nodes, pov)[:-1]:
+    forking piece is the one MOVED at the firing node. Returns a PIECE_NAME string or None. Mirrors
+    _first_fire_index's last-node rule so a last-move CHECK fork is named, not left generic."""
+    povn = U.pov_nodes(nodes, pov)
+    scan = povn if (povn and povn[-1].parent.board().gives_check(povn[-1].move)) else povn[:-1]
+    for node in scan:
         if U.moved_piece_type(node) is KING:
             continue
         if is_fork(node.parent.board(), node.move):
