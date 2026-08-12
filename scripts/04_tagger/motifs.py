@@ -910,7 +910,13 @@ def advanced_pawn_line(nodes, pov) -> bool:
     # (2) gating on PASSED pawn INVERTS it (ratio 0.2 — masters reach passed-pawn pushes far more often,
     # so it measures position-reaching, not mistake-skill). Dropped from the Piece Activity cluster
     # (2026-06-29). Detector stays for evidence/labeling but feeds no scored cluster.
-    return any(U.is_very_advanced_pawn_move(n) for n in U.pov_nodes(nodes, pov))
+    #
+    # A "pawn push" is a non-capture advance. A capture that lands on an advanced rank (exf3, or a
+    # capture-promotion like gxh8=Q) is a capture, not a push — capture_or_exchange/promotion own those.
+    # (LLM sweep 2026-08-11: "Missed Advanced Pawn" fired on exf3; the qualifying move must be a quiet
+    # advance.)
+    return any(U.is_very_advanced_pawn_move(n) and not n.parent.board().is_capture(n.move)
+               for n in U.pov_nodes(nodes, pov))
 
 
 def en_passant_line(nodes, pov) -> bool:

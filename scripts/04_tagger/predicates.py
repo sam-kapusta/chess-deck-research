@@ -1521,7 +1521,14 @@ def wrong_pawn_race(m):
                    if p.piece_type == chess.PAWN and p.color == m.mover and U.is_passed_pawn(b, sq, m.mover)]
     their_passers = [sq for sq, p in b.piece_map().items()
                      if p.piece_type == chess.PAWN and p.color != m.mover and U.is_passed_pawn(b, sq, not m.mover)]
-    if not our_passers and not their_passers:
+    # A "race" is a PURE king-and-pawn ending where both sides push passers and it's about tempo. With
+    # rooks/pieces on the board it isn't a race — the rook stops the pawn, and the real point is piece
+    # activity (the old code fired in R+P endings and whenever EITHER side had a passer). Require a
+    # pawn-only ending AND a passer on BOTH sides. (LLM sweep 2026-08-11: "there is no pawn race
+    # occurring" — 88% flagged, mostly rook endgames.)
+    if not U.is_pawn_only_endgame(b):
+        return []
+    if not (our_passers and their_passers):
         return []
     # best and played should both be king or pawn moves but in different directions
     bm_type = b.piece_type_at(bm.from_square)
@@ -1806,6 +1813,11 @@ def missed_breakthrough(m):
         return []
     if b.piece_type_at(bm.from_square) != chess.PAWN:
         return []
+    # A breakthrough is a PUSH/SAC into the pawn mass — its first move is an advance, not a capture. A
+    # pawn capture that wins material (hxg4 winning a loose pawn) is not a breakthrough, even though it
+    # leaves a passer. (LLM sweep 2026-08-11: "hxg4 is simply winning a pawn, not a breakthrough sac.")
+    if b.is_capture(bm):
+        return []
     # Mostly a pawn-ish endgame (few pieces) so "breakthrough" is the point, not tactics
     nonpawn = sum(1 for p in b.piece_map().values() if p.piece_type not in (chess.PAWN, chess.KING))
     if nonpawn > 2:
@@ -1824,16 +1836,31 @@ def missed_breakthrough(m):
                 contact = True
     if not contact:
         return []
-    # After best, mover has (or after a forced enemy capture, will have) a passed pawn that the
-    # played move's resulting position lacks. Compare passed-pawn count.
+    # The passer emerges DOWN THE LINE, not one ply after the push. A breakthrough sacs a pawn (push into
+    # the mass, opponent captures) and a DIFFERENT pawn runs through — b6! axb6 c6! bxc6 a6 queens. The
+    # old code only compared passers ONE ply after the best move, so a real break (which creates no passer
+    # until the sac is answered) never fired, while a capture that happens to leave a passer did. Play the
+    # engine's best LINE and check a NEW passer emerges (or a mover pawn promotes) that the played move
+    # doesn't get. (LLM sweep 2026-08-11 + Sam: catch the real breakthrough, not the incidental capture.)
     def passers(board):
         return sum(1 for sq, p in board.piece_map().items()
                    if p.piece_type == chess.PAWN and p.color == m.mover and U.is_passed_pawn(board, sq, m.mover))
-    after_best = b.copy(); after_best.push(bm)
+    if not m.best_line_san:
+        return []
+    after_line = b.copy(); promoted = False
+    try:
+        for san in m.best_line_san[:6]:
+            mv = after_line.parse_san(san)
+            if mv.promotion and after_line.turn == m.mover:
+                promoted = True
+            after_line.push(mv)
+    except Exception:
+        return []
     after_played = b.copy(); after_played.push(pm)
-    if passers(after_best) > passers(b) and passers(after_played) <= passers(b):
+    gained_passer = passers(after_line) > passers(b)
+    if (gained_passer or promoted) and passers(after_played) <= passers(b):
         return [("Missed Breakthrough", "missed",
-                 f"best {m.best_san} is a pawn breakthrough creating a passer")]
+                 f"best {m.best_san} is a pawn breakthrough that runs a passer through")]
     return []
 
 
@@ -1851,6 +1878,12 @@ def bad_simplification(m):
     if bm is None or pm is None or bm == pm:
         return []
     if not b.is_capture(pm):
+        return []
+    # "Simplification" means trading PIECES down toward a simpler ending. Capturing a PAWN (incl. en
+    # passant) isn't simplifying — it's a pawn trade, and the point isn't "you reduced material." (LLM
+    # sweep 2026-08-11: "Qxg2 only captures a pawn, no pieces are traded, no simplification.")
+    victim = b.piece_at(pm.to_square)
+    if b.is_en_passant(pm) or (victim and victim.piece_type == chess.PAWN):
         return []
     if b.is_capture(bm):
         return []  # best is also a capture — this is about WHICH capture, not whether to capture
@@ -1877,6 +1910,12 @@ def trade_to_simplify(m):
         return []
     if b.is_capture(pm):
         return []  # player also captured — different tag territory
+    # A "trade to simplify" trades PIECES down toward a won ending. Capturing a PAWN (incl. en passant)
+    # isn't that — a pawn-for-pawn even trade, or a loose-pawn grab, is not "simplifying to a won
+    # position." (LLM sweep 2026-08-11: "hxg4 wins a pawn outright; there is no trade.")
+    victim = b.piece_at(bm.to_square)
+    if b.is_en_passant(bm) or (victim and victim.piece_type == chess.PAWN):
+        return []
     if U.static_exchange_eval(b, bm) >= 2:
         return []  # best capture WINS material -> Missed Free X, not a trade (capture_or_exchange owns it)
     return [("Missed Trade to Simplify", "missed",
@@ -1964,6 +2003,11 @@ def push_to_promote(m):
     if bm is None or pm is None or bm == pm:
         return []
     if b.piece_type_at(bm.from_square) != chess.PAWN:
+        return []
+    # "Push to promote" is a PUSH. A pawn capture that lands advanced (exf6, a capture-promotion) is a
+    # capture, not the quiet approach move this tag names. (LLM sweep 2026-08-11: best was exf3/Kxg1, not
+    # a push.)
+    if b.is_capture(bm):
         return []
     to_r = chess.square_rank(bm.to_square)
     if m.mover == chess.WHITE and to_r < 5:

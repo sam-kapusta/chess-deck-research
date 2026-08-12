@@ -79,6 +79,13 @@ LINE_CASES = [
     # Front=king (skewered), back=rook (won, >= minor). pov=White (the winner). Must still fire.
     ("king-front rook-back still skewers", "4r3/8/8/8/4k3/8/8/R5K1 w - - 0 1",
      ["a1e1", "e4d4", "e1e8"], True, "skewer", True),
+    # --- Advanced Pawn: a PUSH, not a capture that lands advanced (LLM sweep 2026-08-11). ---
+    # POS: a6-a7 is a quiet advance into the promotion zone. pov=White.
+    ("advanced pawn POS: a7 push", "8/8/P7/8/8/6k1/8/6K1 w - - 0 1",
+     ["a6a7"], True, "advancedPawn", True),
+    # NEG: axb7 lands on the 7th too, but it's a CAPTURE — capture_or_exchange owns it, not a push.
+    ("advanced pawn NEG: axb7 is a capture", "8/1p6/P7/8/8/6k1/8/6K1 w - - 0 1",
+     ["a6b7"], True, "advancedPawn", False),
     # --- Boden / Double-Bishop: BOTH bishops must participate, not just exist on the board.
     # NEG: Bh4# mates the e1 king with a SINGLE bishop; a second bishop sits idle on e6. Having two
     # bishops on the board is not a two-bishop mate. (Surfaced by the LLM tag sweep, 2026-08-11; 2 of 4
@@ -1097,6 +1104,27 @@ def run():
         # (Missed Free Rook), not a trade. trade_to_simplify must NOT fire (capture_or_exchange owns it).
         ("trade NEG: free rook grab is not a trade", "8/8/8/3r4/8/8/8/3RK1k1 w - - 0 1",
          "e1e2", "d1d5", "Rxd5", "trade_to_simplify", None),
+        # --- Cluster fix (LLM sweep 2026-08-11): endgame/pawn THEME tags must not fire on captures that
+        # incidentally produce the theme. Each is a NEG (the verified false class) + a POS (the real
+        # concept must still fire — false negatives matter as much, Sam 2026-08-11). ---
+        # Bad Simplification = trading PIECES; capturing a PAWN isn't simplification.
+        ("bad-simpl POS: Rxd8 piece trade, best quiet Kf1", "3r2k1/8/8/8/8/8/6P1/3R2K1 w - - 0 1",
+         "d1d8", "g1f1", "Kf1", "bad_simplification", "Bad Simplification"),
+        ("bad-simpl NEG: Rxd4 grabs a PAWN, not a piece trade", "6k1/8/8/8/3p4/8/3R1P2/6K1 w - - 0 1",
+         "d2d4", "g1f1", "Kf1", "bad_simplification", None),
+        # Trade to Simplify = trading PIECES; a pawn grab/trade isn't it (verified: hxg4 wins a pawn).
+        ("trade NEG: best captures a PAWN, not a piece trade", "8/1p4p1/p4pk1/7p/3r2PP/P5K1/1P6/4R3 b - - 2 37",
+         "f6f5", "h5g4", "hxg4", "trade_to_simplify", None),
+        # Push to Promote = a PUSH; a capture landing advanced (axb7) is not the quiet approach move.
+        ("push-promo POS: a7 push", "8/8/P7/8/8/6k1/8/6K1 w - - 0 1",
+         "g1f1", "a6a7", "a7", "push_to_promote", "Missed Push to Promote"),
+        ("push-promo NEG: axb7 is a capture, not a push", "8/1p6/P7/8/8/6k1/8/6K1 w - - 0 1",
+         "g1f1", "a6b7", "axb7", "push_to_promote", None),
+        # Wrong Pawn Race = a PURE K+P race with passers on BOTH sides; rook endgames aren't races.
+        ("race POS: pure K+P, both passers", "8/p7/8/8/8/8/6P1/k5K1 w - - 0 1",
+         "g1f2", "g2g4", "g4", "wrong_pawn_race", "Wrong Pawn Race"),
+        ("race NEG: rook endgame is not a race", "8/8/8/1P3k2/5rpK/P3R3/8/8 w - - 1 40",
+         "b5b6", "h4g3", "Kg3", "wrong_pawn_race", None),
     ]
     for name, fen, uci, best, bsan, fn_name, want in eg_cases:
         b = chess.Board(fen)
@@ -1110,6 +1138,30 @@ def run():
             fails.append(name)
         print(f"  [{mark}] {name}: got={got!r} exp={want!r}")
     extra_eg = len(eg_cases)
+
+    print("--- predicates: missed_breakthrough (plays the LINE — a passer runs through, not a capture) ---")
+    # Rebuilt 2026-08-11: the old code only checked one ply after the best move, so a real break (which
+    # creates its passer AFTER the sac is answered) never fired, while a capture that left a passer did.
+    # Now it plays the engine's best line. (name, fen, played_uci, best_uci, best_line_san, expect)
+    bt_cases = [
+        # POS: the textbook break — b6! and after axb6 c6! bxc6 a6 the a-pawn queens. Pure K+P.
+        ("breakthrough POS: b6! runs a passer through", "8/ppp5/8/PPP4k/8/8/8/6K1 w - - 0 1",
+         "g1f1", "b5b6", ["b6", "axb6", "c6", "bxc6", "a6"], True),
+        # NEG: hxg4 just wins a loose pawn (a capture) — not a breakthrough sac. The verified false fire.
+        ("breakthrough NEG: hxg4 is a capture, not a break", "8/1p4p1/p4pk1/7p/3r2PP/P5K1/1P6/4R3 b - - 2 37",
+         "f6f5", "h5g4", ["hxg4", "b4", "f5", "Re5"], False),
+    ]
+    for name, fen, uci, best, bl, want in bt_cases:
+        b = chess.Board(fen)
+        m = Mistake(fen, uci, best, bl, [], 100, 300, 0, b.turn, best_san=(bl[0] if bl else ""))
+        got = bool(PR.missed_breakthrough(m))
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: fired={got} exp={want}")
+    extra_bt = len(bt_cases)
 
     print("--- predicates: pawn structure (recapture + best-line guards) ---")
     # (name, fen, played_uci, best_uci, refutation_san, label_must_NOT_appear)
@@ -1425,7 +1477,7 @@ def run():
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk
              + extra_ekp + extra_mac + extra_zz + extra_gg + extra_rek + extra_ovl + extra_conv + extra_sev + extra_md
-             + extra_asac)
+             + extra_asac + extra_bt)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 
