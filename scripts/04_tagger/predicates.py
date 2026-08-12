@@ -2775,35 +2775,44 @@ def allowed_overloading(m):
 
 
 def allowed_doubled_rooks(m):
-    """Played move allows the opponent to double their rooks on an open file that best move
-    would have prevented (e.g. by contesting the file first)."""
+    """Played move lets the opponent establish doubled rooks on a file — a battery they did NOT have
+    before. Verified by PLAYING the refutation line, not a one-ply "they could double next move" guess.
+
+    The old code fired on a hypothetical: opp has >=2 rooks after the played move and SOME legal rook
+    move would put two on a file that best would have prevented. That misfired on (a) rooks ALREADY
+    doubled before the move, (b) a doubling the refutation never actually plays, (c) a line that trades a
+    rook away, (d) a line that's a queen mate. All four board-confirmed via the LLM sweep (4/4 flagged).
+    Read the actual line: does opp END with doubled rooks on a file they weren't doubled on before? (Same
+    lesson as the pin-availability and breakthrough fixes: check what happens, not what could.)"""
     b = m.board_before
     pm = _played_move(m); bm = _best_move(m)
     if pm is None or bm is None or pm == bm:
         return []
-    opp = not m.mover
-    after_played = b.copy(); after_played.push(pm)
-    # Does opponent now have (or can immediately achieve) doubled rooks on a file?
-    opp_rooks = [(sq, chess.square_file(sq)) for sq, p in after_played.piece_map().items()
-                 if p.piece_type == chess.ROOK and p.color == opp]
-    if len(opp_rooks) < 2:
+    if not m.refutation_san:
         return []
-    # Check if opponent can double on next move
-    for mv in after_played.legal_moves:
-        if after_played.piece_type_at(mv.from_square) != chess.ROOK:
-            continue
-        to_f = chess.square_file(mv.to_square)
-        # Would this put both rooks on the same file?
-        other_rook_on_file = any(f == to_f and sq != mv.from_square for sq, f in opp_rooks)
-        if not other_rook_on_file:
-            continue
-        # Was this possible before our move?
-        after_best = b.copy(); after_best.push(bm)
-        if mv in after_best.legal_moves:
-            continue  # could do it regardless
-        return [("Allowed Doubled Rooks", "allowed",
-                 f"{m.played_san} allows opponent to double rooks on the {chr(97+to_f)}-file")]
-    return []
+    opp = not m.mover
+
+    def doubled_files(board):
+        counts = {}
+        for sq, p in board.piece_map().items():
+            if p.piece_type == chess.ROOK and p.color == opp:
+                f = chess.square_file(sq)
+                counts[f] = counts.get(f, 0) + 1
+        return {f for f, n in counts.items() if n >= 2}
+
+    before = doubled_files(b)
+    after_line = b.copy(); after_line.push(pm)
+    try:
+        for san in m.refutation_san[:8]:
+            after_line.push(after_line.parse_san(san))
+    except Exception:
+        return []
+    new_doubled = doubled_files(after_line) - before   # a file doubled NOW that wasn't before the move
+    if not new_doubled:
+        return []
+    f = min(new_doubled)
+    return [("Allowed Doubled Rooks", "allowed",
+             f"{m.played_san} lets the opponent double rooks on the {chr(97 + f)}-file")]
 
 
 # ---------- minor-piece / queen endgame technique (drill detail for those material clusters) ----------

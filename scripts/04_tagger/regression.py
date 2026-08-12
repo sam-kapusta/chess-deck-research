@@ -1163,6 +1163,35 @@ def run():
         print(f"  [{mark}] {name}: fired={got} exp={want}")
     extra_bt = len(bt_cases)
 
+    print("--- predicates: allowed_doubled_rooks (plays the refutation — a NEW doubled file, not a guess) ---")
+    # Rewritten 2026-08-11: the old code fired on a one-ply "opp could double next move" hypothetical and
+    # missed that (a) rooks were already doubled, (b) the refutation never doubles, (c) it trades a rook,
+    # (d) it's a mate. Now it plays the refutation and requires a file doubled AFTER that wasn't before.
+    # (name, fen, played_uci, best_uci, refutation_san, expect)
+    adr_cases = [
+        # POS: passive Rf1 (not contesting the c-file); refutation ...Rac8 doubles Black on c (c8+c3).
+        ("adr POS: refutation ...Rac8 doubles the c-file", "r5k1/pp3ppp/8/8/8/2r3P1/PP3P1P/4R1K1 w - - 0 1",
+         "e1f1", "e1c1", ["Rac8"], True),
+        # NEG: Black rooks ALREADY on the d-file (d8+d5) before the move — nothing newly allowed. Quiet
+        # legal refutation Kf8 keeps them doubled; before==after on the d-file, so no NEW file.
+        ("adr NEG: rooks already doubled before the move", "3r2k1/pp3ppp/8/3r4/8/6P1/PP3P1P/4R1K1 w - - 0 1",
+         "e1f1", "e1c1", ["Kf8"], False),
+        # NEG: rooks on a/e, refutation is a quiet king move — no doubling ever happens.
+        ("adr NEG: refutation never doubles", "r3r1k1/pp3ppp/8/8/8/6P1/PP3P1P/4R1K1 w - - 0 1",
+         "e1f1", "e1c1", ["Kf8"], False),
+    ]
+    for name, fen, uci, best, ref, want in adr_cases:
+        b = chess.Board(fen)
+        m = Mistake(fen, uci, best, [], ref, 0, -80, 80, b.turn, best_san="")
+        got = bool(PR.allowed_doubled_rooks(m))
+        passed = (got == want)
+        ok += passed
+        mark = "PASS" if passed else "FAIL"
+        if not passed:
+            fails.append(name)
+        print(f"  [{mark}] {name}: fired={got} exp={want}")
+    extra_adr = len(adr_cases)
+
     print("--- predicates: pawn structure (recapture + best-line guards) ---")
     # (name, fen, played_uci, best_uci, refutation_san, label_must_NOT_appear)
     ps_cases = [
@@ -1477,7 +1506,7 @@ def run():
              + len(pin_cases) + 1 + extra_clr + extra_adapter + len(out_cases)
              + len(be_cases) + len(sac_cases) + len(supp_cases) + extra_apc + extra_usac + extra_pchk
              + extra_ekp + extra_mac + extra_zz + extra_gg + extra_rek + extra_ovl + extra_conv + extra_sev + extra_md
-             + extra_asac + extra_bt)
+             + extra_asac + extra_bt + extra_adr)
     print(f"\n{ok}/{total} passed" + (f" | FAILS: {fails}" if fails else ""))
     return not fails
 
