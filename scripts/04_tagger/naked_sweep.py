@@ -84,6 +84,7 @@ def main():
     ap.add_argument("--scan", type=int, default=20000)
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--out", default="naked.json")
+    ap.add_argument("--forced", action="store_true")
     args = ap.parse_args()
 
     enrich = json.load(open(args.enrich))
@@ -101,6 +102,10 @@ def main():
             continue
         if any(t["direction"] in TEACH for t in tags):
             continue
+        if args.forced:  # true DETECTOR gap: still naked when the game says it IS a mistake
+            ft = tag_mistake_full(m, with_maia=False, classification="blunder")["tags"]
+            if any(t["direction"] in TEACH for t in ft):
+                continue
         phase = next((t["label"] for t in tags if t["label"] in buckets), "Middlegame")
         buckets[phase].append((k, e, m, phase))
     print(f"naked found: " + ", ".join(f"{p}={len(v)}" for p, v in buckets.items()), flush=True)
