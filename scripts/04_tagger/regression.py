@@ -1515,9 +1515,22 @@ def run():
         eval_before=155, eval_after=-44, cp_loss=199, mover=chess.WHITE,
         played_san="Nd2", best_san="Qd3",
     )
+    # POS path A, best DEFENDS the pawn (the 2026-08-13 legality->SEE fix): played Bd2, best Nbd2 covers
+    # c4. Refutation Qxc4 grabs the pawn (SEE +1); after Nbd2 it's a LEGAL-but-losing move (SEE -8), so
+    # the old `not in legal_moves` check missed it. (Sam: "is hung pawn not allowed pawn capture?" — it is.)
+    apc_def_fen = "r1b1kbnr/pppp2pp/5p2/4p3/1qP1P3/4BN2/PPP2PPP/RN1QK2R w KQkq - 1 8"
+    apc_def_after = chess.Board(apc_def_fen); apc_def_after.push(chess.Move.from_uci("e3d2"))
+    m_apc_def = Mistake(
+        apc_def_fen, "e3d2", "b1d2",
+        best_line_san=["Nbd2", "Qxb2", "a4", "Qb4", "O-O", "b6"],
+        refutation_san=_san_line(apc_def_after.fen(), ["b4c4"]),
+        eval_before=-27, eval_after=-162, cp_loss=135, mover=chess.WHITE,
+        played_san="Bd2", best_san="Nbd2",
+    )
     apc_cases = [
         ("allowed_pawn_capture fires on Rb8 path A (first-reply pawn grab)", PR.allowed_pawn_capture(m_rb8) and PR.allowed_pawn_capture(m_rb8)[0][0], "Allowed Pawn Capture"),
         ("allowed_pawn_capture fires on Nd2 path B (delayed net-1 loss)", PR.allowed_pawn_capture(m_nd2) and PR.allowed_pawn_capture(m_nd2)[0][0], "Allowed Pawn Capture"),
+        ("allowed_pawn_capture POS: best DEFENDS the pawn (legal-but-losing grab)", PR.allowed_pawn_capture(m_apc_def) and PR.allowed_pawn_capture(m_apc_def)[0][0], "Allowed Pawn Capture"),
         ("allowed_pawn_capture NEG: played is itself a capture", PR.allowed_pawn_capture(m_neg)[0][0] if PR.allowed_pawn_capture(m_neg) else None, None),
     ]
     for name, got, want in apc_cases:

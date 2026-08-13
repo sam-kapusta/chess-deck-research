@@ -2688,7 +2688,16 @@ def allowed_pawn_capture(m):
             # Without this, a symmetric pawn trade reads as "you let them grab a pawn". (Sam, ply 10 e6
             # cxd5 exd5, alternatives line +0.22 ~ equal.)
             grab_see = U.static_exchange_eval(after_played, first)
-            if victim_type == chess.PAWN and grab_see >= 1 and first not in after_best.legal_moves:
+            # "best prevents the grab" = illegal after best, OR best renders it LOSING (SEE < 1) — because
+            # best DEFENDS the pawn or KICKS the grabber. The old legality-only check missed the common
+            # defend case: Nbd2 covers c4, so Qxc4 stays a LEGAL move but is SEE -8; best f5 attacks the
+            # e4 bishop, so Bxb7 is legal but SEE -2. Both are pawns the best move held. (Sam, 2026-08-13:
+            # "is hung pawn not allowed pawn capture?" — it is; the detector just checked legality.)
+            if first in after_best.legal_moves:
+                best_prevents = U.static_exchange_eval(after_best, first) < 1
+            else:
+                best_prevents = True
+            if victim_type == chess.PAWN and grab_see >= 1 and best_prevents:
                 return [("Allowed Pawn Capture", "allowed",
                          f"{m.played_san} lets the opponent grab a pawn ({m.refutation_san[0]}); best {m.best_san} prevents it")]
     except Exception:
