@@ -51,6 +51,9 @@ Same bug class found + fixed in:
 
 ## Validation
 
+**Before shipping any detector change, run the gate: `python3 tag_harness.py` (see `HARNESS.md` for the
+full process + decision rule).** The pieces below are what it orchestrates.
+
 - `regression.py` — 16/16. Single-move (fork/pin/hanging from gold f54), line/mate (back-rank,
   smothered, f59 allowed-mate), mate-suppression. **Run after any detector change.**
 - `validate_vs_sae.py` — directional cross-check vs Sam's hand-confirmed SAE gold
