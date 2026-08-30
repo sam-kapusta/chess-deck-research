@@ -450,18 +450,34 @@ def discovered_attack_line(nodes, pov) -> bool:
 
 
 def _discovered_check(nodes, pov) -> bool:
-    for node in U.pov_nodes(nodes, pov):
-        checkers = node.board().checkers()
-        if checkers and node.move.to_square not in checkers:
-            return True
-    return False
+    """Fire ONLY when pov's FIRST move in the line is the discovered check — i.e. the move being
+    RECOMMENDED is the one that unveils it.
+
+    GATED 2026-08-30, same bug (and same fix) as `castling_line`'s 2026-07-14 audit. The old
+    `for node in pov_nodes(...)` scanned the whole continuation, so the tag fired when a discovered check
+    appeared ANYWHERE 2-4 plies deep. Real case (prod game chesscom:173762531262, ply 19): the card told
+    the player to find `exd6` and tagged it "Missed Discovered Check" — but `exd6` gives no check at all;
+    the discovery was `Nc5+`, White's SECOND move in the line. The tag contradicted its own taxonomy blurb
+    ("A discovered check was available (you didn't play it)") on the move it was attached to.
+
+    Gating HERE rather than in `discovered_check_line` is deliberate: `discovered_attack_line` bows out
+    whenever this returns True, so a bound applied only to the tag would leave the bow-out unbounded and a
+    deep discovery would silently lose BOTH tags. Both callers want the same "the recommended move does
+    this" semantics, so one gate serves both — and the bow-out now defers only when the sharper tag really
+    fires."""
+    povn = U.pov_nodes(nodes, pov)
+    if not povn:
+        return False
+    node = povn[0]
+    checkers = node.board().checkers()
+    return bool(checkers) and node.move.to_square not in checkers
 
 
 def double_check_line(nodes, pov) -> bool:
-    for node in U.pov_nodes(nodes, pov):
-        if len(node.board().checkers()) > 1:
-            return True
-    return False
+    """First pov move only — same gate and same reasoning as `_discovered_check` above (this had the
+    identical unbounded scan, so it could tag a move for a double check two plies deeper in the line)."""
+    povn = U.pov_nodes(nodes, pov)
+    return bool(povn) and len(povn[0].board().checkers()) > 1
 
 
 def trapped_piece_line(nodes, pov):

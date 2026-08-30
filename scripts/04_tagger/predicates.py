@@ -1095,6 +1095,34 @@ def missed_material_combination(m):
     # by what STAYS won, not the transient peak). Map net pawns -> the piece of that value.
     pname = ("Pawn" if net <= 2 else "Knight" if net <= 4 else
              "Rook" if net <= 8 else "Queen")
+    # If the winning move DOUBLE-ATTACKS two enemy pawns (a fork of pawns), name the fork + both
+    # targets — "Free Pawn" hides the exact mechanism the student needs ("you can only save one").
+    # is_fork deliberately excludes pawns (they'd overfire — knights touch pawns constantly), so a
+    # two-pawn fork otherwise lands here as a generic "Free Pawn". This branch is gated to this
+    # predicate's existing fire (a FORCED pawn win whose best move is quiet), so it cannot overfire
+    # beyond Free Pawn — it only RENAMES the subset whose winning move forks two pawns. (Sam, move 12:
+    # Nd5 forks c7+f6, Black saves one → Nxf6. "threatened c7" alone read as if we can't see the board.)
+    if net <= 2:
+        after = b.copy(stack=False)
+        after.push(bm)
+        to = bm.to_square
+        # Require >=2 HANGING (undefended) enemy pawns among the moved piece's targets — that's what makes
+        # it a genuine "can't save both" fork rather than a maneuvering win of one loose pawn. (Move 44's
+        # Nb5 attacks c3+d4 but d4 is defended by c3 -> only 1 hanging -> stays "Free Pawn", test preserved.)
+        forked = sorted(
+            sq for sq in after.attacks(to)
+            if (pc := after.piece_at(sq)) and pc.color != mover
+            and pc.piece_type == chess.PAWN and U.is_hanging(after, pc, sq)
+        )
+        if len(forked) >= 2:
+            forker = PIECE_NAME.get(after.piece_type_at(to), "Piece")
+            names = " & ".join(chess.square_name(s) for s in forked[:2])
+            # Label stays at forking-piece granularity ("Missed Knight Fork") so it rolls up to the
+            # "Missed Fork" family like every other fork; the forked targets live in the EVIDENCE (a
+            # fork can hit a variable target set, so naming them in the label would fragment stats —
+            # unlike a pin's single target). The coach reads the evidence, so it still gets both squares.
+            return [(f"Missed {forker} Fork", "missed",
+                     f"best {m.best_san} forks the loose {names} pawns — the opponent can only save one, so you win one")]
     return [(f"Missed Combination → Free {pname}", "missed",
              f"best {m.best_san} wins material by force (+{net} over the line)")]
 

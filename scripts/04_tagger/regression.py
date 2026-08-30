@@ -49,6 +49,17 @@ SINGLE_MOVE_CASES = [
 # pov is WHATEVER side the detector should evaluate from: for an ALLOWED-shape line (blunder then
 # refutation) pov = the punisher (opponent of the mover); for a raw winning line pov = the winner.
 LINE_CASES = [
+    # DISCOVERED CHECK is gated to the FIRST pov move (2026-08-30), same fix as castling_line's 73%
+    # audit. NEG: the prod case that exposed it (chesscom:173762531262 ply 19) — the card recommends
+    # exd6, which gives NO check; the discovery is Nc5+, White's SECOND move in the line. The tag used to
+    # fire here and contradicted its own blurb on the move it was attached to.
+    ("deep discovery != missed discovered check",
+     "r1b1kbnr/pp2qppp/2p3n1/3pP3/3PN3/5N2/PPP1Q1PP/R1B1KB1R w KQkq d6 0 10",
+     ["e5d6", "e7d7", "e4c5", "e8d8", "c5d7", "c8d7"], True, "discoveredCheck", False),
+    # POS: the gate must not just always-fail — a genuine first-move discovery still fires. Qa1 bears
+    # down a1-h8 but is blocked by its OWN Nd4; Ne6+ steps off the diagonal and reveals check on Kh8.
+    ("first-move discovery still tags",
+     "7k/5p1p/8/8/3N4/8/6PP/Q5K1 w - - 0 1", ["d4e6"], True, "discoveredCheck", True),
     # back-rank mate: white Re8# (single move, pov=white). king g8 boxed by f7/g7/h7.
     ("back-rank Re8#", "6k1/5ppp/8/8/8/8/8/R3R1K1 w - - 0 1", ["e1e8"], True, "backRankMate", True),
     ("back-rank also tags mate", "6k1/5ppp/8/8/8/8/8/R3R1K1 w - - 0 1", ["e1e8"], True, "mate", True),
